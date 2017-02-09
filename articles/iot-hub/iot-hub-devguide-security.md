@@ -132,7 +132,7 @@ Here are the expected values:
 The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
     var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
-        resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
+        resourceUri = encodeURIComponent(resourceUri);
 
         // Set expiration in seconds
         var expires = (Date.now() / 1000) + expiresInMins * 60;

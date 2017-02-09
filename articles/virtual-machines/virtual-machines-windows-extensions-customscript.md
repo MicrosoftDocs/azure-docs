@@ -1,9 +1,9 @@
 ---
-title: Custom scripts on Windows VMs using templates | Microsoft Docs
-description: Automate Windows VM configuration tasks by using the Custom Script extension with Resource Manager templates
+title: Azure Custom Script Extension for Windows | Microsoft Docs
+description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
 documentationcenter: ''
-author: kundanap
+author: neilpeterson
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,60 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/29/2016
-ms.author: kundanap
+ms.date: 01/17/2017
+ms.author: nepeters
 
 ---
-# Windows VM Custom Script extensions with Azure Resource Manager templates
-[!INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+# Custom Script Extension for Windows
 
-## Template example for a Windows VM
-Define the following resource in the Resource section of the template.
+The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
 
-       {
-       "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "MyCustomScriptExtension",
-       "apiVersion": "2015-05-01-preview",
-       "location": "[parameters('location')]",
-       "dependsOn": [
-           "[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"
-       ],
-       "properties": {
-           "publisher": "Microsoft.Compute",
-           "type": "CustomScriptExtension",
-           "typeHandlerVersion": "1.7",
-           "autoUpgradeMinorVersion":true,
-           "settings": {
-               "fileUris": [
-               "http://Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
-           ],
-           "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File start.ps1"
-         }
-       }
-     }
+This document details how to use the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and details troubleshooting steps on Windows systems.
 
-In the preceding example, replace the file URL and the file name with your own settings.
-After authoring the template, you can deploy it by using Azure PowerShell.
+## Prerequisites
 
-If you want to keep script URLs and parameters private, you can set the script URL as **private**. If the script URL is set as **private**, it can be accessed only with a storage account name and key sent as protected settings. The script parameters can also be provided as protected settings with version 1.7 or later of the Custom Script extension.
+### Operating System
 
-## Template example for a Windows VM with protected settings
-        {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.7",
-        "settings": {
-        "fileUris": [
-        "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
-        ]
-        },
-        "protectedSettings": {
-        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1",
-        "storageAccountName": "yourStorageAccountName",
-        "storageAccountKey": "yourStorageAccountKey"
-        }
-        }
-For information about the schema of the latest versions of the Custom Script extension, see [Azure Windows VM extension configuration samples](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+The Custom Script Extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
 
-For samples of application configuration on a VM using the Custom Script extension, see [Custom Script extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/).
+### Script Location
+
+The script needs to be stored in Azure storage, or any other location accessible through a valid URL.
+
+### Internet Connectivity
+
+The Custom Script Extension for Windows requires that the target virtual machine is connected to the internet. 
+
+## Extension schema
+
+The following JSON shows the schema for the Custom Script Extension. The extension requires a script location (Azure Storage or other location with valid URL), and a command to execute. If using Azure Storage as the script source, an Azure storage account name and account key is required. These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
+
+```json
+{
+	"apiVersion": "2015-06-15",
+	"type": "extensions",
+	"name": "config-app",
+	"location": "[resourceGroup().location]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+		"[variables('musicstoresqlName')]"
+	],
+	"tags": {
+		"displayName": "config-app"
+	},
+	"properties": {
+		"publisher": "Microsoft.Compute",
+		"type": "CustomScriptExtension",
+		"typeHandlerVersion": "1.8",
+		"autoUpgradeMinorVersion": true,
+		"settings": {
+			"fileUris": [
+				"script location"
+			]
+		},
+		"protectedSettings": {
+			"commandToExecute": "myExecutionCommand",
+            "storageAccountName": "myStorageAccountName",
+            "storageAccountKey": "myStorageAccountKey"
+		}
+	}
+}
+```
+
+### Property values
+
+| Name | Value / Example |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.Compute |
+| type | extensions |
+| typeHandlerVersion | 1.8 |
+| fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
+| commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
+| storageAccountName (e.g) | examplestorageacct |
+| storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
+
+## Template deployment
+
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+
+## PowerShell deployment
+
+The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension
+](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+
+```powershell
+Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+-VMName myVM `
+-Location myLocation `
+-FileUri myURL `
+-Run 'myScript.ps1' `
+-Name DemoScriptExtension
+```
+
+## Troubleshoot and support
+
+### Troubleshoot
+
+Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command.
+
+```powershell
+Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```
+
+Extension execution output us logged to files found in the following directory on the target virtual machine.
+
+```cmd
+C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
+```
+
+The script itself is downloaded into the following directory on the target virtual machine.
+
+```cmd
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
+```
+
+### Support
+
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
+
 

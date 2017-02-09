@@ -57,6 +57,8 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
 
     ```bash
+    sudo apt-get update
+    
     sudo apt install gcc
 
     sudo apt install make

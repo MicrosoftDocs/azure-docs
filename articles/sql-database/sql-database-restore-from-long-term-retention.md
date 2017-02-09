@@ -1,5 +1,5 @@
 ---
-title: Restore a database from a backup in the Azure Recovery Services vault | Microsoft Docs
+title: Restore an Azure SQL database from long-term backup retention | Microsoft Docs
 description: Quick reference on how to restore a database for a backup in the Azure Recovery Services vault and the space used by those backups
 services: sql-database
 documentationcenter: ''
@@ -84,7 +84,7 @@ Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Get the container associated with the selected vault
 ######################################################
-$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+$container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL -FriendlyName $vault.Name
 
 # Get the long-term retention metadata associated with a specific database
 ##########################################################################

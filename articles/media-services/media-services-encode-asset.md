@@ -52,9 +52,9 @@ Note that by default each Media Services account can have one active encoding ta
 Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### Input and output metadata
-The encoders input metadata is described [here](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+The encoders input metadata is described [here](media-services-input-metadata-schema.md).
 
-The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+The encoders output metadata is described [here](media-services-output-metadata-schema.md).
 
 ### Generate thumbnails
 For information, see [How to generate thumbnails using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).

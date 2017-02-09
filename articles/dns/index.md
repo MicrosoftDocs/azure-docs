@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure DNS Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to manage your DNS records using Azure Domain Name System. Documentation shows how to set up and manage DNS zones and records for domain names.
+services: dns
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # DNS Documentation
 
@@ -128,11 +139,4 @@ Learn how to manage your DNS records using Azure Domain Name System, a hosting s
 </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download DNS Documentation
-        </div>
-    </a>
-</div>
+

@@ -18,7 +18,7 @@ ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
-# Load data from CSV into Azure SQL Data Warehouse (flat files)
+# Load data from CSV into Azure SQL Database (flat files)
 You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
 
 ## Before you begin

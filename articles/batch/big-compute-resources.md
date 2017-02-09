@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: danlep
 
 ---
@@ -42,9 +42,10 @@ Deploy or extend your existing Windows or Linux HPC cluster to Azure to run your
 ### Microsoft HPC Pack
 HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies, capable of running Windows and Linux HPC workloads.  
 
+* [Download HPC Pack 2016](https://www.microsoft.com/download/details.aspx?id=54507)
 * [Download HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49922)
 * [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
-* [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) HPC Pack cluster options in Azure
+* HPC Pack cluster options in Azure: [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
 * [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 * [Burst to Azure  Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 * [Windows HPC forums](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -58,7 +59,7 @@ Use these Azure templates to deploy Linux HPC clusters.
 * [Intel Cloud Edition for Lustre Software - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## Microsoft MPI
-[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) is a Microsoft implementation of the Message Passing Interface standard for developing and running parallel applications on the Windows platform. The latest version is MS-MPI v7.
+[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) is a Microsoft implementation of the Message Passing Interface standard for developing and running parallel applications on the Windows platform.
 
 * [Download MS-MPI](http://go.microsoft.com/FWLink/p/?LinkID=389556)
 * [MS-MPI reference](https://msdn.microsoft.com/library/dn473458.aspx)

@@ -57,7 +57,7 @@ If you are having any issues with your SQL Data Warehouse, please create a suppo
      If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][Microsoft Premier online portal].  See [Azure support plans][Azure support plan] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][Azure support FAQs].  
      
      ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Select the **Problem Type** and **Category**.
+8. Select the **Problem Type** and **Category**. In this example, we have chosen "Tools" as the Problem type and "Client tools" as the category. 
    
     ![Problem type category](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 9. Describe the problem and choose the level of business impact.

@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Web Apps Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and more.
+services: app-service
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Azure Web Apps Documentation
 
@@ -62,7 +73,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +91,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
         </a>
     </li> 
      <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-java">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +109,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -116,7 +127,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-python-ptvs-django-mysql">
+        <a href="/azure/app-service-web/app-service-web-get-started-python">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -135,7 +146,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
     </li>
    
      <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -216,11 +227,4 @@ Learn how to use App Service Web Apps to build and host websites and web applica
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Web Apps Documentation
-        </div>
-    </a>
-</div>
+

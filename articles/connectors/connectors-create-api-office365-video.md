@@ -33,7 +33,7 @@ With Office 365 Video, you can:
 * Build your business flow based on the data you get from Office 365 Video. 
 * Use actions that check the video portal status, get a list of all video in a channel, and more. These actions get a response, and then make the output available for other actions. For example, you can use the Bing Search connector to search for Office 365 videos, and then use the Office 365 video connector to get information about that video. If the video meets your requirements, you can post this video on Facebook. 
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The Office 365 Video connector has the following actions available. There are no triggers.
@@ -200,5 +200,5 @@ Get the bearer token to get access to decrypt the video.
 | ViewCount |integer |no |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Reliable Actors reentrancy | Microsoft Docs
+title: Reentrancy in actor-based Azure microservices | Microsoft Docs
 description: Introduction to reentrancy for Service Fabric Reliable Actors
 services: service-fabric
 documentationcenter: .net

@@ -1,5 +1,5 @@
 ---
-title: Manage compute power in Azure SQL Data Warehouse (REST) | Microsoft Docs
+title: Pause, resume, scale with T-SQL in Azure SQL Data Warehouse | Microsoft Docs
 description: Transact-SQL (T-SQL) tasks to scale-out performance by adjusting DWUs. Save costs by scaling back during non-peak times.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -26,17 +26,6 @@ ms.author: barbkess
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
-
-This collection of tasks uses T-SQL to:
-
-* View current DWU settings
-* Change compute resources by adjusting DWUs
-
-To pause or resume a database, choose one of the other platform options at the top of this article.
-
-To learn about this, see [Manage compute power overview][Manage compute power overview].
 
 <a name="current-dwu-bk"></a>
 

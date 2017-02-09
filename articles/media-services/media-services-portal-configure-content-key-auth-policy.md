@@ -74,7 +74,7 @@ When protecting your content with **PlayReady**, one of the things you need to s
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](https://msdn.microsoft.com/library/azure/dn783459.aspx).
+You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](media-services-playready-license-template-overview.md).
 
 ## Next step
 Review Media Services learning paths.

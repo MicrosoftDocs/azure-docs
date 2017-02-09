@@ -24,7 +24,15 @@ In our publishing workflow, the article you want to retire, rename, or move must
 
 - **Move**: Create a copy of the article in the new location, and then update the metadata of the original article so the article redirects to the new one. 
 
-See [the OPS documentation](https://opsdocs.azurewebsites.net/opsdocs/partnerdocs/opredirection?branch=master) for instructions on how to turn an article into a redirect.
+For example, if you want to move a file from the `articles` folder into a sub-folder, you need to update the original file to contain just metadata in the header. The `/azure/` part is important, as the root of the site is `docs.microsoft.com`. 
+```
+---
+redirect_url: /azure/azure-resource-manager/resource-manager-subscription-examples
+redirect_document_id: TRUE 
+---
+```
+
+See [the OPS documentation](https://opsdocs.azurewebsites.net/opsdocs/partnerdocs/opredirection?branch=master) for more details on how to turn an article into a redirect.
 
 Do not delete articles from the azure-docs-pr or azure-docs repositories, period. If you delete an article, you cannot create the article-level redirects, which guarantees that customers will experience 404s.
     

@@ -1,5 +1,5 @@
 ---
-title: Configure Web Application Firewall on new or existing Application Gateway | Microsoft Docs
+title: Configure Web Application Firewall - Azure Application Gateway | Microsoft Docs
 description: This article provides guidance on how to start using web application firewall on an existing or new application gateway.
 documentationcenter: na
 services: application-gateway
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
@@ -284,7 +284,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 Configure the mode for WAF, acceptable values are **Prevention** and **Detection**.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
+$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ### Step 21

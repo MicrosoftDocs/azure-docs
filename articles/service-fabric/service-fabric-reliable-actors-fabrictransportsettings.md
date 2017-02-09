@@ -1,6 +1,6 @@
 ---
-title: Overview of the Azure Service Fabric Reliable Actors FabricTransport configuration | Microsoft Docs
-description: Learn about configuring Azure Service Fabric Actor Communication Settings.
+title: Change FabricTransport settings in Azure microservices | Microsoft Docs
+description: Learn about configuring Azure Service Fabric Actor communication settings.
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha

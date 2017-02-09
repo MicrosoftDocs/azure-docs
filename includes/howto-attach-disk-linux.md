@@ -79,7 +79,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     info:    vm disk create command OK
     ```
    
-   You may also use `azure vm disk upload` to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](../articles/virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+   You may also use `azure vm disk upload` to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 4. Now you attach the desired VHD to your virtual machine:
    

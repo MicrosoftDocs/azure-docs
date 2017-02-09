@@ -34,7 +34,7 @@ Then, to handle the failover:
 1. Set up a Media Services account in ”Data Center B”.
 2. Create a target empty asset in the target Media Services account.
 3. Create a write SAS locator for the target empty asset to have write access to the container in the target Storage account that is associated with the target asset.
-4. Use Azure Storage SDK to copy blobs (asset files) between the source storage account in ”Data Center A” and target storage account in ”Data Center B” (these storage accounts are associated with the assets of interest.)
+4. Use Azure Storage SDK to copy blobs (asset files) between the source storage account in "Data Center A" and target storage account in "Data Center B" (these storage accounts are associated with the assets of interest.)
 5. Associate blobs (asset files) that were copied to the target blob container with the target asset. 
 6. Create an origin locator for the asset in ”Data Center B” and specify the locator Id that was generated for the asset in ”Data Center A”. 
 7. This gives you the streaming URLs where the relative paths of the URLs are the same (only the base URLs are different). 
@@ -43,7 +43,6 @@ Then, to handle any outages, you can create a CDN on top of these origin locator
 
 The following considerations apply:
 
-* The current version of Media Services SDK does not support creating a locator with a specified locator id. To achieve this task, we will use Media Services REST API.
 * The current version of Media Services SDK does not support programmatically generating IAssetFile information that would associate an asset with asset files. To achieve this task, we will use the CreateFileInfos Media Services REST API. 
 * Storage encrypted assets (AssetCreationOptions.StorageEncrypted) are not supported for replication (since the encryption key will be different in both Media Services accounts). 
 * If you want to take advantage of dynamic packaging, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
@@ -468,6 +467,8 @@ In this section you will create and set up a C# Console Application project.
 
                 if (sourceCloudBlob.Properties.Length > 0)
                 {
+					// In AMS, the files are stored as block blobs. 
+					// Page blobs are not supported by AMS.  
                     var destinationBlob = targetContainer.GetBlockBlobReference(fileName);
                     destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + blobToken));
 

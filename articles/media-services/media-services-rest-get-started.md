@@ -13,17 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 
 ---
 # Get started with delivering content on demand using REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-> [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
->
->
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs.
 
@@ -33,71 +29,45 @@ The following image shows some of the most commonly used objects when developing
 
 Click the image to view it full size.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a>
-
+<a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services with REST APIs.
 
+* An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Understanding of how to develop with Media Services REST API. For more information, see [Media Services REST API overview](media-services-rest-how-to-use.md).
 * An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler).
 
 The following tasks are shown in this quickstart.
 
-1. Create a Media Services account (using the Azure portal).
-2. Start streaming endpoint (using the Azure portal).
-3. Connect to the Media Services account with REST API.
-4. Create a new asset and upload a video file with REST API.
-5. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
-6. Publish the asset and get streaming and progressive download URLs with REST API. 
-7. Play your content. 
- 
+1. Start streaming endpoint (using the Azure portal).
+2. Connect to the Media Services account with REST API.
+3. Create a new asset and upload a video file with REST API.
+4. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
+5. Publish the asset and get streaming and progressive download URLs with REST API.
+6. Play your content.
+
 
 For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
-
-## Create an Azure Media Services account using the Azure portal
-The steps in this section show how to create an AMS account.
-
-1. Log in at the [Azure portal](https://portal.azure.com/).
-2. Click **+New** > **Media + CDN** > **Media Services**.
-
-    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
-
-    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new3.png)
-
-   1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
-   2. In Subscription, select among the different Azure subscriptions that you have access to.
-   3. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. In **Location**,  select the geographic region is used to store the media and metadata records for your Media Services account. This  region is used to process and stream your media. Only the available Media Services regions appear in the drop-down list box.
-   5. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
-
-       Learn more about storage [here](../storage/storage-introduction.md).
-   6. Select **Pin to dashboard** to see the progress of the account deployment.
-4. Click **Create** at the bottom of the form.
-
-    Once the account is successfully created, the status changes to **Running**.
-
-    ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
-
-    To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
 
 ## Start streaming endpoints using the Azure portal
 
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 To start the streaming endpoint, do the following:
 
-1. In the Settings window, click Streaming endpoints. 
-2. Click the default streaming endpoint. 
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. In the Settings window, click Streaming endpoints.
+3. Click the default streaming endpoint.
 
 	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
-3. Click the Start icon.
-4. Click the Save button to save your changes.
+4. Click the Start icon.
+5. Click the Save button to save your changes.
 
 ## <a id="connect"></a>Connect to the Media Services account with REST API
 Two things are required when accessing Azure Media Services: an access token provided by Azure Access Control Services (ACS), and the URI of Media Services itself. You can use any means you want when creating these requests as long as you specify the correct header values and pass in the access token correctly when calling into Media Services.
@@ -309,7 +279,7 @@ If successful, the following is returned:
     }
 
 ### Create an AssetFile
-The [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many AssetFiles. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+The [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many AssetFiles. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
 After you upload your digital media file into a blob container, you use the **MERGE** HTTP request to update the AssetFile with information about your media file (as shown later in the topic).
 
@@ -371,7 +341,7 @@ After you upload your digital media file into a blob container, you use the **ME
 
 
 ### Creating the AccessPolicy with write permission
-Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 The following example shows how to create an AccessPolicy:
 
@@ -420,7 +390,7 @@ If successful, the following response is returned:
 
 ### Get the Upload URL
 
-To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
 
 A SAS URL has the following format:
 
@@ -490,14 +460,14 @@ If successful, the following response is returned:
     }
 
 ### Upload a file into a blob storage container
-Once you have the AccessPolicy and Locator set, the actual file is uploaded to an Azure Blob Storage container using the Azure Storage REST APIs. You can either upload in page or block blobs.
+Once you have the AccessPolicy and Locator set, the actual file is uploaded to an Azure blob storage container using the Azure Storage REST APIs. You must upload the files as block blobs. Page blobs are not supported by Azure Media Services.  
 
 > [!NOTE]
 > You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 >
 >
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
 
 ### Update the AssetFile
 Now that you've uploaded your file, update the FileAsset size (and other) information. For example:
@@ -571,7 +541,7 @@ If successful, the following is returned:
 After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](/rest/api/media/services/job), [Task](/rest/api/media/services/task) descriptions).
 
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
- 
+
 The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The section also shows how to monitor the job processing progress. When the job is complete, you would be able to create locators that are needed to get access to your assets.
 
 ### Get a media processor
@@ -744,7 +714,7 @@ There are a few important things to note in any Job request:
   * A job must have at least two tasks
   * There must be at least one task whose input is output of another task in the job.
 
-For more information see, [Creating an Encoding Job with the Media Services REST API](http://msdn.microsoft.com/library/azure/jj129574.aspx).
+For more information see, [Creating an Encoding Job with the Media Services REST API](media-services-rest-encode-asset.md).
 
 ### Monitor Processing Progress
 You can retrieve the Job status by using the State property, as shown in the following example.
@@ -862,7 +832,7 @@ To stream or download an asset, you first need to "publish" it by creating a loc
 Once you create the locators, you can build the URLs that are used to stream or download your files.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 A streaming URL for Smooth Streaming has the following format:
 
@@ -888,7 +858,7 @@ This section shows how to perform the following tasks necessary to "publish" you
 * Creating an origin URL for streaming content
 
 ### Creating the AccessPolicy with read permission
-Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see [AccessPolicy Entity Properties](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
+Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see [AccessPolicy Entity Properties](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
 
 The following example shows how to specify the AccessPolicy for read permissions for a given Asset.
 
@@ -986,7 +956,7 @@ Once you have the AccessPolicy and Locator set, you can download files using the
 >
 >
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
 
 As a result of the encoding job that you performed earlier (encoding into Adaptive MP4 set), you have multiple MP4 files that you can progressively download. For example:    
 

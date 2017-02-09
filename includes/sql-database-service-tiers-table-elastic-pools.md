@@ -66,7 +66,7 @@ sql-database-service-tiers.md
 | Pool size (eDTUs)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
 | Max storage per pool* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
-| Max storage per pool* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
+| Max In-Memory OLTP storage per pool* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
 | Max concurrent workers per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
 | Max concurrent logins per pool |  3200 | 4000 | 4800 | 5600 | 6400 |

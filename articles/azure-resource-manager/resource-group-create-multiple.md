@@ -1,5 +1,5 @@
 ---
-title: Deploy Multiple Instances of Resources | Microsoft Docs
+title: Deploy multiple instances of Azure resources | Microsoft Docs
 description: Use copy operation and arrays in an Azure Resource Manager template to iterate multiple times when deploying resources.
 services: azure-resource-manager
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 11/02/2016
 ms.author: tomfitz
 
 ---
-# Create multiple instances of resources in Azure Resource Manager
+# Deploy multiple instances of resources in Azure Resource Manager templates
 This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
 
 ## copy, copyIndex, and length

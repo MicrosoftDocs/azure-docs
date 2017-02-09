@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure billing and cost management | Microsoft Docs
+title: Azure billing and cost management guidance | Microsoft Docs
 description: Learn about best practices and first things to do to optimize your bill
 services: ''
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/03/2017
 ms.author: jlian
 
 ---
@@ -38,13 +38,13 @@ For more information, see [pricing FAQ](https://azure.microsoft.com/pricing/faq/
 
 ### Check your subscription and access
 
-Viewing costs require [subscriptions-level access](../active-directory/role-based-access-control-configure.md), but only the Account admin can access the [Account Center](https://account.windowsazure.com/Home/Index), change billing info, and manage subscriptions. The Account admin is the person who went through the sign-up process. For more information, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md).
+Viewing costs require [subscriptions-level access](../active-directory/role-based-access-control-configure.md), but only the Account admin can access the [Account Center](https://account.windowsazure.com/Home/Index), change billing info, and manage subscriptions. The Account admin is the person who went through the sign-up process. For more information, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
 
 To see if you're the Account admin, go to the [Subscriptions blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're ok. If it says something else like *Owner*, then you don't have full privileges.
 
 ![Screenshot of your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
-If you're not the Account admin, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md) (RBAC). To manage subscriptions and change billing info, [find the Account admin](../billing-subscription-transfer.md#whoisaa) and ask them to perform the tasks or [transfer the subscription to you](../billing-subscription-transfer.md).
+If you're not the Account admin, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md) (RBAC). To manage subscriptions and change billing info, [find the Account admin](billing-subscription-transfer.md#whoisaa) and ask them to perform the tasks or [transfer the subscription to you](billing-subscription-transfer.md).
 
 If your Account admin is no longer with your organization and you need to manage billing, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
@@ -62,7 +62,7 @@ Click the banner and follow prompts to remove the spending limit. If you didn't 
 
 ### Set up billing alerts
 
-Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](../billing-set-up-alerts.md).
+Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md).
 
 ![Screenshot of a billing alert email](./media/billing-getting-started/billing-alert.png)
 
@@ -153,7 +153,7 @@ For more information, see [Advisor Cost recommendations](../advisor/advisor-cost
 
 ### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 
-After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](/billing-understand-your-bill.md).
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to download your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ![Screenshot of a .pdf invoice](./media/billing-getting-started/invoice.png)
 
@@ -163,7 +163,7 @@ The tags that you set earlier show up in the detail usage .csv files:
 
 ### Billing API
 
-Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../billing-usage-rate-card-overview.md).
+Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Additional resources for EA, CSP, and Sponsorship
 

@@ -25,6 +25,10 @@ DataFu is a collection of Open Source libraries for use with Hadoop. In this doc
 
 * An Azure subscription.
 * An Azure HDInsight cluster (Linux or Windows based)
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * A basic familiarity with [using Pig on HDInsight](hdinsight-use-pig.md)
 
 ## Install DataFu on Linux-based HDInsight

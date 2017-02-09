@@ -1,5 +1,5 @@
 ---
-title: Move a Linux VM | Microsoft Docs
+title: Move a Linux VM in Azure| Microsoft Docs
 description: Move a Linux VM to another Azure subscription or resource group in the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''

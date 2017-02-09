@@ -120,7 +120,7 @@ $demoVM = Get-AzureVM DscDemo1
 Publish-AzureVMDscConfiguration -ConfigurationPath ".\IisInstall.ps1" -StorageContext $storageContext -Verbose -Force
 
 #Set the VM to run the DSC configuration
-Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "IisInstall.ps1.zip" -StorageContext $storageContext -ConfigurationName "runScript" -Verbose
+Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "IisInstall.ps1.zip" -StorageContext $storageContext -ConfigurationName "IisInstall" -Verbose
 
 #Update the configuration of an Azure Virtual Machine
 $demoVM | Update-AzureVM -Verbose

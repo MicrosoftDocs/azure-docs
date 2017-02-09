@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 01/09/2017
+ms.date: 01/13/2017
 ms.author: tomfitz
 
 ---
@@ -47,7 +47,7 @@ To see the deployment operations, use the following steps:
 5. You can view events for the deployment by selecting **Events**.
    
     ![view events](./media/resource-manager-deployment-operations/view-events.png)
-6. You see all the events for the deployment and select any one for more details.
+6. You see all the events for the deployment and select any one for more details. Notice too the correlation IDs. This value can be helpful when working with technical support to troubleshoot a deployment.
    
     ![see events](./media/resource-manager-deployment-operations/see-all-events.png)
 

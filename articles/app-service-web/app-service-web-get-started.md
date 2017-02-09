@@ -46,7 +46,7 @@ You can complete the task using one of the following CLI versions:
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
+> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
 > it for up to an hour--no credit card required, no commitments.
 > 
 > 
@@ -54,7 +54,7 @@ You can complete the task using one of the following CLI versions:
 ## Deploy a web app
 Let's deploy a web app to Azure App Service.
 
-1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
+1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `az --version` to verify that Git and Azure CLI
    are installed on your machine.
    
     ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)

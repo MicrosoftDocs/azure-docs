@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 
 ---
@@ -20,10 +20,26 @@ ms.author: juliako
 # Get started with delivering content on demand using .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-> [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
->
->
+This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure Media Services .NET SDK.
+
+## Prerequisites
+
+The following are required to complete the tutorial:
+
+* An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
+* .NET Framework 4.0 or later
+* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+
+This tutorial includes the following tasks:
+
+1. Start streaming endpoint (using the Azure portal).
+2. Create and configure a Visual Studio project.
+3. Connect to the Media Services account.
+2. Upload a video file.
+3. Encode the source file into a set of adaptive bitrate MP4 files.
+4. Publish the asset and get streaming and progressive download URLs.  
+5. Play your content.
 
 ## Overview
 This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) SDK for .NET.
@@ -36,67 +52,27 @@ The following image shows some of the most commonly used objects when developing
 
 Click the image to view it full size.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
-
-
-## Prerequisites
-The following are required to complete the tutorial.
-
-* To complete this tutorial, you need an Azure account.
-
-    If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
-* Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.
-* .NET Framework 4.0 or later
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
-
-## Create an Azure Media Services account using the Azure portal
-The steps in this section show how to create an AMS account.
-
-1. Log in at the [Azure portal](https://portal.azure.com/).
-2. Click **+New** > **Media + CDN** > **Media Services**.
-
-    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
-
-    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new3.png)
-
-   1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
-   2. In Subscription, select among the different Azure subscriptions that you have access to.
-   3. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. In **Location**,  select the geographic region is used to store the media and metadata records for your Media Services account. This  region is used to process and stream your media. Only the available Media Services regions appear in the drop-down list box.
-   5. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
-
-       Learn more about storage [here](../storage/storage-introduction.md).
-   6. Select **Pin to dashboard** to see the progress of the account deployment.
-4. Click **Create** at the bottom of the form.
-
-    Once the account is successfully created, overview page loads. In the streaming endpoint table the account will have a default streaming endpoint in **Stopped** state.
-
-	>[!NOTE]
-	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
-
-    ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
-
-    To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
 
 ## Start streaming endpoints using the Azure portal
 
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 To start the streaming endpoint, do the following:
 
-1. In the Settings window, click Streaming endpoints. 
-2. Click the default streaming endpoint. 
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. In the Settings window, click Streaming endpoints.
+3. Click the default streaming endpoint.
 
 	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
-3. Click the Start icon.
-4. Click the Save button to save your changes.
+4. Click the Start icon.
+5. Click the Save button to save your changes.
 
 ## Create and configure a Visual Studio project
 
@@ -136,7 +112,7 @@ To start the streaming endpoint, do the following:
 
 When using Media Services with .NET, you must use the **CloudMediaContext** class for most Media Services programming tasks: connecting to Media Services account; creating, updating, accessing, and deleting the following objects: assets, asset files, jobs, access policies, locators, etc.
 
-Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information about connecting to Media Services, see [Connecting to Media Services with the Media Services SDK for .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information about connecting to Media Services, see [Connecting to Media Services with the Media Services SDK for .NET](media-services-dotnet-connect-programmatically.md).
 
 Make sure to update the file name and path to where you have your media file.
 
@@ -239,7 +215,7 @@ To take advantage of dynamic packaging, you need to encode or transcode your mez
 The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The code submits the job and waits until it is completed.
 
 Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.
- 
+
 Add the following method to the Program class.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -422,7 +398,7 @@ For more information, see the following topics:
 ## Download sample
 The following code sample contains the code that you created in this tutorial: [sample](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## Next Steps 
+## Next Steps
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

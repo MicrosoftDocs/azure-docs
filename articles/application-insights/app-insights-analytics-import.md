@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/07/2017
 ms.author: awills
 
 ---
@@ -99,7 +99,7 @@ You can perform the following process manually, or set up an automated system to
 2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
 
- * Endpoint: `https://eus-breeziest-in.cloudapp.net/v2/track`
+ * Endpoint: `https://dc.services.visualstudio.com/v2/track`
  * HTTP method: POST
  * Payload:
 
@@ -111,7 +111,7 @@ You can perform the following process manually, or set up an automated system to
             "baseData":{
                "ver":"2",
                "blobSasUri":"<Blob URI with Shared Access Key>",
-               "sourceName":"<Data source name>",
+               "sourceName":"<Schema ID>",
                "sourceVersion":"1.0"
              }
        },
@@ -125,7 +125,7 @@ You can perform the following process manually, or set up an automated system to
 The placeholders are:
 
 * `Blob URI with Shared Access Key`: You get this from the procedure for creating a key. It is specific to the blob.
-* `Data source name`: The name you gave to your data source. The data in this blob should conform to the schema you defined for this source.
+* `Schema ID`: The schema ID generated for your defined schema. The data in this blob should conform to the schema.
 * `DateTime`: The time at which the request is submitted, UTC. We accept these formats: ISO8601 (like "2016-01-01 13:45:01"); RFC822 ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
 * `Instrumentation key` of your Application Insights resource.
 
@@ -246,7 +246,7 @@ namespace IngestionClient
     public class AnalyticsDataSourceClient 
     { 
         #region Members 
-        private readonly Uri breezeEndpoint = new Uri("https://eus-breeziest-in.cloudapp.net/v2/track"); 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
         private const string RequestContentType = "application/json; charset=UTF-8"; 
         private const string RequestAccess = "application/json"; 
         #endregion Members 
@@ -255,7 +255,7 @@ namespace IngestionClient
 
         public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
         { 
-            HttpWebRequest request = WebRequest.CreateHttp(breezeEndpoint); 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
             request.Method = WebRequestMethods.Http.Post; 
             request.ContentType = RequestContentType; 
             request.Accept = RequestAccess; 
@@ -271,7 +271,10 @@ namespace IngestionClient
             HttpWebResponse response; 
             try 
             { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
             } 
             catch (WebException e) 
             { 
@@ -282,11 +285,10 @@ namespace IngestionClient
                         "Ingestion request failed with status code: {0}. Error: {1}", 
                         httpResponse.StatusCode, 
                         httpResponse.StatusDescription); 
-                } 
-                return false; 
+                    return false; 
+                }
+                throw; 
             } 
-
-            return response.StatusCode == HttpStatusCode.OK; 
         } 
         #endregion Public 
 

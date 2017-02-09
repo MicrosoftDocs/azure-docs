@@ -1,6 +1,6 @@
 ---
-title: Use Data Lake Store .NET SDK to develop applications | Microsoft Docs
-description: Use Azure Data Lake Store .NET SDK to develop applications
+title: Use the .NET SDK to develop applications in Azure Data Lake Store | Microsoft Docs
+description: Use Azure Data Lake Store .NET SDK to create a Data Lake Store account and perform basic operations in the Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme

@@ -39,7 +39,7 @@ If you have multiple scope groups defined, each user must pass at least one of t
 
 In other words, you can think of scope groups as being OR’d together, and you can think of the clauses within them as being AND’d together.For example, consider the scoping filter below:
 
-![Scoping Group Name][2]  
+![Scoping Group Name][3]  
 
 According to this scoping filter, users must satisfy the following criteria, in order to be provisioned:
 
@@ -59,4 +59,4 @@ According to this scoping filter, users must satisfy the following criteria, in 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
-[3]: ./active-directory-saas-scoping-filters/ic782813.png
+[3]: ./media/active-directory-saas-scoping-filters/ic782813.png
