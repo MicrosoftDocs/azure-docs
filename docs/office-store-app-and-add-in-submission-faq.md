@@ -15,7 +15,7 @@ To avoid common submission errors:
 
 - Make sure that the version number on the submission form matches the version number in the add-in manifest.
     
-     **Note**   Specify your add-in version using the following syntax: *a*  . *b*  . *c*  . *d*  Where *a*  is an integer between 1-9999, and each of *b*  , *c*  , *d*  are each integers between 0-9999. For example: 1.0.0.0 6.23.0.1
+     >**Note:**   Specify your add-in version using the following syntax: *a*  . *b*  . *c*  . *d*  Where *a*  is an integer between 1-9999, and each of *b*  , *c*  , *d*  are each integers between 0-9999. For example: 1.0.0.0 6.23.0.1
 - Make sure that all locations are SSL-secured (HTTPS).
     
  
