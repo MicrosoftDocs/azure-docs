@@ -47,7 +47,7 @@ connection to be accepted for establishing a bi-directional communication path.
 "Connect," "Listen," and "Accept" are the same terms you will find on most socket
 APIs.
 
-Any relayed communication model has either party making outbound connections Azure Relay Hybrid Connections Protocol Guide
+Any relayed communication model has either party making outbound connections
 towards a service endpoint, which makes the "listener" also a "client" in
 colloquial use and may also cause other terminology overloads; the precise
 terminology we therefore use for Hybrid Connections is as follows:
