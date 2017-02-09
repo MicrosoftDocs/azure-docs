@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 02/03/2017
 ms.author: tomfitz
 
 ---
@@ -111,16 +111,32 @@ The following example shows how to nest logical operators to require an applicat
 }
 ```
 
-## Restrict resource locations
-The following example shows a policy that denies requests where location is not North Europe or West Europe.
+## Allowed resource locations
+To specify which locations are allowed, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
+
+The built-in policy contains a rule similar to:
 
 ```json
 {
   "if" : {
     "not" : {
       "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
+      "in" : "[parameters('allowedLocations')]"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
+
+To specify which locations are not allowed, use the following policy:
+
+```json
+{
+  "if" : {
+    "field" : "location",
+    "in" : "[parameters('notAllowedLocations')]"
   },
   "then" : {
     "effect" : "deny"
@@ -162,7 +178,7 @@ The following example shows a policy that permits deployments for only on the `M
 ```
 
 ### Set naming convention
-The following example shows the use of wildcard, which is supported by the condition "like". The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request:
+The following example shows the use of wildcard, which is supported by the **like** condition. The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request:
 
 ```json
 {
@@ -181,7 +197,7 @@ The following example shows the use of wildcard, which is supported by the condi
 ## Next steps
 * For an introduction to resource policies, see [Resource policy overview](resource-manager-policy.md).
 * For storage policies, see [Resource policies for storage accounts](resource-manager-policy-storage.md).
-* For Linux VM policies, see [Apply security and policies to Linux VMs with Azure Resource Manager](../virtual-machines/virtual-machines-linux-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
-* For Windows VM policies, see [Apply security and policies to Windows VMs with Azure Resource Manager](../virtual-machines/virtual-machines-windows-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json.)
+* For Linux VM policies, see [Apply security and policies to Linux VMs with Azure Resource Manager](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+* For Windows VM policies, see [Apply security and policies to Windows VMs with Azure Resource Manager](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json.)
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

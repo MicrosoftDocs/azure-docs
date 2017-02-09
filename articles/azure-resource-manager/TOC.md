@@ -49,15 +49,15 @@
 ### [What are resource policies?](resource-manager-policy.md)
 ### [Common policies for all resource types](resource-manager-policy-common.md)
 ### [Storage policies](resource-manager-policy-storage.md)
-### [Linux VM policies](../virtual-machines/virtual-machines-linux-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM policies](../virtual-machines/virtual-machines-windows-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Linux VM policies](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Windows VM policies](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Audit and Troubleshoot
 ### [Troubleshoot common deployment errors](resource-manager-common-deployment-errors.md)
 ### [View activity logs](resource-group-audit.md)
 ### [View deployment operations](resource-manager-deployment-operations.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI (Preview)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

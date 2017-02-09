@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/03/2017
 ms.author: tomfitz
 
 ---
 # Resource policy overview
 Resource policies enable you to establish conventions for resources in your organization. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed, or you can require that all resources have a particular tag.  
 
-To implement a policy you must perform three steps:
+To implement a policy, you must perform three steps:
 
 1. Define the policy with JSON. This topic describes the structure and syntax of the JSON for defining a policy. 
-2. Create a policy definition in your subscription from the JSON you created in the preceding step. This steps makes the policy available for assignment but does not apply the rules to your subscription.
+2. Create a policy definition in your subscription from the JSON you created in the preceding step. This step makes the policy available for assignment but does not apply the rules to your subscription.
 3. Assign the policy to a scope (such as a subscription or resource group). The rules of the policy are now enforced.
 
 Azure provides some pre-defined policies that may reduce the number of policies you have to define. If a pre-defined policy works for your scenario, skip the first two steps and simply assign the pre-defined policy to a scope.
@@ -78,28 +78,32 @@ The following example shows a policy you can use to limit where resources are de
 ```
 
 ## Parameters
-Using parameters helps simplify your policy management by reducing the number of policy definitions. You define a policy for a resource property (such as limiting the locations where resources can be deployed),and then reuse that policy definition for different scenarios by passing in different values (such as specifying one set of locations for a subscription). You provide parameter values when assigning the policy.
+Using parameters helps simplify your policy management by reducing the number of policy definitions. You define a policy for a resource property (such as limiting the locations where resources can be deployed), and include parameters in the definition. Then, you reuse that policy definition for different scenarios by passing in different values (such as specifying one set of locations for a subscription) when assigning the policy.
 
 You declare parameters when you create policy definitions.
 
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of allowed locations for resources.",
-          "displayName": "Allowed locations"
-        }
-      }
+```json
+"parameters": {
+  "allowedLocations": {
+    "type": "array",
+    "metadata": {
+      "description": "The list of allowed locations for resources.",
+      "displayName": "Allowed locations"
     }
+  }
+}
+```
 
 The type of a parameter can be either string or array. The metadata property is used for tools like Azure portal to display user-friendly information. 
 
 In the policy rule, you can reference the parameters similar to what you do in templates. For example: 
-        
-    { 
-        "field" : "location",
-        "in" : "[parameters('allowedLocations')]"
-    }
+
+```json
+{ 
+    "field" : "location",
+    "in" : "[parameters('allowedLocations')]"
+}
+```
 
 ## Policy rules
 
@@ -107,14 +111,16 @@ In the policy rule, you can reference the parameters similar to what you do in t
 
 **Effect:** what happens when the condition is satisfied – deny, audit, or append. An audit effect emits a warning event service log. For example, an administrator can create a policy that causes an audit event if anyone creates a large VM. The administrator can review the logs later.
 
-    {
-      "if" : {
-          <condition> | <logical operator>
-      },
-      "then" : {
-          "effect" : "deny | audit | append"
-      }
-    }
+```json
+{
+  "if" : {
+      <condition> | <logical operator>
+  },
+  "then" : {
+      "effect" : "deny | audit | append"
+  }
+}
+```
 
 ### Logical operators
 The supported logical operators along with the syntax are:
@@ -122,8 +128,8 @@ The supported logical operators along with the syntax are:
 | Operator Name | Syntax |
 |:--- |:--- |
 | Not |"not" : {&lt;condition  or operator &gt;} |
-| And |"allOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
-| Or |"anyOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
+| And |"allOf" : [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
+| Or |"anyOf" : [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
 
 Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is in this topic.
 
@@ -135,7 +141,7 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 | Equals |"equals" : "&lt;value&gt;" |
 | Like |"like" : "&lt;value&gt;" |
 | Contains |"contains" : "&lt;value&gt;" |
-| In |"in" : [ "&lt;value1&gt;","&lt;value2&gt;" ] |
+| In |"in" : ["&lt;value1&gt;","&lt;value2&gt;"] |
 | ContainsKey |"containsKey" : "&lt;keyName&gt;" |
 | Exists |"exists" : "&lt;bool&gt;" |
 
@@ -149,30 +155,34 @@ Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **
 ### Property aliases
 Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and SKUs. It works across all API versions where the property exists. You can retrieve aliases through the REST API (Powershell support will be added in the future):
 
-    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+```HTTP
+GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+```
 
 The following example shows a definition of an alias. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
 
-    "aliases": [
+```json
+"aliases": [
+    {
+      "name": "Microsoft.Storage/storageAccounts/sku.name",
+      "paths": [
         {
-          "name": "Microsoft.Storage/storageAccounts/sku.name",
-          "paths": [
-            {
-              "path": "properties.accountType",
-              "apiVersions": [
-                "2015-06-15",
-                "2015-05-01-preview"
-              ]
-            },
-            {
-              "path": "sku.name",
-              "apiVersions": [
-                "2016-01-01"
-              ]
-            }
+          "path": "properties.accountType",
+          "apiVersions": [
+            "2015-06-15",
+            "2015-05-01-preview"
+          ]
+        },
+        {
+          "path": "sku.name",
+          "apiVersions": [
+            "2016-01-01"
           ]
         }
-    ]
+      ]
+    }
+]
+```
 
 Currently, the supported aliases are:
 
@@ -229,7 +239,7 @@ To create a policy, run:
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
-For api-version use *2016-04-01* or *2016-12-01* . Include a request body similar to the following example:
+For api-version, use *2016-04-01* or *2016-12-01*. Include a request body similar to the following example:
 
 ```json
 {
