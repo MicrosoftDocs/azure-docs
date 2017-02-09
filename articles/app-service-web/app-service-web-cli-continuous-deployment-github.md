@@ -21,7 +21,7 @@ ms.author: cephalin
 
 This sample script does the following using Azure CLI 2.0: 
 
-* Create a web app in Azure App Service in the West Europe Azure region.
+* Create a web app in Azure App Service in the West Europe Azure region. 
 * Deploy your web app code from GitHub.
 * Display the deployed web app in the browser.
 
