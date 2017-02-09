@@ -132,7 +132,7 @@ To learn more about Service Bus, see the following topics.
 * [Azure Service Bus architecture overview](service-bus-fundamentals-hybrid-solutions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 
-[Best practices for performance improvements using Service Bus brokered]: service-bus-performance-improvements.md
+[Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Quotas overview]: service-bus-quotas.md
