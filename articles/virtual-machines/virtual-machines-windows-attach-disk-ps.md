@@ -1,6 +1,6 @@
 ---
 title: Attach a data disk to a Windows VM in Azure using PowerShell | Microsoft Docs
-description: How to attach new or existing data disk to a Windows VM using Powershell with the Resource Manager deployment model.
+description: How to attach new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -21,7 +21,7 @@ ms.author: cynthn
 
 # Attach a data disk to a Windows VM using PowerShell
 
-This article shows you how to attach both new and existing disks to a Windows virtual machine using Powershell. If your VM uses managed disks, you can attach additional managed data disks. You can also attach unmanaged data disks to a VM that uses unmanaged disks in a storage account.
+This article shows you how to attach both new and existing disks to a Windows virtual machine using PowerShell. If your VM uses managed disks, you can attach additional managed data disks. You can also attach unmanaged data disks to a VM that uses unmanaged disks in a storage account.
 
 Before you do this, review these tips:
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -40,7 +40,7 @@ $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'West Central US' 
 $storageType = 'PremiumLRS'
-$dataDiskName = ($virtualMachineName + '_datadisk1')
+$dataDiskName = $virtualMachineName + '_datadisk1'
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
 
@@ -48,7 +48,7 @@ $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -Resource
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
 
-$vm = Add-AzureRmVMDataDisk $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
@@ -64,7 +64,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### Initialize the disk
 
-After you add an empty disk, it will need to initialized. To initialize the disk, you can log in to it and use disk management. If you installed WinRM and a certificate on it when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
+After you add an empty disk, you need to initialize it. To initialize the disk, you can log in to a VM and use disk management. If you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
 
 ```powershell
     $location = "location-name"
@@ -77,22 +77,20 @@ After you add an empty disk, it will need to initialized. To initialize the disk
 The script file can contain something like this code to initialize the disks:
 
 ```powershell
-    $disks = Get-Disk |   Where partitionstyle -eq 'raw' | sort number
+    $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
 
-    $letters = 70..89 | ForEach-Object { ([char]$_) }
+    $letters = 70..89 | ForEach-Object { [char]$_ }
     $count = 0
-    $labels = @("data1","data2")
+    $labels = "data1","data2"
 
-    foreach($d in $disks) {
+    foreach ($disk in $disks) {
         $driveLetter = $letters[$count].ToString()
-        $d | 
+        $disk | 
         Initialize-Disk -PartitionStyle MBR -PassThru |
         New-Partition -UseMaximumSize -DriveLetter $driveLetter |
-        Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] `
-            -Confirm:$false -Force 
-        $count++
+        Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] -Confirm:$false -Force
+	$count++
     }
-
 ```
 
 
@@ -107,7 +105,7 @@ $rgName = 'myRG'
 $vmName = 'ContosoMdPir3'
 $location = 'West Central US' 
 $storageType = 'PremiumLRS'
-$dataDiskName = ($vmName + '_datadisk2')
+$dataDiskName = $vmName + '_datadisk2'
 $dataVhdUri = 'https://mystorageaccount.blob.core.windows.net/vhds/managed_data_disk.vhd' 
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $dataVhdUri -DiskSizeGB 128
@@ -116,7 +114,7 @@ $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -Resource
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
 
-$vm = Add-AzureRmVMDataDisk $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk2.Id -Lun 2
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk2.Id -Lun 2
 
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```

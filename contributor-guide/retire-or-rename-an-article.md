@@ -16,13 +16,13 @@ Do this step if you are preparing to deprecate content and do not want it to be 
   ``` 
     
 ### Step 2: Turn the original article into a redirect, and create the new file if you are renaming or moving a file. 
-In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You turn an article into a redirect by replacing the article metadata with redirect information. Make the changes that match what you want to do:
+In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You turn an article into a redirect by deleting the article metadata and content and adding just the redirect metadata. Make the changes that match what you want to do:
 
-- **Retire**: Update the metadata so the article redirects to the service landing page. If the service is being deprecated, redirect the pages to the Azure hub page on docs.
+- **Retire**: Change the metadata so the article redirects to the service landing page. If the service is being deprecated, redirect the pages to the Azure hub page on docs.
 
-- **Rename**: Create a copy of the article, give the file its new name, and then update the metadata of the original article so the article redirects to the new one.
+- **Rename**: Create a copy of the article, give the file its new name, and then change the metadata of the original article so the article redirects to the new one.
 
-- **Move**: Create a copy of the article in the new location, and then update the metadata of the original article so the article redirects to the new one. 
+- **Move**: Create a copy of the article in the new location, and then change the metadata of the original article so the article redirects to the new one. 
 
 For example, if you want to move a file from the `articles` folder into a sub-folder, you need to update the original file to contain just metadata in the header. The `/azure/` part is important, as the root of the site is `docs.microsoft.com`. 
 ```
@@ -64,7 +64,7 @@ If your article existed on ACOM, you need to request that the ACOM-to-DOCs redir
 
 ### Step 6: Publish  
 
-Publish your changes to the article repository by submitting a pull request. Ensure that the ACOM-to-DOCS redirection goes live the same day.
+Publish your changes to the article repository by submitting a pull request. Test that the redirects work in staging before you sign-off on the PR. Make sure that the ACOM-to-DOCS redirection goes live the same day.
 
 ### Step 7: Cleanup tasks
 
