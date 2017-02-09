@@ -148,7 +148,7 @@ Key Password:
 
 `Enter passphrase (empty for no passphrase):`
 
-`ssh-keygen` refers to a password as "a passphrase."  It is *strongly* recommended to add a password to your key pairs. Without a password protecting the key pair, anyone with the private key file can use it to log in to any server that has the corresponding public key. Adding a password offers more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
+`ssh-keygen` refers to a password as "a passphrase."  It is *strongly* recommended to add a password to your key pairs. Without a password protecting the key pair, anyone with the private key file can use it to log in to any server that has the corresponding public key. Adding a password offers more protection in case someone is able to gain access to your private key file, giving you time to change the keys used to authenticate you.
 
 ## Using ssh-agent to store your private key password
 

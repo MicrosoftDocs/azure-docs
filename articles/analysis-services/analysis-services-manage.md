@@ -27,7 +27,7 @@ The [Azure portal](http://portal.azure.com/) is where you can create and delete 
 ![Get server name in Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## SQL Server Management Studio
-Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell.
+Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell. [Download and install the latest version of SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
@@ -46,7 +46,7 @@ Connecting to your server in Azure is just like connecting to a server instance 
    
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
    
-    Note: If you don't see Active Directory Authentication, you may need to [enable Azure Active Directory authentication](#enable-azure-active-directory-authentication) in SSMS.
+    Note: If you don't see Active Directory Authentication, you may need to update to the [latest version of SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
    
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
@@ -55,16 +55,6 @@ Since managing your server in Azure by using SSMS is much the same as managing a
 ## Server administrators and database users
 In Azure Analysis Services there are two types of users, server administrators and database users. Both types of users must be in your Azure Active Directory and must be specified by organizational email address or UPN. This is different from on-premises tabular model databases which support server administrators and database users by Windows domain usernames. To learn more, see [Manage users in Azure Analysis Services](analysis-services-manage-users.md).
 
-## Enable Azure Active Directory authentication
-To enable the Azure Active Directory authentication feature for SSMS in the registry, create a text file named EnableAAD.reg, then copy and paste the following:
-
-```
-Windows Registry Editor Version 5.00
-[HKEY_CURRENT_USER\Software\Microsoft\Microsoft SQL Server\Microsoft Analysis Services\Settings]
-"AS AAD Enabled"="True"
-```
-
-Save and then run the file.
 
 ## Troubleshooting connection problems
 When connecting to your server using SSMS, if (in step 3) you attempt to sign in using a non-federated account or an account not in your Azure Active Directory, and are unable to connect, you may need to clear your login cache. Close SSMS before following these steps.
