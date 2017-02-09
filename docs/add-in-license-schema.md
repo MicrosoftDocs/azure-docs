@@ -67,7 +67,7 @@ Required. Contains attributes that represent various properties of the add-in li
 </tr>
 <tr>
 <td>pid</td>
-<td>Required text. The GUID that represents the product ID of the add-in.<br/><br/>The product ID of the add-in is specified in the add-in manifest.</td>
+<td>Required text. The GUID that represents the product ID of the add-in.<br/>The product ID of the add-in is specified in the add-in manifest.</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -79,22 +79,22 @@ Required. Contains attributes that represent various properties of the add-in li
 </tr>
 <tr>
 <td>did</td>
-<td><strong>For content and task pane Office Add-ins:</strong><br/><br/>
-This attribute does not apply to content and task pane Office Add-ins. <strong>For Outlook Add-ins:</strong><br/><br/>
-String that represents the deployment ID of the Exchange deployment to which this add-in license applies. This value should be set to the primary authoritative domain for the Exchange deployment.<br/><br/>
-<strong>For SharePoint Add-ins:</strong><br/><br/> 
-GUID that represents the deployment ID of the SharePoint deployment to which this add-in license applies.<br/><br/>
+<td><strong>For content and task pane Office Add-ins:</strong><br/>
+This attribute does not apply to content and task pane Office Add-ins. <strong>For Outlook Add-ins:</strong><br/>
+String that represents the deployment ID of the Exchange deployment to which this add-in license applies. This value should be set to the primary authoritative domain for the Exchange deployment.<br/>
+<strong>For SharePoint Add-ins:</strong><br/> 
+GUID that represents the deployment ID of the SharePoint deployment to which this add-in license applies.<br/>
 For test licenses for SharePoint Add-ins, you don't need to specify the deployment ID in the add-in license XML. The ImportAppLicense method supplies the correct deployment ID to the license token XML.</td>
 </tr>
 <tr>
 <td>ts</td>
-<td>Integer representing the total number of users licensed to access this add-in, by this purchaser.<br/><br/>
-For add-ins that are site licensed, this value is 0.<br/><br/>
+<td>Integer representing the total number of users licensed to access this add-in, by this purchaser.<br/>
+For add-ins that are site licensed, this value is 0.<br/>
 This attribute does not apply to Office Add-ins.</td>
 </tr>
 <tr>
 <td>et</td>
-<td>Required text. Enumeration that represents the type of add-in license.<br/><br/>
+<td>Required text. Enumeration that represents the type of add-in license.<br/>
 Valid values include Free, Paid, and Trial.</td>
 </tr>
 <tr>
@@ -103,17 +103,17 @@ Valid values include Free, Paid, and Trial.</td>
 </tr>
 <tr>
 <td>sl</td>
-<td>Boolean value that represents whether the add-in license is a site license.<br/><br/>
-<strong>For content and task pane Office Add-ins:</strong><br/><br/>
-This attribute does not apply to content and task pane Office Add-ins.<br/><br/>
-<strong>For Outlook Add-ins:</strong><br/><br/>
-This attribute is optional for add-in licenses that are not site licenses. This attribute is required to be equal to true if the Outlook add-in is site licensed.<br/><br/>
-<strong>For SharePoint Add-ins:</strong><br/><br/>
+<td>Boolean value that represents whether the add-in license is a site license.<br/>
+<strong>For content and task pane Office Add-ins:</strong><br/>
+This attribute does not apply to content and task pane Office Add-ins.<br/>
+<strong>For Outlook Add-ins:</strong><br/>
+This attribute is optional for add-in licenses that are not site licenses. This attribute is required to be equal to true if the Outlook add-in is site licensed.<br/>
+<strong>For SharePoint Add-ins:</strong><br/>
 This attribute is optional for add-in licenses that are not site licenses.</td>
 </tr>
 <tr>
 <td>ed</td>
-<td>Optional text. UTC time-date stamp that represents the expiration date for the add-in license.<br/><br/>
+<td>Optional text. UTC time-date stamp that represents the expiration date for the add-in license.<br/>
 This value can be used to check if the trial license is expired.</td>
 </tr>
 <tr>
@@ -132,42 +132,42 @@ This value can be used to check if the trial license is expired.</td>
 </tr>
 <tr>
 <td>ss</td>
-<td>Optional integer. Represents the subscription status of the add-in license. This attribute is optional for add-ins that are not being sold as subscriptions.<br/><br/>
-This attribute accepts integers from 0 through 4. Valid values include:<br/><br/>
+<td>Optional integer. Represents the subscription status of the add-in license. This attribute is optional for add-ins that are not being sold as subscriptions.<br/>
+This attribute accepts integers from 0 through 4. Valid values include:<br/>
 
 <table><tr><th>Integer</th><th>Description</th></tr>
 <tr>
 <td>0</td>
-<td>NotApplicable<br/><br/>
+<td>NotApplicable<br/>
 The add-in license is not for a subscription add-in.</td>
 </tr>
 <tr>
 <td>1</td>
 <td>Active
-The add-in license subscription is currently paid for.<br/><br/>
-Recommended user experience: <br/><br/>
+The add-in license subscription is currently paid for.<br/>
+Recommended user experience: <br/>
 Full add-in experience.</td>
 </tr>
 <tr>
 <td>2</td>
-<td>FailedPayment<br/><br/>
-The automatic monthly billing for the add-in license subscription has failed.<br/><br/>
-There are several reasons payment may have failed. For example, the credit card being billed might have expired. When payment fails, emails are sent to the Microsoft account paying for the add-in license. However, the user might not check their Microsoft account email on a frequent basis, or, in the case of SharePoint Add-ins, the person paying for the add-in license may not actually be the person using the add-in license.<br/><br/>
-Recommended user experience: <br/><br/>
+<td>FailedPayment<br/>
+The automatic monthly billing for the add-in license subscription has failed.<br/>
+There are several reasons payment may have failed. For example, the credit card being billed might have expired. When payment fails, emails are sent to the Microsoft account paying for the add-in license. However, the user might not check their Microsoft account email on a frequent basis, or, in the case of SharePoint Add-ins, the person paying for the add-in license may not actually be the person using the add-in license.<br/>
+Recommended user experience: <br/>
 Present UI in your add-in alerting the user of the problem with billing, so that they can resolve it.</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Canceled<br/><br/>
-The add-in license subscription has been canceled, and final monthly billing period the user has paid for has expired. <br/><br/>
-Recommended user experience: <br/><br/>
+<td>Canceled<br/>
+The add-in license subscription has been canceled, and final monthly billing period the user has paid for has expired. <br/>
+Recommended user experience: <br/>
 Present the user with information that their subscription has been cancelled. Provide information about your add-in, along with a hyperlink to your app’s Office Store listing page, so they are encouraged to renew their subscription. </td>
 </tr>
 <tr>
 <td>4</td>
-<td>DelayedCancel<br/><br/>
-The add-in license subscription has been canceled, but the subscription is still within the current, monthly billing period the user has paid for. Once the current, paid monthly billing period expires, the subscription status changes to Canceled.<br/><br/>
-Recommended user experience: <br/><br/>
+<td>DelayedCancel<br/>
+The add-in license subscription has been canceled, but the subscription is still within the current, monthly billing period the user has paid for. Once the current, paid monthly billing period expires, the subscription status changes to Canceled.<br/>
+Recommended user experience: <br/>
 Full add-in experience. Additionally, you may want to present contextual UI to ask the user for feedback on why they are canceling their subscription, or to enourage them to re-subscribe.</td>
 </tr>
 </table>
