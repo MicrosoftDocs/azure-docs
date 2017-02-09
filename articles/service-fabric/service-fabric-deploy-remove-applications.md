@@ -95,6 +95,8 @@ Copy application package succeeded
 PS D:\temp>
 ```
 
+See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the Image Store and ImageStoreConnectionString.
+
 ## Register the application package
 The application type and version declared in the application manifest becomes available for use when the app package is registered. The system reads the package uploaded in the previous step, verifies the package, processes the package contents, and copies the processed package to an internal system location.  If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet.
 
@@ -225,8 +227,6 @@ The ImageStoreConnectionString is found in the cluster manifest:
 ```
 
 ## Next steps
-[Understand the image store connection string](service-fabric-image-store-connection-string.md)
-
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
 [Service Fabric health introduction](service-fabric-health-introduction.md)
