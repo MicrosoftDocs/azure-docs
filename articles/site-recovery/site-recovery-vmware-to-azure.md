@@ -30,7 +30,6 @@ This article describes how to replicate on-premises VMware virtual machines to A
 
 Post comments and questions at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Quick summary
 
 Here's what you do:
 
@@ -65,9 +64,6 @@ Here's what you do:
 **On-premises configuration server** | VMware VM adapter type should be VMXNET3. If it isn't, [install this update](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1)<br/><br/> vSphere PowerCLI 6.0 should be installed.<br/><br> The machine shouldn't be a domain controller, or have a static IP address.<br/><br/> The host name should be 15 characters or less, and operating system should be in English.
 **VMware** | Only 5.5 features are supported in vCenter 6.0. Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS.
 **VMs** | Verify [Azure VM limitations]((site-recovery-prereq.md#azure-requirements)<br/><br/> You can't replicate VMs with encrypted disks, or VMs with UEFI/EFI boot.<br/><br> Shared disk clusters aren't supported. If the source VM has NIC teaming, it's converted to a single NIC after failover.<br/><br/> If VMs have an iSCSI disk, Site Recovery converts it to a VHD file after failover. If the iSCSI target can be reached by the Azure VM, it connects to it, and sees both it and the VHD. If this happens, disconnect the iSCSI target.<br/><br/> If you want to enable multi-VM consistency, which enables VMs running the same workload to be recovered together to a consistent data point, open port 20004 on the VM.<br/><br/> Windows must be installed on the C drive. The OS disk should be basic, and not dynamic. The data disk can be dynamic.<br/><br/> Linux /etc/hosts files on VMs should contain entries that map the local host name to IP addresses associated with all network adapters. The host name, mount points, device name, system paths and file names (/etc; /usr) should be in English only.<br/><br/> Note [supported Linux storage](site-recovery-support-matrix-to-azure.md#support-for-storage).<br/><br/>Create or set **disk.enableUUID=true** in the VM settings. This provides a consistent UUID to the VMDK, so that it mounts correctly, and ensures that only delta changes are transferred back to on-premises during failback, without full replication.
-
-
-
 
 
 ## Set up Azure
@@ -222,6 +218,7 @@ Connect to vSphere ESXi hosts or vCenter servers to discover VMware VMs. Note th
 Site Recovery connects to VMware servers using the specified settings, and discovers VMs.
 
 ## Set up the target
+
 
 Before you set up the target environment, check you have an [Azure storage account and network](#set-up-azure)
 
