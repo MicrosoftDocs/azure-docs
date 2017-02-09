@@ -18,7 +18,6 @@
 
 ---
 # Migrating to Premium Storage using Azure Site Recovery
-## Overview
 
 [Azure Premium Storage](storage-premium-storage.md) delivers high-performance, low-latency disk support for virtual machines (VMs) that are running I/O-intensive workloads. The purpose of this guide is to help users migrate their VM disks from a Standard storage account to a Premium storage account by using [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
