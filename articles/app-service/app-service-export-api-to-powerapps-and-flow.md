@@ -66,7 +66,7 @@ In this section, you will export the API definition for your App Service API, to
  
 > [!NOTE]
 > If using Azure Active Directory authentication, a new AAD app registration will be needed which has delegated access to your API and a reply URL of _https://msmanaged-na.consent.azure-apim.net/redirect_. Please see [this example](
-https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) for more detail, substituting your API for Azure Resource Manager (ARM).
+https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) for more detail, substituting your API for Azure Resource Manager.
 >
 > If another individual will be importing the API definition into PowerApps, you will provide the client ID and client secret **of the new registration**, as well as the resource URL of your API, in addition to the API definition file. Make sure that these secrets are managed securely. **Do not share the security credentials of the API itself.**
 
