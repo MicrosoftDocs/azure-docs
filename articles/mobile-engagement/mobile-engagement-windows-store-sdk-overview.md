@@ -1,5 +1,5 @@
 ---
-title: Windows Universal SDK Integration | Microsoft Azure
+title: Azure Mobile Engagement Windows Universal SDK Integration | Microsoft Docs
 description: Windows Universal Integration for SDK for Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile

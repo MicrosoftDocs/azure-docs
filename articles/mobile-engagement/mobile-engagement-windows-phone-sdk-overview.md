@@ -1,5 +1,5 @@
 ---
-title: Windows Phone Silverlight SDK Overview | Microsoft Azure
+title: Azure Mobile Engagement Windows Phone Silverlight SDK Overview | Microsoft Docs
 description: Overview of the Windows Phone Silverlight SDK for Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile

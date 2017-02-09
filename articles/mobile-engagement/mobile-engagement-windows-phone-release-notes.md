@@ -1,5 +1,5 @@
 ---
-title: Windows Phone Silverlight SDK Release Notes | Microsoft Azure
+title: Azure Mobile Engagement Windows Phone Silverlight SDK Release Notes | Microsoft Docs
 description: Azure Mobile Engagement - Windows Phone Silverlight SDK Release Notes
 services: mobile-engagement
 documentationcenter: mobile
