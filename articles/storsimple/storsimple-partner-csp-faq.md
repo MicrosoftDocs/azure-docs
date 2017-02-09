@@ -4,7 +4,7 @@ description: Find answers to some common questions regarding StorSimple and CSP 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: byronr
+manager: timlt
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/07/2016
+ms.date: 02/08/2017
 ms.author: alkohli
 ---
 
