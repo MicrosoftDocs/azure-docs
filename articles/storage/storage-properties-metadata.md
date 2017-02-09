@@ -27,8 +27,6 @@ Objects in Azure Storage support system properties and user-defined metadata, in
 Retrieving property and metadata values for a storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** method.
 
 > [!IMPORTANT]
-> Property and metadata values for a storage resource are not populated unless you call one of the **FetchAttributes** methods.
-
 > The names and values of properties and metadata have to be ASCII characters. You will receive a `400 Bad Request` if one or more names or values do not conform to that rule. Therefore it is recommended to encode those using, e.g. url encoding or base64.
 
 > Property and metadata values for a storage resource are not populated unless you call one of the **FetchAttributes** methods.
