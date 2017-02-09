@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/08/2017
 ms.author: awills
 
 ---
@@ -20,6 +20,7 @@ ms.author: awills
 
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
+You need a [Microsoft Azure](http://azure.com) subscription.
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -42,10 +43,10 @@ Here's a summary of what you get by each route:
 | [Page view & user data](app-insights-javascript.md) |Yes | |
 | No need to rebuild code |No | |
 
-## Instrument your web app at run time
-You need a [Microsoft Azure](http://azure.com) subscription.
 
-### If your app is an Azure web app
+## Monitor a live Azure web app
+
+If your application is running as an Azure web service, here's how to switch on monitoring:
 
 * Select Application Insights on the app's control panel in Azure.
 
@@ -54,9 +55,12 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
     ![Click through to Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
-[Learn more about monitoring Azure apps with Application Insights](app-insights-azure.md).
+[Monitoring Cloud and VM apps](app-insights-azure.md).
 
-### If your app is hosted on your IIS server
+## Monitor a live IIS web app
+
+If your app is hosted on an IIS server, enable Application Insights by using Status Monitor.
+
 1. On your IIS web server, sign in with administrator credentials.
 2. If Application Insights Status Monitor is not already installed, download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
 3. In Status Monitor, select the installed web application or website that you want to monitor. Sign in with your Azure credentials.
@@ -71,19 +75,24 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
     Your web service will be interrupted for a short while.
 
+## Customize monitoring options
 
-## When you re-publish your app
+Enabling Application Insights adds DLLs and ApplicationInsights.config to your web app. You can [edit the .config file](app-insights-configuration-with-applicationinsights-config.md) to change some of the options.
+
+## When you re-publish your app, re-enable Application Insights
+
+Before you re-publish your app, consider [adding Application Insights to the code in Visual Studio][greenbrown]. You'll get more detailed telemetry and the ability to write custom telemetry.
+
+If you want to re-publish without adding Application Insights to the code, be aware that the deployment process may delete the DLLs and ApplicationInsights.config from the published web site. Therefore:
+
+1. If you edited ApplicationInsights.config, take a copy of it before you re-publish your app.
+2. Republish your app.
+3. Re-enable Application Insights monitoring. (Use the appropriate method: either  the Azure web app control panel, or the Status Monitor on an IIS host.)
+4. Reinstate any edits you performed on the .config file.
 
 
-When you enable Application Insights for your app, DLLs and ApplicationInsights.config are added to your app. 
+## Troubleshooting runtime configuration of Application Insights
 
->[!IMPORTANT]
->When you re-publish the app, re-enable Application Insights monitoring. This is necessary because the Application Insights DLLs and .config file may be deleted by the deployment process. 
-
-Alternatively, consider [adding Application Insights to your app in Visual Studio][greenbrown] before you republish. This provides you with more detailed monitoring, Live Stream monitoring, and the ability to code your own telemetry.
-
-
-## Troubleshooting
 ### Can't connect? No telemetry?
 
 * You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
