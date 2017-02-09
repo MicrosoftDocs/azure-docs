@@ -104,7 +104,7 @@ Blob](/rest/api/storageservices/fileservices/Copy-Blob.md) of the snapshot to co
 
 To maintain geo-redundant copies of your snapshots, you can copy snapshots from a locally-redundant storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob.md).
 
-For detailed information on performing REST operations against page blobs in standard storage accounts, see [Azure Storage Services REST API](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference.md) in the MSDN library.
+For detailed information on performing REST operations against page blobs in standard storage accounts, see [Azure Storage Services REST API](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference.md).
 
 ### Managed disks
 
@@ -126,7 +126,7 @@ When using Standard Storage, the following billing considerations apply:
 
 **Managed disks:** Managed disks are billed on the provisioned size. If your disk is provisioned as a 10 GB disk and you are only using 5 GB, you will still be charged for the provision size of 10 GB.
 
-**Snapshots**: Snapshots of standard disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
+**Snapshots**: Snapshots of standard disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](/rest/api/storageservices/fileservices/Creating-a-Snapshot-of-a-Blob.md).
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
