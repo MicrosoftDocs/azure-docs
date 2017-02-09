@@ -1,6 +1,6 @@
 ---
-title: Track B2B messages in Operations Management Suite portal - Azure | Microsoft Docs
-description: How to track B2B messages in Operations Management Suite portal
+title: Track B2B messages in the Operations Management Suite portal - Azure | Microsoft Docs
+description: How to track B2B messages in the Operations Management Suite portal
 author: padmavc
 manager: anneta
 editor: ''
@@ -17,8 +17,8 @@ ms.date: 11/13/2016
 ms.author: padmavc
 
 ---
-# Track B2B messages in Operations Management Suite portal
-B2B communication involves the exchange of messages between two running business processes or applications. Use the following web-based tracking features in Operations Management Suite portal to confirm whether messages are processed correctly:
+# Track B2B messages in the Operations Management Suite portal
+B2B communication involves the exchange of messages between two running business processes or applications. Use the following web-based tracking features in the Operations Management Suite portal to confirm whether messages are processed correctly:
 
 * Message count and status
 * Acknowledgments status
@@ -31,7 +31,7 @@ B2B communication involves the exchange of messages between two running business
 * An integration account. You can create an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and set up logging. To set up logging, see [Monitor B2B messages](logic-apps-monitor-b2b-message.md).
 * A logic app. You can create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) and set up logging. To set up logging, see [Azure Diagnostics and alerts](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
-## Add Logic Apps B2B solution to Operations Management Suite portal
+## Add Logic Apps B2B solution to the Operations Management Suite portal
 
 1. In the Azure portal, select **More Services**, search for log analytics and then select **Log Analytics**.   
 ![Search log analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)  
@@ -54,7 +54,7 @@ B2B communication involves the exchange of messages between two running business
 7. **Logic Apps B2B Messages** appears on the home page.   
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
-## Track data in Operations Management Suite portal
+## Track data in the Operations Management Suite portal
 
 1. After the messages are processed, the updated message count appears.   
 ![Updated messages](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
@@ -75,11 +75,11 @@ B2B communication involves the exchange of messages between two running business
 | --- | --- |
 | Sender | The guest partner that is configured in the receive settings, or the host partner that is configured in the send settings for an AS2 agreement. |
 | Receiver | The host partner that is configured in the receive settings, or the guest partner that is configured in the send settings for an AS2 agreement. |
-| Logic App | Logic App where the AS2 actions are configured. |
+| Logic App | Logic app where the AS2 actions are configured. |
 | Status | AS2 message status. Success = Received or sent a good AS2 message, no MDN is configured; Success = Received or sent a good AS2 message, MDN is configured and received or MDN is sent; Failed = Received a bad AS2 message, no MDN is configured; Pending = Received or sent a good AS2 message, MDN is configured and a functional ack is expected. |
 | Ack | MDN message status. |
 | Direction | AS2 message direction. |
-| Correlation ID | ID to correlate all the triggers and actions within a Logic App. |
+| Correlation ID | ID to correlate all the triggers and actions within a Logic app. |
 | Message ID |  AS2 message ID, from the headers of the AS2 message. |
 | Timestamp | Time at which the AS2 action processes the message. |
 
@@ -89,19 +89,19 @@ B2B communication involves the exchange of messages between two running business
 | --- | --- |
 | Sender | The guest partner that is configured in the receive settings, or the host partner that is configured in the send settings for an AS2 agreement. |
 | Receiver | The host partner that is configured in the receive settings, or the guest partner that is configured in the send settings for an AS2 agreement. |
-| Logic App | Logic App where the AS2 actions are configured. |
+| Logic App | Logic app where the AS2 actions are configured. |
 | Status | X12 message status. Success = Received or sent a good X12 message, no functional ack is configured; Success = Received or sent a good X12 message, functional ack is configured and received or a functional ack is sent; Failed = Received or sent a bad X12 message; Pending: Received or sent a good X12 message, functional ack is configured and a functional ack is expected. |
 | Ack | Functional Ack (997) status.  Accepted = Received or sent a positive functional ack; Rejected = Received or sent a negative functional ack; Pending = Expecting a functional ack but didn't receive it; Pending = Generated a functional ack but couldn't send it to partner. |
 | Direction | X12 message direction. |
-| Correlation ID | ID to correlate all of the triggers and actions within a Logic App. |
+| Correlation ID | ID to correlate all of the triggers and actions within a Logic app. |
 | Msg type |  EDI X12 message type. |
 | ICN | Interchange Control Number of the X12 message. |
 | TSCN | Transactional Set Control Number of the X12 message. |
 | Timestamp | Time at which X12 action processes the message. |
 
-## Queries in Operations Management Suite portal
+## Queries in the Operations Management Suite portal
 
-On the search page you can create a query. When you search, you can filter the results by using facet controls.
+On the search page, you can create a query. When you search, you can filter the results by using facet controls.
 
 ### Create a query
 
@@ -111,7 +111,7 @@ On the search page you can create a query. When you search, you can filter the r
 2. In **Save Search** add a **name** and **category**, and then select **Save**.   
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery1.png)
 
-3. To view the query, select **favorites**    
+3. To view the query, select **favorites**.    
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery3.png)
 
     ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery4.png)
