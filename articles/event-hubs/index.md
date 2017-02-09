@@ -1,7 +1,19 @@
 ---
-layout: LandingPage
+title: Azure Event Hubs Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
+services: event-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: event-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #Event Hubs Documentation
 
 Learn how to use Event Hubs to collect and manage millions of events per second from connected IoT devices and applications. Tutorials, API references, and other documentation show you how set up scalable ingestion for events on a broad set of platforms.

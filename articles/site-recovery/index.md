@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Site Recovery Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
+services: site-recovery
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: site-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Site Recovery Documentation
 
