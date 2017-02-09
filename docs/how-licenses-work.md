@@ -214,19 +214,13 @@ For add-ins with a site license, that license is assigned to all users on that d
 Apply the following best practices when you create and enforce add-in licenses and restrictions.
 
 <table>
-	<tr>
-		<th>Best practice</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>Minimize access to code that performs add-in license checks.</td>
-		<td>For security reasons, we strongly recommended that you place the code that performs the license check somewhere outside the reach of potential tampering. For example, you can limit your add-in's security exposure by using server-side code to query the Office Store verification web service, instead of performing the license check client-side.<br />
-		<ul>
-			<li>For Office Add-ins, you are required to use server-side code to query the Office Store verification web service. </li>
-			<li>For SharePoint Add-ins, if you are hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons we strongly recommend that you only use server-side code to query the Office Store verification web service.</li>
-		</ul>
-		</td>
-	</tr>
+<tr>
+<th>Best practice</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Minimize access to code that performs add-in license checks.</td>
+<td>For security reasons, we strongly recommended that you place the code that performs the license check somewhere outside the reach of potential tampering. For example, you can limit your add-in's security exposure by using server-side code to query the Office Store verification web service, instead of performing the license check client-side.<br /><ul><li>For Office Add-ins, you are required to use server-side code to query the Office Store verification web service. </li><li>For SharePoint Add-ins, if you are hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons we strongly recommend that you only use server-side code to query the Office Store verification web service.</li></ul></td></tr>
 	<tr>
 		<td>Add license checks only as needed.</td>
 		<td>Add license checks only at those points in your add-in where you want to take some action based on whether the user has a valid license or other license information. For example, when the user launches the add-in, or when the user attempts to access certain add-in features that you want to control based on add-in license information.<br />For SharePoint Add-ins, do not perform add-in license checks on every page of your add-in. Constant querying of the SharePoint deployment for the add-in license token is rarely necessary, and can lead to your add-in performance being throttled. </td>
