@@ -13,18 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/09/2017
 ms.author: richrund
 
 ---
-# Azure Key Vault Analytics (Preview) solution in Log Analytics
+# Azure Key Vault Analytics solution in Log Analytics
 
 You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs.
-
-> [!NOTE]
-> Azure Key Vault Analytics is a [preview solution](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
 
 To use the solution, you need to enable logging of Azure Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 

@@ -207,6 +207,9 @@ This log is only generated if you have enabled it on a per Application Gateway b
 }
 ```
 
+> [!NOTE]
+> Latency is calculated from the time first byte of the HTTP request is received to the time the last byte of the HTTP response is sent. It is sum of Application Gateway processing time plus the network cost to the backend, plus the time taken by the backend to process request.
+
 ### Firewall log
 
 This log is only generated if you have enabled it on a per application gateway basis as detailed in the preceding steps. This log also requires that web application firewall is configured on an application gateway. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:

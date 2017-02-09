@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2016
+ms.date: 02/08/2017
 ms.author: cynthn
 
 ---
 
-# Create a new VM from a generalized VHD uploaded to an Azure using Managed Disks
+# Create a new VM from a generalized VHD uploaded to Azure using Managed Disks
 
 You can create a new VM in Azure by uploading a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](../storage/storage-managed-disks-overview.md) for the new VM simplifies the VM managment and provides better availability when the VM is placed in an availability set. If you are uploading a VHD that will be used to create multiple Azure VMs, you must first generalize VHD using [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep removes any machine-specific information and personal account information from the VHD. 
 
