@@ -28,7 +28,7 @@ You can switch between different Azure AD tenants by selecting the currently sig
 
 * First Connect Health agent requires at least one Azure AD Premium license.
 * Each additional registered agent requires 25 additional AADP licenses. 
-* Agent count is equivalent to the total number of agents registered across all roles (AD FS, AAD Connect or AD DS.)
+* Agent count is equivalent to the total number of agents registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS.)
 
 Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
 
