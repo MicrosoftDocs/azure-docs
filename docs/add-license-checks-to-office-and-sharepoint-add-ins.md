@@ -288,7 +288,7 @@ Both methods allow an add-in to get the license the same way it would if it were
         et="Trial"
         ad="2012-01-12T21:58:13Z"
         ed="2012-06-30T21:58:13Z"
-        sd="2012-01-12T00:00:00Z" 
+        sd="2012-01-12T00:00:00Z"
         te="2012-06-30T02:49:34Z"
         test="true"/>
       <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
@@ -301,7 +301,7 @@ Both methods allow an add-in to get the license the same way it would if it were
 
 ### To load a test license from the file system
 
-1. Create a folder that is accessible via a UNC path (c:\\_folder_ or \\\\_server_\\_share_).
+1. Create a folder that is accessible via a UNC path (c:\\<i>folder</i> or \\\\<i>server</i>\\<i>share</i>).
 2. Add the manifest file for your add-in to the folder (the file name must have an .xml extension).
 3. Add the token file to the folder. The token file name must be the same as the manifest file name and must have a .tok file extension. The following code shows an example token file. Refer to the  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md) for details about the attribute values you can set in the **t** element of the token file.
     
@@ -314,7 +314,7 @@ Both methods allow an add-in to get the license the same way it would if it were
         et="Trial"
         ad="2012-01-12T21:58:13Z"
         ed="2012-06-30T21:58:13Z"
-        sd="2012-01-12T00:00:00Z" 
+        sd="2012-01-12T00:00:00Z"
         te="2012-06-30T02:49:34Z"
         test="true"/>
       <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
