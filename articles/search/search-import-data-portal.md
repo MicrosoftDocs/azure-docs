@@ -19,7 +19,7 @@ ms.author: heidist
 
 ---
 # Import data to Azure Search using the portal
-The Azure portal provides an **Import Data** wizard on the Azure Search dashboard for loading data into an index. 
+The Azure portal provides an **Import data** wizard on the Azure Search dashboard for loading data into an index. 
 
   ![Import Data on the command bar][1]
 
@@ -30,6 +30,9 @@ Internally, the wizard configures and invokes an *indexer*, automating several s
 * Load JSON documents into an index using a rowset retrieved from the data source
 
 You can try out this workflow using sample data in DocumentDB. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) for instructions.
+
+> [!NOTE]
+> You can launch the **Import data** wizard from the DocumentDB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
 
 ## Data sources supported by the Import Data Wizard
 The Import Data wizard supports the following data sources: 
@@ -84,6 +87,14 @@ You can monitor indexing in the portal. As documents are loaded, the document co
 
 The index is ready to query as soon as all of the documents are loaded.
 
+## Query an index using Search Explorer
+
+The portal includes **Search Explorer** so that you can query an index without having to write any code. You can use [Search Explore](search-explorer.md) on any index.
+
+The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+
+Results are returned in JSON, in a verbose format, so that you can inspect the entire document.
+
 ## Edit an existing indexer
 As noted, the Import data wizard creates an **indexer**, which you can modify as a standalone construct in the portal.
 
@@ -94,13 +105,6 @@ The wizard also created an **index**. In Azure Search, structural updates to an 
 
 Edits that don't require a rebuild include adding a new field, changing scoring profiles, changing suggesters, or changing language analyzers. See [Update Index](https://msdn.microsoft.com/library/azure/dn800964.aspx) for more information.
 
-## Query an index using Search Explorer
-
-The portal includes **Search Explorer** so that you can query an index without having to write any code. You can use [Search Explore](search-explorer.md) on any index.
-
-The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). 
-
-Results are returned in JSON, in a verbose format, so that you can inspect the entire document.
 
 ## Next steps
 Review these links to learn more about indexers:
