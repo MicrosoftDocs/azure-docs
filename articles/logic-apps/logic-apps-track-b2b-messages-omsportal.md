@@ -28,10 +28,10 @@ B2B communication involves the exchange of messages between two running business
 
 ## Prerequisites
 * An Azure account. You can create a [free account](https://azure.microsoft.com/free).
-* An integration account. You can create an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and set up logging. To set up logging, see  [Monitor B2B messages](logic-apps-monitor-b2b-message.md).
+* An integration account. You can create an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and set up logging. To set up logging, see [Monitor B2B messages](logic-apps-monitor-b2b-message.md).
 * A logic app. You can create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) and set up logging. To set up logging, see [Azure Diagnostics and alerts](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
-## Adding Logic Apps B2B solution to Operations Management Suite portal
+## Add Logic Apps B2B solution to Operations Management Suite portal
 
 1. In the Azure portal, select **More Services**, search for log analytics and then select **Log Analytics**.   
 ![Search log analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)  
@@ -54,7 +54,7 @@ B2B communication involves the exchange of messages between two running business
 7. **Logic Apps B2B Messages** appears on the home page.   
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
-## Tracking data in Operations Management Suite portal
+## Track data in Operations Management Suite portal
 
 1. After the messages are processed, the updated message count appears.   
 ![Updated messages](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
@@ -101,11 +101,11 @@ B2B communication involves the exchange of messages between two running business
 
 ## Queries in Operations Management Suite portal
 
-On the search page, you can create a query, and then when you search, you can filter the results by using facet controls.
+On the search page you can create a query. When you search, you can filter the results by using facet controls.
 
-### Creating a query
+### Create a query
 
-1. In the log search, write a query and select **Save**. **Save Search** appears. To write a query, see  [Track B2B messages in the Operations Management Suite portal by using a query](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md).
+1. In the log search, write a query and select **Save**. **Save Search** appears. To write a query, see [Track B2B messages in the Operations Management Suite portal by using a query](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md).
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
 
 2. In **Save Search** add a **name** and **category**, and then select **Save**.   
@@ -116,7 +116,7 @@ On the search page, you can create a query, and then when you search, you can fi
 
     ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery4.png)
 
-### Using a saved query
+### Use a saved query
 
 * In the log search, select **favorites** to view saved queries.  To view query results, select a query.
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
