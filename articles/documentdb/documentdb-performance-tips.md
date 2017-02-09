@@ -48,17 +48,16 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
-```C#
-         var serviceEndpoint = new Uri("https://contoso.documents.net");
-         var authKey = new "your authKey from the Azure portal";
-         DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-         new ConnectionPolicy
-         {
-
-             ConnectionMode = ConnectionMode.Direct,
-             ConnectionProtocol = Protocol.Tcp
-         });
-```
+    ```C#
+    var serviceEndpoint = new Uri("https://contoso.documents.net");
+    var authKey = new "your authKey from the Azure portal";
+    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+    new ConnectionPolicy
+    {
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp
+    });
+    ```
 
     Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
 
@@ -87,7 +86,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
 2. **Use a singleton DocumentDB client for the lifetime of your application**
 
     Note that each DocumentClient instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by DocumentClient, it is recommended to use a single instance of DocumentClient per AppDomain for the lifetime of the application.
-
 
    <a id="max-connection"></a>
 3. **Increase System.Net MaxConnections per host**
@@ -156,12 +154,12 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     DocumentDB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
 
-```C#
+    ```C#
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
-```
+    ```
 
     For more information, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
@@ -178,7 +176,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     To measure the overhead of any operation (create, update, or delete), inspect the x-ms-request-charge header (or the equivalent RequestCharge property in ResourceResponse<T> or FeedResponse<T> in the .NET SDK) to measure the number of request units consumed by these operations.
 
-```C#
+    ```C#
     // Measure the performance (request units) of writes
     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
@@ -189,7 +187,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
               FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>();
               Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
          }
-```             
+    ```             
 
     The request charge returned in this header is a fraction of your provisioned throughput (i.e., 2000 RUs / second). For example, if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before throttling subsequent requests. For more information, see [Request units](documentdb-request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
