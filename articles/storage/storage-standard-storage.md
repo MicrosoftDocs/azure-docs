@@ -21,7 +21,7 @@ ms.author: yuemlu
 
 Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard storage disks for Dev/Test scenarios and less critical workloads, and premium storage disks for mission-critical production applications. Standard Storage is available in all Azure regions. 
 
-This article will focus on the use of standard storage for VM Disks. For more information about the use of storage with blobs, tables, queues, and files, please refer to the [Introduction to Storage](storage-introduction.md)/
+This article will focus on the use of standard storage for VM Disks. For more information about the use of storage with blobs, tables, queues, and files, please refer to the [Introduction to Storage](storage-introduction.md).
 
 ## Disk types
 
@@ -30,7 +30,7 @@ There are two ways to create standard disks for Azure VMs:
 **Unmanaged disks**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 64 TB of storage per VM.
 
-[**Azure Managed Disks**](storage-managed-disks-overview.md)**:
+[**Azure Managed Disks**](storage-managed-disks-overview.md):
 This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don’t have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
 
 Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.

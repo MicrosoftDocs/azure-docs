@@ -30,7 +30,7 @@ With Premium Storage, Azure offers the ability to truly lift-and-shift your dema
 
 There are two ways to create Premium disks for Azure VMs:
 
-**Unmanaged Disks**: 
+**Unmanaged disks**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. 
 
 **[Azure Managed Disks](storage-managed-disks-overview.md)**: 
@@ -40,7 +40,7 @@ Even though both types of disks are available, we recommend using Managed Disks 
 
 To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). 
 
-For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure VM to Managed Disks - Windows](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating an existing Azure Linux VM to Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
+For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure Windows VM to Managed Disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating an existing Azure Linux VM to Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
 > Premium Storage is currently supported in most regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services) by looking at the regions in which the size-series VMs (DS, DSV2, Fs, and GS) are supported.

@@ -69,21 +69,21 @@ create a standard managed disk and specify a provisioned size of 200 GB, you are
 
 Here are the disk sizes available for a premium managed disk:
 
-| **Premium Managed Disk Type**  | **P10** | **P20** | **P30**        |
-|--------------------------------|---------|---------|----------------|
-| Disk Size                      | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+| **Premium Managed <br>Disk Type**  | **P10** | **P20** | **P30**        |
+|------------------|---------|---------|----------------|
+| Disk Size        | 128 GB  | 512 GB  | 1024 GB (1 TB) |
 
 Here are the disk sizes available for a standard managed disk: 
 
-| **Standard Managed Disk Type** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
-|--------------------------------|---------|---------|----------------|---------|----------------|
-| Disk Size                      | 32 GB   | 64 GB   | 128 GB         | 512 GB  | 1024 GB (1 TB) |
+| **Standard Managed <br>Disk Type** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
+|------------------|---------|---------|----------------|---------|----------------|
+| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) |
 
 **Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-*Managed Disk Snapshots (full disk copy):** A Managed Snapshot is a read-only copy of a managed disk which is stored as a standard managed disk. With snapshots, you can back up your managed disks at any point in time. These 
+**Managed Disk Snapshots (full disk copy)**: A Managed Snapshot is a read-only copy of a managed disk which is stored as a standard managed disk. With snapshots, you can back up your managed disks at any point in time. These 
 snapshots exist independent of the source disk and can be used to create new Managed Disks. The cost of a managed snapshot is the same as that for standard managed disk. For example, if you take a snapshot of a 128 GB premium managed disk, then the cost of the managed snapshot is equivalent to a 128 GB standard managed disk.
 
 [Incremental snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
