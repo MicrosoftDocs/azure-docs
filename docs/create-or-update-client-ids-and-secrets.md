@@ -9,7 +9,7 @@ To update expiring client secrets in SharePoint Add-ins:
 1. Generate and add a new client secret in the Seller Dashboard to associate with that particular add-in client ID. For specific steps, see **To generate additional client secrets** in [Update the client secret associated with your client ID](#update-the-client-secret-associated-with-your-client-id) later in this article.
     
  
-2. Update your remote web application to use the new client secret. For information about how to do this using Microsoft Office Developer Tools for Visual Studio, see  **Update the remote web application in Visual Studio to use the new secret** in [Replace an expiring client secret in a SharePoint Add-in](http://msdn.microsoft.com/library/replace-an-expiring-client-secret-in-a-sharepoint-add-in%28Office.15%29.aspx). 
+2. Update your remote web application to use the new client secret. For information about how to do this using Microsoft Office Developer Tools for Visual Studio, see  **Update the remote web application in Visual Studio to use the new secret** in [Replace an expiring client secret in a SharePoint Add-in](https://msdn.microsoft.com/en-us/library/office/dn726681.aspx). 
     
  
 3. Republish your remote web application.
@@ -44,7 +44,7 @@ For example, your add-in could be a trip calendar add-in that opens as an  **IFR
 
  
 
-> **Note:**  For more information about OAuth, client ID and client secrets, see  [Authorization and authentication of SharePoint Add-ins](http://msdn.microsoft.com/library/authorization-and-authentication-of-sharepoint-add-ins%28Office.15%29.aspx),  [Context Token OAuth flow for SharePoint Add-ins](http://msdn.microsoft.com/library/context-token-oauth-flow-for-sharepoint-add-ins%28Office.15%29.aspx), and  [Register SharePoint Add-ins 2013](http://msdn.microsoft.com/library/register-sharepoint-add-ins-2013%28Office.15%29.aspx).
+> **Note:**  For more information about OAuth, client ID and client secrets, see  [Authorization and authentication of SharePoint Add-ins](https://msdn.microsoft.com/en-us/library/office/fp142384.aspx),  [Context Token OAuth flow for SharePoint Add-ins](https://msdn.microsoft.com/en-us/library/office/fp142382.aspx), and  [Register SharePoint Add-ins 2013](https://msdn.microsoft.com/en-us/library/office/jj687469.aspx).
  
 
 
@@ -86,7 +86,7 @@ If your add-in is a service and it will need OAuth client IDs and client secrets
     |**Item**|**Information to provide**|
     |:-----|:-----|
     |Friendly client ID Name|Choose a name to help you recognize which add-in will use this client ID; for example, "calendar app".|
-    |App domain|Provide the domain on which your add-in will run. For example:  `app.contoso.com`This must be a valid domain name that you own; it must not include  `http://` or `https://`; and it must not be an international domain name (IDN).|
+    |App domain|Provide the domain on which your add-in will run. For example: `app.contoso.com`. This must be a valid domain name that you own; it must not include  `http://` or `https://`; and it must not be an international domain name (IDN).|
     |App redirect URL|Provide the redirect URL to send users to after they agree to your add-in's access requirements in the consent dialog box. This URL must start with  `https://`.|
     |Client secret valid for|Choose how long your client secret will be valid. The recommended time period is one year, because this might be easier to track within your business processes than longer periods. However, there is no security impact to choosing a longer period of time. When the client secret is expiring, you will need to update your add-in.|
     |Client ID and secret availability|Choose  **This Client ID will be used for an add-in that is available worldwide**, or  **This Client ID will be used for an add-in that is available in China only**.|
@@ -113,7 +113,7 @@ After you create your client ID and client secret, you can add them to the code 
 
  
 
- >**Note:**  You can add the client ID and client secret to your code at any point in your add-in development process: during development, before testing, or before adding your add-in to the Seller Dashboard. However, to fully test your add-in, we recommend that you add them before you test. You can use the same client ID and secret throughout your add-in development process.If you are unsure where to place the client ID and client secret in your code, refer to the documentation provided for the add-in type you are developing.
+ >**Note:**  You can add the client ID and client secret to your code at any point in your add-in development process: during development, before testing, or before adding your add-in to the Seller Dashboard. However, to fully test your add-in, we recommend that you add them before you test. You can use the same client ID and secret throughout your add-in development process. If you are unsure where to place the client ID and client secret in your code, refer to the documentation provided for the add-in type you are developing.
  
 
 
@@ -125,7 +125,7 @@ After you create your client ID and client secret, you can add them to the code 
      >**Important:**   If you are submitting a SharePoint Add-in that uses OAuth, and you want to distribute it to China, you must use a separate client ID and client secret for China:
 2. Select the friendly name of the OAuth client ID that you want your add-in to use. 
     
-    For more information, see  [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md).
+    For more information, see  [Use the Seller Dashboard to submit apps and add-ins to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md).
     
  
 
@@ -253,16 +253,9 @@ You might want to delete a client ID in certain situations, for example:
 <a name="bk_addresources"> </a>
 
 
--  [Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store](submit-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-office-store.md)
-    
+-  [Submit apps and add-ins to the Office Store](submit-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-office-store.md)  
  
--  [Authorization and authentication of SharePoint Add-ins](http://msdn.microsoft.com/library/authorization-and-authentication-of-sharepoint-add-ins%28Office.15%29.aspx)
-    
- 
--  [Context Token OAuth flow for SharePoint Add-ins](http://msdn.microsoft.com/library/context-token-oauth-flow-for-sharepoint-add-ins%28Office.15%29.aspx)
-    
- 
--  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies.md)
+-  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md)
     
  
 
