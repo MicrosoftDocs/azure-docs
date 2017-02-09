@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: tamram
 
 ---
@@ -30,7 +30,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 ## Subscription quotas
 | **Resource** | **Default Limit** | **Maximum Limit** |
 | --- | --- | --- |
-| Batch accounts per region per subscription |1 |50 |
+| Batch accounts per region per subscription |3 |50 |
 
 ## Batch account quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
