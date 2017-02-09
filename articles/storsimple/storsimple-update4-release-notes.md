@@ -28,7 +28,7 @@ Update 4 can be applied to any StorSimple device running Release (GA) or Update 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
-> * Update 4 has device software, USM firmware, LSI driver and firmware, Storport and Spaceport, security, and other OS updates. It takes approximately 1.5-2 hours to install this update. 
+> * Update 4 has device software, USM firmware, LSI driver and firmware, disk firmware, Storport and Spaceport, security, and other OS updates. It takes approximately 1.5-2 hours to install this update. We recommend that you apply this update to keep your device up-to-date. 
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 ## What's new in Update 4
@@ -43,7 +43,7 @@ The following key improvements and bug fixes have been made in Update 4.
 
     A new feature is implemented in Update 4 that tracks frequently accessed data to create a heatmap when the device is in use prior to DR (Most used data chunks have high heat whereas less used chunks have low heat). After DR, StorSimple uses the heatmap to automatically restore and rehydrate the data from the cloud. 
 
-    All the restores are now heatmap based restores. For more information on how to query and cancel heatmap based restore aand rehydration jobs, go to [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688168.aspx).
+    All the restores are now heatmap based restores. For more information on how to query and cancel heatmap based restore and rehydration jobs, go to [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688168.aspx).
 
 * **StorSimple Diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released to allow for easy diagnosing and troubleshooting of issues related to system, network, performance, and hardware component health. This tool is run via the Windows PowerShell for StorSimple. 
 
@@ -54,6 +54,10 @@ The following key improvements and bug fixes have been made in Update 4.
 * **FIPS-related changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
 
 * **Update changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
+
+* **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release.
+
+* **Controller replacement changes** - A cmdlet that allows the user to query the status of the controller replacement process is added in this release. For more information, go to the [cmdlet to query controller replacement status](https://technet.microsoft.com/library/dn688168.aspx).
 
 
 ## Issues fixed in Update 4
@@ -68,14 +72,10 @@ The following table provides a summary of issues that were fixed in Update 4.
 | 4 |Monitoring |In previous release, there an issue related to monitoring charts for locally pinned volumes where consumption was shown in EB. This bug is resolved in this release. |Yes |Yes |
 | 5 |Migration |In previous release, there were several issues related to the reliability of migration from 5000-7000 series to 8000 series devices. These issues have been addressed in this release. |Yes |Yes |
 
-## Known issues in Update 4
-
-The following table provides a summary of known issues release noted for this release. 
-
 
 ## Known issues in Update 4 from previous releases
 
-For a list of issues carried over to Update 4 from previous releases, go to [Update 3 release notes](storsimple-update3-release-notes.md#known-issues-in-update-3).
+There are no new known issues in Update 4. For a list of issues carried over to Update 4 from previous releases, go to [Update 3 release notes](storsimple-update3-release-notes.md#known-issues-in-update-3).
 
 ## Serial-attached SCSI (SAS) controller and firmware updates in Update 4
 
