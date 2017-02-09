@@ -112,7 +112,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 6. When finished, click the **Done** button.
 
 > [!NOTE]
-> Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the Permissions to other applications that you configured.  You can view these application permissions by looking at the application Properties tab.
+> Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the permissions to other applications that you configured.  You can view these application permissions by looking at the application **Settings** blade.
 > 
 > 
 
