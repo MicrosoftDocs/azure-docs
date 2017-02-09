@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/08/2017
 ms.author: jingwang
 
 ---
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
-This article outlines how you can use Copy Activity in Azure Data Factory to move data from/to Azure SQL Data Warehouse to/from another data store.
+This article outlines how you can use the Copy Activity in Azure Data Factory to move data from/to Azure SQL Data Warehouse to/from another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity, and a list of source/sink data stores.
 
 > [!TIP]
 > To achieve best performance, use PolyBase to load data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
@@ -27,15 +27,11 @@ This article outlines how you can use Copy Activity in Azure Data Factory to mov
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Load data into SQL Data Warehouse with Data Factory](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
+> [!TIP]
+> When copy data from SQL Server or Azure SQL Database into Azure SQL Data Warehouse, if the table does not exist in the destination store, Data Factory support auto create table using source's schema. Proper data type conversion may happen if needed to fix the incompatibility between source and destination stores. Try it out using copy wizard.
+>
+
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
-
-
-> [!NOTE]
-> For an overview of the Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
->
-> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory.
->
->
 
 ## Sample: Copy data from Azure SQL Data Warehouse to Azure Blob
 The sample defines the following Data Factory entities:
