@@ -23,9 +23,12 @@
 ### Basics
 #### [Programming model](service-fabric-choose-framework.md)
 #### [Application model](service-fabric-application-model.md)
+#### [Service state](service-fabric-concepts-state.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
+#### [Add a web front end](service-fabric-add-a-web-frontend.md)
 #### [Service manifest resources](service-fabric-service-manifest-resources.md)
-#### [Tools](service-fabric-manage-application-in-visual-studio.md)
+#### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+#### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Debug
 ##### [Debug a C# service in VS](service-fabric-debugging-your-application.md)
 ##### [Debug a Java service in Eclipse](service-fabric-debugging-your-application-java.md)

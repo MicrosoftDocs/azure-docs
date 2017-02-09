@@ -77,9 +77,7 @@
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analyze real-time tweets](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Create clusters on a virtual network](hdinsight-hbase-provision-vnet.md)
-### [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [Configure DNS servers](hdinsight-hbase-geo-replication-configure-dns.md)
-### [Configure HBase geo-replication](hdinsight-hbase-geo-replication.md)
+### [Configure HBase replication](hdinsight-hbase-replication.md)
 ### [Develop an app with Java](hdinsight-hbase-build-java-maven-linux.md)
 ## Use Storm
 ### [Deploy and manage topologies](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +196,6 @@
 ### [Start with Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Start with Storm](hdinsight-apache-storm-tutorial-get-started.md)
 ### [Start with HBase](hdinsight-hbase-tutorial-get-started.md)
-### [HDInsight Sample Gallery](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Run Hadoop MapReduce samples](hdinsight-run-samples.md)
 ### [Create Hadoop clusters](hdinsight-provision-clusters.md)
 #### [Use the Azure portal](hdinsight-hadoop-create-windows-clusters-portal.md)

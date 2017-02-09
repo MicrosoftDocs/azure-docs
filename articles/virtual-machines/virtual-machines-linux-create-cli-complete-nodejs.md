@@ -232,7 +232,7 @@ azure vm create \
     --storage-account-name mystorageaccount \
     --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
 
 Create the second Linux VM. The following example creates a VM named `myVM2`:
@@ -250,7 +250,7 @@ azure vm create \
     --storage-account-name mystorageaccount \
     --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
 
 Use the JSON parser to verify that everything that was built:
@@ -1137,7 +1137,7 @@ azure vm create \
   --storage-account-name mystorageaccount \
   --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
   --ssh-publickey-file ~/.ssh/id_rsa.pub \
-  --admin-username ops
+  --admin-username azureuser
 ```
 
 Output:
@@ -1202,7 +1202,7 @@ azure vm create \
   --storage-account-name mystorageaccount \
   --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
   --ssh-publickey-file ~/.ssh/id_rsa.pub \
-  --admin-username ops
+  --admin-username azureuser
 ```
 
 And you can now use the `azure vm show myResourceGroup myVM1` command to examine what you've created. At this point, you're running your Ubuntu VMs behind a load balancer in Azure that you can sign into only with your SSH key pair (because passwords are disabled). You can install nginx or httpd, deploy a web app, and see the traffic flow through the load balancer to both of the VMs.
