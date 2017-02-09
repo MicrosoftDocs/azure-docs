@@ -169,9 +169,9 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
 || Defaults(s) | Min(s) | Max(s) |
-|--- | --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |0.25
-| AggregateEmotionIntervalMs |0.5 |1 |0.25
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0.5 |2 |0.25|
+| AggregateEmotionIntervalMs |0.5 |1 |0.25|
 
 ### JSON output
 JSON output for aggregate emotion (truncated):
