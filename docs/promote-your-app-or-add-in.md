@@ -13,9 +13,9 @@ After you submit your app or add-in to the Seller Dashboard and it is approved f
 
 |**Badge size**|**How it looks**|
 |:-----|:-----|
-|Small|![Screenshot of the small-sized Office Store badge](images/60a9da08-8a1c-4b2b-82e6-215e116c7fa3.png)|
-|Medium|![Screenshot of the medium-sized Office Store badge](images/0da977b2-a5f4-43a4-971d-9b4a2b089545.png)|
-|Large|![Screenshot of the large-sized Office Store badge](images/8ae64033-d9b3-43a1-b393-afd2212f52fe.png)|
+|Small|![Screenshot of the small-sized Office Store badge](../../images/60a9da08-8a1c-4b2b-82e6-215e116c7fa3.png)|
+|Medium|![Screenshot of the medium-sized Office Store badge](../../images/0da977b2-a5f4-43a4-971d-9b4a2b089545.png)|
+|Large|![Screenshot of the large-sized Office Store badge](../../images/8ae64033-d9b3-43a1-b393-afd2212f52fe.png)|
 3. Add the badge to your app or add-in webpage, directly following the link. This will make it clear to your users that they can download your app or add-in from the Office Store. 
     
  
@@ -32,21 +32,13 @@ The following guidelines apply to using the Office Store badge on your webpage:
  
 
 - Make the Office Store badge visually distinct. Do not overlap it with or incorporate it within any other icon or brand image on your page.
-    
- 
-- Do not modify the badge.
-    
- 
-- Do not make the badge the primary element on your webpage.
-    
- 
+- Do not modify the badge. 
+- Do not make the badge the primary element on your webpage. 
 - Do not use the badge on any pages that violate laws or regulations or that contain otherwise objectionable content. This includes pages that contain or display adult content, promote gambling, promote violence, or contain hate speech.
-    
- 
 - Make sure that when users choose the badge, the link opens your page in the Office Store, and that your app or add-in is available in the Office Store.
     
  
-If you need a localized version of the badge,  [contact us](http://officespdev.uservoice.com/).
+If you need a localized version of the badge, [contact us](http://officespdev.uservoice.com/).
  
 
  
@@ -59,17 +51,15 @@ When you link from the Office Store badge on your site to your app or add-in in 
  
 
 - mktcmpid=Your marketing campaign ID, which can include up to 16 characters (any letter, number, _, and -). For example, blogpost_12.
-    
- 
 - mktvid=Your Store Provider ID, which is included in the URL of your Store Provider page. For example, PN102957641.
     
  
 The following example shows a URL that includes the two query parameters:
  
 
- 
+``` 
 https://store.office.com/app.aspx?assetid=WA102957661&amp;mktcmpid=refexample&amp;mktvid=PN102957641
- 
+``` 
 
  
 Adding these parameters to your Office Store URL will enable us to provide more information about where your customers are coming from. In the future, when you include your Store Provider ID, we can provide you counts of the number of customers who go to the Office Store from your webpage.
@@ -80,7 +70,7 @@ Adding these parameters to your Office Store URL will enable us to provide more 
 ## Track your campaign performance and customize your add-in for targeted audiences
 
 
- **Note**  This currently applies to Word, Excel, and PowerPoint add-ins that are free in the Office Store.
+ >**Note:**  This currently applies to Word, Excel, and PowerPoint add-ins that are free in the Office Store.
  
 
 When you link from your promotional campaigns to your free Word, Excel, or PowerPoint add-in page in the Office Store, include the following query parameters at the end of the URL: 
@@ -89,17 +79,14 @@ When you link from your promotional campaigns to your free Word, Excel, or Power
  
 
 - mktcmpid=Your marketing campaign ID, which can include up to 16 characters (any letter, number, _, and -). For example, blogpost_12. 
-    
- 
 - mktvid=Your Store Provider ID, which is included in the URL of your Store Provider page. For example, PN102957641. 
-    
  
 The following example shows a URL that includes the two query parameters: 
  
 
- 
+```
 https://store.office.com/app.aspx?assetid=WA102957661&amp;mktcmpid=refexample&amp;mktvid=PN102957641 
- 
+``` 
 
  
 Adding these parameters to your campaign URL will enable us to provide more information about your campaign's user funnel.
@@ -134,9 +121,7 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 
 
 -  [Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store](ssubmit-add-ins-and-web-apps-to-the-office-store.md) 
- 
 -  [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
- 
 -  [SharePoint Add-ins](http://msdn.microsoft.com/library/sharepoint-add-ins%28Office.15%29.aspx)
     
  
