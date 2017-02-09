@@ -21,7 +21,7 @@ ms.author: vikdesai
 # Set up billing alerts for your Microsoft Azure subscriptions
 If you’re the Account Admin for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.
 
-This service is in preview, so you need to enable it in the the Preview Features page first.
+This service is in preview, so you need to enable it in the Preview Features page first.
 
 ## Set the alert threshold and email recipients
 1. Visit [the Preview Features page](https://account.windowsazure.com/PreviewFeatures) and enable **Billing Alert Service**.
@@ -30,11 +30,11 @@ This service is in preview, so you need to enable it in the the Preview Features
 
     ![Screenshot of the subscriptions view of Azure Account center, with Alerts highlighted][Image1]
 
-2. Next, click **Add Alert** to create your first one - you can set up a total of five billing alerts per subscription, with a different threshold and up to two email recipients for each alert.
+2. Next, click **Add Alert** to create your first one. You can set up a total of five billing alerts per subscription, with a different threshold and up to two email recipients for each alert.
 
     ![Screenshot of the Alerts view, where you can add alert][Image2]
 
-3. When you add an alert, you give it a unique name, choose a spending threshold, and choose the email addresses where alerts will be sent. When setting up the threshold, you can choose either a **Billing Total** or a **Monetary Credit** from the **Alert For** list. For a billing total, an alert is sent when subscription spending exceeds the threshold. For a monetary credit, an alert is sent when monetary credits drop below the limit. Monetary credits usually apply to Free Trial and Visual Studio subscriptions.
+3. When you add an alert, you give it a unique name, choose a spending threshold, and choose the email addresses where alerts are sent. When setting up the threshold, you can choose either a **Billing Total** or a **Monetary Credit** from the **Alert For** list. For a billing total, an alert is sent when subscription spending exceeds the threshold. For a monetary credit, an alert is sent when monetary credits drop below the limit. Monetary credits usually apply to Free Trial and Visual Studio subscriptions.
 
     ![Screenshot of the alert addition view, where you can configure recipients][Image3]
 
