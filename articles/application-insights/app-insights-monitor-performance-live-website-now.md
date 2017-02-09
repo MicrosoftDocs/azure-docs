@@ -52,7 +52,6 @@ You need a [Microsoft Azure](http://azure.com) subscription.
     ![Set up Application Insights for an Azure web app](./media/app-insights-monitor-performance-live-website-now/azure-web-setup.png)
 * When the Application Insights summary page opens, click the link at the bottom to open the full Application Insights resource.
 
-
     ![Click through to Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Learn more about monitoring Azure apps with Application Insights](app-insights-azure.md).
