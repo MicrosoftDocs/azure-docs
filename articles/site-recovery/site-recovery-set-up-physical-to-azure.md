@@ -26,7 +26,7 @@ This article describes how to set up your on-premises environment to start repli
 
 ## Prerequisites
 
-The article assumes that you already have
+The article assumes that you already have:
 1. A Recovery Services vault in the [Azure portal](http://portal.azure.com "Azure portal").
 3. A physical computer on which to install the configuration server.
 
