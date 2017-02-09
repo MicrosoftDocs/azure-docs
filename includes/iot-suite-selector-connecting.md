@@ -39,11 +39,11 @@ When the provisioning process for the remote monitoring solution finishes, click
 
 ### Provision your device in the remote monitoring solution
 > [!NOTE]
-> If you have already provisioned a device in your solution, you can skip this step. You will need to know the device credentials when you create the client application.
+> If you have already provisioned a device in your solution, you can skip this step. You need to know the device credentials when you create the client application.
 > 
 > 
 
-For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial. 
+For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial.
 
 To add a new device to your remote monitoring solution, complete the following steps in the solution dashboard:
 

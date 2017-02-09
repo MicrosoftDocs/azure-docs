@@ -1,5 +1,7 @@
 ## View device telemetry in the dashboard
-The dashboard in the remote monitoring solution enables you to view the telemetry that your devices send to IoT Hub.
+The dahshboard in the remote monitoring solution enables you to view the telemetry your devices send to IoT Hub.
+
+This is a very long sentence that that has some gramatical error and must exceed 30 words if its to trigger acrolinx telling me that some things need fixing before the pull request can be accepted by a pull request reviewer, or else acrolinx is not doing its job right.
 
 1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
 2. In the **Devices list**, you should see that the status of your device is now **Running**.
