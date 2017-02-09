@@ -29,12 +29,12 @@ This topic demonstrates the various ways to test functions, including using the 
 + Timer-triggered function.
 + Testing application or framework.  
 
-All of these testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You create this function in the first section.
+All these testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You create this function in the first section.
 
 ## Create a function for testing
-For most of this tutorial, we use a slightly modified version of the HttpTrigger JavaScript function template that is available when you create a new function. If you need help creating a new function, review this [tutorial](functions-create-first-azure-function.md). Just choose the **HttpTrigger- JavaScript** template when creating the test function in the [Azure portal].
+For most of this tutorial, we use a slightly modified version of the HttpTrigger JavaScript function template that is available when you create a function. If you need help creating a function, review this [tutorial](functions-create-first-azure-function.md). Choose the **HttpTrigger- JavaScript** template when creating the test function in the [Azure portal].
 
-The default function template is basically a "hello world" function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We'll update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client when available.   
+The default function template is basically a "hello world" function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We'll update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function echoes these back to the client when available.   
 
 Update the function with the following code, which we will use for testing:
 
@@ -81,12 +81,12 @@ function ProcessNewUserInformation(context, name, address) {
 ```
 
 ## Test a function with tools
-Outside of the Azure portal, there are various tools that you can use to trigger your functions for testing. These include HTTP testing tools (both UI-based and command-line), Azure Storage access tools, and even a simple web browser.
+Outside of the Azure portal, there are various tools that you can use to trigger your functions for testing. These include HTTP testing tools (both UI-based and command line), Azure Storage access tools, and even a simple web browser.
 
 ### Test with a browser
 The web browser is a simple way to trigger functions via HTTP. You can use a browser for GET requests that do not require a body payload, and that use only query string parameters.
 
-To test the function we defined above, copy the **Function Url** from the portal. It will have the following form:
+To test the function we defined above, copy the **Function Url** from the portal. It has the following form:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
@@ -153,13 +153,13 @@ In the portal **Logs** window, output similar to the following is logged while e
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
 ### Test with cURL from the command line
-Often when testing software, it's not necessary to look any further than the command-line to help debug your application. This is no different with testing functions. Note that the cURL is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
+Often when testing software, it's not necessary to look any further than the command line to help debug your application. This is no different with testing functions. Note that the cURL is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
 
-To test the function above, copy the **Function URL** from the portal. It will have the following form:
+To test the function above, copy the **Function URL** from the portal. It has the following form:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-This is the URL for triggering your function. Test this by using the cURL command on the command-line to make a GET (`-G` or `--get`) request against the function:
+This is the URL for triggering your function. Test this by using the cURL command on the command line to make a GET (`-G` or `--get`) request against the function:
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
@@ -167,7 +167,7 @@ This particular example requires a query string parameter, which can be passed a
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
 
-Run the command, and you see the following output of the function on the command-line:
+Run the command, and you see the following output of the function on the command line:
 
 ![Screenshot of Command Prompt output](./media/functions-test-a-function/curl-test.png)
 
@@ -181,7 +181,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 ### Test a blob trigger by using Storage Explorer
 You can test a blob trigger function by using [Azure Storage Explorer](http://storageexplorer.com/).
 
-1. In the [Azure portal] for your Functions app, create a new C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
+1. In the [Azure portal] for your Functions app, create a C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
 
         files
 2. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
@@ -229,7 +229,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 
 ### Test with a timer trigger
-Some functions can't be adequately tested with the tools mentioned previously. For example, consider a queue trigger function that runs when a message is dropped into [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md). You could always write code to drop a message into your queue, and an example of this in a console project is provided below. However, there is another approach you can use that tests functions directly.  
+Some functions can't be adequately tested with the tools mentioned previously. For example, consider a queue trigger function that runs when a message is dropped into [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md). You could always write code to drop a message into your queue, and an example of this in a console project is provided later in this article. However, there is another approach you can use that tests functions directly.  
 
 You could use a timer trigger configured with a queue output binding. That timer trigger code could then write the test messages to the queue. This section walks through an example.
 
@@ -239,7 +239,7 @@ For more in-depth information on using bindings with Azure Functions, see the [A
 To demonstrate this approach, we first create a queue trigger function that we want to test for a queue named `queue-newusers`. This function processes name and address information dropped into Queue storage for a new user.
 
 > [!NOTE]
-> If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules. Otherwise, you will get an error.
+> If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules. Otherwise, you get an error.
 >
 >
 
@@ -257,10 +257,10 @@ To demonstrate this approach, we first create a queue trigger function that we w
         */30 * * * * *
 3. Click the **Integrate** tab for your new timer trigger.
 4. Under **Output**, click **+ New Output**. Then click **queue** and **Select**.
-5. Note the name you use for the **queue message object**. You will use this in the timer function code.
+5. Note the name you use for the **queue message object**. You use this in the timer function code.
 
         myQueue
-6. Enter the queue name where the message will be sent:
+6. Enter the queue name where the message is sent:
 
         queue-newusers
 7. Click the **+** button to select the storage account you used previously with the queue trigger. Then click **Save**.
@@ -375,7 +375,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 ### Test a queue trigger function with code: C# #
 We mentioned earlier that you could test a queue trigger by using code to drop a message in your queue. The following example code is based on the C# code presented in the [Getting started with Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md) tutorial. Code for other languages is also available from that link.
 
-To test this code in a console app you must:
+To test this code in a console app, you must:
 
 * [Configure your storage connection string in the app.config file](../storage/storage-dotnet-how-to-use-queues.md).
 * Pass a `name` and `address` as parameters to the app. For example, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (This code accepts the name and address for a new user as command-line arguments during runtime.)
