@@ -40,7 +40,7 @@ This article summarizes what's supported when you use Azure Site Recovery to rep
 **Deployment** | **Support**
 --- | ---
 **VMware VM/physical server** | vSphere 6.0, 5.5, or 5.1 with latest update
-**Hyper-V (with VMM)** | SCVMM 2016 and SCVMM 2012 R2
+**Hyper-V (with VMM)** | VMM 2016 and VMM 2012 R2
 
   >[!Note]
   > VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.
@@ -51,7 +51,7 @@ This article summarizes what's supported when you use Azure Site Recovery to rep
 --- | ---
 **VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
 **Hyper-V (no VMM)** | Not a supported configuration for replicating to a secondary site
-**Hyper-V with VMM** | Windows Server 2016 and Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by SCVMM 2016.
+**Hyper-V with VMM** | Windows Server 2016 and Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by VMM 2016.
 
 ## Support for replicated machine OS versions
 The following table summarizes operating system support in various deployment scenarios encountered while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
@@ -64,9 +64,9 @@ The following table summarizes operating system support in various deployment sc
 >Only Linux machines with the following storage can be replicated:
 >File system (EXT3, ETX4, ReiserFS, XFS);
 >Multipath software-device Mapper;
->Volume manager: (LVM2);
+>Volume manager (LVM2).
 >Physical servers with HP CCISS controller storage are not supported.
->The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3.
+>The ReiserFS file system is supported only on SUSE Linux Enterprise Server 11 SP3.
 
 ## Network configuration
 
