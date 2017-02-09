@@ -40,10 +40,10 @@ The following table lists the minimum hardware, software, and network requiremen
 ## Choose your protection goals
 
 1. In the Azure portal, go to the **Recovery Services** vaults blade and select your vault.
-2. In the **Resource** menu of the vault click **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
+2. In the **Resource** menu of the vault, click **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-set-up-physical-to-azure/choose-goals.png)
-3. In **Protection goal**, select **To Azure**,  **Not virtualized/Other**, and then click **OK**.
+3. In **Protection goal**, select **To Azure** and **Not virtualized/Other**, and then click **OK**.
 
     ![Choose goals](./media/site-recovery-set-up-physical-to-azure/physical-protection-goal.PNG)
 
@@ -77,4 +77,3 @@ The following table lists the minimum hardware, software, and network requiremen
 
 ## Next steps
 Next steps involve [setting up your target environment](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) in Azure.
- 

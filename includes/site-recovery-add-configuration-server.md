@@ -39,4 +39,4 @@
 
 	![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-After registration finishes, the server is displayed in the **Settings** > **Servers** blade in the vault.
+After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.
