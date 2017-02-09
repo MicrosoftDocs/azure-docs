@@ -252,10 +252,11 @@ When using Premium Storage, the following billing considerations apply:
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-For detailed information on pricing for Premium Storage and Premium Storage-supported VMs, see:
+For detailed information on pricing for Premium Storage, Premium Storage-supported VMs, and Managed Disks, see:
 
 * [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/)
 * [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## Backup
 

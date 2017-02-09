@@ -91,11 +91,15 @@ To learn more about how to create snapshots with Managed Disks, please check out
 * [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 
-For detailed information on pricing for Managed Disks, see [Azure Storage Pricing](https://azure.microsoft.com/en-us/pricing/details/storage).
+For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks).
 
 ## Images
 
 Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a running VM. This captures in a single image all managed disks associated with a running VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+
+For information on creating images, please check out the following articles:
+* [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-capture-image.md)
 
 ## Images versus snapshots
 
@@ -108,7 +112,7 @@ What if you have a VM has five disks and they are striped? You could take a snap
 
 ## Azure Backup service support 
 
-You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies.<!-- You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup#using-managed-disk-vms-with-azure-backup). -->
+You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup#using-managed-disk-vms-with-azure-backup). 
 
 ## Next steps
 
@@ -133,6 +137,6 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Operational guidance
 
-* [Migrate AWS and on-premises VMs to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+* [Migrate from AWS and other platforms to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
 
 * [Convert Azure VMs to managed disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
