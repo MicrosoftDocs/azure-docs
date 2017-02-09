@@ -27,12 +27,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 > 
 > 
 
-## Subscription quotas
-| **Resource** | **Default Limit** | **Maximum Limit** |
-| --- | --- | --- |
-| Batch accounts per region per subscription |3 |50 |
-
-## Batch account quotas
+## Resource quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## Other limits
