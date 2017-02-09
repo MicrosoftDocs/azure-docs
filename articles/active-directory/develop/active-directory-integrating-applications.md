@@ -92,7 +92,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 * Delegated Permissions: Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission is configured as requiring administrator consent. 
 
 > [!NOTE]
-> Adding a delegated permission to an application does not automatically grant consent to the users within the tenant. The users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
+> Adding a delegated permission to an application does not automatically grant consent to the users within the tenant, as it did in the Azure Classic Portal. The users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
 
 #### To add credentials, or permissions to access web APIs
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -112,7 +112,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 6. When finished, click the **Done** button.
 
 > [!NOTE]
-> Clicking the Done button also automatically sets the permissions for your application in your directory based on the Permissions to other applications that you configured.  You can view these application permissions by looking at the application Properties tab.
+> Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the Permissions to other applications that you configured.  You can view these application permissions by looking at the application Properties tab.
 > 
 > 
 
