@@ -30,9 +30,11 @@ To support add-in license testing, the Office Store verification web service doe
 ## Elements
 
 **r**
+
 Required. The root element.
  
 **t**
+
 Required. Contains attributes that represent various properties of the add-in license.
 
 ### Attributes
