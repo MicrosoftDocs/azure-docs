@@ -1,4 +1,4 @@
-02---
+---
 title: Microsoft Azure StorSimple and Cloud Solutions Provider Program Overview | Microsoft Docs
 description: An overview about the StorSimple and CSP for StorSimple partners.
 services: storsimple
