@@ -1,4 +1,4 @@
----
+﻿---
 title: SAP NetWeaver on Azure VMs – Planning and Implementation | Microsoft Docs
 description: SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide
 services: virtual-machines-windows
