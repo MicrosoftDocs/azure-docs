@@ -35,9 +35,9 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 | SKU Family | ACU/Core |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
+| [A0](#a-series) |50 |
+| [A1-4](#a-series) |100 |
+| [A5-7](#a-series) |100 |
 | [Standard_A1-8v2](#av2-series) |100 |
 | [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
@@ -64,14 +64,14 @@ The following tables show the sizes and the capacities they provide.
 ## A-series
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 |1 |0.768 |20 |1 |1x500 |1 / low |
-| Standard_A1 |1 |1.75 |70 |2 |2x500 |1 / moderate |
-| Standard_A2 |2 |3.5 |135 |4 |4x500 |1 / moderate |
-| Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
-| Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
-| Standard_A5 |2 |14 |135 |4 |4X500 |1 / moderate |
-| Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
-| Standard_A7 |8 |56 |605 |16 |16x500 |4 / high |
+| A0 |1 |0.768 |20 |1 |1x500 |1 / low |
+| A1 |1 |1.75 |70 |2 |2x500 |1 / moderate |
+| A2 |2 |3.5 |135 |4 |4x500 |1 / moderate |
+| A3 |4 |7 |285 |8 |8x500 |2 / high |
+| A4 |8 |14 |605 |16 |16x500 |4 / high |
+| A5 |2 |14 |135 |4 |4X500 |1 / moderate |
+| A6 |4 |28 |285 |8 |8x500 |2 / high |
+| A7 |8 |56 |605 |16 |16x500 |4 / high |
 
 <br>
 
@@ -80,10 +80,10 @@ For information and considerations about using these sizes, see [About the H-ser
 
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2 / high |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4 / very high |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2 / high |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4 / very high |
+| A8* |8 |56 |382 |16 |16x500 |2 / high |
+| A9* |16 |112 |382 |16 |16x500 |4 / very high |
+| A10 |8 |56 |382 |16 |16x500 |2 / high |
+| A11 |16 |112 |382 |16 |16x500 |4 / very high |
 
 *RDMA capable
 
@@ -294,11 +294,11 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 ## Notes: Standard A0 - A4 using CLI and PowerShell
 In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
 
-* Standard_A0 is ExtraSmall 
-* Standard_A1 is Small
-* Standard_A2 is Medium
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
+* Basic_A0 is ExtraSmall 
+* Basic_A1 is Small
+* Basic_A2 is Medium
+* Basic_A3 is Large
+* Basic_A4 is ExtraLarge
 
 ## Next steps
 * Learn about [azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
