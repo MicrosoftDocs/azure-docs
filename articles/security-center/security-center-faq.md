@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 02/08/2017
 ms.author: terrylan
 
 ---
@@ -68,7 +68,7 @@ Data collection is enabled via the Azure Monitoring Agent and the Azure Security
 The agent and extension consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### Where is my data stored?
-For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.) When you select a subscription, a new blade opens. To select a region, select **Choose storage accounts**.
+For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.) When you select a subscription, a new blade opens. To select a region, select **Choose storage accounts**. If you do not choose a storage account for each region, a storage account is created for you and placed in the securitydata resource group.
 
 > [!NOTE]
 > Security policies can be set at the Azure subscription level and resource group level but selecting a region for your storage account occurs at the subscription level only.

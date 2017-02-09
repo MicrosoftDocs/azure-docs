@@ -26,7 +26,7 @@ This article shows you how to attach both new and existing disks to a Windows vi
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
 * For an existing disk, the .vhd file must be available in an Azure storage account. You can use a .vhd that's already there, if it's not attached to another virtual machine, or upload your own .vhd file to the storage account.
 
-You can also [attach a data disk using Powershell](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine).
+You can also [attach a data disk using Powershell](virtual-machines-windows-attach-disk-ps.md).
 
 
 ## Find the virtual machine
