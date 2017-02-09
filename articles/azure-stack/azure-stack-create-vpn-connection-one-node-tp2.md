@@ -411,12 +411,15 @@ You need to follow these steps in BOTH POC environments.
     for PHASE 1 of the IPSEC tunnel.
    
         Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1 -ExternalPort 500 -InternalPort 500
->    [!NOTE] The `-InternalAddress` parameter here is the Public IP Address of the Virtual Network Gateway you created earlier.  To find this IP address, look at the properties of the Virtual Network Gateway blade, and find the value for the Public IP Address.       
+> [!NOTE] 
+> The `-InternalAddress` parameter here is the Public IP Address of the Virtual Network Gateway you created earlier.  To find this IP address, look at the properties of the Virtual Network Gateway blade, and find the value for the Public IP Address.       
+
 9. Finally, you must configure NAT traversal which uses port 4500 to
    successfully establish the complete IPEC tunnel over NAT devices.
    
         Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1 -ExternalPort 4500 -InternalPort 4500
->    [!NOTE] The `-InternalAddress` parameter here is the Public IP Address of the Virtual Network Gateway you created earlier.  To find this IP address, look at the properties of the Virtual Network Gateway blade, and find the value for the Public IP Address.       
+> [!NOTE] 
+> The `-InternalAddress` parameter here is the Public IP Address of the Virtual Network Gateway you created earlier.  To find this IP address, look at the properties of the Virtual Network Gateway blade, and find the value for the Public IP Address.       
 
 10. Repeat steps 1-9 in POC2.
 
