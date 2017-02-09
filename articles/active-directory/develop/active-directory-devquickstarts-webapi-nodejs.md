@@ -1,5 +1,5 @@
 
-title: Azure AD Node.js getting started | Microsoft Docs
+'title: Azure AD Node.js getting started | Microsoft Docs'
 description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
@@ -91,7 +91,7 @@ We are using restify to build our REST API. restify is a minimal and flexible No
 ### Install restify
 From the command-line, change directories to the **azuread** directory. If the **azuread** directory does not exist, create it.
 
-`cd azuread - or- mkdir azuread; cd azuread`
+    `cd azuread - or- mkdir azuread; cd azuread`
 
 Type the following command:
 
@@ -206,129 +206,127 @@ We use MongoDB as our datastore. For that reason, we need to install both the wi
 ## 9.  Install additional modules
 Next we install the remaining required modules.
 
-From the command-line, change directories to the **azuread** folder if you're not already there:
+1. From the command-line, change directories to the **azuread** folder if you're not already there:
 
-`cd azuread`
+    `cd azuread`
 
-Enter the following commands to install these modules in your **node_modules** directory:
+2. Enter the following commands to install these modules in your **node_modules** directory:
 
-* `npm install assert-plus`
-* `npm install bunyan`
-* `npm update`
+    * `npm install assert-plus`
+    * `npm install bunyan`
+    * `npm update`
 
 ## 10. Create a server.js with your dependencies
 The server.js file provides most of the functionality for our web API server. We add most of our code to this file. For production purposes, we recommend that you refactor the functionality in to smaller files, such as separate routes and controllers. In this demo, we use server.js for this functionality.
 
-From the command-line, change directories to the **azuread** folder if not already there:
+1. From the command-line, change directories to the **azuread** folder if not already there:
 
-`cd azuread`
+    `cd azuread`
 
-Create a `server.js` file in your favorite editor, and then add the following information:
+2. Create a `server.js` file in your favorite editor, and then add the following information:
 
-```Javascript
-    'use strict';
+    ```Javascript
+        'use strict';
 
-    /**
-     * Module dependencies.
-     */
+        /**
+         * Module dependencies.
+         */
 
-    var fs = require('fs');
-    var path = require('path');
-    var util = require('util');
-    var assert = require('assert-plus');
-    var bunyan = require('bunyan');
-    var getopt = require('posix-getopt');
-    var mongoose = require('mongoose/');
-    var restify = require('restify');
-    var passport = require('passport');
-  var BearerStrategy = require('passport-azure-ad').BearerStrategy;
-```
+        var fs = require('fs');
+        var path = require('path');
+        var util = require('util');
+        var assert = require('assert-plus');
+        var bunyan = require('bunyan');
+        var getopt = require('posix-getopt');
+        var mongoose = require('mongoose/');
+        var restify = require('restify');
+        var passport = require('passport');
+      var BearerStrategy = require('passport-azure-ad').BearerStrategy;
+    ```
 
-Save the file. We return to it shortly.
+3. Save the file. We return to it shortly.
 
 ## 11. Create a config file to store your Azure AD settings
 This code file passes the configuration parameters from your Azure Active Directory portal to Passport.js. You created these configuration values when you added the web API to the portal in the first part of the walkthrough. We explain what to put in the values of these parameters after you copy the code.
 
-From the command-line, change directories to the **azuread** folder if you're not already there:
+1. From the command-line, change directories to the **azuread** folder if you're not already there:
 
-`cd azuread`
+    `cd azuread`
 
-Create a `config.js` file in your favorite editor, and then add the following information:
+2. Create a `config.js` file in your favorite editor, and then add the following information:
 
-```Javascript
- exports.creds = {
-     mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-     clientID: 'your client ID',
-     audience: 'your application URL',
-    // you cannot have users from multiple tenants sign in to your server unless you use the common endpoint
-  // example: https://login.microsoftonline.com/common/.well-known/openid-configuration
-     identityMetadata: 'https://login.microsoftonline.com/<your tenant id>/.well-known/openid-configuration',
-     validateIssuer: true, // if you have validation on, you cannot have users from multiple tenants sign in to your server
-     passReqToCallback: false,
-     loggingLevel: 'info' // valid are 'info', 'warn', 'error'. Error always goes to stderr in Unix.
+    ```Javascript
+         exports.creds = {
+             mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
+             clientID: 'your client ID',
+             audience: 'your application URL',
+            // you cannot have users from multiple tenants sign in to your server unless you use the common endpoint
+          // example: https://login.microsoftonline.com/common/.well-known/openid-configuration
+             identityMetadata: 'https://login.microsoftonline.com/<your tenant id>/.well-known/openid-configuration',
+             validateIssuer: true, // if you have validation on, you cannot have users from multiple tenants sign in to your server
+             passReqToCallback: false,
+             loggingLevel: 'info' // valid are 'info', 'warn', 'error'. Error always goes to stderr in Unix.
 
- };
-
-
-```
-Save the file.
+         };
+    ```
+3. Save the file.
 
 ## 12. Add configuration values to your server.js file
 We need to read these values from the .config file that you created across our application. To do this, we add the .config file as a required resource in our application, and then set the global variables to match the variables in the config.js document.
 
-From the command-line, change directories to the **azuread** folder if you're not already there:
+1. From the command-line, change directories to the **azuread** folder if you're not already there:
 
-`cd azuread`
+    `cd azuread`
 
-Open your `server.js` file in our favorite editor, and then add the following information:
+2. Open your `server.js` file in our favorite editor, and then add the following information:
 
-```Javascript
-var config = require('./config');
-```
-Then add a new section to `server.js` with the following code:
+    ```Javascript
+    var config = require('./config');
+    ```
+3. Then add a new section to `server.js` with the following code:
 
-```Javascript
-var options = {
-    // The URL of the metadata document for your app. We will put the keys for token validation from the URL found in the jwks_uri tag of the in the metadata.
-    identityMetadata: config.creds.identityMetadata,
-    clientID: config.creds.clientID,
-    validateIssuer: config.creds.validateIssuer,
-    audience: config.creds.audience,
-    passReqToCallback: config.creds.passReqToCallback,
-    loggingLevel: config.creds.loggingLevel
+    ```Javascript
+    var options = {
+        // The URL of the metadata document for your app. We will put the keys for token validation from the URL found in the jwks_uri tag of the in the metadata.
+        identityMetadata: config.creds.identityMetadata,
+        clientID: config.creds.clientID,
+        validateIssuer: config.creds.validateIssuer,
+        audience: config.creds.audience,
+        passReqToCallback: config.creds.passReqToCallback,
+        loggingLevel: config.creds.loggingLevel
 
-};
+    };
 
-// array to hold logged in users and the current logged in user (owner)
-var users = [];
-var owner = null;
+    // array to hold logged in users and the current logged in user (owner)
+    var users = [];
+    var owner = null;
 
-// Our logger
-var log = bunyan.createLogger({
-    name: 'Azure Active Directory Bearer Sample',
-         streams: [
-        {
-            stream: process.stderr,
-            level: "error",
-            name: "error"
-        },
-        {
-            stream: process.stdout,
-            level: "warn",
-            name: "console"
-        }, ]
-});
+    // Our logger
+    var log = bunyan.createLogger({
+        name: 'Azure Active Directory Bearer Sample',
+             streams: [
+            {
+                stream: process.stderr,
+                level: "error",
+                name: "error"
+            },
+            {
+                stream: process.stdout,
+                level: "warn",
+                name: "console"
+            }, ]
+    });
 
-  // if logging level specified, switch to it.
-  if (config.creds.loggingLevel) { log.levels("console", config.creds.loggingLevel); }
+      // if logging level specified, switch to it.
+      if (config.creds.loggingLevel) { log.levels("console", config.creds.loggingLevel); }
 
-// MongoDB setup
-// Setup some configuration
-var serverPort = process.env.PORT || 8080;
-var serverURI = (process.env.PORT) ? config.creds.mongoose_auth_mongohq : config.creds.mongoose_auth_local;
-```
+    // MongoDB setup
+    // Setup some configuration
+    var serverPort = process.env.PORT || 8080;
+    var serverURI = (process.env.PORT) ? config.creds.mongoose_auth_mongohq : config.creds.mongoose_auth_local;
+    ```
 
-Save the file.
+4. Save the file.
 
 ## 13. Add The MongoDB Model and schema information by using Mongoose
 Now all this preparation is going to start paying off as combine these three files together into a REST API service.
@@ -351,30 +349,30 @@ DATE : The date that the task is due. A ***DATETIME***.
 COMPLETED: If the task has been completed or not. A ***BOOLEAN***.
 
 #### Creating the schema in the code
-From the command-line, change directories to the **azuread** folder if not already there:
+1. From the command-line, change directories to the **azuread** folder if not already there:
 
-`cd azuread`
+    `cd azuread`
 
-Open your `server.js` file in your favorite editor, and then add the following information below the configuration entry:
+2. Open your `server.js` file in your favorite editor, and then add the following information below the configuration entry:
 
-```Javascript
-// Connect to MongoDB
-global.db = mongoose.connect(serverURI);
-var Schema = mongoose.Schema;
-log.info('MongoDB Schema loaded');
+    ```Javascript
+    // Connect to MongoDB
+    global.db = mongoose.connect(serverURI);
+    var Schema = mongoose.Schema;
+    log.info('MongoDB Schema loaded');
 
-// Here we create a schema to store our tasks and users. It's a fairly simple schema for now.
-var TaskSchema = new Schema({
-    owner: String,
-    task: String,
-    completed: Boolean,
-    date: Date
-});
+    // Here we create a schema to store our tasks and users. It's a fairly simple schema for now.
+    var TaskSchema = new Schema({
+        owner: String,
+        task: String,
+        completed: Boolean,
+        date: Date
+    });
 
-// Use the schema to register a model.
-mongoose.model('Task', TaskSchema);
-var Task = mongoose.model('Task');
-```
+    // Use the schema to register a model.
+    mongoose.model('Task', TaskSchema);
+    var Task = mongoose.model('Task');
+    ```
 As you can tell from the code, we create our schema first. Then we create a model object that we use to store our data throughout the code when we define our **Routes**.
 
 ## 14. Add our routes for our task REST API server
@@ -409,11 +407,11 @@ This is the pattern at its most basic level. restify (and Express) provide much 
 ### 1. Add default routes to our server
 We now add the basic CRUD routes of Create, Retrieve, Update, and Delete.
 
-From the command-line, change directories to the **azuread** folder if you're not already there:
+1. From the command-line, change directories to the **azuread** folder if you're not already there:
 
-`cd azuread`
+    `cd azuread`
 
-Open the `server.js` file in your favorite editor, and then add the following information below the previous database entries that you made:
+2. Open the `server.js` file in your favorite editor, and then add the following information below the previous database entries that you made:
 
 ```Javascript
 
@@ -551,7 +549,7 @@ function listTasks(req, res, next) {
 
 ```
 
-### 2. Next, let's add some error-handling in our APIs:
+### 2. Add error-handling in our APIs
 ```
 
 ///--- Errors for communicating something interesting back to the client
@@ -602,7 +600,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 
 
 ## 15. Create your server!
-We have defined our database, we have our routes in place. The last thing to do is add the server instance that manages our calls.
+We have defined our database and our routes are in place. The last thing to do is add the server instance that manages our calls.
 
 In restify (and Express) you can do a lot of customization for a REST API server, but again we are going to use the most basic setup for our purposes.
 
@@ -700,59 +698,61 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 ## 17. Before we add OAuth support, let's run the server.
 Test out your server before we add authentication.
 
-The easiest way to test your server is by using curl in a command line. Before we do that, we need a utility that allows us to parse output as JSON. To do that, install the following json tool (all the following examples use this tool):
+The easiest way to test your server is by using curl in a command line. Before we do that, we need a utility that allows us to parse output as JSON.
 
-`$npm install -g jsontool`
+1. To do that, install the following json tool (all the following examples use this tool):
 
-This installs the JSON tool globally. Now that we’ve accomplished that, let’s play with the server:
+    `$npm install -g jsontool`
 
-First, make sure that your mongoDB instance is running:
+    This installs the JSON tool globally. Now that we’ve accomplished that, let’s play with the server:
 
-`$sudo mongod`
+2. First, make sure that your mongoDB instance is running:
 
-Then, change to the directory and start curling:
+    `$sudo mongod`
 
-`$ cd azuread`
-`$ node server.js`
+3. Then, change to the directory and start curling:
 
-`$ curl -isS http://127.0.0.1:8080 | json`
+    `$ cd azuread`
+    `$ node server.js`
 
-```Shell
-HTTP/1.1 200 OK
-Connection: close
-Content-Type: application/json
-Content-Length: 171
-Date: Tue, 14 Jul 2015 05:43:38 GMT
-[
-"GET /",
-"POST /tasks/:owner/:task",
-"POST /tasks (for JSON body)",
-"GET /tasks",
-"PUT /tasks/:owner",
-"GET /tasks/:owner",
-"DELETE /tasks/:owner/:task"
-]
-```
+    `$ curl -isS http://127.0.0.1:8080 | json`
 
-Then, we can add a task this way:
+    ```Shell
+    HTTP/1.1 200 OK
+    Connection: close
+    Content-Type: application/json
+    Content-Length: 171
+    Date: Tue, 14 Jul 2015 05:43:38 GMT
+    [
+    "GET /",
+    "POST /tasks/:owner/:task",
+    "POST /tasks (for JSON body)",
+    "GET /tasks",
+    "PUT /tasks/:owner",
+    "GET /tasks/:owner",
+    "DELETE /tasks/:owner/:task"
+    ]
+    ```
 
-`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
+4. Then, we can add a task this way:
 
-The response should be:
+    `$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
-```Shell
-HTTP/1.1 201 Created
-Connection: close
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Headers: X-Requested-With
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 5
-Date: Tue, 04 Feb 2014 01:02:26 GMT
-Hello
-```
-And we can list tasks for Brandon this way:
+    The response should be:
 
-`$ curl -isS http://127.0.0.1:8080/tasks/brandon/`
+        ```Shell
+        HTTP/1.1 201 Created
+        Connection: close
+        Access-Control-Allow-Origin: *
+        Access-Control-Allow-Headers: X-Requested-With
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 5
+        Date: Tue, 04 Feb 2014 01:02:26 GMT
+        Hello
+        ```
+    And we can list tasks for Brandon this way:
+
+        `$ curl -isS http://127.0.0.1:8080/tasks/brandon/`
 
 If all this works, we're ready to add OAuth to the REST API server.
 
@@ -765,71 +765,71 @@ From the command line, change directories to the **azuread** folder if you're no
 
 `cd azuread`
 
-### 1: Use the OIDCBearerStrategy that is included with passport-azure-ad
+### 1. Use the OIDCBearerStrategy that is included with passport-azure-ad
 So far we have built a typical REST TODO server without any kind of authorization. This is where we start putting that together.
 
-First, we need to indicate that we want to use Passport. Put this right after your other server configuration:
+1. First, we need to indicate that we want to use Passport. Put this right after your other server configuration:
 
-```Javascript
-// Let's start using Passport.js.
+    ```Javascript
+    // Let's start using Passport.js.
 
-server.use(passport.initialize()); // Starts passport.
-server.use(passport.session()); // Provides session support.
-```
+    server.use(passport.initialize()); // Starts passport.
+    server.use(passport.session()); // Provides session support.
+    ```
 
 > [!TIP]
 > When you write APIs, we recommend that you always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the object ID of the user in the token (called through token.oid), which we put in the “owner” field. This ensures that only that user can access their TODOs. There is no exposure in the API of “owner”, so an external user can request the TODOs of others even if they are authenticated.
 >
 >
 
-Next, let’s use the Bearer strategy that comes with passport-azure-ad. Look at the code for now and we'll explain the rest shortly. Put this after what you pated above:
+2. Next, let’s use the Bearer strategy that comes with passport-azure-ad. Look at the code for now and we'll explain the rest shortly. Put this after what you pated above:
 
-```Javascript
-/**
-/*
-/* Calling the OIDCBearerStrategy and managing users.
-/*
-/* Passport pattern provides the need to manage users and info tokens
-/* with a FindorCreate() method that must be provided by the implementor.
-/* Here we just auto-register any user and implement a FindById().
-/* You'll want to do something smarter.
-**/
+    ```Javascript
+    /**
+    /*
+    /* Calling the OIDCBearerStrategy and managing users.
+    /*
+    /* Passport pattern provides the need to manage users and info tokens
+    /* with a FindorCreate() method that must be provided by the implementor.
+    /* Here we just auto-register any user and implement a FindById().
+    /* You'll want to do something smarter.
+    **/
 
-var findById = function(id, fn) {
-    for (var i = 0, len = users.length; i < len; i++) {
-        var user = users[i];
-        if (user.sub === id) {
-            log.info('Found user: ', user);
-            return fn(null, user);
+    var findById = function(id, fn) {
+        for (var i = 0, len = users.length; i < len; i++) {
+            var user = users[i];
+            if (user.sub === id) {
+                log.info('Found user: ', user);
+                return fn(null, user);
+            }
         }
-    }
-    return fn(null, null);
-};
+        return fn(null, null);
+    };
 
 
-var bearerStrategy = new BearerStrategy(options,
-    function(token, done) {
-        log.info('verifying the user');
-        log.info(token, 'was the token retreived');
-        findById(token.sub, function(err, user) {
-            if (err) {
-                return done(err);
-            }
-            if (!user) {
-                // "Auto-registration"
-                log.info('User was added automatically as they were new. Their sub is: ', token.sub);
-                users.push(token);
+    var bearerStrategy = new BearerStrategy(options,
+        function(token, done) {
+            log.info('verifying the user');
+            log.info(token, 'was the token retreived');
+            findById(token.sub, function(err, user) {
+                if (err) {
+                    return done(err);
+                }
+                if (!user) {
+                    // "Auto-registration"
+                    log.info('User was added automatically as they were new. Their sub is: ', token.sub);
+                    users.push(token);
+                    owner = token.sub;
+                    return done(null, token);
+                }
                 owner = token.sub;
-                return done(null, token);
-            }
-            owner = token.sub;
-            return done(null, user, token);
-        });
-    }
-);
+                return done(null, user, token);
+            });
+        }
+    );
 
-passport.use(bearerStrategy);
-```
+    passport.use(bearerStrategy);
+    ```
 
 Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to. Looking at the strategy, you see we pass it a function() that has a token and a done as the parameters. The strategy comes back to us after it does its work. After it does, we store the user and stash the token so we won’t need to ask for it again.
 
@@ -882,26 +882,26 @@ next();
 ## 19. Run your server application again and ensure it rejects you
 Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We do this test before running any of our client SDKs against this endpoint. The headers that are returned should be enough to tell us whether we're going down the right path.
 
-First, make sure that your mongoDB instance is running:
+1. First, make sure that your mongoDB instance is running:
 
-  $sudo mongod
+    $sudo mongod
 
-Then, change to the directory and start curling.
+2. Then, change to the directory and start curling.
 
-  $ cd azuread
-  $ node server.js
+      $ cd azuread
+      $ node server.js
 
-Try a basic POST:
+3. Try a basic POST:
 
-`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
+    `$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
-```Shell
-HTTP/1.1 401 Unauthorized
-Connection: close
-WWW-Authenticate: Bearer realm="Users"
-Date: Tue, 14 Jul 2015 05:45:03 GMT
-Transfer-Encoding: chunked
-```
+    ```Shell
+    HTTP/1.1 401 Unauthorized
+    Connection: close
+    WWW-Authenticate: Bearer realm="Users"
+    Date: Tue, 14 Jul 2015 05:45:03 GMT
+    Transfer-Encoding: chunked
+    ```
 
 A 401 is the response you are looking for here. This response indicates that the Passport layer is trying to redirect to the authorized endpoint, which is exactly what you want.
 
