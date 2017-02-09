@@ -1,5 +1,5 @@
 ---
-title: Get started with a Log Analytics workspace | Microsoft Docs
+title: Get started with an Azure Log Analytics workspace | Microsoft Docs
 description: You can get up and running with a workspace in Log Analytics in minutes.
 services: log-analytics
 documentationcenter: ''
