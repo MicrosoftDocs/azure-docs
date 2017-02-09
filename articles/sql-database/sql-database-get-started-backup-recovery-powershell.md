@@ -1,5 +1,5 @@
 ---
-title: Get Started with backup and restore of Azure SQL databases for data protection and recovery using Azure PowerShell | Microsoft Docs 
+title: 'PowerShell: Back up and restore-Azure SQL database | Microsoft Docs' 
 description: "This tutorial shows how to restore from automated backups to a point in time, store automated backups in the Azure Recovery Services vault, and to restore from the Azure Recovery Services vault using PowerShell"
 keywords: sql database tutorial
 services: sql-database
@@ -21,9 +21,9 @@ ms.author: sstein
 ---
 
 
-# Get Started with Backup and Restore for Data Protection and Recovery using PowerShell
+# Tutorial: Back up and restore an Azure SQL Database using PowerShell
 
-In this getting-started tutorial, you learn how to use Azure PowerShell to:
+In this tutorial, you learn how to use Azure PowerShell to:
 
 - View existing backups of a database
 - Restore a database to a previous point in time

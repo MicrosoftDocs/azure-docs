@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/06/2017
 ms.author: byvinyal
 
 ---
@@ -131,7 +131,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 #### Storage Service limits
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### Virtual Machine disk limits
+#### Virtual Machine disk limits 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 See [Virtual machine sizes](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.

@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
-ms.author: vakarand
+ms.date: 02/06/2017
+ms.author: billmath
 
 ---
 # Monitor your on-premises identity infrastructure and synchronization services in the cloud
