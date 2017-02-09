@@ -32,6 +32,8 @@ You can set throughput for your DocumentDB collections in the Azure portal or by
 
     ![Screenshot showing how to change throughput for a collection in the Azure portal by navigating to your account and clicking Scale](./media/documentdb-set-throughput/azure-documentdb-change-throughput-value.png)
 
+<a id="set-throughput-sdk"></a>
+
 ## To set the throughput by using the .NET SDK
 
 ```C#

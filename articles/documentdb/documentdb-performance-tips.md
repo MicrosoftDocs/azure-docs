@@ -19,7 +19,7 @@ ms.author: mimig
 
 ---
 # Performance tips for DocumentDB
-Azure DocumentDB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with DocumentDB. Scaling up and down is as easy as making a single API call or [SDK method call](documentdb-performance-levels.md#changing-performance-levels-using-the-net-sdk). However, because DocumentDB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
+Azure DocumentDB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with DocumentDB. Scaling up and down is as easy as making a single API call or [SDK method call](documentdb-set-throughput.md#set-throughput-sdk). However, because DocumentDB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 
