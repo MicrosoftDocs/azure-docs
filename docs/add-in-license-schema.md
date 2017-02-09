@@ -1,16 +1,10 @@
 # Office and SharePoint Add-in license XML schema structure
 
 The add-in license schema defines the structure that specifies usage properties in add-in licenses. If your add-in includes license validation checks, use this schema to create test licenses to test the license validation code in your add-in. For more information, see  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md).
- 
 
 Use the  **VerifyEntitlementToken** method of the Office Store verification web service to determine if an add-in license is valid. The **VerifyEntitlementToken** method takes a add-in license token as a parameter, and returns an **VerifyEntitlementTokenResponse** that contains the license token properties, including whether or not the license token is valid.
- 
 
 To support add-in license testing, the Office Store verification web service does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to  **true**. However, the service does interpret the token, and all the properties of the  **VerifyEntitlementTokenResponse** object returned by the service can be read.
- 
-
-
-
 
 ```XML
 <r>
@@ -31,28 +25,15 @@ To support add-in license testing, the Office Store verification web service doe
     ss="0" | "1" | "2" | "3" | "4" />
   <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
 </r>
-
 ```
-
 
 ## Elements
 
- **r**
- 
-
- 
+**r**
 Required. The root element.
  
-
- 
- **t**
- 
-
- 
+**t**
 Required. Contains attributes that represent various properties of the add-in license.
- 
-
- 
 
 ### Attributes
 
@@ -119,8 +100,7 @@ This value can be used to check if the trial license is expired.</td>
 <tr>
 <td>sd</td>
 <td>Required text. UTC time-date stamp that represents one of the following:
-<ul><li>The initial purchase of the license.</li>
-<li>The latest manual license recovery time, if the purchaser has performed such a recovery using their Microsoft account.</li></ul></td>
+<ul><li>The initial purchase of the license.</li><li>The latest manual license recovery time, if the purchaser has performed such a recovery using their Microsoft account.</li></ul></td>
 </tr>
 <tr>
 <td>te</td>
@@ -133,8 +113,7 @@ This value can be used to check if the trial license is expired.</td>
 <tr>
 <td>ss</td>
 <td>Optional integer. Represents the subscription status of the add-in license. This attribute is optional for add-ins that are not being sold as subscriptions.<br/>
-This attribute accepts integers from 0 through 4. Valid values include:<br/>
-
+This attribute accepts integers from 0 through 4. Valid values include:
 <table><tr><th>Integer</th><th>Description</th></tr>
 <tr>
 <td>0</td>
@@ -174,34 +153,19 @@ Full add-in experience. Additionally, you may want to present contextual UI to a
 </td></tr>
 </table>
 
-
- **d**
- 
-
- 
+**d**
 Required. Encryption token used by the Office Store verification service to determine whether the add-in license token is valid. This is an encrypted signature derived from the literal string contained in the <t> element.
  
-
- 
 When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the <d> element to the string contained in the <t> element.
- 
-
- 
 
 ## Remarks
 
-
- **Important**  When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., will change the literal value of the <t> element and therefore cause the license verification check to fail. When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the <d> element to the string contained in the <t> element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting, or generating the encryption signature for the <d> element.
- 
-
+>**Important**  When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., will change the literal value of the <t> element and therefore cause the license verification check to fail. When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the <d> element to the string contained in the <t> element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting, or generating the encryption signature for the <d> element.
 
 ## Example: Add-in license XML for a SharePoint Add-in
 <a name="SP15applicense_example"> </a>
 
 The following example shows the add-in license XML for a SharePoint Add-in, representing a trial add-in for which the purchaser has acquired 30 seats. The user is signed in with their Microsoft account.
- 
-
- 
 
 ```XML
 <r>
@@ -218,15 +182,9 @@ The following example shows the add-in license XML for a SharePoint Add-in, repr
     te="2012-06-30T02:49:34Z" />
   <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
 </r>
-
 ```
 
 The following example shows the add-in license for a user who is signed in with their organizational identity. Note that the  **cid** attribute is empty.
- 
-
- 
-
-
 
 ```XML
 <r>
@@ -244,30 +202,13 @@ The following example shows the add-in license for a user who is signed in with 
      ss="0" />
      <d>Ymwiorz9SdzbkYrJnYwRzU/Q6zwFyiuXMkJztKCtmQE=</d>
 </r>
-
 ```
-
 
 ## Additional resources
 <a name="SP15applicenseschema_addlresources"> </a>
 
-
 -  [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-    
- 
 -  [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
-    
- 
 -  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
-    
- 
 -  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model.md)
-    
- 
 -  [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/office/verificationsvc.aspx)
-    
- 
-
- 
-
- 
