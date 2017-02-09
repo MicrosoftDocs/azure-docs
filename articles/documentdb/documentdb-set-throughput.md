@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/09/2017
 ms.author: mimig
 
 ---
@@ -21,6 +21,31 @@ ms.author: mimig
 # Set throughput for Azure DocumentDB collections
 
 You can set throughput for your DocumentDB collections in the Azure portal or by using the client SDKs. 
+
+The following table lists the throughput available for collections:
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p></p></td>
+            <td valign="top"><p><strong>Single Partition Collection</strong></p></td>
+            <td valign="top"><p><strong>Partitioned Collection</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Minimum Throughput</p></td>
+            <td valign="top"><p>400 request units per second</p></td>
+            <td valign="top"><p>2,500 request units per second</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Maximum Throughput</p></td>
+            <td valign="top"><p>10,000 request units per second</p></td>
+            <td valign="top"><p>Unlimited</p></td>
+        </tr>
+    </tbody>
+</table>
+
+> [!NOTE] 
+> To set partitioned collections to a throughput value betweeen 2,500 RU/s and 10,000 RU/s, you must temporarily use the Azure portal. This functionality is not yet available via the SDKs
 
 ## To set the throughput by using the Azure portal
 
