@@ -56,19 +56,16 @@ To add a new device to your remote monitoring solution, complete the following s
 3. Choose **Let me define my own Device ID**, enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't already in use, and then click **Create** to provision the device.
    
    ![][3]
-4. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key), your client application needs them to connect to the remote monitoring solution. Then click **Done**.
+4. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key). Your client application needs these values to connect to the remote monitoring solution. Then click **Done**.
    
     ![][4]
-5. Make sure your device displays in the devices section. The device status is **Pending** until the device establishes a connection to the remote monitoring solution.
-   
-    ![][5]
+5. Select your device in the device list. Then, in the **Device Details** panel, click **Enable Device**. The status of your device is now **Running**.
 
 [img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png
 [1]: ./media/iot-suite-selector-connecting/suite0.png
 [2]: ./media/iot-suite-selector-connecting/suite1.png
 [3]: ./media/iot-suite-selector-connecting/suite2.png
 [4]: ./media/iot-suite-selector-connecting/suite3.png
-[5]: ./media/iot-suite-selector-connecting/suite5.png
 
 [lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
