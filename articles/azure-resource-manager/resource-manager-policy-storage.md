@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager policies for storage | Microsoft Docs
+title: Azure resource policies for storage accounts | Microsoft Docs
 description: Describes Azure Resource Manager policies for managing the deployment of storage accounts.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 02/08/2017
 ms.author: tomfitz
 
 ---
-# Apply Azure resource policies to storage accounts
-Through Azure Resource Manager policies, you define consistent rules for how resources are deployed in your organization. You create customized policies to ensure users in your organization do not break conventions that are needed to manage your organization's resources. This topic shows several policies that define rules for Azure Storage Accounts. For more information about policies, see [Use resource policies to manage resources](resource-manager-policy.md).
-
-The examples in this topic show hard-coded values in the policy rule. However, you can use parameters to pass in values that are used when assigning the policy. For more information, see [Policy parameters](resource-manager-policy.md#parameters).
+# Apply resource policies to storage accounts
+This topic shows several [resource policies](resource-manager-policy.md) you can apply to Azure storage accounts. These policies ensure consistency for the storage accounts deployed in your organization. 
 
 ## Define permitted storage account types
 

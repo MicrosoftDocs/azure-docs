@@ -229,6 +229,91 @@ For **append**, you must provide the following details:
 
 The value can be either a string or a JSON format object. 
 
+## Examples
+
+## Allowed resource locations
+To specify which locations are allowed, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
+
+The built-in policy contains a rule similar to:
+
+```json
+{
+  "if" : {
+    "not" : {
+      "field" : "location",
+      "in" : "[parameters('allowedLocations')]"
+    }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
+
+To specify which locations are not allowed, use the following policy:
+
+```json
+{
+  "if" : {
+    "field" : "location",
+    "in" : "[parameters('notAllowedLocations')]"
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
+
+## Restrict resource types
+The following example shows a policy that permits deployments for only on the `Microsoft.Resources/*`, `Microsoft.Compute/*`, `Microsoft.Storage/*`, `Microsoft.Network/*` resource types. All others are denied:
+
+```json
+{
+  "if" : {
+    "not" : {
+      "anyOf" : [
+        {
+          "field" : "type",
+          "like" : "Microsoft.Resources/*"
+        },
+        {
+          "field" : "type",
+          "like" : "Microsoft.Compute/*"
+        },
+        {
+          "field" : "type",
+          "like" : "Microsoft.Storage/*"
+        },
+        {
+          "field" : "type",
+          "like" : "Microsoft.Network/*"
+        }
+      ]
+    }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
+
+### Set naming convention
+The following example shows the use of wildcard, which is supported by the **like** condition. The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request:
+
+```json
+{
+  "if" : {
+    "not" : {
+      "field" : "name",
+      "like" : "namePrefix*nameSuffix"
+    }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
+
 ## Manage policies with REST API
 
 You can create a policy with the [REST API for Policy Definitions](https://docs.microsoft.com/rest/api/resources/policydefinitions). The REST API enables you to create and delete policy definitions, and get information about existing definitions.
