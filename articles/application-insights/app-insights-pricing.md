@@ -97,7 +97,7 @@ There are three ways in which the volume you send data is limited:
 
 * **Daily cap.** By default this is set at 500 GB/day. When your app hits the cap, we send an email and discard data until the end of the day. To change it, use the Data Volume Management blade.
 * **[Sampling](app-insights-sampling.md).** This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
-* **Throttling** limits the data rate to 16 k events per second, averaged over 1 minute. 
+* **Throttling** limits the data rate to 32 k events per second, averaged over 1 minute. 
 
 
 *What happens if my app exceeds the throttling rate?*
