@@ -143,7 +143,7 @@ To troubleshoot a failed step in a logic app, view the status details of the eve
 
     ![LogicApp troubleshoot step 2](./media/connectors-create-api-crmonline/tshoot3.png)
 
-For more information about troubleshooting logic apps, see [Diagnosing logic app failures](logic-apps-diagnosing-failures.md).
+For more information about troubleshooting logic apps, see [Diagnosing logic app failures](./articles/logic-apps/logic-apps-diagnosing-failures.md).
 
 ## Technical Details
 ## Triggers
