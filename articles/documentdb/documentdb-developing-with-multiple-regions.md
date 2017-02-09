@@ -19,7 +19,7 @@ ms.author: mimig
 ---
 # Developing with multi-region DocumentDB accounts
 
-Learn about multi=region DocumentDB accounts in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
+Learn about multi-region DocumentDB accounts in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
