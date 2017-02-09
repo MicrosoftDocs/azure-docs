@@ -196,6 +196,15 @@ This document describes the criteria that are used to validate that Office 365 w
 |12.4|Office Mix Add-ins must start in the Play View when published to Office Mix.|
 |12.5|All restrictions that apply to content add-ins for PowerPoint also apply to Office Mix Add-ins. |
 
+## 13. Power BI visuals
+
+|Policy number|Description|
+|:-----|:-----|
+|13.1|Power BI visuals must be free.|
+|13.2|Power Bi visuals submitted to the Office Store must be accompanied by a sample file included in the same location as the pbviz, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
+|13.3|Your visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
+|13.4|Your visual must support the core functions of Power BI including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
+
 ## Conclusion
 <a name="bk_conclusion"> </a>
 
@@ -215,6 +224,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.1|February 8, 2017|Added section 13.|
 |2.0|January 23, 2017|Updated policies 4.12.2 and 4.12.3.|
 |2.0|January 17, 2017|Clarified policy 5.8.|
 |2.0|January 9, 2017|Updated policy 4.12.1 to state that add-in commands are required for Word, Excel, and PowerPoint add-ins that use the taskpane manifest, effective Feb 1, 2017.|
