@@ -420,8 +420,10 @@ The following table provides description for JSON elements specific to Azure Dat
 ### Using service principal authentication (recommended)
 To use service principal authentication, firstly you need register an application entity in Azure Active Directory (AAD) and grant it access in Data Lake Store. Afterwards, you can specify below properties in Azure Data Factory with corresponding application ID, application key and tenant information to copy data from/to Data Lake Store. Refer to [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) on how to set it up and retrieve the required info.
 
->[!NOTE]
->If you newly create a service principal from AAD, it may take few minutes to actually take effect. If you see error from copy wizard or copy run details saying "The credentials provided are invalid", please wait a while and try again.
+> [!IMPORTANT]
+> When using copy wizard, make sure to grant the service principal at least Read permission to your ADLS root ("/") or Reader role for the ADLS account, in order to successfully navigate among the folders. Otherwise you may see "The credentials provided are invalid" error.
+>
+> If you newly create/update a service principal from AAD, it may take few minutes to actually take effect. Double check the service principal and ADLS ACL configuration first, if you still see error saying "The credentials provided are invalid", wait a while and try again.
 >
 
 | Property | Description | Required |

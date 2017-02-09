@@ -25,6 +25,9 @@ This topic discusses design considerations for Virtual Machine Scale Sets. For i
 ## Storage
 A scale set uses storage accounts to store the OS disks of the VMs in the set. We recommend a ratio of 20 VMs per storage account or less. We also recommend that you spread across the alphabet the beginning characters of the storage account names. Doing so helps spread load across different internal systems. For instance, in the following template, we use the uniqueString Resource Manager Template function to generate prefix hashes that are prepended to storage account names: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
 
+>[!NOTE]
+>VM Scale Sets API version `2016-04-30-preview` supports using Azure Managed Disks for the Operating System disk and any extra data disks. For more information, see [Managed Disks Overview](../storage/storage-managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md). 
+
 ## Overprovisioning
 Starting with the "2016-03-30" API version, VM Scale Sets defaults to "overprovisioning" VMs. With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs that spun up last. Overprovisioning improves provisioning success rates. You are not billed for these extra VMs, and they do not count toward your quota limits.
 

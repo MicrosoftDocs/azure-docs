@@ -46,6 +46,10 @@ This topic provides answers to some of the most common questions about running [
 
     No. You can not switch from pay-per-minute licensing to using your own license. Create a new Azure virtual machine using one of the [BYOL images](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md).
 
+7. **Are SQL Server Failover Cluster Instances (FCI) supported on Azure VMs?**
+
+   Yes. You can [create a Windows Server Failover Cluster \(WSFC\) on Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) and use Storage Spaces Direct (S2D) for the cluster storage. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+
 7. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
    
     You do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment, if you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/).
