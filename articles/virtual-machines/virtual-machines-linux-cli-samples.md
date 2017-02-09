@@ -20,7 +20,7 @@ ms.author: nepeters
 ---
 # Azure CLI Samples - BASH
 
-The following table includes links to sample script built using the Azure CLI.
+The following table includes links to Bash scripts built using the Azure CLI.
 
 
 | Sample | Description  |
@@ -35,6 +35,6 @@ The following table includes links to sample script built using the Azure CLI.
 |**Secure virtual machines**||
 | [Secure network traffic network traffic](./virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
 |**Docker in Azure virtual machines**||
-| [Virtual machine with Docker enabled](./virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machines, configures this VM as a Docker host, and runs an NGINX container. |
+| [Virtual machine with Docker enabled](./virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, configures this VM as a Docker host, and runs an NGINX container. |
 |**Troubleshoot virtual machines**||
 | [Troubleshoot OS disk issues](./virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mounts the operating system disk from one VM as the data disk of a second VM. This can be useful when troubleshooting or recovering data. |
