@@ -37,4 +37,4 @@ Data providers for client connections are different from data providers required
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## Next steps
-With the latest data providers are installed, your client application is ready to connect to a server. To learn more about connecting, see [Get data from Azure Analysis Services](analysis-services-connect.md).
+With the latest data providers installed, your client application is ready to connect to a server. To learn more about connecting from a client, see [Get data from Azure Analysis Services](analysis-services-connect.md).

@@ -20,7 +20,7 @@ ms.author: parakhj
 # Azure Active Directory B2C: Disable email verification during consumer sign-up
 When enabled, Azure Active Directory (Azure AD) B2C gives a consumer the ability to sign up for applications by providing an email address and creating a local account. Azure AD B2C ensures valid email addresses by requiring consumers to verify them during the sign-up process. It also prevents a malicious automated process from generating fake accounts for the applications.
 
-Some application developers prefer to skip email verification during the sign-up process and instead have consumers verify the email address later. To support this, Azure AD B2C can be configured to disable email verification and give control over the sign-up process. Doing so creates a smoother sign-up process and gives developers the flexibility to differentiate the consumers that have verified their email address from those consumers that have not.
+Some application developers prefer to skip email verification during the sign-up process and instead have consumers verify the email address later. To support this, Azure AD B2C can be configured to disable email verification. Doing so creates a smoother sign-up process and gives developers the flexibility to differentiate the consumers that have verified their email address from those consumers that have not.
 
 By default, sign-up policies have email verification turned on. Use the following steps to turn it off:
 
@@ -39,4 +39,4 @@ By default, sign-up policies have email verification turned on. Use the followin
 > 
 > 
 
-We are always open to feedback and suggestions! If you have any difficulties with this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+We are always open to feedback and suggestions! If you have any difficulties with this topic, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

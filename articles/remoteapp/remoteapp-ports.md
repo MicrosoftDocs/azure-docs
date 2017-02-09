@@ -31,7 +31,7 @@ If you are deploying an Azure RemoteApp cloud or hybrid collection in a virtual 
 * https://www.remoteapp.windowsazure.com 
 * https://*remoteapp.windowsazure.com  
 * https://*.core.windows.net  
-* Outbound: TCP: 443, TCP: 10101-10175 
+* Outbound: TCP: TCP: 443, 9351, 9352, 10101-10175 
 * Optional – UDP: 10201-10275  
 
 ## Azure RemoteApp clients need access to these endpoints and URLs:
