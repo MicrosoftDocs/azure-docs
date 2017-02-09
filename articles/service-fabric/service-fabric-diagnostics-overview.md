@@ -360,24 +360,18 @@ Metrics also give insight into how your service is performing and over time can 
 Candidates for metrics and health reports are anything that can indicate the health and performance of your application. A CPU performance counter can tell you how utilized your node is, but it doesn't really say if a particular service is healthy or not because multiple services may be running on a single node. On the other hand, a metric such as RPS or items processed or request latency can all indicate the health of a particular service.
 
 To report health, add code such as
-
-    ```csharp
-
+```csharp
         if (!result.HasValue)
         {
             HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
             this.Partition.ReportInstanceHealth(healthInformation);
         }
-
-    ```
+```
 
 To report a metric add code like the following to your service
-
-    ```csharp
-
+```csharp
         this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
-
-    ```
+```
 
 ## Watchdogs
 
