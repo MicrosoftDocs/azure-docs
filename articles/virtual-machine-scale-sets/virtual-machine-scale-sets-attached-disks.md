@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/3/2017
+ms.date: 2/6/2017
 ms.author: guybo
 
 ---
@@ -55,9 +55,9 @@ You can see a complete, ready to deploy example of a scale set template with an 
 
 ## Adding a data disk to an existing scale set
 You can add a data disk to a VM scale set using Azure CLI _az vmss disk attach_ command. Make sure you specify a lun which is not already in use. The following CLI example adds a 50 GB drive to lun 3:
-'''bash
-az vmss disk attach -g dsktest -n dskvmss --size-gb 20 --lun 3
-'''
+```bash
+az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
+```
 > [!NOTE]
 > Different VM sizes have different limits on the numbers of attached drives they support. Check the [virtual machine size characteristics](../virtual-machines/virtual-machines-windows-sizes.md) before adding a new disk.
 

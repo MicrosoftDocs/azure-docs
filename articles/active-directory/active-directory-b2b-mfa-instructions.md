@@ -44,10 +44,10 @@ Currently, the admin can require B2B collaboration users to proof up again only 
 > [!NOTE]
 > To use the new cmdlet, you need to install the Azure AD PowerShell V2 module, which you can get from here: https://www.powershellgallery.com/packages/AzureADPreview
 
-1. Connect to Azure AD and sign in
+1. Connect to Azure AD
 
   ```
-  Connect-AzureAd
+  Connect-MsolService and login
   ```
 2. Get all users with proof up methods
 
@@ -61,8 +61,7 @@ Currently, the admin can require B2B collaboration users to proof up again only 
   @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
   ```
 
-3. Reset the MFA method for a specific user
-  You can then use that UserPrincipalName to run the reset command to require the B2B collaboration user to set proof-up methods again. Example:
+3. Reset the MFA method for a specific user. You can then use that UserPrincipalName to run the reset command to require the B2B collaboration user to set proof-up methods again. Example:
 
   ```
   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
