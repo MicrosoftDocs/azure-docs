@@ -19,7 +19,7 @@ ms.author: kgremban
 ---
 # Elevate access as a tenant admin with Role-Based Access Control
 
-Role-based Access Control helps tenant administrators get temporary elevations in access so that they can grant higher permissions than normal. A tenant admin can elevate herself to the User Access Administrator role when needed. That role gives the tenant admin permissions to grant herself of others roles at the "/" scope.
+Role-based Access Control helps tenant administrators get temporary elevations in access so that they can grant higher permissions than normal. A tenant admin can elevate herself to the User Access Administrator role when needed. That role gives the tenant admin permissions to grant herself or others roles at the "/" scope.
 
 This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps (like invoicing and auditing) to access all the subscriptions and provide an accurate view of the state of the organization from a billing or asset management perspective.  
 
