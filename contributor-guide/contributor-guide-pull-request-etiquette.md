@@ -45,16 +45,20 @@ You can help make the pull request queue work better by following these best pra
 ## In a hurry? Submit PRs that can be accepted automatically
 Use the PRMerger automation rules to get more of your day-to-day PRs merged automatically.
 
-PRMerger can accept your PR automatically, if:
+PRMerger will merge your PR automatically if these criteria are met:
 
-* It affects 10 files or fewer.
-* It contains 15 commits or fewer.
-* Less than 20% of text changes.
-* Selectors/switchers aren't updated.
-* No files are deleted or added.
-* No images are new, changed, or deleted.
+* The PR can contain up to 10 changed files.
+* Contains up to 15 commits.
+* Changes up to 20% of the text of the articles in the PR.
+* Modifies no selector/switcher text.
+* Adds no new files
+* Deletes no existing files.
+* Modifies no images.
+* Modifies no index.md or TOC.md files.
+* Contains only approved file types.
+* Adds no files to the root folder of the repo.
 
-If your pull request does not meet these criteria, the "PRmerger cannot merge" label is automatically assigned so you know it requires review by a human PR reviewer.
+If your pull request does not meet these criteria, the "requires-human-merge" label is automatically assigned so you know it requires review by a human PR reviewer.
 
 ### Need to make a lot of little changes?
 Take your cue from the PRMerger automation rules above, and do the following:
