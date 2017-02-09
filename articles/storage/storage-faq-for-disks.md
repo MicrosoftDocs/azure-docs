@@ -29,15 +29,15 @@ Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by
 
 **If I create a standard managed disk from an existing VHD that was 80 GB in size, how much will that cost me?**
 
-A standard managed disk created from an 80 GB VHD will be treated as the next available premium disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://azure.microsoft.com/en-us/pricing/details/storage) for details.
+A standard managed disk created from an 80 GB VHD will be treated as the next available premium disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
 
 **Are there any transaction costs for standard managed disks?**
 
-Yes, you are charged for each transaction. Please check the [pricing page] (https://azure.microsoft.com/en-us/pricing/details/storage) for details.
+Yes, you are charged for each transaction. Please check the [pricing page] (https://azure.microsoft.com/pricing/details/storage) for details.
 
 **For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?**
 
-You are charged based on the provisioned capacity of the disk. Please check the [pricing page](https://azure.microsoft.com/en-us/pricing/details/storage) for details.
+You are charged based on the provisioned capacity of the disk. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
 
 **How is pricing of premium managed disks different than unmanaged disks?**
 
@@ -133,7 +133,7 @@ A premium data disk created from 80 GB VHD will be treated as the next available
 
 **Are there transaction costs when using Premium Storage?**
 
-There is a fixed cost for each disk size which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. Please check the [pricing page](https://azure.microsoft.com/en-us/pricing/details/storage) for details.
+There is a fixed cost for each disk size which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
 
 **What are the limits for IOPS and throughput that can I get from the disk cache?**
 
@@ -145,6 +145,6 @@ The local SSD is temporary storage that is included with a managed disks VM. The
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments or in the [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata) on MSDN to engage with the Azure Storage team and other community members about this article.
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments or in the MSDN [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) to engage with the Azure Storage team and other community members about this article.
 
 To make a feature request, please submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
