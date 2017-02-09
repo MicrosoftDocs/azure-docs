@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
+ms.date: 02/09/2017
 ms.author: richrund
 
 ---
@@ -27,11 +27,6 @@ You can use the Azure Application Gateway analytics solution in Log Analytics to
 You can use the Azure Network Security Group analytics solution in Log Analytics to review:
 
 * Azure Network Security Group logs
-
-> [!NOTE]
-> Azure Application Gateway analytics and Azure Network Security Group analytics are [preview solutions](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
 
 To use the solutions, enable diagnostics for Azure Application Gateway logs and Azure Network Security Groups and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
