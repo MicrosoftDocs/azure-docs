@@ -18,17 +18,17 @@ ms.author: joroja
 ---
 ## Why Usage Reports?
 
-Azure Active Directory B2C, provides login and MFA-based authentication for all the end-users of your family of applications across Identity Providers.  Knowing the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, answers questions like:
-* How many users from each type of IdP (e.g. Microsoft Account, LinkedIn) have registered in the last 10 days?
+Azure Active Directory B2C, provides login and MFA-based authentication for all the end users of your family of applications across Identity Providers.  Knowing the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, answers questions like:
+* How many users from each type of Identity Provider (for example, Microsoft Account, LinkedIn) have registered in the last 10 days?
 * How many Multi-Factor-Authentications have completed successfully in the last month?
 * How many login-based authentications were completed this month? Per day? Per application?
 * How can I approximate the expected monthly cost of my B2C Tenant activity?
 
-This article focuses on reports most closely tied to our billing mechanism which is based on number of users, number of billable login-based authentications and number of multi-factor authentications.
+This article focuses on reports most closely tied to billing activity, which is based on number of users, number of billable login-based authentications and number of multi-factor authentications.
 
 
 ## Prerequisites to access the Azure AD reporting API
-Before you get started, you need to complete the [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).  You must create an application, obtain a secret for it,  and grant it access rights to your Azure AD B2C tenant’s reports. *Bash script* and *Python script* examples are also provided here.
+Before you get started, you need to complete the [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).  Create an application, obtain a secret for it, and grant it access rights to your Azure AD B2C tenant’s reports. *Bash script* and *Python script* examples are also provided here.
 
 ## PowerShell script
 This script demonstrates the four usage reports using the **TimeStamp** parameter and the **-ApplicationId** filter.
@@ -101,23 +101,25 @@ if ($oauth.access_token -ne $null) {
  * OtherUserCount = # of AAD Directory users (non-B2C users)
  * LocalUserCount = # of B2C user accounts created with credentials local to the B2C Tenant
 
-**AlternateIdUserCount** = # of B2C users registered with external Identity providers (e.g. facebook, Microsoft Account, other AAD tenants - aka OrgId)
+**AlternateIdUserCount** = # of B2C users registered with external Identity providers (for example, facebook, Microsoft Account, other AAD tenants - aka OrgId)
 
 **b2cAuthenticationCountSummary** – Sum the daily count of billable authentications over the last 30 days by day and by type of authentication flow
 
-**b2cAuthenticationCount**  -Count the Number of authentications within a time period. Default is last 30 days.  (optional: beginning and ending TimeStamp (s) define a specific period of counts desired) Output includes a StartTimeStamp (earliest date of activity for this tenant) and EndTimeStamp (latest update)
+**b2cAuthenticationCount** -Count the Number of authentications within a time period. Default is last 30 days.  (optional: beginning and ending TimeStamp (s) define a specific period of counts desired) Output includes a StartTimeStamp (earliest date of activity for this tenant) and EndTimeStamp (latest update)
 
-**b2cMfaRequestCountSummary** - Sum the daily count of Multi Factor Authentications by day and by type of MFA (SMS or Voice)
+**b2cMfaRequestCountSummary** - Sum the daily count of Multi-Factor Authentications by day and by type of MFA (SMS or Voice)
 
 
 ## Limitations
-* User count data is refreshed every 24 to 48 hours.  Authentications are updated  several times a day.
-* When using the the ApplicationId filter, an empty report response may be due to: A. The application Id does not exist in the tenant, OR B. The Application ID is correct, but no data was found (e.g. no authentications) in the reporting period.
+* User count data is refreshed every 24 to 48 hours.  Authentications are updated several times a day.
+* When using the ApplicationId filter, an empty report response may be due to one of following conditions:
+ * The Application Id does not exist in the tenant. Make sure it is correct.
+ * The Application Id exists, but no data was found in the reporting period. Review your date time parameters.
 
 
 ## Next steps
 ### Estimating your Azure AD monthly bill.
-When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  This is especially useful as you plan changes in tenant behavior which may impact overall cost.  Actual costs can be reviewed under your [linked Azure Subscription.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-how-to-enable-billing)
+When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful as you plan changes in tenant behavior which may impact overall cost.  Actual costs can be reviewed under your [linked Azure Subscription.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-how-to-enable-billing)
 
 ### Options for other output formats
 ```
