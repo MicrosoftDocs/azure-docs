@@ -23,7 +23,7 @@ Take a snapshot of a Managed Disk for backup or create a Managed Disk from the s
 For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 ## Before you begin
-If you use PowerShell, make sure that you have [Azure PowerShell 3.5.0](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2017) or a later version installed. To update the AzureRM.Compute module to the latest version, use the command `Update-Module AzureRM.Compute`. For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+If you use PowerShell, make sure that you have [Azure PowerShell 3.5.0](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2017) or a later version installed. For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
 
 ## Copy the VHD with a snapshot
 Use either the Azure portal or PowerShell to take a snapshot of the Managed Disk.
