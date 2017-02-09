@@ -11,7 +11,7 @@ ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 08/31/2016
+ms.date: 02/07/2017
 ms.author: sstein
 ms.workload: data-management
 ms.topic: article
@@ -22,14 +22,9 @@ ms.tgt_pltfrm: NA
 
 This article provides directions for creating an Azure SQL database from a BACPAC file using the [Azure portal](https://portal.azure.com).
 
-A BACPAC is a .bacpac file that contains a database schema and data. The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-export.md).
+## Prerequisites
 
-> [!NOTE]
-> Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
-> 
-> 
-
-To import a SQL database from a .bacpac you need the following:
+To import a SQL database from a PACPAC, you need the following:
 
 * An Azure subscription. 
 * An Azure SQL Database V12 server. If you do not have a V12 server, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
@@ -39,9 +34,8 @@ To import a SQL database from a .bacpac you need the following:
 > When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from 
 > premium storage is not supported.
 > 
-> 
 
-## Select the server to host the database
+## Import the database
 Open the SQL Server blade:
 
 1. Go to the [Azure portal](https://portal.azure.com).
@@ -77,6 +71,7 @@ Clicking **Create** submits an import database request to the service. Depending
 ## Next steps
 * To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
 * For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* For a discussion of the entire SQL Server database migration process, including performance recommendations, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
 
 
 <!--Image references-->

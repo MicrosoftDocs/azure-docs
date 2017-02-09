@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 12/20/2016
+ms.date: 02/07/2017
 ms.author: sstein;carlrab
 ms.workload: data-management
 ms.topic: article
@@ -20,12 +20,13 @@ ms.tgt_pltfrm: NA
 ---
 # Export an Azure SQL database to a BACPAC file using the Azure portal
 
-This article provides directions for exporting your Azure SQL database to a BACPAC file (stored in Azure blob storage) using the [Azure portal](https://portal.azure.com).
+This article provides directions for exporting your Azure SQL database to a BACPAC file (stored in Azure blob storage) using the [Azure portal](https://portal.azure.com). For an overview of exporting to a BACPAC file, see [Export to a BACPAC](sql-database-export.md).
 
 > [!NOTE]
 > You can also export your Azure SQL database file to a BACPAC file using [SQL Server Management Studio](sql-database-export-ssms.md), [PowerShell](sql-database-export-powershell.md) or [SQLPackage](sql-database-export-sqlpackage.md).
 >
 
+## Prerequisites
 
 To complete this article, you need the following:
 
@@ -34,25 +35,27 @@ To complete this article, you need the following:
 * An [Azure Standard Storage account](../storage/storage-create-storage-account.md) with a blob container to store the BACPAC in standard storage.
 
 ## Export your database
-Open the SQL Database blade for the database you want to export.
-
-> [!IMPORTANT]
-> To guarantee a transactionally consistent BACPAC file, you should first [create a copy of your database](sql-database-copy.md) and then export the database copy. 
-> 
-> 
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Click **SQL databases**.
-3. Click the database to archive.
-4. In the SQL Database blade, click **Export** to open the **Export database** blade:
+2. Open the SQL Database blade for the database you want to export.
+3. Ensure that no transactions will occur during the export. 
+
+   > [!IMPORTANT]
+   > To guarantee a transactionally consistent BACPAC file, a good method is to [create a copy of your database](sql-database-copy.md) and then export from the database copy. 
+   > 
+
+4. Click **SQL databases**.
+5. Click the database to archive.
+6. In the SQL Database blade, click **Export** to open the **Export database** blade:
    
    ![export button][1]
-5. Click **Storage** and select your storage account and blob container to store the BACPAC:
+7. Click **Storage** and select your storage account and blob container to store the BACPAC:
    
    ![export database][2]
-6. Select your authentication type. 
-7. Enter the appropriate authentication credentials for the Azure SQL server containing the database you are exporting.
-8. Click **OK** to archive the database. Clicking **OK** creates an export database request and submits it to the service. The length of time the export takes depends on the size and complexity of your database, and your service level. View the notification you receive.
+8. Select your authentication type. 
+9. Enter the appropriate authentication credentials for the Azure SQL server containing the database you are exporting.
+10. Click **OK** to  export the database. Clicking **OK** creates an export database request and submits it to the service. The length of time the export takes depends on the size and complexity of your database, and your service level. 
+11. View the notification you receive.
    
    ![export notification][3]
 
@@ -72,7 +75,8 @@ Open the SQL Database blade for the database you want to export.
    ![.bacpac file details][5]    
 
 ## Next steps
-* To learn about importing a BACPAC to an Azure SQL Database using the Azure portal, see [Import a BACPCAC to an Azure SQL database](sql-database-import-portal.md)
+
+* To learn about long-term backup retention of an Azure SQL database backup as an alternative to exported a database for archive purposes, see [Long term backup retention](sql-database-long-term-retention.md.md)
 * To learn about importing a BACPAC to a SQL Server database, see [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
 
 <!--Image references-->
