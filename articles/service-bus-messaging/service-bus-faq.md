@@ -108,10 +108,6 @@ Messages that exceed these size quotas will be rejected and an exception will be
 
 **Number of correlation filters per topic** – The maximum number of correlation filters per topic is limited to 100,000. If this quota is reached, any subsequent requests for creation of additional filters on the topic will be rejected and an exception will be received by the calling code.
 
-## Subscription and namespace management
-### How do I migrate a namespace to another Azure subscription?
-You can use PowerShell commands (found in the article [here][here]) to move a namespace from one Azure subscription to another. In order to execute the operation, the namespace must already be active. Also the user executing the commands must be an administrator on both source and target subscriptions.
-
 ## Service Bus troubleshooting
 [Exceptions overview][Exceptions overview]
 
@@ -127,6 +123,26 @@ The [Service Bus messaging exceptions][Exceptions overview] article describes so
 
 ### What is a Shared Access Signature and which languages support generating a signature?
 Shared Access Signatures are an authentication mechanism based on SHA – 256 secure hashes or URIs. For information about how to generate your own signatures in Node, PHP, Java and C\#, see the [Shared Access Signatures][Shared Access Signatures] article.
+
+## Subscription and namespace management
+### How do I migrate a namespace to another Azure subscription?
+You can use PowerShell commands (found in the article [here][here]) to move a namespace from one Azure subscription to another. In order to execute the operation, the namespace must already be active. Also the user executing the commands must be an administrator on both source and target subscriptions.
+
+### How do I migrate a namespace to another Azure subscription?
+Using the Azure portal, you can migrate Service Bus namespaces to another subscription by following the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-portal). If you prefer to use PowerShell, follow the instructions below: 
+
+The following sequence of commands moves a namespace from one Azure subscription to another. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an administrator on both the source and target subscriptions.
+
+```powershell
+# Create a new resource group in target subscription
+Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+
+# Move namespace from source subscription to target subscription
+Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+```
 
 ## Next steps
 To learn more about Service Bus messaging, see the following topics.
