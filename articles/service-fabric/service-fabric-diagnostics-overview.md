@@ -126,23 +126,32 @@ Choosing how to instrument your code can be difficult, if you chose poorly and h
 #### How to use Microsoft.Extensions.Logging within Service Fabric
 
 1. Add the **Microsoft.Extensions.Logging** NuGet package to the project you are instrumenting. You'll also want to add any provider packages, we'll do this for a third-party package below. See [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) for more information
+
 2. Add a **using** directive for 'Microsoft.Extensions.Logging' to your service file
+
 3. Define a private variable within your service class
+
     ```csharp
         private ILogger _logger = null;
     ```
+
 4. In the constructor of your service class, add
+    
     ```csharp
         _logger = new LoggerFactory().CreateLogger<Stateless>();
     ```
+
 5. Start instrumenting your code in your methods. Here are a few samples
+    
     ```csharp
+
         _logger.LogDebug("Debug level event from Microsoft.Logging");
         _logger.LogInformation("Informational level event from Microsoft.Logging");
 
         // In this variant, we're adding structured properties RequestName and Duration that has values MyRequest and the duration of the request.
         // More on why you'll want to do this later.
         _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
+
     ```
 
 #### Using other logging providers
