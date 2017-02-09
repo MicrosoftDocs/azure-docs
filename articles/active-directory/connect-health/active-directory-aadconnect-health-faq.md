@@ -38,9 +38,9 @@ Example:
 | ------ | --------------- | --- |
 | 1 | 1 | 1 Azure AD Connect server |
 | 2 | 26| 1 Azure AD Connect server and 1 domain controller |
-| 3 | 51 | 1 AD FS server, 1 AD FS proxy and 1 domain controller |
-| 4 | 76 | 1 AD FS server, 1 AD FS proxy and 2 domain controllers |
-| 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy and 2 domain controllers |
+| 3 | 51 | 1 AD FS server, 1 AD FS proxy, and 1 domain controller |
+| 4 | 76 | 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
+| 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
 
 
 ## Installation questions
@@ -107,7 +107,7 @@ You need to have TCP/UDP ports 443 and 5671 open so that the Azure AD Connect He
 
 When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Health portal. If you manually remove an agent from a server or remove the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal.
 
-You might reimage a server or created a new server with the same details (such as machine name). If you did not remove the already registered server from the Azure AD Connect Health portal, and you installed the agent on the new server, you might see two entries with the same name.
+You might reimage a server or create a new server with the same details (such as machine name). If you did not remove the already registered server from the Azure AD Connect Health portal, and you installed the agent on the new server, you might see two entries with the same name.
 
 In this case, manually delete the entry that belongs to the older server. The data for this server should be out of date.
 
@@ -117,7 +117,7 @@ This section applies only to customers who were notified about an upcoming migra
 
 **Q: Will I have to register my agents or configure my notification settings again after the migration happens?**
 
-No, agent registration information and notification settings will be moved as part of the migration.
+No, agent registration information and notification settings are moved as part of the migration.
 
 **Q: How long after the migration will I start seeing data in the portal?**
 
