@@ -111,8 +111,6 @@ You can pick a billing model that works best for you. Choose between the billing
 
 ## Next steps
 * Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
-* Learn about ExpressRoute connectivity models. See [ExpressRoute connectivity models](expressroute-connectivity-models.md).
-* Learn about ExpressRoute features. See [ExpressRoute features](expressroute-features.md)
 * Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
 * Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).
