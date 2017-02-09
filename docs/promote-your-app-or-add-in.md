@@ -50,8 +50,8 @@ When you link from the Office Store badge on your site to your app or add-in in 
 
  
 
-- mktcmpid=Your marketing campaign ID, which can include up to 16 characters (any letter, number, _, and -). For example, blogpost_12.
-- mktvid=Your Store Provider ID, which is included in the URL of your Store Provider page. For example, PN102957641.
+- **mktcmpid** - Your marketing campaign ID, which can include up to 16 characters (any letter, number, _, and -). For example, blogpost_12.
+- **mktvid** - Your Store Provider ID, which is included in the URL of your Store Provider page. For example, PN102957641.
     
  
 The following example shows a URL that includes the two query parameters:
