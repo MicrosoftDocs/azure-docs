@@ -50,28 +50,31 @@ With the latest updates to our back end, we pushed in February 2017, we introduc
 * NodeJS using PM2 config
 	* Add a JSON config file in your content root like
 
-     {
-		"name": "worker",
-		"script": "/bin/server.js",
-		"instances": 1,
-		"merge_logs": true,
-		"log_date_format": "YYYY-MM-DD HH:mm Z",
-		"watch": ["/bin/server.js", "foo.txt"],
-		"watch_options": {
-		"followSymlinks": true,
-		"usePolling": true,
-		"interval": 5
-		}
+	```json
+	{
+	     "name": "worker",
+	     "script": "/bin/server.js",
+	     "instances": 1,
+	     "merge_logs": true,
+	     "log_date_format": "YYYY-MM-DD HH:mm Z",
+	     "watch": ["/bin/server.js", "foo.txt"],
+	     "watch_options": {
+	       "followSymlinks": true,
+	       "usePolling": true,
+	       "interval": 5
+	     }
 	}
+	```
+
 
 	* You can set the number of node instances you want to launch using the "instances" property
 	* Set AppCommandLine app setting for your web app to this JSON file, so if this file is called process.json, set the value of AppCommandLine to process.json
 	* The files on whose change you want your node processes to cycle need to be added to the "watch" section
 	* You need to use polling for your "watch_options"
 * Custom Docker container image support
-	* You can use four new app settings to specify a custom image DOCKER_REGISTRY_SERVER_URL, DOCKER_REGISTRY_SERVER_USERNAME, DOCKER_REGISTRY_SERVER_PASSWORD, DOCKER_CUSTOM_IMAGE_NAME
+	* You can use four new app settings to specify a custom image `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME`, `DOCKER_REGISTRY_SERVER_PASSWORD`, `DOCKER_CUSTOM_IMAGE_NAME`
 	* If you are getting an image from DockerHub or some public registry, you can skip the username and password. Otherwise you need to specify them as well
-	* The DOCKER_CUSTOM_IMAGE_NAME is where you specify the tag used for the image. We are downloading the image at runtime on first request to your site.
+	* The `DOCKER_CUSTOM_IMAGE_NAME` is where you specify the tag used for the image. We are downloading the image at runtime on first request to your site.
 
 ## Next steps
 * [Introduction to App Service on Linux](./app-service-linux-intro.md) 
