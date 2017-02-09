@@ -20,7 +20,7 @@ ms.author: ramankum
 
 # Azure Managed Disks Overview
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or Standard <!--[Standard](storage-standard-storage.md)-->) and size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or Standard <!--[Standard](storage-standard-storage.md)-->) and size of disk you need, and Azure creates and manages the disk for you.
 
 ## Benefits of managed disks
 
@@ -38,7 +38,7 @@ Managed Disks provides better reliability for Availability Sets by ensuring that
 
 ### Better security
 
-You can use [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, export, and retrieving a [shared access signature (SAS) URI](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don’t want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don’t want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
+You can use [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, export, and retrieving a [shared access signature (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don’t want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don’t want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
 
 ## Pricing and Billing 
 
@@ -91,7 +91,7 @@ To learn more about how to create snapshots with Managed Disks, please check out
 * [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 
-For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks).
+For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## Images
 
@@ -112,7 +112,7 @@ What if you have a VM has five disks and they are striped? You could take a snap
 
 ## Azure Backup service support 
 
-You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup#using-managed-disk-vms-with-azure-backup). 
+You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## Next steps
 
