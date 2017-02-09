@@ -16,7 +16,7 @@ ms.date: 02/08/2017
 ms.author: joroja
 
 ---
-## Accessing usage reports in Azure AD B2C via the reporting API
+# Accessing usage reports in Azure AD B2C via the reporting API
 
 Azure Active Directory B2C, provides login and MFA-based authentication for all the end users of your family of applications across Identity Providers.  Knowing the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, answers questions like:
 * How many users from each type of Identity Provider (for example, Microsoft Account, LinkedIn) have registered in the last 10 days?
