@@ -28,7 +28,7 @@ This article outlines how you can use the Copy Activity in Azure Data Factory to
 The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Load data into SQL Data Warehouse with Data Factory](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
 > [!TIP]
-> When copy data from SQL Server or Azure SQL Database into Azure SQL Data Warehouse, if the table does not exist in the destination store, Data Factory support auto table creation using source's schema. Try it out using copy wizard and learn more from [Auto table creation](#auto-table-creation).
+> When copying data from SQL Server or Azure SQL Database into Azure SQL Data Warehouse, if the table does not exist in the destination store, Data Factory support auto table creation using source's schema. Try it out using copy wizard and learn more from [Auto table creation](#auto-table-creation).
 >
 
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
@@ -630,7 +630,7 @@ All columns of the table must be specified in the INSERT BULK statement.
 NULL value is a special form of default value. If the column is nullable, the input data (in blob) for that column could be empty (cannot be missing from the input dataset). PolyBase inserts NULL for them in the Azure SQL Data Warehouse.  
 
 ## Auto table creation
-When copy data from SQL Server or Azure SQL Database into Azure SQL Data Warehouse, if the table does not exist in the destination store, Data Factory support auto table creation using source's schema when you use copy wizard to author.
+When copying data from SQL Server or Azure SQL Database into Azure SQL Data Warehouse, if the table does not exist in the destination store, Data Factory support auto table creation using source's schema when you use copy wizard to author.
 
 Data Factory will create the table in destination using the same name as source, create the column data types with below mapping, and use Round Robin table distribution. Note proper data type conversion may happen if needed to fix the incompatibility between source and destination stores.
 
