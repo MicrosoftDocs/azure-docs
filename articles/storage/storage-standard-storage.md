@@ -3,7 +3,7 @@ title: HD-based cost-effective Standard Storage and Azure VM Disks | Microsoft D
 description: Discuss cost-effective Standard Storage and unmanaged and managed VM disks.
 services: storage
 documentationcenter: ''
-author: yuemli
+author: yuemlu
 manager: aungoo-msft
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: yuemli 
+ms.author: yuemlu 
 
 ---
 # Cost-effective Standard Storage and unmanaged and managed Azure VM disks
