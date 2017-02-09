@@ -59,7 +59,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 
 ## Convert existing Azure VMs to managed disks of the same storage type
 
-This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SDD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
+This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SSD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
 
 1. Create variables and deallocate the VM. This example sets the resource group name to **myResourceGroup** and the VM name to **myVM**.
 
