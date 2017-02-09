@@ -3,7 +3,7 @@ title: Import a BACPAC file to create an Azure SQL database | Microsoft Docs
 description: Create an Azure SQL database by importing an existing BACPAC file.
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -12,7 +12,7 @@ ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 02/07/2017
-ms.author: sstein
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA

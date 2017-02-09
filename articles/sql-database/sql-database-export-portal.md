@@ -12,7 +12,7 @@ ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 02/07/2017
-ms.author: sstein;carlrab
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA

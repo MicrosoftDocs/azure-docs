@@ -1,26 +1,26 @@
-----		
- -title: Explore Azure SQL Database Tutorials | Microsoft Docs		
- -description: Learn about SQL Database features and capabilities		
- -keywords: ''		
- -services: sql-database		
- -documentationcenter: ''		
- -author: CarlRabeler		
- -manager: jhubbard		
- -editor: ''		
- -		
- -ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786		
- -ms.service: sql-database		
- -ms.custom: overview		
- -ms.devlang: NA		
- -ms.topic: article		
- -ms.tgt_pltfrm: NA		
- -ms.workload: data-management		
- -ms.date: 12/08/2016		
- -ms.author: carlrab		
- -		
- ----
+---		
+title: Explore Azure SQL Database Tutorials | Microsoft Docs		
+description: Learn about SQL Database features and capabilities		
+keywords: ''		
+services: sql-database		
+documentationcenter: ''		
+author: CarlRabeler		
+manager: jhubbard		
+editor: ''		
+		
+ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786		
+ms.service: sql-database		
+ms.custom: overview		
+ms.devlang: NA		
+ms.topic: article		
+ms.tgt_pltfrm: NA		
+ms.workload: data-management		
+ms.date: 02/08/2017		
+ms.author: carlrab		
+		
+---
  
- # Explore Azure SQL Database tutorials
+# Explore Azure SQL Database tutorials
 The links in the following tables take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
 
 ## Create servers, databases and server-level firewall rules

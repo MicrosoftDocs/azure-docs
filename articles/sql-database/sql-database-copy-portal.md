@@ -3,7 +3,7 @@ title: Copy an Azure SQL database using the Azure portal | Microsoft Docs
 description: Create a copy of an Azure SQL database
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -11,8 +11,8 @@ ms.assetid: daa6f079-13ed-462f-b346-e201aa61681b
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 02/07/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
