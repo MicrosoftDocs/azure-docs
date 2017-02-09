@@ -1,6 +1,6 @@
 ---
-title: Certificate based authentication on iOS | Microsoft Docs
-description: Learn how to configure certificate based authentication in solutions with iOS devices
+title: Azure Active Directory certificate-based authentication on iOS | Microsoft Docs
+description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with iOS devices
 services: active-directory
 author: MarkusVi
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.date: 02/09/2017
 ms.author: markvi
 
 ---
-# Certificate based authentication on iOS
+# Azure Active Directory certificate-based authentication on iOS
 
 Certificate-based authentication (CBA) enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to: 
 
@@ -78,7 +78,7 @@ On iOS 9 or later, the native iOS mail client is supported. For all other Exchan
 
 ## Next steps
 
-If you want to configure certificate-based authentication in your environment, see [Get started with certificate based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.
+If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.
 
 
 <!--Image references-->

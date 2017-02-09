@@ -1,6 +1,6 @@
 ---
-title: Certificate based authentication on Android  | Microsoft Docs
-description: Learn how to configure certificate based authentication in solutions with Android devices
+title: Azure Active Directory certificate-based authentication on Android  | Microsoft Docs
+description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with Android devices
 services: active-directory
 author: MarkusVi
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.date: 02/09/2017
 ms.author: markvi
 
 ---
-# Certificate based authentication on Android
+# Azure Active Directory certificate-based authentication on Android
 
 
 Certificate-based authentication (CBA) enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to: 
@@ -71,7 +71,7 @@ Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are 
 
 ## Next steps
 
-If you want to configure certificate-based authentication in your environment, see [Get started with certificate based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.
+If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png

@@ -1,6 +1,6 @@
 ---
-title: Get started with certificate based authentication | Microsoft Docs
-description: Learn how to configure certificate based authentication in your environment
+title: Azure Active Directory certificate-based authentication - Get started  | Microsoft Docs
+description: Learn how to configure certificate-based authentication in your environment
 author: MarkusVi
 documentationcenter: na
 manager: femila
@@ -15,9 +15,9 @@ ms.date: 02/09/2017
 ms.author: markvi
 
 ---
-# Get started with certificate based authentication 
+# Get started with certificate-based authentication in Azure Active Directory
 
-Certificate based authentication enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to: 
+Certificate-based authentication enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to: 
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word   
 
@@ -27,14 +27,14 @@ Configuring this feature eliminates the need to enter a username and password co
 
 This topic:
 
-- Provides you with the steps to configure and utilize certificate based authentication for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. This feature is available in preview in Office 365 China, US Government Defense, and US Government Federal plans. 
+- Provides you with the steps to configure and utilize certificate-based authentication for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. This feature is available in preview in Office 365 China, US Government Defense, and US Government Federal plans. 
 
 - Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](connect/active-directory-aadconnectfed-whatis.md) configured.    
 
 
 ## Requirements
 
-To configure certificate based authentication, the following must be true:  
+To configure certificate-based authentication, the following must be true:  
 
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
@@ -189,7 +189,7 @@ If your sign-in is successful, then you know that:
 
 ### Testing Office mobile applications
 
-**To test certificate authentication on your mobile Office application:** 
+**To test certificate-based authentication on your mobile Office application:** 
 
 1. On your test device, install an Office mobile application (e.g., OneDrive).
 3. Launch the application. 
@@ -199,7 +199,7 @@ You should be successfully signed in.
 
 ### Testing Exchange ActiveSync client applications
 
-To access Exchange ActiveSync (EAS) via certificate based authentication, an EAS profile containing the client certificate must be available to the application. 
+To access Exchange ActiveSync (EAS) via certificate-based authentication, an EAS profile containing the client certificate must be available to the application. 
 
 The EAS profile must contain the following information:
 
