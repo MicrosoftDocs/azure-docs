@@ -30,7 +30,6 @@ This article summarizes what's supported when you use Azure Site Recovery to rep
 **Deployment** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
 **Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (not available in the Azure portal). | Not supported | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br/><br/> Standard Hyper-V Replication only. SAN not supported.
-
 **Classic portal** | Maintenance mode only. New vaults can't be created. | Not supported | Maintenance mode only
 **PowerShell** | Not supported | Not supported | Supported
 
@@ -51,9 +50,8 @@ This article summarizes what's supported when you use Azure Site Recovery to rep
 **Deployment** | **Support**
 --- | ---
 **VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
-
 **Hyper-V (no VMM)** | Not a supported configuration for replicating to a secondary site
-**Hyper-V with VMM** | Windows Server 2016, Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by SCVMM 2016.
+**Hyper-V with VMM** | Windows Server 2016 and Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by SCVMM 2016.
 
 ## Support for replicated machine OS versions
 The following table summarizes operating system support in various deployment scenarios encountered while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
