@@ -52,7 +52,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 List the access keys for your storage account with [az storage account keys list](/cli/azure/storage/account/keys#list). Make a note of `key1`:
 
 ```azurecli
-az storage account keys list --resource-group myResourceGroup --name mystorageaccount
+az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
 Create a container within your storage account using the storage key you obtained with [az storage container create](/cli/azure/storage/container#create). The following example creates a container named `mydisks` using the storage key value from `key1`:
@@ -181,7 +181,7 @@ Azure generates two 512-bit access keys for each storage account. These access k
 View the access keys for the storage account you created:
 
 ```azurecli
-az storage account keys list --resource-group myResourceGroup --name mystorageaccount
+az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
 The output is similar to:
