@@ -45,7 +45,7 @@ The following table lists the throughput available for collections:
 </table>
 
 > [!NOTE] 
-> To set partitioned collections to a throughput value betweeen 2,500 RU/s and 10,000 RU/s, you must temporarily use the Azure portal. This functionality is not yet available via the SDKs
+> To set partitioned collections to a throughput value betweeen 2,500 RU/s and 10,000 RU/s, you must temporarily use the Azure portal. This functionality is not yet available in the SDKs.
 
 ## To set the throughput by using the Azure portal
 
