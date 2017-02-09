@@ -371,7 +371,7 @@ When you are setting up your SAP software deployment, you need the following SAP
 These Microsoft articles cover SAP deployments in Azure:
 
 * [Azure Virtual Machines planning and implementation for SAP on Windows][planning-guide]
-* [Azure Virtual Machines deployment for SAP on Windows (this document)][deployment-guide]
+* [Azure Virtual Machines deployment for SAP on Windows (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Windows][dbms-guide]
 * [Azure Virtual Machines high availability for SAP on Windows][ha-guide]
 * [Azure portal][azure-portal]
@@ -667,7 +667,7 @@ Update the SAP monitoring configuration in any of the following scenarios:
 
 To update monitoring settings, update the monitoring infrastructure by following the steps in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5].
 
-## Detailed tasks for SAP software deployment on a Linux VM
+## Detailed tasks for SAP software deployment on a Windows VM
 This section has detailed steps for doing specific tasks in the configuration and deployment process.
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
@@ -857,7 +857,7 @@ The script output includes the following information:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
 To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
 
-1. Install Azure CLI, as described in [Install theAzure CLI][azure-cli].
+1. Install Azure CLI, as described in [Install the Azure CLI][azure-cli].
 2. Sign in with your Azure account:
 
   ```
