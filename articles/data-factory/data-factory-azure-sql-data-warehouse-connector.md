@@ -648,7 +648,7 @@ Data Factory will create the table in destination using the same name as source,
 | Real | Real |
 | SmallMoney | SmallMoney |
 | Binary | Binary |
-| Varbinary | Varbinary（up to 8000) |
+| Varbinary | Varbinary (up to 8000) |
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
