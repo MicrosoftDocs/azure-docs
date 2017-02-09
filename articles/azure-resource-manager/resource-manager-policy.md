@@ -26,7 +26,7 @@ To implement a policy, you must perform three steps:
 2. Create a policy definition in your subscription from the JSON you created in the preceding step. This step makes the policy available for assignment but does not apply the rules to your subscription.
 3. Assign the policy to a scope (such as a subscription or resource group). The rules of the policy are now enforced.
 
-Azure provides some pre-defined policies that may reduce the number of policies you have to define. If a pre-defined policy works for your scenario, skip the first two steps and simply assign the pre-defined policy to a scope.
+Azure provides some pre-defined policies that may reduce the number of policies you have to define. If a pre-defined policy works for your scenario, skip the first two steps and assign the pre-defined policy to a scope.
 
 Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
 
@@ -38,7 +38,7 @@ Policies are evaluated only when resources are deployed.
 > 
 
 ## How is it different from RBAC?
-There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on the actions **users** can perform at different scopes. For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that resource group. Policy focuses on **resource** properties during deployment. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system. 
+There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on **user** actions at different scopes. For example, you are added to the contributor role for a resource group at the desired scope, so you can make changes to that resource group. Policy focuses on **resource** properties during deployment. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system. 
 
 To use policies, you must be authenticated through RBAC. Specifically, your account needs the `Microsoft.Authorization/policydefinitions/write` permission to define a policy, and the `Microsoft.Authorization/policyassignments/write` permission to assign a policy. These permissions are not included in the **Contributor** role.
 
@@ -100,8 +100,8 @@ In the policy rule, you can reference the parameters similar to what you do in t
 
 ```json
 { 
-    "field" : "location",
-    "in" : "[parameters('allowedLocations')]"
+    "field": "location",
+    "in": "[parameters('allowedLocations')]"
 }
 ```
 
@@ -113,11 +113,11 @@ In the policy rule, you can reference the parameters similar to what you do in t
 
 ```json
 {
-  "if" : {
+  "if": {
       <condition> | <logical operator>
   },
-  "then" : {
-      "effect" : "deny | audit | append"
+  "then": {
+      "effect": "deny | audit | append"
   }
 }
 ```
@@ -127,9 +127,9 @@ The supported logical operators along with the syntax are:
 
 | Operator Name | Syntax |
 |:--- |:--- |
-| Not |"not" : {&lt;condition  or operator &gt;} |
-| And |"allOf" : [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
-| Or |"anyOf" : [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
+| Not |"not": {&lt;condition  or operator &gt;} |
+| And |"allOf": [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
+| Or |"anyOf": [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
 
 Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is in this topic.
 
@@ -138,12 +138,12 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 
 | Condition Name | Syntax |
 |:--- |:--- |
-| Equals |"equals" : "&lt;value&gt;" |
-| Like |"like" : "&lt;value&gt;" |
-| Contains |"contains" : "&lt;value&gt;" |
-| In |"in" : ["&lt;value1&gt;","&lt;value2&gt;"] |
-| ContainsKey |"containsKey" : "&lt;keyName&gt;" |
-| Exists |"exists" : "&lt;bool&gt;" |
+| Equals |"equals": "&lt;value&gt;" |
+| Like |"like": "&lt;value&gt;" |
+| Contains |"contains": "&lt;value&gt;" |
+| In |"in": ["&lt;value1&gt;","&lt;value2&gt;"] |
+| ContainsKey |"containsKey": "&lt;keyName&gt;" |
+| Exists |"exists": "&lt;bool&gt;" |
 
 ### Fields
 Conditions are formed by using fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
@@ -238,14 +238,14 @@ The built-in policy contains a rule similar to:
 
 ```json
 {
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : "[parameters('allowedLocations')]"
+  "if": {
+    "not": {
+      "field": "location",
+      "in": "[parameters('allowedLocations')]"
     }
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }
 ```
@@ -254,12 +254,12 @@ To specify which locations are not allowed, use the following policy:
 
 ```json
 {
-  "if" : {
-    "field" : "location",
-    "in" : "[parameters('notAllowedLocations')]"
+  "if": {
+    "field": "location",
+    "in": "[parameters('notAllowedLocations')]"
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }
 ```
@@ -269,30 +269,30 @@ The following example shows a policy that permits deployments for only on the `M
 
 ```json
 {
-  "if" : {
-    "not" : {
-      "anyOf" : [
+  "if": {
+    "not": {
+      "anyOf": [
         {
-          "field" : "type",
-          "like" : "Microsoft.Resources/*"
+          "field": "type",
+          "like": "Microsoft.Resources/*"
         },
         {
-          "field" : "type",
-          "like" : "Microsoft.Compute/*"
+          "field": "type",
+          "like": "Microsoft.Compute/*"
         },
         {
-          "field" : "type",
-          "like" : "Microsoft.Storage/*"
+          "field": "type",
+          "like": "Microsoft.Storage/*"
         },
         {
-          "field" : "type",
-          "like" : "Microsoft.Network/*"
+          "field": "type",
+          "like": "Microsoft.Network/*"
         }
       ]
     }
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }
 ```
@@ -302,14 +302,14 @@ The following example shows the use of wildcard, which is supported by the **lik
 
 ```json
 {
-  "if" : {
-    "not" : {
-      "field" : "name",
-      "like" : "namePrefix*nameSuffix"
+  "if": {
+    "not": {
+      "field": "name",
+      "like": "namePrefix*nameSuffix"
     }
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }
 ```
