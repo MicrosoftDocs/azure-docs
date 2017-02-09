@@ -66,7 +66,7 @@ The below table summarizes replicated Operating System support in various deploy
 
  **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | ---
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 >[!Note]

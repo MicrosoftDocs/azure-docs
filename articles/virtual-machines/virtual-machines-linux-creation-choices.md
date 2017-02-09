@@ -44,7 +44,7 @@ The following examples use the Azure CLI 2.0 (Preview). Read each article for mo
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \

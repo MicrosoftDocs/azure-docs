@@ -148,7 +148,7 @@ Create a VM with [az vm create](/cli/azure/vm#create). Specify the copied manage
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myCopiedVM \
-    --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --nics myNic --size Standard_DS1_v2 --os-type Linux \
     --image UbuntuLTS
     --managed-os-disk myCopiedDisk
@@ -159,7 +159,7 @@ Create a VM with [az vm create](/cli/azure/vm#create). Specify the storage accou
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myCopiedVM  \
-    --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --nics myNic --size Standard_DS1_v2 --os-type Linux \
     --image https://mystorageaccount.blob.core.windows.net/vhds/myCopiedVHD.vhd \
     --use-unmanaged-disk

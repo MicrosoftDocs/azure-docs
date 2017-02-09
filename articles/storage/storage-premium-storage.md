@@ -191,8 +191,7 @@ For detailed information on performing REST operations against page blobs in pre
 
 ### Managed disks
 
-A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future. To learn how to take a snapshot for a managed disk, please refer to [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](./Virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](./Virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
-
+A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future. To learn how to take a snapshot for a managed disk, please refer to [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](../Virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](../Virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 If a managed disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot generate a shared access signature (SAS) to perform a copy operation while the disk is attached to a VM. Instead, first create a snapshot of the disk, and then perform the copy of the snapshot. Alternately, you can detach the disk and then generate a shared access signature (SAS) to perform the copy operation.
 

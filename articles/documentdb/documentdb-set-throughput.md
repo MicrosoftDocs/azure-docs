@@ -32,20 +32,22 @@ You can set throughput for your DocumentDB collections in the Azure portal or by
 
     ![Screenshot showing how to change throughput for a collection in the Azure portal by navigating to your account and clicking Scale](./media/documentdb-set-throughput/azure-documentdb-change-throughput-value.png)
 
+<a id="set-throughput-sdk"></a>
+
 ## To set the throughput by using the .NET SDK
 
 ```C#
-    //Fetch the resource to be updated
-    Offer offer = client.CreateOfferQuery()
-        .Where(r => r.ResourceLink == collection.SelfLink)    
-        .AsEnumerable()
-        .SingleOrDefault();
+//Fetch the resource to be updated
+Offer offer = client.CreateOfferQuery()
+    .Where(r => r.ResourceLink == collection.SelfLink)    
+    .AsEnumerable()
+    .SingleOrDefault();
 
-    // Set the throughput to the new value, for example 12,000 request units per second
-    offer = new OfferV2(offer, 12000);
+// Set the throughput to the new value, for example 12,000 request units per second
+offer = new OfferV2(offer, 12000);
 
-    //Now persist these changes to the database by replacing the original resource
-    await client.ReplaceOfferAsync(offer);
+//Now persist these changes to the database by replacing the original resource
+await client.ReplaceOfferAsync(offer);
 ```
 
 ## Next steps
