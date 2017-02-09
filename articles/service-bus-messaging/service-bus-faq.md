@@ -20,13 +20,6 @@ ms.author: sethm;juconway
 # Service Bus FAQ
 This article answers some frequently-asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. The following topics are included:
 
-* [General questions about Azure Service Bus Messaging](#general-questions-about-azure-service-bus-messaging)
-* [Service Bus best practices](#service-bus-best-practices)
-* [Service Bus pricing](#service-bus-pricing)
-* [Service Bus quotas](#service-bus-quotas)
-* [Subscription and namespace management](#subscription-and-namespace-management)
-* [Troubleshooting](#service-bus-troubleshooting)
-
 ## General questions about Azure Service Bus Messaging
 ### What is Azure Service Bus Messaging?
 [Azure Service Bus Messaging](service-bus-messaging-overview.md) is an asynchronous messaging cloud platform that enables you to send data between decoupled systems. Microsoft offers this feature as a service, which means that you do not need to host any of your own hardware in order to use it.
