@@ -68,7 +68,7 @@ For example, the source location modified to include a test token for an Outlook
  
 
  
- `https://myApp/index.htm?et=%3Cr%20v%3D%221%22%3E%3Ct%20aid%3D%22WA104108294%22%20pid%3D%22463eafac-c123-45fe-bd21-b1b120b4c12b%22%20cid%3D%223BEC2F1C0124D801%22%20did%3D%22CONTOSO.COM%22%20ts%3D%221%22%20et%3D%22Paid%22%20ad%3D%222013-08-29T21%3A38%3A14Z%22%20sd%3D%222013-09-17%22%20te%3D%222013-12-23T09%3A10%3A42Z%22%20test%3D%221%22%20ss%3D%220%22%20%2F%3E%3Cd%3E7uM9j2%2FYZJeZrrm2TLjXufQlwkAXkq2RqjowBP9fAjo%3D%3C%2Fd%3E%3C%2Fr%3E`
+`https://myApp/index.htm?et=%3Cr%20v%3D%221%22%3E%3Ct%20aid%3D%22WA104108294%22%20pid%3D%22463eafac-c123-45fe-bd21-b1b120b4c12b%22%20cid%3D%223BEC2F1C0124D801%22%20did%3D%22CONTOSO.COM%22%20ts%3D%221%22%20et%3D%22Paid%22%20ad%3D%222013-08-29T21%3A38%3A14Z%22%20sd%3D%222013-09-17%22%20te%3D%222013-12-23T09%3A10%3A42Z%22%20test%3D%221%22%20ss%3D%220%22%20%2F%3E%3Cd%3E7uM9j2%2FYZJeZrrm2TLjXufQlwkAXkq2RqjowBP9fAjo%3D%3C%2Fd%3E%3C%2Fr%3E`
  
 
  
@@ -242,8 +242,6 @@ The Office and SharePoint Add-ins licensing model gives you a way to include cod
  
 
 - The Visual Studio project for your add-in.
-    
- 
 - The file system by using the Developer Registry provider.
     
  
@@ -303,7 +301,7 @@ Both methods allow an add-in to get the license the same way it would if it were
 
 ### To load a test license from the file system
 
-1. Create a folder that is accessible via a UNC path (c:\ _folder_ or \\ _server_\ _share_).
+1. Create a folder that is accessible via a UNC path (c:\\ _folder_ or \\\\ _server_ \\ _share_).
 2. Add the manifest file for your add-in to the folder (the file name must have an .xml extension).
 3. Add the token file to the folder. The token file name must be the same as the manifest file name and must have a .tok file extension. The following code shows an example token file. Refer to the  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md) for details about the attribute values you can set in the **t** element of the token file.
     
