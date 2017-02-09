@@ -41,7 +41,7 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create VM sample
 
-[!code-azurecli[main](../../cli_scripts/app-service-web/deploy-deployment-slot/deploy-deployment-slot.sh "Deploy a web app to a staging environment")]
+[!code-azurecli[main](../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Deploy a web app to a staging environment")]
 
 ## Clean up deployment 
 

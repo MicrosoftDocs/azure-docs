@@ -32,7 +32,7 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create VM sample
 
-[!code-azurecli[main](../../cli_scripts/app-service-web/deploy-local-git/deploy-local-git.sh "Deploy a web app from a local Git repository")]
+[!code-azurecli[main](../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh "Deploy a web app from a local Git repository")]
 
 ## Clean up deployment 
 

@@ -38,7 +38,7 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create VM sample
 
-[!code-azurecli[main](../../cli_scripts/app-service-web/deploy-github/deploy-github.sh "Continuously deploy web app from GitHub")]
+[!code-azurecli[main](../../cli_scripts/app-service/deploy-github/deploy-github.sh "Continuously deploy web app from GitHub")]
 
 ## Clean up deployment 
 
