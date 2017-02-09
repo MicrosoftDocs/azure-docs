@@ -361,23 +361,23 @@ Candidates for metrics and health reports are anything that can indicate the hea
 
 To report health, add code such as
 
-```csharp
+    ```csharp
 
-    if (!result.HasValue)
-    {
-        HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-        this.Partition.ReportInstanceHealth(healthInformation);
-    }
+        if (!result.HasValue)
+        {
+            HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
+            this.Partition.ReportInstanceHealth(healthInformation);
+        }
 
-```
+    ```
 
 To report a metric add code like the following to your service
 
-```csharp
+    ```csharp
 
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
-    
-```
+        this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+
+    ```
 
 ## Watchdogs
 
