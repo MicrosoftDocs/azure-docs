@@ -61,7 +61,7 @@ The following table provides a quick overview of the differences between the sto
 | Data can be read from the secondary location and from the primary location. |No |No |No |Yes |
 | Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
 
-You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md).
+You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md).
 
 ### Storage costs
 Prices vary depending on the storage type and availability that you select.
@@ -84,7 +84,7 @@ When you create a VM from an image in the Azure Marketplace, you are actually wo
 You can also create your own custom images and upload them using [Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to quickly create custom VMs to your specific build requirements.
 
 ## Availability sets
-An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles-storage/storage-premium-storage.md), the Azure SLA applies for unplanned maintenance events. An availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs).
+An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/storage/storage-premium-storage.md), the Azure SLA applies for unplanned maintenance events. An availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs).
 
 ![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 

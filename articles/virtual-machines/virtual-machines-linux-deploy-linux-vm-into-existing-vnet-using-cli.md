@@ -50,12 +50,9 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image Debian \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup
+    --nics myNic
 ```
 
 ## Detailed walkthrough
@@ -158,12 +155,9 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image Debian \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup
+    --nics myNic
 ```
 
 If you use managed disks, skip this step. If you wish to use unmanaged disks, you need to add the following additional parameters to the proceeding command to create unmanaged disks in the storage account named `mystorageaccount`: 

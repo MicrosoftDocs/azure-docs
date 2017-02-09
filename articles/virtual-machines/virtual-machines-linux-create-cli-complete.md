@@ -178,7 +178,7 @@ az vm create \
     --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
 
 If you use Azure Managed Disks, skip this step. If you wish to use unmanaged disks and you created a storage account in the previous steps, you need to add some additional parameters to the proceeding command. Add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`: 
@@ -202,7 +202,7 @@ az vm create \
     --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
 
 Again, if you do not use the default Azure Managed Disks, add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`:
@@ -1023,7 +1023,7 @@ az vm create \
     --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
 
 If you use Azure Managed Disks, skip this step. If you wish to use unmanaged disks and you created a storage account in the previous steps, you need to add some additional parameters to the proceeding command. Add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`: 
@@ -1088,7 +1088,7 @@ az vm create \
     --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
 
 Again, if you do not use the default Azure Managed Disks, add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`:
