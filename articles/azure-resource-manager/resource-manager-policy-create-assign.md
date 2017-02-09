@@ -30,7 +30,7 @@ To create a policy, run:
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
-For api-version, use *2016-12-01*. Include a request body similar to the following example:
+For api-version, use `2016-12-01`. Include a request body similar to the following example:
 
 ```json
 {
@@ -70,7 +70,7 @@ To create a policy assignment, run:
 PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 ```
 
-The {policy-assignment} is the name of the policy assignment. For api-version use *2016-04-01* or *2016-12-01* (for parameters). 
+The {policy-assignment} is the name of the policy assignment. For api-version use `2016-12-01` (for parameters). 
 
 With a request body similar to the following example:
 
