@@ -24,6 +24,8 @@ Live Metrics Stream shows you your [Application Insights](app-insights-overview.
 
 Unlike [Metrics Explorer](app-insights-metrics-explorer.md), Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
 
+Live Metrics Stream data is free: it doesn't add to your bill.
+
 ## Live failures
 
 If any failures or exceptions are logged, Live Stream picks out a sample of them. Click **Pause** to hold a specific sample, and select an event to show its details.
@@ -34,9 +36,12 @@ If any failures or exceptions are logged, Live Stream picks out a sample of them
 Live Metrics Stream is available with the latest version of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
 
 
+
 ## Troubleshooting
 
 No data? Live Metrics Stream uses a different port than other Application Insights telemetry. Make sure [those ports](app-insights-ip-addresses.md) are open in your firewall.
+
+
 
 ## Next steps
 * [Monitoring usage with Application Insights](app-insights-overview-usage.md)

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/23/2017
+ms.date: 02/08/2017
 ms.author: heidist
 ---
 
@@ -68,7 +68,10 @@ Service level agreements (SLA) for Azure Search are targeted at query operations
 
 ### Index availability during a rebuild###
 
-High availability for Azure Search pertains to queries and index updates that don't involve rebuilding an index. If you add or delete a field, change a data type, or rename a field, you will need to rebuild the index. To rebuild the index, you must delete the index, re-create the index, and reload the data.
+High availability for Azure Search pertains to queries and index updates that don't involve rebuilding an index. If you delete a field, change a data type, or rename a field, you will need to rebuild the index. To rebuild the index, you must delete the index, re-create the index, and reload the data.
+
+> [!NOTE]
+> You can add new fields to an Azure Search index without rebuilding the index. The value of the new field will be null for all documents already in the index.
 
 To maintain index availability during a rebuild, you must have a copy of the index with a different name on the same service, or a copy of the index with the same name on a different service, and then provide redirection or failover logic in your code.
 
