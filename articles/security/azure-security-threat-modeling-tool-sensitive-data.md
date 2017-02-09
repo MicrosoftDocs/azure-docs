@@ -35,7 +35,7 @@ ms.author: rodsan
 
 ## <a id="binaries-info"></a>Ensure that binaries are obfuscated if they contain sensitive information
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Machine Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -47,7 +47,7 @@ Ensure that binaries are obfuscated if they contain sensitive information such a
 
 ## <a id="efs-user"></a>Consider using Encrypted File System (EFS) is used to protect confidential user-specific data
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Machine Trust Boundary | 
 | SDL Phase               | Build |  
@@ -59,7 +59,7 @@ Consider using Encrypted File System (EFS) is used to protect confidential user-
 
 ## <a id="filesystem"></a>Ensure that sensitive data stored by the application on the file system is encrypted
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Machine Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -71,7 +71,7 @@ Ensure that sensitive data stored by the application on the file system is encry
 
 ## <a id="cache-browser"></a>Ensure that sensitive content is not cached on the browser
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -124,7 +124,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>Encrypt sections of Web App's configuration files that contain sensitive data
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -136,7 +136,7 @@ Configuration files such as the Web.config, appsettings.json are often used to h
 
 ## <a id="autocomplete-input"></a>Explicitly disable the autocomplete HTML attribute in sensitive forms and inputs
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -155,7 +155,7 @@ The autocomplete attribute specifies whether a form should have autocomplete on 
 
 ## <a id="data-mask"></a>Ensure that sensitive data displayed on the user screen is masked
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -167,7 +167,7 @@ Sensitive data such as passwords, credit card numbers, SSN etc. should be masked
 
 ## <a id="dynamic-users"></a>Implement dynamic data masking to limit sensitive data exposure non privileged users
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -177,12 +177,11 @@ Sensitive data such as passwords, credit card numbers, SSN etc. should be masked
 
 The purpose of dynamic data masking is to limit exposure of sensitive data, preventing users who should not have access to the data from viewing it. Dynamic data masking does not aim to prevent database users from connecting directly to the database and running exhaustive queries that expose pieces of the sensitive data. Dynamic data masking is complementary to other SQL Server security features (auditing, encryption, row level security…) and it is highly recommended to use this feature in conjunction with them in addition in order to better protect the sensitive data in the database. 
 
-[!NOTE]
-This feature is supported only by SQL Server starting with 2016 and Azure SQL Database. 
+Please note that this feature is supported only by SQL Server starting with 2016 and Azure SQL Database. 
 
 ## <a id="salted-hash"></a>Ensure that passwords are stored in salted hash format
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -194,7 +193,7 @@ Passwords should not be stored in custom user store databases. Password hashes s
 
 ## <a id="db-encrypted"></a>Ensure that sensitive data in database columns is encrypted
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -206,7 +205,7 @@ Sensitive data such as credit card numbers has to be encrypted in the database. 
 
 ## <a id="tde-enabled"></a>Ensure that database-level encryption (TDE) is enabled
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -218,7 +217,7 @@ Transparent Data Encryption (TDE) feature in SQL server helps in encrypting sens
 
 ## <a id="backup"></a>Ensure that database backups are encrypted
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -230,7 +229,7 @@ SQL Server has the ability to encrypt the data while creating a backup. By speci
 
 ## <a id="api-browser"></a>Ensure that sensitive data relevant to Web API is not stored in browser's storage
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -257,7 +256,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in DocumentDB
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Azure Document DB | 
 | SDL Phase               | Build |  
@@ -269,7 +268,7 @@ Encrypt sensitive data at application level before storing in document DB or sto
 
 ## <a id="disk-vm"></a>Use Azure Disk Encryption to encrypt disks used by Virtual Machines
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Azure IaaS VM Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -285,7 +284,7 @@ Azure Disk Encryption is a new feature that is currently in preview. This featur
 
 ## <a id="fabric-apps"></a>Encrypt secrets in Service Fabric applications
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Service Fabric Trust Boundary | 
 | SDL Phase               | Build |  
@@ -297,7 +296,7 @@ Secrets can be any sensitive information, such as storage connection strings, pa
 
 ## <a id="modeling-teams"></a>Perform security modeling and use Business Units/Teams where required
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM | 
 | SDL Phase               | Build |  
@@ -305,11 +304,11 @@ Secrets can be any sensitive information, such as storage connection strings, pa
 | Attributes              | N/A  |
 | References              | N/A  |
 
-Perform security modelling and use Business Units/Teams where required 
+Perform security modeling and use Business Units/Teams where required 
 
 ## <a id="entities"></a>Minimize access to share feature on critical entities
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM | 
 | SDL Phase               | Deployment |  
@@ -321,7 +320,7 @@ Minimise access to share feature on critical entities
 
 ## <a id="good-practices"></a>Train users on the risks associated with the Dynamics CRM Share feature and good security practices
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM | 
 | SDL Phase               | Deployment |  
@@ -333,7 +332,7 @@ Train users on the risks associated with the Dynamics CRM Share feature and good
 
 ## <a id="exception-mgmt"></a>Include a development standards rule proscribing showing config details in exception management
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM | 
 | SDL Phase               | Deployment |  
@@ -345,7 +344,7 @@ Include a development standards rule proscribing showing config details in excep
 
 ## <a id="sse-preview"></a>Use Azure Storage Service Encryption (SSE) for Data at Rest (Preview)
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
@@ -362,12 +361,11 @@ Encryption and Decryption Workflow:
 * If encryption is disabled, new writes are no longer encrypted and existing encrypted data remains encrypted until rewritten by the user. While encryption is enabled, writes to Blob storage will be encrypted. The state of data does not change with the user toggling between enabling/disabling encryption for the storage account
 * All encryption keys are stored, encrypted, and managed by Microsoft
 
-[!NOTE]
-At this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys. 
+Please note that at this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own >encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys. 
 
 ## <a id="client-storage"></a>Use Client-Side Encryption to store sensitive data in Azure Storage
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
@@ -384,7 +382,7 @@ The Azure Storage Client Library for .NET Nuget package supports encrypting data
 
 ## <a id="pii-phones"></a>Encrypt sensitive or PII data written to phones local storage
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Mobile Client | 
 | SDL Phase               | Build |  
@@ -433,7 +431,7 @@ If the application is not an enterprise application, then use platform provided 
 
 ## <a id="binaries-end"></a>Obfuscate generated binaries before distributing to end users
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Mobile Client | 
 | SDL Phase               | Build |  
@@ -445,7 +443,7 @@ Generated binaries (assemblies within apk) should be ofuscated to stop reverse e
 
 ## <a id="cert"></a>Set clientCredentialType to Certificate or Windows
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -466,7 +464,7 @@ RECOMMENDATIONS Set clientCredentialType to Certificate or Windows.
 
 ## <a id="security"></a>WCF-Security Mode is not enabled
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  

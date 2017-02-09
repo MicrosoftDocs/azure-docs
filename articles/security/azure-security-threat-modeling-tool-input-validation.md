@@ -29,53 +29,48 @@ ms.author: rodsan
 
 ## <a id="disable-xslt"></a>Disable XSLT scripting for all transforms using untrusted style sheets
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | [XSLT Security](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript Property](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
+| Steps | XSLT supports scripting inside style sheets using the `<msxml:script>` element. This allows custom functions to be used in an XSLT transformation. The script is executed under the context of the process performing the transform. XSLT script must be disabled when in an untrusted environment to prevent execution of untrusted code. *If using .NET:* XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the `XsltSettings.EnableScript` property.|
 
-XSLT supports scripting inside style sheets using the `<msxml:script>` element. This allows custom functions to be used in an XSLT transformation. The script is executed under the context of the process performing the transform. 
-
-XSLT script must be disabled when in an untrusted environment to prevent execution of untrusted code. *If using .NET:* XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the `XsltSettings.EnableScript` property. 
-
+### Example 
 ```C#
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
 
+### Example
 If you are using using MSXML 6.0, XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the XML DOM object property AllowXsltScript. 
-
 ```C#
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
+### Example
 If you are using MSXML 5 or below, XSLT scripting is enabled by default and you must explicitly disable it. Set the XML DOM object property AllowXsltScript to false. 
-
 ```C#
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
 ## <a id="out-sniffing"></a>Ensure that each page that could contain user controllable content opts out of automatic MIME sniffing
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | [IE8 Security Part V - Comprehensive Protection](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
+| Steps | <p>For each page that could contain user controllable content, you must use the HTTP Header `X-Content-Type-Options:nosniff`. To comply with this requirement, you can either set the required header page by page for only those pages that might contain user-controllable content, or you can set it globally for all pages in the application.</p><p>Each type of file delivered from a web server has an associated [MIME type](http://en.wikipedia.org/wiki/Mime_type) (also called a *content-type*) that describes the nature of the content (that is, image, text, application, etc)</p><p>The X-Content-Type-Options header is an HTTP header that allows developers to specify that their content should not be MIME-sniffed. This header is designed to mitigate MIME-Sniffing attacks. Support for this header was added in Internet Explorer 8 (IE8)</p><p>Only users of Internet Explorer 8 (IE8) will benefit from X-Content-Type-Options. Previous versions of Internet Explorer do not currently respect the X-Content-Type-Options header</p><p>Internet Explorer 8 (and later) are the only major browsers to implement a MIME-sniffing opt-out feature. If and when other major browsers (Firefox, Safari, Chrome) implement similar features, this recommendation will be updated to include syntax for those browsers as well</p>|
 
-For each page that could contain user controllable content, you must use the HTTP Header `X-Content-Type-Options:nosniff`. 
-
-To comply with this requirement, you can either set the required header page by page for only those pages that might contain user-controllable content, or you can set it globally for all pages in the application. 
-
+### Example
 To enable the required header globally for all pages in the application, you can do one of the following: 
 
 * Add the header in the web.config file if the application is hosted by Internet Information Services (IIS) 7 
-
 ```
 <system.webServer> 
   <httpProtocol> 
@@ -85,8 +80,8 @@ To enable the required header globally for all pages in the application, you can
   </httpProtocol>
 </system.webServer> 
 ```
-* Add the header through the global Application\_BeginRequest 
 
+* Add the header through the global Application\_BeginRequest 
 ``` 
 void Application_BeginRequest(object sender, EventArgs e)
 {
@@ -95,7 +90,6 @@ void Application_BeginRequest(object sender, EventArgs e)
 ```
 
 * Implement custom HTTP module 
-
 ``` 
 public class XContentTypeOptionsModule : IHttpModule 
   {
@@ -122,37 +116,24 @@ public class XContentTypeOptionsModule : IHttpModule
 
 ``` 
 
-You can enable the required header only for specific pages by adding it to individual responses: 
-
+* You can enable the required header only for specific pages by adding it to individual responses: 
 ```
 this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
 ``` 
 
-Training [IE8 Security Part V: Comprehensive Protection](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)
-
-Frequently Asked Questions 
-
-* What is a MIME-type? - Each type of file delivered from a web server has an associated [MIME type](http://en.wikipedia.org/wiki/Mime_type) (also called a *content-type*) that describes the nature of the content (that is, image, text, application, etc). 
-* What is the X-Content-Type-Options Header? - The X-Content-Type-Options header is an HTTP header that allows developers to specify that their content should not be MIME-sniffed. This header is designed to mitigate MIME-Sniffing attacks. Support for this header was added in Internet Explorer 8 (IE8). For more information see [IE8 Security Part V: Comprehensive Protection](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx). 
-* Does the X-Content-Type-Options protect all users from MIME-Sniffing Attacks? - No, only users of Internet Explorer 8 (IE8) will benefit from X-Content-Type-Options. Previous versions of Internet Explorer do not currently respect the X-Content-Type-Options header. 
-* Why is this recommendation only applicable for IE? - At the time of writing, Internet Explorer 8 (and later) are the only major browsers to implement a MIME-sniffing opt-out feature. If and when other major browsers (Firefox, Safari, Chrome) implement similar features, this recommendation will be updated to include syntax for those browsers as well.
-
 ## <a id="xml-resolution"></a>Harden or Disable XML Entity Resolution
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | [XML Entity Expansion](http://capec.mitre.org/data/definitions/197.html), [XML Denial of Service Attacks and Defenses](http://msdn.microsoft.com/magazine/ee335713.aspx), [MSXML Security Overview](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [Best Practices for Securing MSXML Code](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [NSXMLParserDelegate Protocol Reference](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [Resolving External References](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
+| Steps| <p>Although it is not widely used, there is a feature of XML that allows the XML parser to expand macro entities with values defined either within the document itself or from external sources. For example, the document might define an entity "companyname" with the value "Microsoft," so that every time the text "&companyname;" appears in the document, it is automatically replaced with the text Microsoft. Or, the document might define an entity "MSFTStock" that references an external web service to fetch the current value of Microsoft stock.</p><p>Then any time "&MSFTStock;" appears in the document, it is automatically replaced with the current stock price. However, this functionality can be abused to create denial of service (DoS) conditions. An attacker can nest multiple entities to create an exponential expansion XML bomb that consumes all available memory on the system. </p><p>Alternatively, he can create an external reference that streams back an infinite amount of data or that simply hangs the thread. As a result, all teams must disable internal and/or external XML entity resolution entirely if their application does not use it, or manually limit the amount of memory and time that the application can consume for entity resolution if this functionality is absolutely necessary. If entity resolution is not required by your application, then disable it. </p>|
 
-Although it is not widely used, there is a feature of XML that allows the XML parser to expand macro entities with values defined either within the document itself or from external sources. For example, the document might define an entity "companyname" with the value "Microsoft," so that every time the text "&companyname;" appears in the document, it is automatically replaced with the text Microsoft. Or, the document might define an entity "MSFTStock" that references an external web service to fetch the current value of Microsoft stock. 
-
-Then any time "&MSFTStock;" appears in the document, it is automatically replaced with the current stock price. However, this functionality can be abused to create denial of service (DoS) conditions. An attacker can nest multiple entities to create an exponential expansion XML bomb that consumes all available memory on the system. 
-
-Alternatively, he can create an external reference that streams back an infinite amount of data or that simply hangs the thread. As a result, all teams must disable internal and/or external XML entity resolution entirely if their application does not use it, or manually limit the amount of memory and time that the application can consume for entity resolution if this functionality is absolutely necessary. If entity resolution is not required by your application, then disable it. For .NET Framework code, you can use the following approaches: 
-
+### Example
+For .NET Framework code, you can use the following approaches:
 ```C#
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
@@ -166,9 +147,10 @@ XmlReaderSettings settings = new XmlReaderSettings();
 settings.DtdProcessing = DtdProcessing.Prohibit;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
+Note that the default value of `ProhibitDtd` in `XmlReaderSettings` is true, but in `XmlTextReader` it is false. If you are using XmlReaderSettings, you do not need to set ProhibitDtd to true explicitly, but it is recommended for safetyâ€™s sake that you do. Also note that the XmlDocument class allows entity resolution by default. 
 
-Note that the default value of `ProhibitDtd` in `XmlReaderSettings` is true, but in `XmlTextReader` it is false. If you are using XmlReaderSettings, you do not need to set ProhibitDtd to true explicitly, but it is recommended for safetyâ€™s sake that you do. Also note that the XmlDocument class allows entity resolution by default. To disable entity resolution for XmlDocuments, use the `XmlDocument.Load(XmlReader)` overload of the Load method and set the appropriate properties in the XmlReader argument to disable resolution, as illustrated in the following code: 
-
+### Example
+To disable entity resolution for XmlDocuments, use the `XmlDocument.Load(XmlReader)` overload of the Load method and set the appropriate properties in the XmlReader argument to disable resolution, as illustrated in the following code: 
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
@@ -177,8 +159,8 @@ XmlDocument doc = new XmlDocument();
 doc.Load(reader);
 ```
 
+### Example
 If disabling entity resolution is not possible for your application, set the XmlReaderSettings.MaxCharactersFromEntities property to a reasonable value according to your application's needs. This will limit the impact of potential exponential expansion DoS attacks. The following code provides an example of this approach: 
-
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
@@ -186,8 +168,8 @@ settings.MaxCharactersFromEntities = 1000;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
+### Example
 If you need to resolve inline entities but do not need to resolve external entities, set the XmlReaderSettings.XmlResolver property to null. For example: 
-
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
@@ -195,35 +177,22 @@ settings.MaxCharactersFromEntities = 1000;
 settings.XmlResolver = null;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-
 Note that in MSXML6, ProhibitDTD is set to true (disabling DTD processing) by default. For Apple OSX/iOS code, there are two XML parsers you can use: NSXMLParser and libXML2. 
 
 ## <a id="app-verification"></a>Applications utilizing http.sys perform URL canonicalization verification
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | N/A  |
-
-Any application that uses http.sys should follow these guidelines: 
-
-* Limit the URL length to no more than 16,384 characters (ASCII or Unicode). This is the absolute maximum URL length based on the default Internet Information Services (IIS) 6 setting. Websites should strive for a length shorter than this if possible. 
-* Use the standard .NET Framework file I/O classes (such as FileStream) as these will take advantage of the canonicalization rules in the .NET FX. 
-* Explicitly build an allow-list of known filenames. 
-* Explicitly reject known filetypes you will not serve UrlScan rejects: exe, bat, cmd, com, htw, ida, idq, htr, idc, shtm[l], stm, printer, ini, pol, dat files. 
-* Catch the following exceptions: 
-  * System.ArgumentException (for device names) 
-  * System.NotSupportedException (for data streams) 
-  * System.IO.FileNotFoundException (for invalid escaped filenames) 
-  * System.IO.DirectoryNotFoundException (for invalid escaped dirs) 
-* *Do not* call out to Win32 file I/O APIs. On an invalid URL gracefully return a 400 error to the user, and log the real error.
+| Steps | <p>Any application that uses http.sys should follow these guidelines:</p><ul><li>Limit the URL length to no more than 16,384 characters (ASCII or Unicode). This is the absolute maximum URL length based on the default Internet Information Services (IIS) 6 setting. Websites should strive for a length shorter than this if possible</li><li>Use the standard .NET Framework file I/O classes (such as FileStream) as these will take advantage of the canonicalization rules in the .NET FX</li><li>Explicitly build an allow-list of known filenames</li><li>Explicitly reject known filetypes you will not serve UrlScan rejects: exe, bat, cmd, com, htw, ida, idq, htr, idc, shtm[l], stm, printer, ini, pol, dat files</li><li>Catch the following exceptions:<ul><li>System.ArgumentException (for device names)</li><li>System.NotSupportedException (for data streams)</li><li>System.IO.FileNotFoundException (for invalid escaped filenames)</li><li>System.IO.DirectoryNotFoundException (for invalid escaped dirs)</li></ul></li><li>*Do not* call out to Win32 file I/O APIs. On an invalid URL gracefully return a 400 error to the user, and log the real error.</li></ul>|
 
 ## <a id="controls-users"></a>Ensure appropriate controls are in place when accepting files from users
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -351,7 +320,7 @@ For the last point regarding file format signature validation, refer to the clas
 
 ## <a id="typesafe"></a>Ensure that type-safe parameters are used in Web Application for data access
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -384,7 +353,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ## <a id="binding-mvc"></a>Use separate model binding classes or binding filter lists to prevent MVC mass assignment vulnerability
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -406,7 +375,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ## <a id="rendering"></a>Encode untrusted web output prior to rendering
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -430,7 +399,7 @@ Cross-site scripting (commonly abbreviated as XSS) is an attack vector for onlin
 
 ## <a id="typemodel"></a>Perform input validation and filtering on all string type Model properties
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -449,7 +418,7 @@ The following input validation checks must be performed upon model binding:
 
 ## <a id="richtext"></a>Sanitization should be applied on form fields that accept all characters e.g, rich text editor
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -473,7 +442,7 @@ Input validation and Output Encoding are considered better security controls.
 
 ## <a id="inbuilt-encode"></a>Do not assign DOM elements to sinks that do not have inbuilt encoding
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -496,7 +465,7 @@ Don't use innerHtml; instead use innerText. Similarly, instead of $("#elm").html
 
 ## <a id="redirect-safe"></a>Validate all redirects within the application are closed or done safely
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -512,7 +481,7 @@ To do this:
 
 ## <a id="string-method"></a>Implement input validation on all string type parameters accepted by Controller methods
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -524,7 +493,7 @@ For methods that just accept primitive data type, and not models as argument,inp
 
 ## <a id="dos-expression"></a>Set upper limit timeout for regular expression processing to prevent DoS due to bad regular expressions
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -540,7 +509,7 @@ To ensure denial of service attacks against badly created regular expressions, t
 
 ## <a id="html-razor"></a>Avoid using Html.Raw in Razor views
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -564,7 +533,7 @@ Do not use Html.Raw() unless you need to display markup. This method does not pe
 
 ## <a id="stored-proc"></a>Do not use dynamic queries in stored procedures
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -624,7 +593,7 @@ AS
 
 ## <a id="validation-api"></a>Ensure that model validation is done on Web API methods
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -677,7 +646,7 @@ namespace MyApi.Controllers
 
 ## <a id="string-api"></a>Implement input validation on all string type parameters accepted by Web API methods
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -689,7 +658,7 @@ For methods that just accept primitive data type, and not models as argument,inp
 
 ## <a id="typesafe-api"></a>Ensure that type-safe parameters are used in Web API for data access
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -720,7 +689,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ## <a id="sql-docdb"></a>Use parametrized SQL queries for DocumentDB
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | Azure Document DB | 
 | SDL Phase               | Build |  
@@ -732,7 +701,7 @@ Although DocumentDB only supports read-only queries, SQL injection is still poss
 
 ## <a id="schema-binding"></a>WCF Input validation through Schema binding
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -748,7 +717,7 @@ RECOMMENDATIONS To perform message validation, you first build a schema that rep
 
 ## <a id="parameters"></a>WCF- Input validation through Parameter Inspectors
 
-| Title                       | Details            |
+| Title                   | Details      |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
