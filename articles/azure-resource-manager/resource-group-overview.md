@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 
 ---
@@ -78,6 +78,10 @@ When creating a resource group, you need to provide a location for that resource
 Each resource provider offers a set of resources and operations for working with an Azure service. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. 
 
 Before getting started with deploying your resources, you should gain an understanding of the available resource providers. Knowing the names of resource providers and resources helps you define resources you want to deploy to Azure.
+
+You can see all resource providers through the portal. In the blade for your subscription, select **Resource providers**:
+
+![view resource providers](./media/resource-group-overview/view-resource-providers.png)
 
 You retrieve all resource providers with the following PowerShell cmdlet:
 

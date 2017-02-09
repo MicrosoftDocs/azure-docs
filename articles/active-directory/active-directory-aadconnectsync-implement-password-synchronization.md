@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2016
-ms.author: markusvi;andkjell
+ms.author: markvi;andkjell
 
 ---
 # Implementing password synchronization with Azure AD Connect sync

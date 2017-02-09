@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 
 ---
@@ -59,19 +59,25 @@ To configure the integration of Allocadia into Azure AD, you need to add Allocad
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
    
     ![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Applications][2]
+
 4. Click **Add** at the bottom of the page.
    
     ![Applications][3]
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
     ![Applications][4]
+
 6. In the search box, type **Allocadia**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_01.png)
+
 7. In the results pane, select **Allocadia**, and then click **Complete** to add the application.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_06.png)
@@ -102,18 +108,18 @@ Allocadia application expects the SAML assertions in a specific format. Please c
 1. In the Azure classic portal, on the **Allocadia** application integration page, in the menu on the top, click **Attributes**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_80.png) 
+
 2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
    
-   | Attribute Name | Attribute Value |
-   | --- | --- |
-   | firstname |user.givenname |
-   | lastname |user.surname |
-   | email |user.mail |
+    | Attribute Name | Attribute Value |
+    | --- | --- |
+    | firstname |user.givenname |
+    | lastname |user.surname |
+    | email |user.mail |
 
     a. Click **add user attribute** to open the **Add User Attribure** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_81.png) 
-
 
     b. In the **Attrubute Name** textbox, type the attribute name shown for that row.
 
@@ -125,9 +131,11 @@ Allocadia application expects the SAML assertions in a specific format. Please c
 1. In the menu on the top, click **Quick Start**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_83.png)  
+
 2. On the **How would you like users to sign on to Allocadia** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_03.png) 
+
 3. On the **Configure App Settings** dialog page, perform the following steps:.
    
     ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_04.png) 
@@ -135,6 +143,7 @@ Allocadia application expects the SAML assertions in a specific format. Please c
     a. In the IDENTIFER box type the URL in the following pattern: For test environment use the URL as **"https://na2standby.allocadia.com"** and for production environment use **"https://na2.allocadia.com"**
    
     b. In the Reply URL type the URL in the following pattern: For test environment use the URL pattern as  **"https://na2standby.allocadia.com/allocadia/saml/SSO"** and for production environment use **"https://na2.allocadia.com/allocadia/saml/SSO"**
+
 4. On the **Configure single sign-on at Allocadia** page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_05.png) 
@@ -142,15 +151,18 @@ Allocadia application expects the SAML assertions in a specific format. Please c
     a. Click **Download metadata**, and then save the file on your computer.
    
     b. Click **Next**.
+
 5. To get SSO configured for your application, contact [Allocadia Support](mailTo:support@allocadia.com) team and they will assist to configure SSO. Please note that you have to send email and attach downloaded metadata file to configure SSO on the Allocadia side.
    
-   > [!NOTE]
-   > Please make sure that Allocadia team set the Identifier value in the test environment as **"https://na2standby.allocadia.com"** and for production environment, it should be: **"https://na2.allocadia.com"**
-   > 
-   > 
+    > [!NOTE]
+    > Please make sure that Allocadia team set the Identifier value in the test environment as **"https://na2standby.allocadia.com"** and for production environment, it should be: **"https://na2.allocadia.com"**
+    > 
+    > 
+
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Azure AD Single Sign-On][10]
+
 7. On the **Single sign-on confirmation** page, click **Complete**.  
    
     ![Azure AD Single Sign-On][11]
@@ -166,13 +178,17 @@ In the Users list, select **Britta Simon**.
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_09.png) 
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_03.png) 
+
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_04.png) 
+
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_05.png) 
@@ -182,22 +198,25 @@ In the Users list, select **Britta Simon**.
     b. In the User Name **textbox**, type **BrittaSimon**.
    
     c. Click **Next**.
+
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_07.png) 
+
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_08.png) 
@@ -224,13 +243,17 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign User][201] 
+
 2. In the applications list, select **Allocadia**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_50.png) 
+
 3. In the menu on the top, click **Users**.
    
     ![Assign User][203] 
+
 4. In the Users list, select **Britta Simon**.
+
 5. In the toolbar on the bottom, click **Assign**.
    
     ![Assign User][205]

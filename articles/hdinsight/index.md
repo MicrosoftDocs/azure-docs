@@ -134,7 +134,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -148,7 +148,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

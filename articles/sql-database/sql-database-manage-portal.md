@@ -44,7 +44,7 @@ To open the **SQL servers** blade, click **SQL servers**, and then click the ser
 ![SQL servers](./media/sql-database-manage-portal/sql-servers.png)
 
 ## How do I create or view SQL elastic pools?
-To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic database pool with the Azure portal](sql-database-elastic-pool-create-portal.md).
+To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic pool with the Azure portal](sql-database-elastic-pool-create-portal.md).
 
 ![SQL elastic pools](./media/sql-database-manage-portal/elastic-pools.png)
 
@@ -119,5 +119,5 @@ To delete a SQL database, click **Delete** on the **SQL database** blade.
 
 ## Additional resources
 * [SQL Database](sql-database-technical-overview.md)
-* [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md)
+* [Monitor and manage an elastic pool with the Azure portal](sql-database-elastic-pool-manage-portal.md)
 

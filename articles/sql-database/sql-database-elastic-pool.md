@@ -34,24 +34,24 @@ A common SaaS application pattern is the single-tenant database model: each cust
 >
 >
 
-In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic databases in an elastic pool. See [Introduction to SQL Database](sql-database-technical-overview.md) to learn more about DTUs and eDTUs.
+In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for standalone databases and elastic DTUs (eDTUs) for elastic databases in an elastic pool. See [Introduction to SQL Database](sql-database-technical-overview.md) to learn more about DTUs and eDTUs.
 
-A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool.
+A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for standalone databases simplifies your management tasks. Plus you have a predictable budget for the pool.
 
 Additional eDTUs can be added to an existing pool with no database downtime or no impact on the databases in the elastic pool. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time.
 
 And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
 
 ## Which databases go in a pool?
-![SQL databases sharing eDTUs in an elastic database pool.][1]
+![SQL databases sharing eDTUs in an elastic pool.][1]
 
-Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
+Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a standalone database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
 
 [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
 
 ## eDTU and storage limits for elastic pools and elastic databases
 
-The following table describes the characteristics of Basic, Standard, and Premium elastic database pools.
+The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -85,7 +85,7 @@ With a pool, management tasks are simplified by running scripts in **[elastic jo
 For more information about other elastic database tools, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
 ## Business continuity features for databases in a pool
-Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
+Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to standalone databases.
 
 ### Point in time restore
 Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)

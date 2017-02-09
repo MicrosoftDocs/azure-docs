@@ -27,6 +27,7 @@
 ### [Networking](documentation-government-networking.md)
 ### [Security + identity](documentation-government-services-securityandidentity.md)
 ### [Monitoring + management](documentation-government-services-monitoringandmanagement.md)
+### [Web + mobile](documentation-government-services-webandmobile.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/)

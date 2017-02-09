@@ -25,7 +25,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=application-gateway">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-gateway">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -108,15 +108,15 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell cmdlets</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Azure CLI</a></p>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2​.0 preview</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -132,13 +132,13 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Classic REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API Reference</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Classic REST API Reference</a></p>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 12/13/2016
 ms.author: billmath
 
 ---
@@ -59,24 +59,24 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 [After installation](active-directory-aadconnect-whats-next.md) you should verify it is working as expected and assign licenses to the users.
 
 ### Next steps to Install Azure AD Connect
-|Topic | Link 
-|--- | ---
-|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-|Install using Express settings | [Express installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)
-|Install using Customized settings | [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md)
-|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
-|After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md)
+|Topic |Link|  
+| --- | --- |
+|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Install using Express settings | [Express installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)|
+|Install using Customized settings | [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md)|
+|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md)|
 
 ### Learn more about Install Azure AD Connect
 You also want to prepare for [operational](active-directory-aadconnectsync-operations.md) concerns. You might want to have a stand-by server so you easily can fall over if there is a [disaster](active-directory-aadconnectsync-operations.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) server.
 
-Topic |  
---------- | ---------
-Supported topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)
-Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md)
-Accounts used for installation | [More about Azure AD Connect credentials and permissions](./connect/active-directory-aadconnect-accounts-permissions.md)
-Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md)
-User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md)
+|Topic |Link|  
+| --- | --- |
+|Supported topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)|
+|Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md)|
+|Accounts used for installation | [More about Azure AD Connect credentials and permissions](./connect/active-directory-aadconnect-accounts-permissions.md)|
+|Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md)|
+|User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md)|
 
 ## Configure sync features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might sometimes require more configuration in certain scenarios and topologies.
@@ -94,12 +94,14 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is enabled by default for express settings installations and ensures your Azure AD Connect is always up to date with the latest release.
 
 ### Next steps to configure sync features
-Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md)
-Password synchronization | [Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
-Password writeback | [Getting started with password management](active-directory-passwords-getting-started.md)
-Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)
-Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-Automatic upgrade | [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
+|Topic |Link|  
+| --- | --- |
+|Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md)|
+|Password synchronization | [Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|Password writeback | [Getting started with password management](active-directory-passwords-getting-started.md)|
+|Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
+|Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
+|Automatic upgrade | [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)|
 
 ## Customize Azure AD Connect sync
 Azure AD Connect sync comes with a default configuration that is intended to work for most customers and topologies. But there are always situations where the default configuration does not work and must be adjusted. It is supported to make changes as documented in this section and linked topics.
@@ -111,14 +113,14 @@ The [default configuration](active-directory-aadconnectsync-understanding-defaul
 The configuration model in sync is called [declarative provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). The advanced attribute flows are using [functions](active-directory-aadconnectsync-functions-reference.md) to express attribute transformations. You can see and examine the entire configuration using tools which comes with Azure AD Connect. If you need to make configuration changes, make sure you follow the [best practices](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) so it is easier to adopt new releases.
 
 ### Next steps to customize Azure AD Connect sync
-Topic |  
---------- | ---------
-All Azure AD Connect sync articles | [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)
-Technical concepts | [Azure AD Connect sync: Technical Concepts](active-directory-aadconnectsync-technical-concepts.md)
-Understanding the default configuration | [Azure AD Connect sync: Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md)
-Understanding users and contacts | [Azure AD Connect sync: Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)
-Declarative provisioning | [Azure AD Connect Sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-Change the default configuration | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
+|Topic |Link|  
+| --- | --- |
+|All Azure AD Connect sync articles | [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)|
+|Technical concepts | [Azure AD Connect sync: Technical Concepts](active-directory-aadconnectsync-technical-concepts.md)|
+|Understanding the default configuration | [Azure AD Connect sync: Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md)|
+|Understanding users and contacts | [Azure AD Connect sync: Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)|
+|Declarative provisioning | [Azure AD Connect Sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)|
+|Change the default configuration | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## Configure federation features
 ADFS can be configured to support [multiple domains](active-directory-aadconnect-multiple-domains.md). For example you might have multiple top domains you need to use for federation.
@@ -126,24 +128,22 @@ ADFS can be configured to support [multiple domains](active-directory-aadconnect
 if your ADFS server has not been configured to automatically update certificates from Azure AD or if you use a non-ADFS solution, then you will be notified when you have to [update certificates](active-directory-aadconnect-o365-certs.md).
 
 ### Next steps to configure federation features
-
-Topic |  
---------- | ---------
-All AD FS articles | [Azure AD Connect and federation](active-directory-aadconnectfed-whatis.md)
-Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md)
-Manage AD FS farm | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md)
-Manually updating federation certificates | [Renewing Federation Certificates for Office 365 and Azure AD](active-directory-aadconnect-o365-certs.md)
+|Topic |Link|  
+| --- | --- |
+|All AD FS articles | [Azure AD Connect and federation](active-directory-aadconnectfed-whatis.md)|
+|Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md)|
+|Manage AD FS farm | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md)|
+|Manually updating federation certificates | [Renewing Federation Certificates for Office 365 and Azure AD](active-directory-aadconnect-o365-certs.md)|
 
 ## More information and references
-
-Topic |  
---------- | ---------
-Version history | [Version history](active-directory-aadconnect-version-history.md)
-Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
-Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)
-Attributes synchronized | [Attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md)
-Monitoring using Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md)
-Frequently Asked Questions | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
+|Topic |Link|  
+| --- | --- |
+|Version history | [Version history](active-directory-aadconnect-version-history.md)|
+|Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
+|Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)|
+|Attributes synchronized | [Attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md)|
+|Monitoring using Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md)|
+|Frequently Asked Questions | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md)|
 
 **Additional Resources**
 

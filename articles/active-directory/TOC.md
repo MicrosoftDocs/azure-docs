@@ -66,7 +66,6 @@
 
 #### [Audit events](active-directory-reporting-audit-events.md)
 #### [Retention](active-directory-reporting-retention.md)
-#### [Backfill](active-directory-reporting-backfill.md)
 #### [Latencies](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 ### Understand reports

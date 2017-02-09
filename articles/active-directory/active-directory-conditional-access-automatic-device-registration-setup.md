@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 12/14/2016
 ms.author: markvi
 
 ---
@@ -307,7 +307,7 @@ When domain-joined computers meet the prerequisites, they are ready to register 
 The Windows 10 Anniversary Update and Windows Server 2016 domain-joined computers automatically register with Azure AD the next time the device restarts or when a user signs in to Windows. New computers that are joined to the domain register with Azure AD when the device restarts after the domain join operation.
 
 > [!NOTE]
-> Windows 10 domain-joined computers automatically register with Azure AD only if the rollout Group Policy object is set.
+> Windows 10 domain-joined computers running Windows 10 November Update will automatically register with Azure AD, only if the rollout Group Policy object is set.
 > 
 > 
 
@@ -316,7 +316,7 @@ You can use a Group Policy object to control the rollout of automatic registrati
 To roll out automatic registration of non-Windows 10 domain-joined computers, you can deploy a Windows Installer package to computers that you select.
 
 > [!NOTE]
-> The Group Policy for rollout control also triggers the registration of Windows 8.1 domain-joined computers. You can use the policy for registering Windows 8.1 domain-joined computers. Or, if you have a mix of Windows versions, including Windows 7 or Windows Server versions, you can register all your non-Windows 10 and Windows Server 2016 computers by using a Windows Installer package.
+> For all non-Windows 10/Windows Server 2016 computers it is recommended to use the Windows Installer package as described below in this document.
 > 
 > 
 

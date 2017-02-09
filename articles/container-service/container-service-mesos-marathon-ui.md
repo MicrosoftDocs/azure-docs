@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
-ms.author: timlt
+ms.author: danlep
 
 ---
 # Manage an Azure Container Service DC/OS cluster through the Marathon web UI

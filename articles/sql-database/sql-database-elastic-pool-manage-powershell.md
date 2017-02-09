@@ -1,6 +1,6 @@
 ---
-title: Manage an elastic database pool (PowerShell) | Microsoft Docs
-description: Learn how to use PowerShell to manage an elastic database pool.
+title: Manage an elastic pool (PowerShell) | Microsoft Docs
+description: Learn how to use PowerShell to manage an elastic pool.
 services: sql-database
 documentationcenter: ''
 author: srinia
@@ -18,7 +18,7 @@ ms.date: 06/22/2016
 ms.author: srinia
 
 ---
-# Monitor and manage an elastic database pool with PowerShell
+# Monitor and manage an elastic pool with PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -27,7 +27,7 @@ ms.author: srinia
 >
 >
 
-Manage an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets.
+Manage an [elastic pool](sql-database-elastic-pool.md) using PowerShell cmdlets.
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
@@ -35,7 +35,7 @@ Values for pools can be found in [eDTU and storage limits](sql-database-elastic-
 
 ## Prerequisites
 * Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Elastic database pools are only available with SQL Database V12 servers. If you have a SQL Database V11 server, [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
+* elastic pools are only available with SQL Database V12 servers. If you have a SQL Database V11 server, [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
 ## Move a database into an elastic pool
 You can move a database into or out of a pool with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).

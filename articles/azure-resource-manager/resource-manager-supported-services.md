@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2016
+ms.date: 12/12/2016
 ms.author: magoedte;tomfitz
 
 ---
@@ -42,13 +42,13 @@ The following tables list which Microsoft services support deployment and manage
 Virtual Machines (classic) refers to resources that were deployed through the classic deployment model, instead of through the Resource Manager deployment model. In general, these resources do not support Resource Manager operations, but there 
 are some operations that have been enabled. For more information about these deployment models, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md). 
 
-Cloud Services (classic) can be used with other classic resources; however, classic resources do not take advantage of all Resource Manager features and are not a good option for future solutions. Instead, consider changing your application infrastructure to use resources from the Microsoft.Compute, Microsoft.Storage, and Microsoft.Network namespaces.
+Cloud Services (classic) can be used with other classic resources. However, classic resources do not take advantage of all Resource Manager features and are not a good option for future solutions. Instead, consider changing your application infrastructure to use resources from the Microsoft.Compute, Microsoft.Storage, and Microsoft.Network namespaces.
 
 ## Networking
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | --- | --- | --- | --- | --- |
 | Application Gateway |Yes |[Application Gateway REST](https://msdn.microsoft.com/library/azure/mt684939.aspx) | |[applicationGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FapplicationGateways%22&type=Code) |
-| DNS |Yes |[DNS REST](https://msdn.microsoft.com/library/azure/mt163862.aspx) |[DNS Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-01/Microsoft.Network.json) |[dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
+| DNS |Yes |[DNS REST](/rest/api/dns) |[DNS Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-01/Microsoft.Network.json) |[dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
 | ExpressRoute |Yes |[ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |[expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
 | Load Balancer |Yes |[Load Balancer REST](https://msdn.microsoft.com/library/azure/mt163651.aspx) |[Load Balancer Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |[loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
 | Traffic Manager |Yes |[Traffic Manager REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) |[Traffic Manager Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) |[trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
@@ -149,23 +149,15 @@ When deploying resources, you frequently need to retrieve information about the 
 To work with a resource provider, that resource provider must be registered with your account. By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. The examples below show how to get the registration status of a resource provider, and register the resource provider, if needed.
 
 ### Portal
-You can easily see a list of supported resources providers with the following steps:
-
-1. Select **My permissions**.
+You can easily see a list of supported resources providers by selecting **Resource providers** from the subscription blade. To register your subscription with a resource provider, select the **Register** link.
    
-    ![my permissions](./media/resource-manager-supported-services/my-permissions.png)
-2. Select **Resource provider status**
-   
-    ![resource provider status](./media/resource-manager-supported-services/resource-provider-status.png)
-3. You see the complete list of resource providers for your subscription.
-   
-    ![list resource providers](./media/resource-manager-supported-services/list-providers.png)
+![list resource providers](./media/resource-manager-supported-services/view-resource-providers.png)
 
 ### REST API
-To get all of the available resource providers, including their types, locations, API versions, and registration status, use the [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List) operation. If you need to register a resource provider, see [Register a subscription with a resource provider](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register).
+To get all the available resource providers, including their types, locations, API versions, and registration status, use the [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List) operation. If you need to register a resource provider, see [Register a subscription with a resource provider](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register).
 
 ### PowerShell
-The following example shows how to get all of the available resource providers.
+The following example shows how to get all the available resource providers.
 
     Get-AzureRmResourceProvider -ListAvailable
 
@@ -187,7 +179,7 @@ To register a resource provider, provide the namespace:
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
 
 ### Azure CLI
-The following example shows how to get all of the available resource providers.
+The following example shows how to get all the available resource providers.
 
     azure provider list
 
@@ -202,7 +194,7 @@ The output is similar to:
     data:    Microsoft.Authorization          Registered
     ...
 
-You can save the information for a particular resource provider to a file with the following command.
+You can save the information for a particular resource provider to a file with the following command:
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
@@ -211,11 +203,9 @@ To register a resource provider, provide the namespace:
     azure provider register -n Microsoft.ServiceBus
 
 ## Supported regions
-When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there 
-may be limitations on your subscription that prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed 
-by your subscription administrator to use only certain regions. 
+When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed by your subscription administrator to use only certain regions. 
 
-For a complete list of all supported regions for all Azure services, see [Services by region](https://azure.microsoft.com/regions/#services); however, this list may include regions that your subscription does not support. You can determine the regions for a particular resource type that your subscription supports through the portal, REST API, PowerShell, or Azure CLI.
+For a complete list of all supported regions for all Azure services, see [Services by region](https://azure.microsoft.com/regions/#services). However, this list may include regions that your subscription does not support. You can determine the regions for a particular resource type that your subscription supports through the portal, REST API, PowerShell, or Azure CLI.
 
 ### Portal
 You can see the supported regions for a resource type through the following steps:
@@ -255,7 +245,7 @@ The output is similar to:
     East US 2
 
 ### Azure CLI
-The following example returns all of the supported locations for each resource type.
+The following example returns all the supported locations for each resource type.
 
     azure location list
 
@@ -272,9 +262,7 @@ Which returns:
     }
 
 ## Supported API versions
-When you deploy a template, you must specify an API version to use for creating each resource. The API version corresponds to a version of REST API operations that are released by the resource provider. 
-As a resource provider enables new features, it releases a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the 
-template. In general, you want to select the most recent API version when creating templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
+When you deploy a template, you must specify an API version to use for creating each resource. The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the template. In general, you want to select the most recent API version when creating templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
 
 ### Portal
 You determine the supported API versions in the same way you determined supported regions (shown previously).
@@ -301,7 +289,7 @@ The output is similar to:
     2014-04-01
 
 ### Azure CLI
-You can save the information (including the available API versions) for a resource provider to a file with the following command.
+You can save the information (including the available API versions) for a resource provider to a file with the following command:
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 

@@ -62,7 +62,7 @@ Azure Container Service makes it simple for you to create, configure, and manage
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -74,7 +74,7 @@ Azure Container Service makes it simple for you to create, configure, and manage
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

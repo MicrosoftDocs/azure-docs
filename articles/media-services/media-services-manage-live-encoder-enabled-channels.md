@@ -1,6 +1,6 @@
 ---
 title: Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Docs
-description: 'This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS.'
+description: 'This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -13,10 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 
 ---
+
 # Live streaming using Azure Media Services to create multi-bitrate streams
 ## Overview
 In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
@@ -326,9 +327,12 @@ The duration of the slate in seconds. This has to be a non-zero positive value i
 When set to true, this setting configures the live encoder to insert a slate image during an ad break. The default value is true. 
 
 ### <a id="default_slate"></a>Default slate Asset Id
+
 Optional. Specifies the Asset Id of the Media Services Asset which contains the slate image. Default is null. 
 
-**Note**: Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
+>
+>[!NOTE] 
+>Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
 
 * At most 1920x1080 in resolution.
 * At most 3 Mbytes in size.

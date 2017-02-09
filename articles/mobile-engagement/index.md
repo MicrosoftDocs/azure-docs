@@ -25,7 +25,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=mobile-engagement">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=mobile-engagement">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -167,6 +167,24 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
             </div>
         </div>
         </a>
+    </li>
+</ul>
+
+---
+
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">.NET</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 

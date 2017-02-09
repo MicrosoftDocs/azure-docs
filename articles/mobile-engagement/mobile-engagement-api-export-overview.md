@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
-ms.author: kpiteira
+ms.author: kapiteir
 
 ---
 # Mobile Engagement Export API Overview

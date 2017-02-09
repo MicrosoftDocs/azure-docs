@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: charleywen
+ms.author: charwen
 
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections for the Resource Manager deployment model

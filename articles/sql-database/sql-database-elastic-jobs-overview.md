@@ -22,7 +22,7 @@ ms.author: ddove
 To manage scaled-out sharded databases, the **Elastic Database jobs** feature (preview) enables you to reliably execute a Transact-SQL (T-SQL) script across a group of databases, including:
 
 * a custom-defined collection of databases (explained below)
-* all databases in an [Elastic Database pool](sql-database-elastic-pool.md)
+* all databases in an [elastic pool](sql-database-elastic-pool.md)
 * a shard set (created using [Elastic Database client library](sql-database-elastic-database-client-library.md)). 
 
 ## Documentation
@@ -70,7 +70,7 @@ Define custom groups of Azure SQL Databases, and define schedules for running a 
 
 ## Elastic Database jobs: end-to-end
 1. Install the **Elastic Database jobs** components. For more information, see [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md). If the installation fails, see [how to uninstall](sql-database-elastic-jobs-uninstall.md).
-2. Use the PowerShell APIs to access more functionality, for example creating custom-defined database collections, adding schedules and/or gathering results sets. Use the portal for simple installation and creation/monitoring of jobs limited to execution against a **Elastic Database pool**. 
+2. Use the PowerShell APIs to access more functionality, for example creating custom-defined database collections, adding schedules and/or gathering results sets. Use the portal for simple installation and creation/monitoring of jobs limited to execution against a **elastic pool**. 
 3. Create encrypted credentials for job execution and [add the user (or role) to each database in the group](sql-database-security.md).
 4. Create an idempotent T-SQL script that can be run against every database in the group. 
 5. Follow these steps to create jobs using the Azure portal: [Creating and managing Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md). 

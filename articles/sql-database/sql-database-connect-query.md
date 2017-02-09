@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: stevestein
+ms.author: sstein
 
 ---
 # Connect to a SQL Database with Visual Studio

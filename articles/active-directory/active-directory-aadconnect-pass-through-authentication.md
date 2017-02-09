@@ -128,12 +128,12 @@ The result will be similar to the following.
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta3.png)
 
 Additional information can also be found in the security logs of the Domain Controllers, if audit logging is enabled.  A simple query for authentication requests by the connector would be as follows:
-	
-	<QueryList>
-		<Query Id="0" Path="Security">
-			<Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
-		 </Query>
-	</QueryList>
+
+    <QueryList>
+    <Query Id="0" Path="Security">
+    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
+    </Query>
+    </QueryList>
 
 Other errors reported on the Azure AD login screen are detailed below together with the appropriate resolution steps.
 

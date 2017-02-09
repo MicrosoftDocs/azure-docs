@@ -21,15 +21,15 @@ ms.author: jingwang;kevin;barbkess
 
 # Load data into SQL Data Warehouse with Data Factory
 
-This tutorial loads data into Azure SQL Data Warehouse by using Azure Data Factory, and uses a SQL Server database as the data source. When you’re finished, you have your data in SQL Data Warehouse.
+You can use Azure Data Factory to load data into Azure SQL Data Warehouse from any of the [supported source data stores](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). For example, you can load data from an Azure SQL database or an Oracle database in to a SQL data warehouse by using Data Factory. Tutorial in this article shows you how to load data from an on-premises SQL Server database into a SQL data warehouse.
 
 **Time estimate**: This tutorial takes about 10-15 minutes to complete once the prerequisites are met.
 
 ## Prerequisites
 
-- The tutorial assumes you understand the basics of using Transact-SQL to create tables and schemas.  
+- A SQL Server database with tables that contain the data to be copied over to the SQL data warehouse.  
 
-- You need an Azure Storage Account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+- You need an Azure Storage Account. You can [open a free Azure account](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 - You need an online SQL Data Warehouse. If you do not already have a data warehouse, learn how to [Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md). For best performance, locate the storage account and the data warehouse in the same Azure region.
 
@@ -41,10 +41,10 @@ This tutorial loads data into Azure SQL Data Warehouse by using Azure Data Facto
 3. In the **Properties** blade, click **Load Data > Azure Data Factory**.
 
     ![Launch Load Data wizard](media/sql-data-warehouse-load-with-data-factory/launch-load-data-wizard.png)
+4. If you do not have a data factory in your Azure subscription, you see a **New Data Factory** dialog box in a separate tab of the browser. Fill in the requested information, and click **Create**. After the data factory is created, the **New Data Factory** dialog box closes, and you see the **Select Data Factory** dialog box.
 
-4. You see a **New Data Factory** dialog box. Fill in the requested information, or choose an existing data factory. Click **Create**.
-
-5. In the **Select Data Factory** dialog box, the **Load data** option is selected by default. Click **Next** to finish creating the data factory. 
+	If you have one or more data factories already in the Azure subscription, you see the **Select Data Factory** dialog box. In this dialog box, you can either select an existing data factory or click **Create new data factory** to create a new one. 
+5. In the **Select Data Factory** dialog box, the **Load data** option is selected by default. Click **Next** to start creating a data loading task. 
 
 ## Configure the data factory properties
 Now that you have created a data factory, the next step is to configure the data loading schedule. 
@@ -72,16 +72,22 @@ Now you tell Data Factory about the on-premises SQL Server database from which y
 	- **Authentication type**: Choose the type of authentication you are using.
 	- **User name** and **password**: Enter the user name and password for a user who has permission to copy the data.
 
-4. The last field asks for the name of the Gateway. Click the **Create Gateway** link to create a Data Management Gateway. The gateway is a client agent that you must install in your on-premises environment to copy data between on-premises and cloud data stores. 
+4. The last field asks for the name of the gateway. If the source data store is on-premises or in an Azure IaaS virtual machine, the gateway is required. If you are using an existing data factory that already has a gateway, you can reuse the gateway by selecting it from the drop-down list. Click the **Create Gateway** link to create a Data Management Gateway.  
+
+	> [!NOTE]
+	> A gateway has a 1-1 relationship with a data factory. It cannot be used from another data factory, but it can be used by multiple data loading tasks with in the same data factory. A gateway can be used to connect to multiple data stores when running data loading tasks.
+	> 
+	> For detailed information about the gateway, see [Data Management Gateway](../data-factory/data-factory-data-management-gateway.md) article. 
 
 5. A **Create Gateway** dialog box appears. For Name, enter **GatewayForDWLoading**, and click **Create**.
 
 6. A **Configure Gateway** dialog box appears.  
 	![Launch Express setup](media/sql-data-warehouse-load-with-data-factory/launch-express-setup.png)
 
-7. Click **Launch express setup on this computer** to download, install, and register the gateway on your current machine. The progress is shown in a pop-up window.
+7. Click **Launch express setup on this computer** to download, install, and register Data Management Gateway on your current machine (the machine you are using to access the portal). If the machine cannot connect to the data store, you can manually [download and install the gateway](https://www.microsoft.com/download/details.aspx?id=39717) on a machine that can connect to the data store, and then use the key to register. The progress is shown in a pop-up window.
 
-	The express setup works natively with Microsoft Edge and Internet Explorer. If you are using Google Chrome, first install the ClickOnce extension from Chrome web store. Alternatively, you can manually download and install the gateway, then use the key to register.
+	> [!NOTE]
+	> The express setup works natively with Microsoft Edge and Internet Explorer. If you are using Google Chrome, first install the ClickOnce extension from Chrome web store. 
 
 8. Wait for the gateway setup to complete. Once the gateway is successfully registered and is online, the pop-up window closes and the new gateway appears in the gateway field. Click **Next**.
 
@@ -151,9 +157,16 @@ After the deployment is complete, a **Deployment** option appears on the left-ha
 
 To migrate your database to SQL Data Warehouse, see [Migration overview](sql-data-warehouse-overview-migrate.md).
 
-To learn more about Azure Data Factory copy capabilities, see [Introduction to Azure Data Factory](../data-factory/data-factory-introduction.md) and [Move data by using Copy Activity](../data-factory/data-factory-data-movement-activities.md).
+To learn more about Azure Data Factory and its data movement capabilities, see the following articles: 
 
-To explore your data in SQL Data Warehouse, see [Connect to SQL Data Warehouse with Visual Studio and SSDT](sql-data-warehouse-query-visual-studio.md) and [Visual data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+- [Introduction to Azure Data Factory](../data-factory/data-factory-introduction.md)
+- [Move data by using Copy Activity](../data-factory/data-factory-data-movement-activities.md)
+- [Move data to and from Azure SQL Data Warehouse using Azure Data Factory](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+
+To explore your data in SQL Data Warehouse, see the following articles: 
+
+- [Connect to SQL Data Warehouse with Visual Studio and SSDT](sql-data-warehouse-query-visual-studio.md) 
+- [Visual data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
 <!-- Azure references -->
 [Azure portal]: https://portal.azure.com 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 12/12/2016
 ms.author: dobett
 
 ---
@@ -92,11 +92,14 @@ You can change the settings of an existing IoT hub after it is created from the 
 
 ![][10]
 
-## Messaging
-Click **Messaging** to display a list of messaging properties for the IoT hub that is being modified. There are two main types of properties that you can modify or copy: **Cloud to Device** and **Device to Cloud**.
+## Endpoints
+Click **Endpoints** to display a list of endpoints for the IoT hub that is being modified. There are two main types of endpoints: endpoints which are built into the IoT hub, and endpoints which you added to the IoT hub after its creation.
 
-* **Cloud to Device** settings: This setting has two subsettings: **Cloud to Device TTL** (time-to-live) and **Retention time** for the messages. When the IoT hub is first created, both these settings are created with a default value of one hour. To adjust these values, use the sliders or type the values.
-* **Device to Cloud** settings: This setting has several subsettings, some of which are named/assigned when the IoT hub is created and can only be copied to other subsettings that are customizable. These settings are listed in the next section.
+### Built-in endpoints
+There are two main built-in endpoints: **Cloud to device feedback** and **Events**.
+
+* **Cloud to device feedback** settings: This setting has two subsettings: **Cloud to Device TTL** (time-to-live) and **Retention time** for the messages. When the IoT hub is first created, both these settings are created with a default value of one hour. To adjust these values, use the sliders or type the values.
+* **Events** settings: This setting has several subsettings, some of which are named/assigned when the IoT hub is created and can only be copied to other subsettings that are customizable. These settings are listed in the next section.
 
 **Partitions**: This value is set when the IoT hub is created and can be changed through this setting.
 
@@ -112,6 +115,22 @@ Click **Messaging** to display a list of messaging properties for the IoT hub th
 > 
 
 ![][11]
+
+### Custom endpoints
+You can add custom endpoints to your IoT hub via the portal. From the endpoints blade, click **Add** at the top of the blade to open the **Add endpoint** blade. Enter the information required in the blade, then click **OK**. Your custom endpoint will then show up in the main endpoints blade.
+
+![][13]
+
+You can read more about custom endpoints in [Reference - IoT hub endpoints][lnk-devguide-endpoints].
+
+## Routes
+Click **Routes** to manage how IoT Hub dispatches your device to cloud messages.
+
+![][14]
+
+You can add additional routes to your IoT hub by clicking **Add** at the top of the blade and entering the information required in the blade and clicking **OK**. Your route will then show up in the main endpoints blade. You can edit a route by clicking it in the list of routes and then modifying it. To enable a route, click it in the list of routes and set the enable/disable toggle to **Off**. Click **OK** at the bottom of the blade to save the change.
+
+![][15]
 
 ## Pricing and scale
 The pricing of an existing IoT hub can be changed through the **Pricing** settings, with the following exceptions:
@@ -145,6 +164,9 @@ To further explore the capabilities of IoT Hub, see:
 [10]: ./media/iot-hub-create-through-portal/shared-access-policies.png
 [11]: ./media/iot-hub-create-through-portal/messaging-settings.png
 [12]: ./media/iot-hub-create-through-portal/pricing-error.png
+[13]: ./media/iot-hub-create-through-portal/endpoint-creation.png
+[14]: ./media/iot-hub-create-through-portal/routes-list.png
+[15]: ./media/iot-hub-create-through-portal/route-edit.png
 
 [lnk-bulk]: iot-hub-bulk-identity-mgmt.md
 [lnk-metrics]: iot-hub-metrics.md
@@ -153,3 +175,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

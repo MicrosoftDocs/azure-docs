@@ -34,6 +34,7 @@
 ### [Baseline assessment](oms-security-baseline.md)
 ### [Malware assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Connect security products](oms-security-connect-products.md)
 ## [Integrate with OMS](operations-management-suite-integration.md)
 
 

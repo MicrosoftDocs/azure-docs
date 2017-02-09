@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/5/2016
-ms.author: brendalee
+ms.author: brendal
 ---
 # Azure Government Web + Mobile
 ## App Services

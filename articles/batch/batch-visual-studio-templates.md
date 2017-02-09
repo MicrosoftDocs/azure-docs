@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/07/2016
-ms.author: marsma
+ms.author: tamram
 
 ---
 # Visual Studio project templates for Azure Batch

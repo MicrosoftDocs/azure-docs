@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
-ms.author: john.dehavilland
+ms.author: jodehavi
 
 ---
 # Deploy a web app with MSDeploy, custom hostname and SSL certificate

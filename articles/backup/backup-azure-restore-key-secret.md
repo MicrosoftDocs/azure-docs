@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: JPallavi
+ms.author: pajosh
 
 ---
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup

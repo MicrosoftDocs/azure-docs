@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2016
-ms.author: gatneil
+ms.author: negat
 
 ---
 # Quickly create a scale set using the Azure CLI

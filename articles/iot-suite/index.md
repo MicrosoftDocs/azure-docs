@@ -25,7 +25,7 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=internet-of-things">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,6 +60,27 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </div>
         </a>
     </li>    
+</ul>
+
+---
+
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Resources</h3>
+                        <p><a href="/azure/iot-suite/iot-security-architecture">Security architecture</a></p>
+                        <p><a href="/azure/iot-suite/iot-security-best-practices">Security best practices</a></p>
+                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Secure your IoT deployment</a></p>
+                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Security from the ground up</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
 ---

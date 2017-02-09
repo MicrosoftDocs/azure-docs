@@ -1,6 +1,6 @@
 ---
-title: Create an new elastic database pool with PowerShell | Microsoft Docs
-description: Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic database pool to manage multiple databases.
+title: Create an new elastic pool with PowerShell | Microsoft Docs
+description: Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic pool to manage multiple databases.
 services: sql-database
 documentationcenter: ''
 author: srinia
@@ -18,7 +18,7 @@ ms.date: 05/27/2016
 ms.author: srinia
 
 ---
-# Create a new elastic database pool with PowerShell
+# Create a new elastic pool with PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -26,7 +26,7 @@ ms.author: srinia
 >
 >
 
-Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets.
+Learn how to create an [elastic pool](sql-database-elastic-pool.md) using PowerShell cmdlets.
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 

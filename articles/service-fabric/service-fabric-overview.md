@@ -115,5 +115,6 @@ By using Service Fabric, you can:
   * [Terminology overview](service-fabric-technical-overview.md)
 * Setting up your Service Fabric [development environment](service-fabric-get-started.md)  
 * [Choosing a programming model framework](service-fabric-choose-framework.md) for your service
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png

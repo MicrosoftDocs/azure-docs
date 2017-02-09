@@ -60,6 +60,7 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 * [Make your application AppSource Certified for Azure AD](active-directory-devhowto-appsource-certified.md)
 * [List your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
 * [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Register an application with Azure Active Directory using the Azure portal](active-directory-app-registration.md)
 * [Understand the Azure Active Directory application manifest](active-directory-application-manifest.md)
 * [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](active-directory-branding-guidelines.md)
 * [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
@@ -119,4 +120,3 @@ For guidance on using Windows Server and Active Directory Federation Services (A
 
 * [AD FS Scenarios for Developers](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Provides an overview of AD FS components and how it works, with details on the supported authentication/authorization scenarios.
 * [AD FS walkthroughs](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): a list of walk-through articles, which provide step-by-step instructions on implementing the related authentication/authorization flows.
-

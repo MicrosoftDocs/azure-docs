@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2016
+ms.date: 12/13/2016
 ms.author: seanmck
 
 ---
@@ -41,4 +41,3 @@ As Reliable Actors itself is an application framework built on Reliable Services
 
 ## Next steps
 [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md) or get started by [writing your first Reliable Actor service](service-fabric-reliable-actors-get-started.md)
-

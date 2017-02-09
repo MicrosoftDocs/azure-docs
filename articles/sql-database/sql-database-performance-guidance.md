@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database and performance for single databases | Microsoft Docs
+title: Azure SQL Database and performance for standalone databases | Microsoft Docs
 description: This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database.
 services: sql-database
 documentationcenter: na
@@ -18,11 +18,11 @@ ms.date: 12/06/2016
 ms.author: carlrab
 
 ---
-# Azure SQL Database and performance for single databases
+# Azure SQL Database and performance for standalone databases
 Azure SQL Database offers three [service tiers](sql-database-service-tiers.md): Basic, Standard, and Premium. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
-> This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic database pools, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic database pool, and get similar performance benefits.
+> This article focuses on performance guidance for standalone databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
 > 
 > 
 
@@ -55,7 +55,7 @@ Most Premium service tier use cases have one or more of these characteristics:
 The service level that you need for your SQL database depends on the peak load requirements for each resource dimension. Some applications use a trivial amount of a single resource, but have significant requirements for other resources.
 
 ## Service tier capabilities and limits
-Each service tier and performance level is associated with different limits and performance characteristics. This table describes these characteristics for a single database.
+Each service tier and performance level is associated with different limits and performance characteristics. This table describes these characteristics for a standalone database.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
@@ -65,7 +65,7 @@ The next sections have more information about how to view use related to these l
 You can use the **sys.dm_db_resource_stats** view to monitor your Azure In-Memory storage use. For more information about monitoring, see [Monitor In-Memory OLTP storage](sql-database-in-memory-oltp-monitoring.md).
 
 > [!NOTE]
-> Currently, Azure In-Memory online transaction processing (OLTP) preview is supported only for single databases. You cannot use it in databases in elastic database pools.
+> Currently, Azure In-Memory online transaction processing (OLTP) preview is supported only for standalone databases. You cannot use it in databases in elastic pools.
 > 
 > 
 
@@ -90,7 +90,7 @@ You can analyze your user and application patterns to get an idea of the frequen
 If multiple clients use the same connection string, the service authenticates each login. If 10 users simultaneously connect to a database by using the same username and password, there would be 10 concurrent logins. This limit applies only to the duration of the login and authentication. If the same 10 users connect to the database sequentially, the number of concurrent logins would never be greater than 1.
 
 > [!NOTE]
-> Currently, this limit does not apply to databases in elastic database pools.
+> Currently, this limit does not apply to databases in elastic pools.
 > 
 > 
 
@@ -410,7 +410,7 @@ You can examine **sys.resource_stats** to determine whether the resource for a t
 If a workload has a set of repeating queries, often it makes sense to capture and validate the optimality of your plan choices because it drives the minimum resource size unit required to host the database. After you validate it, occasionally reexamine the plans to help you make sure that they have not degraded. You can learn more about [query hints (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
 ### Cross-database sharding
-Because Azure SQL Database runs on commodity hardware, the capacity limits for a single database are lower than for a traditional on-premises SQL Server installation. Some customers use sharding techniques to spread database operations over multiple databases when the operations don't fit inside the limits of a single database in Azure SQL Database. Most customers who use sharding techniques in Azure SQL Database split their data on a single dimension across multiple databases. For this approach, you need to understand that OLTP applications often perform transactions that apply to only one row or to a small group of rows in the schema.
+Because Azure SQL Database runs on commodity hardware, the capacity limits for a standalone database are lower than for a traditional on-premises SQL Server installation. Some customers use sharding techniques to spread database operations over multiple databases when the operations don't fit inside the limits of a standalone database in Azure SQL Database. Most customers who use sharding techniques in Azure SQL Database split their data on a single dimension across multiple databases. For this approach, you need to understand that OLTP applications often perform transactions that apply to only one row or to a small group of rows in the schema.
 
 > [!NOTE]
 > SQL Database now provides a library to assist with sharding. For more information, see [Elastic Database client library overview](sql-database-elastic-database-client-library.md).
@@ -436,6 +436,6 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Next steps
 * For more information about service tiers, see [SQL Database options and performance](sql-database-service-tiers.md)
-* For more information about elastic database pools, see [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
-* For information about performance and elastic database pools, see [When to consider an elastic database pool](sql-database-elastic-pool-guidance.md)
+* For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
+* For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
 

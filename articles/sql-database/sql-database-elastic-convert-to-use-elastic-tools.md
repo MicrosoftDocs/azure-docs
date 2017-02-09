@@ -68,11 +68,11 @@ For a single-tenant model, create a **list mapping** shard map. The single-tenan
 
 ![List mapping][1]
 
-The multi-tenant model assigns several tenants to a single database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, we assign a range of tenants to a database using **range mapping**. 
+The multi-tenant model assigns several tenants to a standalone database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, we assign a range of tenants to a database using **range mapping**. 
 
 ![Range mapping][2]
 
-Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
+Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to a standalone database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
 
 ![Muliple tenants on single DB][3] 
 
@@ -97,7 +97,7 @@ Note that to utilize this mapping pattern, tenant id values needs to be continuo
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### Option 3: List mappings on a single database
+### Option 3: List mappings on a standalone database
 Setting up this pattern also requires creation of a list map as shown in step 2, option 1.
 
 ## Step 3: Prepare individual shards
@@ -137,7 +137,7 @@ Add the range mappings for all the tenant id range – database associations:
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### Step 4 option 3: map the data for multiple tenants on a single database
+### Step 4 option 3: map the data for multiple tenants on a standalone database
 For each tenant, run the Add-ListMapping (option 1, above). 
 
 ## Checking the mappings

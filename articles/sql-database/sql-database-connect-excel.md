@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
-ms.author: joseidz
+ms.author: jhubbard
 
 ---
 # SQL Database tutorial: Connect Excel to an Azure SQL database and create a report

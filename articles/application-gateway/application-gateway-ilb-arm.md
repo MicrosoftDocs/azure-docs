@@ -123,7 +123,7 @@ $subnet = $vnet.subnets[0]
 
 This assigns the subnet object to variable $subnet for the next steps.
 
-## Create an application gateway configuration objec
+## Create an application gateway configuration object
 
 ### Step 1
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
-ms.author: apimpm
+ms.author: vlvinogr
 
 ---
 # Azure API Management Policy Reference

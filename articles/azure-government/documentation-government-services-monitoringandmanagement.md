@@ -42,6 +42,37 @@ The following Backup features are not currently available in Azure Government:
 * Azure Resource Manager vaults
 * Management using the Azure portal (the Azure classic portal is supported)
 
+The URLs for Backup are different in Azure Government:
+
+## Site Recovery
+Site Recovery (ASR) is generally available in Azure Government.
+
+For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
+
+### Variations
+The following Site Recovery features are not currently available in Azure Government:
+
+* Azure Resource Manager site recovery vaults
+
+| Site Recovery | Classic | Resource Manager | 
+| --- | --- | --- |
+| VMWare/Physical  | GA | Planned |
+| Hyper-V | GA | Planned |
+| Site to Site | GA | Planned |
+
+Notes: Table applies to VA and Iowa. 
+
+The following URLs for ASR  are different in Azure Government:
+
+| Azure Public | Azure Government | Notes |
+| --- | --- | --- |
+| *.hypervrecoverymanager.windowsazure.com | *.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
+| *. backup.windowsazure.com  | *.backup.windowsazure.us | Access to Protection Service |
+| *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
+| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
+
+
+
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
 
