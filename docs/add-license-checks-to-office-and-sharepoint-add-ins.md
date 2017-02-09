@@ -8,11 +8,7 @@ To create a test token:
  
 
 - Copy the example [license schema](add-in-license-schema.md) into a text file and save it with a .tok extension.
-    
- 
 - Change the appropriate attributes, such as Product ID.
-    
- 
 - Make sure the test attribute is present and set equal to true.
     
  
@@ -22,8 +18,6 @@ For Word, Excel, and PowerPoint add-ins:
  
 
 - Create your test tokens.
-    
- 
 - Upload your test license tokens by using the developer registry. For details, see "Load a test license" later in this article.
     
  
@@ -31,14 +25,9 @@ For Outlook add-ins:
  
 
 - Create your test token.
-    
- 
 - Create a URL-encoded version of the add-in license token.
-    
- 
 - In the add-in manifest file, manually edit the appropriate  [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element. Add the URL-encoded version of the license token to the source location URL as a query parameter named *et*  .
-    
-     **Note**  If your add-in uses  [getUserIdentityTokenAsync](http://dev.office.com/reference/add-ins/outlook/Office.context.mailbox), adding to the  [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element in the manifest will change the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you will have to modify the validation call on your service so that the validation will accept the modified URL. For example, if you use the [managed API token validation](https://dev.office.com/docs/add-ins/outlook/use-the-token-validation-library) library, you will need to change the _hostUri_ parameter to match the modified [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation). Remember to change the Exchange identity token validation call back after you test the license check.
+     >**Note**  If your add-in uses  [getUserIdentityTokenAsync](http://dev.office.com/reference/add-ins/outlook/Office.context.mailbox), adding to the  [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element in the manifest will change the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you will have to modify the validation call on your service so that the validation will accept the modified URL. For example, if you use the [managed API token validation](https://dev.office.com/docs/add-ins/outlook/use-the-token-validation-library) library, you will need to change the _hostUri_ parameter to match the modified [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation). Remember to change the Exchange identity token validation call back after you test the license check.
 
 ## Implement license checks in the Office Add-in code
 <a name="bk_implement"> </a>
@@ -84,7 +73,7 @@ For example, the source location modified to include a test token for an Outlook
 
  
 
- **Important**  For security reasons, if you are licensing your Office Add-in, we strongly recommended you specify an HTTP Secure ( `https://`) URL for your add-in home page.
+>**Important**  For security reasons, if you are licensing your Office Add-in, we strongly recommended you specify an HTTP Secure ( `https://`) URL for your add-in home page.
  
 
 To perform add-in license checks, include code that extracts the license token from the URL and caches it, so that the add-in can pass the token to the verification service later when you want to actually validate the license.
@@ -108,7 +97,7 @@ string decodedToken = Encoding.Unicode.GetString(decodedBytes);
 ```
 
 
- **Note**  The decoding will throw an error if the token contains white space. Make sure that you handle white space between characters within the token.
+>**Note**  The decoding will throw an error if the token contains white space. Make sure that you handle white space between characters within the token.
  
 
 To help maximize the reach and adoption, task pane and content add-ins allow anonymous access. Microsoft does not require that a user be signed into Office with their Microsoft account in order to activate task pane and content add-ins. The license token will be passed as part of the initial HTTP request only if the user is signed in with their Microsoft account.
@@ -172,7 +161,7 @@ After you pass the add-in license token to the verification service's  **VerifyE
 
  
 
- **Note**  For Outlook add-ins, make sure that you remove the  *et*  parameter, which represents the test license token, from all **SourceLocation** elements in your add-in manifest file.
+>**Note**  For Outlook add-ins, make sure that you remove the  *et*  parameter, which represents the test license token, from all **SourceLocation** elements in your add-in manifest file.
  
 
 
@@ -185,11 +174,8 @@ The following example shows the basic logic flow of retrieving and validating th
  
 
 1. The code retrieves the URL query string parameter,  `et`, which contains the encoded license token. 
-    
- 
-2. The code uses a custom function to decode the license token and convert it from base-64 to a string format that the Office Store verification service accepts. 
-    
-     **Note**  For Outlook add-ins, the  *et*  query parameter string is only URL-encoded, and **not** base-64 encoded. To use this example with an Outlook add-in, remove the code that converts the token from base-64 encoding.
+2. The code uses a custom function to decode the license token and convert it from base-64 to a string format that the Office Store verification service accepts.
+     >**Note**  For Outlook add-ins, the  *et*  query parameter string is only URL-encoded, and **not** base-64 encoded. To use this example with an Outlook add-in, remove the code that converts the token from base-64 encoding.
 3. The code passes the token in string format to the verification service for validation. After the verification service returns a  **VerifyEntitlementTokenResponse** object that represents the validation results, the code can access the object's properties that contain attributes of the license token.
     
  
@@ -270,113 +256,86 @@ Both methods allow an add-in to get the license the same way it would if it were
 
 
 1. Create or open a content or task pane add-in project in Visual Studio.
-    
- 
 2. In the  **Solution Explorer**, right-click the Office project (the first of the two projects in the solution, not the second Web project), and choose  **Open Folder in File Explorer**.
-    
- 
 3. Go to  `...bin\Debug\OfficeAppManifests` (substitute "Debug" with "Release" if your project is configured for Release builds). This folder is created automatically after the first time you build or debug your project.
-    
- 
 4. Add a token file to the folder. The token file name must be the same as the manifest file name and have a .tok file extension. The following code shows an example of a token file. Refer to the  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md) for details about the attribute values you can set in the **t** element of the token file.
     
     In this example, the user is signed in with a Microsoft account. The  **cid** value is set for Microsoft account users.
     
-
-
-  ```XML
-  <r>
-  <t 
-    aid="WA900006056"
-    pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}"
-    cid="32F3E7FC559F4F49"
-    et="Trial"
-    ad="2012-01-12T21:58:13Z"
-    ed="2012-06-30T21:58:13Z"
-    sd="2012-01-12T00:00:00Z" 
-    te="2012-06-30T02:49:34Z"
-    test="true"/>
-  <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
-</r>
-  ```
-
-
+    ```XML
+    <r>
+      <t 
+        aid="WA900006056"
+        pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}"
+        cid="32F3E7FC559F4F49"
+        et="Trial"
+        ad="2012-01-12T21:58:13Z"
+        ed="2012-06-30T21:58:13Z"
+        sd="2012-01-12T00:00:00Z" 
+        te="2012-06-30T02:49:34Z"
+        test="true"/>
+      <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
+    </r>
+    ```
+    
     If the user is signed in with their organizational identity, the  **oid** attribute value is set and the **cid** value is blank, as shown in the following example.
     
-
-
-  ```XML
-  <r>
-  <t 
-    aid="WA900006056"
-    pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}"
-    cid=""
-    oid="4e8c79ae-327e-495b-a797-fdee87648816"
-    et="Trial"
-    ad="2012-01-12T21:58:13Z"
-    ed="2012-06-30T21:58:13Z"
-    sd="2012-01-12T00:00:00Z" 
-    te="2012-06-30T02:49:34Z"
-    test="true"/>
-  <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
-</r>
-
-  ```
-
+    ```XML
+    <r>
+      <t 
+        aid="WA900006056"
+        pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}"
+        cid=""
+        oid="4e8c79ae-327e-495b-a797-fdee87648816"
+        et="Trial"
+        ad="2012-01-12T21:58:13Z"
+        ed="2012-06-30T21:58:13Z"
+        sd="2012-01-12T00:00:00Z" 
+        te="2012-06-30T02:49:34Z"
+        test="true"/>
+      <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
+    </r>
+    ```
+    
 5.  **Debug** > **Start debugging**, or press F5.
-    
-     **Note**  At the time of publication, Visual Studio will display a message that there were deployment errors, and the license token specified in the  `<d>` tag won't be loaded. However, the other values in the license are loaded and will be available to your add-in license check code.
+     >**Note**  At the time of publication, Visual Studio will display a message that there were deployment errors, and the license token specified in the  `<d>` tag won't be loaded. However, the other values in the license are loaded and will be available to your add-in license check code.
 6. To visually confirm that the test license is loaded, choose the pop-out menu in the upper right corner of the add-in pane, and then choose  **Security Info**.
-    
- 
 
 ### To load a test license from the file system
 
-
 1. Create a folder that is accessible via a UNC path (c:\ _folder_ or \\ _server_\ _share_).
-    
- 
-
 2. Add the manifest file for your add-in to the folder (the file name must have an .xml extension).
-
 3. Add the token file to the folder. The token file name must be the same as the manifest file name and must have a .tok file extension. The following code shows an example token file. Refer to the  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md) for details about the attribute values you can set in the **t** element of the token file.
     
-  ```XML
-  <r>
-  <t 
-    aid="WA900006056"
-    pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}"
-    cid="32F3E7FC559F4F49"
-    et="Trial"
-    ad="2012-01-12T21:58:13Z"
-    ed="2012-06-30T21:58:13Z"
-    sd="2012-01-12T00:00:00Z" 
-    te="2012-06-30T02:49:34Z"
-    test="true"/>
-  <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
-</r>
-  ```
-
+    ```XML
+    <r>
+      <t 
+        aid="WA900006056"
+        pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}"
+        cid="32F3E7FC559F4F49"
+        et="Trial"
+        ad="2012-01-12T21:58:13Z"
+        ed="2012-06-30T21:58:13Z"
+        sd="2012-01-12T00:00:00Z" 
+        te="2012-06-30T02:49:34Z"
+        test="true"/>
+      <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
+    </r>
+    ```
+    
 4. Create an entry in the registry that points to the manifest under one of the following paths:
     
-      -  `HKEY_CURRENT_USER\Software\Microsoft\Office\15.0\Wef\Developer` (Office 2013)
+    - `HKEY_CURRENT_USER\Software\Microsoft\Office\15.0\Wef\Developer` (Office 2013)
+    - `HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Wef\Developer` (Office 2016)
     
- 
-  -  `HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Wef\Developer` (Office 2016)
-    
- 
-
     You can use a .reg file, as shown in the following example. (Note that the name field,  `"entry1"` and the .xml file name in this example are arbitrary.)
     
-
-
-  ```
-  Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Wef\Developer]
-"entry1"="C:\\folder\\AppFile.xml"
-  ```
-
+    ```
+    Windows Registry Editor Version 5.00
+    
+    [HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Wef\Developer]
+    "entry1"="C:\\folder\\AppFile.xml"
+    ```
 
 ## Add license checks to your SharePoint Add-in
 <a name="bk_add"> </a>
@@ -391,11 +350,7 @@ To import test licenses, use the  **ImportAppLicense** method. To call this meth
  
 
 - An administrator of the site collection being called.
-    
- 
 - An administrator of the tenancy into which the license is imported, if the SharePoint deployment into which the license is imported is a tenancy.
-    
- 
 - A farm administrator.
     
  
@@ -458,14 +413,8 @@ If multiple licenses are purchased for the same add-in by using different Micros
  
 
 - Paid
-    
- 
 - Free
-    
- 
 - Unexpired Trial
-    
- 
 - Expired Trial
     
  
@@ -514,7 +463,7 @@ After you retrieve the appropriate add-in license token, pass that token to the 
  
 
  
- `https://verificationservice.officeapps.live.com/ova/verificationagent.svc`
+`https://verificationservice.officeapps.live.com/ova/verificationagent.svc`
  
 
  
@@ -526,7 +475,7 @@ The Office Store license verification web service also supports verifying add-in
  
 
  
- `https://verificationservice.officeapps.live.com/ova/verificationagent.svc/rest/verify?token={token}`
+`https://verificationservice.officeapps.live.com/ova/verificationagent.svc/rest/verify?token={token}`
  
 
  
@@ -535,11 +484,11 @@ Where  `{token}` is the add-in license token, encoded by a method that complies 
 
  
 
- **Note**  If you're hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons we strongly recommend that you use only server-side code to query the Office Store verification web service.
+>**Note**  If you're hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons we strongly recommend that you use only server-side code to query the Office Store verification web service.
  
 
 
- **Caution**  Do not store the license token uby sing a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service will cause the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
+>**Caution**  Do not store the license token uby sing a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service will cause the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
  
 
 
@@ -668,18 +617,7 @@ private void VerifyLicenseToken(string rawLicenseToken)
 
 
 -  [License your add-ins](license-your-add-ins.md)
-    
- 
 -  [How licenses work](how-licenses-work.md)
-    
- 
 -  [Add-in license XML schema structure](add-in-license-schema.md)
-    
- 
 -  [VerificationSvc](https://msdn.microsoft.com/en-us/library/office/verificationsvc.aspx)
-    
- 
 -  [SharePoint 2013 code sample: Import, validate, and manage add-in licenses](http://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
-    
- 
-
