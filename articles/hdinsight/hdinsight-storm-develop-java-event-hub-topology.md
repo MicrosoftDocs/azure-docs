@@ -25,7 +25,7 @@ In this tutorial, you will learn how to use the Event Hubs spout and bolt to rea
 
 ## Prerequisites
 
-* An Apache Storm on HDInsight cluster. Use one of the following getting started articles to create a cluster:
+* An Apache Storm on HDInsight cluster version 3.4. Use one of the following getting started articles to create a cluster:
   
   * An HDInsight cluster. See [Get started with Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started-linux.md) for information on creating a new cluster.
     
