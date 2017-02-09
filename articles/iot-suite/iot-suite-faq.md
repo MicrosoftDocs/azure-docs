@@ -4,7 +4,7 @@ description: Frequently asked questions for IoT Suite
 services: ''
 suite: iot-suite
 documentationcenter: ''
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -24,7 +24,7 @@ ms.author: corywink
 * If you delete the resource group in the [Azure portal][lnk-azure-portal], you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure classic portal][lnk-classic-portal].
 
 ### How many IoT Hub instances can I provision in a subscription?
-Ten. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 10 IoT Hubs per subscription, as outlined in [Azure subscription limits][link-azuresublimits]. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to 10 preconfigured solutions in a given subscription. 
+You can provision 10 IoT hubs per subscription. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 10 IoT Hubs per subscription, as outlined in [Azure subscription limits][link-azuresublimits]. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to 10 preconfigured solutions in a given subscription. 
 
 ### How many DocumentDB instances can I provision in a subscription?
 Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 50 DocumentDB instances per subscription. 

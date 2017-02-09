@@ -45,7 +45,7 @@ To begin, set up the logic app to use with the preconfigured solution.
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. Select **Request**. This action specifies that an incoming HTTP request with a specific JSON formatted payload acts as a trigger.
-7. Paste the following into the Request Body JSON Schema:
+7. Paste the following code into the Request Body JSON Schema:
    
     ```
     {
