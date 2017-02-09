@@ -68,21 +68,21 @@ To add a record to an existing record set, follow the following three steps:
 
 1. Get the existing record set
 
-```powershell
-$rs = Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
-```
+    ```powershell
+    $rs = Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    ```
 
 2. Add the new record to the local record set. This is an off-line operation.
 
-```powershell
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
-```
+    ```powershell
+    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    ```
 
 3. Commit the change back to the Azure DNS service 
 
-```powershell
-Set-AzureRmDnsRecordSet -RecordSet $rs
-```
+    ```powershell
+    Set-AzureRmDnsRecordSet -RecordSet $rs
+    ```
 
 ### Verify name resolution
 
