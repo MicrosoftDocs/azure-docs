@@ -160,14 +160,19 @@ There are some third-party providers that work with this approach, [SeriLog](htt
 
 1. Add **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Observable** NuGet packages to the project. Also add **SeriLog.Sinks.Literate** for this example, a better approach is shown later in this article
 2. Create a LoggerConfiguration and the logger instance in SeriLog
+
     ```csharp
         Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
     ```
+
 3. Add an SeriLog.ILogger argument to the service constructor and pass the newly created logger
+    
     ```csharp
         ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
     ```
+
 4. In the service constructor, add the following, which creates the property enrichers for the ServiceTypeName, ServiceName, PartitionId, and InstanceId properties of the service. It also adds it to the ASP.NET Core logging factory so the Microsoft.Extensions.Logging.ILogger can be used in your code.
+    
     ```csharp
         public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
             : base(context)
@@ -185,6 +190,7 @@ There are some third-party providers that work with this approach, [SeriLog](htt
             _logger = new LoggerFactory().AddSerilog(serilog.ForContext(properties)).CreateLogger<Stateless>();
         }
     ```
+    
 5. Instrument the code the same as when using ASP.NET Core without SeriLog.
 
 > [!NOTE] 
