@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/09/2017
 ms.author: markvi
 
 ---
 # Get started with certificate based authentication 
 
-Certificate based authentication enables you to be authenticated by Azure Active Directory with a client certificate on an Window, Android or iOS device when connecting your Exchange online account to: 
+Certificate based authentication enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to: 
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word   
 
@@ -27,7 +27,7 @@ Configuring this feature eliminates the need to enter a username and password co
 
 This topic:
 
-- Provides you with the steps to configure and utilize certificate based authentication for users of tenants in Office 365 Enterprise, Business, Education and Government plans. This does not include Office 365 Defense. 
+- Provides you with the steps to configure and utilize certificate based authentication for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. This feature is available in preview in Office 365 China, US Government Defense, and US Government Federal plans. 
 
 - Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](connect/active-directory-aadconnectfed-whatis.md) configured.    
 
@@ -205,7 +205,7 @@ The EAS profile must contain the following information:
 
 - The user certificate to be used for authentication 
 
-- The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
+- The EAS endpoint (for example, outlook.office365.com)
 
 An EAS profile can be configured and placed on the device through the utilization of Mobile device management (MDM) such as Intune or by manually placing the certificate in the EAS profile on the device.  
 
