@@ -1,5 +1,5 @@
 ## View device telemetry in the dashboard
-The dashboard in the remote monitoring solution enables you to view the telemetry that your devices send to IoT Hub.
+The dashboard in the remote monitoring solution enables you to view the telemetry your devices send to IoT Hub.
 
 1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
 2. In the **Devices list**, you should see that the status of your device is now **Running**.
@@ -9,12 +9,12 @@ The dashboard in the remote monitoring solution enables you to view the telemetr
    
     ![][img-telemetry]
 
-## Send a command to your device
-The dashboard in the remote monitoring solution enables you to send commands to your devices through IoT Hub. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
+## Invoke a method on your device
+The dashboard in the remote monitoring solution enables you to invoke methods on your devices through IoT Hub. For example, in the remote monitoring solution you can invoke a method to simulate rebooting a device.
 
 1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
 2. Click **Device ID** for your device in the **Devices list**.
-3. In the **Device details** panel, click **Commands**.
+3. In the **Device details** panel, click **Methods**.
    
     ![][13]
 4. In the **Command** drop-down, select **SetTemperature**, and then in **Temperature** enter a new temperature value. Click **Send command** to send the command to the device.

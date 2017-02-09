@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/17/2017
 ms.author: dobett
 
 ---
@@ -22,7 +22,7 @@ ms.author: dobett
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Create a C sample solution on Windows
-The following steps show you how to use Visual Studio to create a client application written in C that communicates with the Remote Monitoring preconfigured solution.
+The following steps show you how to use Visual Studio to create a client application written in C that communicates with the remote monitoring preconfigured solution.
 
 Create a starter project in Visual Studio 2015 and add the IoT Hub device client NuGet packages:
 
@@ -47,11 +47,11 @@ Add the Parson json library to the **RMDevice** project:
     git clone https://github.com/kgabis/parson.git
     ```
 
+1. Copy the parson.h and parson.c files from the local copy of the Parson repository to the **RMDevice** project folder.
+
 1. In Visual Studio, right-click the **RMDevice** project, click **Add**, and then click **Existing Item**.
 
-1. In the **Add Existing Item** dialog, navigate to the folder that contains your copy of the Parson GitHub repository.
-
-1. Select the parson.h and parson.c files. Then click **Add** to add these two files to the project.
+1. In the **Add Existing Item** dialog, select the parson.h and parson.c files in the **RMDevice** project folder. Then click **Add** to add these two files to your project.
 
 ## Specify the behavior of the IoT Hub device
 The IoT Hub client libraries use a model to specify the format of the messages the device exchanges with IoT Hub.
@@ -68,7 +68,11 @@ The IoT Hub client libraries use a model to specify the format of the messages t
     #include "azure_c_shared_utility/platform.h"
     #include "parson.h"
     ```
-2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution portal. Use the IoT Hub Hostname from the solution portal to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
+
+    > [!NOTE]
+    > You can verify that your project now has the correct dependencies by building it.
+
+2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard. Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
    
     ```
     static const char* deviceId = "[Device Id]";
@@ -170,7 +174,7 @@ The IoT Hub client libraries use a model to specify the format of the messages t
 ## Implement the behavior of the device
 Now add code that implements the behavior defined in the model.
 
-1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands from IoT Hub:
+1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands from the solution dashboard:
    
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -188,7 +192,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following functions that handle the desired properties set in the IoT hub. These desired properties are defined in the model:
+1. Add the following functions that handle the desired properties set in the solution dashboard. These desired properties are defined in the model:
 
     ```
     void onDesiredLatitude(void* argument)
@@ -232,7 +236,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function that sends a message to IoT Hub:
+1. Add the following function that sends a message to preconfigured solution:
    
     ```
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -259,7 +263,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following callback handler that runs when the device has sent new reported property values to the IoT hub:
+1. Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:
 
     ```
     void deviceTwinCallback(int status_code, void* userContextCallback)
@@ -269,8 +273,8 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function that hooks up the serialization library in the SDK:
-   
+1. Add the following function that hooks up your device code with the serialization library in the SDK:
+
     ```
     static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
@@ -307,14 +311,16 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-4. Add the following function to connect to IoT Hub, and exchange data. This function performs the following steps:
+4. Add the following function to connect to the preconfigured solution in the cloud, and exchange data. This function performs the following steps:
+
     - Initializes the platform.
-    - Registers the Contoso namespace.
+    - Registers the Contoso namespace with the serialization library.
     - Initializes the client with the device connection string.
     - Creates and sends reported property values.
     - Sends metadata and information about supported commands.
     - Creates a loop to send telemetry every second.
     - Deinitializes all resources.
+
       ```
       void remote_monitoring_run(void)
       {
@@ -451,7 +457,7 @@ Now add code that implements the behavior defined in the model.
       }
       ```
    
-    For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
+    For reference, here is a sample **DeviceInfo** message sent to the preconfigured solution at startup:
    
     ```
     {
@@ -470,13 +476,13 @@ Now add code that implements the behavior defined in the model.
     }
     ```
    
-    For reference, here is a sample **Telemetry** message sent to IoT Hub:
+    For reference, here is a sample **Telemetry** message sent to the preconfigured solution:
    
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
    
-    For reference, here is a sample **Command** received from IoT Hub:
+    For reference, here is a sample **Command** received from the preconfigured solution:
    
     ```
     {
@@ -496,7 +502,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 6. Click **Build** and then **Build Solution** to build the device application.
-7. In **Solution Explorer**, right-click the **RMDevice** project, click **Debug**, and then click **Start new instance** to run the sample. The console displays messages as the application sends sample telemetry to IoT Hub and receives commands.
+7. In **Solution Explorer**, right-click the **RMDevice** project, click **Debug**, and then click **Start new instance** to run the sample. The console displays messages as the application sends sample telemetry to the preconfigured solution, receives desired property values set in the solution dashboard, and responds to methods invoked from the solution dashboard.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
