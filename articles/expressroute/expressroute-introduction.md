@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 02/08/2017
 ms.author: cherylmc
 
 ---
@@ -32,7 +32,7 @@ Microsoft Azure ExpressRoute lets you extend your on-premises networks into the 
 * Connection uptime [SLA](https://azure.microsoft.com/support/legal/sla/).
 * QoS and support for multiple classes of service for special applications, such as Skype for Business.
 
-See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
+For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
 ## <a name="howtoconnect"></a>How can I connect my network to Microsoft using ExpressRoute?
 You can create a connection between your on-premises network and the Microsoft cloud in three different ways:
@@ -111,11 +111,12 @@ You can pick a billing model that works best for you. Choose between the billing
 
 ## Next steps
 * Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
+* Learn about ExpressRoute connectivity models. See [ExpressRoute connectivity models](expressroute-connectivity-models.md).
+* Learn about ExpressRoute features. See [ExpressRoute features](expressroute-features.md)
 * Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
-* Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md).
+* Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).
 * Configure your ExpressRoute connection.
-  * [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-  * [Configure routing](expressroute-howto-routing-classic.md)
-  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
-
+  * [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Configure routing](expressroute-howto-routing-portal-resource-manager.md)
+  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
