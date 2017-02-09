@@ -142,7 +142,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 > [!NOTE]
 > Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region. Configuring them in separate regions causes a failure in enabling the Azure Disk Encryption feature.
 
-* To set up and configure your key vault for Azure Disk Encryption, see "Set up and configure your key vault for Azure Disk Encryption" in the "Prerequisites" section.
+* To set up and configure your key vault for Azure Disk Encryption, see "Set up and configure your key vault for Azure Disk Encryption" in the Appendix.
 * To set up and configure Azure AD application in Azure Active directory for Azure Disk Encryption, see "Set up the Azure AD application in Azure Active Directory" in the "Prerequisites" section.
 * To set up and configure the key vault access policy for the Azure AD application, see "Set up the key vault access policy for the Azure AD application" in the "Prerequisites" section.
 * To prepare a pre-encrypted Windows VHD, see "Prepare a pre-encrypted Windows VHD" in the Appendix.
@@ -200,7 +200,7 @@ Use the following PowerShell cmdlet to create an Azure AD application:
     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
 > [!NOTE]
-> $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret is the client secret that you should use later to enable ADE. Safeguard the Azure AD client secret appropriately.
+> $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
 ##### Setting up the Azure AD client ID and secret from the Azure classic portal
 You can also set up your Azure AD client ID and secret by using the [Azure classic portal]( https://manage.windowsazure.com). To perform this task, do the following:
@@ -338,7 +338,7 @@ To understand some of the common terms used by this technology, use the followin
 | ARM | Azure Resource Manager |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) is an industry-recognized Windows volume encryption technology that's used to enable disk encryption on Windows IaaS VMs. |
 | BEK | BitLocker encryption keys are used to encrypt the OS boot volume and data volumes. The BitLocker keys are safeguarded in a key vault as secrets. |
-| CLI | See [Azure Command-Line Interface](../xplat-cli-install.md). |
+| CLI | See [Azure command-line interface](../xplat-cli-install.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) is the Linux-based, transparent disk-encryption subsystem that's used to enable disk encryption on Linux IaaS VMs. |
 | KEK | Key encryption key is the asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security modules (HSM)-protected key or software-protected key. For more details, see [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation. |
 | PS cmdlets | See [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs). |
@@ -778,8 +778,8 @@ Encryption of an OS drive on a running Linux VM is supported on the following di
 
 5. Periodically monitor the progress of encryption by using the instructions in the [next section](#monitoring-os-encryption-progress).
 
-6. After Get-AzureRmVmDiskEncryptionStatus shows "VMRestartPending", restart your VM by either signing in to it or by using the portal, PowerShell, or CLI.
-
+6. After Get-AzureRmVmDiskEncryptionStatus shows "VMRestartPending," restart your VM either by signing in to it or by using the portal, PowerShell, or CLI.
+    ```
     C:\> Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
 
@@ -787,19 +787,19 @@ Encryption of an OS drive on a running Linux VM is supported on the following di
     DataVolumesEncrypted       : NotMounted
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
-
+    ```
 Before you reboot, we recommend that you save [boot diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/) of the VM.
 
 #### Monitoring OS encryption progress
 You can monitor OS encryption progress in three ways:
 
 * Use the `Get-AzureRmVmDiskEncryptionStatus` cmdlet and inspect the ProgressMessage field:
-
+    ```
     OsVolumeEncrypted          : EncryptionInProgress
     DataVolumesEncrypted       : NotMounted
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk encryption started
-
+    ```
  After the VM reaches "OS disk encryption started," it takes about 40 to 50 minutes on a Premium-storage backed VM.
 
  Because of [issue #388](https://github.com/Azure/WALinuxAgent/issues/388) in WALinuxAgent, `OsVolumeEncrypted` and `DataVolumesEncrypted` show up as `Unknown` in some distributions. With WALinuxAgent version 2.1.5 and later, this issue is fixed automatically. If you see `Unknown` in the output, you can verify disk-encryption status by using the Azure Resource Explorer.
@@ -822,7 +822,7 @@ You can monitor OS encryption progress in three ways:
 
  ![VM Instance View](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-* Look at [boot diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from ADE extension should be prefixed with `[AzureDiskEncryption]`.
+* Look at [boot diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from the ADE extension should be prefixed with `[AzureDiskEncryption]`.
 
 * Sign in to the VM via SSH, and get the extension log from:
 
@@ -935,10 +935,10 @@ To configure encryption during the distribution installation, do the following:
 3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Do not run the last step (deprovisioning the VM) yet.
 
 To configure encryption to work with Azure, do the following:
-1. Edit the /etc/dracut.conf and add the following line:
- ```
+1. Edit the /etc/dracut.conf, and add the following line:
+    ```
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
- ```
+    ```
 2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
  ```
     #        inst_multiple -o \
@@ -965,7 +965,8 @@ to:
     if [ 1 ]; then
 ```
 4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append it to “# Open LUKS device”:
- ```
+
+    ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2
@@ -984,7 +985,7 @@ to:
         break
     fi
     done
- ```
+    ```
 5. Run `/usr/sbin/dracut -f -v` to update the initrd.
 
 6. Now you can deprovision the VM and [upload your VHD](#upload-encrypted-vhd-to-an-azure-storage-account) into Azure.
@@ -1013,9 +1014,10 @@ To configure encryption during the distribution installation, do the following:
 
 To configure encryption to work with Azure, do the following:
 
-1. Edit the /etc/dracut.conf and add the following line:
-
+1. Edit the /etc/dracut.conf, and add the following line:
+    ```
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
+    ```
 
 2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
 ```
@@ -1043,7 +1045,7 @@ to
     if [ 1 ]; then
 ```
 4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append this after the “# Open LUKS device”:
-```
+    ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2
@@ -1062,7 +1064,7 @@ to
         break
     fi
     done
-```    
+    ```    
 5. Run the “/usr/sbin/dracut -f -v” to update the initrd.
 
 ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)

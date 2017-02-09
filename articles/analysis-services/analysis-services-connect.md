@@ -61,7 +61,7 @@ Before you connect, you need to get the server name. In **Azure portal** > serve
 
 ## Connect in Excel
 
-Connecting to Azure Analysis Services server in Excel is supported by using Get Data in Excel 2016 or Power Query in earlier versions. [MSOLAP.7 provider](https://aka.ms/msolap) is required. Connecting by using the Import Table Wizard in Power Pivot is not supported.
+Connecting to Azure Analysis Services server in Excel is supported by using Get Data in Excel 2016 or Power Query in earlier versions. [MSOLAP.7 provider](analysis-services-data-providers.md) is required. Connecting by using the Import Table Wizard in Power Pivot is not supported.
 
 1. In Excel 2016, on the **Data** ribbon, click **Get External Data** > **From Other Sources** > **From Analysis Services**.
 2. In the Data Connection Wizard, in **Server name**, paste the server name from the clipboard. Then, in **Logon credentials**, select **Use the following User Name and Password**, and then type the organizational user name, for example nancy@adventureworks.com, and password.

@@ -3,7 +3,7 @@ title: When should an elastic pool be used?
 description: An elastic pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic pool for a group of databases.
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: ''
 
@@ -12,7 +12,7 @@ ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 12/19/2016
-ms.author: sstein;carlrab
+ms.author: ddove
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA

@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 
 ---
@@ -31,12 +31,11 @@ clusters. The default for this feature is to be off for a cluster. These heap du
 large, so it is advisable to monitor the Blob storage account where they are being saved 
 once the collection has been enabled.
 
-> [!NOTE]
-> The information in this article only applies to Windows-based HDInsight. 
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). The information in this article only applies to Windows-based HDInsight. 
 > For information on Linux-based HDInsight, see [Enable heap dumps for Hadoop services on 
 > Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-> 
-> 
+
 
 ## Eligible services for heap dumps
 You can enable heap dumps for the following services:
