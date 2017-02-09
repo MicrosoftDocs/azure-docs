@@ -1,4 +1,5 @@
-# [Get started](billing-getting-started.md)
+# Get started
+## [Prevent unexpected costs](billing-getting-started.md)
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md?toc=%2azure%2billing%2TOC.json)
 # How to
