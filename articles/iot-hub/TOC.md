@@ -177,7 +177,7 @@
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
 ## Develop
-### Developer guide (iot-hub-devguide.md)
+### [Developer guide](iot-hub-devguide.md)
 #### [Send and receive messages](iot-hub-devguide-messaging.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
 #### [Cloud-to-device feature guide](iot-hub-devguide-c2d-guidance.md)
