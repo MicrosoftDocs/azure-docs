@@ -4,7 +4,7 @@ description: This article compares features and provides guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: sachamicrosoft 
+author: smichelotti 
 manager: zakramer
 
 ms.assetid: 6e04e9aa-1a73-442c-a46c-2e4ff87e58d5
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/29/2015
-ms.author: jharve
+ms.date: 02/10/2017
+ms.author: stemi
 
 ---
 # Azure Government developer guide

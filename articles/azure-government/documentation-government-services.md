@@ -4,7 +4,7 @@ description: Provides an overview of the available services in Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: zakramer
+author: smichelotti
 manager: liki
 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/29/2017
-ms.author: zakramer
+ms.date: 02/10/2017
+ms.author: stemi
 
 ---
 # Azure Government Services
