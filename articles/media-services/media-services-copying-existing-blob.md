@@ -33,9 +33,9 @@ The extension methods works with:
 The topic shows two code samples:
 
 1. Copy blobs from an asset in one AMS account into a new asset in another AMS account.
-2. Copy blobs from some storage account into a new asset in a AMS account.
+2. Copy blobs from some storage account into a new asset in an AMS account.
 
-## Copy blobs between two AMS account  
+## Copy blobs between two AMS accounts  
 
 ### Prerequisites
 
@@ -135,14 +135,14 @@ The following code uses extension **IAsset.Copy** method to copy all files in th
 4. Add other references that are required for this project: System.Configuration.
 6. Add the appSettings section to the .config file and update the values based on your source storage and destination AMS accounts.
    
-	  <appSettings>
-	    <add key="MediaServicesAccountName" value="name" />
-	    <add key="MediaServicesAccountKey" value="key" />
-	    <add key="MediaServicesStorageAccountName" value="name" />
-	    <add key="MediaServicesStorageAccountKey" value="key" />
-	    <add key="SourceStorageAccountName" value="name" />
-	    <add key="SourceStorageAccountKey" value="key" />
-	  </appSettings>
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="name" />
+		    <add key="MediaServicesAccountKey" value="key" />
+		    <add key="MediaServicesStorageAccountName" value="name" />
+		    <add key="MediaServicesStorageAccountKey" value="key" />
+		    <add key="SourceStorageAccountName" value="name" />
+		    <add key="SourceStorageAccountKey" value="key" />
+		  </appSettings>
 
 ### Copy blobs from some storage account into a new asset in a AMS account
 
