@@ -1,5 +1,5 @@
 ---
-title: Move data from FTP server | Microsoft Docs
+title: Move data from FTP server using Azure Data Factory | Microsoft Docs
 description: Learn about how to move data from an FTP server using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/24/2017
 ms.author: spelluru
 
 ---
@@ -257,7 +257,7 @@ The following table provides description for JSON elements specific to FTP linke
 ```
 
 ### Using port, enableSsl, enableServerCertificateValidation
- 
+
 ```JSON
 {
     "name": "FTPLinkedService",
@@ -277,7 +277,7 @@ The following table provides description for JSON elements specific to FTP linke
 ```
 
 ### Using encryptedCredential for authentication and gateway
-    
+
 ```JSON
 {
     "name": "FTPLinkedService",

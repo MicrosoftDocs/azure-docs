@@ -36,7 +36,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Markdown |HTML: Source content does not contain HTML at the block level – minor inline HTML is permitted – such as superscript, subscript, special characters, and other minor things that you can’t do with markdown. HTML tables are allowed ONLY if the table contains bulleted or numbered lists, but that is usually an indication the content needs to be simplified so the source can be coded in markdown. |
 | Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the [!NOTE] extension, not as plain text. |
 | SEO |The " &#124; Microsoft Docs" site identifier is required. We no longer use the " &#124; Microsoft Azure" site identifier |
-| SEO |The *title* metadata value must include the word "Azure" (Operations Management Suite articles are excepted) |
+| SEO |The *title* metadata value must include the word "Azure" (Intune, Operations Management Suite [OMS], and StorSimple articles are excepted) |
 | SEO |The H1 title contains sufficient information to describe the content of the article, to differentiate it from other Azure articles, and to map to likely customer keywords. For example "Overview" as the H1 title is a fail. |
 | Terminology |The use of the ARM acronym, V1, or V2 as references to the classic and Resource Manager deployment models is a blocking terminology item. |
 | Images |Animated GIFs and PDN files are not accepted into the repo. |

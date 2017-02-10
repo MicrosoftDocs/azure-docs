@@ -1,5 +1,5 @@
 ---
-title: How to get technical support from Application Insights development team | Microsoft Docs
+title: Technical support for Azure Application Insights | Microsoft Docs
 description: Get help with problems with Application Insights.
 services: application-insights
 documentationcenter: ''

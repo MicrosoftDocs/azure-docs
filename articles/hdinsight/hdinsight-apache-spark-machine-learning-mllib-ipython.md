@@ -1,6 +1,6 @@
 ---
-title: Use Apache Spark to build machine learning applications on HDInsight | Microsoft Docs
-description: Step-by-step instructions on how to use notebooks with Apache Spark to build machine learning applications
+title: Use MLlib library in Spark to build machine learning applications on Azure HDInsight | Microsoft Docs
+description: Step-by-step instructions on how to use MLlib library in Apache Spark to build machine learning applications
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,11 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/07/2017
 ms.author: nitinme
 
 ---
-# Machine learning: Predictive analysis on food inspection data using MLlib with Apache Spark cluster on HDInsight Linux
+# Machine learning: Predictive analysis on food inspection data using MLlib with Apache Spark cluster on HDInsight
+
 > [!TIP]
 > This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** under the **Python** folder.
 >
@@ -177,7 +178,7 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
     ![SQL query output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL query output")
 
-    For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+    For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 1. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This ensures that the code is run locally on the Jupyter server.
 
         %%local

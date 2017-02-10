@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Data Catalog Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.
+services: data-catalog
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-catalog
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Data Catalog Documentation
 
@@ -63,11 +74,4 @@ Learn how to use Data Catalog to help your organization and team discover, under
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Data Catalog Documentation
-        </div>
-    </a>
-</div>
+

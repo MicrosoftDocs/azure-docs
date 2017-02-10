@@ -1,5 +1,5 @@
 ---
-title: StorSimple as a backup target with Veeam | Microsoft Docs
+title: StorSimple 8000 series as backup target with Veeam | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veeam.
 services: storsimple
 documentationcenter: ''

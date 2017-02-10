@@ -18,7 +18,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---
-# Copy an Azure SQL Database
+# Copy an Azure SQL database
 > [!div class="op_single_selector"]
 > * [Overview](sql-database-copy.md)
 > * [Azure portal](sql-database-copy-portal.md)

@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/21/2016
-ms.author: darosa,sethm
+ms.date: 01/18/2017
+ms.author: darosa;sethm;jotaub
 
 ---
 # Service Bus Premium and Standard messaging tiers
-Service Bus Messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus Messaging is used as the communication backbone for many sophisticated cloud solutions.
+Service Bus Messaging, which includes entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus Messaging is used as the communication backbone for many sophisticated cloud solutions.
 
 The *Premium* tier of Service Bus Messaging addresses common customer requests around scale, performance, and availability for mission-critical applications. Although the feature sets are nearly identical, these two tiers of Service Bus Messaging are designed to serve different use cases.
 
@@ -28,9 +28,9 @@ Some high-level differences are highlighted in the following table.
 | --- | --- |
 | High throughput |Variable throughput |
 | Predictable performance |Variable latency |
-| Predictable pricing |Pay as you go variable pricing |
-| Ability to scale up and down workload |N/A |
-| Message size > 256 KB |Message size is 256 KB |
+| Fixed pricing |Pay as you go variable pricing |
+| Ability to scale workload up and down |N/A |
+| Message size up to 1 MB |Message size up to 256 KB |
 
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution.
 
@@ -40,10 +40,19 @@ Not only is this performance more predictable and available, but it is also fast
 The following are a few differences between Premium and Standard messaging tiers.
 
 ### Partitioned queues and topics
-Partitioned queues and topics are supported in Premium Messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus Messaging. Premium Messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary. Additionally, the partition count has been changed from 16 partitions in Standard Messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
+Partitioned queues and topics are supported in Premium Messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus Messaging. Premium Messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary for performance. Additionally, the partition count has been changed from 16 partitions in Standard Messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
 
 ### Express entities
 Because Premium Messaging runs in a completely isolated runtime environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
+
+## Get started with Premium Messaging
+
+Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md). Make sure you select **Premium** under **Pricing tier**.
+
+![create-premium-namespace][create-premium-namespace]
+
+You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+
 
 ## Next steps
 To learn more about Service Bus Messaging, see the following topics.
@@ -53,3 +62,6 @@ To learn more about Service Bus Messaging, see the following topics.
 * [Service Bus Messaging overview](service-bus-messaging-overview.md)
 * [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 
+<!--Image references-->
+
+[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png

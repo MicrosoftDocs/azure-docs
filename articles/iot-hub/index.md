@@ -1,7 +1,19 @@
 ---
-layout: LandingPage
+title: Azure IoT Hub Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation.
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #IoT Hub Documentation
 
 Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation help you deploy reliable and bi-directional communication between IoT devices and a solution back end. 
@@ -138,9 +150,10 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API (Resource Provider)</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">REST API (Device Identities)</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST API (Device Messaging)</a></p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (Resource Provider)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (Device Identities)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (Device Messaging)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (Jobs)</a></p>
                     </div>
                 </div>
             </div>
@@ -148,11 +161,4 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download IoT Hub Documentation
-        </div>
-    </a>
-</div>
+

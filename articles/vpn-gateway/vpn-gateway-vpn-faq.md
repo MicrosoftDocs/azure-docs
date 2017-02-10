@@ -1,10 +1,10 @@
 ---
-title: Virtual Network VPN Gateway FAQ | Microsoft Docs
-description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways
+title: Azure VPN Gateway FAQ | Microsoft Docs
+description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways.
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: ''
 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 
 ---
 # VPN Gateway FAQ
@@ -99,7 +99,7 @@ By default, the client computer will not reestablish the VPN connection automati
 Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
 
 ### Can I have Site-to-Site and Point-to-Site configurations coexist for the same virtual network?
-Yes. Both these solutions will work if you have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using -VpnType PolicyBased.
+Yes. Both these solutions will work if you have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using the `-VpnType PolicyBased` cmdlet.
 
 ### Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 Yes, it is possible. But the virtual networks cannot have overlapping IP prefixes and the Point-to-Site address spaces must not overlap between the virtual networks.
@@ -126,7 +126,7 @@ Yes, the Set Pre-Shared Key API and PowerShell cmdlet can be used to configure b
 ### Can I use other authentication options?
 We are limited to using pre-shared keys (PSK) for authentication.
 
-### What is the "gateway subnet" and why is it needed?
+### What is the "GatewaySubnet" and why is it needed?
 We have a gateway service that we run to enable cross-premises connectivity.
 
 You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
@@ -137,7 +137,14 @@ The gateway subnet minimum size depends entirely on the configuration that you w
 No.
 
 ### How do I specify which traffic goes through the VPN gateway?
-If you are using the Azure Classic Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
+
+####Resource Manager deployment model
+* PowerShell: use "AddressPrefix" to specify traffic for the local network gateway.
+* Azure portal: navigate to the Local network gateway > Configuration > Address space.
+
+####Classic deployment model
+* Azure portal: Navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
+* Classic portal: Add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
 ### Can I configure Forced Tunneling?
 Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
@@ -164,7 +171,7 @@ No, both virtual networks MUST be using route-based (dynamic routing) VPNs.
 Yes, it is protected by IPsec/IKE encryption.
 
 ### Does VNet-to-VNet traffic travel over the Azure backbone?
-Yes.
+Yes, this traffic traverses the Azure backbone. It does not go over the Internet.
 
 ### How many on-premises sites and virtual networks can one virtual network connect to?
 Max. 10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the High Performance VPN gateways.
@@ -173,7 +180,7 @@ Max. 10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the
 Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to multiple on-premises sites and other virtual networks.
 
 ### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
-No, redundant tunnels between an Azure virtual network and an on-premises site are not supported.
+Yes, but you must configure BGP on both tunnels to the same location.
 
 ### Can there be overlapping address spaces among the connected virtual networks and on-premises local sites?
 No. Overlapping address spaces will cause the network configuration file upload or "Creating Virtual Network" to fail.
@@ -182,10 +189,12 @@ No. Overlapping address spaces will cause the network configuration file upload 
 No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gateway and the available bandwidth.
 
 ### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
-**Classic deployment model**<br>
+
+####Resource Manager deployment model
+Yes. See the [BGP](#bgp) section for more information.
+
+####Classic deployment model
 Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.<br>
-**Resource Manager deployment model**<br>
-If you are using the Resource Manager deployment model, see the [BGP](#bgp) section for more information.
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be alphanumerical string of length between 1 to 128 characters.

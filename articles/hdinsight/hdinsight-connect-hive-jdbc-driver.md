@@ -31,6 +31,10 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 To complete the steps in this article, you will need the following:
 
 * A Hadoop on HDInsight cluster. Either Linux-based or Windows-based clusters will work.
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
 
 To build and run the example Java application linked from this article, you will need the following.

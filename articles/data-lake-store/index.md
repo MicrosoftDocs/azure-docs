@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Data Lake Store Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to set up, manage, and access a hyper-scale, Hadoop-compatible data lake repository for analytics on data of any size, type, and ingestion speed.
+services: data-lake-store
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-lake-store
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Data Lake Store Documentation
 
@@ -199,10 +210,3 @@ Learn how to use Data Lake Store to create a hyper-scale, Hadoop-compatible repo
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Data Lake Store Documentation
-        </div>
-    </a>

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 09/06/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 
 ---

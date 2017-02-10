@@ -1,21 +1,3 @@
----
-title: Azure Backup limits table
-description: Describes system limits for Azure Backup.
-services: backup
-documentationcenter: NA
-author: Jim-Parker
-manager: jwhit
-editor: ''
-
-ms.service: backup
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 10/05/2015
-ms.author: trinadhk
-
----
 The following limits apply to Azure Backup.
 
 | Limit Identifier | Default Limit |

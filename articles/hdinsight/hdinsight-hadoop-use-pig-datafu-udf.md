@@ -13,18 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: larryfr
 
 ---
 # Use DataFu with pig on HDInsight
 
-DataFu is a collection of Open Source libraries for use with Hadoop. In this document, you will learn how to use DataFu on your HDInsight cluster, and how to use DataFu User Defined Functions (UDF) with Pig.
+DataFu is a collection of Open Source libraries for use with Hadoop. In this document, you learn how to use DataFu on your HDInsight cluster, and how to use DataFu User Defined Functions (UDF) with Pig.
 
 ## Prerequisites
 
 * An Azure subscription.
+
 * An Azure HDInsight cluster (Linux or Windows based)
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * A basic familiarity with [using Pig on HDInsight](hdinsight-use-pig.md)
 
 ## Install DataFu on Linux-based HDInsight
@@ -38,32 +43,38 @@ DataFu can be downloaded and installed from the Maven repository. Use the follow
 
 1. Connect to your Linux-based HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
    
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Use the following command to download the DataFu jar file using the wget utility, or copy and paste the link into your browser to begin the download.
    
-        wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
+    ```
+    wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
+    ```
 
-3. Next, upload the file to default storage for your HDInsight cluster. This makes the file available to all nodes in the cluster, and the file will stay in storage even if you delete and recreate the cluster.
+3. Next, upload the file to default storage for your HDInsight cluster. This makes the file available to all nodes in the cluster, and the file stays in storage even if you delete and recreate the cluster.
    
-        hdfs dfs -put datafu-1.2.0.jar /example/jars
+    ```
+    hdfs dfs -put datafu-1.2.0.jar /example/jars
+    ```
    
     > [!NOTE]
-    > The above example stores the jar in `wasbs:///example/jars` since this directory already exists on the cluster storage. You can use any location you wish on HDInsight cluster storage.
+    > The above example stores the jar in `/example/jars` since this directory already exists on the cluster storage. You can use any location you wish on HDInsight cluster storage.
 
 ## Use DataFu With Pig
 
 The steps in this section assume that you are familiar with using Pig on HDInsight, and only provide the Pig Latin statements, not the steps on how to use them with the cluster. For more information on using Pig with HDInsight, see [Use Pig with HDInsight](hdinsight-use-pig.md).
 
 > [!IMPORTANT]
-> When using DataFu from Pig on a Linux-based HDInsight cluster, you must first register the jar file using the following Pig Latin statement:
+> When using DataFu from Pig on a Linux-based HDInsight cluster, you must first register the jar file.
 > 
-> ```register wasbs:///example/jars/datafu-1.2.0.jar```
+> If your cluster usese Azure Storage, you must use a `wasb://` path. For example, `register wasb:///example/jars/datafu-1.2.0.jar`.
+>
+> If your cluster uses Azure Data Lake Store, you must use an `adl://` path. For example, `register adl://home/example/jars/datafu-1.2.0.jar`.
 > 
 > DataFu is registered by default on Windows-based HDInsight clusters.
 
-You will usually define an alias for DataFu functions. For example:
+You often define an alias for DataFu functions. For example:
 
     DEFINE SHA datafu.pig.hash.SHA();
 
@@ -90,7 +101,7 @@ If this is used with the following input data:
     Shi Liao,4,6,0
     Tjasa Zemljaric,0,2,5
 
-It will generate the following output:
+It generates the following output:
 
     (c1a743b0f34d349cfc2ce00ef98369bdc3dba1565fec92b4159a9cd5de186347,5,9,1)
     (713d030d621ab69aa3737c8ea37a2c7c724a01cd0657a370e103d8cdecac6f99,9,3,6)

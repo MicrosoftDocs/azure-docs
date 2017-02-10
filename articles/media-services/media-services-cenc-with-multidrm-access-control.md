@@ -294,15 +294,15 @@ What if the key rollover happens after AAD generates a JWT token but before the 
 Because a key may be rolled at any moment, there is always more than one valid public key available in the federation metadata document. Azure Media Services license delivery can use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.
 
 ### Where is the Access Token?
-If you look at how a web app calls an API app under [Application Identity with OAuth 2.0 Client Credentials Grant](../active-directory/active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as below:
+If you look at how a web app calls an API app under [Application Identity with OAuth 2.0 Client Credentials Grant](../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as below:
 
-1. A user is signed in to Azure AD in the web application (see the [Web Browser to Web Application](../active-directory/active-directory-authentication-scenarios.md#web-browser-to-web-application).
+1. A user is signed in to Azure AD in the web application (see the [Web Browser to Web Application](../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
 2. The Azure AD authorization endpoint redirects the user agent back to the client application with an authorization code. The user agent returns authorization code to the client application’s redirect URI.
 3. The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource. It makes a request to Azure AD’s token endpoint, providing the credential, client ID, and web API’s application ID URI. It presents the authorization code to prove that the user has consented.
 4. Azure AD authenticates the application and returns a JWT access token that is used to call the web API.
 5. Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API. The web API then validates the JWT token, and if validation is successful, returns the desired resource.
 
-In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](http://msdn.microsoft.com/library/azure/dn645542.aspx/) describes how authorization code grant flow works.
+In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) describes how authorization code grant flow works.
 
 In license acquisition with token restriction, we are following the same trusted subsystem pattern. And the license delivery service in Azure Media Services is the web API resource, the “backend resource” a web application needs to access. So where is the access token?
 

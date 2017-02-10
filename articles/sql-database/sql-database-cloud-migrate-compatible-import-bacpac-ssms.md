@@ -1,6 +1,7 @@
 ---
-title: Migrating a SQL Server database to Azure SQL Database | Microsoft Docs
-description: Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard
+title: 'SSMS: Import to Azure SQL Database from a BACPAC file | Microsoft Docs'
+description: This article shows how to import from a BACPAC file to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
+keywords: Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler

@@ -1,6 +1,6 @@
 # Overview
-## [Messaging](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Relay](../service-bus-relay/relay-what-is-it.md)
+## [Messaging](/azure/service-bus-messaging)
+## [Relay](/azure/service-bus-relay)
 # Reference
 ## [PowerShell Resource Manager Cmdlets](/powershell/resourcemanager)
 ## [Service Bus Managed Reference API](/dotnet/api/) 

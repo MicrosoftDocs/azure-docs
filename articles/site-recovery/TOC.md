@@ -17,14 +17,16 @@
 ### [Network mapping (VMM)](site-recovery-network-mapping.md)
 ### [Storage mapping between on-premises sites](site-recovery-storage-mapping.md)
 ## Replicate
-### [VMWare VMs and servers to Azure](site-recovery-vmware-to-azure.md)
-### [VMware VMs and servers to secondary site](site-recovery-vmware-to-vmware.md)
+### [VMWare VMs and physical servers to Azure](site-recovery-vmware-to-azure.md)
+### [VMware VMs and physical servers to secondary site](site-recovery-vmware-to-vmware.md)
+### [VMware VMs with multi-tenant support to Azure using the CSP program](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
 ### [Hyper-V VMs to Azure (no VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [Hyper-V VMs to secondary site](site-recovery-vmm-to-vmm.md)
 ### [Hyper-V VMs to secondary site with SAN](site-recovery-vmm-san.md)
 ### [Hyper-V VMs with single VMM server](site-recovery-single-vmm.md)
 ## Migrate
+### [Migrate to Azure](site-recovery-migrate-to-azure.md)
 ### [Migrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
 ### [AWS Windows instances to Azure](site-recovery-migrate-aws-to-azure.md)
 ## Workloads

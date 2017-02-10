@@ -1,5 +1,5 @@
 ---
-title: Monitor and manage HDInsight clusters using the Apache Ambari REST API | Microsoft Docs
+title: Monitor and manage Azure HDInsight using Ambari REST API | Microsoft Docs
 description: Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
 services: hdinsight
 documentationcenter: ''
@@ -22,12 +22,17 @@ ms.author: larryfr
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes. In this document, you learn the basics of working with the Ambari REST API by performing common tasks using cURL.
+Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters that use the Linux operating system, and is used to monitor the cluster and make configuration changes. In this document, you learn the basics of working with the Ambari REST API by performing common tasks using cURL.
 
 > [!IMPORTANT]
 > The examples in this document were tested using PowerShell on Windows 10 and Bash. In many cases, the same command works on both. In cases where there is a difference, both a PowerShell and Bash example is provided.
 
 ## Prerequisites
+
+* An HDInsight cluster that uses the Linux operating system. See [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) for more information on creating a cluster...
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * [cURL](http://curl.haxx.se/): cURL is a cross-platform utility that can be used to work with REST APIs from the command-line. In this document, it is used to communicate with the Ambari REST API.
 

@@ -1,6 +1,6 @@
 ---
-title: Learning PowerShell Workflow
-description: This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow.
+title: Learning PowerShell Workflow for Azure Automation | Microsoft Docs
+description: This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow and concepts applicable to Automation runbooks.
 services: automation
 documentationcenter: ''
 author: mgoedtel
@@ -13,23 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: bwren
+ms.date: 01/23/2017
+ms.author: magoedte;bwren
 
 ---
-# Learning Windows PowerShell Workflow
-Runbooks in Azure Automation are implemented as Windows PowerShell Workflows.  A Windows PowerShell Workflow is similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user.  This article is intended for users already familiar with PowerShell and briefly explains concepts that you require if you are converting a PowerShell script to a PowerShell Workflow for use in a runbook.  
+# Learning key Windows PowerShell Workflow concepts for Automation runbooks 
+Runbooks in Azure Automation are implemented as Windows PowerShell Workflows.  A Windows PowerShell Workflow is similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user.  While this article is intended to help you write runbooks using PowerShell workflow, we recommend you write runbooks using PowerShell unless you need checkpoints.  There are a number of syntax differences when authoring PowerShell Workflow runbooks and these differences require a bit more work to write effective workflows.  
 
 A workflow is a sequence of programmed, connected steps that perform long-running tasks or require the coordination of multiple steps across multiple devices or managed nodes. The benefits of a workflow over a normal script include the ability to simultaneously perform an action against multiple devices and the ability to automatically recover from failures. A Windows PowerShell Workflow is a Windows PowerShell script that leverages Windows Workflow Foundation. While the workflow is written with Windows PowerShell syntax and launched by Windows PowerShell, it is processed by Windows Workflow Foundation.
 
 For complete details on the topics in this article, see [Getting Started with Windows PowerShell Workflow](http://technet.microsoft.com/library/jj134242.aspx).
-
-## Types of runbook
-There are three types of runbook in Azure Automation, *PowerShell Workflow*, *PowerShell* and *graphical*.  You define the runbook type when you create the runbook, and you can't convert a runbook to the other type once it's been created.
-
-PowerShell workflow runbooks and PowerShell runbooks are for users who prefer to work directly with the PowerShell code either using the textual editor in Azure Automation or an offline editor such as PowerShell ISE. You should understand the information in this article if you are creating a PowerShell Workflow runbook.
-
-Graphical runbooks allow you to create a runbook using the same activities and cmdlets but using a graphical interface that hides the complexities of the underlying PowerShell workflow.  Concepts in this article such as checkpoints and parallel execution still apply to graphical runbooks, but you won't have to worry about the detailed syntax.
 
 ## Basic structure of a workflow
 The first step to converting a PowerShell script to a PowerShell workflow is enclosing it with the **Workflow** keyword.  A workflow starts with the **Workflow** keyword followed by the body of the script enclosed in braces. The name of the workflow follows the **Workflow** keyword as shown in the following syntax.
@@ -201,7 +194,6 @@ The following example is similar to the previous example copying files in parall
 > [!NOTE]
 > We do not recommend running child runbooks in parallel since this has been shown to give unreliable results.  The output from the child runbook sometimes will not show up, and settings in one child runbook can affect the other parallel child runbooks
 >
->
 
 ## Checkpoints
 A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the worfklow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
@@ -263,5 +255,5 @@ This is not required if you are authenticating using a Run As account configured
 
 For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](http://technet.microsoft.com/library/jj574114.aspx).
 
-## Next Steps
+## Next steps
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)

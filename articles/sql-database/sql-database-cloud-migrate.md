@@ -1,5 +1,5 @@
 ---
-title: SQL Server database migration to SQL Database | Microsoft Docs
+title: SQL Server database migration to Azure SQL Database | Microsoft Docs
 description: Learn how about on-premises SQL Server database migration to Azure SQL Database in the cloud. Use database migration tools to test compatibility prior to database migration.
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database

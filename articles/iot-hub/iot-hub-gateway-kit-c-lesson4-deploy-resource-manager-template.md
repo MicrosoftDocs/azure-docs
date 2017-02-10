@@ -1,5 +1,5 @@
 ---
-title: Save messages to the Azure cloud and read them from the cloud | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Lesson 4: Create function app | Microsoft Docs'
 description: Save messages from Intel NUC to your IoT hub, write them to Azure Table storage and then read them from the cloud.
 services: iot-hub
 documentationcenter: ''

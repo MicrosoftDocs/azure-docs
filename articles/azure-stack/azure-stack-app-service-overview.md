@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack Overview | Microsoft Docs
+title: App Service Overview - Azure Stack | Microsoft Docs
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 1/23/2017
 ms.author: anwestg
 
 ---
