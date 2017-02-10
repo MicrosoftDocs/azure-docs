@@ -1,4 +1,4 @@
-
+---
 'title: Azure AD Node.js getting started | Microsoft Docs'
 description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
@@ -17,7 +17,7 @@ ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
-# Getting Started With Web-API for Node.js
+# Get Started With Web-API for Node.js
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 **Passport** is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or restify web application. A comprehensive set of strategies support authentication with a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory (Azure AD). We install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
@@ -31,13 +31,13 @@ To do this, you need to:
 The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-node-webapi).
 
 > [!NOTE]
-> This article doesn't cover how to implement sign-in, sign-up, or profile management with Azure AD B2C. It focuses on calling web APIs after the user is already authenticated.  We recommend that you start with the [How to integrate with Azure Active Directory document](active-directory-how-to-integrate.md) to learn about the basics of Azure Active Directory.
+> This article doesn't cover how to implement sign-in, sign-up, or profile management with Azure AD B2C. It focuses on calling web APIs after the user is already authenticated.  We recommend that you start with [How to integrate with Azure Active Directory document](active-directory-how-to-integrate.md) to learn about the basics of Azure Active Directory.
 >
 >
 
 We've released all the source code for this running example in GitHub under an MIT license, so feel free to clone (or even better, fork!), and provide feedback and pull requests.
 
-## About Node.js Modules
+## About Node.js modules
 We use Node.js modules in this walkthrough. Modules are loadable JavaScript packages that provide specific functionality for your application. You usually install modules by using the Node.js NPM command-line tool in the NPM installation directory. However, some modules, such as the HTTP module, are included the core Node.js package.
 
 Installed modules are saved in the node_modules directory at the root of your Node.js installation directory. Each module in the node_modules directory maintains its own node_modules directory that contains any modules that it depends on, and each required module has a node_modules directory. This recursive directory structure represents the dependency chain.
@@ -70,7 +70,7 @@ To create an application:
 
 7. Create a **Key** for your application from the **Settings** page, and then copy it somewhere. You need it shortly.
 
-## 3. Download node.js for your platform
+## 3. Download Node.js for your platform
 To successfully use this sample, you must have a working installation of Node.js.
 
 Install Node.js from [http://nodejs.org](http://nodejs.org).
@@ -85,25 +85,25 @@ Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 >
 >
 
-## 5. Install the restify modules in your web API
-We are using restify to build our REST API. restify is a minimal and flexible Node.js application framework that's derived from Express. It has a robust set of features for building REST APIs on top of Connect.
+## 5. Install the Restify modules in your web API
+We are using Restify to build our REST API. Restify is a minimal and flexible Node.js application framework that's derived from Express. It has a robust set of features for building REST APIs on top of Connect.
 
-### Install restify
-From the command-line, change directories to the **azuread** directory. If the **azuread** directory does not exist, create it.
+### Install Restify
+1. From the command line, change directories to the **azuread** directory. If the **azuread** directory does not exist, create it.
 
-    `cd azuread - or- mkdir azuread; cd azuread`
+        `cd azuread - or- mkdir azuread; cd azuread`
 
-Type the following command:
+2. Type the following command:
 
-`npm install restify`
+    `npm install restify`
 
-This command installs restify.
+    This command installs Restify.
 
 #### Did you get an error?
 When using npm on some operating systems, you might receive an error that says **Error: EPERM, chmod '/usr/local/bin/..'** and a suggestion that you try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
 
 #### Did you get an error regarding DTRACE?
-You might see an error like this when installing restify:
+You might see an error like this when installing Restify:
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -121,9 +121,7 @@ gyp ERR! node-gyp -v v0.10.0
 gyp ERR! not ok
 npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 ```
-
-
-restify provides a powerful mechanism for tracing REST calls by using DTrace. However, many operating systems do not have DTrace. You can safely ignore these errors.
+Restify provides a powerful mechanism for tracing REST calls by using DTrace. However, many operating systems do not have DTrace. You can safely ignore these errors.
 
 The output of this command should appear similar to the following output:
 
@@ -150,37 +148,37 @@ The output of this command should appear similar to the following output:
 
 
 ## 6. Install Passport.js in your web API
-[Passport](http://passportjs.org/) is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or restify web application. A comprehensive set of strategies support authentication with a username and password, Facebook, Twitter, and more.
+[Passport](http://passportjs.org/) is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Restify web application. A comprehensive set of strategies support authentication with a username and password, Facebook, Twitter, and more.
 
 We have developed a strategy for Azure Active Directory. We install this module and then add the Azure Active Directory strategy plug-in.
 
-From the command-line, change directories to the **azuread** directory.
+1. From the command-line, change directories to the **azuread** directory.
 
-To install passport.js, enter the following command :
+2. To install passport.js, enter the following command :
 
-`npm install passport`
+    `npm install passport`
 
-The output of the command should look similar to the following:
-
+    The output of the command should look similar to the following:
+``
     passport@0.1.17 node_modules\passport
     ├── pause@0.0.1
     └── pkginfo@0.2.3
-
+``
 ## 7. Add Passport-Azure-AD to your web API
-Next we add the OAuth strategy, using passport-azure-ad, a suite of strategies that connect Azure Active Directory to Passport. We use this strategy for Bearer Tokens in this Rest API sample.
+Next we add the OAuth strategy, using `passport-azure-ad`, a suite of strategies that connect Azure Active Directory to Passport. We use this strategy for Bearer Tokens in this Rest API sample.
 
 > [!NOTE]
-> Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained wide-spread use. For protecting endpoints, that has turned out to be Bearer Tokens. Bearer tokens are the most widely issued type of token in OAuth2, and many implementations assume that bearer tokens are the only type of token issued.
+> Although OAuth2 provides a framework in which any known token type can be issued, only certain token types are commonly used. Bearer tokens are the most commonly used tokens for protecting endpoints. They are the most widely issued type of token in OAuth2. Many implementations assume that bearer tokens are the only type of token that is issued.
 >
 >
 
-From the command-line, change directories to the azuread directory
+From the command-line, change directories to the **azuread** directory.
 
 Type the following command to install Passport.js passport-azure-ad module:
 
 `npm install passport-azure-ad`
 
-The output of the command should appear similar to the following:
+The output of the command should appear similar to the following output:
 
     ``
     passport-azure-ad@1.0.0 node_modules/passport-azure-ad
@@ -201,12 +199,12 @@ The output of the command should appear similar to the following:
 ## 8. Add MongoDB modules to your web API
 We use MongoDB as our datastore. For that reason, we need to install both the widely used plug-in called Mongoose to manage models and schemas. We also need to install the database driver for MongoDB (which is also called MongoDB).
 
-* `npm install mongoose`
+ `npm install mongoose`
 
 ## 9.  Install additional modules
 Next we install the remaining required modules.
 
-1. From the command-line, change directories to the **azuread** folder if you're not already there:
+1. From the command-line, change directories to the **azuread** folder if you're not already there.
 
     `cd azuread`
 
@@ -217,9 +215,9 @@ Next we install the remaining required modules.
     * `npm update`
 
 ## 10. Create a server.js with your dependencies
-The server.js file provides most of the functionality for our web API server. We add most of our code to this file. For production purposes, we recommend that you refactor the functionality in to smaller files, such as separate routes and controllers. In this demo, we use server.js for this functionality.
+The server.js file provides most of the functionality for our web API server. We add most of our code to this file. For production purposes, we recommend that you refactor the functionality into smaller files, such as separate routes and controllers. In this demo, we use server.js for this functionality.
 
-1. From the command-line, change directories to the **azuread** folder if not already there:
+1. From the command-line, change directories to the **azuread** folder if not already there.
 
     `cd azuread`
 
@@ -249,7 +247,7 @@ The server.js file provides most of the functionality for our web API server. We
 ## 11. Create a config file to store your Azure AD settings
 This code file passes the configuration parameters from your Azure Active Directory portal to Passport.js. You created these configuration values when you added the web API to the portal in the first part of the walkthrough. We explain what to put in the values of these parameters after you copy the code.
 
-1. From the command-line, change directories to the **azuread** folder if you're not already there:
+1. From the command-line, change directories to the **azuread** folder if you're not already there.
 
     `cd azuread`
 
@@ -274,7 +272,7 @@ This code file passes the configuration parameters from your Azure Active Direct
 ## 12. Add configuration values to your server.js file
 We need to read these values from the .config file that you created across our application. To do this, we add the .config file as a required resource in our application, and then set the global variables to match the variables in the config.js document.
 
-1. From the command-line, change directories to the **azuread** folder if you're not already there:
+1. From the command-line, change directories to the **azuread** folder if you're not already there.
 
     `cd azuread`
 
@@ -329,7 +327,7 @@ We need to read these values from the .config file that you created across our a
 4. Save the file.
 
 ## 13. Add The MongoDB Model and schema information by using Mongoose
-Now all this preparation is going to start paying off as combine these three files together into a REST API service.
+Now all this preparation is going to start paying off as we combine these three files into a REST API service.
 
 For this walkthrough, we use MongoDB to store our tasks as discussed in **Step 4**.
 
@@ -349,7 +347,7 @@ DATE : The date that the task is due. A ***DATETIME***.
 COMPLETED: If the task has been completed or not. A ***BOOLEAN***.
 
 #### Creating the schema in the code
-1. From the command-line, change directories to the **azuread** folder if not already there:
+1. From the command line, change directories to the **azuread** folder if you're already there.
 
     `cd azuread`
 
@@ -378,10 +376,10 @@ As you can tell from the code, we create our schema first. Then we create a mode
 ## 14. Add our routes for our task REST API server
 Now that we have a database model to work with, let's add the routes we are going use for our REST API server.
 
-### About routes in restify
-Routes work in restify the same way they do in the Express stack. You define routes by using the URI that you expect the client applications to call. Usually, you define your routes in a separate file. For our purposes, we put our routes in the server.js file. We recommend that you factor these routes into their own file for production use.
+### About routes in Restify
+Routes work in Restify the same way they do in the Express stack. You define routes by using the URI that you expect the client applications to call. Usually, you define your routes in a separate file. For our purposes, we put our routes in the server.js file. We recommend that you factor these routes into their own file for production use.
 
-A typical pattern for a restify route is as follows:
+A typical pattern for a Restify route is as follows:
 
 ```Javascript
 function createObject(req, res, next) {
@@ -402,7 +400,7 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 ```
 
 
-This is the pattern at its most basic level. restify (and Express) provide much deeper functionality, such as defining application types and providing complex routing across different endpoints. For our purposes, we are keeping these routes simple.
+This is the pattern at its most basic level. Restify (and Express) provide much deeper functionality, such as defining application types and providing complex routing across different endpoints. For our purposes, we are keeping these routes simple.
 
 ### 1. Add default routes to our server
 We now add the basic CRUD routes of Create, Retrieve, Update, and Delete.
@@ -424,7 +422,7 @@ We now add the basic CRUD routes of Create, Retrieve, Update, and Delete.
 
 function createTask(req, res, next) {
 
-    // restify currently has a bug which doesn't allow you to set default headers.
+    // Restify currently has a bug which doesn't allow you to set default headers.
     // These headers comply with CORS and allow us to mongodbServer our response to any origin.
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -511,7 +509,7 @@ function getTask(req, res, next) {
 /// Simple returns the list of TODOs that were loaded.
 
 function listTasks(req, res, next) {
-    // restify currently has a bug which doesn't allow you to set default headers.
+    // Restify currently has a bug which doesn't allow you to set default headers.
     // These headers comply with CORS and allow us to mongodbServer our response to any origin.
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -602,7 +600,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ## 15. Create your server!
 We have defined our database and our routes are in place. The last thing to do is add the server instance that manages our calls.
 
-In restify (and Express) you can do a lot of customization for a REST API server, but again we are going to use the most basic setup for our purposes.
+In Restify (and Express) you can do a lot of customization for a REST API server, but again we are going to use the most basic setup for our purposes.
 
 ```Javascript
 /**
@@ -621,7 +619,7 @@ server.pre(restify.pre.pause());
 // Clean up sloppy paths like //todo//////1//.
 server.pre(restify.pre.sanitizePath());
 
-// Handles annoying user agents (curl).
+// Handle annoying user agents (curl).
 server.pre(restify.pre.userAgentConnection());
 
 // Set a per request bunyan logger (with requestid filled in).
@@ -641,7 +639,7 @@ server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser({
     mapParams: true
-})); // Allows for JSON mapping to REST.
+})); // Allow for JSON mapping to REST.
 ```
 
 ## 16. Adding the routes to the server (without authentication for now)
@@ -650,7 +648,7 @@ server.use(restify.bodyParser({
 /**
 /*
 /* Each of these handlers is protected by our OIDCBearerStrategy by invoking 'oidc-bearer'.
-/* In the pasport.authenticate() method. We set 'session: false' as REST is stateless and
+/* In the pasport.authenticate() method. We set 'session: false' because REST is stateless and
 /* we don't need to maintain session state. You can experiment with removing API protection
 /* by removing the passport.authenticate() method as follows:
 /*
@@ -700,7 +698,7 @@ Test out your server before we add authentication.
 
 The easiest way to test your server is by using curl in a command line. Before we do that, we need a utility that allows us to parse output as JSON.
 
-1. To do that, install the following json tool (all the following examples use this tool):
+1. Install the following json tool (all the following examples use this tool):
 
     `$npm install -g jsontool`
 
@@ -758,10 +756,10 @@ If all this works, we're ready to add OAuth to the REST API server.
 
 **You have a REST API server with MongoDB!**
 
-## 18. Add Authentication to our REST API Server
+## 18. Add authentication to our REST API Server
 Now that we have a running REST API (congratulation, by the way!) let's start making it useful with Azure AD.
 
-From the command line, change directories to the **azuread** folder if you're not already there:
+From the command line, change directories to the **azuread** folder if you're not already there.
 
 `cd azuread`
 
@@ -784,7 +782,7 @@ So far we have built a typical REST TODO server without any kind of authorizatio
 
 2. Next, let’s use the Bearer strategy that comes with passport-azure-ad. Look at the code for now and we'll explain the rest shortly. Put this after what you pated above:
 
-    ```Javascript
+```Javascript
     /**
     /*
     /* Calling the OIDCBearerStrategy and managing users.
@@ -829,7 +827,7 @@ So far we have built a typical REST TODO server without any kind of authorizatio
     );
 
     passport.use(bearerStrategy);
-    ```
+```
 
 Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to. Looking at the strategy, you see we pass it a function() that has a token and a done as the parameters. The strategy comes back to us after it does its work. After it does, we store the user and stash the token so we won’t need to ask for it again.
 
@@ -908,9 +906,9 @@ A 401 is the response you are looking for here. This response indicates that the
 ## Congratulations! You have a REST API Service using OAuth2!
 You've gone as far as you can with this server without using an OAuth2 compatible client. You will need to go through an additional walkthrough.
 
-You've now learned how to implement a REST API by using restify and OAuth2. You also have more than enough code to keep developing your service and learning how to build on this example.
+You've now learned how to implement a REST API by using Restify and OAuth2. You also have more than enough code to keep developing your service and learning how to build on this example.
 
-If you are interested in the next steps in your ADAL journey, here are some supported ADAL clients we recommend for you to keep working:
+If you are interested in the next steps in your ADAL journey, here are some supported ADAL clients we recommend that you  keep working with:
 
 Clone down to your developer machine and configure as described in the walkthrough.
 
