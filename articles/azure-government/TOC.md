@@ -12,25 +12,24 @@
 ## [Connect with PowerShell](documentation-government-gettingstarted-connect-with-ps.md)
 ## [Connect with CLI](documentation-government-gettingstarted-connect-with-cli.md)
 ## [Setup Visual Studio for Azure Government](documentation-government-gettingstarted-connect-with-vs.md)
-## [Available Services](documentation-government-gettingstarted-available-services.md)
+## [Available Services](documentation-government-services.md)
 
 # How To
 ## Plan
 ### [Security](documentation-government-plan-security.md)
 ### [Compliance](documentation-government-plan-compliance.md)
 ## Manage
-### [Images](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
-### [Marketplace](documentation-government-manage-marketplace.md)
-### [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
-### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
-## Deploy
-### Web + mobile
-#### [App Services](documentation-government-howto-deploy-webandmobile.md)
+
 
 # Reference
-## [Services](documentation-government-services.md)
+## [Images](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Marketplace](documentation-government-manage-marketplace.md)
+## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
+## [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+
+## Services
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Database](documentation-government-services-database.md)
@@ -38,6 +37,7 @@
 ### [Security + identity](documentation-government-services-securityandidentity.md)
 ### [Monitoring + management](documentation-government-services-monitoringandmanagement.md)
 ### [Web + mobile](documentation-government-services-webandmobile.md)
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/)

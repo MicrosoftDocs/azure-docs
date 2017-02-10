@@ -20,7 +20,7 @@ ms.author: zakramer
 
 
 
-# Connecting via PowerShell
+# Connecting to Azure Government with PowerShell
 Whether you are using Azure PowerShell to manage a large subscription through script or access features that are not currently available in the Azure portal you need to connect to Azure Government instead of Azure Public.  If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Government are:
 
 * Connecting your account

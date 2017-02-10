@@ -19,3 +19,18 @@ ms.author: zakramer
 ---
 
 # Available Services in Azure Government
+The following services are currently available in Azure Government today.
+
+## Compute
+| Service | Resource Manager Enabled | Portal |
+
+
+
+## Databases
+| Service | Resource Manager Enabled | Portal |
+
+
+
+## Enterprise Integration
+| Service | Resource Manager Enabled | Portal |
+
