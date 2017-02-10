@@ -61,6 +61,9 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 
 ## Convert existing Azure VMs to managed disks of the same storage type
 
+> [!IMPORTANT]
+> After performing the following procedure, there is a single block blob that remains in the default vhds container. The name of the file is “VMName.xxxxxxx.status”. Do not delete this remaining status object. Future work should address this issue.
+
 This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SSD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
 
 1. Create variables and deallocate the VM. This example sets the resource group name to **myResourceGroup** and the VM name to **myVM**.
