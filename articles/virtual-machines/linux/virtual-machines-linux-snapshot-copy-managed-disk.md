@@ -32,7 +32,7 @@ The following steps show how to obtain and take a snapshot of a managed OS disk 
 ```azure-cli
 # take the disk id with which to create a snapshot
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
-az snapshot create -g myResourceGroup --source-disk "$osDiskId" --name osDisk-backup
+az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ```
 
 The output should look something like:
