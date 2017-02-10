@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: kgremban
 
 ---
@@ -46,10 +46,8 @@ Windows Server 2008 R2 SP1 or above with the NPS component enabled.
 
 ### Libraries
 
-Two libraries are required for the NPS extension. They're installed during the setup process:
-
--	Microsoft Visual Studio 2013 C++ Redistributable (X64)
--	Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166
+-	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 ### Azure Active Directory
 

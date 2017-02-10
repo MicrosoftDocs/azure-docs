@@ -20,7 +20,11 @@ ms.author: ramankum
 
 # Azure Managed Disks Overview
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or Standard <!--[Standard](storage-standard-storage.md)-->) and size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or [Standard](storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+
+>[!NOTE]
+> Managed Disks require the availability of port 8443; if you want to block that port, you must use unmanaged disks.
+>
 
 ## Benefits of managed disks
 
@@ -38,7 +42,7 @@ Managed Disks provides better reliability for Availability Sets by ensuring that
 
 ### Better security
 
-You can use [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, export, and retrieving a [shared access signature (SAS) URI](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don’t want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don’t want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
+You can use [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, export, and retrieving a [shared access signature (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don’t want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don’t want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
 
 ## Pricing and Billing 
 
@@ -57,30 +61,29 @@ When using Managed Disks, the following billing considerations apply:
 Let’s take a closer look at these.
 
 **Storage Type:** Managed Disks offers 2 performance tiers:
-[Premium](storage-premium-storage.md) (SSD-based) and
-Standard (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
-<!-- [Standard](storage-standard-storage.md) -->
+[Premium](storage-premium-storage.md) (SSD-based) and [Standard](storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
 create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
 
 Here are the disk sizes available for a premium managed disk:
 
-| **Premium Managed Disk Type**  | **P10** | **P20** | **P30**        |
-|--------------------------------|---------|---------|----------------|
-| Disk Size                      | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+| **Premium Managed <br>Disk Type**  | **P10** | **P20** | **P30**        |
+|------------------|---------|---------|----------------|
+| Disk Size        | 128 GB  | 512 GB  | 1024 GB (1 TB) |
 
 Here are the disk sizes available for a standard managed disk: 
 
-| **Standard Managed Disk Type** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
-|--------------------------------|---------|---------|----------------|---------|----------------|
-| Disk Size                      | 32 GB   | 64 GB   | 128 GB         | 512 GB  | 1024 GB (1 TB) |
+| **Standard Managed <br>Disk Type** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
+|------------------|---------|---------|----------------|---------|----------------|
+| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) |
 
 **Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-**Managed Disk Snapshots (full disk copy):** A Managed Snapshot is a read-only copy of a managed disk which is stored as a standard managed disk. With snapshots, you can back up your managed disks at any point in time. These 
+**Managed Disk Snapshots (full disk copy)**: A Managed Snapshot is a read-only copy of a managed disk which is stored as a standard managed disk. With snapshots, you can back up your managed disks at any point in time. These 
 snapshots exist independent of the source disk and can be used to create new Managed Disks. The cost of a managed snapshot is the same as that for standard managed disk. For example, if you take a snapshot of a 128 GB premium managed disk, then the cost of the managed snapshot is equivalent to a 128 GB standard managed disk.
 
 [Incremental snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
@@ -91,11 +94,15 @@ To learn more about how to create snapshots with Managed Disks, please check out
 * [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 
-For detailed information on pricing for Managed Disks, see [Azure Storage Pricing](https://azure.microsoft.com/en-us/pricing/details/storage).
+For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## Images
 
 Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a running VM. This captures in a single image all managed disks associated with a running VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+
+For information on creating images, please check out the following articles:
+* [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-capture-image.md)
 
 ## Images versus snapshots
 
@@ -108,7 +115,9 @@ What if you have a VM has five disks and they are striped? You could take a snap
 
 ## Azure Backup service support 
 
-You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies.<!-- You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup#using-managed-disk-vms-with-azure-backup). -->
+Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
+
+You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## Next steps
 
@@ -128,11 +137,10 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Premium storage and disks](storage-premium-storage.md)
 
-<!--
-* [Standard storage and disks](storage-standard-storage.md) -->
+* [Standard storage and disks](storage-standard-storage.md)
 
 ### Operational guidance
 
-* [Migrate AWS and on-premises VMs to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+* [Migrate from AWS and other platforms to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
 
 * [Convert Azure VMs to managed disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
