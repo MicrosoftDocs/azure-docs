@@ -96,7 +96,7 @@ Prerequisites: .Net Framework 4.5, Windows Server 2012 R2 SP1 and above
 4. On the port and proxy address page:
    1. Type the TCP port number to be used for the gateway. Setup opens this port number from Windows firewall. The default value is 8080.
       The valid range of the port number is 1 - 65535. If the input does not fall into this range, an error message appears.
-   2. Optionally, if the server where the gateway is installed needs to use a proxy, type the proxy address where the gateway needs to connect. For example, `http://myorgname.corp.contoso.com:80` If blank, the gateway will try to connect to the Internet directly. Otherwise, the gateway connects to the proxy. If your proxy server requires authentication, type your username and password.
+   2. Optionally, if the server where the gateway is installed needs to use a proxy, type the proxy address where the gateway needs to connect. For example, `http://myorgname.corp.contoso.com:80` If blank, the gateway will try to connect to the Internet directly. Otherwise, the gateway connects to the proxy. If your proxy server requires authentication, type your username and password.  
        ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. Click **Next**
 5. If you do not have Microsoft Updates enabled, the Microsoft Update page appears where you can choose to enable Microsoft Updates. Make a selection and then click **Next**. Otherwise, continue to the next step.
