@@ -1,5 +1,5 @@
 ---
-title: How to resize a Linux VM with the Azure CLI 2.0 (Preview) | Microsoft Docs
+title: How to resize a Linux VM with the Azure CLI 1.0 | Microsoft Docs
 description: How to scale up or scale down a Linux virtual machine, by changing the VM size.
 services: virtual-machines-linux
 documentationcenter: na
@@ -8,36 +8,38 @@ manager: timlt
 editor: ''
 tags: ''
 
-ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2017
+ms.date: 05/16/2016
 ms.author: mwasson
 
 ---
 # How to resize a Linux VM
+## Overview
 After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is hosting the VM.
 
-This article shows how to resize a Linux VM using the Azure CLI 2.0 (Preview).
+This article shows how to resize a Linux VM using the [Azure CLI][azure-cli].
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](#resize-a-linux-vm) - our next generation CLI for the resource management deployment model (this article)
+- [Azure CLI 1.0](#resize-a-linux-vm) – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0 (Preview)](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+
 
 ## Resize a Linux VM
-To resize a VM, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+To resize a VM, perform the following steps.
 
-1. View the list of available VM sizes for a given region with [az vm list-sizes](/cli/azure/vm#list-sizes). The following example lists VM sizes for the `westus` region:
+1. Run the following CLI command. This command lists the VM sizes that are available on the hardware cluster where the VM is hosted.
    
     ```azurecli
-    az vm list-sizes --location westus --output table
+    azure vm sizes -g myResourceGroup --vm-name myVM
     ```
 2. If the desired size is listed, run the following command to resize the VM.
    
