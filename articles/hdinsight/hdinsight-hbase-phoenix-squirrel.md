@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 02/09/2017
 ms.author: jgao
 
 ---
-# Use Apache Phoenix and SQuirreL with Windows-based HBase clusters in HDinsight
+# Use Apache Phoenix and SQuirreL with Windows-based HBase clusters in HDInsight
 Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
@@ -25,7 +25,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 >
 
 > [!IMPORTANT]
-> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -80,10 +80,6 @@ Before following the procedures, you must have the following:
 
 * An HBase cluster deployed to an Azure virtual network with a DNS virtual machine.  For instructions, see [Create HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet].
 
-  > [!IMPORTANT]
-  > You must install a DNS server to the virtual network. For instructions, see [Configure DNS between two Azure virtual networks](hdinsight-hbase-geo-replication-configure-dns.md)
-  >
-  >
 * Get the HBase cluster cluster Connection-specific DNS suffix. To get it, RDP into the cluster, and then run IPConfig.  The DNS suffix is similar to:
 
         myhbase.b7.internal.cloudapp.net
@@ -155,7 +151,7 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 
     Both the root certificate and the client certificate are stored in your Personal certificate store on your computer. Use certmgr.msc to verify.
 
-    ![Azure virtual network point-to-site vpn certificate][img-certificate]
+    ![Azure virtual network point-to-site VPN certificate][img-certificate]
 
     A client certificate must be installed on each computer that you want to connect to the virtual network. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network. To export the client certificates, use certmgr.msc.
 
