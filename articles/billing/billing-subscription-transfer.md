@@ -20,7 +20,7 @@ ms.author: genli
 ---
 # Transferring ownership of an Azure subscription
 
-You can change the Account Administrator on any Pay-As-You-Go, Visual Studio, Action Pack, or BizSpark subscription that you own using the Account Center. We support the transfer of Azure Marketplace Purchases for these subscription types as well. 
+You can transfer your subscription to another user for Pay-As-You-Go, Visual Studio, Action Pack, or BizSpark subscriptions in the Account Center. We support the transfer of Azure external services for these subscription types as well. 
 
 You might want to transfer ownership of an Azure subscription if you:
 
