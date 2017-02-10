@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/20/2017
+ms.date: 2/9/2017
 ms.author: markgal;
 
 ---
@@ -54,24 +54,32 @@ To back up your files and folders, you need to create a Recovery Services vault 
 
     ![Create Recovery Services Vault step 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. For **Name**, enter a friendly name to identify the vault.
-5. From the **Subscription** menu, choose the subscription you want to use. If you use only one subscription, that subscription appears and you can skip to the next step.
-6. Under **Resource group** either:
-    - select **Create new** and provide a name for the new resource group.</br>
-    or
-    - select **Use existing** and choose a resource group from the list of resource groups in the subscription.
+4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+
+5. From the **Subscription** menu, choose the subscription you want to use. If you use only one subscription, that subscription appears and you can skip to the next step. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
-8. Click **Create**.
+8. At the bottom of the Recovery Services vault blade, click **Create**.
 
-    The portal will provide messages as the vault is created and deployed. If you don't see your vault listed after it has been completed, click **Refresh**. ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh.png)</br>
-    Once the list refreshes, select your vault to open its blade.
+    It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after a several minutes you don't see your vault, click **Refresh**.
+
+    ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
+
+    Once you see your vault in the list of Recovery Services vaults, you are ready to set the storage redundancy.
 
 ### Set storage redundancy for the vault
 When you first create a Recovery Services vault you determine how storage is replicated.
 
-1. From the list of Recovery Services vaults, click the new vault to open its blade.
-2. In the new vault's blade, click **Backup Infrastructure**.
+1. From the **Recovery Services vaults** blade, click the new vault.
+
+    ![Select the new vault from the list of Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+
+    When you click your vault, the **Recovery Services vault** blade narrows, and the Settings blade (*which has the name of the vault at the top*) and the vault details blade opens.
+
+    ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+2. In the new vault's Settings blade, use the vertical slide to scroll down to the Manage section, and click **Backup Infrastructure**.
     The Backup Infrastructure blade opens.
 3. In the Backup Infrastructure blade, click **Backup Configuration** to open the **Backup Configuration** blade.
 
