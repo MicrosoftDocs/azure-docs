@@ -32,9 +32,9 @@ There is support for open-source DC/OS, Docker Swarm, and Kubernetes. While supp
 
 Currently Swarm mode is not supported, but it is on the service roadmap. 
 
-### Does ACS support Windows containers?  
+### Does Azure Container Service support Windows containers?  
 
-Not currently. Support for Windows containers with the DC/OS, Docker Swarm, and Kubernetes orchestrators is on the service roadmap. 
+Currently Linux containers are supported. Support for Windows containers with the DC/OS, Docker Swarm, and Kubernetes orchestrators is on the service roadmap. 
 
 ### Do you recommend a specific orchestrator in Azure Container Service? 
 Generally we do not recommend a specific orchestrator. If you have experience with one of the supported orchestrators, you can leverage that experience in Azure Container Service. Data trends suggest, however, that DC/OS is production proven for Big Data and IoT workloads, Kubernetes is suited for cloud-native workloads, and Docker Swarm is known for its integration with Docker tools and easy learning curve.
@@ -66,7 +66,7 @@ If you use [Azure CLI 2.0 (Preview) commands](container-service-create-acs-clust
 Once the cluster is created the number of masters is fixed and cannot be changed. During the creation of the cluster you should ideally select 3 or 5 masters for high availability.
 
 > [!NOTE]
-> In preview, Kubernetes clusters in Azure Container Service can only have 1 master.
+> In preview, a Kubernetes cluster in Azure Container Service can only have 1 master.
 >
 
 ### How do I increase the number of agents after a cluster is created? 
@@ -76,10 +76,8 @@ You can scale the number of agents in the cluster by using the Azure portal or c
 > In preview, a Kubernetes cluster in Azure Container Service has a fixed number of agents. 
 >
 
- 
 ### What are the URLs of my masters and agents? 
- 
-The URLs of all the cluster resources in Azure Container Service are based on the DNS name prefix you supply and the name of the Azure region you chose for deployment. For example:
+The URLs of cluster resources in Azure Container Service are based on the DNS name prefix you supply and the name of the Azure region you chose for deployment. For example, the fully qualified domain name (FQDN) of the master node is of this form:
 
 ``` 
 DNSnamePrefix.AzureRegion.cloudapp.azure.net
@@ -90,12 +88,16 @@ You can find commonly used URLs for your cluster in the Azure portal, the Azure 
 ### Where do I find the SSH connection string to my cluster?
 
 You can find this in the Azure portal, or by using Azure command-line tools. 
+
 1. In the portal, navigate to the resource group for the cluster deployment.  
+
 2. Click **Overview** and click the link for **Deployments** under **Essentials**. 
+
 3. In the **Deployment history** blade, click the deployment that has a name beginning with **microsoft-acs** followed by a deployment date. Example: microsoft-acs-201701310000.  
+
 4. On the **Summary** page, under **Outputs**, serveral cluster links are oprivudes. **SSHMaster0** provides an  SSH connection string to the first master in your container service cluster. 
 
-You can also use the portal or Azure command-line tools to find the fully qualified domain name (FQDN) of the master. You can use this name to make an SSH connection to the master using the user name you specified when creating the cluster. For example:
+As previously noted, you can use also use Azure tools to find the FQDN of the master. Make an SSH connection to the master using the FQDN of the master and the user name you specified when creating the cluster. For example:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
