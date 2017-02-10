@@ -53,7 +53,6 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 
 * Changes are persistent in DocumentDB and can be processed asynchronously.
 * Changes to documents within a collection are available immediately in the change feed.
-* 
 * Each change to a document appears only once in the change feed. Only the most recent change for a given document is included in the change log. Intermediate changes may not be available.
 * The change feed is sorted by order of modification within each partition key value. There is no guaranteed order across partition-key values.
 * Changes can be synchronized from any point-in-time, that is, there is no fixed data retention period for which changes are available.

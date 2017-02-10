@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
 # Capture a Linux virtual machine running on Azure
-Follow the steps in this article to generalize and capture your Azure Linux virtual machine (VM) in the Resource Manager deployment model. When you generalize the VM, you remove personal account information and prepare the VM to be used as an image. You then capture a generalized virtual hard disk (VHD) image for the OS, VHDs for attached data disks, and a [Resource Manager template](../azure-resource-manager/resource-group-overview.md) for new VM deployments. 
+Follow the steps in this article to generalize and capture your Azure Linux virtual machine (VM) in the Resource Manager deployment model. When you generalize the VM, you remove personal account information and prepare the VM to be used as an image. You then capture a generalized virtual hard disk (VHD) image for the OS, VHDs for attached data disks, and a [Resource Manager template](../azure-resource-manager/resource-group-overview.md) for new VM deployments. This article details how to capture a VM image with the Azure CLI 1.0 for a VM using unmanaged disks. You can also [capture a VM using Azure Managed Disks with the Azure CLI 2.0 (Preview)](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 To create VMs using the image, set up network resources for each new VM, and use the template (a JavaScript Object Notation, or JSON, file) to deploy it from the captured VHD images. In this way, you can replicate a VM with its current software configuration, similar to the way you use images in the Azure Marketplace.
 
@@ -29,8 +29,8 @@ To create VMs using the image, set up network resources for each new VM, and use
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](#quick-commands) - our next generation CLI for the resource management deployment model
+- [Azure CLI 1.0](#before-you-begin) – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0 (Preview)](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Before you begin
 Ensure that you meet the following prerequisites:

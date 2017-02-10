@@ -1,5 +1,5 @@
 ---
-title: Change signature hash algorithm for Office 365 replying party trust | Microsoft Docs
+title: Change signature hash algorithm for Office 365 relying party trust | Microsoft Docs
 description: This page provides guidelines for changing SHA algorithm for federation trust with Office 365
 keywords: SHA1,SHA256,O365,federation,aadconnect,adfs,ad fs,change sha,federation trust,relying party trust
 services: active-directory
@@ -18,7 +18,7 @@ ms.date: 10/31/2016
 ms.author: anandy
 
 ---
-# Change signature hash algorithm for Office 365 replying party trust
+# Change signature hash algorithm for Office 365 relying party trust
 ## Overview
 Active Directory Federation Services (AD FS) signs its tokens to Microsoft Azure Active Directory to ensure that they cannot be tampered with. This signature can be based on SHA1 or SHA256. Azure Active Directory now supports tokens signed with an SHA256 algorithm, and we recommend setting the token-signing algorithm to SHA256 for the highest level of security. This article describes the steps needed to set the token-signing algorithm to the more secure SHA256 level.
 
