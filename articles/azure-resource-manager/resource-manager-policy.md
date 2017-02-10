@@ -18,19 +18,16 @@ ms.author: tomfitz
 
 ---
 # Resource policy overview
-Resource policies enable you to establish conventions for resources in your organization. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed, or you can require that all resources have a particular tag.  
+Resource policies enable you to establish conventions for resources in your organization. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed, or you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
 
-To implement a policy, you must perform three steps:
+There are two concepts to understand about policies:
 
-1. Define the policy with JSON. This topic describes the structure and syntax of the JSON for defining a policy. 
-2. Create a policy definition in your subscription from the JSON you created in the preceding step. This step makes the policy available for assignment but does not apply the rules to your subscription.
-3. Assign the policy to a scope (such as a subscription or resource group). The rules of the policy are now enforced.
+* policy definition - you describe when the policy is enforced and what action to take
+* policy assignment - you apply the policy definition to a scope (subscription or resource group)
 
-Azure provides some pre-defined policies that may reduce the number of policies you have to define. If a pre-defined policy works for your scenario, skip the first two steps and assign the pre-defined policy to a scope.
+Azure provides some built-in policy definitions that may reduce the number of policies you have to define. If a built-in policy definition works for your scenario, use that definition when assigning to a scope.
 
-Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
-
-Policies are evaluated only when resources are deployed.
+Policies are evaluated when creating and updating resources (PUT and PATCH operations).
 
 > [!NOTE]
 > Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types is applied for all types. In that case, a template deployment may fail if there is a nested resource that doesn't support tags, and the deployment resource type has been added to policy evaluation. 
@@ -40,18 +37,30 @@ Policies are evaluated only when resources are deployed.
 ## How is it different from RBAC?
 There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on **user** actions at different scopes. For example, you are added to the contributor role for a resource group at the desired scope, so you can make changes to that resource group. Policy focuses on **resource** properties during deployment. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system. 
 
-To use policies, you must be authenticated through RBAC. Specifically, your account needs the `Microsoft.Authorization/policydefinitions/write` permission to define a policy, and the `Microsoft.Authorization/policyassignments/write` permission to assign a policy. These permissions are not included in the **Contributor** role.
+To use policies, you must be authenticated through RBAC. Specifically, your account needs the:
+
+* `Microsoft.Authorization/policydefinitions/write` permission to define a policy
+* `Microsoft.Authorization/policyassignments/write` permission to assign a policy 
+
+These permissions are not included in the **Contributor** role.
 
 ## Policy definition structure
-Policy definition is created using JSON. It consists of one or more conditions/logical operators that define the actions, and an effect that tells what happens when the conditions are fulfilled. The schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
+You use JSON to create a policy definition. The policy definition contains sections for:
 
-The following example shows a policy you can use to limit where resources are deployed:
+* parameters
+* displayName
+* description
+* policyRule
+  * logical evaluation
+  * effect
+
+The following example shows a policy that limits where resources are deployed:
 
 ```json
 {
   "properties": {
     "parameters": {
-      "listOfAllowedLocations": {
+      "allowedLocations": {
         "type": "array",
         "metadata": {
           "description": "An array of permitted locations for resources.",
@@ -66,7 +75,7 @@ The following example shows a policy you can use to limit where resources are de
       "if": {
         "not": {
           "field": "location",
-          "in": "[parameters('listOfAllowedLocations')]"
+          "in": "[parameters('allowedLocations')]"
         }
       },
       "then": {
@@ -96,7 +105,7 @@ You declare parameters when you create policy definitions.
 
 The type of a parameter can be either string or array. The metadata property is used for tools like Azure portal to display user-friendly information. 
 
-In the policy rule, you can reference the parameters similar to what you do in templates. For example: 
+In the policy rule, you reference parameters with the following syntax: 
 
 ```json
 { 
@@ -105,19 +114,25 @@ In the policy rule, you can reference the parameters similar to what you do in t
 }
 ```
 
-## Policy rules
+## displayName and description
+
+You use the `displayName` and `description` to identify the policy definition, and provide context for when it is used.
+
+## Policy rule
+
+The policy rule consists of one or more conditions/logical operators that define the actions, and an effect that tells what happens when the conditions are fulfilled.
 
 **Condition/Logical operators:** a set of conditions that can be manipulated through a set of logical operators.
 
-**Effect:** what happens when the condition is satisfied – deny, audit, or append. An audit effect emits a warning event service log. For example, an administrator can create a policy that causes an audit event if anyone creates a large VM. The administrator can review the logs later.
+**Effect:** what happens when the condition is satisfied – deny, audit, or append. An audit effect emits a warning event service log. For example, you can create a policy that causes an audit event if someone in your organization creates a large VM. You can review the logs later.
 
 ```json
 {
   "if": {
-      <condition> | <logical operator>
+    <condition> | <logical operator>
   },
   "then": {
-      "effect": "deny | audit | append"
+    "effect": "deny | audit | append"
   }
 }
 ```
@@ -148,65 +163,38 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 ### Fields
 Conditions are formed by using fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
 
-The following fields and sources are supported:
+The following fields are supported:
 
-Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
+* `name`
+* `kind`
+* `type`
+* `location`
+* `tags`
+* `tags.*` 
+* property alias 
 
 ### Property aliases
-Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and SKUs. It works across all API versions where the property exists. You can retrieve aliases through the REST API (Powershell support will be added in the future):
-
-```HTTP
-GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
-```
-
-The following example shows a definition of an alias. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
-
-```json
-"aliases": [
-    {
-      "name": "Microsoft.Storage/storageAccounts/sku.name",
-      "paths": [
-        {
-          "path": "properties.accountType",
-          "apiVersions": [
-            "2015-06-15",
-            "2015-05-01-preview"
-          ]
-        },
-        {
-          "path": "sku.name",
-          "apiVersions": [
-            "2016-01-01"
-          ]
-        }
-      ]
-    }
-]
-```
+Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and SKUs. It works across all API versions where the property exists. 
 
 Currently, the supported aliases are:
 
-| Alias name | Description |
-| --- | --- |
-| {resourceType}/sku.name |Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
-| {resourceType}/sku.family |Supported resource type is Microsoft.Cache/Redis |
-| {resourceType}/sku.capacity |Supported resource type is Microsoft.Cache/Redis |
-| Microsoft.Compute/virtualMachines/imagePublisher | |
-| Microsoft.Compute/virtualMachines/imageOffer | |
-| Microsoft.Compute/virtualMachines/imageSku | |
-| Microsoft.Compute/virtualMachines/imageVersion | |
-| Microsoft.Storage/storageAccounts/accessTier | |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | |
-| Microsoft.Cache/Redis/enableNonSslPort | |
-| Microsoft.Cache/Redis/shardCount | |
-| Microsoft.SQL/servers/version | |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
-| Microsoft.SQL/servers/databases/edition | |
-| Microsoft.SQL/servers/databases/elasticPoolName | |
-| Microsoft.SQL/servers/elasticPools/dtu | |
-| Microsoft.SQL/servers/elasticPools/edition | |
-
+* Microsoft.CDN/profiles/sku.name
+* Microsoft.Compute/virtualMachines/imageOffer
+* Microsoft.Compute/virtualMachines/imagePublisher
+* Microsoft.Compute/virtualMachines/sku.name
+* Microsoft.Compute/virtualMachines/imageSku 
+* Microsoft.Compute/virtualMachines/imageVersion
+* Microsoft.SQL/servers/databases/edition
+* Microsoft.SQL/servers/databases/elasticPoolName
+* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
+* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
+* Microsoft.SQL/servers/elasticPools/dtu
+* Microsoft.SQL/servers/elasticPools/edition
+* Microsoft.SQL/servers/version
+* Microsoft.Storage/storageAccounts/accessTier
+* Microsoft.Storage/storageAccounts/enableBlobEncryption
+* Microsoft.Storage/storageAccounts/sku.name
+* Microsoft.Web/serverFarms/sku.name
 
 ### Effect
 Policy supports three types of effect - **deny**, **audit**, and **append**. 
@@ -229,9 +217,15 @@ For **append**, you must provide the following details:
 
 The value can be either a string or a JSON format object. 
 
-## Examples
+## Common examples
 
-## Allowed resource locations
+For examples of tag polices, see [Apply resource policies for tags](resource-manager-policy-tags.md).
+
+For examples of storage policies, see [Apply resource policies to storage accounts](resource-manager-policy-storage.md).
+
+For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+
+### Allowed resource locations
 To specify which locations are allowed, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
 
 The built-in policy contains a rule similar to:
@@ -264,7 +258,7 @@ To specify which locations are not allowed, use the following policy:
 }
 ```
 
-## Restrict resource types
+### Allowed resource types
 The following example shows a policy that permits deployments for only on the `Microsoft.Resources/*`, `Microsoft.Compute/*`, `Microsoft.Storage/*`, `Microsoft.Network/*` resource types. All others are denied:
 
 ```json
@@ -316,4 +310,5 @@ The following example shows the use of wildcard, which is supported by the **lik
 
 ## Next steps
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* The policy schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 

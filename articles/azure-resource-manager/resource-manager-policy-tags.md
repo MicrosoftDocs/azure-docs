@@ -31,7 +31,11 @@ A common requirement is that all resources in a resource group have a particular
 * The required tag and value are appended to new and updated resources that have other tags, but not the required tag and value.
 * The required tag and value cannot be removed from any existing resources.
 
-You accomplish this requirement by applying the following three policies ([Append tag](#append-tag), [Append tag with other tags](#append-tag-with-other-tags), [Require tag and value](#require-tag-and-value)) to a resource group. 
+You accomplish this requirement by applying to a resource group the following three policies:
+
+* [Append tag](#append-tag) 
+* [Append tag with other tags](#append-tag-with-other-tags)
+* [Require tag and value](#require-tag-and-value)) . 
 
 ### Append tag
 
@@ -166,9 +170,7 @@ foreach($r in $resources)
 ```
 
 ## Next steps
+* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. For examples on creating and assigning policies, see [Assign and manage policies](resource-manager-policy-create-assign.md). 
 * For an introduction to resource policies, see [Resource policy overview](resource-manager-policy.md).
-* For storage policies, see [Resource policies for storage accounts](resource-manager-policy-storage.md).
-* For Linux VM policies, see [Apply security and policies to Linux VMs with Azure Resource Manager](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
-* For Windows VM policies, see [Apply security and policies to Windows VMs with Azure Resource Manager](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json.)
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

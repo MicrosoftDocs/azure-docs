@@ -49,7 +49,7 @@ The following policy restricts which [storage account types](../storage/storage-
 }
 ```
 
-This policy rule is also available as a built-in policy definition with the resource ID of `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`. 
+A similar policy rule with a parameter for accepting the allowed SKUs is available as a built-in policy definition. The built-in policy has the resource ID of `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`. 
 
 ## Define permitted access tier
 
@@ -109,10 +109,7 @@ The following policy requires all storage accounts to enable [Storage service en
 
 This policy rule is also available as a built-in policy definition with the resource ID of `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`.
 
-## Create and assign policies
-
-After defining a policy rule (as shown in the preceding examples), you need to create the policy and assign it to a scope. The scope can be a subscription, resource group, or resource. For examples on creating and assigning policies, see [Create and assign a policy](resource-manager-policy-create-assign.md). 
-
 ## Next steps
+* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. For examples on creating and assigning policies, see [Assign and manage policies](resource-manager-policy-create-assign.md). 
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

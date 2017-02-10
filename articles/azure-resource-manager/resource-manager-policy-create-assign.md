@@ -13,12 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 02/09/2017
 ms.author: tomfitz
 
 ---
 # Assign and manage resource policies
 
+To implement a policy, you must perform three steps:
+
+1. Define the policy rule with JSON. This topic describes the structure and syntax of the JSON for defining a policy. 
+2. Create a policy definition in your subscription from the JSON you created in the preceding step. This step makes the policy available for assignment but does not apply the rules to your subscription.
+3. Assign the policy to a scope (such as a subscription or resource group). The rules of the policy are now enforced.
+
+Azure provides some pre-defined policies that may reduce the number of policies you have to define. If a pre-defined policy works for your scenario, skip the first two steps and assign the pre-defined policy to a scope.
 
 ## REST API
 
@@ -90,6 +97,38 @@ With a request body similar to the following example:
 
 ### View policy
 To get a policy, use the [Get policy definition](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get) operation.
+
+### Get aliases
+You can retrieve aliases through the REST API (Powershell support will be added in the future):
+
+```HTTP
+GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+```
+
+The following example shows a definition of an alias. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
+
+```json
+"aliases": [
+    {
+      "name": "Microsoft.Storage/storageAccounts/sku.name",
+      "paths": [
+        {
+          "path": "properties.accountType",
+          "apiVersions": [
+            "2015-06-15",
+            "2015-05-01-preview"
+          ]
+        },
+        {
+          "path": "sku.name",
+          "apiVersions": [
+            "2016-01-01"
+          ]
+        }
+      ]
+    }
+]
+```
 
 
 ## PowerShell
