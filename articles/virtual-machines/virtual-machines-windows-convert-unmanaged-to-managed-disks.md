@@ -34,6 +34,15 @@ Test the migration process by migrating a test virtual machine before performing
 > [!IMPORTANT] 
 > During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
 
+## Before you begin
+If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
+
 ## Convert VMs in an availability set to managed disks in a managed availability set
 
 If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
