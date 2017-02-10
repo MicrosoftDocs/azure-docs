@@ -43,7 +43,7 @@ You can also access this blade deep link in your monthly statement notification 
 
 ## Get invoice from Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account dministrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator. 
 2. On the Hub menu, select **Subscriptions**. 
 
     ![Screenshot that shows the Subscription option](./media/billing-download-azure-invoice-daily-usage-date/submenu.png) 
