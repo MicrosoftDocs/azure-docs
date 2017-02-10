@@ -19,9 +19,7 @@ ms.author: mwasson
 
 ---
 # How to resize a Linux VM
-After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is hosting the VM.
-
-This article shows how to resize a Linux VM using the Azure CLI 2.0 (Preview).
+After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. You need to deallocate the VM if the desired size is not available on the hardware cluster that is hosting the VM. This article details how to resize a Linux VM using the Azure CLI 2.0 (Preview).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -46,7 +44,7 @@ To resize a VM, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install
     azure vm resize --resource-group myResourceGroup --name myVM -size Standard_DS3_v2
     ```
    
-    The VM will restart during this process. After the restart, your existing OS and data disks will be remapped. Anything on the temporary disk will be lost.
+    The VM restarts during this process. After the restart, your existing OS and data disks are remapped. Anything on the temporary disk is lost.
 
 3. If the desired VM size is not listed, you need to first deallocate the VM with [az vm deallocate](/cli/azure/vm#deallocate). This process allows the VM to then be resized to any size available that the region supports and then started. The following steps deallocate, resize, and then start the VM named `myVM` in the resource group named `myResourceGroup`:
    
