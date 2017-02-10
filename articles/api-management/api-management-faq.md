@@ -41,6 +41,7 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [Are there restrictions on or known issues with importing my API?](#api-management-api-import-restrictions)
 
 ### How can I ask the Microsoft Azure API Management team a question?
 You can contact us by using one of these options:
@@ -145,3 +146,5 @@ Yes. API Management works with Azure ExpressRoute.
 ### Can I move an API Management service from one subscription to another?
 Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
+### Are there restrictions on or known issues with importing my API?
+[Known issues and restrictions](../api-management-api-import-restrictions.md) for Open API(Swagger), WSDL and WADL formats.
