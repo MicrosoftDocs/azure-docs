@@ -19,10 +19,10 @@ ms.author: genli
 
 ---
 # How to get your Azure billing invoice and daily usage data
-You can opt in and configure additional recipients to receive your invoice statement attached to your monthly billing email. You can also download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Only the account administrator has permission to get to the billing invoice and usage information. To find out who is the account administrator of the subscription, see the [Transferring ownership of an Azure subscription - FAQ](billing-subscription-transfer.md#faq).
+You can opt in and configure additional recipients to receive your invoice statement attached to your monthly billing email. You can also download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Only the Account Administrator has permission to get to the billing invoice and usage information. To find out who is the Account Administrator of the subscription, see the [Transferring ownership of an Azure subscription - FAQ](billing-subscription-transfer.md#faq).
 
 ## Get your invoice over email
-1. Select your subscription from the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). You have to opt-in for each subscription you own. Click **Invoices** then **Email my invoice**. If you are not the account admin you may not see this option.
+1. Select your subscription from the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). You have to opt-in for each subscription you own. Click **Invoices** then **Email my invoice**. If you are not the Account Admin you may not see this option.
 
     ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -37,14 +37,13 @@ You can opt in and configure additional recipients to receive your invoice state
 You can also access this blade deep link in your monthly statement notification email
 
 ## I can't access the email settings blade:
-* You must be the account administrator to configure this setting, not sure what this means? [Learn more here](billing-add-change-azure-subscription-administrator.md).
+* You must be the Account Administrator to configure this setting, not sure what this means? [Learn more here](billing-add-change-azure-subscription-administrator.md).
 * If you have a monthly invoice but aren't receiving an email, make sure you have your [communication email properly set](https://account.windowsazure.com/profile).
 * This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
 
 ## Get invoice from Azure portal
-You can view the daily usage from the Azure portal but only the invoice is available for download.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the account administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account dministrator. 
 2. On the Hub menu, select **Subscriptions**. 
 
     ![Screenshot that shows the Subscription option](./media/billing-download-azure-invoice-daily-usage-date/submenu.png) 
@@ -62,7 +61,7 @@ You can view the daily usage from the Azure portal but only the invoice is avail
 For more information about your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ## Get usage from the Azure Account Center
-1. Sign into the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the account administrator.
+1. Sign into the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
 2. Select the subscription for which you want the invoice and usage information.
 3. Select **BILLING HISTORY**. 
 
