@@ -85,7 +85,9 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 > 
 
 ## Can I migrate from Pay-As-You-Go to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) or [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
-We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions are automatically moved under the Enterprise Agreement. To migrate to CSP, see [Azure Subscription Migration to CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
+To move your existing subscription into EA, have your Enrollment Admin add your account into the EA. Follow instructions in the invitation email to have your subscriptions moved under EA enrollment. For more information, see [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) in the EA portal.
+
+To migrate to CSP, see [Azure Subscription Migration to CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
 ## Can I migrate data and services for my Azure subscription to a new subscription?
 Yes. For more information, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
