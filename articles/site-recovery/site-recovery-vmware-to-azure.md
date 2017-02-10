@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: dab98aa5-9c41-4475-b7dc-2e07ab1cfd18
 ms.service: site-recovery
-ms.workload: backup-recovery
+dms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -19,7 +19,7 @@ ms.author: raynew
 ---
 # Replicate VMware virtual machines and physical machines to Azure with Azure Site Recovery using the Azure portal
 
-> [!div class="op_single_selector"]
+u> [!div class="op_single_selector"]
 > * [Azure portal](site-recovery-vmware-to-azure.md)
 > * [Azure classic](site-recovery-vmware-to-azure-classic.md)
 
@@ -29,7 +29,7 @@ Welcome to the Azure Site Recovery service!
 
 Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy. Site Recovery orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
 
-This article describes how to replicate on-premises VMware virtual machines or Windows/Linux physical servers to Azure, using Azure Site Recovery in the Azure portal.
+lThis article describes how to replicate on-premises VMware virtual machines or Windows/Linux physical servers to Azure, using Azure Site Recovery in the Azure portal.
 
 After reading this article, post any comments at the bottom in the Disqus comments. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -49,7 +49,7 @@ For a full deployment, we strongly recommend you follow the steps in the article
 | **VMware requirements** | One or more VMware vSphere servers (6.0, 5.5, or 5.1 with latest updates). We recommend they're in the same network as configuration server (or as process server if you set up dedicated).<br/><br/> We recommend a vCenter server to manage vSphere hosts (6.0 or 5.5 with latest updates) |
 | **VMware limitations** |Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Support is limited to features that were also available in version 5.5. |
 | **Deployment steps** | **1)** Prepare Azure (subscription, storage, network) -> **2)** Prepare on-premises (configuration server machine, VMware account) -> **3)** Create Recovery Services vault -> **4)** Set up the configuration server -> **5)** Configure replication settings -> **6)** Prepare to deploy the mobility services agent -> **7)** Enable replication -> **8)** Test replication and failover. |
-| **Failback** | Fail back is to VMware only, even if you replicate physical servers.<br/><br/> You need a VPN or Azure Express Route between Azure and the primary site.<br/><br/> You need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back, and delete it after fail back is complete. |
+n| **Failback** | Fail back is to VMware only, even if you replicate physical servers.<br/><br/> You need a VPN or Azure Express Route between Azure and the primary site.<br/><br/> You need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back, and delete it after fail back is complete. |
 
 ## Site recovery in the Azure portal
 Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal.
@@ -59,7 +59,7 @@ This article describes how to deploy in the Azure portal, which provides new fea
 
 ## Site recovery in your business
 Organizations need a BCDR strategy that determines how apps and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Here's what Site Recovery can do:
-
+p
 * Provide off-site protection for business workloads running on VMware VMs and physical servers.
 * Provide a single location to set up, manage and monitor replication, failover, and recovery.
 * Automatically discover VMware VMs added to vSphere hosts.
@@ -69,7 +69,7 @@ Organizations need a BCDR strategy that determines how apps and data stay runnin
 ## Scenario architecture
 These are the scenario components:
 
-- **Configuration server**: An on-premises machine that coordinates communication, and manages data replication and recovery processes. You run Unified Setup on this machine to install the configuration server, and these additional components:
+pi- **Configuration server**: An on-premises machine that coordinates communication, and manages data replication and recovery processes. You run Unified Setup on this machine to install the configuration server, and these additional components:
  - **Process server**: Acts as a replication gateway. It receives replication data from protected source machines, optimizes it with caching, compression, and encryption, and sends it to Azure storage. It also handles push installation of the Mobility service to protected machines, and performs automatic discovery of VMware VMs. The default process server is installed on the configuration server. You can deploy additional standalone process servers to scale your deployment.
  - **Master target server**: Handles replication data during failback from Azure.
 - **Mobility service**: This component is deployed on every machine (VMware VM or physical server) that you want to replicate to Azure. It captures data writes on the machine, and forwards them to the process server.
@@ -79,7 +79,7 @@ These are the scenario components:
  - VPN: You need a VPN (or Azure ExpressRoute) connection between your on-premises site, and the Azure network in which your Azure VMs are located.
  - Master target server: If failback traffic is heavy, you might need to set up a dedicated master target server machine on-premises. For lighter traffic, the default master target server running on the configuration server can be used.
 
-The graphic shows how these components interact.
+pThe graphic shows how these components interact.
 
 ![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
@@ -89,7 +89,7 @@ The graphic shows how these components interact.
 Here's what you need in Azure.
 
 | **Component** | **Requirement** |
-| --- | --- |
+u*| --- | --- |
 | **Azure account** |You need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. |
 | **Azure storage** |Replicated data is stored in Azure storage, and Azure VMs are created when failover occurs. <br/><br/>To store data, you need a standard or premium storage account, in the same region as the Recovery Services vault.<br/><br/>You can use an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. [Learn more](../storage/storage-redundancy.md).<br/><br/> [Premium storage](../storage/storage-premium-storage.md) is typically used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads.<br/><br/> If you want to use a premium account to store replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.<br/><br/> **Limitation**: Storage accounts created in the Azure portal can't be moved across resource groups.<br/><br/> **Limitation**: Replicating to premium storage accounts in Central India and South India isn't currently supported.<br/><br/> [Learn more](../storage/storage-introduction.md) about Azure storage. |
 | **Azure network** |You need an Azure virtual network, to which Azure VMs connect when failover occurs. The Azure virtual network must be in the same region as the Recovery Services vault. |
@@ -104,7 +104,7 @@ You set up an on-premises machine as the configuration server.
 
 | **Component** | **Requirement** |
 | --- | --- |
-| **Configuration server** |An on-premises physical or virtual machine running Windows Server 2012 R2. All on-premises Site Recovery components are installed on this machine.<br/><br/>For VMware VM replication, we recommend you deploy the server as a highly available VMware VM. For physical machine replication, the machine can be a physical server.<br/><br/> Failback from Azure is always to VMware VMs, even if you replicated a physical server. If you don't deploy the configuration server as a VMware VM, you need to set up a separate master target server as a VMware VM to receive failback traffic, before you fail back.<br/><br/>If the server is a VMware VM, the network adapter type should be VMXNET3. If you use a different type of network adapter, install a [VMware update](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) on the vSphere 5.5 server.<br/><br/>The server should have a static IP address.<br/><br/>The server should not be a domain controller.<br/><br/>The host name of the server should contain 15 characters or less.<br/><br/>The operating system should be in English only.<br/><br/> Install VMware vSphere PowerCLI 6.0. server.<br/><br/>The configuration server needs internet access. Outbound access is required as follows:<br/><br/>Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL)<br/><br/>Ongoing outbound access on HTTPS 443 for replication management<br/><br/>Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/>The server also needs access to the following URLs so that it can connect to Azure: ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> If you have IP address-based firewall rules on the server, check that the rules allow communication to Azure.<br/><br/> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) protocol.<br/><br/>Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/>Allow this URL for the MySQL download: ``http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi`` |
+| **Configuration server** |An on-premises physical or virtual machine running Windows Server 2012 R2. All on-premises Site Recovery components are installed on this machine.<br/><br/>For VMware VM replication, we recommend you deploy the server as a highly available VMware VM. For physical machine replication, the machine can be a physical server.<br/><br/> Failback from Azure is always to VMware VMs, even if you replicated a physical server. If you don't deploy the configuration server as a VMware VM, you need to set up a separate master target server as a VMware VM to receive failback traffic, before you fail back.<br/><br/>If the server is a VMware VM, the network adapter type should be VMXNET3. If you use a different type of network adapter, install a [VMware update](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) on the vSphere 5.5 server.<br/><br/>The server should have a static IP address.<br/><br/>The server should not be a domain controller.<br/><br/>The host name of the server should contain 15 characters or less.<br/><br/>The operating system should be in English only.<br/><br/> Install VMware vSphere PowerCLI 6.0. server.<br/><br/>The configuration server needs internet access. Outbound access is required as follows:<br/><br/>Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL)<br/><br/>Ongoing outbound access on HTTPS 443 for replication management<br/><br/>Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/>The server also needs access to the following URLs so that it can connect to Azure:*  ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> If you have IP address-based firewall rules on the server, check that the rules allow communication to Azure.<br/><br/> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) protocol.<br/><br/>Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/>Allow this URL for the MySQL download: ``http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi`` |
 
 ## VMware vCenter/vSphere host prerequisites
 | **Component** | **Requirements** |
