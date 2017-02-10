@@ -187,24 +187,9 @@ In this section, we create an HDInsight Hadoop Linux cluster. For this release, 
 
         New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.4" -OSType Linux -SshCredential $sshCredentials -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
-    After the cmdlet successfully completes, you should see an output like this:
+    After the cmdlet successfully completes, you should see an output listing the cluster details.
 
-        Name                      : hdiadlcluster
-        Id                        : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlgroup/providers/Mi
-                                    crosoft.HDInsight/clusters/hdiadlcluster
-        Location                  : East US 2
-        ClusterVersion            : 3.2.7.707
-        OperatingSystemType       : Windows
-        ClusterState              : Running
-        ClusterType               : Hadoop
-        CoresUsed                 : 16
-        HttpEndpoint              : hdiadlcluster.azurehdinsight.net
-        Error                     :
-        DefaultStorageAccount     :
-        DefaultStorageContainer   :
-        ResourceGroup             : hdiadlgroup
-        AdditionalStorageAccounts :
-
+        
 ## Run test jobs on the HDInsight cluster to use the Data Lake Store
 After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
 
