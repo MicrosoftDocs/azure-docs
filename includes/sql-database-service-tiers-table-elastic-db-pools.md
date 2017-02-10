@@ -70,5 +70,5 @@ sql-database-service-tiers.md
 | Max eDTUs per database | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
+\* Pooled databases share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database. Max storage per pool refers to the maximum storage of the data files in the pool and does not include space used by log files.
 

@@ -1,5 +1,5 @@
 ---
-title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery in the Azure portal | Microsoft Docs
+title: Replicate VMware VMs and physical servers to Azure | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure using the Azure portal
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 
 ---
@@ -43,7 +43,7 @@ For a full deployment, we strongly recommend you follow the steps in the article
 | **Azure requirements** |Azure account<br/><br/> Recovery Services vault <br/><br/> LRS or GRS storage account in vault region<br/><br/> Premium or standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). |
 | **Azure limitations** |If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups.<br/><br/> Replication to premium storage accounts in Central India and South India isn't currently supported. |
 | **Windows replication** |Windows 64-bit on VMware VMs or physical servers:<br/><br/> Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. [Full details](#replicated-machine-prerequisites). |
-| **Linux replication** |Linux on VMware VMs or physical servers:<br/><br/>Red Hat Enterprise Linux 6.7, 7.1, 7.2<br/><br/> CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2<br/><br/> Oracle Enterprise Linux 6.4, 6.5, running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)<br/><br/> SUSE Linux Enterprise Server 11 SP3. [Full details](#replicated-machine-prerequisites). |
+| **Linux replication** |Linux on VMware VMs or physical servers:<br/><br/>Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2<br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2<br/><br/> Oracle Enterprise Linux 6.4, 6.5, running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)<br/><br/> SUSE Linux Enterprise Server 11 SP3. [Full details](#replicated-machine-prerequisites). |
 | **Agent** |The mobility service agent is installed on each replicated machine.<br/><br/> Install manually, or push install from the process server. [Full details](#install-the-mobility-service). |
 | **Replication requirements** |Replicated machines must conform with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).<br/><br/> Can't replicate VMs with encrypted disks<br/><br/> Shared disk guest clusters aren't supported.<br/><br/> You can exclude specific basic disks from replication, but not OS or dynamic disks.<br/><br/> For Windows machines, the OS disk should be on C drive, and not be dynamic. [Read more](#replicated-machine-prerequisites). |
 | **VMware requirements** | One or more VMware vSphere servers (6.0, 5.5, or 5.1 with latest updates). We recommend they're in the same network as configuration server (or as process server if you set up dedicated).<br/><br/> We recommend a vCenter server to manage vSphere hosts (6.0 or 5.5 with latest updates) |
@@ -54,7 +54,7 @@ For a full deployment, we strongly recommend you follow the steps in the article
 ## Site recovery in the Azure portal
 Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal.
 
-This article describes how to deploy in the Azure portal, which provides new features and a streamlined deployment experience. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal. 
+This article describes how to deploy in the Azure portal, which provides new features and a streamlined deployment experience. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal.
 
 
 ## Site recovery in your business
@@ -83,7 +83,7 @@ The graphic shows how these components interact.
 
 ![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
-**Figure 1: VMware/physical to Azure**
+**VMware/physical to Azure**
 
 ## Azure prerequisites
 Here's what you need in Azure.
@@ -117,7 +117,7 @@ You set up an on-premises machine as the configuration server.
 | --- | --- |
 | **On-premises (VMware VMs)** | Replicated VMs should have VMware tools installed and running.<br/><br/> VMs should conform with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements) for creating Azure VMs.<br/><br/>Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 64 disks (thus up to 64 TB). <br/><br/>Minimum 2 GB of available space on the installation drive for component installation.<br/><br/>**Limitation**: Protection of VMs with encrypted disks is not supported.<br/><br/>**Limitation**: Shared disk guest clusters aren't supported.<br/><br/>**Port 20004** should be opened on the VM local firewall, if you want to enable multi-VM consistency.<br/><br/>Machines that have Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface(EFI) boot is not supported.<br/><br/>Machine names should contain between 1 and 63 characters (letters, numbers, and hyphens). The name must start with a letter or number and end with a letter or number. After you've enabled replication for a machine, you can modify the Azure name.<br/><br/>If the source VM has NIC teaming it’s converted to a single NIC after failover to Azure.<br/><br/>If protected virtual machines have an iSCSI disk, then Site Recovery converts the protected VM iSCSI disk into a VHD file when the VM fails over to Azure. If the iSCSI target can be reached by the Azure VM, then it will connect to it and essentially see two disks – the VHD disk on the Azure VM, and the source iSCSI disk. In this case, you’ll need to disconnect the iSCSI target that appears on the Azure VM. |
 | **Windows machines (physical or VMware)** | The machine should be running a supported 64-bit operating system: Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.<br/><br/> The operating system should be installed on the C:\ drive. The OS disk should be a Windows basic disk and not dynamic. The data disk can be dynamic.<br/><br/>Site Recovery supports VMs with an RDM disk. During failback, Site Recovery reuses the RDM disk if the original source VM and RDM disk is available. If they aren’t available, during failback Site Recovery creates a new VMDK file for each disk. |
-| **Linux machines** (physical or VMware) | You need a supported 64-bit operating system: Red Hat Enterprise Linux 6.7,7.1,7.2; Centos 6.5, 6.6,6.7,7.0,7.1,7.2; Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>/etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all network adapters.<br/><br/>If you want to connect to an Azure virtual machine running Linux after failover using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot, and that firewall rules allow an ssh connection to it.<br/><br/>The host name, mount points, device names, and Linux system paths and file names (eg /etc/; /usr) should be in English only.<br/><br/>Protection can only be enabled for Linux machines with the following storage: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath)); Volume manager: (LVM2). Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3.<br/><br/>Site Recovery supports VMs with an RDM disk.  During failback for Linux, Site Recovery doesn’t reuse the RDM disk. Instead it creates a new VMDK file for each corresponding RDM disk.<br/><br/>Ensure that you set the disk.enableUUID=true setting in the configuration parameters of the VM in VMware. Create the entry if it doesn't exist. It's needed to provide a consistent UUID to the VMDK so that it mounts correctly. Adding this setting also ensures that only delta changes are transferred back to on-premises during failback, and not a full replication. |
+| **Linux machines** (physical or VMware) | You need a supported 64-bit operating system: Red Hat Enterprise Linux 6.7,6.8,7.1,7.2; CentOS 6.5, 6.6,6.7,6.8,7.0,7.1,7.2; Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>/etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all network adapters.<br/><br/>If you want to connect to an Azure virtual machine running Linux after failover using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot, and that firewall rules allow an ssh connection to it.<br/><br/>The host name, mount points, device names, and Linux system paths and file names (eg /etc/; /usr) should be in English only.<br/><br/>Protection can only be enabled for Linux machines with the following storage: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath)); Volume manager: (LVM2). Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3.<br/><br/>Site Recovery supports VMs with an RDM disk.  During failback for Linux, Site Recovery doesn’t reuse the RDM disk. Instead it creates a new VMDK file for each corresponding RDM disk.<br/><br/>Ensure that you set the disk.enableUUID=true setting in the configuration parameters of the VM in VMware. Create the entry if it doesn't exist. It's needed to provide a consistent UUID to the VMDK so that it mounts correctly. Adding this setting also ensures that only delta changes are transferred back to on-premises during failback, and not a full replication. |
 | **Mobility Service** | **Windows**: You’ll To automatically push the Mobility service to VMs running Windows you need to provide an administrator account (local administrator on the Windows machine) so that the process server can do a push installation.<br/><br/>**Linux**: To automatically push the Mobility service to VMs running Linux you’ll need to create an account that can be used by the process server to do a push installation.<br/><br/> By default all the disks on a machine are replicated. To [exclude a disk from replication](#exclude-disks-from-replication), the Mobility service must be installed manually on the machine before you enable replication.<br/> |
 
 ## Prepare for deployment
@@ -450,6 +450,10 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 Make sure that machines you want to replicate are prepared for Mobility service installation, and then enable replication.
 
 ### Install the Mobility service
+
+  > [!TIP]
+  > Azure Site Recovery now supports installing Mobility Service using software deployment tools like System Center Configuration Manager. Read more on how to [Automate Mobility Service deployment](site-recovery-install-mobility-service-using-sccm.md) .  
+
 The first step in enabling protection for virtual machines and physical servers is to install the Mobility service. You can do this in a couple of ways:
 
 * **Process server push**: When you enable replication on a machine, push and install the Mobility service component from the process server. Note that push installation won't occur if machines are already running an up-to-date version of the component.
@@ -499,7 +503,7 @@ The installers are available on the Configuration server in **C:\Program Files (
 | Source operating system | Mobility service installation file |
 | --- | --- |
 | Windows Server (64 bit only) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
-| CentOS 6.4, 6.5, 6.6 (64 bit only) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
+| CentOS 6.4, 6.5, 6.6, 6.7, 6.8 (64 bit only) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
 | SUSE Linux Enterprise Server 11 SP3 (64 bit only) |Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz |
 | Oracle Enterprise Linux 6.4, 6.5 (64 bit only) |Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz |
 
@@ -623,10 +627,10 @@ When you enable replication, by default all disks on a machine are replicated. Y
 We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
-2. In **Properties**, you can view replication and failover information for the VM.
+1. In **Properties**, you can view replication and failover information for the VM.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover2.png)
-3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
+1. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
    You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
 
    * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
@@ -639,54 +643,7 @@ We recommend that you verify the properties of the source machine. Remember that
    * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
      ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover4.png)
-4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
-
-## Step 7: Test the deployment
-In order to test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
-
-### Prepare for failover
-* To run a test failover we recommend that you create a new Azure network that’s isolated from your Azure production network (this is default behavior when you create a new network in Azure). [Learn more](site-recovery-failover.md#run-a-test-failover) about running test failovers.
-* To get the best performance when you fail over to Azure, install the Azure Agent on the protected machine. It makes booting faster and helps with troubleshooting. Install the [Linux](https://github.com/Azure/WALinuxAgent) or [Windows](http://go.microsoft.com/fwlink/?LinkID=394789) agent.
-* To fully test your deployment you need an infrastructure for the replicated machine to work as expected. If you want to test Active Directory and DNS you can create a virtual machine as a domain controller with DNS and replicate this to Azure using Azure Site Recovery. Read more in [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations).
-* Make sure that the configuration server is running. Otherwise, failover will fail.
-* If you've excluded disks from replication, you might need to create those disks manually in Azure after failover so that the application runs as expected.
-* If you want to run an unplanned failover instead of a test failover, note that:
-
-  * If possible, you should shut down primary machines before you run an unplanned failover. This ensures that you don't have both the source and replica machines running at the same time. If you're replicating VMware VMs, then you can specify that Site Recovery should make a best effort to shut down the source machines. Depending on the state of the primary site this might or might not work. If you're replicating physical servers, Site Recovery doesn't offer this option.
-  * When you run an unplanned failover, it stops data replication from primary machines so any data delta won't be transferred after an unplanned failover begins. In addition, if you run an unplanned failover on a recovery plan it will run until complete, even if an error occurs.
-
-## Failover
-After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, Planned failover and Unplanned failover.
-[Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
-
-> [!NOTE]
-> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md#run-an-unplanned-failover) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
->
->
-
-### Run an Unplanned Failover
-This procedure describes how to run an 'unplanned failover' for a recovery plan. Alternatively you can run the failover for a single virtual machine on the Virtual Machines tab. Before you start, make sure all the virtual machines you want to fail over have completed initial replication.
-
-1. Select **Recovery Plans > recoveryplan_name**.
-2. On the Recovery plan blade, Click **Unplanned Failover**.
-3. On the **unplanned Failover** page, choose the source and target locations.
-4. Select **Shut down virtual machines and synchronize the latest data** to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over.
-5. After the failover, the virtual machines are in a commit pending state.  Click **Commit** to commit the failover.
-
-[Learn more](site-recovery-failover.md#run-an-unplanned-failover)
-
-## Complete migration of your virtual machines to Azure
-> [!NOTE]
-> The following steps apply only if you are migrating virtual machines to Azure
->
->
-
-1. Perform an unplanned failover as mentioned [here](site-recovery-failover.md#run-an-unplanned-failover)
-2. In **Settings > Replicated items**, right-click the virtual machine and select **Complete Migration**
-
-    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
-3. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Settings > Site Recovery jobs**.
-
+1. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
 
 ### Prepare to connect to Azure VMs after failover
 If you want to connect to Azure VMs using RDP after failover, make sure you do the following:
@@ -696,7 +653,6 @@ If you want to connect to Azure VMs using RDP after failover, make sure you do t
 * For access over the internet enable RDP, ensure that TCP and UDP rules are added for the **Public**, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for all profiles.
 * For access over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for **Domain** and **Private** networks.
 * Install the [Azure VM agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) on the on-premises machine.
-* [Manually install the Mobility service](#install-the-mobility-service-manually) on machines, instead of using the process server to push the service automatically. This is required because the push installation only happens after the machine is enabled for replication.
 * Ensure that the operating system's SAN policy is set to OnlineAll. [Learn more](https://support.microsoft.com/kb/3031135)
 * Turn off the IPSec service, before you run the failover.
 
@@ -723,30 +679,56 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 
 If you have a network security group associated with the VM or VM subnet, make sure that the group has an outbound rule to allow HTTP/HTTPS. Also, make sure that the DNS of the network to which VM fails over is correctly configured. Otherwise, the failover might time out with error -'PreFailoverWorkflow task WaitForScriptExecutionTask timed out'. [Learn more](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
-## Run a test failover
+
+
+## Step 7 : Run a test failover
+To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
+
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
 
     ![Test failover](./media/site-recovery-vmware-to-azure/test-failover1.png)
-2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
-3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
-4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
-5. When the failover reaches the **Complete testing** status, do the following:
+1. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
+1. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
+1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+1. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
+1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
 
-   1. View the replica virtual machine in the Azure portal. Verify that the virtual machine starts successfully.
-   2. If you’re set up to access virtual machines from your on-premises network, you can initiate a Remote Desktop connection to the virtual machine.
-   3. Click **Complete test** to finish it.
+For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 
-       ![Test failover](./media/site-recovery-vmware-to-azure/test-failover6.png)
-   4. Click **Notes**, to record and save any observations associated with the test failover.
-   5. Click **The test failover is complete**, to automatically clean up the test environment. After this is done the test failover will show a **Complete** status.
-   6. At this stage any elements or VMs created automatically by Site Recovery during the test failover are deleted. Any additional elements you've created for test failover aren't deleted.
+## Failover
+After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, and Unplanned failover.
+[Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
 
-      > [!NOTE]
-      > If a test failover continues longer than two weeks it’s completed by force.
-      >
-      >
-6. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
-7. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
+
+> [!NOTE]
+> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Unplanned Failover operation](site-recovery-failover.md#run-an-unplanned-failover) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
+
+
+### Run an Unplanned Failover
+This procedure describes how to run an 'unplanned failover' for a recovery plan. Alternatively you can run the failover for a single virtual machine on the Virtual Machines tab. Before you start, make sure all the virtual machines you want to fail over have completed initial replication.
+
+1. Select **Recovery Plans > recoveryplan_name**.
+2. On the Recovery plan blade, Click **Unplanned Failover**.
+3. On the **unplanned Failover** page, choose the source and target locations.
+4. Select **Shut down virtual machines and synchronize the latest data** to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over.
+5. After the failover, the virtual machines are in a commit pending state.  Click **Commit** to commit the failover.
+
+[Learn more](site-recovery-failover.md#run-an-unplanned-failover)
+
+## Complete migration of your virtual machines to Azure
+> [!NOTE]
+> The following steps apply only if you are migrating virtual machines to Azure
+>
+>
+
+1. Perform an unplanned failover as mentioned [here](site-recovery-failover.md#run-an-unplanned-failover)
+2. In **Settings > Replicated items**, right-click the virtual machine and select **Complete Migration**
+
+    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
+3. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Settings > Site Recovery jobs**.
+
+
 
 ## Monitor your deployment
 Here's how you can monitor the configuration settings, status, and health for your Site Recovery deployment:

@@ -1,5 +1,5 @@
 ---
-title: Get your Mac computer and Azure IoT hub ready | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Lesson 2: Get tools (macOS) | Microsoft Docs'
 description: Install tools on your Mac computer, create an IoT hub and register your device in the IoT hub.
 services: iot-hub
 documentationcenter: ''

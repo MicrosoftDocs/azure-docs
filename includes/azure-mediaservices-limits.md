@@ -17,7 +17,8 @@
 | Streaming units per streaming endpoint |10 |
 | Media Reserved Units (RUs) per AMS account |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
 | Storage accounts | 1,000<sup>5</sup> (fixed) |
-| Policies | |1,000,000<sup>6</sup> |
+| Policies | 1,000,000<sup>6</sup> |
+| File size| In some scenarios there is a limit on the maximum file size supported for processing in Media Services. <sup>7</sup> |
  
 <sup>1</sup> S3 RUs are not available in India West.
 
@@ -34,3 +35,10 @@
 >[!NOTE]
 > You should use the same policy ID if you are always using the same days / access permissions / etc.
 
+<sup>7</sup>If you are uploading content to an Asset in Azure Media Services with the intent to process it with one of the media processors in our service (i.e. encoders like Media Encoder Standard and Media Encoder Premium Workflow, or analysis engines like Face Detector), then you should be aware of the following limits. 
+
+| Media Reserved Unit type | Maximum File Size (GB)| 
+| --- | --- | 
+|S1	| 325|
+|S2	| 640|
+|S3	| 260|

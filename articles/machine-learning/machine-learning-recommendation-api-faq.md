@@ -107,17 +107,17 @@ Experimenting with Recommendations is designed to be fairly simple. The current 
 
 **What are the prerequisites for setting up Recommendations?**
 
-Recommendations requires that you have a log of user choices as it relates to your catalog. If you don�t have such a log and you do have a customer facing website, Recommendations can collect user activity for you. 
+Recommendations requires that you have a log of user choices as it relates to your catalog. If you don't have such a log and you do have a customer facing website, Recommendations can collect user activity for you. 
 
-Recommendations also requires a catalog of your products or services. If you don�t have the catalog, Recommendations can use the actual customer usage data and distill a catalog. An �implied� catalog will not include items that were not �reported� as part of user transactions.
+Recommendations also requires a catalog of your products or services. If you don't have the catalog, Recommendations can use the actual customer usage data and distill a catalog. An implied catalog will not include items that were not reported as part of user transactions.
 
 **How do I set up Recommendations for the first time?**
 
-After [subscribing](https://datamarket.azure.com/dataset/amla/recommendations) to Recommendations, you should use the API documentation in the [Azure Machine Learning Recommendations � Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) to set up the service.
+After [subscribing](https://datamarket.azure.com/dataset/amla/recommendations) to Recommendations, you should use the API documentation in the [Azure Machine Learning Recommendations - Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) to set up the service.
 
 **Where can I find API documentation?** 
 
-The API documentation is [Azure Machine Learning Recommendations � Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md).
+The API documentation is [Azure Machine Learning Recommendations -Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md).
 
 **What options do I have to upload catalog and usage data to Recommendations?**
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 01/17/2017
 ms.author: nitinme
 
 ---
@@ -47,7 +47,7 @@ Following are tools that you can use:
 
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) - Events ingested into Event Hubs can be written to Azure Data Lake using an Azure Data Lake Store output.
 * [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - You can write data directly to Data Lake Store from the Storm cluster.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – You can receive events from Event Hubs and then write it to Data Lake Store using the [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – You can receive events from Event Hubs and then write it to Data Lake Store using the [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md).
 
 ### Relational data
 You can also source data from relational databases. Over a period of time, relational databases collect huge amounts of data which can provide key insights if processed through a big data pipeline. You can use the following tools to move such data into Data Lake Store.
@@ -88,7 +88,7 @@ For uploading datasets that range in several terabytes, using the methods descri
 * **"Offline" upload of data**. If using Azure ExpressRoute is not feasible for any reason, you can use [Azure Import/Export service](../storage/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) or [AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md) to copy data from Azure Storage Blobs to Data Lake Store.
 
   > [!NOTE]
-  > While using the Import/Export service, the file sizes on the disks that you ship to Azure data center should not be greater than 200 GB.
+  > While using the Import/Export service, the file sizes on the disks that you ship to Azure data center should not be greater than 195 GB.
   >
   >
 

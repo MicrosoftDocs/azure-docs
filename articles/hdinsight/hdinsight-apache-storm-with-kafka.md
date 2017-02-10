@@ -27,8 +27,6 @@ Apache Kafka is a publish-subscribe messaging solution that is available with HD
 
 ## Prerequisites
 
-* An Azure subscription
-
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 or higher. Or an equivalent such as [OpenJDK](http://openjdk.java.net/).
   
     > [!NOTE]

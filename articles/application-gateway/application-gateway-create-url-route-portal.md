@@ -1,5 +1,5 @@
 ---
-title: Create a Path-based rule for an application gateway by using the portal | Microsoft Docs
+title: Create a path-based rule - Azure Application Gateway - Azure Portal | Microsoft Docs
 description: Learn how to create a Path-based rule for an application gateway by using the portal
 services: application-gateway
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 
 ---
@@ -247,6 +247,4 @@ The [Azure Security Center](../security-center/security-center-intro.md) provide
 
 ## Next steps
 * Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md).
-
-*[Karl Kuhnhausen](https://github.com/karlkuhnhausen) contributed to this topic.*
 

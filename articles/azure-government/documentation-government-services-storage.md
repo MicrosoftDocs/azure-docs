@@ -1,20 +1,19 @@
 ---
 title: Azure Government Storage | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: ryansoc
 manager: zakramer
-editor: ''
 
 ms.assetid: 83df022b-d791-4efb-9fdf-8afe47a885d5
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/13/2016
+ms.date: 12/22/2016
 ms.author: ryansoc
 
 ---
@@ -33,7 +32,8 @@ For details on this service and how to use it, see [Azure Storage public documen
 | [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
 | [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
 | [Premium Storage] (../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | Only classic storage accounts are supported currently. |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
+| [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:
@@ -62,6 +62,11 @@ When [Attaching to an external storage account] (../vs-azure-tools-storage-manag
 
 > [!NOTE]
 > If error 53 "The network path was not found." is returned, while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
+>
+>
+
+> [!NOTE]
+> When deploying StorSimple Manager Service, use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements] (../storsimple/storsimple-ova-system-requirements.md) and for StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements] (../storsimple/storsimple-system-requirements.md) and go to Deploy section from left navigation. For general StorSimple documentation, see [What is StorSimple?] (../storsimple/index.md).
 >
 >
 

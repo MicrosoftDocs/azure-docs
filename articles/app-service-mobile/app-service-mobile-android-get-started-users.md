@@ -33,7 +33,7 @@ In this tutorial, you add authentication to the todolist quickstart project on A
 
      This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
-Next, you update the app to authenticate users before requesting resources from the Mobile Apps back end.
+Next, you update the app to authenticate users before requesting resources from the Mobile Apps back end. 
 
 ## Add authentication to the app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]

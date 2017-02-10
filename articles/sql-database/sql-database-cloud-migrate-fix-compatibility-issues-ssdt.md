@@ -1,6 +1,7 @@
 ---
-title: Fix SQL Server database compatibility issues before migration to SQL Database | Microsoft Docs
-description: Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard, SSDT
+title: 'SSDT: Fix Azure SQL Database compatibility migration issues | Microsoft Docs'
+description: In this article, you learn to detect and fix SQL Server database compatibility issues using the SQL Server Data Tools for Visual Studio before migration to Azure SQL Database.
+keywords: Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard, SSDT
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler

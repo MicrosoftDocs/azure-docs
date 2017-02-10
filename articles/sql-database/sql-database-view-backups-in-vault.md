@@ -74,7 +74,7 @@ Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Get the container associated with the selected vault
 ######################################################
-$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+$container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL -FriendlyName $vault.Name
 
 # Get the long-term retention metadata associated with the container
 ####################################################################

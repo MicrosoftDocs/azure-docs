@@ -27,10 +27,9 @@ In this document, you will learn how to use HDInsight to analyze Application Ins
 * An application that is configured to use Application Insights. 
 * Familiarity with creating a Linux-based HDInsight cluster. If you are not familiar with creating a cluster, see [Create Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) for more information.
   
-  > [!NOTE]
-  > This document does not provide a walk-through of creating a new cluster. Instead, it references other documents that provide information on how to create a cluster that can access the telemetry data.
-  > 
-  > 
+  > [!IMPORTANT]
+  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * A web browser. This is used to interactively run analysis using a Jupyter Notebook.
 
 The following were used in developing and testing this document:

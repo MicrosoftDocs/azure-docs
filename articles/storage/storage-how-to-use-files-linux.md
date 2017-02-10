@@ -3,7 +3,7 @@ title: How to use Azure Files with Linux | Microsoft Docs
 description: Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) running Linux or an on-premises application that supports SMB 3.0.
 services: storage
 documentationcenter: na
-author: mine-msft
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: minet
+ms.date: 1/18/2017
+ms.author: renash
 
 ---
 # How to use Azure File Storage with Linux
@@ -35,7 +35,7 @@ File storage is now generally available and supports both SMB 2.1 and SMB 3.0. F
 ## Video: Using Azure File storage with Linux
 Here's a video that demonstrates how to create and use Azure File shares on Linux.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Linux/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Linux/player]
 > 
 > 
 
@@ -101,6 +101,17 @@ azureuser@AzureconSuse:~> sudo zypper install samba*
 azureuser@AzureconSuse:~> sudo mkdir /mnt/mountpoint
 azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 azureuser@AzureconSuse:~> df -h /mnt/mountpoint
+Filesystem  Size  Used Avail Use% Mounted on
+//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
+```
+
+If you use RHEL 7.3, you can mount the file as below:
+
+```
+azureuser@AzureconRedhat:~> sudo yum install cifs-utils
+azureuser@AzureconRedhat:~> sudo mkdir /mnt/mountpoint
+azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@AzureconRedhat:~> df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 ```

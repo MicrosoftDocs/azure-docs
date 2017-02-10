@@ -1,8 +1,8 @@
 ---
 title: Enumerating jobs in the Azure Import/Export service | MicrosoftDocs
 description: Learn how to enumerate all of the Azure Import/Export service jobs in a subscription.
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
-ms.author: renash
+ms.author: muralikk
 
 ---
 

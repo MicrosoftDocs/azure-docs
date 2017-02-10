@@ -26,7 +26,7 @@ RSS is a popular web syndication format used to publish frequently updated conte
 > 
 > 
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The RSS connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
@@ -116,5 +116,5 @@ List all RSS feed items.: Get all RSS feed items.
 | updatedOn |string |No |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

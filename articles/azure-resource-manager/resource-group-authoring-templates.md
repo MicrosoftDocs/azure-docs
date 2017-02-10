@@ -1,6 +1,6 @@
 ---
-title: Authoring Azure Resource Manager Templates | Microsoft Docs
-description: Create Azure Resource Manager templates using declarative JSON syntax to deploy applications to Azure.
+title: Create templates for Azure deployments | Microsoft Docs
+description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -61,7 +61,7 @@ The following example shows how to use several functions when constructing value
 ```json
 "variables": {
    "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```
@@ -238,7 +238,7 @@ You define resources with the following structure:
      "copy": {
        "name": "<name-of-copy-loop>",
        "count": "<number-of-iterations>"
-     }
+     },
      "resources": [
        "<array-of-child-resources>"
      ]

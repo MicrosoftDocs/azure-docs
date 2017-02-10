@@ -1,5 +1,5 @@
 ---
-title: Create an Azure IoT hub and register your device | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Lesson 2: Register device | Microsoft Docs'
 description:
 services: iot-hub
 documentationcenter: ''

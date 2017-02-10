@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools (Windows 7 and later) | Microsoft Docs
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Get tools (Windows) | Microsoft Docs'
 description: Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''

@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 
 ---
 # Overview of business continuity with Azure SQL Database
@@ -74,7 +74,7 @@ Use Active Geo-Replication if your application meets any of these criteria:
 * The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
 
 >
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## Recover a database after a user or application error

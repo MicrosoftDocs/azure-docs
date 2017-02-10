@@ -1,5 +1,5 @@
 ---
-title: How to create a web app with App Service on Linux | Microsoft Docs
+title: Create an Azure web app running on Linux | Microsoft Docs
 description: Web app creation workflow for App Service on Linux.
 keywords: azure app service, web app, linux, oss
 services: app-service
@@ -18,7 +18,7 @@ ms.date: 10/10/2016
 ms.author: naziml
 
 ---
-# Create a web app with App Service on Linux
+# Create an Azure web app running on Linux
 ## Use the Azure portal to create your web app
 You can start creating your web app on Linux from the [Azure portal](https://portal.azure.com) as shown in the following image:
 

@@ -1,6 +1,6 @@
 ---
-title: Create Azure Application Insights resource, alert and availability tests in PowerShell | Microsoft Docs
-description: Automate management of Application Insights resources using an Azure Resource Manager template.
+title: Automate Azure Application Insights with PowerShell | Microsoft Docs
+description: Automate creating resource, alert, and availability tests in PowerShell using an Azure Resource Manager template.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: awills
 
 ---
@@ -108,7 +108,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "ApplicationId": "[parameters('appName')]",
                 "Name": "[parameters('appName')]",
                 "Flow_Type": "Redfield",
-                "Request_Source": "IbizaAIExtension"
+                "Request_Source": "ARMAIExtension"
               }
             },
             {

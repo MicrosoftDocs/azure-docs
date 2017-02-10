@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/21/2016
-ms.author: carlrab; sashan
+ms.author: sashan
 
 ---
 # Storing Azure SQL Database Backups for up to 10 years
@@ -83,7 +83,7 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 * To stop sending the backups for a specific database to the vault, remove the retention policy for that database.
   
     ```
-    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
+    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
     ```
 
 > [!NOTE]

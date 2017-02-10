@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Intel Edison Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Troubleshooting | Microsoft Docs'
 description: Troubleshooting page for Intel Edison C experience
 services: iot-hub
 documentationcenter: ''

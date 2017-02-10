@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for classic VMs | Microsoft Docs
-description: Answers to some of the common questions about Azure Linux virtual machines created with the classic deployment model.
+title: Frequently asked questions for classic Linux VMs | Microsoft Docs
+description: Answers to some common questions about Azure Linux virtual machines created with the classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn

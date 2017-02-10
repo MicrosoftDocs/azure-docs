@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor your on-premises identity infrastructure in the cloud.
 description: This is the Azure AD Connect Health page that describes what it is and why you would use it.
 services: active-directory
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
-ms.author: vakarand
+ms.date: 02/06/2017
+ms.author: billmath
 
 ---
 # Monitor your on-premises identity infrastructure and synchronization services in the cloud
@@ -60,7 +60,7 @@ The following video provides an overview of Azure AD Connect Health for sync
 >
 
 ## [Azure AD Connect Health for AD DS (preview)](active-directory-aadconnect-health-adds.md)
-Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. An easy and low-cost health agent installation, enables you to monitor your on-premises AD DS environment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
+Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. An easy and low-cost health agent installation, enables you to monitor your on-premises AD DS environment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
 
 * Monitoring alerts to detect when domain controllers are unhealthy, along with email notifications for critical alerts.
 * Domain Controllers dashboard, which provides a quick view into the health and operational status of your domain controllers.

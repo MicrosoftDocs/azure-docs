@@ -1,5 +1,5 @@
 ---
-title: Create Azure service principal with PowerShell | Microsoft Docs
+title: Create identity for Azure app with PowerShell | Microsoft Docs
 description: Describes how to use Azure PowerShell to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 
 ---
@@ -25,7 +25,13 @@ ms.author: tomfitz
 > 
 > 
 
-When you have an application or script that needs to access resources, you most likely do not want to run this process under your own credentials. You may have different permissions that you want for the application, and you do not want the application to continue using your credentials if your responsibilities change. Instead, you create an identity for the application that includes authentication credentials and role assignments. Every time the app runs, it authenticates itself with these credentials. This topic shows you how to use [Azure PowerShell](/powershell/azureps-cmdlets-docs) to set up everything you need for an application to run under its own credentials and identity.
+When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate it with its own credentials. This approach is preferable to running the app under your own credentials because:
+
+* You can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
+* You do not have to change the app's credentials if your responsibilities change. 
+* You can use a certificate to automate authentication when executing an unattended script.
+
+This topic shows you how to use [Azure PowerShell](/powershell/azureps-cmdlets-docs) to set up everything you need for an application to run under its own credentials and identity.
 
 With PowerShell, you have two options for authenticating your AD application:
 
@@ -62,7 +68,7 @@ Start-Sleep 15
 New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
 ```
 
-The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Active Directory. If your script does not wait long enough, you see an error stating **PrincipalNotFound: Principal {id} does not exist in the directory**. If you receive this error, you can rerun the cmdlet to assign it to a role.
+The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {id} does not exist in the directory." If you receive this error, you can rerun the cmdlet to assign it to a role.
 
 Let's go through these steps more carefully to make sure you understand the process.
 
@@ -80,14 +86,14 @@ Let's go through these steps more carefully to make sure you understand the proc
 
      For single-tenant applications, the URIs are not validated.
    
-     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
 3. Examine the new application object. 
    
    ```powershell
    $app
    ```
    
-     Note in particular the **ApplicationId** property, which is needed for creating service principals, role assignments, and acquiring the access token.
+     Note in particular the `ApplicationId` property, which is needed for creating service principals, role assignments, and acquiring the access token.
    
    ```powershell
    DisplayName             : exampleapp
@@ -106,26 +112,26 @@ Let's go through these steps more carefully to make sure you understand the proc
    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
    ```
 
-5. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application. Before running this cmdlet, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these cmdlets manually, usually enough time has elapsed between cmdlets. In a script, you should add a step to sleep between the cmdlets (like `Start-Sleep 15`). If you see an error stating **PrincipalNotFound: Principal {id} does not exist in the directory**, rerun the cmdlet.
+5. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the `ServicePrincipalName` parameter, provide the `ApplicationId` that you used when creating the application. Before running this cmdlet, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these cmdlets manually, usually enough time has elapsed between cmdlets. In a script, you should add a step to sleep between the cmdlets (like `Start-Sleep 15`). If you see an error stating: "PrincipalNotFound: Principal {id} does not exist in the directory", rerun the cmdlet.
 
    ```powershell   
    New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
    ```
 
-    If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
+    If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'." 
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through PowerShell. If you want to use the credential in your code application, you can jump to the [Sample applications](#sample-applications). 
 
 ### Provide credentials through PowerShell
 Now, you need to log in as the application to perform operations.
 
-1. Create a **PSCredential** object that contains your credentials by running the **Get-Credential** command. You need the **ApplicationId** before running this command so make sure you have that available to paste.
+1. Create a `PSCredential` object that contains your credentials by running the `Get-Credential` command. You need the `ApplicationId` before running this command so make sure you have that available to paste.
 
    ```powershell   
    $creds = Get-Credential
    ```
 
-2. You are prompted you to enter your credentials. For the user name, use the **ApplicationId** that you used when creating the application. For the password, use the one you specified when creating the account.
+2. You are prompted you to enter your credentials. For the user name, use the `ApplicationId` that you used when creating the application. For the password, use the one you specified when creating the account.
    
      ![enter credentials](./media/resource-group-authenticate-service-principal/arm-get-credential.png)
 3. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. If you only have one subscription, you can use:
@@ -164,10 +170,11 @@ To avoid providing the service principal credentials every time it needs to log 
    Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
    ```
 
-> [!NOTE]
-> The access token expires, so using a saved profile only works for as long as the token is valid.
-> 
-> 
+  > [!NOTE]
+  > The access token expires, so using a saved profile only works for as long as the token is valid.
+  >  
+
+Alternatively, you can invoke REST operations from PowerShell to log in. From the authentication response, you can retrieve the access token for use with other operations. For an example of retrieving the access token by invoking REST operations, see [Generating an Access Token](resource-manager-rest-api.md#generating-an-access-token).
 
 ## Create service principal with certificate
 In this section, you perform the steps to:
@@ -177,7 +184,7 @@ In this section, you perform the steps to:
 * create the service principal
 * assign the Reader role to the service principal
 
-To quickly perform these steps with Azure PowerShell 2.0 on Windows 10 or Windows Server 2016 Technical Preview, see the following cmdlets. 
+To quickly perform these steps with Azure PowerShell 2.0 on Windows 10 or Windows Server 2016 Technical Preview, see the following cmdlets:
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
@@ -188,12 +195,12 @@ Start-Sleep 15
 New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
 ```
 
-The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Active Directory. If your script does not wait long enough, you see an error stating **PrincipalNotFound: Principal {id} does not exist in the directory**. If you receive this error, you can rerun the cmdlet to assign it to a role.
+The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {id} does not exist in the directory." If you receive this error, you can rerun the cmdlet to assign it to a role.
 
 Let's go through these steps more carefully to make sure you understand the process. This article also shows how to accomplish the tasks when using earlier versions of Azure PowerShell or operating systems.
 
 ### Create the self-signed certificate
-The version of PowerShell available with Windows 10 and Windows Server 2016 Technical Preview has an updated **New-SelfSignedCertificate** cmdlet for generating a self-signed certificate. Earlier operating systems have the New-SelfSignedCertificate cmdlet but it does not offer the parameters needed for this topic. Instead, you need to import a module to generate the certificate. This topic shows both approaches for generating the certificate based on the operating system you have. 
+The version of PowerShell available with Windows 10 and Windows Server 2016 Technical Preview has an updated `New-SelfSignedCertificate` cmdlet for generating a self-signed certificate. Earlier operating systems have the New-SelfSignedCertificate cmdlet but it does not offer the parameters needed for this topic. Instead, you need to import a module to generate the certificate. This topic shows both approaches for generating the certificate based on the operating system you have. 
 
 * If you have **Windows 10 or Windows Server 2016 Technical Preview**, run the following command to create a self-signed certificate: 
    
@@ -242,7 +249,7 @@ You have your certificate and can proceed with creating your AD app.
    
     For single-tenant applications, the URIs are not validated.
    
-    If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
+    If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
    
     Examine the new application object. 
    
@@ -268,13 +275,13 @@ You have your certificate and can proceed with creating your AD app.
    ```powershell
    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
    ```
-5. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application. Before running this cmdlet, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these cmdlets manually, usually enough time has elapsed between cmdlets. In a script, you should add a step to sleep between the cmdlets (like `Start-Sleep 15`). If you see an error stating **PrincipalNotFound: Principal {id} does not exist in the directory**, rerun the cmdlet.
+5. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the `ServicePrincipalName` parameter, provide the `ApplicationId` that you used when creating the application. Before running this cmdlet, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these cmdlets manually, usually enough time has elapsed between cmdlets. In a script, you should add a step to sleep between the cmdlets (like `Start-Sleep 15`). If you see an error stating: "PrincipalNotFound: Principal {id} does not exist in the directory", rerun the cmdlet.
    
    ```powershell
    New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
    ```
    
-    If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**.
+    If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'."
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with certificate through PowerShell.
 
@@ -301,7 +308,7 @@ You are now authenticated as the service principal for the Active Directory appl
 
 ## Change credentials
 
-To change the credentials for an AD app, either because of a security compromise or a credential expiration, use the `Remove-AzureRmADAppCredential` and `New-AzureRmADAppCredential` cmdlets.
+To change the credentials for an AD app, either because of a security compromise or a credential expiration, use the [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) and [New-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermadappcredential) cmdlets.
 
 To remove all the credentials for an application, use:
 

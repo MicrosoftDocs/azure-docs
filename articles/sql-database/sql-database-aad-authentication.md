@@ -1,6 +1,6 @@
 ---
-title: Connect to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication | Microsoft Docs
-description: Learn how to connect to SQL Database by using Azure Active Directory Authentication.
+title: Azure Active Directory auth - Azure SQL | Microsoft Docs
+description: Learn how to connect to SQL Database and SQL Data Warehouse by using Azure Active Directory Authentication.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/22/2016
-ms.author: rick.byham@microsoft.com
+ms.date: 01/23/2017
+ms.author: rickbyh
 
 ---
 # Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication
@@ -182,8 +182,8 @@ Use PowerShell command get-help to see more details for each of these commands, 
 The following script provisions an Azure AD administrator group named **DBA_Group** (object id `40b79501-b343-44ed-9ce7-da4c8cc7353f`) for the **demo_server** server in a resource group named **Group-23**:
 
 ```
-Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
-–ServerName "demo_server" -DisplayName "DBA_Group"
+Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
+-ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
 The **DisplayName** input parameter accepts either the Azure AD display name or the User Principal Name. For example, ``DisplayName="John Smith"`` and ``DisplayName="johns@contoso.com"``. For Azure AD groups only the Azure AD display name is supported.
@@ -196,8 +196,8 @@ The **DisplayName** input parameter accepts either the Azure AD display name or 
 The following example uses the optional **ObjectID**:
 
 ```
-Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
-–ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
+Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
+-ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
 > [!NOTE]
@@ -208,13 +208,13 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 The following example returns information about the current Azure AD admin for Azure SQL Server:
 
 ```
-Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
+Get-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
 ```
 
 The following example removes an Azure AD administrator:
 
 ```
-Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
+Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
 You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Databases Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx)
@@ -302,7 +302,7 @@ For more information about creating contained database users based on Azure Acti
 
 >  [!NOTE]
 >  If you receive a **Connection Timeout Expired**, you may need to set the `TransparentNetworkIPResolution`
-parameter of the connection string to false. For more information, see [Connection timeout issue with .NET Framework 4.6.1 – TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).   
+parameter of the connection string to false. For more information, see [Connection timeout issue with .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).   
 
    
 When you create a database user, that user receives the **CONNECT** permission and can connect to that database as a member of the **PUBLIC** role. Initially the only permissions available to the user are any permissions granted to the **PUBLIC** role, or any permissions granted to any Windows groups that they are a member of. Once you provision an Azure AD-based contained database user, you can grant the user additional permissions, the same way as you grant permission to any other type of user. Typically grant permissions to database roles, and add users to roles. For more information, see [Database Engine Permission Basics](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). For more information about special SQL Database roles, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
@@ -369,12 +369,14 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## See also
-[Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md)
-
-[Contained Database Users](https://msdn.microsoft.com/library/ff929071.aspx)
-
-[CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
+## Next steps
+- For an overview of access and control in SQL Database, see [SQL Database access and control](sql-database-control-access.md).
+- For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](sql-database-manage-logins.md).
+- For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
+- For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
+- For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).
+- For a tutorial using SQL Server authentication, see [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
+- For a tutorial using Azure Active Directory authentication, see [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md).
 
 <!--Image references-->
 
