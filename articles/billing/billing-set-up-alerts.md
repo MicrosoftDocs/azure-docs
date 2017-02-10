@@ -46,6 +46,13 @@ After you set up alerts, the Account Center lists them and shows how many more y
 ## Billing alerts for Enterprise Agreement (EA) customers
 EA customers can get alerts for each department under an enrollment by setting spending quotas. See [Department Spending Quotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) in the EA portal to get started.
 
+## Learn more about Azure cost management
+- Estimate costs using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/), [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and when you add a service.
+- [Review your usage and costs regularly in Azure portal](billing-getting-started.md#costs).
+- Turn on [Azure Advisor cost recommendations](../advisor/advisor-cost-recommendations.md).
+
+To learn more, see [Azure cost management guidance](billing-getting-started.md).
+
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
