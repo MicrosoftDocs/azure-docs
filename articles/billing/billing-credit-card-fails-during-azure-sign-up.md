@@ -19,7 +19,7 @@ ms.date: 02/03/2017
 ms.author: cjiang
 
 ---
-# Your debit card or credit card is declined at Azure sign up
+# Your debit card or credit card is declined at Azure sign-up
 If your debit card or credit card is declined or not accepted when you sign up for Azure, you might be facing one of the following issues:
 
 * **The credit card or debit card provider is not accepted for your country.** When you choose a card, you only see the options that are valid in the country that you select. Contact your bank or card issuer to confirm that your credit card is enabled for international transactions. See supported countries and currencies in [Azure Purchase FAQ](https://azure.microsoft.com/pricing/faq/).
