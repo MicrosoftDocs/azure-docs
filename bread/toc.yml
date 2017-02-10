@@ -87,7 +87,7 @@
     topicHref: /azure/batch/batch-technical-overview
   - name: Billing
     tocHref: /azure/billing/
-    topicHref: /azure/billing/billing-getting-started.md
+    topicHref: /azure/billing/billing-getting-started
   - name: Biztalk Services
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/integration-hybrid-connection-overview
