@@ -31,7 +31,7 @@ Opt in from the resource menu of your subscription
 ## I can't access the email settings blade:
 * You must be the account administrator to configure this setting, not sure what this means? Learn more here.
 * If you have a monthly invoice but aren't receiving an email, make sure you have your communication email properly set.
-* This feature is only available in the direct channel and may not be available for certain subscriptions such as support offers or Azure in Open.
+* This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
 
 ## Get invoice from Azure portal
 You can view the daily usage from the Azure portal but only the invoice is available for download.
