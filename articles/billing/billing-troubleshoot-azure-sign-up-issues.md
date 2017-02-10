@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure issues | Microsoft Docs
+title: Troubleshoot Azure sign-up issues | Microsoft Docs
 description: Describes how to troubleshoot some common Azure sign up issues.
 services: ''
 documentationcenter: ''
