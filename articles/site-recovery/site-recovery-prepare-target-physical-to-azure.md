@@ -34,7 +34,7 @@ The article assumes the following:
 
 After completing the **Step 1:Select Protection goal** and **Step 2:Prepare Source**, you are taken to **Step 3: Target**
 
-![Prepare target](./media/site-recovery-prepare-target-vmware-to-azure/prepare-target-vmware-physical-to-azure.png)
+![Prepare target](./media/site-recovery-prepare-target-physical-to-azure/prepare-target-physical-to-azure.png)
 
 1. **Subscription:** From the drop down menu, select the Subscription that you want to replicate your physical servers to.
 2. **Deployment Model:** Select the deployment model (Classic or Resource Manager)
