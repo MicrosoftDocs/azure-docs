@@ -1,5 +1,5 @@
-﻿---
-title: Create and deploy the blink application | Microsoft Docs
+---
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Deploy app | Microsoft Docs'
 description: Clone the sample Node.js application from GitHub, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
 services: iot-hub
 documentationcenter: ''
@@ -56,16 +56,16 @@ To open the sample code, follow these steps:
 
 1. Clone the sample repository from GitHub by running the following command:
    
-    ```bash
-    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
-    ```
+   ```bash
+   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
+   ```
 2. Open the sample application in Visual Studio Code by running the following commands:
    
-    ```bash
-    cd iot-hub-node-raspberrypi-getting-started
-    cd Lesson1
-    code .
-    ```
+   ```bash
+   cd iot-hub-node-raspberrypi-getting-started
+   cd Lesson1
+   code .
+   ```
 
 ![Repo structure](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-blink-mac.png)
 
@@ -122,7 +122,7 @@ To configure the device connection, follow these steps:
 Congratulations! You've successfully created the first sample application for Pi.
 
 ## Deploy and run the sample application
-### Install Node.js and  on Pi
+### Install Node.js and NPM on Pi
 Install Node.js and NPM on Pi by running the following command:
 
 ```bash

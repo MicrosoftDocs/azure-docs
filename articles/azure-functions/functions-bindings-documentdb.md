@@ -174,6 +174,27 @@ When you write to the output parameter in your function, by default a new docume
 GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
 the output parameter. If a document with that ID already exists, the output document overwrites it. 
 
+You can write to the output using any of the following types:
+
+* Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialization.
+  If you declare a custom output type (e.g. `out FooType paramName`), Azure Functions attempts to serialize object 
+  into JSON. If the output parameter is null when the function exits, the Functions runtime creates a blob as 
+  a null object.
+* String - (`out string paramName`) useful for text blob data. the Functions runtime creates a blob only if the 
+  string parameter is non-null when the function exits.
+
+In C# functions you can also output to any of the following types:
+
+* `TextWriter`
+* `Stream`
+* `CloudBlobStream`
+* `ICloudBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
+
+To output multiple documents, you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
+
+
 <a name="outputsample"></a>
 
 ## Output sample

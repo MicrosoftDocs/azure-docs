@@ -81,7 +81,7 @@ After the authentication flow is complete, the claims are available in `HttpCont
 ## Issuer validation
 In OpenID Connect, the issuer claim ("iss") identifies the IDP that issued the ID token. Part of the OIDC authentication flow is to verify that the issuer claim matches the actual issuer. The OIDC middleware handles this for you.
 
-In Azure AD, the issuer value is unique per AD tenant (`https://sts.windows.net/<tenantID>`). Therefore, an application should do an additional check, to make sure the issuer represents a tenant that is allowed to sign in to the app.
+In Azure AD, the issuer value is unique per AD tenant (`https://sts.windows.net/<tenantID>/`). Therefore, an application should do an additional check, to make sure the issuer represents a tenant that is allowed to sign in to the app.
 
 For a single-tenant application, you can just check that the issuer is your own tenant. In fact, the OIDC middleware does this automatically by default. In a multi-tenant app, you need to allow for multiple issuers, corresponding to the different tenants. Here is a general approach to use:
 

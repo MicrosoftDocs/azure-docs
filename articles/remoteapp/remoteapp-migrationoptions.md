@@ -1,4 +1,3 @@
-﻿
 ---
 title: Options for migrating out of Azure RemoteApp | Microsoft Docs
 description: Learn about the options for migrating out of Azure RemoteApp.
@@ -13,7 +12,7 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/07/2017
 ms.author: mbaldwin
 
 ---
@@ -27,7 +26,7 @@ If you have stopped using Azure RemoteApp because of the [retirement announcemen
 
 Self-service IaaS is a do-it-yourself deployment that is managed, operated, and owned by you, directly deployed on virtual machines (VMs) or physical systems. At the other end, a fully managed PaaS/SaaS offering is more like Azure RemoteApp - a partner provides a service layer on top of a remoting solution that handles operational and servicing, while you, as the customer, do some image and app management.
 
-Read on for more information, including examples of the different hosting options.    
+[View the Azure RemoteApp webinars on migration options](https://social.msdn.microsoft.com/Forums/azure/40557aaa-3e9f-403c-b221-ad3eac10dc56/migration-option-webinar-recordings?forum=AzureRemoteApp), or read on for more information (including examples of the different hosting options).
 
 ## Self-managed (IaaS) solutions
 ### **RDS on IaaS**

@@ -66,6 +66,23 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 > 
 > 
 
+## Use TRIM with standard storage
+
+If you use standard storage (HDD), you should enable TRIM. TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using. This can save on costs if you create large files and then delete them. 
+
+You can run this command to check the TRIM setting. Open a command prompt on your Windows VM and type:
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+If the command returns 0, TRIM is enabled correctly. If it returns 1, run the following command to enable TRIM:
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+
+
 ## Next steps
 * [Attach a disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to add additional storage for your VM.
 * [Upload a Windows VM image to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to use when creating a new VM.

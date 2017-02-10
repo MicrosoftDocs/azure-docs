@@ -1,4 +1,4 @@
-﻿---
+---
 title: Building a model with the Recommnendations UI | Microsoft Docs
 description: Azure Machine Learning Recommendations - Building a model with the Recommendations UI
 services: cognitive-services

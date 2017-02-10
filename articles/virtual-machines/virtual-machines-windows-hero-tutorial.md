@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 01/03/2017
 ms.author: cynthn
 
 ---
@@ -25,28 +25,32 @@ This tutorial shows you how easy it is to create a Windows virtual machine (VM) 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Choose the VM image from the marketplace
-We use a Windows Server 2012 R2 Datacenter image as an example, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, some desktop images are available to [MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+We use a Windows Server 2016 Datacenter image as an example, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, some desktop images are available to [MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
+2. Starting in the upper-left, click **New** > **Compute** > **Windows Server 2016 Datacenter**.
    
     ![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
-3. On the **Windows Server 2012 R2 Datacenter** blade, in **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
+3. On the **Windows Server 2016 Datacenter** blade, in **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
    
     ![Screenshot that shows the deployment model to select for the VM](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
 ## Create the Windows virtual machine
 After you select the image, you can use the default settings and quickly create the virtual machine.
 
-1. On the **Basics** blade, enter a **Name** for the virtual machine. The name must be 1-15 characters long and it cannot contain special characters.
-2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to sign in to and manage the VM. 
+1. On the **Basics** blade, enter a **Name** for the virtual machine. In this example, *HeroVM* is the name of the virtual machine. The name must be 1-15 characters long and it cannot contain special characters.
+2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to sign in to and manage the VM. In this example, *azureuser* is the user name.
    
     The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
-3. Select an existing [Resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
+
+3. Select an existing [Resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. In this example, *HeroVMRG* is the name of the resource group.
+
+4. Select an Azure datacenter **Location**. In this example, *East US** is the location. 
+
 4. When you are done, click **OK** to continue to the next section. 
    
     ![Screenshot that shows the settings on the **Basics** blade for configuring an Azure VM](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Choose a VM [size](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), and then click **Select** to continue. 
+5. Choose a VM [size](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), and then click **Select** to continue. In this example, *DS1_V2 Standard* is the VM size.
    
     ![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. On the **Settings** blade, you can change the storage and network options. For this tutorial, accept the default settings. If you selected a virtual machine size that supports it, you can try Azure Premium Storage by selecting **Premium (SSD)** in **Disk type**. When you're done making changes, click **OK**.
@@ -55,10 +59,10 @@ After you select the image, you can use the default settings and quickly create 
 7. Click **Summary** to review your choices. When you see the **Validation passed** message, click **OK**.
    
     ![Screenshot of the Summary page that shows the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
-8. While Azure creates the virtual machine, you can track the progress in **Virtual Machines** on the hub menu. 
+8. While Azure creates the virtual machine, you can track the progress by clicking on **Virtual Machines** on left. When the VM has been created, the status will change to **Running**.
 
 ## Connect to the virtual machine and sign on
-1. On the hub menu, click **Virtual Machines**.
+1. On the left, click **Virtual Machines**.
 2. Select the virtual machine from the list.
 3. On the blade for the virtual machine, click **Connect**. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. You might want to save the file to your desktop for easy access. **Open** this file to connect to your VM.
    

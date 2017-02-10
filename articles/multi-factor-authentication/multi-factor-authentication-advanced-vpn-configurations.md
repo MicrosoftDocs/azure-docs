@@ -18,7 +18,7 @@ ms.author: kgremban
 ---
 
 # Advanced scenarios with Azure Multi-Factor Authentication and third-party VPN solutions
-Azure Multi-Factor Authentication can be used to seamlessly connect with various third-party VPN solutions. This article focuses on Cisco® ASA VPN appliance, Citrix NetScaler SSL VPN appliance, and the Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN appliance. We created configuration guides for these three common appliances, but Multi-Factor Authentication Server can integrate with most systems that use RADIUS, LDAP, IIS, or claims-based authentication to AD FS. You can find more details in [MFA Server configurations](multi-factor-authentication-get-started-server.md#advanced-azure-multi-factor-authentication-server-configurations).
+Azure Multi-Factor Authentication can be used to seamlessly connect with various third-party VPN solutions. This article focuses on Cisco® ASA VPN appliance, Citrix NetScaler SSL VPN appliance, and the Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN appliance. We created configuration guides for these three common appliances, but Multi-Factor Authentication Server can integrate with most systems that use RADIUS, LDAP, IIS, or claims-based authentication to AD FS. You can find more details in [MFA Server configurations](multi-factor-authentication-get-started-server.md#next-steps).
 
 ## Cisco ASA VPN appliance and Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication seamlessly integrates with your Cisco® ASA VPN appliance to provide additional security for Cisco AnyConnect® VPN logins and portal access.  This can be done using either the LDAP or RADIUS protocol.  Select one of the following to download the detailed step-by-step configuration guides.

@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
@@ -42,7 +42,7 @@ This **From Gallery** option opens a wizard that helps you set up the virtual ma
 ## Install the Deep Security Agent on an existing VM
 To install the agent on an existing VM, you need the following:
 
-* The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). Log in to your Azure subscription using `Add-AzureAccount`.
+* The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Log in to your Azure subscription using `Add-AzureAccount`.
 * The VM Agent installed on the target virtual machine.
 
 First, verify that the VM Agent is already installed. Fill in the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.

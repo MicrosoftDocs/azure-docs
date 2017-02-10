@@ -1,6 +1,6 @@
 ---
-title: Authoring Azure Resource Manager Templates | Microsoft Docs
-description: Create Azure Resource Manager templates using declarative JSON syntax to deploy applications to Azure.
+title: Create templates for Azure deployments | Microsoft Docs
+description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 
 ---
@@ -52,7 +52,7 @@ In its simplest structure, a template contains the following elements:
 We examine the sections of the template in greater detail later in this topic.
 
 ## Expressions and functions
-The basic syntax of the template is JSON. However, expressions and functions extend the JSON that is available in the template. With expressions, you create values that are not strict literal values. Expressions are enclosed with brackets [ and ], and are evaluated when the template is deployed. Expressions can appear anywhere in a JSON string value and always return another JSON value. If you need to use a literal string that starts with a bracket [, you must use two brackets [[.
+The basic syntax of the template is JSON. However, expressions and functions extend the JSON that is available in the template. With expressions, you create values that are not strict literal values. Expressions are enclosed with brackets `[` and `]`, and are evaluated when the template is deployed. Expressions can appear anywhere in a JSON string value and always return another JSON value. If you need to use a literal string that starts with a bracket `[`, you must use two brackets `[[`.
 
 Typically, you use expressions with functions to perform operations for configuring the deployment. Just like in JavaScript, function calls are formatted as **functionName(arg1,arg2,arg3)**. You reference properties by using the dot and [index] operators.
 
@@ -61,7 +61,7 @@ The following example shows how to use several functions when constructing value
 ```json
 "variables": {
    "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```
@@ -95,7 +95,7 @@ You define parameters with the following structure:
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | parameterName |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the parameter value. See the list below of allowed types. |
+| type |Yes |Type of the parameter value. See the list of allowed types after this table. |
 | defaultValue |No |Default value for the parameter, if no value is provided for the parameter. |
 | allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
 | minValue |No |The minimum value for int type parameters, this value is inclusive. |
@@ -116,7 +116,7 @@ The allowed types and values are:
 
 To specify a parameter as optional, provide a defaultValue (can be an empty string). 
 
-If you specify a parameter name that matches one of the parameters in the command to deploy the template, you are prompted to provide a value for a parameter with the postfix **FromTemplate**. For example, if you include a parameter named **ResourceGroupName** in your template that is the same as the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment][deployment2cmdlet] cmdlet, you are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
+If you specify a parameter name in your template that matches a parameter in the command to deploy the template, there is potential ambiguity about the values you provide. Resource Manager resolves this confusion by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment][deployment2cmdlet] cmdlet. During deployment, you are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 
 > [!NOTE]
 > All passwords, keys, and other secrets should use the **secureString** type. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with secureString or secureObject types cannot be read after resource deployment. 
@@ -238,7 +238,7 @@ You define resources with the following structure:
      "copy": {
        "name": "<name-of-copy-loop>",
        "count": "<number-of-iterations>"
-     }
+     },
      "resources": [
        "<array-of-child-resources>"
      ]
@@ -254,10 +254,10 @@ You define resources with the following structure:
 | location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) do not require a location. |
 | tags |No |Tags that are associated with the resource. |
 | comments |No |Your notes for documenting the resources in your template |
-| dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources are not dependent on each other, they are deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that are not defined in this template must already exist. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md). |
-| properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. For links to resource schema documentation or REST API, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md). |
+| dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources are not dependent on each other, they are deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that are not defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md). |
+| properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. For links to resource schema documentation or REST API, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md). |
 | copy |No |If more than one instance is needed, the number of resources to create. For more information, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
-| resources |No |Child resources that depend on the resource being defined. You can provide only resource types that are permitted by the schema of the parent resource. The fully qualified name of the child resource type includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource is not implied; you must explicitly define that dependency. |
+| resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. The fully qualified type of the child resource includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource is not implied. You must explicitly define that dependency. |
 
 Knowing what values to specify for **apiVersion**, **type**, and **location** is not immediately obvious. Fortunately, you can determine these values through Azure PowerShell or Azure CLI.
 
@@ -287,17 +287,23 @@ To get supported locations for a resource type, use:
 
 To get all the resource providers with **Azure CLI**, use:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 From the returned list, find the resource providers you are interested in. To get the resource types for a resource provider (such as Storage), use:
 
-    azure provider show Microsoft.Storage
+```azurecli
+azure provider show Microsoft.Storage
+```
 
 To get supported locations and API versions, use:
 
-    azure provider show Microsoft.Storage --details --json
+```azurecli
+azure provider show Microsoft.Storage --details --json
+```
 
-To learn more about resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
+To learn more about resource providers, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
 
 The resources section contains an array of the resources to deploy. Within each resource, you can also define an array of child resources. Therefore, your resources section could have a structure like:
 

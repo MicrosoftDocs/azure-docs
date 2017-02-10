@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build an IoT solution by using Stream Analytics | Microsoft Docs
 description: Getting-started tutorial for the Stream Analytics IoT solution of a tollbooth scenario
 keywords: iot solution, window functions
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 ## Prerequisites
 You will need the following prerequisites to complete this tutorial:
 
-* The latest version of [Azure PowerShell](../powershell-install-configure.md)
+* The latest version of [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Visual Studio 2015 or the free [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 * Administrative privileges on the computer
@@ -134,7 +134,7 @@ You can use the Setup.ps1 script in the TollApp folder on GitHub to create all r
 
 Download and save the supporting [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) folder and files.
 
-Open a **Microsoft Azure PowerShell** window *as an administrator*. If you do not yet have Azure PowerShell, follow the instructions in [Install and configure Azure PowerShell](../powershell-install-configure.md) to install it.
+Open a **Microsoft Azure PowerShell** window *as an administrator*. If you do not yet have Azure PowerShell, follow the instructions in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install it.
 
 Because Windows automatically blocks .ps1, .dll, and .exe files, you need to set the execution policy before you run the script. Make sure the Azure PowerShell window is running *as an administrator*. Run **Set-ExecutionPolicy unrestricted**. When prompted, type **Y**.
 
@@ -249,7 +249,7 @@ However, if you are interested in implementation details, you can find the sourc
 4. Enter **EntryStream** as **INPUT ALIAS**.
 5. Source Type is **Data Stream**
 6. Source is **Event hub**.
-7. **Service bus namescape** should be the TollData one in the drop down.
+7. **Service bus namespace** should be the TollData one in the drop down.
 8. **Event hub name** should be set to **entry**.
 9. **Event hub policy name*is **RootManageSharedAccessKey**  (the default value).
 10. Select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.

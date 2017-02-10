@@ -96,7 +96,7 @@ The following command will stream the log files of your function app to the comm
 
 ### Monitoring function app log files with PowerShell
 
-To get started, [install and configure Azure PowerShell](../powershell-install-configure.md).
+To get started, [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Add your Azure account by running the following command:
 

@@ -1,9 +1,22 @@
 ---
+title: Azure DocumentDB Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use DocumentDB, a schema-free NoSQL document database. Tutorials show how to integrate with apps and use SQL queries on JSON documents.
+services: documentdb
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #DocumentDB Documentation
 
-Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
+Learn how to use DocumentDB in high-performance applications for web, mobile, gaming, and IoT. Tutorials and other documentation show you how to store JSON data and perform SQL queries over a flexible schema in this NoSQL database service.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -172,35 +185,37 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
 
 ---
 
-## Reference
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">REST API</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">Resource Provider REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
-### Java
-[Java SDK Reference](http://azure.github.io/azure-documentdb-java)
 
-### .NET
-[.NET Managed Reference](https://msdn.microsoft.com/library/azure/dn948556)
-
-### Node
-[Node SDK Reference](http://azure.github.io/azure-documentdb-node/DocumentClient)
-
-### Python
-[Python Reference](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
-
-### SQL
-[SQL Reference](https://msdn.microsoft.com/library/azure/dn782250)
-
-### REST
-[REST API Reference](/rest/api/documentdb)
-
-[Resource provider API Reference](/rest/api/documentdbresourceprovider)
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download DocumentDB Documentation
-        </div>
-    </a>
-</div>

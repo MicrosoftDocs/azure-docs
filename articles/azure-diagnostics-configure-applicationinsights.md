@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Azure Diagnostics to send data to Application Insights | Microsoft Docs
 description: Update the Azure Diagnostics public configuration to send data to Application Insights.
 services: multiple
@@ -66,7 +66,7 @@ If you only wanted to send Verbose application logs to Application Insights then
 
     <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 
-You can also include multiple sinks in the configuration at different levels in the hierarchy. In that case the sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element element acts like an override to that global setting.    
+You can also include multiple sinks in the configuration at different levels in the hierarchy. In that case the sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element acts like an override to that global setting.    
 
 Here is a complete example of the public configuration file that sends all errors to Application Insights (specified at the **DiagnosticMonitorConfiguration** node) and in addition Verbose level logs for the Application Logs (specified at the **Logs** node).
 
@@ -106,6 +106,5 @@ There are some limitations to be aware of with this functionality
 * You cannot send any blob data collected by Azure diagnostics extension to Application Insights. For example anything specified under the *Directories* node. For Crash Dumps the actual crash dump will still be sent to blob storage and only a notification that the crash dump was generated will be sent to Application Insights.
 
 ## Next Steps
-* Use [PowerShell](cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application. 
+* Use [PowerShell](cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
 * Use [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) to enable the Azure diagnostics extension for your application
-

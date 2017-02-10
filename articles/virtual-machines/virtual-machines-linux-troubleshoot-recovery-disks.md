@@ -1,7 +1,7 @@
 ---
 
-title: Use a Linux troubleshooting VM with the CLI | Microsoft Docs
-description: Learn how to troubleshoot Linux VM issues by connecting the OS disk to a recovery VM using the Azure CLI
+title: Use a Linux troubleshooting VM with the Azure CLI 1.0 | Microsoft Docs
+description: Learn how to troubleshoot Linux VM issues by connecting the OS disk to a recovery VM using the Azure CLI 1.0
 services: virtual-machines-linux
 documentationCenter: ''
 authors: iainfoulds
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
 
-# Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure CLI
+# Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure CLI 1.0
 If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure CLI to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM.
 
 
@@ -31,11 +31,12 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
-Make sure that you have [the Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode:
+Make sure that you have [the latest Azure CLI 1.0](../xplat-cli-install.md) installed and logged in and using Resource Manager mode:
 
 ```azurecli
 azure config mode arm
 ```
+
 In the following examples, replace parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
 
@@ -229,4 +230,4 @@ azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 ```
 
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](virtual-machines-linux-troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](virtual-machines-linux-troubleshoot-app-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

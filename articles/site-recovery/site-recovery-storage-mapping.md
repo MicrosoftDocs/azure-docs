@@ -1,5 +1,5 @@
-﻿---
-title: Map storage in Azure Site Recovery for Hyper-V virtual machine replication between on-premises datacenters | Microsoft Docs
+---
+title: Map source and target VMM storage for Hyper-V VM replication in Azure | Microsoft Docs
 description: Prepare storage mapping for Hyper-V virtual machine replication between two on-premises datacenters with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 02/06/2017
 ms.author: raynew
 
 ---
@@ -26,12 +26,12 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 Storage mapping is only relevant when you're replicating Hyper-V virtual machines that are located in VMM clouds from a primary datacenter to a secondary datacenter using Hyper-V Replica or SAN replication, as follows:
 
 * **On-premises to on-premises replication with Hyper-V Replica)**—You set up storage mapping by mapping storage classifications on a source and target VMM servers to do the following:
-  
+
   * **Identify target storage for replica virtual machines**—Virtual machines will be replicated to a storage target (SMB share or cluster shared volumes (CSVs)) that you choose.
   * **Replica virtual machine placement**—Storage mapping is used to optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped storage classification.
   * **No storage mapping**—If you don’t configure storage mapping, virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.
 * **On-premises to on-premises replication with SAN**—You set up storage mapping by mapping storage arrays pools on a source and target VMM servers.
-  
+
   * **Specify pool**—Specifies which secondary storage pool receives replication data from the primary pool.
   * **Identify target storage pools**—Ensures that LUNs in a source replication group are replicated to mapped target storage pool of your choice.
 
@@ -92,4 +92,3 @@ This table summarizes the behavior when you enable protection for virtual machin
 
 ## Next steps
 Now that you have a better understanding of storage mapping, [get ready to deploy Azure Site Recovery](site-recovery-best-practices.md).
-

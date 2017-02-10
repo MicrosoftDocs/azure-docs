@@ -1,4 +1,3 @@
-
 ---
 title: Try Azure RemoteApp on your device in 3 minutes or less | Microsoft Docs
 description: Test drive Azure RemoteApp functionality without installing the service.

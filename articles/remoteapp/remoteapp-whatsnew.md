@@ -1,4 +1,3 @@
-
 ---
 title: What's new in Azure RemoteApp? | Microsoft Docs
 description: Learn about changes and improvements made to Azure RemoteApp

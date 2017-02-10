@@ -14,8 +14,8 @@
 
 # Reference
 
-## [Azure CLI](/cli/azure/acr)
-## [REST API](/rest/api/containerregistry)
+## [Azure CLI 2.0 preview](/cli/azure/acr)
+## [REST](/rest/api/containerregistry)
 
 # Related
 

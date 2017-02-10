@@ -74,7 +74,7 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 [Create]: virtual-machines-windows-classic-tutorial.md
 
-[PS]: ../powershell-install-configure.md
+[PS]: /powershell/azureps-cmdlets-docs
 
 [Agent]: http://go.microsoft.com/fwlink/p/?LinkId=403947
 

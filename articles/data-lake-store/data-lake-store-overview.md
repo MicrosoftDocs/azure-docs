@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure Data Lake Store | Microsoft Docs
 description: Understand what is Azure Data Lake Store and the value it provides over other data stores
 services: data-lake-store
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---

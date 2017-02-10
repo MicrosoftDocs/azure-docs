@@ -22,7 +22,7 @@ ms.author: jdial
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure has two deployment models: Azure Resource Manager and classic. Microsoft recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../resource-manager-deployment-model.md) article.
+Azure has two deployment models: Azure Resource Manager and classic. Microsoft recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
  
 This article explains how to create a VNet through the Resource Manager deployment model using an Azure Resource Manager template. You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 
@@ -107,7 +107,7 @@ You can download the existing template for creating a VNet and two subnets from 
 
 Complete the following steps to deploy the template you downloaded by using PowerShell:
 
-1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) article.
+1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
 2. Run the following command to create a new resource group:
 
 	```powershell

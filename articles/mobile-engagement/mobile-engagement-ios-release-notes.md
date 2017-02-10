@@ -13,11 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement iOS SDK release notes
+## 4.0.1 (12/13/2016)
+* Improved log delivery in background.
+
 ## 4.0.0 (09/12/2016)
 * Fixed notification not actioned on iOS 10 devices.
 * Deprecate XCode 7.

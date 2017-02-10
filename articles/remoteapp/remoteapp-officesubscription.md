@@ -1,4 +1,3 @@
-
 ---
 title: How to use your Office 365 subscription with Azure RemoteApp | Microsoft Docs
 description: Learn how you can use your Office 365 subscription in Azure RemoteApp to share Office apps.

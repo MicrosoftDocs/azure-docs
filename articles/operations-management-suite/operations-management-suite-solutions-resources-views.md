@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: bwren
 
 ---
@@ -56,7 +56,7 @@ Add the following view resource to the **resources** element of your solution fi
         "type": "Microsoft.OperationalInsights/workspaces/views",
         "location": "[parameters('workspaceregionId')]",
         "id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/', variables('ViewName'))]",
-        dependson": [
+        "dependson": [
             ],
         "properties": {
             "Id": "[variables('ViewName')]",

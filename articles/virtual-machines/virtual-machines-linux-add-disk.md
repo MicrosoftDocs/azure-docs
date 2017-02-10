@@ -15,8 +15,8 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
-ms.author: rclaus
+ms.date: 02/02/2017
+ms.author: rasquill
 
 ---
 # Add a disk to a Linux VM
@@ -25,12 +25,72 @@ This article shows how to attach a persistent disk to your VM so that you can pr
 ## Quick Commands
 The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
 
+To use managed disks:
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+To use unmanaged disks:
+
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## Attach a disk
-Attaching a new disk is quick. Type `azure vm disk attach-new myResourceGroup myVM sizeInGB` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
+## Attach a managed disk
+
+Using managed disks enables you to focus on your VMs and their disks without worrying about Azure Storage accounts. You can quickly create and attach a managed disk to a VM using the same Azure resource group, or you can create any number of disks and then attach them.
+
+
+### Attach a new disk to a VM
+
+If you just need a new disk on your VM, you can use the `az vm disk attach` command.
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+### Attach an existing disk 
+
+In many cases you attach disks that have already been created. You will first find the disk id and then pass that to the `az vm disk attach-disk` command. The following code uses a disk created with `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+The output looks something like the following (you can use the `-o table` option to any command to format the output in ):
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "westus",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
+```
+
+
+## Attach an unmanaged disk
+
+Attaching a new disk is quick if you do not mind creating a disk in the same storage account as your VM. Type `azure vm disk attach-new` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
@@ -262,7 +322,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
+* In some cases the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
   
     **Ubuntu**
   

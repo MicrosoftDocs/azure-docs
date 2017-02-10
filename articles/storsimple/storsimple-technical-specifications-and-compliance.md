@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple technical specifications | Microsoft Docs
 description: Describes the technical specifications and regulatory standards compliance information for the StorSimple hardware components.
 services: storsimple

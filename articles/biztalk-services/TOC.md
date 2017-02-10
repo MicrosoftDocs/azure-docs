@@ -22,10 +22,8 @@
 ### [Access control](biztalk-issuer-name-issuer-key.md)
 ## [Troubleshoot](biztalk-troubleshoot-using-ops-logs.md)
 
-# Reference
-## [Release notes](biztalk-release-notes.md)
-
 # Resources
+## [Release notes](biztalk-release-notes.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Pricing](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/6/2016
 ms.author: ashwink
 
 ---
@@ -38,11 +38,13 @@ If a particular metric is not being sampled or transferred at the frequency you 
 If either preceding case is true, then review [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) about PowerShell to configure and update your Azure VM Diagnostics extension to enable the metric. That article also includes a sample diagnostics configuration file.
 
 ### Host metrics for Resource Manager-based Windows and Linux VMs
-The following host-level metrics are emitted by default for Azure VM and VMSS in both Windows and Linux instances.  You may use these metrics in autoscaling rules. 
+The following host-level metrics are emitted by default for Azure VM and VMSS in both Windows and Linux instances. These metrics describe your Azure VM, but are collected from the Azure VM host rather than via agent installed on the guest VM. You may use these metrics in autoscaling rules. 
 
+- [Host metrics for Resource Manager-based Windows and Linux VMs](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
+- [Host metrics for Resource Manager-based Windows and Linux VM Scale Sets](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
 
 ### Guest OS metrics Resource Manager-based Windows VMs
-When you create a VM in Azure, diagnostics is enabled by using the Diagnostics extension.
+When you create a VM in Azure, diagnostics is enabled by using the Diagnostics extension. The diagnostics extension emits a set of metrics taken from inside of the VM. This means you can autoscale off of metrics that are not emitted by default.
 
 You can generate a list of the metrics by using the following command in PowerShell.
 

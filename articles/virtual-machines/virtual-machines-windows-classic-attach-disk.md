@@ -1,5 +1,5 @@
 ---
-title: Attach a disk to a VM | Microsoft Docs
+title: Attach a disk to a classic Azure VM | Microsoft Docs
 description: Attach a data disk to a Windows virtual machine created with the classic deployment model and initialize it.
 services: virtual-machines-windows, storage
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 01/23/2017
 ms.author: cynthn
 
 ---

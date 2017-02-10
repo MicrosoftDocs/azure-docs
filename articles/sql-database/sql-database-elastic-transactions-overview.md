@@ -1,4 +1,4 @@
-﻿---
+---
 title: Distributed transactions across cloud databases
 description: Overview of Elastic Database Transactions with Azure SQL Database
 services: sql-database
@@ -9,6 +9,7 @@ editor: torsteng
 
 ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
