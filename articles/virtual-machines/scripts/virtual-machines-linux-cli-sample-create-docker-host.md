@@ -26,7 +26,7 @@ This script needs to be run from a PowerShell console. Before running this scrip
 
 ## Create a Docker host
 
-[!code-azurecli[main](../../cli_scripts/virtual-machine/create-docker-host/create-docker-host.sh "Docker Host")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-docker-host/create-docker-host.sh "Docker Host")]
 
 ## Clean up deployment 
 
