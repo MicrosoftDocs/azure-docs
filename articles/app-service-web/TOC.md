@@ -24,14 +24,16 @@
 
 # Concepts
 ## [App Service](../app-service/app-service-how-works-readme.md)	
-## Service architecture
+## Architecture
 ### Service types
 ### App state (warm vs. cold)
 
-## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
+## Deployment	
+## [Security](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+
+## [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
 ## [App Service Environments](app-service-app-service-environment-intro.md)
-## Deployment slots	
-## [Authentication/Authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+
 
 ## Extensibility	
 ### API
