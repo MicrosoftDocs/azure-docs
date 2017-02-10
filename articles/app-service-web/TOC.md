@@ -6,7 +6,7 @@
 ## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service on Linux](app-service-linux-intro.md)
 
-# QuickStart	
+# Quickstart	
 ## [ASP.NET](app-service-web-get-started-dotnet.md)		
 ## ASP.NET Core
 ### [Windows](web-sites-create-web-app-using-vscode.md)		 
