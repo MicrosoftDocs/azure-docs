@@ -37,49 +37,8 @@ Most of the currently available technical content assumes that applications are 
 * Certain services and features that are in specific regions of the global service might not be available in Azure Government.
 * Feature configurations in Azure Government might differ from those in the global service. Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Government Cloud Services environment.
 
-## Available features and services in Azure Government
-The following Azure Government features and services are available in both the US GOV IOWA and US GOV VIRGINIA regions:
+Currently, US GOV Iowa and US GOV Virginia are the datacenters that support Azure Government. For current datacenters and available services, see [Products available by region](https://azure.microsoft.com/regions/services).
 
-* Virtual Machines
-* Virtual Machine Scale Sets
-* Container Service
-* Batch accounts
-* Remote App collections
-* Availability sets
-* Virtual Network
-* Load Balancer
-* Application Gateway
-* Virtual Network Gateway
-* Local network gateways
-* Route tables
-* Traffic Manager profiles
-* ExpressRoute circuits
-* Network Security Groups
-* Network interfaces
-* Public IP addresses
-* Connections
-* Storage accounts
-* StorSimple Manager
-* App Service
-* Media Services
-* SQL Database
-* SQL Data Warehouse
-* SQL Server Stretch Database
-* Redis Cache
-* SQL Database elastic pools
-* SQL Server
-* Log Analytics
-* Event Hubs
-* Service Bus namespaces
-* Azure Active Directory
-* Multi-Factor Authentication
-* Rights Management
-* Automation accounts
-* Marketplace
-
-Other services are available, and more services are added continually. For the most current list of services, see [Products available by region](https://azure.microsoft.com/regions/#services), a page that displays the available services in each region.
-
-Currently, US GOV Iowa and US GOV Virginia are the datacenters that support Azure Government. For current datacenters and available services, see [Products available by region](https://azure.microsoft.com/regions/#services).
 
 ## Endpoint mapping
 To learn about mapping public Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
@@ -101,7 +60,7 @@ To learn about mapping public Azure and SQL Database endpoints to Azure Governme
 | AzureKeyVaultDnsSuffix | vault.usgovcloudapi.net |
 | AzureKeyVaultServiceEndpointResourceId | https://vault.usgovcloudapi.net |
 
-For Azure Resource Manager authentication via Azure Active Directory, see [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/library/azure/dn790557.aspx).
+
 
 ## Next steps
 For more information about Azure Government, see the following resources:
@@ -109,5 +68,5 @@ For more information about Azure Government, see the following resources:
 * [Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)
 * [Acquiring and accessing Azure Government](http://azure.com/gov)
 * [Azure Government Overview](/azure-government-overview)
-* [Azure Government Blog](http://blogs.msdn.com/b/azuregov/)
-* [Azure Compliance](https://azure.microsoft.com/support/trust-center/compliance/)
+* [Azure Government Blog](http://blogs.msdn.microsoft.com/azuregov/)
+* [Azure Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings)

@@ -8,7 +8,6 @@
 ## [Developer guide](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [Login to the Azure Government portal](documentation-government-gettingstarted-connect-with-portal.md)
 ## [Provision a web app](documentation-government-howto-deploy-webandmobile.md)
-## [Provision a virtual machine]
 ## [Connect with PowerShell](documentation-government-gettingstarted-connect-with-ps.md)
 ## [Connect with CLI](documentation-government-gettingstarted-connect-with-cli.md)
 ## [Setup Visual Studio for Azure Government](documentation-government-gettingstarted-connect-with-vs.md)
