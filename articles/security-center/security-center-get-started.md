@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 
 ---
@@ -58,7 +58,7 @@ You can configure security policies for your Azure subscriptions and resource gr
    ![Security policy][3]
 2. On the **Security policy - Define policy per subscription or resource group** blade, select a subscription.
 3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt out of data collection by setting **Data collection** to **Off**, but this prevents Security Center from giving you security alerts and recommendations.)
-4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, it is created for you. The data that's collected is logically isolated from other customers' data for security reasons.
+4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, a storage account is created for you and placed in the securitydata resource group. The data that's collected is logically isolated from other customers' data for security reasons.
 
    > [!NOTE]
    > We recommend that you enable data collection and choose a storage account at the subscription level first. Security policies can be set at the Azure subscription level and resource group level, but configuration of data collection and storage account occurs at the subscription level only.

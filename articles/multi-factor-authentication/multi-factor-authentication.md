@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Overview | Microsoft Docs
+title: Learn about two-step verification in Azure MFA | Microsoft Docs
 description: 'What is Azure Multi-factor Authentication, why use MFA, more information about the Multi-factor Authentication client and the different methods and versions available. '
 keywords: introduction to MFA, mfa overview, what is mfa
 services: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
@@ -29,7 +29,7 @@ Two-step verification is a method of authentication that requires more than one 
 
 Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification methods, including phone call, text message, or mobile app verification.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/WA-MFA-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/WA-MFA-Overview/player]
 >
 >
 
@@ -47,7 +47,7 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 * **Always Protected** - Azure Multi-Factor Authentication provides strong authentication using the highest industry standards.
 * **Reliable** - We guarantee 99.9% availability of Azure Multi-Factor Authentication. The service is considered unavailable when it is unable to receive or process verification requests for the two-step verification.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 >
 >
 

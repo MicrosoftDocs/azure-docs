@@ -1,9 +1,9 @@
 ---
-title: How to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, and IIS content in Azure CDN | Microsoft Docs
-description: Describes how to manage the expiration of cloud service content in Azure CDN
+title: Manage expiration of web content in Azure CDN | Microsoft Docs
+description: Learn how to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure CDN.
 services: cdn
 documentationcenter: .NET
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
-# How to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure CDN
+# Manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure CDN
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET, or IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Storage blob service](cdn-manage-expiration-of-blob-content.md)

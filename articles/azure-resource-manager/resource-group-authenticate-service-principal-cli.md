@@ -1,5 +1,5 @@
 ---
-title: Create service principal with Azure CLI | Microsoft Docs
+title: Create identity for Azure app with Azure CLI | Microsoft Docs
 description: Describes how to use Azure CLI to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate.
 services: azure-resource-manager
 documentationcenter: na

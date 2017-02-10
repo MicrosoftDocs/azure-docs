@@ -1,5 +1,5 @@
 ---
-title: 'HBase tutorial: Get started with Linux-based HBase clusters in Hadoop | Microsoft Docs'
+title: Get started with HBase on Azure HDInsight | Microsoft Docs
 description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: apache hbase,hbase,hbase shell,hbase tutorial
 services: hdinsight
@@ -14,15 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: jgao
 
 ---
 # HBase tutorial: Get started using Apache HBase in HDInsight
 
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
-
-The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, use the tab selector on the top of the page to switch.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

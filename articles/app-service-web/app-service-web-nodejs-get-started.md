@@ -1,5 +1,5 @@
 ---
-title: Get started with Node.js web apps in Azure App Service | Microsoft Docs 
+title: Develop Node.js web apps for Azure App Service | Microsoft Docs 
 description: Learn how to deploy a Node.js application to a web app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -17,7 +17,7 @@ ms.date: 12/16/2016
 ms.author: cephalin
 
 ---
-# Get started with Node.js web apps in Azure App Service
+# Develop Node.js web apps for Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 This tutorial shows how to create a simple [Node.js] application and deploy it to [Azure App Service] from a command-line environment, such as cmd.exe or bash. The instructions in this tutorial can be followed on any operating system that can run Node.js.

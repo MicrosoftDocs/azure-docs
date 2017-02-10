@@ -1,5 +1,5 @@
 ---
-title: Use BI tools with Apache Spark on HDInsight | Microsoft Docs
+title: Use BI tools with Apache Spark on Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to use notebooks with Apache Spark to create schemas on raw data, save them as Hive tables, and then use BI tools on the Hive table for data analytics
 services: hdinsight
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 01/06/2017
 ms.author: nitinme
 
 ---
-# Use BI tools with Apache Spark cluster on HDInsight
+# Use BI tools with Apache Spark cluster on Azure HDInsight
 
 Learn how to use Apache Spark in Azure HDInsight to do the following:
 
@@ -79,7 +79,7 @@ Once your data is saved as a Hive table, in the next section we will connect to 
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-1. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+1. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
         %%sql
         SHOW TABLES

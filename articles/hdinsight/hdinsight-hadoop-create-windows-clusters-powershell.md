@@ -1,5 +1,5 @@
 ---
-title: Create Windows-based Hadoop clusters in HDInsight using Azure PowerShell| Microsoft Docs
+title: Create Windows-based Azure HDInsight (Hadoop) using PowerShell | Microsoft Docs
 description: Learn how to create Windows-based Hadoop clusters in HDInsight by using Azure PowerShell.
 services: hdinsight
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: 'DocumentDB programming: Stored procedures, database triggers, and UDFs | Microsoft Docs'
+title: Server-side JavaScript programming for Azure DocumentDB | Microsoft Docs
 description: Learn how to use DocumentDB to write stored procedures, database triggers, and user defined functions (UDFs) in JavaScript. Get database programing tips and more.
 keywords: Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure
 services: documentdb

@@ -21,8 +21,8 @@ ms.author: TomSh
 Azure log integration enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 
 This tutorial walks you through how to install Azure log integration and integrate logs from Azure storage, Azure Audit Logs, and Azure Security Center alerts. Estimated time to complete this tutorial is one hour.
-E
-o## Prerequisites
+
+## Prerequisites
 To complete this tutorial, you must have the following:
 
 * A machine (on-premises or in the cloud) to install the Azure log integration service. This machine must be running a 64-bit Windows OS with .Net 4.5.1 installed. This machine is called the **Azlog Integrator**.

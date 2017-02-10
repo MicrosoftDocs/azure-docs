@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database FAQ
+title: Azure SQL Database FAQ | Microsoft Docs
 description: Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud.
 services: sql-database
 documentationcenter: ''
@@ -14,11 +14,27 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 12/19/2016
+ms.date: 02/06/2017
 ms.author: sashan;carlrab
 
 ---
 # SQL Database FAQ
+
+## What is the current version of SQL Database?
+The current version of SQL Database is V12. Version V11 has been retired.
+
+## What is the SLA for SQL Database?
+We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Microsoft Azure SQL Database and our Internet gateway. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
+
+## How do I reset the password for the server admin?
+In the [Azure portal](https://portal.azure.com) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
+
+## How do I manage databases and logins?
+See [Managing databases and logins](sql-database-manage-logins.md).
+
+## How do I make sure only authorized IP addresses are allowed to access a server?
+See [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).
+
 ## How does the usage of SQL Database show up on my bill?
 SQL Database bills on a predictable hourly rate based on both the service tier + performance level for single databases or eDTUs per elastic pool. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. Additionally, service tiers + performance level and eDTUs per pool are broken out in the bill to make it easier to see the number of database days you used for each in a single month.
 
@@ -32,7 +48,7 @@ Examples
 * If you downgrade a database from Premium to Basic at 11:00 a.m. and it completes at 2:15 p.m., then the database is charged at the Premium rate until 3:00 p.m., after which it is charged at the Basic rates.
 
 ## How does elastic pool usage show up on my bill and what happens when I change eDTUs per pool?
-elastic pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
+Elastic pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
 
 Examples
 
@@ -45,13 +61,14 @@ Elastic pools are billed per the following characteristics:
 
 * An elastic pool is billed upon its creation, even when there are no databases in the pool.
 * An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
-* If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
+* If an elastic pool is resized to a new number of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
 * The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
 * Price is computed by (number of pool eDTUs)x(unit price per eDTU).
 
 The unit eDTU price for an elastic pool is higher than the unit DTU price for a single database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 
 To understand the eDTUs and service tiers, see [SQL Database options and performance](sql-database-service-tiers.md).
+
 ## How does the use of Active Geo-Replication in an elastic pool show up on my bill?
 Unlike single databases, using [Active Geo-Replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
 
