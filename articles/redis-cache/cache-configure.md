@@ -28,9 +28,11 @@ This topic describes how to review and update the configuration for your Azure R
 ## Configure Redis cache settings
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Azure Redis Cache provides the following settings in the **Resource Menu**.
+Azure Redis Cache settings are viewed and configured on the **Redis Cache** blade using the **Resource Menu**.
 
 ![Redis Cache Settings](./media/cache-configure/redis-cache-settings.png)
+
+You can view and configure the following settings using the **Resource Menu**.
 
 * [Overview](#overview)
 * [Activity log](#activity-log)
