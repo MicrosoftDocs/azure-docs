@@ -22,13 +22,13 @@ This article includes answers to frequently asked questions (FAQs) about Azure A
 ## General questions
 **Q: I manage multiple Azure AD directories. How do I switch to the one that has Azure Active Directory Premium?**
 
-To switch between different Azure AD tenants, choose the currently signed-in **User Name** on the top, right corner, and then choose the appropriate account. If the account is not listed here, choose **Sign out**, and then use the global admin credentials of the directory that has Azure Active Directory Premium enabled to sign in.
+To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account is not listed here, select **Sign out**, and then use the global admin credentials of the directory that has Azure Active Directory Premium enabled to sign in.
 
 **Q: How many licenses do I need to monitor my infrastructure?**
 
 * The first Connect Health Agent requires at least one Azure AD Premium license.
 * Each additional registered agent requires 25 additional Azure AD Premium licenses.
-* Agent count is equivalent to the total number of agents that are registered across all monitored roles (Active Directory Federation Services, Azure AD Connect, and/or Active Directory Domain Services.)
+* Agent count is equivalent to the total number of agents that are registered across all monitored roles (Active Directory Federation Services, Azure AD Connect, and/or Active Directory Domain Services).
 
 Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
 
@@ -38,7 +38,7 @@ Example:
 | ------ | --------------- | --- |
 | 1 | 1 | 1 Azure AD Connect server |
 | 2 | 26| 1 Azure AD Connect server and 1 domain controller |
-| 3 | 51 | 1 AD FS server, 1 AD FS proxy, and 1 domain controller |
+| 3 | 51 | 1 Active Directory Federation Services (AD FS) server, 1 AD FS proxy, and 1 domain controller |
 | 4 | 76 | 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
 | 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
 
@@ -46,7 +46,7 @@ Example:
 ## Installation questions
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-The impact of installing the Microsoft Azure AD Connect Health Agent, Active Directory Federation Services (AD FS), web application proxy servers, Azure AD Connect (sync) servers, domain controllers is minimal with respect to the CPU, memory consumption, network bandwidth, and storage.
+The impact of installing the Microsoft Azure AD Connect Health Agent, AD FS, web application proxy servers, Azure AD Connect (sync) servers, domain controllers is minimal with respect to the CPU, memory consumption, network bandwidth, and storage.
 
 The following numbers are an approximation.
 
@@ -58,14 +58,14 @@ The following numbers are an approximation.
 >
 >
 
-* Local buffer storage for Azure AD Connect Health Agents: ~20 MB
+* Local buffer storage for Azure AD Connect Health Agents: ~20 MB.
 * For AD FS servers, we recommend that you provision a disk space of 1,024 MB (1 GB) for the AD FS audit channel for Azure AD Connect Health Agents to process all the audit data before it is overwritten.
 
 **Q: Will I have to reboot my servers during the installation of the Azure AD Connect Health Agents?**
 
 No. The installation of the agents will not require you to reboot the server. However, installation of some prerequisite steps might require a reboot of the server.
 
-For example, on Windows Server 2008 R2, installation of .Net 4.5 Framework requires a server reboot.
+For example, on Windows Server 2008 R2, installation of .NET 4.5 Framework requires a server reboot.
 
 **Q: Does Azure AD Connect Health Services work through a pass-through HTTP proxy?**
 
@@ -74,16 +74,15 @@ Yes. For ongoing operations, you can configure the Health Agent to use an HTTP p
 If you need to configure a proxy during agent registration, you might need to modify your Internet Explorer Proxy settings beforehand.
 
 1. Open Internet Explorer > **Settings** > **Internet Options** > **Connections** > **LAN Settings**.
-2. Choose **Use a Proxy Server for your LAN**.
-3. Choose **Advanced** if you have different proxy ports for HTTP and HTTPS/Secure.
+2. Select **Use a Proxy Server for your LAN**.
+3. Select **Advanced** if you have different proxy ports for HTTP and HTTPS/Secure.
 
 **Q: Does Azure AD Connect Health Services support basic authentication when connecting to HTTP proxies?**
 
 No. A mechanism to specify an arbitrary user name and password for Basic authentication is not currently supported.
+nect Health for Active Directory Domain Services (AD DS)?**
 
-**Q: What versions of AD DS are supported by Azure AD Connect Health for AD DS?**
-
-Monitoring of Active Directory Domain Services (AD DS) is supported while installed on the following operating system versions:
+Monitoring of AD DS is supported while installed on the following operating system versions:
 
 * Windows Server 2008 R2
 * Windows Server 2012
