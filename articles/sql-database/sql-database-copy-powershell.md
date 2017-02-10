@@ -22,7 +22,7 @@ ms.tgt_pltfrm: NA
 
 This article shows how to copy a SQL database with PowerShell to the same server, to a different server, or copy a database into an [elastic pool](sql-database-elastic-pool.md). The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx) cmdlet. 
 
-> [!NOTE}
+> [!NOTE]
 > You can also copy a SQL database using the [Azure portal](sql-database-copy-portal.md) or [Transact-SQL](sql-database-copy-transact-sql.md).
 >
 
