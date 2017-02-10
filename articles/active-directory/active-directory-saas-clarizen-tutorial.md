@@ -90,54 +90,54 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
 1. In the Azure portal, on the **Clarizen** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+	![Selecting single sign-on][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+2. In the **Single sign-on** dialog box, for **Mode**, select **SAML-based Sign-on** to enable single sign on.
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_01.png)
+	![Selecting SAML-based sign-on](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_01.png)
 
-3. On the **Clarizen Domain and URLs** section, perform the following steps:
+3. In the **Clarizen Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
+	![Boxes for identifier and reply URL](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. In the **Identifier** textbox, type the value as: `Clarizen`
+    a. In the **Identifier** box, type the value as: **Clarizen**
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
+	b. In the **Reply URL** box, type a URL by using the following pattern: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
 	> [!NOTE]
-	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new) to get these values.
+	> These are not the real values. You have to use the actual identifier and reply URL. Here we suggest that you use the unique value of string as the identifier. Contact [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new) to get the actual values.
 
 4. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png) 	
+	![Clicking "Create new certificate"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png) 	
 
-5. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
+5. In the **Create New Certificate** dialog box, click the calendar icon and select an expiry date. Then click **Save**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_general_300.png)
+	![Selecting and saving an expiry date](./media/active-directory-saas-clarizen-tutorial/tutorial_general_300.png)
 
-6. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
+6. In the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
+	![Selecting the check box for making the new certificate active](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
 
-7. On the pop-up **Rollover certificate** window, click **OK**.
+7. In the **Rollover certificate** dialog box, click **OK**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
+	![Clicking OK to confirm that you want to make the certificate active](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
 
-8. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+8. In the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
+	![Clicking "Certificate (Base64)" to start the download](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
 
-9. On the **Clarizen Configuration** section, click **Configure Clarizen** to open **Configure sign-on** window.
+9. In the **Clarizen Configuration** section, click **Configure Clarizen** to open **Configure sign-on** window.
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_06.png)
+	![Clicking "Configure Clarizen"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_06.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_07.png)
+	![Window for configuring Clarizen for single sign-on, with files and URLs highlighted](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_07.png)
 
-10. In a different web browser window, log into your Clarizen company site as an administrator.
+10. In a different web browser window, sign in to your Clarizen company site as an administrator.
 
-11. Click your user name, and then click **Settings**.
+11. Click your username, and then click **Settings**.
 
-	![Settings](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "Settings")
+	![Clicking "Settings" under your username](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "Settings")
 
 12. Click the **Global Settings** tab, and then, next to **Federated Authentication**, click **edit**.
 
