@@ -177,34 +177,7 @@
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
 ## Develop
-### Process device-to-cloud messages
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-### [Upload files from devices](iot-hub-csharp-csharp-file-upload.md)
-### Send cloud-to-device messages
-#### [.NET](iot-hub-csharp-csharp-c2d.md)
-#### [Java](iot-hub-java-java-c2d.md)
-#### [Node.js](iot-hub-node-node-c2d.md)
-### Get started with device twins
-#### [Node.js back-end app/Node.js device app](iot-hub-node-node-twin-getstarted.md)
-#### [.NET back-end app/Node.js device app](iot-hub-csharp-node-twin-getstarted.md)
-### Use direct methods
-#### [Node.js back-end app/Node.js device app](iot-hub-node-node-direct-methods.md)
-#### [.NET back-end app/Node.js device app](iot-hub-csharp-node-direct-methods.md)
-### Get started with device management
-#### [Node.js back-end app/Node.js device app](iot-hub-node-node-device-management-get-started.md)
-#### [.NET back-end app/Node.js device app](iot-hub-csharp-node-device-management-get-started.md)
-### How to use twin properties
-#### [Node.js back-end app/Node.js device app](iot-hub-node-node-twin-how-to-configure.md)
-#### [.NET back-end app/Node.js device app](iot-hub-csharp-node-twin-how-to-configure.md)
-### Use device jobs to update device firmware
-#### [Node.js back-end app/Node.js device app](iot-hub-node-node-firmware-update.md)
-#### [.NET back-end app/Node.js device app](iot-hub-csharp-node-firmware-update.md)
-### Schedule and broadcast jobs
-#### [Node.js back-end app/Node.js device app](iot-hub-node-node-schedule-jobs.md)
-#### [.NET back-end app/Node.js device app](iot-hub-csharp-node-schedule-jobs.md)
-### Developer guide
-#### [Introduction](iot-hub-devguide.md)
+### Developer guide (iot-hub-devguide.md)
 #### [Send and receive messages](iot-hub-devguide-messaging.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
 #### [Cloud-to-device feature guide](iot-hub-devguide-c2d-guidance.md)
@@ -220,7 +193,32 @@
 #### [Pricing examples](iot-hub-devguide-pricing.md)
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
-#### [Glossary](iot-hub-devguide-glossary.md)
+#### [Glossary](iot-hub-devguide-glossary.md)### Process device-to-cloud messages
+#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
+#### [Java](iot-hub-java-java-process-d2c.md)
+### Send cloud-to-device messages
+#### [.NET](iot-hub-csharp-csharp-c2d.md)
+#### [Java](iot-hub-java-java-c2d.md)
+#### [Node.js](iot-hub-node-node-c2d.md)
+### [Upload files from devices](iot-hub-csharp-csharp-file-upload.md)
+### Get started with device twins
+#### [Node back end/Node device](iot-hub-node-node-twin-getstarted.md)
+#### [.NET back end/Node device](iot-hub-csharp-node-twin-getstarted.md)
+### Use direct methods
+#### [Node back end/Node device](iot-hub-node-node-direct-methods.md)
+#### [.NET back end/Node device](iot-hub-csharp-node-direct-methods.md)
+### Get started with device management
+#### [Node back end/Node device](iot-hub-node-node-device-management-get-started.md)
+#### [.NET back end/Node device](iot-hub-csharp-node-device-management-get-started.md)
+### How to use twin properties
+#### [Node back end/Node device](iot-hub-node-node-twin-how-to-configure.md)
+#### [.NET back end/Node device](iot-hub-csharp-node-twin-how-to-configure.md)
+### Use device jobs to update device firmware
+#### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
+#### [.NET back end/Node device](iot-hub-csharp-node-firmware-update.md)
+### Schedule and broadcast jobs
+#### [Node back end/Node device](iot-hub-node-node-schedule-jobs.md)
+#### [.NET back end/Node device](iot-hub-csharp-node-schedule-jobs.md)
 ## Manage
 ### Create an IoT hub 
 #### [Use the portal](iot-hub-create-through-portal.md)
@@ -240,10 +238,10 @@
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 ## Gateway SDK
-### Simulate a device with the Gateway SDK
+### Simulate a device
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Send messages from a real device with the Gateway SDK](iot-hub-gateway-sdk-physical-device.md)
+### [Use a real device](iot-hub-gateway-sdk-physical-device.md)
 
 # Reference
 ## [Azure CLI 2.0 Preview](/cli/azure/iot)
