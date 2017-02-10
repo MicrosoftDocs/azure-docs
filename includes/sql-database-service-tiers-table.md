@@ -31,11 +31,11 @@ sql-database-service-tiers.md
 | **Service tier** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | --- |---:|---:|---:|---:|---:|---:|
 | Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Max database size* | 500 GB | 500 GB | 500  GB | 500 GB | 4 TB | 4 TB |
+| Max database size* | 500 GB | 500 GB | 500  GB | 500 GB | 1 TB | 1 TB |
 | Max in-memory OLTP storage | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
 | Max concurrent workers | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Max concurrent logins | 200 | 400| 800| 1600| 2400| 6400 |
 | Max concurrent sessions | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* Max database size refers to the maximum size of the data files and does not include the space used by log files. Available now for public preview, customers using P11 and P15 databases can now use up to 4 TB of storage at no additional charge.
+\* Max database size refers to the maximum size of the data files and does not include the space used by log files.

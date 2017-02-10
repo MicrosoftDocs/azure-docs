@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/08/2017
 ms.author: dobett
 
 ---
@@ -42,7 +42,7 @@ To complete this tutorial, you need the following:
 2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
 3. In NuGet Package Manager, check **Include prerelease**, and search for **Microsoft.Azure.Management.ResourceManager**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
-5. In Program.cs, replace the existing **using** statements with the following:
+5. In Program.cs, replace the existing **using** statements with the following code:
    
     ```
     using System;
@@ -190,7 +190,7 @@ Now you have deployed an IoT hub using an Azure Resource Manager template with a
 * Read about the capabilities of the [IoT Hub resource provider REST API][lnk-rest-api].
 * Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
 
-To learn more about developing for IoT Hub, see the following:
+To learn more about developing for IoT Hub, see the following articles:
 
 * [Introduction to C SDK][lnk-c-sdk]
 * [Azure IoT SDKs][lnk-sdks]
