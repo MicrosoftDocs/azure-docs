@@ -171,30 +171,29 @@ The following fields are supported:
 * `location`
 * `tags`
 * `tags.*` 
-* property alias 
+* property aliases
 
-### Property aliases
-Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and SKUs. It works across all API versions where the property exists. 
+  You use property aliases to access specific properties for a resource type.  
 
-Currently, the supported aliases are:
+  Currently, the supported aliases are:
 
-* Microsoft.CDN/profiles/sku.name
-* Microsoft.Compute/virtualMachines/imageOffer
-* Microsoft.Compute/virtualMachines/imagePublisher
-* Microsoft.Compute/virtualMachines/sku.name
-* Microsoft.Compute/virtualMachines/imageSku 
-* Microsoft.Compute/virtualMachines/imageVersion
-* Microsoft.SQL/servers/databases/edition
-* Microsoft.SQL/servers/databases/elasticPoolName
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-* Microsoft.SQL/servers/elasticPools/dtu
-* Microsoft.SQL/servers/elasticPools/edition
-* Microsoft.SQL/servers/version
-* Microsoft.Storage/storageAccounts/accessTier
-* Microsoft.Storage/storageAccounts/enableBlobEncryption
-* Microsoft.Storage/storageAccounts/sku.name
-* Microsoft.Web/serverFarms/sku.name
+  * Microsoft.CDN/profiles/sku.name
+  * Microsoft.Compute/virtualMachines/imageOffer
+  * Microsoft.Compute/virtualMachines/imagePublisher
+  * Microsoft.Compute/virtualMachines/sku.name
+  * Microsoft.Compute/virtualMachines/imageSku 
+  * Microsoft.Compute/virtualMachines/imageVersion
+  * Microsoft.SQL/servers/databases/edition
+  * Microsoft.SQL/servers/databases/elasticPoolName
+  * Microsoft.SQL/servers/databases/requestedServiceObjectiveId
+  * Microsoft.SQL/servers/databases/requestedServiceObjectiveName
+  * Microsoft.SQL/servers/elasticPools/dtu
+  * Microsoft.SQL/servers/elasticPools/edition
+  * Microsoft.SQL/servers/version
+  * Microsoft.Storage/storageAccounts/accessTier
+  * Microsoft.Storage/storageAccounts/enableBlobEncryption
+  * Microsoft.Storage/storageAccounts/sku.name
+  * Microsoft.Web/serverFarms/sku.name
 
 ### Effect
 Policy supports three types of effect - **deny**, **audit**, and **append**. 
@@ -218,12 +217,6 @@ For **append**, you must provide the following details:
 The value can be either a string or a JSON format object. 
 
 ## Common examples
-
-For examples of tag polices, see [Apply resource policies for tags](resource-manager-policy-tags.md).
-
-For examples of storage policies, see [Apply resource policies to storage accounts](resource-manager-policy-storage.md).
-
-For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ### Allowed resource locations
 To specify which locations are allowed, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
@@ -309,6 +302,9 @@ The following example shows the use of wildcard, which is supported by the **lik
 ```
 
 ## Next steps
+* For examples of tag polices, see [Apply resource policies for tags](resource-manager-policy-tags.md).
+* For examples of storage policies, see [Apply resource policies to storage accounts](resource-manager-policy-storage.md).
+* For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 * The policy schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 

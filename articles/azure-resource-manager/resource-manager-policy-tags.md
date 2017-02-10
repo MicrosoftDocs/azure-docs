@@ -35,7 +35,7 @@ You accomplish this requirement by applying to a resource group the following th
 
 * [Append tag](#append-tag) 
 * [Append tag with other tags](#append-tag-with-other-tags)
-* [Require tag and value](#require-tag-and-value)) . 
+* [Require tag and value](#require-tag-and-value)
 
 ### Append tag
 
