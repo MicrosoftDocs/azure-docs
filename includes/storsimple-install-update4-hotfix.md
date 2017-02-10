@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/07/17-->
+<!--author=alkohli last changed: 02/10/17-->
 
 #### To download hotfixes
 
@@ -89,7 +89,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     You should see the following versions:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17818`
+   *  `HcsSoftwareVersion: 6.3.9600.17820`
    
     If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
      
@@ -124,7 +124,7 @@ To install the disk firmware updates, follow the instructions below.
    
         -----------------------MAINTENANCE MODE------------------------
         Microsoft Azure StorSimple Appliance Model 8600
-        Name: Update4-8100-mystorsimple
+        Name: Update4-8600-mystorsimple
         Copyright (C) 2014 Microsoft Corporation. All rights reserved.
         You are connected to Controller0 - Passive
         ---------------------------------------------------------------
@@ -163,8 +163,8 @@ To install the disk firmware updates, follow the instructions below.
    
        -----------------------MAINTENANCE MODE------------------------
        Microsoft Azure StorSimple Appliance Model 8600
-       Name: Update4-8100-mystorsimple
-       Software Version: 6.3.9600.17818
+       Name: Update4-8600-mystorsimple
+       Software Version: 6.3.9600.17820
        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
        You are connected to Controller1
        ---------------------------------------------------------------
