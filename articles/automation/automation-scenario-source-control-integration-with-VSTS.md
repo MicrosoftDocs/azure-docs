@@ -36,12 +36,11 @@ Sync-VSTSGit | Runbook will import runbooks or configurations from VSTS under Gi
 Variable | Description|
 -----------|------------|
 VSToken | Secure variable asset you will create that contains the VSTS personal access token. You can learn how to create a VSTS personal access token on the [VSTS authentication page](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview). 
-## Step 1:
+## Installing and configuring this scenario
 Create a [personal access token](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in VSTS that you will use to sync the runbooks or configurations into your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png)
-## Step 2:
-Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks into the Automation account. You can name this VSToken. 
+1. Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks into the Automation account. You can name this VSToken. 
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 ## Step 3:
@@ -60,7 +59,7 @@ Integrating with VSTS (Sync-VSTS.ps1) will take the following parameters.
 Parameter | Description| 
 --------|------------|
 WebhookData | This will contain the checkin information sent from the VSTS service hook. You should leave this parameter blank.| 
-ResourceGroup | This the name of the resource group that the automation account is in.|
+ResourceGroup | This is the name of the resource group that the automation account is in.|
 AutomationAccountName | The name of the automation account that will sync with VSTS.|
 VSFolder | The name of the folder in VSTS where the runbooks and configurations exist.|
 VSAccount | The name of the Visual Studio Team Services account.| 
@@ -92,3 +91,5 @@ You should now be able to do all checkins of your runbooks and configurations in
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
 If you run this runbook manually without being triggered by VSTS, you can leave the webhookdata parameter empty and it will do a full sync from the VSTS folder specified.
+
+If you wish to uninstall the scenario, remove the service hook from VSTS, delete the runbook and the VSToken variable.
