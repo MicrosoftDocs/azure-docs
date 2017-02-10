@@ -1,12 +1,12 @@
 ---
-title: Learn to back up files and folders from Windows to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Docs
-description: Learn how to backup Windows Server data by creating a vault, installing the Recovery Services agent, and backing up your files and folders to Azure.
+title: Back up files and folders from Windows to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Docs
+description: Learn to backup Windows files and folders to Azure in a Resource Manager deployment.
 services: backup
 documentationcenter: ''
 author: markgalioto
 manager: carmonm
 editor: ''
-keywords: how to backup; how to back up
+keywords: how to backup; how to back up; backup files and folders
 
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
@@ -14,12 +14,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/9/2017
+ms.date: 2/10/2017
 ms.author: markgal;
 
 ---
-# First look: back up files and folders with Azure Backup using the Resource Manager deployment model
-This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using Resource Manager. It's a tutorial intended to walk you through the basics. If you want to get started using Azure Backup, you're in the right place.
+# First look: back up files and folders in Resource Manager deployment
+This article explains how to back up your Windows Server (or Windows computer) files and folders to Azure using a Resource Manager deployment. It's a tutorial intended to walk you through the basics. If you want to get started using Azure Backup, you're in the right place.
 
 If you want to know more about Azure Backup, read this [overview](backup-introduction-to-azure-backup.md).
 
