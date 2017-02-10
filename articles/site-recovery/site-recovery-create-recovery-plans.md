@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create recovery plans | Microsoft Docs
 description: Create recovery plans with Azure Site Recovery to fail over and recover groups of virtual machines and physical servers.
 services: site-recovery
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: raynew
 
 ---

@@ -68,7 +68,7 @@ ms.author: sedusch
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
@@ -229,7 +229,7 @@ ms.author: sedusch
 [planning-guide-microsoft-azure-networking]:virtual-machines-windows-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-windows-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
 
-[powershell-install-configure]:../powershell-install-configure.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../azure-resource-manager/resource-group-authoring-templates.md
 [resource-group-overview]:../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
@@ -275,11 +275,11 @@ ms.author: sedusch
 [virtual-machines-manage-availability]:virtual-machines-windows-manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:virtual-machines-windows-sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./windows/sql/virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]:./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sql-server-performance-best-practices]:./windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-hero-tutorial.md
 [virtual-machines-windows-create-vm-specialized]:virtual-machines-windows-create-vm-specialized.md
@@ -772,6 +772,8 @@ These settings must also be valid for the LocalSystem account to access the Inte
 4. Open the Connections tab and click on LAN settings
 5. Disable "Automatically detect settings"
 6. Enable "Use a proxy server for your LAN" and enter the proxy address and port
+7. Click on Advanced
+8. Add IP address 168.63.129.16 to the exceptions list
 
 #### Linux
 Configure the correct proxy in the configuration file of the Microsoft Azure Guest Agent, which is located at /etc/waagent.conf. The following parameters must be set:

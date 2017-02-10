@@ -1,6 +1,6 @@
 ---
-title: Upload files from devices using IoT Hub | Microsoft Docs
-description: Follow this tutorial to learn how to upload files from devices using Azure IoT Hub with C#.
+title: Upload files from devices using Azure IoT Hub | Microsoft Docs
+description: How to upload files from a device to the cloud using Azure IoT device SDK for .NET. Uploaded files are stored in an Azure storage blob container.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: elioda
 
 ---
-# Tutorial: How to upload files from devices to the cloud with IoT Hub
+# Upload files from devices to the cloud with IoT Hub
 ## Introduction
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub, and the [Process Device-to-Cloud messages] tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. Examples include large files that contain images, videos, vibration data sampled at high frequency, or that contain some form of preprocessed data. These files are typically batch processed in the cloud using tools such as [Azure Data Factory] or the [Hadoop] stack. When file uploads from a device are preferred to sending events, you can still use IoT Hub security and reliability functionality.
 

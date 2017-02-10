@@ -1,9 +1,9 @@
 ---
-title: Azure Batch diagnostic logging | Microsoft Docs
+title: Enable diagnostic logging for Batch events - Azure | Microsoft Docs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 services: batch
 documentationcenter: ''
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 10/12/2016
-ms.author: marsma
+ms.date: 02/01/2017
+ms.author: tamram
 
 ---
 # Azure Batch diagnostic logging
@@ -90,7 +90,7 @@ In addition to storing diagnostic log events in an Azure Storage account, you ca
 * [Stream Azure Diagnostic Logs to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
   
   Stream Batch diagnostic events to the highly scalable data ingress service, Event Hubs. Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider.
-* [Analyze Azure diagnostic logs using Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* [Analyze Azure diagnostic logs using Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
   Send your diagnostic logs to Log Analytics where you can analyze them in the Operations Management Suite (OMS) portal, or export them for analysis in Power BI or Excel.
 

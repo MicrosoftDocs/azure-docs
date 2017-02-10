@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use Blitline for image processing - Azure feature guide
 description: Learn how to use the Blitline service to process images within an Azure application.
 services: ''

@@ -24,7 +24,7 @@ to create new Linux VMs, configured with the Docker daemon, running in Azure.
 
 **Note:** 
 
-* *This article depends on docker-machine version 0.7.0 or greater*
+* *This article depends on docker-machine version 0.9.0-rc2 or greater*
 * *Windows Containers will be supported through docker-machine in the near future*
 
 ## Create VMs with Docker Machine
@@ -44,10 +44,15 @@ or the [Azure Portal](https://portal.azure.com) to retrieve your Azure Subscript
 Type `docker-machine create --driver azure` to see the options and their default values.
 You can also see the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/) for more info. 
 
-The following example relies upon the default values, but it does optionally open port 80 on the VM for internet access. 
+The following example relies upon the [default values](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), but it does optionally set these values: 
+
+* azure-dns for the name associated with the public IP and certificates generated.  The VM can then safely stop, release the dynamic IP, and give the ability to reconnect after vm starts again with a new IP.  The name prefix needs to be unique for that region  UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* open port 80 on the VM for outbound internet access
+* size of the VM to utilize faster premium storage
+* premium storage used for the vm disk
 
 ```
-docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-open-port 80 mydockerhost
+docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-dns <Your UNIQUE_DNSNAME_PREFIX> --azure-open-port 80 --azure-size Standard_DS1_v2 --azure-storage-type "Premium_LRS" mydockerhost 
 ```
 
 ## Choose a docker host with docker-machine

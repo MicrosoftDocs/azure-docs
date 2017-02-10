@@ -9,12 +9,13 @@ editor: ''
 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: carlrab; jognanay
 
 ---
 # Azure SQL Database features
@@ -65,7 +66,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Change tracking | [Supported](https://msdn.microsoft.com/library/bb933875.aspx) | [Supported](https://msdn.microsoft.com/library/bb933875.aspx) |
 | Collation statements | [Supported](https://msdn.microsoft.com/library/ff848763.aspx) | [Supported](https://msdn.microsoft.com/library/ff848763.aspx) |
 | Columnstore indexes | [Supported](https://msdn.microsoft.com/library/gg492088.aspx) | [Premium edition only](https://msdn.microsoft.com/library/gg492088.aspx) |
-| Common language runtime (CLR) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) |
+| Common language runtime (CLR) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) | Not supported |
 | Contained databases | [Supported](https://msdn.microsoft.com/library/ff929071.aspx) | Built-in |
 | Contained users | [Supported](https://msdn.microsoft.com/library/ff929188.aspx) | [Supported](sql-database-manage-logins.md#non-administrator-users) |
 | Control of flow language keywords | [Supported](https://msdn.microsoft.com/library/ms174290.aspx) | [Supported](https://msdn.microsoft.com/library/ms174290.aspx) |
@@ -86,7 +87,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | DML statements | [Supported](https://msdn.microsoft.com/library/ff848766.aspx) | [Most](https://msdn.microsoft.com/library/ff848766.aspx) |
 | DML triggers | [Supported](https://msdn.microsoft.com/library/ms178110.aspx) | [Supported](https://msdn.microsoft.com/library/ms178110.aspx) |
 | DMVs | [All](https://msdn.microsoft.com/library/ms188754.aspx) | [Some](https://msdn.microsoft.com/library/ms188754.aspx) |
-| Elastic database pools | Not supported | [Supported](sql-database-elastic-pool.md) |
+| elastic pools | Not supported | [Supported](sql-database-elastic-pool.md) |
 | Elastic jobs | Not supported - see [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | [Supported](sql-database-elastic-jobs-getting-started.md) | 
 | Elastic queries | Not supported - see [Cross-database queries](https://msdn.microsoft.com/library/dn584627.aspx) | [Supported](sql-database-elastic-query-overview.md) |
 | Event notifications | [Supported](https://msdn.microsoft.com/library/ms186376.aspx) | [Supported](sql-database-insights-alerts-portal.md) |
@@ -119,7 +120,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Security statements | [Supported](https://msdn.microsoft.com/library/ff848791.aspx) | [Some](https://msdn.microsoft.com/library/ff848791.aspx) |
 | Semantic search | [Supported](https://msdn.microsoft.com/library/gg492075.aspx) | Not supported |
 | Sequence numbers | [Supported](https://msdn.microsoft.com/library/ff878058.aspx) | [Supported](https://msdn.microsoft.com/library/ff878058.aspx) |
-| Service Broker | [Supported](https://msdn.microsoft.com/library/bb522893.aspx) | [Inside database only](https://msdn.microsoft.com/library/bb522893.aspx) |
+| Service Broker | [Supported](https://msdn.microsoft.com/library/bb522893.aspx) | Not supported |
 | Server configuration options | [Supported](https://msdn.microsoft.com/library/ms189631.aspx) | Not supported - see [Database configuration options](https://msdn.microsoft.com/library/mt629158.aspx) |
 | Set statements | [Supported](https://msdn.microsoft.com/library/ms190356.aspx) | [Most](https://msdn.microsoft.com/library/ms190356.aspx) 
 | Spatial | [Supported](https://msdn.microsoft.com/library/bb933790.aspx) | [Supported](https://msdn.microsoft.com/library/bb933790.aspx) |
@@ -128,7 +129,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | SQL Server Integration Services (SSIS) | [Supported](https://msdn.microsoft.com/library/ms141026.aspx) | Not supported - see [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Supported](https://msdn.microsoft.com/library/hh245198.aspx) | [Supported](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Supported](https://msdn.microsoft.com/library/ms181091.aspx) | Not supported - see [Extended events](https://msdn.microsoft.com/library/ms181091.aspx) |
-| SQL Server Replication | [Supported](https://msdn.microsoft.com/library/ms151198.aspx) | [Transactional replication subscriber only](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| SQL Server Replication | [Supported](https://msdn.microsoft.com/library/ms151198.aspx) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
 | SQL Server Reporting Services (SSRS) | [Supported](https://msdn.microsoft.com/library/ms159106.aspx) | Not supported |
 | Stored procedures | [Supported](https://msdn.microsoft.com/library/ms190782.aspx) | [Supported](https://msdn.microsoft.com/library/ms190782.aspx) |
 | System stored functions | [Supported](https://msdn.microsoft.com/library/ff848780.aspx) | [Some](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -152,5 +153,5 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 - For an overview of Azure SQL databases, see [SQL Database overview](sql-database-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
-- For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+- For an overview of security, see [Azure SQL Database Security Overview](sql-database-security-overview.md).
 - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).

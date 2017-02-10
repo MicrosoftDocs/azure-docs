@@ -1,5 +1,5 @@
 ---
-title: Download Media Assets
+title: Download Media Services assets to your computer - Azure | Microsoft Docs
 description: Learn about to download assets to your computer. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---

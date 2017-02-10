@@ -4,16 +4,15 @@ description: You can use the Capacity Planning solution in Log Analytics to help
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -24,8 +23,8 @@ For example, a projection might identify when additional processor cores or addi
 
 > [!NOTE]
 > The Capacity Management solution is not available to be added to workspaces. Customers who have the capacity management solution installed can continue to use the solution.  
-> 
-> 
+>
+>
 
 A replacement Capacity and Performance solution is in private preview. This replacement solution is intended to address the following customer reported challenges with the original Capacity Management solution:
 
@@ -170,4 +169,3 @@ By using the projection tool, you can view historical trends for your disk space
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed capacity management data.
-

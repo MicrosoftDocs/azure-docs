@@ -1,4 +1,4 @@
-﻿---
+---
 title: How Azure subscriptions are associated with Azure Active Directory | Microsoft Docs
 description: Signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory.
 services: active-directory
@@ -113,7 +113,7 @@ To manage both of the directories in the Azure classic portal, complete these st
 7. Sign back in to the Azure classic portal using your Microsoft account. Both directories will appear in the Active Directory extension.
 
 ## Next Steps
-* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 * For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
 * [Sign up for Azure as an organization](sign-up-organization.md)

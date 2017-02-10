@@ -1,10 +1,10 @@
-﻿---
-title: Introduction to ExpressRoute | Microsoft Docs
-description: This page provides an overview of the ExpressRoute service, including how an ExpressRoute connection works.
+---
+title: 'ExpressRoute Overview: Extend your on-premises network to Azure over a dedicated private connection | Microsoft Docs'
+description: This ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a dedicated private connection.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 02/09/2017
 ms.author: cherylmc
 
 ---
 # ExpressRoute technical overview
 Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
 
-![](./media/expressroute-introduction/expressroute-basic.png)
+![](./media/expressroute-introduction/expressroute-connection-overview-diagram.png)
 
 **Key benefits include:**
 
@@ -32,7 +32,7 @@ Microsoft Azure ExpressRoute lets you extend your on-premises networks into the 
 * Connection uptime [SLA](https://azure.microsoft.com/support/legal/sla/).
 * QoS and support for multiple classes of service for special applications, such as Skype for Business.
 
-See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
+For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
 ## <a name="howtoconnect"></a>How can I connect my network to Microsoft using ExpressRoute?
 You can create a connection between your on-premises network and the Microsoft cloud in three different ways:
@@ -48,7 +48,7 @@ You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically 
 
 Connectivity providers can offer one or more connectivity models. You can work with your connectivity provider to pick the model that works best for you.
 
-![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
+![](./media/expressroute-introduction/expressroute-connectivity-models-diagram.png)
 
 ## ExpressRoute features
 ExpressRoute supports the following features and capabilities: 
@@ -113,9 +113,8 @@ You can pick a billing model that works best for you. Choose between the billing
 * Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 * Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
-* Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md).
+* Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).
 * Configure your ExpressRoute connection.
-  * [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-  * [Configure routing](expressroute-howto-routing-classic.md)
-  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
-
+  * [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Configure routing](expressroute-howto-routing-portal-resource-manager.md)
+  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)

@@ -42,7 +42,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 
 Follow the steps below to achieve the scenario outlined in this article:
 
-1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 2. Create a resource group using the following settings:
 
     ```powershell

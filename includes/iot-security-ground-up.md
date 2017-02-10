@@ -28,7 +28,7 @@ The [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) within the [
 
 To best communicate security and privacy features built into the Azure IoT Suite, we’ve broken down the suite into the three primary security areas. 
 
-![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig2.png)
+![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### Secure device provisioning and authentication
 The Azure IoT Suite secures devices while they are out in the field by providing a unique identity key for each device, which can be used by the IoT infrastructure to communicate with the device while it is in operation. The process is quick and easy to setup. The generated key with a user-selected device ID forms the basis of a token used in all communication between the device and the Azure IoT Hub.
@@ -79,7 +79,7 @@ Each Azure IoT Suite pre-configured solution creates instances of Azure services
 * [**Azure DocumentDB**](https://azure.microsoft.com/services/documentdb/): A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. DocumentDB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Real-time stream processing in the cloud that enables you to rapidly develop and deploy a low-cost analytics solution to uncover real-time insights from devices, sensors, infrastructure, and applications. The data from this fully-managed service can scale to any volume while still achieving high throughput, low latency, and resiliency.
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as 
-  a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE—.NET, NodeJS, PHP, Python, or Java—to build web apps and APIs faster than ever.
+  a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE—.NET, Node.js, PHP, Python, or Java—to build web apps and APIs faster than ever.
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): The Logic Apps feature of Azure App Service helps integrate your IoT solution to your existing line of business systems and automate workflow processes. Logic Apps enables developers to design workflows that starts from a trigger and then execute a series of steps—rules and actions that use powerful connectors to integrate with your business processes. Logic Apps offers out-of-the-box connectivity to a vast ecosystem of SaaS, cloud-based, and on-premises applications.
 * [**Azure blob storage**](https://azure.microsoft.com/services/storage/): Reliable, economical cloud storage for the data that your devices send to the cloud.
 

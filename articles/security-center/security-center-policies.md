@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/12/2017
 ms.author: yurid
 
 ---
@@ -47,7 +47,7 @@ You can configure security policies for each subscription or resource group. To 
    > We recommend that you turn on data collection for each of your subscriptions to ensure that security monitoring is available for all existing and new VMs. Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the **Health** and **Recommendations** views. You can also enable data collection for only the subscription or for select VMs. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
    > 
    > 
-5. If your storage account is not configured yet, you might see a warning like the one in the following screenshot when you open **Security Policy**:
+5. If your storage account is not configured yet, you might see a warning like the one in the following screenshot when you open **Security Policy**. If you do not choose a storage account for each region, it is created for you.
    
     ![Storage selection](./media/security-center-policies/security-center-policies-fig2.png)
 6. If you see this warning, click this option and select the region as shown in the following screenshot:

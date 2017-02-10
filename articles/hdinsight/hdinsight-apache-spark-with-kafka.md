@@ -1,5 +1,5 @@
 ---
-title: Use Apache Spark with Kafka on HDInsight | Microsoft Docs
+title: Use Apache Spark with Kafka on Azure HDInsight | Microsoft Docs
 description: 'Learn how to use Spark on HDInsight to read and write data to a Kafka on HDInsight cluster. This example uses Scala in a Jupyter Notebook to write random data to Kafka on HDInsight, then read it back using Spark streaming.'
 services: hdinsight
 documentationcenter: ''
@@ -52,7 +52,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet.json**.
 

@@ -35,20 +35,20 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 | SKU Family | ACU/Core |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
+| [A0](#a-series) |50 |
+| [A1-A4](#a-series) |100 |
+| [A5-A7](#a-series) |100 |
+| [A1_v2-A8_v2](#av2-series) |100 |
+| [A2m_v2-A8m_v2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [DS1-14](#ds-series) |160 |
-| [DS1-15v2](#dsv2-series) |210-250* |
+| [D1-D14](#d-series) |160 |
+| [D1_v2-D15_v2](#dv2-series) |210 - 250* |
+| [DS1-DS14](#ds-series) |160 |
+| [DS1_v2-DS15_v2](#dsv2-series) |210-250* |
 | [F1-F16](#f-series) |210-250* |
 | [F1s-F16s](#fs-series) |210-250* |
-| [G1-5](#g-series) |180 - 240* |
-| [GS1-5](#gs-series) |180 - 240* |
+| [G1-G5](#g-series) |180 - 240* |
+| [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
@@ -128,9 +128,11 @@ For information and considerations about using these sizes, see [About the H-ser
 | Standard_D12_v2 |4 |28 |200 |8 |8x500 |4 / high |
 | Standard_D13_v2 |8 |56 |400 |16 |16x500 |8 / high |
 | Standard_D14_v2 |16 |112 |800 |32 |32x500 |8 / extremely high |
-| Standard_D15_v2 |20 |140 |1,000 |40 |40x500 |8 / extremely high* |
+| Standard_D15_v2** |20 |140 |1,000 |40 |40x500 |8 / extremely high* |
 
 *In some regions, accelerated networking is available for the Standard_D15_v2 size. For more information about usage and availability, see [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) and [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+
+**Instance is isolated to hardware dedicated to a single customer.
 
 <br>
 
@@ -164,7 +166,7 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 | Standard_DS12_v2 |4 |28 |56 |8 |16,000 / 128 (144) |12,800 / 192 |4 high |
 | Standard_DS13_v2 |8 |56 |112 |16 |32,000 / 256 (288) |25,600 / 384 |8 high |
 | Standard_DS14_v2 |16 |112 |224 |32 |64,000 / 512 (576) |51,200 / 768 |8 extremely high |
-| Standard_DS15_v2 |20 |140 |280 |40 |80,000 / 640 (720) |64,000 / 960 |8 extremely high** |
+| Standard_DS15_v2*** |20 |140 |280 |40 |80,000 / 640 (720) |64,000 / 960 |8 extremely high** |
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
@@ -172,6 +174,7 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 **In some regions, accelerated networking is available for the Standard_DS15_v2 size. For more information about usage and availability, see [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) and [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
+***Instance is isolated to hardware dedicated to a single customer.
 <br>
 
 ## F-series
@@ -207,8 +210,9 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 | Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / high |
 | Standard_G3 |8 |112 |1,536 |16 |16 x 500 |4 / very high |
 | Standard_G4 |16 |224 |3,072 |32 |32 x 500 |8 / extremely high |
-| Standard_G5 |32 |448 |6,144 |64 |64 x 500 |8 / extremely high |
+| Standard_G5* |32 |448 |6,144 |64 |64 x 500 |8 / extremely high |
 
+*Instance is isolated to hardware dedicated to a single customer.
 <br>
 
 ## GS-series*
@@ -218,18 +222,21 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 | Standard_GS2 |4 |56 |112 |8 |20,000 / 200 (528) |10,000 / 250 |2 / High |
 | Standard_GS3 |8 |112 |224 |16 |40,000 / 400 (1,056) |20,000 / 500 |4 / very high |
 | Standard_GS4 |16 |224 |448 |32 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / extremely high |
-| Standard_GS5 |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / extremely high |
+| Standard_GS5** |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / extremely high |
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 *The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). 
 
+**Instance is isolated to hardware dedicated to a single customer.
 <br>
 
 ## H-series
 Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD based storage. 
 
 In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
+
+For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -244,26 +251,43 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 
 <br>
 
-## N-series (preview)
-The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute intensive and network intensive applications, algorithms, including CUDA and OpenCL based applications and simulations. 
+## N-series
+The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations. 
 
 ### NV instances
-The NV instances are powered by NVIDIA’s Tesla M60 GPUs and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264.
+The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264. 
+
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 |1 x NVIDIA M60 |
-| Standard_NV12 |12 |112 |680 |2 x NVIDIA M60 |
-| Standard_NV24 |24 |224 |1440 |4 x NVIDIA M60 |
+| Standard_NV6 |6 |56 |380 | 1 |
+| Standard_NV12 |12 |112 |680 | 2 |
+| Standard_NV24 |24 |224 |1440 | 4 |
+
+1 GPU = one-half M60 card.
+
+**Supported operating systems**
+
+* Windows Server 2016, Windows Server 2012 R2 - see [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
 
 ### NC instances
-The NC instances are powered by NVIDIA’s Tesla K80. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance. 
+The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance.
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 |380 |1 x NVIDIA K80 |
-| Standard_NC12 |12 |112 |680 |2 x NVIDIA K80 |
-| Standard_NC24 |24 |224 |1440 |4 x NVIDIA K80 |
+| Standard_NC6 |6 |56 | 380 | 1 |
+| Standard_NC12 |12 |112 | 680 | 2 |
+| Standard_NC24 |24 |224 | 1440 | 4 |
+| Standard_NC24r* |24 |224 | 1440 | 4 |
+
+1 GPU = one-half K80 card.
+
+*RDMA capable
+
+**Supported operating systems**
+
+* Windows Server 2016, Windows Server 2012 R2 - see [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
+* Ubuntu 16.04 LTS - see [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
 
 <br>
 

@@ -133,7 +133,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     a. Click **Enable SAML**. 
    
-    b. In the Azure classic portal, on the **Configure single sign-on at Namely** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider DDO url** textbox. 
+    b. In the Azure classic portal, on the **Configure single sign-on at Namely** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider SSO url** textbox. 
    
     c. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Identity provider certificate** textbox.    
    

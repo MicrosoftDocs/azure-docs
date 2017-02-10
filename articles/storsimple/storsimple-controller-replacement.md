@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replace a StorSimple device controller | Microsoft Docs
 description: Explains how to remove and replace one or both controller modules on your StorSimple device.
 services: storsimple
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 
 ---
@@ -36,7 +36,7 @@ The following table shows the supported controller replacement scenarios.
 | Case | Replacement scenario | Applicable procedure |
 |:--- |:--- |:--- |
 | 1 |One controller is in a failed state, the other controller is healthy and active. |[Single controller replacement](#replace-a-single-controller), which describes the [logic behind a single controller replacement](#single-controller-replacement-logic), as well as the [replacement steps](#single-controller-replacement-steps). |
-| 2 |Both the controllers have failed and require replacement. The chassis, disks, and.disk enclosure are healthy. |[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps). |
+| 2 |Both the controllers have failed and require replacement. The chassis, disks, and disk enclosure are healthy. |[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps). |
 | 3 |Controllers from the same device or from different devices are swapped. The chassis, disks, and disk enclosures are healthy. |A slot mismatch alert message will appear. |
 | 4 |One controller is missing and the other controller fails. |[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps). |
 | 5 |One or both controllers have failed. You cannot access the device through the serial console or Windows PowerShell remoting. |[Contact Microsoft Support](storsimple-contact-microsoft-support.md) for a manual controller replacement procedure. |

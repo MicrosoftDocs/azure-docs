@@ -1,5 +1,5 @@
 ---
-title: Use Azure Event Hubs with Apache Spark in HDInsight to process streaming data | Microsoft Docs
+title: Stream data from Event Hubs with Apache Spark in Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to send a data stream to Azure Event Hub and then receive those events in Spark using a scala application
 services: hdinsight
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---
-# Spark Streaming: Process events from Azure Event Hubs with Apache Spark cluster on HDInsight Linux
+# Spark Streaming: Process events from Azure Event Hubs with Apache Spark cluster on HDInsight
 Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications. Data can be ingested from many sources. In this article we use Azure Event Hubs to ingest data. Event Hubs is a highly scalable ingestion system that can intake millions of events per second. 
 
 In this tutorial, you will learn how to create an Azure Event Hub, how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using a Spark application written in Scala. This application consumes the data streamed through Event Hubs and routes it to different outputs (Azure Storage Blob, Hive table, and SQL table).
@@ -33,7 +33,7 @@ In this tutorial, you will learn how to create an Azure Event Hub, how to ingest
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 * Microsoft JDBC driver for SQL Server, v4.1 or later. This is required to write the event data into a SQL Server database. You can install it from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx).

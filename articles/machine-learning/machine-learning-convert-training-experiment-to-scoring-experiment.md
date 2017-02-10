@@ -1,5 +1,5 @@
 ---
-title: Convert a Machine Learning training experiment to a predictive experiment | Microsoft Docs
+title: Convert to a predictive experiment in Azure Machine Learning | Microsoft Docs
 description: How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a predictive experiment which can be deployed as a web service.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/12/2016
 ms.author: garye
 
 ---
@@ -53,8 +53,8 @@ When you convert this training experiment to a predictive experiment, some of th
 * **Prep** - Depending on the data that will be submitted for scoring, these modules may or may not be necessary to process the incoming data.
   
     For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a [Clean Missing Data][clean-missing-data] module was included to deal with missing values, and a [Select Columns in Dataset][select-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Select Columns in Dataset][select-columns] module helps define the set of features being scored, that module needs to remain.
-* **Train** - Once the model has been successfully trained, you save it as a single trained model module. You then replace these individual modules with the saved trained model.
-* **Score** - In this example, the Split module is used to divide the data stream into a set of test data and training data. In the predictive experiment this is not needed and can be removed. Similarly, the 2nd [Score Model][score-model] module and the [Evaluate Model][evaluate-model] module are used to compare results from the test data, so these modules are also not needed in the predictive experiment. The remaining [Score Model][score-model] module, however, is needed to return a score result through the web service.
+* **Train** - These modules are used to train the model. When you click **Set Up Web Service**, these modules are replaced with a single trained model module. This new module is saved in the **Trained Models** section of the module palette.
+* **Score** - In this example, the Split module is used to divide the data stream into a set of test data and training data. In the predictive experiment this isn't needed and can be removed. Similarly, the 2nd [Score Model][score-model] module and the [Evaluate Model][evaluate-model] module are used to compare results from the test data, so these modules are also not needed in the predictive experiment. The remaining [Score Model][score-model] module, however, is needed to return a score result through the web service.
 
 Here is how our example looks after clicking **Set Up Web Service**:
 
@@ -63,7 +63,7 @@ Here is how our example looks after clicking **Set Up Web Service**:
 This may be sufficient to prepare your experiment to be deployed as a web service. However, you may want to do some additional work specific to your experiment.
 
 ### Adjust input and output modules
-In your training experiment, you used a set of training data and then did some processing to get the data in a form that the machine learning algorithm needed. If the data you expect to receive through the web service will not need this processing, you can move the **Web service input module** to a different node in your experiment.
+In your training experiment, you used a set of training data and then did some processing to get the data in a form that the machine learning algorithm needed. If the data you expect to receive through the web service will not need this processing, you can move the **Web service input module** to a different node in your experiment (click the output of the **Web service input module** and drag it to the input port of the appropriate module).
 
 For example, by default **Set Up Web Service** puts the **Web service input** module at the top of your data flow, as in the figure above. However, if the input data will not need this processing, then you can manually position the **Web service input** past the data processing modules:
 
@@ -73,7 +73,7 @@ The input data provided through the web service will now pass directly into the 
 
 Similarly, by default **Set Up Web Service** puts the Web service output module at the bottom of your data flow. In this example, the web service will return to the user the output of the [Score Model][score-model] module which includes the complete input data vector plus the scoring results.
 
-However, if you would prefer to return something different - for example, only the scoring results and not the entire vector of input data - then you can insert a [Select Columns in Dataset][select-columns] module to exclude all columns except the scoring results. You then move the **Web service output** module to the output of the [Select Columns in Dataset][select-columns] module:
+However, if you would prefer to return something different, then you can add additional modules before the **Web service output** module. For example, if you want to return only the scoring results and not the entire vector of input data, then you can add a [Select Columns in Dataset][select-columns] module to exclude all columns except the scoring results. You then move the **Web service output** module to the output of the [Select Columns in Dataset][select-columns] module. The experiment would then look like this:
 
 ![Moving the web service output][figure5]
 
@@ -84,12 +84,15 @@ Our predictive experiment now looks like this:
 
 ![Removing additional module][figure6]
 
+> [!TIP]
+> Notice that we didn't remove the dataset or the [Select Columns in Dataset][select-columns] module. The model in the web service won't use the data in the original dataset, but it does use the metadata defined in the dataset, such as the data type of each column. Similarly, the [Select Columns in Dataset][select-columns] module identifies what columns of data will be used by the model. So both of these modules need to remain in the predictive experiment.
+
 ### Add optional Web Service Parameters
 In some cases, you may want to allow the user of your web service to change the behavior of modules when the service is accessed. *Web Service Parameters* allow you to do this.
 
-A common example is setting up the [Import Data][import-data] module so that the user of the deployed web service can specify a different data source when the web service is accessed. Or configuring the [Export Data][export-data] module so that a different destination can be specified.
+A common example is setting up an [Import Data][import-data] module so that the user of the deployed web service can specify a different data source when the web service is accessed. Or configuring an [Export Data][export-data] module so that a different destination can be specified.
 
-You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service can then provide values for these parameters when the service is accessed and the module actions will be modified accordingly.
+You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service can then provide values for these parameters when the service is accessed, and the module actions will be modified accordingly.
 
 For more information about Web Service Parameters, see [Using Azure Machine Learning Web Service Parameters
 ][webserviceparameters].

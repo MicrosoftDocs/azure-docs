@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: yurid
 
 ---
@@ -42,23 +42,19 @@ Over time, Security Center will expand the number of partners within these exist
 
 ## How to deploy a partner solution?
 
-Partner’s solutions that were already deployed in Security Center can be easily accessed from the Partner solution tile in the main Security Center dashboard:
+Based on the configuration of your Azure environment and the security policy you defined, Security Center may recommend that a partner solution be deployed. The recommendation will guide you through the process of selecting and installing a partner solution. The overall deployment experience at this point can vary according to the type of solution and partner. See the links below for more information:
+
+- [Add a web application firewall](security-center-add-web-application-firewall.md)
+- [Add a Next Generation Firewall](security-center-add-next-generation-firewall.md)
+- [Install Endpoint Protection](security-center-install-endpoint-protection.md)
+- [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
+
+## How to manage partner solutions?
+
+Once a partner solution has been deployed, you can view information about the health of the solution and perform basic management tasks from the Partner solution tile in the main Security Center dashboard. For more information about managing partner solutions in Security Center, read [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md).
 
 ![Partner Integration](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
 
-To deploy a new partner solution based on a Security Center recommendation, execute the following steps:
-
-> [!NOTE]
-> The steps in the following example  assume you have a workload you’d like to protect with a web application firewall.
-
-1. On the Security Center dashboard, click **Recommendations** tile.
-2. On the **Recommendations** blade, click **Add web application firewall**.
-3. Click the application name under the **Add a web application firewall** blade.
-4. On the **Add a Web Application Firewall** blade, click **Create New**.
-5. The **Create a new Web Application Firewall** blade shows a list of the current partners that are offering web application firewall capability.
-6. Select the appropriate partner solution and follow the steps (which may vary according to the partner).
-
-The overall deployment experience at this point can vary according to the partner. For more information about managing partner solutions in Security Center, read [Monitoring partner solutions](security-center-partner-solutions.md) with Azure Security Center.
 
 ## See also
 In this document, you learned how to integrate partner's solution in Azure Security Center. To learn more about Security Center, see the following:

@@ -1,5 +1,5 @@
 ---
-title: Usage analysis with Application Insights
+title: Usage analysis with Azure Application Insights | Microsoft docs
 description: Overview of usage analytics with Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/08/2016
+ms.date: 12/02/2016
 ms.author: awills
 
 ---
@@ -24,7 +24,7 @@ Application Insights can provide a clear view of your application's usage, helpi
 Application Insights works for both stand-alone apps (on iOS, Android and Windows) and for web apps (hosted on .NET or J2EE). 
 
 ## Add Application Insights to your project
-To get started, get a free account with [Microsoft Azure](https://azure.com). (After the trial period, you can continue with the free tier of the service.)
+To get started, get an account with [Microsoft Azure](https://azure.com). (You only pay for what you use, and there's no charge for a certain amount of experimental use.)
 
 In the [Azure portal](https://portal.azure.com), create an Application Insights resource. This is where you'll see usage and performance data about your app.
 

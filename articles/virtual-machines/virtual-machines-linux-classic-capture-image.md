@@ -19,9 +19,8 @@ ms.author: iainfou
 
 ---
 # How to capture a classic Linux virtual machine as an image
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Learn how to [perform these steps using the Resource Manager model](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 This article shows you how to capture a classic Azure virtual machine (VM) running Linux as an image to create other virtual machines. This image includes the OS disk and data disks attached to the VM. It doesn't include networking configuration, so you need to configure that when you create the other VM from the image.
 
@@ -91,7 +90,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    ![Image capture successful](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## Next steps
-The image is ready to be used to create VMs. You can use the Azure CLI command `azure vm create` and supply the image name you created. For more information, see [Using the Azure CLI with Classic deployment model](../virtual-machines-command-line-tools.md). 
+The image is ready to be used to create VMs. You can use the Azure CLI command `azure vm create` and supply the image name you created. For more information, see [Using the Azure CLI with Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). 
 
 Alternatively, use the [Azure classic portal][Azure classic portal] to create a custom VM by using the **From Gallery** method and selecting the image you created. For more information, see [How to Create a Custom VM][How to Create a Custom Virtual Machine].
 

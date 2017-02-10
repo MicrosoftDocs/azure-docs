@@ -1,5 +1,5 @@
-﻿---
-title: Prepare network mapping for Hyper-V virtual machine protection with VMM in Azure Site Recovery  | Microsoft Docs
+---
+title: Map source and target networks for Hyper-V replication in Azure  | Microsoft Docs
 description: Set up network mapping for Hyper-V virtual machine replication from an on-premises datacenter to Azure, or to a secondary site.
 services: site-recovery
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: raynew
 
 ---
-# Prepare network mapping for Hyper-V virtual machine protection with VMM in Azure Site Recovery
+# Prepare network mapping for replication of Hyper-V VMs in VMMs clouds with Azure Site Recovery
+
 Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers.
 
 This article describes network mapping, which helps you optimally configure network settings when you're using Site Recovery to replicate Hyper-V virtual machines located in VMM clouds between two on-premises datacenters, or between an on-premises datacenter and Azure. Note that if you're replicating Hyper-V VMs without a VMM cloud, or replicating VMware VMs or physical servers, this article isn't relevant.
@@ -28,12 +29,12 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 Network mapping is used when Azure Site Recovery is deployed to replicate Hyper-V virtual machines to Azure or to a secondary datacenter, using Hyper-V Replica or SAN replication.
 
 * **Replicating Hyper-V virtual machines in VMM clouds between two on-premises datacenters**—Network mapping maps between VM networks on a source VMM server and VM networks on a target VMM server to do the following:
-  
+
   * **Connect virtual machines after failover**—Ensures that virtual machines will be connected to appropriate networks after failover. The replica virtual machine will be connected to the target network that is mapped to the source network.
   * **Place replica virtual machines on host servers**—Optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped VM networks.
   * **No network mapping**—If you don’t configure network mapping, replicated virtual machines won’t be connected to any VM networks after failover.
 * **Replicating Hyper-V virtual machines in an on-premises VMM cloud to Azure**—Network mapping maps between VM networks on the source VMM server and target Azure networks to do the following:
-  
+
   * **Connect virtual machines after failover**—All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.
   * **Network gateway**—If a network gateway is set up on the target Azure network, virtual machines can connect to other on-premises virtual machines.
   * **No network mapping**—If you don’t configure network mapping, only virtual machines that failover in the same recovery plan will be able to connect to each other after fail over to Azure.
@@ -106,4 +107,3 @@ With these settings, let's review what happens in a couple of possible scenarios
 
 ## Next steps
 Now that you have a better understanding of network mapping, [get started with Site Recovery deployment](site-recovery-best-practices.md).
-

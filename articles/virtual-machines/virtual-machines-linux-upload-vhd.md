@@ -1,6 +1,6 @@
 ---
-title: Create and upload a custom Linux image | Microsoft Docs
-description: Create and upload a virtual hard disk (VHD) to Azure with a custom Linux image using the Resource Manager deployment model.
+title: Upload a custom Linux disk with Azure CLI 2.0 (Preview) | Microsoft Docs
+description: Create and upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and the Azure CLI 2.0 (Preview)
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,65 +14,105 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: iainfou
 
 ---
-# Upload and create a Linux VM from custom disk image
-This article shows you how to upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and create Linux VMs from this custom image. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
+# Upload and create a Linux VM from custom disk by using the Azure CLI 2.0 (Preview)
+This article shows you how to upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and create Linux VMs from this custom disk. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
+
+
+## CLI versions to complete the task
+You can complete the task using one of the following CLI versions:
+
+- [Azure CLI 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
+- [Azure CLI 2.0 (Preview)](#quick-commands) - our next generation CLI for the resource management deployment model (this article)
+
 
 ## Quick commands
-If you need to quickly accomplish the task, the following section details the base commands to upload a VM to Azure. More detailed information and context for each step can be found the rest of the document, [starting here](#requirements).
+If you need to quickly accomplish the task, the following section details the base commands to upload a VHD to Azure. More detailed information and context for each step can be found the rest of the document, [starting here](#requirements).
 
-Make sure that you have [the Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode:
+Make sure that you have the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
-```bash
-azure config mode arm
+In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `mydisks`.
+
+First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `WestUs` location:
+
+```azurecli
+az group create --name myResourceGroup --location westus
 ```
 
-In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `myimages`.
+Create a storage account to hold your virtual disks with [az storage account create](/cli/azure/storage/account#create). Even if you wish to use [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md), you need to create a storage account that you upload your VHD to before converting to a managed disk. The following example creates a storage account named `mystorageaccount`:
 
-First, create a resource group. The following example creates a resource group named `myResourceGroup` in the `WestUs` location:
-
-```bash
-azure group create myResourceGroup --location "WestUS"
+```azurecli
+az storage account create --resource-group myResourceGroup --location westus \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Create a storage account to hold your virtual disks. The following example creates a storage account named `mystorageaccount`:
+List the access keys for your storage account with [az storage account keys list](/cli/azure/storage/account/keys#list). Make a note of `key1`:
 
-```bash
-azure storage account create mystorageaccount --resource-group myResourceGroup \
-    --location "WestUS" --kind Storage --sku-name PLRS
+```azurecli
+az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-List the access keys for your storage account. Make a note of `key1`:
+Create a container within your storage account using the storage key you obtained with [az storage container create](/cli/azure/storage/container#create). The following example creates a container named `mydisks` using the storage key value from `key1`:
 
-```bash
-azure storage account keys list mystorageaccount --resource-group myResourceGroup
+```azurecli
+az storage container create --account-name mystorageaccount \
+    --account-key key1 --name mydisks
 ```
 
-Create a container within your storage account using the storage key you obtained. The following example creates a container named `myimages` using the storage key value from `key1`:
+Finally, upload your VHD to the container you created with [az storage blob upload](/cli/azure/storage/blob#upload). Specify the local path to your VHD under `/path/to/disk/mydisk.vhd`:
 
-```bash
-azure storage container create --account-name mystorageaccount \
-    --account-key key1 --container myimages
+```azurecli
+az storage blob upload --account-name mystorageaccount \
+    --account-key key1 --container-name mydisks --type page \
+    --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Finally, upload your VHD to the container you created. Specify the local path to your VHD under `/path/to/disk/mydisk.vhd`:
+### Azure Managed Disks
+You can create a VM using Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
 
-```bash
-azure storage blob upload --blobtype page --account-name mystorageaccount \
-    --account-key key1 --container myimages /path/to/disk/mydisk.vhd
+```azurecli
+az disk create --resource-group myResourceGroup --name myManagedDisk \
+  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
-You can now create a VM from your uploaded virtual disk [using a Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). You can also use the CLI by specifying the URI to your disk (`--image-urn`). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+Obtain the URI of the managed disk you created with [az disk list](/cli/azure/disk/list):
 
-```bash
-azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
-    --image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
+```azurecli
+az disk list --resource-group myResourceGroup \
+  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
 ```
 
-The destination storage account has to be the same as where you uploaded your virtual disk to. You also need to specify, or answer prompts for, all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username, and SSH keys. You can read more about the [available CLI Resource Manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+The output is similar to the following example:
+
+```azurecli
+Name               URI
+-----------------  ----------------------------------------------------------------------------------------------------
+myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+```
+
+Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the URI of your managed disk (`--image`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
+
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+    --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+```
+
+### Unmanaged disks
+To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+    --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd
+```
+
+The destination storage account has to be the same as where you uploaded your virtual disk to. You also need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as virtual network, public IP address, username, and SSH keys. You can read more about the [available CLI Resource Manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 ## Requirements
 To complete the following steps, you need:
@@ -86,21 +126,17 @@ To complete the following steps, you need:
 > 
 > 
 
-* VMs created from your custom image must reside in the same storage account as the image itself
-  * Create a storage account and container to hold both your custom image and created VMs
-  * After you have created all your VMs, you can safely delete your image
+* VMs created from your custom disk must reside in the same storage account as the disk itself
+  * Create a storage account and container to hold both your custom disk and created VMs
+  * After you have created all your VMs, you can safely delete your disk
 
-Make sure that you have [the Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode:
+Make sure that you have the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
-```bash
-azure config mode arm
-```
-
-In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `myimages`.
+In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `mydisks`.
 
 <a id="prepimage"> </a>
 
-## Prepare the image to be uploaded
+## Prepare the disk to be uploaded
 Azure supports various Linux distributions (see [Endorsed Distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
 
 * **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -119,36 +155,38 @@ Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-g
 > 
 
 ## Create a resource group
-Resource groups logically bring together all the Azure resources to support your virtual machines, such as the virtual networking and storage. Read more about [Azure resource groups here](../azure-resource-manager/resource-group-overview.md). Before uploading your custom disk image and creating VMs, you first need to create a resource group. 
+Resource groups logically bring together all the Azure resources to support your virtual machines, such as the virtual networking and storage. For more information resource groups, see [resource groups overview](../azure-resource-manager/resource-group-overview.md). Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](/cli/azure/group#create).
 
-The following example creates a resource group named `myResourceGroup` in the `WestUS` location:
-
-```bash
-azure group create myResourceGroup --location "WestUS"
+The following example creates a resource group named `myResourceGroup` in the `westus` location:
+[Azure Managed Disks overview](../storage/storage-managed-disks-overview.md)
+```azurecli
+az group create --name myResourceGroup --location westus
 ```
 
 ## Create a storage account
-VMs are stored as page blobs within a storage account. Read more about [Azure blob storage here](../storage/storage-introduction.md#blob-storage). You create a storage account for your custom disk image and VMs. Any VMs that you create from your custom disk image need to be in the same storage account as that image.
+When you create a VM, you can do so with Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. Unmanaged disks are stored as page blobs within a storage account. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) or [Azure blob storage here](../storage/storage-introduction.md#blob-storage). Even if you wish to use managed disks, you need to create a storage account that you upload your VHD to before converting to a managed disk.
+
+Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#create). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. You can create VMs with managed disks in any resource group within your subscription.
 
 The following example creates a storage account named `mystorageaccount` in the resource group previously created:
 
-```bash
-azure storage account create mystorageaccount --resource-group myResourceGroup \
-    --location "WestUS" --kind Storage --sku-name PLRS
+```azurecli
+az storage account create --resource-group myResourceGroup --location westus \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
 ## List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../storage/storage-create-storage-account.md#manage-your-storage-account). You can view access keys with the `azure storage account keys list` command.
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../storage/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#list).
 
 View the access keys for the storage account you created:
 
-```bash
-azure storage account keys list mystorageaccount --resource-group myResourceGroup
+```azurecli
+az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
 The output is similar to:
 
-```
+```azurecli
 info:    Executing command storage account keys list
 + Getting storage account keys
 data:    Name  Key                                                                                       Permissions
@@ -156,52 +194,88 @@ data:    ----  -----------------------------------------------------------------
 data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
-
 ```
 Make a note of `key1` as you will use it to interact with your storage account in the next steps.
 
 ## Create a storage container
-In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your virtual disks and images. A storage account can contain any number of containers. 
+In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](/cli/azure/storage/container#create).
 
-The following example creates a container named `myimages`, specifying the access key obtained in the previous step (`key1`):
+The following example creates a container named `mydisks`, specifying the access key obtained in the previous step (`key1`):
 
-```bash
-azure storage container create --account-name mystorageaccount \
-    --account-key key1 --container myimages
+```azurecli
+az storage container create --account-name mystorageaccount \
+    --account-key key1 --name mydisks
 ```
 
 ## Upload VHD
-Now you can actually upload your custom disk image. As with all virtual disks used by VMs, you upload and store your custom disk image as a page blob.
+Now upload your custom disk with [az storage blob upload](/cli/azure/storage/blob#upload). You upload and store your custom disk as a page blob.
 
-Specify your access key, the container you created in the previous step, and then the path to the custom disk image on your local computer:
+Specify your access key, the container you created in the previous step, and then the path to the custom disk on your local computer:
 
-```bash
-azure storage blob upload --blobtype page --account-name mystorageaccount \
-    --account-key key1 --container myimages /path/to/disk/mydisk.vhd
+```azurecli
+az storage blob upload --account-name mystorageaccount \
+    --account-key key1 --container-name mydisks --type page \
+    --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-## Create VM from custom image
-When you create VMs from your custom disk image, specify the URI to the disk image. Ensure that the destination storage account matches where your custom disk image is stored. You can create your VM using the Azure CLI or Resource Manager JSON template.
+## Create VM from custom disk
+Again, you can create a VM using Azure Managed Disks or unmanaged disks. For both types, specify the URI to the managed or unmanaged disk when you create a VM. For unmanaged disks, ensure that the destination storage account matches where your custom disk is stored. You can create your VM using the Azure 2.0 (Preview) or Resource Manager JSON template.
 
-### Create a VM using the Azure CLI
-You specify the `--image-urn` parameter with the `azure vm create` command to point to your custom disk image. Ensure that `--storage-account-name` matches the storage account where your custom disk image is stored. You do not have to use the same container as the custom disk image to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk images.
+### Azure CLI 2.0 (Preview) - Azure Managed Disks
+To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create). The following example creates a managed disk named `myManagedDisk` from the VHD you uploaded to your named storage account and container:
 
-The following example creates a VM named `myVM` from your custom disk image:
-
-```bash
-azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
-    --image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
-    --storage-account-name mystorageaccount
+```azurecli
+az disk create --resource-group myResourceGroup --name myManagedDisk \
+  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
-You still need to specify, or answer prompts for, all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username, and SSH keys. Read more about the [available CLI Resource Manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+Obtain the URI of the managed disk you created with [az disk list](/cli/azure/disk/list):
 
-### Create a VM using a JSON template
+```azurecli
+az disk list --resource-group myResourceGroup \
+  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
+```
+
+The output is similar to the following example:
+
+```azurecli
+Name               URI
+-----------------  ----------------------------------------------------------------------------------------------------
+myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+```
+
+Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the URI of your managed disk (`--image`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
+
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+    --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+```
+
+### Azure 2.0 (Preview) - unmanaged disks
+To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+
+You specify the `--image` parameter with [az vm create](/cli/azure/vm#create) to point to your custom disk. Ensure that `--storage-account` matches the storage account where your custom disk is stored. You do not have to use the same container as the custom disk to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk.
+
+The following example creates a VM named `myVM` from your custom disk:
+
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+    --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
+```
+
+You still need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as username and SSH keys.
+
+
+### Resource Manager template - unmanaged disks
 Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the environment you wish to build. The templates are broken down in to different resource providers such as compute or network. You can use existing templates or write your own. Read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md).
 
-Within the `Microsoft.Compute/virtualMachines` provider of your template, you have a `storageProfile` node that contains the configuration details for your VM. The two main parameters to edit are the `image` and `vhd` URIs that point to your custom disk image and your new VM's virtual disk. The following shows an example of the JSON for using a custom disk image:
+Within the `Microsoft.Compute/virtualMachines` provider of your template, you have a `storageProfile` node that contains the configuration details for your VM. The two main parameters to edit are the `image` and `vhd` URIs that point to your custom disk and your new VM's virtual disk. The following shows an example of the JSON for using a custom disk:
 
-```bash
+```json
 "storageProfile": {
           "osDisk": {
             "name": "myVM",
@@ -209,7 +283,7 @@ Within the `Microsoft.Compute/virtualMachines` provider of your template, you ha
             "caching": "ReadWrite",
             "createOption": "FromImage",
             "image": {
-              "uri": "https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd"
+              "uri": "https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd"
             },
             "vhd": {
               "uri": "https://mystorageaccount.blob.core.windows.net/vhds/newvmname.vhd"
@@ -219,18 +293,18 @@ Within the `Microsoft.Compute/virtualMachines` provider of your template, you ha
 
 You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 
-Once you have a template configured, you create your VMs using the `azure group deployment create` command. Specify the URI of your JSON template with the `--template-uri` parameter:
+Once you have a template configured, use [az group deployment create](/cli/azure/group/deployment#create) to create your VMs. Specify the URI of your JSON template with the `--template-uri` parameter:
 
-```bash
-azure group deployment create --resource-group myResourceGroup
-    --template-uri https://uri.to.template/mytemplate.json
+```azurecli
+az group deployment create --resource-group myNewResourceGroup \
+  --template-uri https://uri.to.template/mytemplate.json
 ```
 
 If you have a JSON file stored locally on your computer, you can use the `--template-file` parameter instead:
 
-```bash
-azure group deployment create --resource-group myResourceGroup
-    --template-file /path/to/mytemplate.json
+```azurecli
+az group deployment create --resource-group myNewResourceGroup \
+  --template-file /path/to/mytemplate.json
 ```
 
 

@@ -1,5 +1,5 @@
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure classic portal | Microsoft Docs
+title: Create an Internet-facing load balancer - Azure portal classic | Microsoft Docs
 description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal
 services: load-balancer
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: kumud
 ---
 

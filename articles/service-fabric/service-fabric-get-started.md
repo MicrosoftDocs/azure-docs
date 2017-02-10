@@ -1,5 +1,5 @@
 ---
-title: Set up your development environment | Microsoft Docs
+title: Set up a development environment for Azure microservices | Microsoft Docs
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications.
 services: service-fabric
 documentationcenter: .net
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
-ms.author: ryanwi
+ms.date: 12/15/2016
+ms.author: ryanwi, mikhegn
 
 ---
 # Prepare your development environment
@@ -34,6 +34,7 @@ The following operating system versions are supported for development:
 * Windows 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -41,11 +42,35 @@ The following operating system versions are supported for development:
 > 
 > 
 
-## Install the runtime, SDK, and tools
-The Web Platform Installer offers two configurations for Service Fabric development:
+## Install the SDK and tools
+### To use Visual Studio 2017 RC
+Service Fabric Tools are part of the Azure Development and Management workload in Visual Studio 2017 RC. You need to enable this workload as part of your Visual Studio installation.
+In addition, you need to install the Microsoft Azure Service Fabric SDK, using Web Platform Installer.
 
-* [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015 (Requires Visual Studio 2015 Update 2 or later)][full-bundle-vs2015]
-* [Install the Service Fabric runtime and SDK only (no Visual Studio tools)][core-sdk]
+* [Install the Microsoft Azure Service Fabric SDK][core-sdk]
+
+### To use Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later)
+For Visual Studio 2015, Service Fabric tools are installed together with the SDK, using the Web Platform Installer:
+
+* [Install the Microsoft Azure Service Fabric SDK and Tools)][full-bundle-vs2015]
+
+### SDK installation only
+If you only need the SDK, you can install this package:
+* [Install the Microsoft Azure Service Fabric SDK][core-sdk]
+
+> [!WARNING]
+> Customers have reported errors during installation when using these launch links, or when these links were used in Chrome browser. These are known issues in Web Platform Installer which are being addressed.  As a workaround, please try the following:
+>- Launch the above links in Internet Explorer or Edge browsers, or
+>- Launch Web Platform Installer from the Start menu, search for "Service Fabric", and install the SDK
+> 
+> We apologize for the inconvenience. 
+
+The current versions are:
+* Service Fabric SDK 2.4.145
+* Service Fabric runtime 5.4.145
+* Visual Studio 2015 tools 1.4.41209
+
+For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 
 ## Enable PowerShell script execution
 Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
@@ -63,6 +88,7 @@ Now that you've finished setting up your development environment, start building
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric campaign page"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

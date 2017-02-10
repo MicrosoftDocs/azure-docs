@@ -1,6 +1,6 @@
 ---
-title: Configure an SQL Database server-level firewall rule | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL server.
+title: 'Azure portal: Azure SQL Database server-level firewall rules | Microsoft Docs'
+description: Learn how to configure server-level firewall rules for IP addresses that access Azure SQL server using the Azure portal.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
@@ -9,12 +9,13 @@ editor: ''
 
 ms.assetid: c3b206b5-af6e-41af-8306-db12ecfc1b5d
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 11/28/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 
 ---
 # Create and manage Azure SQL Database server-level firewall rules using the Azure portal
@@ -46,13 +47,13 @@ Click **Save** to save the changes.
 
 ## Next steps
 
-- For a getting started tutorial, see [SQL Database tutorial: Create a server, a server-level firewall rule, a sample database, a database-level firewall rule and connect with SQL Server](sql-database-get-started.md).
-- For a getting started with security tutorial, see [Get started with security](sql-database-get-started-security.md)
+- For a tutorial provisioning and connecting to a server using server-level firewalls, see [Tutorial: Provision and access an Azure SQL database using the Azure portal and SQL Server Management Studio](sql-database-get-started.md).
+- For a tutorial with SQL Server authentication and database-level firewalls, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
 - For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - To understand how to create additional users who can connect to databases, see [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## Additional resources
-* [Securing your database](sql-database-security.md)   
+* [Securing your database](sql-database-security-overview.md)   
 * [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)   
 
 

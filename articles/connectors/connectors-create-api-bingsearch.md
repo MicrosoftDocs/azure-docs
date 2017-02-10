@@ -25,7 +25,7 @@ Connect to Bing Search to search news, search videos, and more. With Bing Search
 * Build your business flow based on the data you get from your search. 
 * Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 Bing Search includes the following actions. There are no triggers. 
@@ -271,7 +271,7 @@ Retrieves all web sites, videos, images, etc. from a Bing search.
 | RelatedSearchResults |array |no |
 
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Go back to the [APIs list](apis-list.md).
 

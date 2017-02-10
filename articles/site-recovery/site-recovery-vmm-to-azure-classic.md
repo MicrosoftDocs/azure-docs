@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate Hyper-V virtual machines in VMM clouds to Azure | Microsoft Docs
 description: This article describes how to replicate Hyper-V virtual machines on Hyper-V hosts located in System Center VMM clouds to Azure.
 services: site-recovery
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2016
+ms.date: 02/06/2017
 ms.author: raynew
 
 ---
@@ -181,7 +181,7 @@ Where parameters are as follows:
     ![Storage account](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
 > [!NOTE]
-> [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+> [Migration of storage accounts](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 >
 >
 
@@ -243,7 +243,7 @@ After you save the settings a job starts to track the mapping progress and it ca
 Note that if the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
 > [!NOTE]
-> [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+> [Migration of networks](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 >
 >
 
@@ -342,7 +342,6 @@ To run a test failover do the following:
    * Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machines.
    * Click **Notes** to record and save any observations associated with the test failover.
 
->
 
 ## Next steps
 Learn about [setting up recovery plans](site-recovery-create-recovery-plans.md) and [failover](site-recovery-failover.md).
