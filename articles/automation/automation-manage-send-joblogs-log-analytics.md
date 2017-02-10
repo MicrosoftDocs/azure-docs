@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/10/2017
 ms.author: magoedte
 
 ---
@@ -49,18 +49,28 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 
 ## Set up integration with Log Analytics
 1. On your computer, start **Windows PowerShell** from the **Start** screen.  
-2. Copy and paste the following PowerShell, edit the value for the `$workspaceId` and `$automationAccountId` then run it.
+2. Copy and paste the following PowerShell, and edit the value for the `$workspaceId` and `$automationAccountId`.  If you are working in Azure Government cloud, you will need to set the boolean value for $GovCloud to $True or 1 when you execute it.     
 
 ```powershell
-# if you are not connected to Azure run the next command to login
-Login-AzureRmAccount
+[cmdletBinding()]
+	Param
+	(
+		[Parameter(Mandatory=$true)]
+		[bool]$GovCloud = $False
+	)
 
+#Check to see if we need to log into Commercial or Government cloud.
+If ($GovCloud -eq $False) {
+    Login-AzureRmAccount
+}Else{
+    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
+}
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
 $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
-Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId "AzureAutomation" -WorkspaceId $workspaceId -Enabled $true
 
 ```
 
@@ -71,10 +81,21 @@ To see the logs, run the following query:
 
 ### Verify configuration
 To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are set correctly on the Automation account using the following PowerShell:
-```powershell
-# if you are not connected to Azure run the next command to login
-Login-AzureRmAccount
 
+```powershell
+[cmdletBinding()]
+	Param
+	(
+		[Parameter(Mandatory=$true)]
+		[bool]$GovCloud = $False
+	)
+
+#Check to see if we need to log into Commercial or Government cloud.
+If ($GovCloud -eq $False) {
+    Login-AzureRmAccount
+}Else{
+    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
+}
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
