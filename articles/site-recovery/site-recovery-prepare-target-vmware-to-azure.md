@@ -3,8 +3,8 @@ title: 'Prepare target (VMware to Azure) | Microsoft Docs'
 description: This article describes how to prepare your Azure environment to start replicating VMware virtual machines to Azure.
 services: site-recovery
 documentationcenter: ''
-author: Bharath Sivaraman
-manager: Abhishek Hemrajani
+author: bsiva
+manager: abhemraj
 editor: ''
 
 ms.assetid:

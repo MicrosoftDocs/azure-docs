@@ -3,8 +3,8 @@ title: 'Prepare target (Physical to Azure) | Microsoft Docs'
 description: This article describes how to prepare your Azure environment to start replicating physical servers running Windows or Linux to Azure.
 services: site-recovery
 documentationcenter: ''
-author: Bharath Sivaraman
-manager: Abhishek Hemrajani
+author: bsiva
+manager: abhemraj
 editor: ''
 
 ms.assetid:
