@@ -37,22 +37,24 @@ At this time, configuration of load balancing on secondary IP configurations is 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
 Register for the preview by running both the following commands in PowerShell after you login and select the appropriate subscription:
-	```
-	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
-	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-	```
-	Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+```
+Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+```
+
+Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 		
-	```powershell
-	FeatureName                            ProviderName      RegistrationState
-	-----------                            ------------      -----------------      
-	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-	```
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
 		
-	>[!NOTE] 
-	>This may take a few minutes.
+>[!NOTE] 
+>This may take a few minutes.
 
 ## Steps to load balance on multiple IP configurations
 
