@@ -193,7 +193,8 @@
 #### [Pricing examples](iot-hub-devguide-pricing.md)
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
-#### [Glossary](iot-hub-devguide-glossary.md)### Process device-to-cloud messages
+#### [Glossary](iot-hub-devguide-glossary.md)
+### Process device-to-cloud messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 ### Send cloud-to-device messages
