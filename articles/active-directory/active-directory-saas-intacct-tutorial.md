@@ -22,9 +22,9 @@ In this tutorial, you learn how to integrate Intacct with Azure Active Directory
 
 Integrating Intacct with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Intacct
-- You can set up your users to automatically get signed in to Intacct (single sign-on) with their Azure AD accounts
-- You can manage your accounts in one central location: the Azure portal
+- You can control in Azure AD who has access to Intacct.
+- You can set up your users to automatically get signed in to Intacct (single sign-on) with their Azure AD accounts.
+- You can manage your accounts in one central location: the Azure portal.
 
 If you want more details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -32,26 +32,26 @@ If you want more details about software as a service (SaaS) app integration with
 
 To configure Azure AD integration with Intacct, you need the following items:
 
-- An Azure AD subscription
-- An Intacct subscription with single sign-on turned on
+- An Azure AD subscription.
+- An Intacct subscription with single sign-on turned on.
 
 
 > [!NOTE]
 > To test the steps in this tutorial, we don't recommend using a production environment.
 
 
-To test the steps in this tutorial, you should follow these recommendations:
+To test the steps in this tutorial, follow these recommendations:
 
-- Don't use your production environment unless it's necessary.
-- If you don't have an Azure AD trial environment, you can get a [one-month free trial](https://azure.microsoft.com/pricing/free-trial/).
+- Don't use your production environment unless it's necessary
+- If you don't have an Azure AD trial environment, you can get a [one-month free trial](https://azure.microsoft.com/pricing/free-trial/)
 
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Add Intacct from the gallery
-2. Configure and test Azure AD single sign-on
+1. Add Intacct from the gallery.
+2. Configure and test Azure AD single sign-on.
 
 
 ## Add Intacct from the gallery
@@ -67,7 +67,7 @@ To configure the integration of Intacct into Azure AD, you need to add Intacct f
 
 	![Applications][2]
 
-3. Click the **Add** button on the top of the dialog box.
+3. Click the **Add** button at the top of the dialog box.
 
 	![Applications][3]
 
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_02.png)
 
-    a. For the **Identifier**, enter: `https://saml.intacct.com`
+    a. For the **Identifier**, enter this URL: `https://saml.intacct.com`
 
 	b. For the **Reply URL**, enter a URL by using the following pattern: `https://<company name>.intacct.com/ia/acct/sso_response.phtml`
 
@@ -236,7 +236,7 @@ In the case of Intacct, provisioning is a manual task.
 
 	d. For the **Email address**, enter the email address for the Britta Simon account.
 
-	e. Select the **Admin privileges** of Britta Simon account that you want to provision.
+	e. Select the **Admin privileges** of the Britta Simon account that you want to provision.
 
 	f. For the **Title**, enter the title of the Britta Simon account.
 
@@ -252,7 +252,7 @@ In the case of Intacct, provisioning is a manual task.
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting Britta access to Intacct.
 
-![Assign User][200]
+![Assign user][200]
 
 **To assign Britta Simon to Intacct, perform the following steps:**
 
@@ -268,7 +268,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign user][202]
 
-4. Click the **Add** button. Then select **Users and groups** in the **Add Assignment** dialog box.
+4. Click the **Add** button, and then in the **Add Assignment** dialog box, select **Users and groups**.
 
 	![Assign user][203]
 
