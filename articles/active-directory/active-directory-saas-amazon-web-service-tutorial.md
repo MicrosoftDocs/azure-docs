@@ -303,6 +303,32 @@ The objective of this section is to create a test user in the Azure classic port
    
     b. Click **Complete**.   
 
+### Creating a Amazon Web Services (AWS) test user
+The objective of this section is to create a user called Britta Simon in Amazon Web Services (AWS).
+
+### To create a user called Britta Simon in Amazon Web Services (AWS), perform the following steps:
+1. Log in to your **Amazon Web Services (AWS)** company site as administrator.
+
+2. Click the **Console Home** icon. 
+   
+    ![Configure Single Sign-On][11]
+
+3. Click Identity and Access Management. 
+   
+    ![Configure Single Sign-On][28]
+
+4. In the Dashboard, click Users, and then click Create New Users. 
+   
+    ![Configure Single Sign-On][29]
+
+5. On the Create User dialog, perform the following steps: 
+   
+    ![Configure Single Sign-On][30]
+   
+     a. In the **Enter User Names** textboxes, type Brita Simon's user name (userprincipalname) in Azure AD.
+   
+     b. Click **Create**.
+
 ### Assigning the Azure AD test user
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Amazon Web Services (AWS).
 
