@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 # Event Hubs programming guide
-This article discusses some common scenarios in writing code using Azure Event Hubs and the Azure .NET SDK. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-overview.md).
+This article discusses some common scenarios in writing code using Azure Event Hubs and the Azure .NET SDK. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
 
 ## Event publishers
 You send events to an Event Hub either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
@@ -178,7 +178,7 @@ For more information about publisher revocation and how to send to Event Hubs as
 To learn more about Event Hubs scenarios, visit these links:
 
 * [Event Hubs API overview](event-hubs-api-overview.md)
-* [Event Hubs overview](event-hubs-overview.md)
+* [What is Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Event processor host API reference](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
