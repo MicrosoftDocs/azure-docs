@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator phone sign-in FAQ | Microsoft Docs
+title: Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Microsoft Docs
 description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature. 
 services: multi-factor-authentication
 documentationcenter: ''
