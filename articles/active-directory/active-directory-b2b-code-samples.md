@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/08/2017
 ms.author: sasubram
 
 ---
@@ -185,7 +185,7 @@ The following example will walk you through how you can bulk invite external use
 
     ```
     $Invitations = import-csv C:\data\invitations.csv
-    foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://google.com -SendInvitationMessage $true}
+    foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://microsoft.com -SendInvitationMessage $true}
   ```
 
 This will send an invitation to the email address in invitations.csv. Additional features of this cmdlet include customized text in the email message, include a display name for the invited user, sending messages to CCs or suppressing email messages altogether.
