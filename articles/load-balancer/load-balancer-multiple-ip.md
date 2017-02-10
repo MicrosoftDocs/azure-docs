@@ -44,7 +44,7 @@ Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic
 Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 ```
 
-Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 		
 ```powershell
 FeatureName                            ProviderName      RegistrationState
