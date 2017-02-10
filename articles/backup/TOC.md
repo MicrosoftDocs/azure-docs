@@ -32,6 +32,7 @@
 ### [Manage and monitor Azure VM backups in classic portal](backup-azure-manage-vms-classic.md)
 ### [Manage Azure VM backups in Azure portal](backup-azure-manage-vms.md)
 ### [Monitor alerts for Azure VM backups in Azure portal](backup-azure-monitor-vms.md)
+### [Recover files from Azure VM backups](backup-azure-restore-vms.md)
 ### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
 ### [Restore Resource Manager-deployed VMs in Azure portal](backup-azure-arm-restore-vms.md)
 ### [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md)
