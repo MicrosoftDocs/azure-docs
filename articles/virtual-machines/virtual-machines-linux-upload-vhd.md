@@ -52,7 +52,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 List the access keys for your storage account with [az storage account keys list](/cli/azure/storage/account/keys#list). Make a note of `key1`:
 
 ```azurecli
-az storage account keys list --resource-group myResourceGroup --name mystorageaccount
+az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
 Create a container within your storage account using the storage key you obtained with [az storage container create](/cli/azure/storage/container#create). The following example creates a container named `mydisks` using the storage key value from `key1`:
@@ -181,7 +181,7 @@ Azure generates two 512-bit access keys for each storage account. These access k
 View the access keys for the storage account you created:
 
 ```azurecli
-az storage account keys list --resource-group myResourceGroup --name mystorageaccount
+az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
 The output is similar to:
@@ -270,7 +270,7 @@ az vm create --resource-group myResourceGroup --location westus \
 You still need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as username and SSH keys.
 
 
-### Resource manager template - unmanaged disks
+### Resource Manager template - unmanaged disks
 Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the environment you wish to build. The templates are broken down in to different resource providers such as compute or network. You can use existing templates or write your own. Read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md).
 
 Within the `Microsoft.Compute/virtualMachines` provider of your template, you have a `storageProfile` node that contains the configuration details for your VM. The two main parameters to edit are the `image` and `vhd` URIs that point to your custom disk and your new VM's virtual disk. The following shows an example of the JSON for using a custom disk:
