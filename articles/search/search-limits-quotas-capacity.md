@@ -1,6 +1,6 @@
 ---
 title: Service limits in Azure Search | Microsoft Docs
-description: Service limits used for capacity planning and maximum limits on requests and reponses for Azure Search.
+description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Search.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/15/2016
+ms.date: 02/08/2017
 ms.author: heidist
 
 ---

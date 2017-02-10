@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 
 ---
@@ -26,15 +26,18 @@ This recommendation applies to the Azure SQL service only; doesn't include SQL r
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Enable Auditing on SQL databases**.  This opens the **Enable Auditing on SQL databases** blade.
+
    ![Enable auditing on SQL databases][1]
 2. Select a SQL database to enable auditing on. This opens the **Auditing & Threat detection** blade.
+
    ![Auditing and threat detection][2]
 3. On the **Auditing & Threat detection** blade, select **ON** under **Auditing**.
+
    ![Turn on auditing and threat detection][3]
 4. Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 

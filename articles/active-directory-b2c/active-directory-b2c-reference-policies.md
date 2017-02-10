@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 
 ---
@@ -159,6 +159,10 @@ To enable fine-grained password reset on your application, you will need to crea
     > 
     > 
 
+## How to link a sign-up or sign-in policy with a password reset policy?
+When you create a sign-up or sign-in policy (with local accounts), the consumer will see a "Forgot password?" link on the first page of the experience. Clicking on this link doesn't automatically trigger a password reset policy. Instead a specific error code `AADB2C90118` is returned back to your app. Your app needs to handle this and invoke a specific password reset policy. A sample that demonstrates this approach of linking together policies is [here](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+
 ## Additional resources
 * [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
+* [Disable email verification during consumer sign-up](active-directory-b2c-reference-disable-ev.md)
 

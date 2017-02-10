@@ -1,6 +1,8 @@
 ---
-title: Use Azure Backup automation to back up Windows | Microsoft Docs
-description: Learn to deploy and manage Azure Backup using PowerShell
+
+title: Use PowerShell to manage Windows Server backups in Azure| Microsoft Docs
+description: Deploy and manage Windows Server backups using PowerShell.
+
 services: backup
 documentationcenter: ''
 author: saurabhsensharma

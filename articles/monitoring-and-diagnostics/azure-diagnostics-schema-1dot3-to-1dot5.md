@@ -13,14 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: robb
 
 ---
 # Azure Diagnostics 1.3, 1.4, 1.5 Configuration Schema
+> [!NOTE]
+> Azure Diagnostics is the component used to collect performance counters and other statistics from Azure Virtual Machines, Virtual Machine Scale Sets, Service
+> Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
+>
+
+Azure Diagnostics is used in conjunction with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+
 The Azure Diagnostics configuration file is used to set diagnostic configuration settings when the diagnostics monitor starts.  
 
- This page is valid for versions 1.3, 1.4 and 1.5. Newer configuration sections are commented to show in what version they were added.  
+This page is valid for versions 1.3, 1.4 and 1.5 (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added.  
 
  Download the public configuration file schema definition by executing the following PowerShell command:  
 

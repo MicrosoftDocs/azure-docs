@@ -3,7 +3,7 @@ title: Configure geo-replication for Azure SQL Database with the Azure portal | 
 description: Configure geo-replication for Azure SQL Database by using the Azure portal
 services: sql-database
 documentationcenter: ''
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 
 ---
 # Configure active geo-replication for Azure SQL Database with the Azure portal
