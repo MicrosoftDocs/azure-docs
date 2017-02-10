@@ -45,12 +45,14 @@ Create a [personal access token](https://www.visualstudio.com/en-us/docs/integra
 Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks into the Automation account. You can name this VSToken. 
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
+
 Import the runbook that will sync your runbooks or configurations into the automation account. You can use the [VSTS sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) or the [VSTS with Git sample runbook] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) from the PowerShellGallery.com depending on if you use VSTS source control or VSTS with Git and deploy to your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
 You can now [publish](automation-creating-importing-runbook#to-publish-a-runbook-using-the-azure-portal.md) this runbook so you can create a webhook. 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
+
 Create a [webhook](automation-webhooks.md) for this Sync-VSTS runbook and fill in the parameters as shown below. Make sure you copy the webhook url as you will need it for a service hook in VSTS. The VSAccessTokenVariableName is the name (VSToken) of the secure variable that you created earlier to hold the personal access token. 
 
 Integrating with VSTS (Sync-VSTS.ps1) will take the following parameters.
@@ -82,6 +84,7 @@ Folder | The name of the folder in VSTS Git branch.|
 VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the VSTS personal access token.|
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
+
 Create a service hook in VSTS for check ins to the folder that triggers this webhook on code check in. Select Web Hooks as the service to integrate with when you create a new subscription. You can learn more about service hooks on [VSTS Service Hooks documentation](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
@@ -91,4 +94,4 @@ You should now be able to do all checkins of your runbooks and configurations in
 
 If you run this runbook manually without being triggered by VSTS, you can leave the webhookdata parameter empty and it will do a full sync from the VSTS folder specified.
 
-If you wish to uninstall the scenario, remove the service hook from VSTS, delete the runbook and the VSToken variable.
+If you wish to uninstall the scenario, remove the service hook from VSTS, delete the runbook, and the VSToken variable.
