@@ -49,7 +49,7 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 
 ## Set up integration with Log Analytics
 1. On your computer, start **Windows PowerShell** from the **Start** screen.  
-2. Copy and paste the following PowerShell, and edit the value for the `$workspaceId` and `$automationAccountId`.  If you are working in Azure Government cloud, you will need to set the boolean value for $GovCloud to $True or 1 when you execute it.     
+2. Copy and paste the following PowerShell, and edit the value for the `$workspaceId` and `$automationAccountId`.  If you are working in Azure Government cloud, you will need to set the boolean value for `$GovCloud` to *$True* or *1* when you execute it.     
 
 ```powershell
 [cmdletBinding()]
