@@ -69,7 +69,7 @@ To disable the scheduled task that triggers a synchronization cycle every 3 hour
 
 After you have completed all your filtering changes, don't forget to come back and **Enable** the task again.
 
-## Filtering Options
+## Filtering options
 The following filtering configuration types can be applied to the Directory Synchronization tool:
 
 * [**Group based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial install using the installation wizard. It is not further covered in this topic.
@@ -88,11 +88,11 @@ You should only follow these steps if you for some reason are unable to run the 
 
 Domain-based filtering configuration consists of these steps:
 
-* [Select the domains](#select-domains-to-be-synchronized) that should be included in the synchronization.
-* For each added and removed domain, adjust the [run profiles](#update-run-profiles).
-* [Apply and verify changes](#apply-and-verify-changes).
+1. [Select the domains](#select-domains-to-be-synchronized) that should be included in the synchronization.
+2. For each added and removed domain, adjust the [run profiles](#update-run-profiles).
+3. [Apply and verify changes](#apply-and-verify-changes).
 
-### Select domains to be synchronized
+### Select the domains to be synchronized
 **To set the domain filter, do the following steps:**
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
@@ -107,7 +107,7 @@ Domain-based filtering configuration consists of these steps:
 6. When you are done, close the **Properties** dialog by clicking **OK**. If you have removed domains from the forest, a message pop-up saying a domain was removed and that configuration will be cleaned up.
 7. Continue to adjust the [run profiles](#update-run-profiles).
 
-### Update Run Profiles
+### Update the run profiles
 If you have updated your domain filter, you also need to update the run profiles.
 
 1. In the **Connectors** list, make sure the Connector you changed in the previous step is selected. From **Actions**, select **Configure Run Profiles**.  
@@ -134,12 +134,12 @@ If you have updated your domain filter, you also need to update the run profiles
 4. To close the **Configure Run Profiles** dialog, click **OK**.
 5.  To complete the configuration you need to run a **Full import** and **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
-## Organizational-unit–based filtering
+## Organizational unit–based filtering
 The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
 
 You should only follow these steps if you for some reason are unable to run the installation wizard.
 
-**To configure organizational-unit–based filtering, do the following steps:**
+**To configure organizational unit–based filtering, do the following steps:**
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Service** from the start menu.
@@ -154,7 +154,7 @@ You should only follow these steps if you for some reason are unable to run the 
    * The **RegisteredDevices** OU should be selected if you have enabled the device writeback feature. If you use another writeback feature, such as group writeback, make sure these locations are selected.
    * Select any other OU where Users, iNetOrgPersons, Groups, Contacts, and Computers are located. In the picture, all these OUs are located in the ManagedObjects OU.
    * If you use group-based filtering, then the OU where the group is located must be included.
-   * **Note:** You can configure if new OUs added after the filtering configuration has completed should be synchronized or not synchronized. See next section for details.
+   * Note that you can configure if new OUs added after the filtering configuration has completed should be synchronized or not synchronized. See the next section for details.
 7. When you are done, close the **Properties** dialog by clicking **OK**.
 8. To complete the configuration you need to run a **Full import** and **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
