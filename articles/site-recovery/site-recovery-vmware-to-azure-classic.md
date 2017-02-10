@@ -696,7 +696,7 @@ You set up an additional process server as follows:
     ![Update process server](./media/site-recovery-vmware-to-azure-classic/update-process-server3.png)
 
 ## VMware permissions for vCenter access
-The process server can automatically discover VMs on a vCenter server. To perform automatic discovery you'll need to define a role (Azure_Site_Recovery) at the vCenter level to allow Site Recovery to access the vCenter server. Note that if you only need to migrate VMware machines to Azure and don't need to failback from Azure, you can define a read-only role that's sufficient. You set up the permissions as described in [Step 6: Set up credentials for the vCenter server](#step-6-set-up-credentials-for-the-vcenter-server) The role permissions are summarized in the following table.
+The process server can automatically discover VMs on a vCenter server. To perform automatic discovery you'll need to define a role (Azure_Site_Recovery) at the vCenter level to allow Site Recovery to access the vCenter server. Note that if you only need to migrate VMware machines to Azure and don't need to failback from Azure, you can define a read-only role that's sufficient. You set up the permissions as described in [Step 6: Set up credentials for the vCenter server](#step-6-set-up-credentials-for-the-vcenter-server) The role permissions are summarized in the following table. 
 
 | **Role** | **Details** | **Permissions** |
 | --- | --- | --- |
