@@ -1,8 +1,3 @@
-# Quickstart
-## [Windows](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
-## [Linux (preview)](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-## [From template (WordPress)](../web-sites-php-web-site-gallery.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-
 # Overview	
 ## [What is App Service?](../../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## App Service for developers 
@@ -10,6 +5,24 @@
 ## [Web apps in App Service](../app-service-web-overview.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [App Service on Linux](../app-service-linux-intro.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+
+# Quickstart
+## [Windows](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
+## [Linux (preview)](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## [From template (WordPress)](../web-sites-php-web-site-gallery.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+
+# Scripts
+
+# Tutorials
+
+## [Laravel app with MySQL](../app-service-web-php-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
+## CodeIgniter
+## CakePHP
+## [Enterprise-class WordPress](../web-sites-php-enterprise-wordpress.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## DevOps
+### [Azure Resource Manager deployment](../app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Agile development](../app-service-agile-software-development.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Flighting deployment (beta testing)](../app-service-web-test-in-production-controlled-test-flight.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # Concepts
 ## [App Service](../../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
@@ -26,16 +39,6 @@
 ### API
 ### Site extensions	
 		
-# Tutorials
-
-## [Laravel app with MySQL](../app-service-web-php-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
-## CodeIgniter
-## CakePHP
-## [Enterprise-class WordPress](../web-sites-php-enterprise-wordpress.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-## DevOps
-### [Azure Resource Manager deployment](../app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-### [Agile development](../app-service-agile-software-development.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-### [Flighting deployment (beta testing)](../app-service-web-test-in-production-controlled-test-flight.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # How to guides
 ## Develop your app	

@@ -1,9 +1,3 @@
-# QuickStart	
-## [ASP.NET](../app-service-web-get-started-dotnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		
-## ASP.NET Core		
-### [Windows](../web-sites-create-web-app-using-vscode.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		 
-### [Linux (preview)](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
-
 # Overview	
 ## [What is App Service?](../../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## App Service for developers 
@@ -11,21 +5,28 @@
 ## [Web apps in App Service](../app-service-web-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
 
-# Concepts
-## [App Service](../../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
-## Service architecture
-### Service types
-### App state (warm vs. cold)
+# QuickStart	
+## [ASP.NET](../app-service-web-get-started-dotnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		
+## ASP.NET Core		
+### [Windows](../web-sites-create-web-app-using-vscode.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		 
+### [Linux (preview)](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
-## [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
-## [App Service Environments](../app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
-## Deployment slots	
-## [Authentication/Authorization](../../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+# Scripts
 
 # Tutorials 		 	
 ## [ASP.NET app with Visual Studio](../web-sites-dotnet-get-started.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [Mobile friendly web app](../web-sites-dotnet-deploy-aspnet-mvc-mobile-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [REST service using ASP.NET Web API](../web-sites-dotnet-rest-service-aspnet-api-sql-database.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+
+# Concepts
+## [App Service](../../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
+## Service architecture
+### Service types
+### App state (warm vs. cold)
+## [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
+## [App Service Environments](../app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+## Deployment slots	
+## [Authentication/Authorization](../../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
 # How-To Guides
 ## Develop your app	

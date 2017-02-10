@@ -1,3 +1,11 @@
+# Overview	
+## [What is App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## App Service for developers 
+## App Service everywhere	
+## [Web apps in App Service](app-service-web-overview.md)
+## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## [App Service on Linux](app-service-linux-intro.md)
+
 # QuickStart	
 ## [ASP.NET](app-service-web-get-started-dotnet.md)		
 ## ASP.NET Core
@@ -14,30 +22,7 @@
 ## [Docker Containers](app-service-linux-using-custom-docker-image.md)
 ## [From template (WordPress)](web-sites-php-web-site-gallery.md)
 
-# Overview	
-## [What is App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-## App Service for developers 
-## App Service everywhere	
-## [Web apps in App Service](app-service-web-overview.md)
-## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-## [App Service on Linux](app-service-linux-intro.md)
-
-# Concepts
-## [App Service](../app-service/app-service-how-works-readme.md)	
-## Architecture
-### Service types
-### App state (warm vs. cold)
-
-## Deployment	
-## [Security](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-
-## [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
-## [App Service Environments](app-service-app-service-environment-intro.md)
-
-
-## Extensibility	
-### API
-### Site extensions
+# Scripts
 
 # Tutorials
 ## ASP.NET
@@ -70,6 +55,25 @@
 ### [Azure Resource Manager deployment](app-service-deploy-complex-application-predictably.md)
 ### [Agile development](app-service-agile-software-development.md)
 ### [Flighting deployment (beta testing)](app-service-web-test-in-production-controlled-test-flight.md)
+
+
+# Concepts
+## [App Service](../app-service/app-service-how-works-readme.md)	
+## Architecture
+### Service types
+### App state (warm vs. cold)
+
+## Deployment	
+## [Security](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+
+## [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
+## [App Service Environments](app-service-app-service-environment-intro.md)
+
+
+## Extensibility	
+### API
+### Site extensions
+
 
 
 # How-To Guides
