@@ -123,8 +123,8 @@
 #### [Troubleshoot](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
 ## Use the Gateway SDK
-## [Simulation on Linux)](iot-hub-linux-gateway-sdk-get-started.md)
-## [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
+### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
+### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## Use the IoT Gateway Starter Kit
 ### Simulated device
