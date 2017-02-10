@@ -19,6 +19,8 @@ ms.author: kgremban
 ---
 # How to get Azure Multi-Factor Authentication
 
+Two-step verification is an important security feature for any identity-driven service, so there are a number of ways to implement it. This article discusses the difference between the three versions of Multi-Factor Authentication, then discusses implementation and billing for the full version of Azure Multi-Factor Authentication. 
+
 ## Available versions of Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication is available in three different versions.
 
@@ -26,7 +28,7 @@ Azure Multi-Factor Authentication is available in three different versions.
 | --- | --- |
 | Multi-Factor Authentication for Office 365 |This version works exclusively with Office 365 applications and is managed from the Office 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 subscription. |
 | Multi-Factor Authentication for Azure Administrators | Azure administrators can enable two-step verification for their admin accounts at no additional cost.|
-| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure classic portal](https://manage.windowsazure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication comes as part of Azure Active Directory Premium (P1 and P2 plans) and Enterprise Mobility + Security (E3 and E5 plans), and can be deployed either in the cloud or on premises. See below for [How to get Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication). |
+| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure classic portal](https://manage.windowsazure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication comes as part of Azure Active Directory Premium (P1 and P2 plans) and Enterprise Mobility + Security (E3 and E5 plans), and can be deployed either in the cloud or on premises. |
 
 ## Feature comparison of versions
 The following table provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
@@ -51,35 +53,45 @@ The following table provides a list of the features that are available in the va
 | Custom caller ID for phone calls | | |● |
 | Trusted IPs | | |● |
 | Remember MFA for trusted devices |● |● |● |
-| MFA SDK | | |● requires Multi-Factor Auth provider and full Azure subscription |
+| MFA SDK | | |● (Requires Multi-Factor Auth provider and full Azure subscription) |
 | MFA for on-premises applications | | |● |
 
 ## How to get Azure Multi-Factor Authentication
 If you would like the full functionality offered by Azure Multi-Factor Authentication, there are several options:
 
-1. **MFA licenses** - Purchase Azure Multi-Factor Authentication licenses and assign them to your users in Azure Active Directory. If you use this option, do not create an Azure Multi-Factor Authentication Provider unless you also need to provide two-step verification for some users that don't have licenses. 
-2. **Bundled licenses that include MFA** - Purchase licenses that have Azure Multi-Factor Authentication bundled within them such as Azure Active Directory Premium (P1 or P2) or Enterprise Mobility + Security (E3 or E5) and assign them to your users in Azure Active Directory. If you use this option, do not create an Azure Multi-Factor Authentication Provider unless you also need to provide two-step verification for some users that don't have licenses. 
-3. **MFA consumption-based billing** - Create an Azure Multi-Factor Authentication Provider within an Azure subscription. Azure MFA Providers are Azure resources that are billed against your Enterprise Agreement, Azure monetary commitment, or credit card like all other Azure resources. These providers can only be created in full Azure subscriptions, not limited Azure subscriptions that have a $0 spending limit. Limited subscriptions are created when you activate licenses, like in options 1 and 2. 
+### Option 1 - MFA licenses
 
-    When using an Azure Multi-Factor Authentication Provider, there are two usage models available that are billed through your Azure subscription:  
+Purchase Azure Multi-Factor Authentication licenses and assign them to your users in Azure Active Directory. If you use this option, do not create an Azure Multi-Factor Authentication Provider unless you also need to provide two-step verification for some users that don't have licenses. 
 
-        * **Per User** - For enterprises that want to enable two-step verification for a fixed number of employees who regularly need authentication. Per-user billing is based on the number of users enabled for MFA in your Azure AD tenant and/or your Azure MFA Server. If users are enabled for MFA in both Azure AD and Azure MFA Server, and domain sync (like Azure AD Connect) is enabled, then we only count the larger set of users. If domain sync isn't enabled, then we count the sum of all users enabled for MFA in Azure AD and Azure MFA Server. Billing is prorated and reported to the Commerce system daily. 
+### Option 2 - Bundled licenses that include MFA
 
-        > [!NOTE]
-        > Billing example 1: 
-        > You have 5,000 users enabled for MFA today. The MFA system divides that number by 31, and reports 161.29 users for that day. Tomorrow you enable 15 more users, so the MFA system reports 161.77 users for that day. By the end of the billing cycle, the total number of users billed against your Azure subscription adds up to around 5,000. 
-        >
-        > Billing example 2:
-        > You have a mixture of users with licenses and users without, so you have a per-user Azure MFA Provider to make up the difference. There are 4,500 Enterprise Mobility + Security licenses on your tenant, but 5,000 users enabled for MFA. Your Azure subscription is billed for 500 users. 
+Purchase licenses that have Azure Multi-Factor Authentication bundled within them such as Azure Active Directory Premium (P1 or P2) or Enterprise Mobility + Security (E3 or E5) and assign them to your users in Azure Active Directory. If you use this option, do not create an Azure Multi-Factor Authentication Provider unless you also need to provide two-step verification for some users that don't have licenses. 
 
-        * **Per Authentication** - For enterprises that want to enable two-step verification for a large group of users who infrequently need authentication. Billing is based on the number of two-step verification requests received by the Azure MFA cloud service. This billing appears on your Azure usage statement in packs of 10 authentications, and is reported to the Commerce system daily. 
+### Option 3 - MFA consumption-based billing
 
-        > [!NOTE]
-        > Billing example:
-        > Today, the Azure MFA service received 3,105 two-step verification requests. Your Azure subscription is billed for 310.5 authentication packs. 
+Create an Azure Multi-Factor Authentication Provider within an Azure subscription. Azure MFA Providers are Azure resources that are billed against your Enterprise Agreement, Azure monetary commitment, or credit card like all other Azure resources. These providers can only be created in full Azure subscriptions, not limited Azure subscriptions that have a $0 spending limit. Limited subscriptions are created when you activate licenses, like in options 1 and 2. 
 
-If
+When using an Azure Multi-Factor Authentication Provider, there are two usage models available that are billed through your Azure subscription:  
 
+1. **Per User** - For enterprises that want to enable two-step verification for a fixed number of employees who regularly need authentication. Per-user billing is based on the number of users enabled for MFA in your Azure AD tenant and/or your Azure MFA Server. If users are enabled for MFA in both Azure AD and Azure MFA Server, and domain sync (like Azure AD Connect) is enabled, then we only count the larger set of users. If domain sync isn't enabled, then we count the sum of all users enabled for MFA in Azure AD and Azure MFA Server. Billing is prorated and reported to the Commerce system daily. 
 
+  > [!NOTE]
+  > Billing example 1: 
+  > You have 5,000 users enabled for MFA today. The MFA system divides that number by 31, and reports 161.29 users for that day. Tomorrow you enable 15 more users, so the MFA system reports 161.77 users for that day. By the end of the billing cycle, the total number of users billed against your Azure subscription adds up to around 5,000. 
+  >
+  > Billing example 2:
+  > You have a mixture of users with licenses and users without, so you have a per-user Azure MFA Provider to make up the difference. There are 4,500 Enterprise Mobility + Security licenses on your tenant, but 5,000 users enabled for MFA. Your Azure subscription is billed for 500 users. 
 
-For pricing details, see [Azure MFA Pricing.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
+2. **Per Authentication** - For enterprises that want to enable two-step verification for a large group of users who infrequently need authentication. Billing is based on the number of two-step verification requests received by the Azure MFA cloud service. This billing appears on your Azure usage statement in packs of 10 authentications, and is reported to the Commerce system daily. 
+
+  > [!NOTE]
+  > Billing example 3:
+  > Today, the Azure MFA service received 3,105 two-step verification requests. Your Azure subscription is billed for 310.5 authentication packs. 
+
+It's important to note that your Azure account can be billed for MFA even if you have licenses. If you set up a per-authentication Azure MFA Provider, you will be billed for each two-step verification request. If you set up a per-user Azure MFA Provider on a domain which isn't linked to your Azure AD tenant, you will be billed per enabled user even if your users have licenses on Azure AD. 
+
+## Next steps
+
+- For more pricing details, see [Azure MFA Pricing](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+
+- Choose whether to deploy Azure MFA [in the cloud or on-premises](multi-factor-authentication-get-started.md)

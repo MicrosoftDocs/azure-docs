@@ -48,16 +48,10 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 * **Reliable** - We guarantee 99.9% availability of Azure Multi-Factor Authentication. The service is considered unavailable when it is unable to receive or process verification requests for the two-step verification.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
->
->
-
-## How Azure Multi-Factor Authentication works
-The security of two-step verification lies in its layered approach. Compromising multiple verification methods presents a significant challenge for attackers. Even if an attacker manages to learn your password, it is useless without also having possession of the trusted device. Should you lose the device, the person who finds it can't use it unless he or she also knows your password.
-
-> [!VIDEO https://channel9.msdn.com/Events/TechEd/Europe/2014/EM-B313/player]
-
-
 
 
 ## Next steps
-To get started with Azure Multi-Factor Authentication, your first step is to [choose between MFA in the cloud or on-premises](multi-factor-authentication-get-started.md)
+
+- Learn about [How Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md)
+
+- Read about the different [Versions and billing methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-billing.md)

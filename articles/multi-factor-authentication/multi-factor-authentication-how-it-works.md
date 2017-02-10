@@ -30,13 +30,11 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 * mobile app verification code
 * 3rd party OATH tokens
 
-For additional information oh how it works see the following video.
+For detailed information on how it works see the following video.
 
 > [!VIDEO https://channel9.msdn.com/Events/TechEd/Europe/2014/EM-B313/player]
-> 
-> 
 
-## Methods available for multi-factor authentication
+## Methods available for two-step verification
 When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification.
 
 | Verification Method | Description |
@@ -48,3 +46,8 @@ When a user signs in, an additional verification is sent to the user.  The follo
 
 Azure Multi-Factor Authentication provides selectable verification methods for both cloud and server. This means that you can choose which methods are available for your users: phone call, text, app notification, or app codes. For more information, see [selectable verification methods](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
+## Next steps
+
+- Read about the different [Versions and billing methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-billing.md)
+
+- Choose whether to deploy Azure MFA [in the cloud or on-premises](multi-factor-authentication-get-started.md)
