@@ -11,7 +11,7 @@
 ### [Windows](../web-sites-create-web-app-using-vscode.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		 
 ### [Linux (preview)](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
-# Scripts
+# Common examples
 
 # Tutorials 		 	
 ## [ASP.NET app with Visual Studio](../web-sites-dotnet-get-started.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)

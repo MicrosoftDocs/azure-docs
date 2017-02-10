@@ -22,7 +22,7 @@
 ## [Docker Containers](app-service-linux-using-custom-docker-image.md)
 ## [From template (WordPress)](web-sites-php-web-site-gallery.md)
 
-# Scripts
+# Common examples
 
 # Tutorials
 ## ASP.NET
@@ -76,7 +76,7 @@
 
 
 
-# How-To Guides
+# How-To guides
 ## Develop your app	
 ### ASP.NET
 #### [Create an ASP.NET app in Azure with Visual Studio](web-sites-dotnet-get-started.md)

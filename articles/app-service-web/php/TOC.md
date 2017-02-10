@@ -11,7 +11,7 @@
 ## [Linux (preview)](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## [From template (WordPress)](../web-sites-php-web-site-gallery.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
-# Scripts
+# Common examples
 
 # Tutorials
 
