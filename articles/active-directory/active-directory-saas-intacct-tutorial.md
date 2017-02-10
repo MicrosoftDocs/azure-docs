@@ -37,13 +37,13 @@ To configure Azure AD integration with Intacct, you need the following items:
 
 
 > [!NOTE]
-> To test the steps in this tutorial, we don't recommend using a production environment.
+> To test the steps in this tutorial, we don't recommend that you use a production environment.
 
 
 To test the steps in this tutorial, follow these recommendations:
 
-- Don't use your production environment unless it's necessary
-- If you don't have an Azure AD trial environment, you can get a [one-month free trial](https://azure.microsoft.com/pricing/free-trial/)
+- Don't use your production environment unless it's necessary.
+- If you don't have an Azure AD trial environment, you can get a [one-month free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Scenario description
@@ -185,7 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_01.png)
 
-2. Go to **Users and groups**, and the click **All users** to display the list of users.
+2. Go to **Users and groups**, and then click **All users** to display the list of users.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-intacct-tutorial/create_aaduser_02.png)
 
