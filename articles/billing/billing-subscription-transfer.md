@@ -127,6 +127,9 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 
   If you cannot transfer subscription ownership, you could manually move your resources over. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
+## Transfer subscription ownership for Enterprise Agreement (EA) customers
+The Enterprise Administrator can transfer ownership of subscriptions within an enrollment. To get started, see [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in the EA portal.
+
 ## Next steps after accepting ownership of a subscription
 1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more about administrator roles](billing-add-change-azure-subscription-administrator.md).
 
