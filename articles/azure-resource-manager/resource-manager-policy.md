@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 02/10/2017
 ms.author: tomfitz
 
 ---
@@ -24,6 +24,8 @@ There are two concepts to understand about policies:
 
 * policy definition - you describe when the policy is enforced and what action to take
 * policy assignment - you apply the policy definition to a scope (subscription or resource group)
+
+This topic focuses on policy definition. For information about policy assignment, see [Assign and manage policies](resource-manager-policy-create-assign.md).
 
 Azure provides some built-in policy definitions that may reduce the number of policies you have to define. If a built-in policy definition works for your scenario, use that definition when assigning to a scope.
 
@@ -45,12 +47,12 @@ To use policies, you must be authenticated through RBAC. Specifically, your acco
 These permissions are not included in the **Contributor** role.
 
 ## Policy definition structure
-You use JSON to create a policy definition. The policy definition contains sections for:
+You use JSON to create a policy definition. The policy definition contains elements for:
 
 * parameters
-* displayName
+* display name
 * description
-* policyRule
+* policy rule
   * logical evaluation
   * effect
 
@@ -63,14 +65,14 @@ The following example shows a policy that limits where resources are deployed:
       "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "An array of permitted locations for resources.",
+          "description": "The list of locations that can be specified when deploying resources",
           "strongType": "location",
-          "displayName": "List of locations"
+          "displayName": "Allowed locations"
         }
       }
     },
-    "displayName": "Allowed locations policy template",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
     "policyRule": {
       "if": {
         "not": {
@@ -114,17 +116,13 @@ In the policy rule, you reference parameters with the following syntax:
 }
 ```
 
-## displayName and description
+## Display name and description
 
 You use the `displayName` and `description` to identify the policy definition, and provide context for when it is used.
 
 ## Policy rule
 
-The policy rule consists of one or more conditions/logical operators that define the actions, and an effect that tells what happens when the conditions are fulfilled.
-
-**Condition/Logical operators:** a set of conditions that can be manipulated through a set of logical operators.
-
-**Effect:** what happens when the condition is satisfied – deny, audit, or append. An audit effect emits a warning event service log. For example, you can create a policy that causes an audit event if someone in your organization creates a large VM. You can review the logs later.
+The policy rule consists of one or more conditions that define when the policy is enforced. You can apply logical operators to these conditions to precisely define the scenario for a policy. The rule also includes an effect that specifies what happens when the conditions are fulfilled.
 
 ```json
 {
@@ -140,28 +138,41 @@ The policy rule consists of one or more conditions/logical operators that define
 ### Logical operators
 The supported logical operators along with the syntax are:
 
-| Operator Name | Syntax |
-|:--- |:--- |
-| Not |"not": {&lt;condition  or operator &gt;} |
-| And |"allOf": [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
-| Or |"anyOf": [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
+* `"not": {<condition  or operator>}` - applies **Not** logical operation 
+* `"allOf": [{<condition or operator>},{<condition or operator>}]` - applies **And** logical operation
+* `"anyOf": [{<condition or operator>},{<condition or operator>}]` - applies **Or** logical operation
 
-Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is in this topic.
+You can nest logical operators. The following example shows a **Not** operation that is nested within an **And** operation. 
+
+```json
+"if": {
+  "allOf": [
+    {
+      "not": {
+        "field": "tags",
+        "containsKey": "application"
+      }
+    },
+    {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+    }
+  ]
+},
+```
 
 ### Conditions
-A condition evaluates whether a **field** or **source** meets certain criteria. The supported condition names and syntax are:
+The condition evaluates whether a **field** meets certain criteria. The supported conditions are:
 
-| Condition Name | Syntax |
-|:--- |:--- |
-| Equals |"equals": "&lt;value&gt;" |
-| Like |"like": "&lt;value&gt;" |
-| Contains |"contains": "&lt;value&gt;" |
-| In |"in": ["&lt;value1&gt;","&lt;value2&gt;"] |
-| ContainsKey |"containsKey": "&lt;keyName&gt;" |
-| Exists |"exists": "&lt;bool&gt;" |
+* `"equals": "<value>"`
+* `"like": "<value>"` - can include a wildcard (`*`) in the value
+* `"contains": "<value>"`
+* `"in": ["<value1>","<value2>"]`
+* `"containsKey": "<keyName>"`
+* `"exists": "<bool>"`
 
 ### Fields
-Conditions are formed by using fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
+Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  
 
 The following fields are supported:
 
@@ -173,34 +184,32 @@ The following fields are supported:
 * `tags.*` 
 * property aliases
 
-  You use property aliases to access specific properties for a resource type.  
+You use property aliases to access specific properties for a resource type. The supported aliases are:
 
-  Currently, the supported aliases are:
-
-  * Microsoft.CDN/profiles/sku.name
-  * Microsoft.Compute/virtualMachines/imageOffer
-  * Microsoft.Compute/virtualMachines/imagePublisher
-  * Microsoft.Compute/virtualMachines/sku.name
-  * Microsoft.Compute/virtualMachines/imageSku 
-  * Microsoft.Compute/virtualMachines/imageVersion
-  * Microsoft.SQL/servers/databases/edition
-  * Microsoft.SQL/servers/databases/elasticPoolName
-  * Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-  * Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-  * Microsoft.SQL/servers/elasticPools/dtu
-  * Microsoft.SQL/servers/elasticPools/edition
-  * Microsoft.SQL/servers/version
-  * Microsoft.Storage/storageAccounts/accessTier
-  * Microsoft.Storage/storageAccounts/enableBlobEncryption
-  * Microsoft.Storage/storageAccounts/sku.name
-  * Microsoft.Web/serverFarms/sku.name
+* Microsoft.CDN/profiles/sku.name
+* Microsoft.Compute/virtualMachines/imageOffer
+* Microsoft.Compute/virtualMachines/imagePublisher
+* Microsoft.Compute/virtualMachines/sku.name
+* Microsoft.Compute/virtualMachines/imageSku 
+* Microsoft.Compute/virtualMachines/imageVersion
+* Microsoft.SQL/servers/databases/edition
+* Microsoft.SQL/servers/databases/elasticPoolName
+* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
+* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
+* Microsoft.SQL/servers/elasticPools/dtu
+* Microsoft.SQL/servers/elasticPools/edition
+* Microsoft.SQL/servers/version
+* Microsoft.Storage/storageAccounts/accessTier
+* Microsoft.Storage/storageAccounts/enableBlobEncryption
+* Microsoft.Storage/storageAccounts/sku.name
+* Microsoft.Web/serverFarms/sku.name
 
 ### Effect
-Policy supports three types of effect - **deny**, **audit**, and **append**. 
+Policy supports three types of effect - `deny`, `audit`, and `append`. 
 
-* Deny generates an event in the audit log and fails the request
-* Audit generates an event in audit log but does not fail the request
-* Append adds the defined set of fields to the request 
+* **Deny** generates an event in the audit log and fails the request
+* **Audit** generates a warning event in audit log but does not fail the request
+* **Append** adds the defined set of fields to the request 
 
 For **append**, you must provide the following details:
 
@@ -216,43 +225,50 @@ For **append**, you must provide the following details:
 
 The value can be either a string or a JSON format object. 
 
-## Common examples
+## Policy examples
+
+The following topics contain policy examples:
+
+* For examples of tag polices, see [Apply resource policies for tags](resource-manager-policy-tags.md).
+* For examples of storage policies, see [Apply resource policies to storage accounts](resource-manager-policy-storage.md).
+* For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ### Allowed resource locations
-To specify which locations are allowed, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
+To specify which locations are allowed, see the example in the [Policy definition structure](#policy-definition-structure) section. To assign this policy definition, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
 
-The built-in policy contains a rule similar to:
+### Not allowed resource locations
+To specify which locations are not allowed, use the following policy definition:
 
 ```json
 {
-  "if": {
-    "not": {
-      "field": "location",
-      "in": "[parameters('allowedLocations')]"
+  "properties": {
+    "parameters": {
+      "notAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that are not allowed when deploying resources",
+          "strongType": "location",
+          "displayName": "Not allowed locations"
+        }
+      }
+    },
+    "displayName": "Not allowed locations",
+    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "field": "location",
+        "in": "[parameters('notAllowedLocations')]"
+      },
+      "then": {
+        "effect": "deny"
+      }
     }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-To specify which locations are not allowed, use the following policy:
-
-```json
-{
-  "if": {
-    "field": "location",
-    "in": "[parameters('notAllowedLocations')]"
-  },
-  "then": {
-    "effect": "deny"
   }
 }
 ```
 
 ### Allowed resource types
-The following example shows a policy that permits deployments for only on the `Microsoft.Resources/*`, `Microsoft.Compute/*`, `Microsoft.Storage/*`, `Microsoft.Network/*` resource types. All others are denied:
+The following example shows a policy that permits deployments for only the Microsoft.Resources, Microsoft.Compute, Microsoft.Storage, Microsoft.Network resource types. All others are denied:
 
 ```json
 {
@@ -302,9 +318,7 @@ The following example shows the use of wildcard, which is supported by the **lik
 ```
 
 ## Next steps
-* For examples of tag polices, see [Apply resource policies for tags](resource-manager-policy-tags.md).
-* For examples of storage policies, see [Apply resource policies to storage accounts](resource-manager-policy-storage.md).
-* For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+* After defining a policy rule, assign it to a scope. For information about policy assignment, see [Assign and manage policies](resource-manager-policy-create-assign.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 * The policy schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
