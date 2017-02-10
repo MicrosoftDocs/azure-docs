@@ -18,7 +18,7 @@ ms.author: bwren
 
 # Using regular expressions to filter log searches in Log Analytics
 
-[Log searches](log-analytics-log-searches.md) allow you to extract information from the Log Analytics repository.  [Filter expressions](log-analytics-log-searches.md#filter-expressions) allow you to filter the results of the search according to specific criteria.  The **RegEx** keyword allows you to specify a regular expression for this filter.  
+[Log searches](log-analytics-log-searches.md) allow you to extract information from the Log Analytics repository.  [Filter expressions](log-analytics-search-reference.md#filter-expression) allow you to filter the results of the search according to specific criteria.  The **RegEx** keyword allows you to specify a regular expression for this filter.  
 
 This article provides details on the regular expression syntax used by Log Analytics.
 
