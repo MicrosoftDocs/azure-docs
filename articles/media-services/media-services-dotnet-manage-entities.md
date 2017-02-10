@@ -27,7 +27,7 @@ ms.author: juliako
 This topic shows how to manage Azure Media Services entities with .NET. 
 
 >[!NOTE]
-> Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. 
+> Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. If you need to archieve the job/task information, you can use the code described in this topic.
 
 ## Prerequisites
 See [Set up your environment](media-services-set-up-computer.md)
