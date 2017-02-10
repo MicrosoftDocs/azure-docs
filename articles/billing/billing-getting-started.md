@@ -153,7 +153,7 @@ For more information, see [Advisor Cost recommendations](../advisor/advisor-cost
 
 ### <a name="invoice-and-usage"></a> Get your invoice and detail usage after your first billing period
 
-After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. You can also opt-in to have your invoice emailed to you. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to get your Azure billing invoice and daily usage data](billing-get-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. You can also opt-in to have your invoice emailed to you. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ![Screenshot of a .pdf invoice](./media/billing-getting-started/invoice.png)
 
