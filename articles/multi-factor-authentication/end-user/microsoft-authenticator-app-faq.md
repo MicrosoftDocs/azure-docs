@@ -13,11 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 02/10/2017
 ms.author: kgremban
 
 ---
 # Microsoft Authenticator app FAQ
+
+This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
+
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. This app is available for Windows Phone, Android, and iOS.
 
 ## Frequently asked questions
@@ -37,7 +40,7 @@ If you use Microsoft Authenticator for your work or school account, then your or
 No, push notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they may disable this feature.  
 
 ### I restored my device from a backup, and my account codes are missing or not working. What happened?
-For security purposes, we don't restore accounts from app backups. If you restore the iOS app from a backup, your accounts are still displayed but they don't work to receive sign-in verifications or generate security codes. After you restore the app, delete your accounts and add them again.
+For security purposes, we don't restore accounts from app backups.  After you restore the app, delete your accounts and add them again.
 
 ### I got a new device. How do I remove the Microsoft Authenticator app from my old device and move to the new one?
 Adding the Microsoft Authenticator app to a new device does not automatically remove it from any other devices. To manage which devices are configured for your account, visit the same website that you use to manage two-step verification, and choose to remove old apps.
@@ -49,10 +52,10 @@ For personal Microsoft accounts, this website is your [account security](https:/
 * Windows Phone: From the main screen, select the menu button, then **Edit accounts**. Tap the **X** next to the account name.
 * Android: From the main screen, select the menu button, then **Edit accounts**. Tap the **X** next to the account name.
 
-If you have an Android device that is registered with your organization, you may need to complete an extra step to remove your account. On these devices, the Microsoft Authenticator app is automatically registered as a device administrator. If you want to completely uninstall the app, you need to first unregister the app in the app settings.
+If you have a device that is registered with your organization, you may need to complete an extra step to remove your account. On these devices, the Microsoft Authenticator app is automatically registered as a device administrator. If you want to completely uninstall the app, you need to first unregister the app in the app settings.
 
 ### Why does the app request so many permissions?
-Here is a full list of permissions we ask for, and how they are used in the app:
+Here is a full list of permissions we may ask for, and how they are used in the app. The specific permissions you see depend on the type of phone you have.
 
 * **Camera**: We use your camera to scan QR codes when you add a work, school, or non-Microsoft account.
 * **Contacts and phone**: When you sign in with your personal Microsoft account, we try to simplify the process by finding existing accounts that you use on your phone.
@@ -74,10 +77,11 @@ This is by design. Two-step verification requires proving two things – a thing
 ## Next steps
 
 ### Contact us
-If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, leave a comment on this page, or [contact support](https://support.microsoft.com/contactus) and we'll respond to your problem as soon as we can.
+If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.
 
 
 ### Related topics
 * [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
 * [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
+* [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
 
