@@ -115,7 +115,7 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
         
-        makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
+        makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b -r -len 2048
 
     You will be prompted to enter the private key password. After the command successfully executes, you should see a **CertFile.cer** and **mykey.pvk** in the certificate directory you specified.
 2. Use the [Pvk2Pfx][pvk2pfx] utility to convert the .pvk and .cer files that MakeCert created to a .pfx file. Run the following command.
