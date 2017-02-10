@@ -49,7 +49,7 @@ az network vnet create --resource-group myResourceGroup --name myVnet \
   --address-prefix 192.168.0.0/16 --subnet-name mySubnetFrontEnd --subnet-prefix 192.168.1.0/24
 ```
 
-Create two virtual network subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) - one for front-end traffic and one for back-end traffic. The following example creates two subnets, named `mySubnetFrontEnd` and `mySubnetBackEnd`:
+Create a subnet for the back-end traffic with [az network vnet subnet create](/cli/azure/network/vnet/subnet#create). The following example creates a subnet named `mySubnetBackEnd`:
 
 ```azurecli
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVnet \
