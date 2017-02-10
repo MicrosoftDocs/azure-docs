@@ -86,7 +86,7 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 
 * **If I take over billing ownership of a subscription from another organization, do they continue to have access to my resources?**
 
-  If the subscription is transferred to another tenant, the users associated with the previous tenant lose access to the subscription. Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms. These include:
+  If the subscription is transferred to another tenant, the users associated with the previous tenant lose access to the subscription. Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms, including:
 
   * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../cloud-services/cloud-services-certs-create.md).
   * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
@@ -125,7 +125,7 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 
 * **How do I migrate data and services for my Azure subscription to new subscription?**
 
-  If you cannot transfer subscription ownership, you could manually move your resources over. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+  If you cannot transfer subscription ownership, you could manually migrate your resources over. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ## Transfer subscription ownership for Enterprise Agreement (EA) customers
 The Enterprise Administrator can transfer ownership of subscriptions within an enrollment. To get started, see [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in the EA portal.

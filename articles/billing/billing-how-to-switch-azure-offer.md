@@ -60,7 +60,7 @@ As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer,
 ## What is an Azure offer?
 An Azure offer is the *type* of the Azure subscription you have. For example, [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer has different [terms](https://azure.microsoft.com/support/legal/offer-details/) and some have special benefits. The offer of your subscription can be found in the Account Center subscription page. Click the offer name to get more details.
 
-   ![Click on the Offer link in Account Center to get more details](./media/billing-how-to-switch-azure-offer/offerlink.png)
+   ![Click the Offer link in Account Center to get more details](./media/billing-how-to-switch-azure-offer/offerlink.png)
 
 ## Why can't I switch offers?
 You might not see the **Switch to another offer** button if:
@@ -99,8 +99,8 @@ Yes:
 
 - To transfer ownership of an Azure subscription and everything in it to someone else, see [Transferring ownership of an Azure subscription](billing-subscription-transfer.md)
 
-- If subscription transfer isn't available for you, or if you want to consolidate resources under one subscription individually, then you can migrate the resources directly. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) for more details.
+- If subscription transfer isn't available for you, or if you want to consolidate resources under one subscription individually, then you can migrate the resources directly. For more information, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ## Need help? Contact support.
-If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
