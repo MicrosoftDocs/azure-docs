@@ -132,8 +132,8 @@ SAP HANA Cloud Platform Identity Authentication application expects the SAML ass
  
 	![Configure Single Sign-On][5]
 
-3. In the **User Attributes** section on the **Single sign-on** dialog, if your SAP application expects an attribute for example "firstName". On the SAML token attributes dialog, add the "firstName" attribute.
-<!--- Loc Comment: The if-clause is incomplete. Could you complete the senteces after if your SAP application expects an attribute for example "firstName"? Thanks--->
+3. In the **User Attributes** section on the **Single sign-on** dialog, if your SAP application expects an attribute for example "firstName", on the SAML token attributes dialog, add the "firstName" attribute.
+
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On][6]
