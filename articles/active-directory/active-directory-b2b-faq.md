@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/10/2017
 ms.author: sasubram
 
 ---
@@ -95,11 +95,11 @@ Azure AD has a fixed set of character, password strength, and account lockout re
 
 ### Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
+Browse our other articles on Azure AD B2B collaboration:fs
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-iw-add-users.md)
+* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
 * [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
 * [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
