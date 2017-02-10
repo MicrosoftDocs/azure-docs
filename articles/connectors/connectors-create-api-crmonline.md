@@ -1,22 +1,22 @@
-<properties
-pageTitle="Add the Dynamics 365 (online) connector to your Logic Apps | Microsoft Docs"
-description="Create logic apps with Azure App service. The Dynamics 365 (online) Connection Provider provides an API to work with entities on Dynamics 365 (online)."
-services="logic-apps"
-documentationCenter=""
-authors="Mattp123"
-manager="anneta"
-editor=""
-tags="connectors" />
+---
+ title: Add the Dynamics 365 (online) connector to your Azure Logic Apps | Microsoft Docs
+ description: Create logic apps with Azure App service. The Dynamics 365 (online) Connection Provider provides an API to work with entities on Dynamics 365 (online).
+ services: logic-apps
+ cloud: Azure Stack
+ documentationcenter:
+ author: Mattp123
+ manager: anneta
 
-<tags
-ms.service="logic-apps"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="integration"
-ms.date="02/08/2017"
-ms.author="matp" />
+ ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
+ ms.service: logic-apps
+ ms.workload: integration
+ ms.tgt_pltfrm: na
+ ms.devlang: na
+ ms.topic: article
+ ms.date: 02/10/2017
+ ms.author: matp
 
+---
 # Create a logic app with the Dynamics 365 connector
 
 With Logic Apps you can connect to Dynamics 365 (online) and create useful business flows that create new records, update items, or return a list of records. With the Dynamics 365 connector, you can:
