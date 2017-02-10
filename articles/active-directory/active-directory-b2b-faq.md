@@ -95,7 +95,7 @@ Azure AD has a fixed set of character, password strength, and account lockout re
 
 ### Next steps
 
-Browse our other articles on Azure AD B2B collaboration:fs
+Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)

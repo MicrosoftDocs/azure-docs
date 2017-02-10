@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/10/2017
 ms.author: sasubram
 
 ---
@@ -30,7 +30,7 @@ This is the scenario in which this is most useful:
 2. The admin in the host organization sets up policies that allow Sam to identify and add other users from the partner organization (Litware).
 3. Now Sam can add other users from Litware to the WoodGrove directory, groups or applications without needing invitations to be redeemed. If Sam has the appropriate enumeration privileges in Litware, this happens automatically.
 
-## Next steps
+### Next steps
 
 Browse our other articles on Azure AD B2B collaboration:
 
