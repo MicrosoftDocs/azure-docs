@@ -42,7 +42,7 @@ First, create a resource group with [az group create](/cli/azure/group#create). 
 az group create --name myResourceGroup --location westus
 ```
 
-Create the virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
+Create the virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnetFrontEnd`:
 
 ```azurecli
 az network vnet create --resource-group myResourceGroup --name myVnet \
@@ -59,29 +59,22 @@ az network vnet subnet create --resource-group myResourceGroup --vnet-name myVne
 ## Create and configure multiple NICs
 You can read more details about [deploying multiple NICs using the Azure CLI](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), including scripting the process of looping through to create all the NICs.
 
-Create two NICs with [az network nic create](/cli/azure/network/nic#create). The following example creates two NICs, named `myNic1` and `myNic2`, with one NIC connecting to each subnet:
-
-```azurecli
-az network nic create --resource-group myResourceGroup --name myNic1 \
-  --vnet-name myVnet --subnet mySubnetFrontEnd
-az network nic create --resource-group myResourceGroup --name myNic2 \
-  --vnet-name myVnet --subnet mySubnetBackEnd
-```
-
-Typically you also create a [Network Security Group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Create the network security group with [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
+Typically you create a [Network Security Group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Create a network security group with [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create --resource-group myResourceGroup \
   --name myNetworkSecurityGroup
 ```
 
-Bind your NICs to the Network Security Group using `azure network nic set`. You can also bind a Network Security Group to a subent with [az network vnet subnet update](/cli/azure/network/vnet/subnet#update). The following example binds `myNic1` and `myNic2` with `myNetworkSecurityGroup`:
+Create two NICs with [az network nic create](/cli/azure/network/nic#create). The following example creates two NICs, named `myNic1` and `myNic2`, connected the network security group, with one NIC connecting to each subnet:
 
 ```azurecli
-az network nic update --resource-group myResourceGroup --name myNic1 \
-    --network-security-group myNetworkSecurityGroup
-az network nic update --resource-group myResourceGroup --name myNic2 \
-    --network-security-group myNetworkSecurityGroup
+az network nic create --resource-group myResourceGroup --name myNic1 \
+  --vnet-name myVnet --subnet mySubnetFrontEnd \
+  --network-security-group myNetworkSecurityGroup
+az network nic create --resource-group myResourceGroup --name myNic2 \
+  --vnet-name myVnet --subnet mySubnetBackEnd \
+  --network-security-group myNetworkSecurityGroup
 ```
 
 ## Create a VM and attach the NICs
