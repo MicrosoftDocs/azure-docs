@@ -94,12 +94,12 @@ To migrate to CSP, see [Azure Subscription Migration to CSP](https://blogs.techn
 
 To migrate to EA, have your Enrollment Admin add your account into the EA. Follow instructions in the invitation email to have your subscriptions moved under EA enrollment. To learn more, see [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) in the EA portal.
 
-## Can I migrate data and services for my Azure subscription to a new subscription?
+## Can I migrate data and services to a new subscription?
 Yes:
 
-- To transfer ownership of an Azure subscription and everything in it, see [Transferring ownership of an Azure subscription](billing-subscription-transfer.md)
+- To transfer ownership of an Azure subscription and everything in it to someone else, see [Transferring ownership of an Azure subscription](billing-subscription-transfer.md)
 
-- If subscription transfer isn't available for you, you have migrate the resources directly. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) for more details.
+- If subscription transfer isn't available for you, or if you want to consolidate resources under one subscription individually, then you can migrate the resources directly. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) for more details.
 
 ## Need help? Contact support.
 If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

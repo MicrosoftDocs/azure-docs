@@ -72,9 +72,9 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 
   Yes, all your resources like VMs, disks, and websites would transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) policies you've set up do not transfer. 
 
-* <a id="no-button"></a> **Why do I not see the Transfer Subscription button?**
+* <a id="no-button"></a> **Why don't I see the Transfer Subscription button?**
 
-  The **Transfer Subscription** button is only visible to Pay-As-You-Go, Visual Studio, Action Pack, and BizSpark customers. 
+  If you don't see the **Transfer Subscription** button, then we don't support subscription transfer for your offer. [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 * **Does a subscription transfer result in any service downtime?**
 
