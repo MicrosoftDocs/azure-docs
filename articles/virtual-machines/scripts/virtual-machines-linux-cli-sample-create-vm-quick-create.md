@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Create VM sample
 
-[!code-azurecli[main](../../cli_scripts/virtual-machine/create-vm-quick/create-vm-quick.sh "Quick Create VM")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-vm-quick.sh "Quick Create VM")]
 
 ## Clean up deployment 
 

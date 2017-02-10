@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Create VM sample with OMS
 
-[!code-azurecli[main](../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh?highlight=4-5 "Quick Create VM")]
+[!code-azurecli[main](../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh?highlight=4-5 "Quick Create VM")]
 
 ## Clean up deployment 
 
