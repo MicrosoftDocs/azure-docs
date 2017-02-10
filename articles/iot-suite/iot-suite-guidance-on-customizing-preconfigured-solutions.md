@@ -121,7 +121,13 @@ To notify the IoT hub that a device supports a method, the device must add detai
 }
 ```
 
-The method signature has the following format: `<method name>_<parameter #0 type>_<parameter #1 type>_..._<parameter #n type>`. For a list of supported parameter types, see the **CommandTypes** class in the Infrastructure project.
+The method signature has the following format: `<method name>-<parameter #0 type>-<parameter #1 type>-...-<parameter #n type>`. For example, to specify the **FirmwareUpdate** method expects a string parameter named **fmPackageUri**, use the following method signature:
+
+```
+FirmwareUpate-string-fmPackgeUri: description
+```
+
+For a list of supported parameter types, see the **CommandTypes** class in the Infrastructure project.
 
 To delete a method, set the method signature to `null` in the reported properties.
 

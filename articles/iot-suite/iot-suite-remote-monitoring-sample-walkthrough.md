@@ -55,20 +55,19 @@ The simulated devices send the following device properties to the twin in the Io
 
 | Property | Purpose |
 | --- | --- |
-| Device ID |Id that is either provided or assigned when a device is created in the solution. |
-| Manufacturer |Device manufacturer |
-| Model Number |Model number of the device |
-| Serial Number |Serial number of the device |
-| Firmware |Current version of firmware on the device |
-| Platform |Platform architecture of the device |
-| Processor |Processor running the device |
-| Installed RAM |Amount of RAM installed on the device |
-| Device State | State reported by the device |
-| Hub Enabled State |IoT Hub state property of the device |
-| Created Time |Time the device was created in the solution |
-| Updated Time |Last time properties were updated for the device |
-| Latitude |Latitude location of the device |
-| Longitude |Longitude location of the device |
+| Device.DeviceID |Id that is either provided or assigned when a device is created in the solution. |
+| System.Manufacturer |Device manufacturer |
+| System.ModelNumber |Model number of the device |
+| System.SerialNumber |Serial number of the device |
+| System.FirmwareVersion |Current version of firmware on the device |
+| System.Platform |Platform architecture of the device |
+| System.Processor |Processor running the device |
+| System.InstalledRAM |Amount of RAM installed on the device |
+| Device.DeviceState | State reported by the device |
+| Device.CreatedTime |Time the device was created in the solution |
+| Device.UpdatedTime |Last time properties were updated for the device |
+| Location.Latitude |Latitude location of the device |
+| Location.Longitude |Longitude location of the device |
 
 The simulator seeds these properties in simulated devices with sample values. Each time the simulator initializes a simulated device, the device reports the pre-defined metadata to IoT Hub. Reported properties can only be updated by the device. To change a reported property, you set a desired property in solution portal. It is the responsibility of the device to:
 1. Periodically retrieve desired properties from the IoT hub.
