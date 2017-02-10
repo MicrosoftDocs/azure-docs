@@ -1,6 +1,5 @@
 ---
-title: Troubleshoot Azure 
-issues | Microsoft Docs
+title: Troubleshoot Azure issues | Microsoft Docs
 description: Describes how to troubleshoot some common Azure sign up issues.
 services: ''
 documentationcenter: ''
@@ -60,7 +59,7 @@ Have you used an Azure subscription in the past? The Azure Terms of Use agreemen
 * Consider signing up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
 ## Can’t activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus, or MPN
-Make sure you are using the right login credentials and verify through your benefit program channel if you are eligible for the chosen plan:
+Make sure you are using the right log-in credentials and verify through your benefit program channel if you are eligible for the chosen plan:
 
 * MSDN
   * Verify your eligibility status in your [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
