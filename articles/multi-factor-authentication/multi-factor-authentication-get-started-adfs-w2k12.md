@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 
 ---
@@ -116,16 +116,25 @@ Finally, to register the adapter, run the \Program Files\Multi-Factor Authentica
 ## Secure Azure AD resources using AD FS
 To secure your cloud resource, set up a claims rule so that Active Directory Federation Services emits the multipleauthn claim when a user performs two-step verification successfully. This claim is passed on to Azure AD. Follow this procedure to walk through the steps:
 
-1. Start the AD FS Management console.
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-2. Navigate to **Relying Party Trusts** and right-click on the relying party trust. Select **Edit Claim Rules**.
-3. Click **Add Rule**.
-4. From the drop-down, select **Pass Through of Filter an Incoming Claim** and click **Next**.
-5. Enter a name for the claim rule.
-6. Select **Authentication Methods References** as the Incoming claim type.
-7. Select **Pass through all claim values**.
+1. Open AD FS Management.
+2. On the left, select **Relying Party Trusts**.
+3. Right-click on **Microsoft Office 365 Identity Platform** and select **Edit Claim Rules…**
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+
+4. On Issuance Transform Rules, click **Add Rule.**
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. On the Add Transform Claim Rule Wizard, select **Pass Through or Filter an Incoming Claim** from the drop-down and click **Next**.
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Give your rule a name. 
+7. Select **Authentication Methods References** as the Incoming claim type.
+8. Select **Pass through all claim values**.
     ![Add Transform Claim Rule Wizard](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
-8. Click **Finish**. Close the AD FS Management console.
+9. Click **Finish**. Close the AD FS Management console.
 
 ## Related topics
 For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.md)
