@@ -185,7 +185,7 @@
 #### [HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework players](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
-### [Licensing Microsoft†" Smooth Streaming Client Porting Kit](media-services-sspk.md)
+### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
 ### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)

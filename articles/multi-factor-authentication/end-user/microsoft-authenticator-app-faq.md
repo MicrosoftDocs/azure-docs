@@ -13,11 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 02/02/2017
 ms.author: kgremban
 
 ---
 # Microsoft Authenticator app FAQ
+
+This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
+
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. This app is available for Windows Phone, Android, and iOS.
 
 ## Frequently asked questions
@@ -74,10 +77,11 @@ This is by design. Two-step verification requires proving two things – a thing
 ## Next steps
 
 ### Contact us
-If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, leave a comment on this page, or [contact support](https://support.microsoft.com/contactus) and we'll respond to your problem as soon as we can.
+If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.
 
 
 ### Related topics
 * [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
 * [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
+* [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
 
