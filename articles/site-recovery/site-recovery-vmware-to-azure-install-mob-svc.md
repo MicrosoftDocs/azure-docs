@@ -44,10 +44,10 @@ Perform these prerequisites before you start manually installing the Mobility Se
 | Installer file template name| Operating System |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 (64 bit) SP1</br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL 6.4, 6.5, 6.6 (64 bit only) </br> CentOS 6.4, 6.5, 6.6 (64 bit only) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL 6.4, 6.5, 6.6, 6.7, 6.8 (64 bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7. 6.8 (64 bit only) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64 bit only)|
 |Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64 bit only)|
-|Microsoft-ASR_UA\*Ubuntu-14.04-64\*release.tar.gz | Ubuntu 14.04 (64 bit only)|
+
 
 ## Install Mobility Service manually using the Graphical User Interface
 

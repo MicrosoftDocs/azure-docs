@@ -64,9 +64,24 @@ You can use the Azure portal, PowerShell, or the Azure command-line interface (C
 
 To deploy the template using the Azure portal, complete the following steps:
 
-1. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
-	- Until you receive an e-mail notifying you that you've been accepted into the preview
-	- Without following the instructions in the email you receive 
+1. Register for the preview by running both the following commands in PowerShell after you login and select the appropriate subscription:
+	```
+	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+	```
+	Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+		
+	```powershell
+	FeatureName                            ProviderName      RegistrationState
+	-----------                            ------------      -----------------      
+	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+	```
+		
+	>[!NOTE] 
+	>This may take a few minutes.
+
 2. Modify the template, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates ](../azure-resource-manager/resource-group-authoring-templates.md)article.
 3. Deploy the template with one of the following methods:
 	- **Select the template in the portal:** Complete the steps in the [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) article. Choose the pre-existing template named *101-vm-multiple-ipconfig*.

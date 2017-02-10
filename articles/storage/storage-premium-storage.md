@@ -1,6 +1,6 @@
 ---
 title: High-Performance Premium Storage and Azure VM Disks | Microsoft Docs
-description: Discuss high-performance Premium Storage for unmanaged and managed VM disks. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
+description: Discuss high-performance Premium Storage and unmanaged and managed Azure VM disks. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
 services: storage
 documentationcenter: ''
 author: ramankumarlive
@@ -17,7 +17,7 @@ ms.date: 02/06/2017
 ms.author: ramankum
 
 ---
-# High-Performance Premium Storage for unmanaged and managed VM Disks
+# High-Performance Premium Storage and unmanaged and managed Azure VM Disks
 Microsoft Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines (VMs) running I/O-intensive workloads. VM disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
 
 An Azure VM supports attaching several premium storage disks, so that your applications can have up to 64 TB of storage per VM. With Premium Storage, your applications can achieve 80,000 input/output operations per second (IOPS) per VM and disk throughput up to 2000 MB/s per VM with extremely low latencies for read operations.
@@ -30,17 +30,17 @@ With Premium Storage, Azure offers the ability to truly lift-and-shift your dema
 
 There are two ways to create Premium disks for Azure VMs:
 
-**Unmanaged Disks**: 
+**Unmanaged disks**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. 
 
 **[Azure Managed Disks](storage-managed-disks-overview.md)**: 
-This feature manages the storage accounts used for the VM disks. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you.  
+This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don’t have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
 
-Even though both types of disks are available, we recommend using Managed Disks. Managed Disks handles the day-to-day management of storage accounts used for your VMs for you. 
+Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.
 
 To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). 
 
-For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure VM to Managed Disks - Windows](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating an existing Azure Linux VM to Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
+For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure Windows VM to Managed Disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating an existing Azure Linux VM to Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
 > Premium Storage is currently supported in most regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services) by looking at the regions in which the size-series VMs (DS, DSV2, Fs, and GS) are supported.
@@ -55,7 +55,7 @@ Let's take a look at some of the features of Premium Storage.
 **Premium page blob**: Premium Storage supports page blobs, which are used to store persistent unmanaged disks for VMs. Unlike Standard Storage, Premium Storage does not support block blobs, append blobs, files, tables, or queues.
  Any object placed in a premium storage account will be a page blob, and it will snap to one of the supported provisioned sizes. This is why a premium storage account is not meant for storing tiny blobs.
 
-**Premium storage account**: To start using Premium Storage, create a premium storage account for unmanaged disks. If you prefer to use the [Azure portal](https://portal.azure.com), you can create a premium storage account by specifying the “Premium” performance tier and “Locally-redundant storage (LRS)” as the replication option. You can also create a premium storage account by specifying the type as “Premium_LRS” using the [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); the [Azure Storage Resource Provider REST API Reference](/rest/api/storagerp)(Resource Manager deployments); and the [Azure PowerShell](/powershell/azureps-cmdlets-docs) version 0.8.10 or later. Learn about premium storage account limits in the following section on [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets).
+**Premium storage account**: To start using Premium Storage, create a premium storage account for unmanaged disks. If you prefer to use the [Azure portal](https://portal.azure.com), you can create a premium storage account by specifying the “Premium” performance tier and “Locally-redundant storage (LRS)” as the replication option. You can also create a premium storage account by specifying the type as “Premium_LRS” using the [Storage REST API](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) version 2014-02-14 or later; the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); the [Azure Storage Resource Provider REST API Reference](/rest/api/storagerp)(Resource Manager deployments); and the [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 or later. Learn about premium storage account limits in the following section on [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets.md).
 
 **Premium Locally Redundant Storage**: A premium storage account only supports Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For considerations regarding geo replication when using Premium Storage, see the [Snapshots and Copy Blob](#snapshots-and-copy-blob) section in this article.
 
@@ -175,7 +175,7 @@ To the Storage service, the VHD file is a page blob. You can take snapshots of p
 
 You can create [incremental Snapshots](storage-incremental-snapshots.md) for unmanaged premium disks in the same way you use snapshots with Standard Storage. Since Premium Storage only supports Locally Redundant Storage (LRS) as the replication option, we recommend that you create snapshots and then copy those snapshots to a geo-redundant standard storage account. For more information, see [Azure Storage Redundancy Options](storage-redundancy.md).
 
-If a disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot perform a [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) operation on that blob as long as the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot Blob](http://msdn.microsoft.com/library/azure/ee691971.aspx) REST API method, and then perform the [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) of the snapshot to copy the attached disk. Alternatively, you can detach the disk and then perform any necessary operations.
+If a disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot perform a [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) operation on that blob as long as the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot Blob](/rest/api/storageservices/fileservices/Snapshot-Blob) REST API method, and then perform the [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) of the snapshot to copy the attached disk. Alternatively, you can detach the disk and then perform any necessary operations.
 
 Following limits apply to premium storage blob snapshots:
 
@@ -185,14 +185,13 @@ Following limits apply to premium storage blob snapshots:
 | Storage account capacity for snapshots (includes data in snapshots only, and does not include data in base blob) | 10 TB |
 | Min. time between consecutive snapshots | 10 minutes |
 
-To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
 
-For detailed information on performing REST operations against page blobs in premium storage accounts, see [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) in the MSDN library.
+For detailed information on performing REST operations against page blobs in premium storage accounts, see [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### Managed disks
 
-A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future. To learn how to take a snapshot for a managed disk, please refer to [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](../Virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](../Virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
-
+A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future. To learn how to take a snapshot for a managed disk, please refer to [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 If a managed disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot generate a shared access signature (SAS) to perform a copy operation while the disk is attached to a VM. Instead, first create a snapshot of the disk, and then perform the copy of the snapshot. Alternately, you can detach the disk and then generate a shared access signature (SAS) to perform the copy operation.
 
@@ -247,25 +246,23 @@ When using Premium Storage, the following billing considerations apply:
 
 **Premium storage disk / blob size**: Billing for a premium storage disk/blob depends on the provisioned size of the disk/blob. Azure maps the provisioned size (rounded up) to the nearest premium storage disk option as specified in the table given in the [Scalability and Performance Targets when using Premium Storage](#premium-storage-scalability-and-performance-targets) section. Each disk will map to one of the the supported provisioned sizes and will be billed accordingly. Billing for any provisioned disk is prorated hourly using the monthly price for the Premium Storage offer. For example, if you provisioned a P10 disk and deleted it after 20 hours, you are billed for the P10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk or the IOPS/throughput used.
 
-**Premium unmanaged disks snapshots**: Snapshots on premium unmanaged disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
+**Premium unmanaged disks snapshots**: Snapshots on premium unmanaged disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](/rest/api/storageservices/fileservices/Snapshot-Blob).
 
 **Premium managed disks snapshots**: A snapshot of a managed disk is a read-only copy of the disk which is stored as a standard managed disk. The cost of a snapshot will be the same as a standard managed disk. For example, if you take a snapshot of a 128 GB premium managed disk, then the cost of the snapshot will be equivalent to a 128 GB standard managed disk.  
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-For detailed information on pricing for Premium Storage and Premium Storage-supported VMs, see:
+For detailed information on pricing for Premium Storage, Premium Storage-supported VMs, and Managed Disks, see:
 
 * [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/)
 * [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-## Backup
+## Azure Backup service support 
 
-Virtual machines using premium storage can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
+Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
 
-> [!NOTE]
-> The Azure Backup service is not available for virtual machines with managed disks. It will be available in the future. 
-> 
- 
+You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## Next steps
 For more information about Azure Premium Storage refer to the following articles.

@@ -14,25 +14,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/08/2017
 ms.author: cynthn
 
 ---
 
-# Migrate from Amazon Web Services (AWS) to Azure
+# Migrate from Amazon Web Services (AWS) to Azure Managed Disks
 
-If you are migrating VHD from an Amazon Web Services (AWS) EC2 instance to Azure, you must generalize the VM and then export the generalized VHD to a local directory.
+You can migrate an Amazon Web Services (AWS) EC2 instance to Azure by uploading the VHD. If you want to create multiple VMs in Azure from the same image, you must first generalize the VM and then export the generalized VHD to a local directory. Once the VHD is uploaded, you can create a new Azure VM that uses [Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for storage. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure will create and manage the disk for you. 
 
-> [!IMPORTANT]
-> Review [Plan for the migration to Managed Disks](virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../storage/storage-managed-disks-overview.md).
->
-> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
->
->
+Before starting this process,  make sure that you review [Plan for the migration to Managed Disks](virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
+
+Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+
 
 ## Generalize the Windows VM using Sysprep
 
-Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+Generalizing a VM using Sysprep removes any machine-specific information and personal account information from the VHD and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
