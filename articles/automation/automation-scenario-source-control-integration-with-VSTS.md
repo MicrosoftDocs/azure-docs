@@ -40,6 +40,7 @@ VSToken | Secure variable asset you will create that contains the VSTS personal 
 
 1. Create a [personal access token](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in VSTS that you will use to sync the runbooks or configurations into your automation account.
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png)
+
 2. Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks into the Automation account. You can name this VSToken. 
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
