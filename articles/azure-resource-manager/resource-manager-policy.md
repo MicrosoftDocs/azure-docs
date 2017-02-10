@@ -118,11 +118,11 @@ In the policy rule, you reference parameters with the following syntax:
 
 ## Display name and description
 
-You use the `displayName` and `description` to identify the policy definition, and provide context for when it is used.
+You use the **displayName** and **description** to identify the policy definition, and provide context for when it is used.
 
 ## Policy rule
 
-The policy rule consists of one or more conditions that define when the policy is enforced. You can apply logical operators to these conditions to precisely define the scenario for a policy. The rule also includes an effect that specifies what happens when the conditions are fulfilled.
+The policy rule consists of **If** and **Then** blocks. In the **If** block, you define one or more conditions that specify when the policy is enforced. You can apply logical operators to these conditions to precisely define the scenario for a policy. In the **Then** block, you define the effect that happens when the **If** conditions are fulfilled.
 
 ```json
 {
@@ -136,11 +136,13 @@ The policy rule consists of one or more conditions that define when the policy i
 ```
 
 ### Logical operators
-The supported logical operators along with the syntax are:
+The supported logical operators are:
 
-* `"not": {<condition  or operator>}` - applies **Not** logical operation 
-* `"allOf": [{<condition or operator>},{<condition or operator>}]` - applies **And** logical operation
-* `"anyOf": [{<condition or operator>},{<condition or operator>}]` - applies **Or** logical operation
+* `"not": {condition  or operator}`
+* `"allOf": [{condition or operator},{condition or operator}]` - 
+* `"anyOf": [{condition or operator},{condition or operator}]` - 
+
+The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the logical **And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the logical **Or** operation) requires one or more conditions to be true.
 
 You can nest logical operators. The following example shows a **Not** operation that is nested within an **And** operation. 
 
@@ -164,12 +166,14 @@ You can nest logical operators. The following example shows a **Not** operation 
 ### Conditions
 The condition evaluates whether a **field** meets certain criteria. The supported conditions are:
 
-* `"equals": "<value>"`
-* `"like": "<value>"` - can include a wildcard (`*`) in the value
-* `"contains": "<value>"`
-* `"in": ["<value1>","<value2>"]`
-* `"containsKey": "<keyName>"`
-* `"exists": "<bool>"`
+* `"equals": "value"`
+* `"like": "value"` - 
+* `"contains": "value"`
+* `"in": ["value1","value2"]`
+* `"containsKey": "keyName"`
+* `"exists": "bool"`
+
+When using the **like** condition, you can provide a wildcard (*) in the value.
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  
