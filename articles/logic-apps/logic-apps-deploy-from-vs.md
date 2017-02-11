@@ -17,7 +17,7 @@ ms.date: 2/10/2017
 ms.author: jehollan
 
 ---
-# Build and deploy Azure Logic Apps in Visual Studio
+# Build and deploy Azure logic apps in Visual Studio
 
 Although the [Azure portal](https://portal.azure.com/) 
 offers a great way for you to design and manage logic apps, 
