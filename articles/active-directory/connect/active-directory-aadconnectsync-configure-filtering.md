@@ -17,67 +17,67 @@ ms.date: 02/08/2017
 ms.author: billmath
 ---
 
-# Azure AD Connect sync: Configure Filtering
-With filtering, you can control which objects should appear in Azure AD from your on-premises directory. The default configuration takes all objects in all domains in the configured forests. In general, this is the recommended configuration. End users using Office 365 workloads, such as Exchange Online and Skype for Business, benefit from a complete Global Address List so they can send email and call everyone. With the default configuration, they would get the same experience they would get with an on-premises implementation of Exchange or Lync.
+# Azure AD Connect sync: Configure filtering
+By using filtering, you can control which objects should appear in Azure Active Directory (Azure AD) from your on-premises directory. The default configuration takes all objects in all domains in the configured forests. In general, this is the recommended configuration. Users using Office 365 workloads, such as Exchange Online and Skype for Business, benefit from a complete Global Address List so they can send email and call everyone. With the default configuration, they would have the same experience that they would have with an on-premises implementation of Exchange or Lync.
 
-In some cases, it is required to make some changes to the default configuration. Here are some examples:
+In some cases however, you're required make some changes to the default configuration. Here are some examples:
 
-* You plan to use the [multi-Azure AD-directory topology](active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Then you need to apply a filter to control which object should be synchronized to a particular Azure AD directory.
-* You run a pilot for Azure or Office 365 and you only want a subset of users in Azure AD. In the small pilot, it is not important to have a complete Global Address List to demonstrate the functionality.
-* You have many service accounts and other non-personal accounts you do not want in Azure AD.
-* For compliance reasons you do not delete any user accounts on-premises. You only disable them. But in Azure AD you only want active accounts to be present.
+* You plan to use the [multi-Azure AD directory topology](active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Then you need to apply a filter to control which object should be synchronized to a particular Azure AD directory.
+* You run a pilot for Azure or Office 365 and you only want a subset of users in Azure AD. In the small pilot, it's not important to have a complete Global Address List to demonstrate the functionality.
+* You have many service accounts and other nonpersonal accounts that you don't want in Azure AD.
+* For compliance reasons, you don't delete any user accounts on-premises. You only disable them. But in Azure AD, you only want active accounts to be present.
 
 This article covers how to configure the different filtering methods.
 
 > [!IMPORTANT]
-> Microsoft does not support modification or operation of the Azure AD Connect sync outside of those actions formally documented. Any of these actions may result in an inconsistent or unsupported state of Azure AD Connect sync and as a result, Microsoft cannot provide technical support for such deployments.
+> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
 
 ## Basics and important notes
 In Azure AD Connect sync, you can enable filtering at any time. If you start with a default configuration of directory synchronization and then configure filtering, the objects that are filtered out are no longer synchronized to Azure AD. As a result of this change, any objects in Azure AD that were previously synchronized but were then filtered are deleted in Azure AD.
 
-Before you start making changes to filtering, make sure you [disable the scheduled task](#disable-scheduled-task) so you do not accidentally export changes that you have not yet verified to be correct.
+Before you start making changes to filtering, make sure that you [disable the scheduled task](#disable-scheduled-task) so you don't accidentally export changes that you haven't yet verified to be correct.
 
-Since filtering can remove many objects at the same time, you want to make sure your new filters are correct before you start exporting any changes to Azure AD. After you have completed the configuration steps, it is strongly recommended that you follow the [verification steps](#apply-and-verify-changes) before you export and make changes to Azure AD.
+Because filtering can remove many objects at the same time, you want to make sure that your new filters are correct before you start exporting any changes to Azure AD. After you've completed the configuration steps, we strongly recommend that you follow the [verification steps](#apply-and-verify-changes) before you export and make changes to Azure AD.
 
-To protect you from deleting many objects by accident, the feature [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) is on by default. If you delete many objects due to filtering (500 by default), you need to follow the steps in this article to allow the deletes to go through to Azure AD.
+To protect you from deleting many objects by accident, the feature "[prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)" is on by default. If you delete many objects due to filtering (500 by default), you need to follow the steps in this article to allow the deletes to go through to Azure AD.
 
-If you use a build before November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), make a change to filter configuration and you use password synchronization, then you need to trigger a full sync of all passwords after you have completed the configuration. For steps on how to trigger a password full sync see [Trigger a full sync of all passwords](active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords). If you are on 1.0.9125 or later, then the regular **full synchronization** action also calculates if passwords should be synchronized and this extra step is no longer required.
+If you use a build before November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), make a change to filter configuration, and use password synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates if passwords should be synchronized and this extra step is no longer required.
 
-If **user** objects were inadvertently deleted in Azure AD because of a filtering error, you can recreate the user objects in Azure AD by removing your filtering configurations and then synchronize your directories again. This action restores the users from the recycle bin in Azure AD. However, you cannot undelete other object types. For example, if you accidentally delete a security group and it was used to ACL a resource, the group and its ACLs cannot be recovered.
+If **user** objects were inadvertently deleted in Azure AD because of a filtering error, you can recreate the user objects in Azure AD by removing your filtering configurations, and then you can synchronize your directories again. This action restores the users from the recycle bin in Azure AD. However, you cannot undelete other object types. For example, if you accidentally delete a security group and it was used to ACL a resource, the group and its ACLs cannot be recovered.
 
-Azure AD Connect only deletes objects it has once considered to be in scope. If there are objects in Azure AD that were created by another sync engine and these objects are not in scope, adding filtering do not remove them. For example, if you start with a DirSync server and it created a complete copy of your entire directory in Azure AD and you install a new Azure AD Connect sync server in parallel with filtering enabled from the beginning, it does not remove the extra objects created by DirSync.
+Azure AD Connect only deletes objects that it has once considered to be in scope. If there are objects in Azure AD that were created by another sync engine and these objects aren't in scope, adding filtering doesn't remove them. For example, if you start with a DirSync server that created a complete copy of your entire directory in Azure AD, and you install a new Azure AD Connect sync server in parallel with filtering enabled from the beginning, Azure AD Connect doesn't remove the extra objects that are created by DirSync.
 
-The filtering configuration is retained when you install or upgrade to a newer version of Azure AD Connect. It is always a best practice to verify that the configuration was not inadvertently changed after an upgrade to a newer version before running the first synchronization cycle.
+The filtering configuration is retained when you install or upgrade to a newer version of Azure AD Connect. It's always a best practice to verify that the configuration wasn't inadvertently changed after an upgrade to a newer version before running the first synchronization cycle.
 
-If you have more than one forest, then the filtering configurations described in this topic must be applied to every forest (assuming you want the same configuration for all of them).
+If you have more than one forest, then you must apply the filtering configurations that are described in this topic to every forest (assuming that you want the same configuration for all of them).
 
-### Disable scheduled task
+### Disable the scheduled task
 To disable the built-in scheduler that triggers a synchronization cycle every 30 minutes, follow these steps:
 
 1. Go to a PowerShell prompt.
 2. Run `Set-ADSyncScheduler -SyncCycleEnabled $False` to disable the scheduler.
-3. Make the changes as documented in this topic.
+3. Make the changes that are documented in this article.
 4. Run `Set-ADSyncScheduler -SyncCycleEnabled $True` to enable the scheduler again.
 
 **If you use an Azure AD Connect build before 1.1.105.0**  
-To disable the scheduled task that triggers a synchronization cycle every 3 hours, follow these steps:
+To disable the scheduled task that triggers a synchronization cycle every three hours, follow these steps:
 
-1. Start **Task Scheduler** from the start menu.
+1. Start **Task Scheduler** from the **Start** menu.
 2. Directly under **Task Scheduler Library**, find the task named **Azure AD Sync Scheduler**, right-click, and select **Disable**.  
    ![Task Scheduler](./media/active-directory-aadconnectsync-configure-filtering/taskscheduler.png)  
-3. You can now make configuration changes and run the sync engine manually from the **synchronization service manager** console.
+3. You can now make configuration changes and run the sync engine manually from the **Synchronization Service Manager** console.
 
-After you have completed all your filtering changes, don't forget to come back and **Enable** the task again.
+After you've completed all your filtering changes, don't forget to come back and **Enable** the task again.
 
 ## Filtering options
-The following filtering configuration types can be applied to the Directory Synchronization tool:
+You can apply the following filtering configuration types to the Directory Synchronization tool:
 
-* [**Group based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial install using the installation wizard. It is not further covered in this topic.
-* [**Domain-based**](#domain-based-filtering): This option enables you to select which domains that synchronize to Azure AD. It also allows you to add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you installed Azure AD Connect sync.
+* [**Group based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial installation by using the installation wizard. It isn't covered further in this article.
+* [**Domain-based**](#domain-based-filtering): By using this option,  you can select which domains that synchronize to Azure AD. It also allows you to add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you installed Azure AD Connect sync.
 * [**Organizational-Unit–based**](#organizational-unitbased-filtering):  This filtering option enables you to select which OUs synchronize to Azure AD. This option is for all object types in selected OUs.
 * [**Attribute–based**](#attribute-based-filtering): This option allows you to filter objects based on attribute values on the objects. You can also have different filters for different object types.
 
-You can use multiple filtering options at the same time. For example, you can use OU-based filtering to only include objects in one OU and at the same time attribute-based filtering to filter the objects further. When you use multiple filtering methods, the filters use a logical AND between the filters.
+You can use multiple filtering options at the same time. For example, you can use OU-based filtering to only include objects in one OU, and at the same time, you can use attribute-based filtering to filter the objects further. When you use multiple filtering methods, the filters use a logical "AND" between the filters.
 
 ## Domain-based filtering
 This section provides you with the steps to configure your domain filter. If you have added or removed domains in your forest after you have installed Azure AD Connect, you also have to update the filtering configuration.
