@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/13/2017
 ms.author: cgronlun;olgali
 
 ---
@@ -55,7 +55,7 @@ To browse all experiments:
 ## Use a template in Machine Learning Studio
 You also can create a new experiment in Machine Learning Studio using a Gallery sample as a template.
 
-1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create a new experiment.
+1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create an experiment.
 2. Browse through the sample content and click one.
 
 A new experiment is created in your workspace using the sample experiment as a template.
