@@ -17,21 +17,32 @@ ms.date: 2/10/2017
 ms.author: jehollan
 
 ---
-# Build and deploy Azure logic apps in Visual Studio
+# Build and deploy Azure Logic Apps in Visual Studio
 
-Although the [Azure portal](https://portal.azure.com/) gives you a great way to design and manage your Logic apps, you may also want to design and deploy your logic app from Visual Studio instead.  Logic Apps comes with a rich Visual Studio toolset, which allows you to build a logic app using the designer, configure any deployment and automation templates, and deploy into any environment.  
+Although the [Azure portal](https://portal.azure.com/) gives 
+you a great way to design and manage your logic apps, 
+you might want to use Visual Studio instead to build 
+and deploy your logic apps. Azure Logic Apps has rich 
+Visual Studio tools for you to create and build logic 
+apps using the Logic Apps Designer, 
+configure deployment and automation templates, 
+and deploy to any environment.
 
 ## Installation steps
-Below are the steps to install and configure the Visual Studio tools for Logic Apps.
+
+To install and configure the Visual Studio tools for Azure Logic Apps, 
+follow these steps.
 
 ### Prerequisites
+
 * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * Access to the web when using the embedded designer
 
-### Install Visual Studio tools for Logic Apps
-Once you have the prerequisites installed, 
+### Install Visual Studio tools for Azure Logic Apps
+
+After you install the prerequisites:
 
 1. Open Visual Studio 2015 to the **Tools** menu and select **Extensions and Updates**
 2. Select the **Online** category to search online
@@ -40,43 +51,88 @@ Once you have the prerequisites installed,
 5. Restart Visual Studio after installation
 
 > [!NOTE]
-> You can also download the extension directly from [this link](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9)
-> 
-> 
+> You can also download Azure Logic Apps Tools 
+> for Visual Studio directly from the 
+> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9)
 
-Once installed you are able to use the Azure Resource Group project with the Logic App Designer.
+After you finish installation, 
+you can use the Azure Resource Group project with Logic App Designer.
 
-## Create a project
-1. Go to the **File** menu and select **New** >  **Project** (or, you can go to **Add** and then select **New project** to add it to an existing solution):
-    ![File menu](./media/logic-apps-deploy-from-vs/filemenu.png)
-2. In the dialog, find **Cloud**, and then select **Azure Resource Group**. Type a **Name** and then click **OK**.
-    ![Add new project](./media/logic-apps-deploy-from-vs/addnewproject.png)
-3. Select the **Logic app** template. This creates a blank logic app deployment template to start with.
-    ![Select Azure template](./media/logic-apps-deploy-from-vs/selectazuretemplate1.png)
-4. Once you have selected your **Template**, hit **OK**.
+## Create your project
+
+1. On the **File** menu, go to **New**, and select **Project**. 
+Or to add your project to an existing solution, 
+go to **Add**, and select **New Project**.
+
+	![File menu](./media/logic-apps-deploy-from-vs/filemenu.png)
+
+2. In the **New Project** window, 
+find **Cloud**, and then select **Azure Resource Group**. 
+Name your project, and then click **OK**.
+
+	![Add new project](./media/logic-apps-deploy-from-vs/addnewproject.png)
+
+3. Select the **Logic App** template, which creates a 
+blank logic app deployment template for you to use.
+
+	![Select Logic App template](./media/logic-apps-deploy-from-vs/selectazuretemplate1.png)
+
+4. After you select your **Template**, click **OK**.
+
+	You've now added your logic app project to your solution. 
+	In the Solution Explorer, your deployment file should appear.
+
+	![Deployment file](./media/logic-apps-deploy-from-vs/deployment.png)
+
+## Create your logic app with the Logic App Designer
+
+When you have an Azure Resource Group project that contains a logic app, 
+you can open the Logic App Designer in Visual Studio to help you create the workflow. 
+
+> [!NOTE]
+> The designer requires an internet connection to 
+> query the connectors for available properties and data. 
+> For example, if you use the Dynamics CRM Online connector, 
+> the designer queries your CRM instance to show available 
+> custom and default properties.
+
+1. Right-click the `<template>.json` file, 
+and select **Open with Logic App Designer**. (`Ctrl+L`)
+
+2. Choose the subscription, resource group, 
+and location for the deployment template.
+
+	> [!NOTE] Designing a logic app creates **API Connection** 
+	> resources that queries for properties during design. 
+	> The resource group that you selected is used to create 
+	> those connections during design-time. 
+	> You can view or change any API Connections 
+	> by going to the Azure portal and browsing for **API Connections**.
    
-    Now your Logic app project is added to your solution. You should see the deployment file in the Solution Explorer:  
-   
-    ![Deployment](./media/logic-apps-deploy-from-vs/deployment.png)
+	![Subscription Picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
 
-## Using the Logic App Designer
-Once you have an Azure Resource Group project that contains a logic app, you can open the designer within Visual Studio to assist you in creating the workflow.  The designer requires an internet connection to query the connectors for available properties and data (for example, if using the Dynamics CRM Online connector, the designer queries your CRM instance to list available custom and default properties).
+	The designer should render based on the definition 
+	in the `<template>.json` file.
 
-1. Right-click on the `<template>.json` file and select **Open with Logic App Designer** (or `Ctrl+L`)
-2. Choose the subscription, resource group, and location for the deployment template
-   * It's important to note that designing a logic app will create **API Connection** resources to query for properties during design.  The resource group selected is used to create those connections during design-time.  You can view or modify any API Connections by going to the Azure portal and browsing for **API Connections**.
-   
-     ![Subscription Picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
-3. The designer should render based on the definition in the `<template>.json` file.
-4. You can now create and design your logic app, and changes are updated in the deployment template.
-    ![Designer in Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
+4. You can now create and design your logic app. 
+Your changes are updated in the deployment template.
 
-`Microsoft.Web/connections` resources are added to your resource file for any connections needed for the logic app to function.  These connection properties can be set when you deploy, and managed after you deploy in **API Connections** in the Azure portal.
+	![Logic App Designer in Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
 
-### Switching to the JSON code-view
-You can select the **Code View** tab on the bottom of the designer to switch to the JSON representation of the logic app.  To switch back to the full resource JSON, right-click the `<template>.json` file and select **Open**.
+Visual Studio adds `Microsoft.Web/connections` resources 
+to your resource file for any connections needed by your logic app to function. 
+These connection properties can be set when you deploy, 
+and managed after you deploy in **API Connections** in the Azure portal.
 
-### Reference dependent resources by using parameters in Visual Studio deployment templates
+### Switch to JSON code view
+
+To show the JSON representation for your logic app, 
+select the **Code View** tab at the bottom of the designer.
+
+To switch back to the full resource JSON, 
+right-click the `<template>.json` file, and select **Open**.
+
+### To reference dependent resources by using parameters in Visual Studio deployment templates
 
 When you want your logic app to reference dependent resources, 
 you can use Azure Resource Manager template functions in your logic app deployment template. 
@@ -92,8 +148,9 @@ You can include logic app parameters in these kinds of triggers and actions:
 *   APIM call
 *   API connection runtime URL
 
-Parameters support these constructions: list below, includes variables, resourceid, concat, and so on. 
-For example, you can replace the Azure Function resource ID like this:
+Parameters support these constructions: list below, 
+includes variables, resourceId, concat, and so on. 
+For example, you can replace the Azure Function resource ID:
 
 ```
 "MyFunction": {
@@ -121,47 +178,76 @@ you must provide default values, for example:
 },
 ```
 
-### Saving the logic app
-You can save the logic app at anytime via the **Save** button or `Ctrl+S`.  If there are any errors with your logic app at the time you save, they are displayed in the **Outputs** window of Visual Studio.
+### Save your logic app
 
-## Deploying your Logic app
-Finally, after you have configured your app, you can deploy directly from Visual Studio in just a couple steps. 
+To save your logic app at anytime, 
+go to **File** > **Save**. (`Ctrl+S`) 
 
-1. Right-click on the project in the Solution Explorer and go to **Deploy** > **New Deployment...**
-    ![New deployment](./media/logic-apps-deploy-from-vs/newdeployment.png)
-2. You are prompted to sign in to your Azure subscription(s). 
-3. Now you need to choose the details of the resource group that you want to deploy the Logic app to. 
-    ![Deploy to resource group](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
-   
-   > [!NOTE]
-   > Be sure to select the right template and parameters files for the resource group (for example if you are deploying to a production environment you'll want to choose the production parameters file). 
-   > 
-   > 
-4. Select the Deploy button
-5. The status of the deployment appears in the **Output** window (you may need to choose **Azure Provisioning**. 
-    ![Output](./media/logic-apps-deploy-from-vs/output.png)
+If your logic app has any errors when you save your app, 
+they appear in the Visual Studio **Outputs** window.
 
-In the future, you can revise your Logic app in source control and use Visual Studio to deploy new versions. 
+## Deploy your logic app
+
+After configuring your app, 
+you can deploy directly from Visual Studio in just a couple steps. 
+
+1. In Solution Explorer, right-click your project, 
+and go to **Deploy** > **New Deployment...**
+
+	![New deployment](./media/logic-apps-deploy-from-vs/newdeployment.png)
+
+2. When you're prompted, sign in to your Azure subscription. 
+
+3. Now you must select the details for the resource group where 
+you want to deploy your logic app. When you're done, select **Deploy**.
+
+	![Deploy to resource group](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
+
+	> [!NOTE]
+	> Make sure that you select the correct template 
+   > and parameters file for the resource group. For example, 
+   > if you want to deploy to a production 
+	> environment, choose the production parameters file.
+
+	The deployment status appears in the **Output** window. 
+	You might have to select **Azure Provisioning** in the **Show output from** list.
+
+	![Deployment status output](./media/logic-apps-deploy-from-vs/output.png)
+
+In the future, you can edit your logic app in source control, 
+and use Visual Studio to deploy new versions.
 
 > [!NOTE]
-> If you modify the definition in the Azure portal directly, then the next time you deploy from Visual Studio those changes will be overwritten.
-> 
-> 
+> If you change the definition in the Azure portal directly, 
+> those changes are overwritten when you deploy from Visual Studio next time. 
 
-## Adding a Logic App to an existing Resource Group project
-If you have an existing Resource Group project, then adding a logic app to it, or adding another logic app along side the one you previously created, can be done through the JSON Outline window.
+## Add your logic app to an existing Resource Group project
+
+If you have an existing Resource Group project, 
+you can add your logic app to that project in 
+the JSON Outline window. You can also add another 
+logic app alongside the app you previously created.
+
 1. Open the `<template>.json` file.
-2. Open the JSON Outline window.  The JSON Outline window can be found under **View** > **Other Windows** > **JSON Outline**.
-3. To add a resource to the template file, either click the Add Resource button on the top of the JSON Outline window or right-click on **resources** and select **Add New Resource**.
 
-    ![Json Outline](./media/logic-apps-deploy-from-vs/jsonoutline.png)
+2. To open the JSON Outline window, 
+go to **View** > **Other Windows** > **JSON Outline**.
+
+3. To add a resource to the template file, 
+click **Add Resource** at the top of the JSON Outline window. 
+Or in the JSON Outline window, 
+right-click **resources**, and select **Add New Resource**.
+
+	![JSON Outline window](./media/logic-apps-deploy-from-vs/jsonoutline.png)
     
-4. In the **Add Resource** dialog box browse and select **Logic App**, give it a name and select **Add**.
+4. In the **Add Resource** dialog box, find and select **Logic App**. 
+Name your logic app, and choose **Add**.
 
-    ![Add resource](./media/logic-apps-deploy-from-vs/addresource.png)
+	![Add resource](./media/logic-apps-deploy-from-vs/addresource.png)
 
 ## Next Steps
-* To get started with Logic Apps, follow the [create a Logic App](logic-apps-create-a-logic-app.md) tutorial.  
+* To get started with Azure Logic Apps, 
+see this tutorial: [Create a logic app](logic-apps-create-a-logic-app.md)
 * [View common examples and scenarios](logic-apps-examples-and-scenarios.md)
 * [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
