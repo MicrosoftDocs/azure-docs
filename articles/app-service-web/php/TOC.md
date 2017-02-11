@@ -129,8 +129,8 @@
 ## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](../app-service-best-practices.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## Community Content	
-## Samples	
-## Videos
+## [Samples](https://azure.microsoft.com/resources/samples/?service=app-service&platform=php)	
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=app-service)
 ## Cookbooks	
 ### [Reference Architectures](../../guidance/guidance-ra-app-service.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
 ### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	

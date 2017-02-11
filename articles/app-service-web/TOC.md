@@ -7,38 +7,38 @@
 ## [App Service on Linux](app-service-linux-intro.md)
 
 # Quickstart	
-## [ASP.NET](app-service-web-get-started-dotnet.md)		
+## [ASP.NET](app-service-web-get-started-dotnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		
 ## ASP.NET Core
-### [Windows](web-sites-create-web-app-using-vscode.md)		 
-### [Linux (preview)](app-service-linux-how-to-create-a-web-app.md)
+### [Windows](web-sites-create-web-app-using-vscode.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		 
+### [Linux (preview)](app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [Java](app-service-web-get-started-java.md)		
 ## Node.js		
 ### [Windows](app-service-web-get-started-nodejs.md) 
 ### [Linux (preview)](app-service-linux-how-to-create-a-web-app.md)
 ## PHP		
-### [Windows](app-service-web-get-started-php.md) 
-### [Linux (preview)](app-service-linux-how-to-create-a-web-app.md)
+### [Windows](app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
+### [Linux (preview)](app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## [Python](app-service-web-get-started-python.md)		
 ## [Docker Containers](app-service-linux-using-custom-docker-image.md)
-## [From template (WordPress)](web-sites-php-web-site-gallery.md)
+## [From template (WordPress)](web-sites-php-web-site-gallery.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # Common examples
 
 # Tutorials
 ## ASP.NET
-### [ASP.NET app with Visual Studio](web-sites-dotnet-get-started.md)
-### [Mobile friendly web app](web-sites-dotnet-deploy-aspnet-mvc-mobile-app.md)
-### [REST service using ASP.NET Web API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
+### [ASP.NET app with Visual Studio](web-sites-dotnet-get-started.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+### [Mobile friendly web app](web-sites-dotnet-deploy-aspnet-mvc-mobile-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+### [REST service using ASP.NET Web API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## Node.js
 ### [Node.js Express app](app-service-web-nodejs-get-started.md)
 ### [Sails.js and MongoDB app](app-service-web-nodejs-sails.md)
 ### [Node.js chat app with Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 ### [Node.js and Azure Table Service app](storage-nodejs-use-table-storage-web-site.md)
 ## PHP
-### [PHP Laravel app](app-service-web-php-get-started.md)
-### [PHP-MySQL app deployed with Git](web-sites-php-mysql-deploy-use-git.md)
-### [PHP-MySQL app deployed with FTP](web-sites-php-mysql-deploy-use-ftp.md)
-### [Enterprise-class WordPress on Azure App Service](web-sites-php-enterprise-wordpress.md)
+### [PHP Laravel app](app-service-web-php-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [PHP-MySQL app deployed with Git](web-sites-php-mysql-deploy-use-git.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [PHP-MySQL app deployed with FTP](web-sites-php-mysql-deploy-use-ftp.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Enterprise-class WordPress on Azure App Service](web-sites-php-enterprise-wordpress.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## Java
 ### [Java app with IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 ## Python
@@ -58,7 +58,7 @@
 
 
 # Concepts
-## [App Service](../app-service/app-service-how-works-readme.md)	
+## [App Service](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
 ## Architecture
 ### Service types
 ### App state (warm vs. cold)
@@ -79,12 +79,12 @@
 # How-To guides
 ## Develop your app	
 ### ASP.NET
-#### [Create an ASP.NET app in Azure with Visual Studio](web-sites-dotnet-get-started.md)
-#### [Create an ASP.NET Core app in Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Create an ASP.NET app in Azure with Visual Studio](web-sites-dotnet-get-started.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+#### [Create an ASP.NET Core app in Visual Studio Code](web-sites-create-web-app-using-vscode.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ### PHP
-#### [Develop PHP apps for App Service](app-service-web-php-get-started.md)	
-#### [Create and connect to a MySQL database in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Convert WordPress to Multisite](web-sites-php-convert-wordpress-multisite.md) 
+#### [Develop PHP apps for App Service](app-service-web-php-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
+#### [Create and connect to a MySQL database in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+#### [Convert WordPress to Multisite](web-sites-php-convert-wordpress-multisite.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
 ### Node.js
 #### [Develop Node.js for App Service](app-service-web-nodejs-get-started.md)
 #### [Create a Node.js web app](web-sites-nodejs-develop-deploy-mac.md)
@@ -108,7 +108,7 @@
 #### [Java](web-sites-java-add-app.md)
 #### [Node.js on Windows](app-service-web-get-started-nodejs.md)
 #### [Node.js on Linux (Preview)](app-service-linux-using-nodejs-pm2.md)
-#### [PHP on Windows](web-sites-php-configure.md)
+#### [PHP on Windows](web-sites-php-configure.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 #### PHP on Linux (Preview)
 #### [Python](web-sites-python-configure.md)
 ### [Send emails using SendGrid](sendgrid-dotnet-how-to-send-email.md)
@@ -205,8 +205,8 @@
 ## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](app-service-best-practices.md)
 ## Community Content	
-## Samples	
-## Videos
+## [Samples](https://azure.microsoft.com/resources/samples/?service=app-service)	
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=app-service)
 ## Cookbooks	
 ### [Reference Architectures](../guidance/guidance-ra-app-service.md)	
 ### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	

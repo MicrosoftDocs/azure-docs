@@ -62,7 +62,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -135,7 +135,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
     </li>
    
      <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-php">
+        <a href="/azure/app-service-web/app-service-web-get-started-php?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
