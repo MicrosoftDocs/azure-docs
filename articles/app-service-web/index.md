@@ -147,7 +147,7 @@ Choose your preferred language to start building your web app in Azure:
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/PHP.png" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -165,7 +165,7 @@ Choose your preferred language to start building your web app in Azure:
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/WordPress.png" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
