@@ -113,8 +113,8 @@ and location for the deployment template.
    
 	![Subscription picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
 
-	The designer renders based on the 
-	definition in the `<template>.json` file.
+	The designer will render using the definition 
+	in the `<template>.json` file.
 
 4. You can now create and design your logic app. 
 Your changes are updated in the deployment template.
