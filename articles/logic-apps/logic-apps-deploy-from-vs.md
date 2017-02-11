@@ -43,11 +43,13 @@ follow these steps.
 
 After you install the prerequisites:
 
-1. Open Visual Studio 2015 to the **Tools** menu and select **Extensions and Updates**
-2. Select the **Online** category to search online
-3. Search for **Logic Apps** to display the **Azure Logic Apps Tools for Visual Studio**
-4. Click the **Download** button to download and install the extension
-5. Restart Visual Studio after installation
+1. Open Visual Studio 2015. On the **Tools** menu, 
+select **Extensions and Updates**.
+2. Expand the **Online** category so you can search online.
+3. Browse or search for **Logic Apps** until 
+you find **Azure Logic Apps Tools for Visual Studio**.
+4. To download and install the extension, click **Download**.
+5. Restart Visual Studio after installation.
 
 > [!NOTE]
 > You can also download Azure Logic Apps Tools 
@@ -109,18 +111,18 @@ and location for the deployment template.
   > You can view or change any API Connections 
   > by going to the Azure portal and browsing for **API Connections**.
    
-	![Subscription Picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
+	![Subscription picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
 
-	The designer should render based on the definition 
-	in the `<template>.json` file.
+	The designer renders based on the 
+	definition in the `<template>.json` file.
 
 4. You can now create and design your logic app. 
 Your changes are updated in the deployment template.
 
 	![Logic App Designer in Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
 
-Visual Studio adds `Microsoft.Web/connections` resources 
-to your resource file for any connections needed by your logic app to function. 
+Visual Studio adds `Microsoft.Web/connections` resources to 
+your resource file for any connections your logic app needs to function. 
 These connection properties can be set when you deploy, 
 and managed after you deploy in **API Connections** in the Azure portal.
 
