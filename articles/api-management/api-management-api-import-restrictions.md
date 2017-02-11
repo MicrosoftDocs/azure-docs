@@ -1,6 +1,6 @@
 ---
-title: Restrictions and known issues in API import | Microsoft Docs
-description: Deatails of known issues and restrictions on import into API Management using the Open API, WSDL or WADL formats.
+title: Restrictions and known issues in Azure API Management API import | Microsoft Docs
+description: Details of known issues and restrictions on import into Azure API Management using the Open API, WSDL or WADL formats.
 services: api-management
 documentationcenter: ''
 author: mattfarm
@@ -17,11 +17,12 @@ ms.date: 02/08/2017
 ms.author: apipm
 
 ---
-# About this list
+# API import restrictions and known issues
+## About this list
 While every effort is made to ensure that importing your API into Azure API Management is as seamless and problem-free as possible, we do occasionally impose restrictions or identify issues that will need to be rectified before you can successfully import. This article documents these, organised by the import format of the API.
 
 ## <a name="open-api"> </a>Open API/Swagger
-In general, if you are receiving errors importing your Open API document, please ensure you have validated it - either using the designer in the new Azure Portal (Design - Front End - Open API Specification Editor), or with a 3rd party tool such as < href="http://www.swagger.io">Swagger Editor</a>.
+In general, if you are receiving errors importing your Open API document, please ensure you have validated it - either using the designer in the new Azure Portal (Design - Front End - Open API Specification Editor), or with a 3rd party tool such as <a href="http://www.swagger.io">Swagger Editor</a>.
 
 * **Host Name** we require a host name attribute.
 * **Base Path** we require a base path attribute.
