@@ -17,8 +17,8 @@ ms.date: 01/24/2017
 ---
 # Azure Automation scenario - Automation source control integration with Visual Studio Team Services
 
-In this scenario, you will have a Visual Studio Team Services project that you are using to manage Azure Automation runbooks or DSC configurations under source control.
-This article describes how to integrate VSTS with your Azure Automation environment so that continuous integration happens for each check in.
+In this scenario, you have a Visual Studio Team Services project that you are using to manage Azure Automation runbooks or DSC configurations under source control.
+This article describes how to integrate VSTS with your Azure Automation environment so that continuous integration happens for each check-in.
 
 ## Getting the scenario
 
@@ -28,8 +28,8 @@ This scenario consists of two PowerShell runbooks that you can import directly f
 
 Runbook | Description| 
 --------|------------|
-Sync-VSTS | Runbook will import runbooks or configurations from VSTS source control when a check in is done. If run manually, it will import and publish all runbooks or configurations into the Automation account.| 
-Sync-VSTSGit | Runbook will import runbooks or configurations from VSTS under Git source control when a check in is done. If run manually, it will import and publish all runbooks or configurations into the Automation account.|
+Sync-VSTS | Import runbooks or configurations from VSTS source control when a check-in is done. If run manually, it will import and publish all runbooks or configurations into the Automation account.| 
+Sync-VSTSGit | Import runbooks or configurations from VSTS under Git source control when a check-in is done. If run manually, it will import and publish all runbooks or configurations into the Automation account.|
 
 ### Variables
 
@@ -85,10 +85,10 @@ VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 
-Create a service hook in VSTS for check ins to the folder that triggers this webhook on code check in. Select Web Hooks as the service to integrate with when you create a new subscription. You can learn more about service hooks on [VSTS Service Hooks documentation](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
+Create a service hook in VSTS for check-ins to the folder that triggers this webhook on code check-in. Select Web Hooks as the service to integrate with when you create a new subscription. You can learn more about service hooks on [VSTS Service Hooks documentation](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
-You should now be able to do all checkins of your runbooks and configurations into VSTS and have these automatically sync’d into your automation account.
+You should now be able to do all check-ins of your runbooks and configurations into VSTS and have these automatically sync’d into your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
