@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/11/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 
 ---
@@ -88,7 +88,7 @@ azure keyvault key show myKeyVault myKey
 Encrypt your disks as follows, entering your own parameter names throughout:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -100,7 +100,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 The Azure CLI doesn't provide verbose errors during the encryption process. For additional troubleshooting information, review `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`. As the preceding command has many variables and you may not get much indication as to why the process fails, a complete command example would be as follows:
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -247,7 +247,7 @@ azure keyvault key show myKeyVault myKey
 Encrypt your virtual disks using the output from the `azure keyvault show` and `azure keyvault key show` commands as follows:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -259,7 +259,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 As the preceding command has many variables, the following example is the complete command for reference:
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -291,7 +291,7 @@ azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
 Rerun the command to encrypt the virtual disks, this time adding the `--sequence-version` parameter, and incrementing the value from our first run as follows:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \

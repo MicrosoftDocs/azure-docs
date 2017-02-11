@@ -34,6 +34,15 @@ Test the migration process by migrating a test virtual machine before performing
 > [!IMPORTANT] 
 > During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
 
+## Before you begin
+If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
+
 ## Convert VMs in an availability set to managed disks in a managed availability set
 
 If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
@@ -60,6 +69,9 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ```
 
 ## Convert existing Azure VMs to managed disks of the same storage type
+
+> [!IMPORTANT]
+> After performing the following procedure, there is a single block blob that remains in the default vhds container. The name of the file is “VMName.xxxxxxx.status”. Do not delete this remaining status object. Future work should address this issue.
 
 This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SSD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
 
