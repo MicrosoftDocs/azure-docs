@@ -26,6 +26,8 @@ A managed image resource can be created from a generalized VM that is stored as 
 ## Prerequisites
 You need to have already [generalized the VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and Stop\deallocatted the VM. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
 
+
+
 ## Create a managed image in the portal 
 
 1. Open the [portal](https://portal.azure.com).
@@ -49,6 +51,15 @@ You need to have already [generalized the VM](virtual-machines-windows-generaliz
 ## Create a managed image of a VM using Powershell
 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS Disk and any data disks.
+
+
+Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
 
 1. Create some variables. 
     ```powershell
