@@ -22,7 +22,7 @@ ms.author: jehollan
 Although the [Azure portal](https://portal.azure.com/) 
 offers a great way for you to design and manage logic apps, 
 you might want to use Visual Studio for building and deploying logic apps. 
-Visual Studio has rich tools for you to build logic 
+Visual Studio provides rich tools for you to build logic 
 apps using the Logic Apps Designer, 
 configure deployment and automation templates, 
 and deploy to any environment.
@@ -100,24 +100,24 @@ you can open the Logic App Designer in Visual Studio to help you create the work
 1. Right-click the `<template>.json` file, 
 and select **Open with Logic App Designer**. (`Ctrl+L`)
 
-2. Choose the subscription, resource group, 
+2. Choose your subscription, resource group, 
 and location for the deployment template.
 
   > [!NOTE] 
   > Designing a logic app creates **API Connection** 
   > resources that queries for properties during design. 
-  > The resource group that you selected is used to create 
-  > those connections during design-time. 
-  > You can view or change any API Connections 
-  > by going to the Azure portal and browsing for **API Connections**.
+  > Visual Studio uses your selected resource group to create 
+  > those connections during design time. 
+  > To view or change any API Connections, 
+  > go to the Azure portal and browse for **API Connections**.
    
 	![Subscription picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
 
-	The designer will render using the definition 
+	The designer renders using the definition 
 	in the `<template>.json` file.
 
-4. You can now create and design your logic app. 
-Your changes are updated in the deployment template.
+4. Create and design your logic app. 
+Your deployment template is updated with your changes.
 
 	![Logic App Designer in Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
 
@@ -143,7 +143,7 @@ or integration account that you want to deploy alongside your logic app.
 Follow these guidelines about how to use parameters in your deployment template 
 so that the Logic App Designer renders correctly. 
 
-You can include logic app parameters in these kinds of triggers and actions:
+You can use logic app parameters in these kinds of triggers and actions:
 
 *   Child workflow
 *   Function app
@@ -203,13 +203,13 @@ and go to **Deploy** > **New Deployment...**
 3. Now you must select the details for the resource group where 
 you want to deploy your logic app. When you're done, select **Deploy**.
 
-	![Deploy to resource group](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
-
 	> [!NOTE]
 	> Make sure that you select the correct template 
    > and parameters file for the resource group. For example, 
    > if you want to deploy to a production 
 	> environment, choose the production parameters file.
+
+	![Deploy to resource group](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
 
 	The deployment status appears in the **Output** window. 
 	You might have to select **Azure Provisioning** in the **Show output from** list.
@@ -248,9 +248,9 @@ Name your logic app, and choose **Add**.
 	![Add resource](./media/logic-apps-deploy-from-vs/addresource.png)
 
 ## Next Steps
-* To get started with Azure Logic Apps, 
-see this tutorial: [Create a logic app](logic-apps-create-a-logic-app.md)
-* [View common examples and scenarios](logic-apps-examples-and-scenarios.md)
-* [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
+* To get started with Azure Logic Apps, 
+see this tutorial: [Create your first logic app](logic-apps-create-a-logic-app.md)
+* [View common examples and scenarios](logic-apps-examples-and-scenarios.md)
+* [Learn how to automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
+* [Learn how to integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
