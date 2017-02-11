@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -59,7 +59,7 @@ This article explains how to add users either from other directories in Azure Ac
 
 If you change information for a user whose identity is synchronized with your on-premises Active Directory service, you can't change the user information in the Azure classic portal. To change the user information, use your on-premises Active Directory management tools.
 
-## What's next
+## Next steps
 * [Add a user](active-directory-users-create-azure-portal.md)
 * [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
 * [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)

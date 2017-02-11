@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -30,7 +30,7 @@ This article explains how to view all groups in Azure Active Directory (Azure AD
    ![Opening the groups blade](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. On the **Users and groups - All groups** blade, you can add or remove display columns, filter the list to search for a group, or make changes to groups that you have sufficient permissions to change.
 
-## Additional information
+## Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [See existing groups](active-directory-groups-view-azure-portal.md)

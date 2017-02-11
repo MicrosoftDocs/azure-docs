@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -31,5 +31,5 @@ The preview experience uses the same authorization logic as existing Active Dire
 
 The preview experience is optimized for global administrators. If you use the preview experience while signed in as a user that is not a global administrator, you might have a degraded experience. For example, you might be able to select a button that lets you begin a task that you can't complete in the directory. We will be improving this experience soon.
 
-## Tell us what you think
+## Next steps
 You can provide feedback on the preview experience in the admin portal section of the [Azure AD feedback forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).

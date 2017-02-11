@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -34,7 +34,7 @@ This article explains how to assign an administrative role to a user in Azure Ac
       ![Assigning a user to a role](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Select **Save**.
 
-## What's next
+## Next steps
 * [Add a user](active-directory-users-create-azure-portal.md)
 * [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
 * [Change a user's work information](active-directory-users-work-info-azure-portal.md)

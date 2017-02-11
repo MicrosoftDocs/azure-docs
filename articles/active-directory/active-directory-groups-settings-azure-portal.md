@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -36,7 +36,7 @@ This article explains how to change the settings for a group in Azure Active Dir
 
    ![Saving properties changes](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## Additional information
+## Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [See existing groups](active-directory-groups-view-azure-portal.md)

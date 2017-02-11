@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/13/2017
 ms.author: curtand
 
 ---
@@ -39,7 +39,7 @@ This article explains how to add new users in your organization in the Azure Act
 7. On the **User** blade, select **Create**.
 8. Securely distribute the generated password to the new user so that the user can sign in.
 
-### What's next
+### Next steps
 * [Add an external user](active-directory-users-create-external-azure-portal.md)
 * [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
 * [Change a user's work information](active-directory-users-work-info-azure-portal.md)
