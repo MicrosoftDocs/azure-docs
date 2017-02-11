@@ -19,10 +19,13 @@ ms.author: kgremban
 ---
 # How to get Azure Multi-Factor Authentication
 
-Two-step verification is an important security feature for any identity-driven service, so there are a number of ways to implement it. This article discusses the difference between the three versions of Multi-Factor Authentication, then discusses implementation and billing for the full version of Azure Multi-Factor Authentication. 
+When it comes to protecting your accounts, two-step verification should be standard across your organization. This feature is especially important for administrative accounts that have privileged access to resources. For this reason, Microsoft offers basic two-step verification features to Office 365 and Azure administrators. If you want to upgrade the features for your admins, or extend two-step verification to the rest of your users, you can purchase Azure Multi-Factor Authentication. 
+
+This article explains the difference between the versions offered to administrators and the full Azure MFA version, and specifies which features are available in each. If you're ready to deploy the complete Azure MFA offering, the later sections covers implementation options and billing structure. 
 
 ## Available versions of Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication is available in three different versions.
+
+The following table describes the differences between three versions of multi-factor authentication:
 
 | Version | Description |
 | --- | --- |
