@@ -50,7 +50,7 @@ Import the runbook that will sync your runbooks or configurations into the autom
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
-You can now [publish](automation-creating-importing-runbook#to-publish-a-runbook-using-the-azure-portal.md) this runbook so you can create a webhook. 
+You can now [publish](automation-creating-importing-runbook.md#publishing-a-runbook) this runbook so you can create a webhook. 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
 Create a [webhook](automation-webhooks.md) for this Sync-VSTS runbook and fill in the parameters as shown below. Make sure you copy the webhook url as you will need it for a service hook in VSTS. The VSAccessTokenVariableName is the name (VSToken) of the secure variable that you created earlier to hold the personal access token. 
