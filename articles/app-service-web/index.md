@@ -159,7 +159,7 @@ Choose your preferred language to start building your web app in Azure:
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-php-web-site-gallery">
+        <a href="/azure/app-service-web/web-sites-php-web-site-gallery?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
