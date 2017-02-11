@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 02/10/2017
 ms.author: chackdan
 
 ---
@@ -113,7 +113,7 @@ Read the following for Workloads using Service fabric reliable collections or re
 
 1. **Number of VM instances:** For production workloads that are stateful, it is recommended that you run them with a minimum and target replica count of 5. This will mean that in steady state you will end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for system services is actually just a way to specify this setting for system services.
 
-so for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
+So for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
 
 2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
@@ -129,16 +129,14 @@ For production workloads
 
 Read the following for stateless Workloads
 
-1. **Number of VM instances:** For production workloads that are stateless,
-
-- The minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
+**Number of VM instances:** For production workloads that are stateless,The minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
 
 > [!NOTE]
 > If your cluster is running on a service fabric version less than 5.6, due to a defect in the runtime (which is planned to be fixed in 5.6), scaling down a non-primary node type to less than 5, will result in cluster health turning unhealthy, till you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) with the appropriate node name. Read [perform Service Fabric cluster in or out](service-fabric-cluster-scale-up-down.md) for more details
 > 
 >
 
-2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
+**VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
 
