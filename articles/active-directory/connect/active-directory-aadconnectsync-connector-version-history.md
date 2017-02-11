@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/17/2016
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -22,8 +22,6 @@ The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manag
 
 > [!NOTE]
 > This topic is on FIM and MIM only. These Connectors are not supported on Azure AD Connect.
-> 
-> 
 
 This topic list all versions of the Connectors that have been released.
 
@@ -97,4 +95,3 @@ Before March 2016, the Connectors were released as support topics.
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-
