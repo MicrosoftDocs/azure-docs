@@ -19,11 +19,10 @@ ms.author: jehollan
 ---
 # Build and deploy Azure Logic Apps in Visual Studio
 
-Although the [Azure portal](https://portal.azure.com/) gives 
-you a great way to design and manage your logic apps, 
-you might want to use Visual Studio instead to build 
-and deploy your logic apps. Azure Logic Apps has rich 
-Visual Studio tools for you to create and build logic 
+Although the [Azure portal](https://portal.azure.com/) 
+offers a great way for you to design and manage logic apps, 
+you might want to use Visual Studio for building and deploying logic apps. 
+Visual Studio has rich tools for you to build logic 
 apps using the Logic Apps Designer, 
 configure deployment and automation templates, 
 and deploy to any environment.
@@ -102,12 +101,13 @@ and select **Open with Logic App Designer**. (`Ctrl+L`)
 2. Choose the subscription, resource group, 
 and location for the deployment template.
 
-	> [!NOTE] Designing a logic app creates **API Connection** 
-	> resources that queries for properties during design. 
-	> The resource group that you selected is used to create 
-	> those connections during design-time. 
-	> You can view or change any API Connections 
-	> by going to the Azure portal and browsing for **API Connections**.
+  > [!NOTE] 
+  > Designing a logic app creates **API Connection** 
+  > resources that queries for properties during design. 
+  > The resource group that you selected is used to create 
+  > those connections during design-time. 
+  > You can view or change any API Connections 
+  > by going to the Azure portal and browsing for **API Connections**.
    
 	![Subscription Picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
 
