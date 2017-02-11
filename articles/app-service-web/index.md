@@ -65,7 +65,7 @@ Learn how to use App Service Web Apps to build and host websites and web applica
 
 ---
     
-Choose your preferred language to start building your web app in Azure:
+Choose a preferred language to start building your web app in Azure:
   
 <ul class="panelContent cardsFTitle">
     <li>
