@@ -116,7 +116,7 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
 ## Next steps
 
-You can now [copy blobs from a storage account into an AMS account ](media-services-copying-existing-blob.md/#copy-blobs-from-a-storage-account-into-an-ams-account).
+You can now [copy blobs from a storage account into an AMS account ](media-services-copying-existing-blob.md).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
