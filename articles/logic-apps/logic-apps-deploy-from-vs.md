@@ -29,7 +29,7 @@ and deploy to any environment.
 
 ## Installation steps
 
-To install and configure the Visual Studio tools for Azure Logic Apps, 
+To install and configure Visual Studio tools for Azure Logic Apps, 
 follow these steps.
 
 ### Prerequisites
@@ -54,7 +54,7 @@ you find **Azure Logic Apps Tools for Visual Studio**.
 > [!NOTE]
 > You can also download Azure Logic Apps Tools 
 > for Visual Studio directly from the 
-> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9)
+> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
 
 After you finish installation, 
 you can use the Azure Resource Group project with Logic App Designer.
@@ -68,53 +68,51 @@ go to **Add**, and select **New Project**.
 	![File menu](./media/logic-apps-deploy-from-vs/filemenu.png)
 
 2. In the **New Project** window, 
-find **Cloud**, and then select **Azure Resource Group**. 
-Name your project, and then click **OK**.
+find **Cloud**, and select **Azure Resource Group**. 
+Name your project, and click **OK**.
 
 	![Add new project](./media/logic-apps-deploy-from-vs/addnewproject.png)
 
 3. Select the **Logic App** template, which creates a 
-blank logic app deployment template for you to use.
+blank logic app deployment template for you to use. 
+After you select your template, click **OK**.
 
 	![Select Logic App template](./media/logic-apps-deploy-from-vs/selectazuretemplate1.png)
-
-4. After you select your **Template**, click **OK**.
 
 	You've now added your logic app project to your solution. 
 	In the Solution Explorer, your deployment file should appear.
 
 	![Deployment file](./media/logic-apps-deploy-from-vs/deployment.png)
 
-## Create your logic app with the Logic App Designer
+## Create your logic app in Logic App Designer
 
 When you have an Azure Resource Group project that contains a logic app, 
-you can open the Logic App Designer in Visual Studio to help you create the workflow. 
+you can open the Logic App Designer in Visual Studio to create your workflow. 
 
 > [!NOTE]
 > The designer requires an internet connection to 
-> query the connectors for available properties and data. 
+> query connectors for available properties and data. 
 > For example, if you use the Dynamics CRM Online connector, 
 > the designer queries your CRM instance to show available 
 > custom and default properties.
 
-1. Right-click the `<template>.json` file, 
+1. Right-click your `<template>.json` file, 
 and select **Open with Logic App Designer**. (`Ctrl+L`)
 
-2. Choose your subscription, resource group, 
-and location for the deployment template.
+2. Choose your Azure subscription, resource group, 
+and location for your deployment template.
 
-  > [!NOTE] 
-  > Designing a logic app creates **API Connection** 
-  > resources that queries for properties during design. 
-  > Visual Studio uses your selected resource group to create 
-  > those connections during design time. 
-  > To view or change any API Connections, 
-  > go to the Azure portal and browse for **API Connections**.
-   
+    > [!NOTE]
+    > Designing a logic app creates API Connection 
+    > resources that query for properties during design. 
+    > Visual Studio uses your selected resource group to create 
+    > those connections during design time. 
+    > To view or change any API Connections, 
+    > go to the Azure portal, and browse for **API Connections**.
+
 	![Subscription picker](./media/logic-apps-deploy-from-vs/designer_picker.png)
 
-	The designer renders using the definition 
-	in the `<template>.json` file.
+	The designer uses the definition in the `<template>.json` file for rendering.
 
 4. Create and design your logic app. 
 Your deployment template is updated with your changes.
