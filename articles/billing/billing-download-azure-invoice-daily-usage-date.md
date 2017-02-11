@@ -19,7 +19,7 @@ ms.author: genli
 
 ---
 # How to get your Azure billing invoice and daily usage data
-You can opt in and configure additional recipients to receive your Azure invoice in an email. You can also download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), or you can download a usage csv in the [Azure Account Center](https://account.windowsazure.com). Only the Account Administrator has permission to get to the billing invoice and usage information. To find out who is the Account Administrator of the subscription, see the [Transferring ownership of an Azure subscription - FAQ](billing-subscription-transfer.md#faq).
+You can opt in and configure additional recipients to receive your Azure invoice in an email. You can also download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Additionally, you can download a usage csv in the [Azure Account Center](https://account.windowsazure.com). Only the Account Administrator has permission to get to the billing invoice and usage information. To find out who is the Account Administrator of the subscription, see the [Transferring ownership of an Azure subscription - FAQ](billing-subscription-transfer.md#faq).
 
 ## Get your invoice over email
 1. Select your subscription from the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). You have to opt-in for each subscription you own. Click **Invoices** then **Email my invoice**. If you are not the Account Admin you may not see this option.
