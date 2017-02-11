@@ -30,10 +30,19 @@ Test the migration process by migrating a test virtual machine before performing
 > [!IMPORTANT] 
 > During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
 
-You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
+## Managed Disks and Azure Storage Service Encryption (SSE)
 
-1. Copy the virtual hard disk (VHD) with [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
-2. [Create a VM](virtual-machines-windows-create-vm-specialized.md) that uses managed disks and attach that VHD file during creation.
+You cannot convert an unmanaged VM created in the Resource Manager deployment model to Managed Disks if any of the attached unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to convert unmanaged VM that are, or have been, in an encrypted storage account:
+Data Disks only:
+1.	Detach the Data Disk from the VM.
+2.	Copy the VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): ` https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1'
+3.	Attach the copied disk to the VM and convert the VM.
+
+OS Disks:
+1.	Stop deallocated the VM. Save the VM configuration if needed.
+2.	Copy the OS VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): ` https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1'
+3.	Create a VM that uses managed disks and attach that VHD file as the OS disk during creation.
+
 
 ## Convert VMs in an availability set to managed disks in a managed availability set
 
