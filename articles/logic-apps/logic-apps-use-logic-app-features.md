@@ -18,7 +18,9 @@ ms.author: stepsic
 
 ---
 # Use Logic Apps features
-In the [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
+In the [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), you created your first logic app. 
+Now we will show you how to build a more complete process using Logic Apps. 
+This topic introduces the following new Logic Apps concepts:
 
 * Conditional logic, which executes an action only when a certain condition is met.
 * Code view to edit an existing logic app.

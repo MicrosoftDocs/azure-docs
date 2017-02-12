@@ -209,7 +209,10 @@ Here is an example showing the new `metadata.apiDefinitionUrl` property:
 }
 ```
 
-If you host your Web API on **App Service** then it will automatically show up in the list of actions available in the designer. If not, you'll have to paste in the URL directly. The swagger endpoint must be unauthenticated in order to be usable inside of the Logic apps designer (although you may secure the API itself with whatever methods are supported in the Swagger).
+If you host your Web API on **App Service**, 
+your Web API will automatically show up in the list of actions available in the designer. 
+If not, you'll have to paste in the URL directly. The Swagger endpoint must be unauthenticated 
+to be usable in the Logic Apps Designer (although you can secure the API itself with whatever methods supported in Swagger).
 
 ### Using your already deployed API apps with 2015-08-01-preview
 If you previously deployed an API app, you can call it via the **HTTP** action.
