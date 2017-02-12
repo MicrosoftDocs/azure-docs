@@ -213,37 +213,37 @@ The following code example shows how to list all access policies on the server, 
 
 For example, you can create a generic set of policies with the following code that would only run one time in your application. You can log IDs to a log file for later use:
 
-            double year = 365.25;
-            double week = 7;
-            IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
-            IAccessPolicy policy100Year = _context.AccessPolicies.Create("Hundred Years", TimeSpan.FromDays(year * 100), AccessPermissions.Read);
-            IAccessPolicy policyWeek = _context.AccessPolicies.Create("One Week", TimeSpan.FromDays(week), AccessPermissions.Read);
+    double year = 365.25;
+    double week = 7;
+    IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
+    IAccessPolicy policy100Year = _context.AccessPolicies.Create("Hundred Years", TimeSpan.FromDays(year * 100), AccessPermissions.Read);
+    IAccessPolicy policyWeek = _context.AccessPolicies.Create("One Week", TimeSpan.FromDays(week), AccessPermissions.Read);
 
-            Console.WriteLine("One year policy ID is: " + policyYear.Id);
-            Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
-            Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+    Console.WriteLine("One year policy ID is: " + policyYear.Id);
+    Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
+    Console.WriteLine("One week policy ID is: " + policyWeek.Id);
 
 Then, you can use the existing IDs in your code like this:
 
-            const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
+    const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
 
 
-            // Get the standard policy for 1 year read only
-            var tempPolicyId = from b in _context.AccessPolicies
-                               where b.Id == policy1YearId
-                               select b;
-            IAccessPolicy policy1Year = tempPolicyId.FirstOrDefault();
+    // Get the standard policy for 1 year read only
+    var tempPolicyId = from b in _context.AccessPolicies
+                       where b.Id == policy1YearId
+                       select b;
+    IAccessPolicy policy1Year = tempPolicyId.FirstOrDefault();
 
-            // Get the existing asset
-            var tempAsset = from a in _context.Assets
-                        where a.Id == assetID
-                        select a;
-            IAsset asset = tempAsset.SingleOrDefault();
+    // Get the existing asset
+    var tempAsset = from a in _context.Assets
+                where a.Id == assetID
+                select a;
+    IAsset asset = tempAsset.SingleOrDefault();
 
-            ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
-                policy1Year,
-                DateTime.UtcNow.AddMinutes(-5));
-            Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
+    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+        policy1Year,
+        DateTime.UtcNow.AddMinutes(-5));
+    Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 
 ## List All Locators
 A locator is a URL that provides a direct path to access an asset, along with permissions to the asset as defined by the locator's associated access policy. Each asset can have a collection of ILocator objects associated with it on its Locators property. The server context also has a Locators collection that contains all locators.
