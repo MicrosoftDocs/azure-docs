@@ -44,7 +44,10 @@ After reading this article, post any comments at the bottom, or on the [Azure Re
 To prepare for deployment:
 
 1. Make sure the VMM server complies with the prerequisites described above.
-2. Make sure the VMM server and Hyper-V hosts can reach the required URLs: [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)
+2. Make sure the VMM server and Hyper-V hosts can reach the required URLs:
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+
 2. Set up VMM networks so that you can configure [network mapping](#network-mapping-overview).
 
     - Make sure that VMs on the source Hyper-V host server are connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.
@@ -119,7 +122,7 @@ Install the Azure Site Recovery Provider on VMM servers, and discover and regist
 
    - You can specify that the provider should connect directly to the internet, or via a proxy.
    - Specify proxy settings if needed.
-   - Verify that the required URLs are accessible from the VMM server and Hyper-V hosts: [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)
+   - Verify that the required URLs are accessible from the VMM server and Hyper-V hosts: [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
    * If you use a proxy, a VMM RunAs account (DRAProxyAccount) is created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The RunAs account settings can be modified in the VMM console > **Settings** > **Security** > **Run As Accounts**. Restart the VMM service to update changes.
 8. In **Registration Key**, select the key that you downloaded from Azure Site Recovery and copied to the VMM server.
 9. The encryption setting is only used when you're replicating Hyper-V VMs in VMM clouds to Azure. If you're replicating to a secondary site it's not used.
@@ -130,7 +133,7 @@ Install the Azure Site Recovery Provider on VMM servers, and discover and regist
     ![Server](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 13. After the server is available in the Site Recovery console, in **Source** > **Prepare source** select the VMM server, and select the cloud in which the Hyper-V host is located. Then click **OK**.
 
-You can also install the provider from the command line: [!INCLUDE [site-recovery-rw-provider-command-line](../../includes/site-recovery-rw-provider-command-line.md)
+You can also install the provider from the command line: [!INCLUDE [site-recovery-rw-provider-command-line](../../includes/site-recovery-rw-provider-command-line.md)]
 
 
 ## Set up the target environment
