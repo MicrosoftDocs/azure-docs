@@ -1,10 +1,10 @@
 ---
-title: Windows Universal Apps SDK Release Notes
+title: Azure Mobile Engagement Windows Universal Apps SDK Release Notes | Microsoft Docs
 description: Azure Mobile Engagement - Windows Universal Apps SDK Release Notes
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: de938ce5-93d5-4218-9e33-10eef102bd61
@@ -13,11 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 
 ---
 # Windows Universal Apps SDK Release Notes
+## 3.4.1 (11/03/2016)
+
+* Stability improvements.
+
 ## 3.4.0 (04/19/2016)
 * Reach overlay improvements.
 * Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.

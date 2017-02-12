@@ -18,7 +18,7 @@ ms.author: rasquill
 # Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots
 Take a snapshot of a Managed disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. 
 
-For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/disks/). <!--Add link to topic or blog post that explains managed disks. -->
+For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
 Use either the Azure portal or the Azure CLI 2.0 (Preview) to take a snapshot of the Managed Disk.
 
@@ -32,7 +32,7 @@ The following steps show how to obtain and take a snapshot of a managed OS disk 
 ```azure-cli
 # take the disk id with which to create a snapshot
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
-az snapshot create -g myResourceGroup --source-disk "$osDiskId" --name osDisk-backup
+az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ```
 
 The output should look something like:
@@ -74,6 +74,6 @@ The output should look something like:
 8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
 9. Click **Create**.
 
-If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `--storage-account-type Premium_LRS` with the `az snapshot create` command. This creates the snapshot so that it is stored as a Premium Managed Disk. Premium Managed Disks perform better because they are solid-state drives (SSDs), but cost more than Standard disks (HDDs).
+If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `--sku Premium_LRS` with the `az snapshot create` command. This creates the snapshot so that it is stored as a Premium Managed Disk. Premium Managed Disks perform better because they are solid-state drives (SSDs), but cost more than Standard disks (HDDs).
 
 

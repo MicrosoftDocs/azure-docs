@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/09/2017
 ms.author: nitinme
 
 ---
@@ -42,6 +42,9 @@ Hue is a set of Web applications used to interact with a Hadoop cluster. You can
 >
 
 ## Install Hue using Script Actions
+
+> [!IMPORTANT]
+> Installing Hue on HDInsight clusters with Azure Data Lake Store as default storage is not supported. You must install Hue only on HDInsight cluster with Azure Storage Blob (WASB) as default storage.
 
 The following script action can be used to install Hue on a Linux-based HDInsight cluster.
     https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh

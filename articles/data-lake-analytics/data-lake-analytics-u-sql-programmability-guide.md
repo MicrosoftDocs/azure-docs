@@ -821,7 +821,10 @@ This example demonstrates a more complicated use case scenario when we use a Glo
 ## Using User-Defined Types - UDT
 User-Defined Types or UDT is another programmability feature of U-SQL. U-SQL UDT acts like a regular C# user-defined type. C# is a strongly typed language that allows the use of built-in and custom user-defined types.
 
-U-SQL currently cannot implicitly serialize/de-serialize UDT data to/from external files. Because of this, the IFormatter interface has to be defined with Serialize/De-serialize methods as part of the UDT definition. In ADLA V1 only intermediate serialization is supported. This means that while IFormatter is important for internal UDT processing, it cannot be used for persistent serialization in EXTRACTOR or OUTPUTTER. When writing data to file with OUTPUTTER or reading with EXTRACTOR, UDT has to be serialized to string with ToString() method of UDT implementation. As an alternative, custom EXTRACTOR/OUTPUTTER can be used when dealing with UDT.  
+U-SQL cannot implicitly serialize/de-serialize arbitrary UDTs while the UDT is passed between vertices in rowsets. Thus the user has to provide an explicit formatter using the IFormatter interface. This will provide U-SQL with the serialize and de-serialize methods for the UDT. 
+
+> [!NOTE]
+> U-SQL’s built-in extractors and outputters currently cannot serialize/de-serialize UDT data to/from files even with the IFormatter set.  Thus when writing UDT data to a file with the OUTPUT statement or reading it with an extractor, the user has to pass it as a string or byte array and call the serialization and deserialization code (e.g., the UDT’s ToString() method) explicitly. User-defined extractors and outputters on the other hand can read and write UDTs.
 
 If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT)
 
@@ -1116,6 +1119,8 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
+	   
+	   // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
@@ -1284,9 +1289,6 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
     }
 }
 ```
-
-### UDTs from built-in Types
-Coming Soon
 
 ## User-defined aggregates – UDAGG
 User-defined aggregates are any aggregation-related functions that are not shipped out of the box with U-SQL. The example can be an aggregate to perform a custom math calculation, perform string concatenations or manipulations with strings, etc.

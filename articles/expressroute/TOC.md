@@ -1,14 +1,15 @@
 # Overview
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
+## [Connectivity models](expressroute-connectivity-models.md)
 ## [Locations and partners](expressroute-locations.md)
 ### [Providers by location](expressroute-locations-providers.md)
 ### [Locations by provider](expressroute-locations.md)
 
 # Get Started
-## [Circuits and routing domains](expressroute-circuit-peerings.md)
 ## [Workflows](expressroute-workflows.md)
 ## [Prerequisites](expressroute-prerequisites.md)
+## [Circuits and routing domains](expressroute-circuit-peerings.md)
 ## [Routing requirements](expressroute-routing.md)
 ## [Optimize routing](expressroute-optimize-routing.md)
 ## [NAT requirements](expressroute-nat.md)
