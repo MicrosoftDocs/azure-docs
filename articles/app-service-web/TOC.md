@@ -103,8 +103,8 @@
 #### [Create a web app with Django](web-sites-python-create-deploy-django-app.md)
 #### [Create a web app with Flask](web-sites-python-create-deploy-flask-app.md)
 ### Configure runtime	
-#### [ASP](web-sites-configure.md)
-#### [ASP.NET](web-sites-configure.md)
+#### [ASP](web-sites-configure.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+#### [ASP.NET](web-sites-configure.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 #### [Java](web-sites-java-add-app.md)
 #### [Node.js on Windows](app-service-web-get-started-nodejs.md)
 #### [Node.js on Linux (Preview)](app-service-linux-using-nodejs-pm2.md)
