@@ -22,7 +22,7 @@
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ## Configure
 ### [Set up the source replication environment](site-recovery-set-up-vmware-to-azure.md)
-### [Configure replication settings](site-recovery-setup-replication-settings.md)
+### [Configure replication settings](site-recovery-setup-replication-settings-vmware.md)
 ### [Deploy the Mobility service for VMware replication](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Deploy the Mobility service using System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Deploy the Mobility service using Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
@@ -49,7 +49,7 @@
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
 ### [Run a test failover from VMware to Azure](site-recovery-test-failover-to-azure.md)
-### [Run a test failover between two VMM sites](site-recovery-test-vmm-to-vmm.md)
+### [Run a test failover between two VMM sites](site-recovery-test-failover-vmm-to-vmm.md)
 ### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
 
