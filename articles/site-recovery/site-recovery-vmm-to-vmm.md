@@ -36,12 +36,12 @@ After reading this article, post any comments at the bottom, or on the [Azure Re
 --- | ---
 **Azure** | You need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing.
 **On-premises VMM** | We recommend you have two VMM servers, one in the primary site, and one in the secondary.<br/><br/> You can replicate between clouds on a single VMM server.<br/><br/> VMM servers should be running at least System Center 2012 SP1 with the latest updates.<br/><br/> E<br/><br/> VMM servers need internet access.
-**VMM clouds** | Each VMM server must have at one or more clouds, and all clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more VMM host groups.<br/><br/> If you only have one VMM server it needs at least two clouds to act as primary and secondary.
-**Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, you should install [update 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012, note that cluster broker isn't created automatically if you have a static IP address-based cluster. You need to configure the cluster broker manually. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
+**VMM clouds** | Each VMM server must have at one or more clouds, and all clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more VMM host groups.<br/><br/> If you only have one VMM server, it needs at least two clouds to act as primary and secondary.
+**Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, you should install [update 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012, cluster broker isn't created automatically if you have a static IP address-based cluster. Configure the cluster broker manually. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 
 ## Before you start
 
-To prepare for deployment you need to:
+To prepare for deployment:
 
 1. Make sure the VMM server complies with the prerequisites described above.
 2. Make sure the VMM server and Hyper-V hosts can reach the required URLs: [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)
@@ -57,12 +57,12 @@ To prepare for deployment you need to:
 
     ![New vault](./media/site-recovery-vmm-to-vmm/new-vault3.png)
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a new resource group](../azure-resource-manager/resource-group-template-deploy-portal.md) or select an existing one. Specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a resource group](../azure-resource-manager/resource-group-template-deploy-portal.md), or select an existing one. Specify an Azure region. Machines are replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard** > **Create vault**.
 
     ![New vault](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
 
-The new vault will appear on the **Dashboard** > **All resources**, and on the main **Recovery Services vaults** blade.
+The new vault appeasr on the **Dashboard**, in **All resources**, and on the main **Recovery Services vaults** blade.
 
 
 ## Choose a protection goal
@@ -87,7 +87,7 @@ Install the Azure Site Recovery Provider on VMM servers, and discover and regist
     ![Set up source](./media/site-recovery-vmm-to-vmm/set-source1.png)
 3. In **Add Server**, check that **System Center VMM server** appears in **Server type** and that the VMM server meets the [prerequisites](#prerequisites).
 4. Download the Azure Site Recovery Provider installation file.
-5. Download the registration key. You need this when you run setup. The key is valid for 5 days after you generate it.
+5. Download the registration key. You need this when you run setup. The key is valid for five days after you generate it.
 
     ![Set up source](./media/site-recovery-vmm-to-vmm/set-source3.png)
 6. Install the Azure Site Recovery Provider on the VMM server.
@@ -102,7 +102,7 @@ Install the Azure Site Recovery Provider on VMM servers, and discover and regist
 1. Run the Provider setup file on each VMM server. If VMM is deployed in a cluster, do the following the first time you install:
     -  Install the provider on an active node, and finish the installation to register the VMM server in the vault.
     - Then, install the Provider on the other nodes. Cluster nodes should all run the same version of the Provider.
-2. Setup runs a few prerequisite checks, and requests permission to stop the VMM service. The VMM service will be restarted automatically when setup finishes. If you installing on a VMM cluster, you're prompted to stop the Cluster role.
+2. Setup runs a few prerequisite checks, and requests permission to stop the VMM service. The VMM service will be restarted automatically when setup finishes. If you install on a VMM cluster, you're prompted to stop the Cluster role.
 3. In **Microsoft Update**, you can opt in to specify that provider updates are installed in accordance with your Microsoft Update policy.
 4. In **Installation**, accept or modify the default installation location, and click **Install**.
 
@@ -369,7 +369,7 @@ Instead of deploying a standalone VMM server as a VM that replicates to a second
 
 You set up storage mapping by mapping storage classifications on a source and target VMM servers to do the following:
 
-  * **Identify target storage for replica virtual machines**—A source VM hard disk will replicated to a storage that you specify (SMB share or cluster shared volumes (CSVs)) in the target location.
+  * **Identify target storage for replica virtual machines**—A source VM hard disk will replicate to the storage that you specified (SMB share or cluster shared volumes (CSVs)) in the target location.
   * **Replica virtual machine placement**—Storage mapping is used to optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped storage classification.
   * **No storage mapping**—If you don’t configure storage mapping, virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.
 
