@@ -65,7 +65,7 @@ To prepare for deployment:
 
     ![New vault](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
 
-The new vault appeasr on the **Dashboard**, in **All resources**, and on the main **Recovery Services vaults** blade.
+The new vault appears on the **Dashboard**, in **All resources**, and on the main **Recovery Services vaults** blade.
 
 
 ## Choose a protection goal
