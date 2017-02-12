@@ -35,7 +35,7 @@ Starting April 1, 2017, any Job record in your account older than 90 days will b
 <sup>6</sup> There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> You should use the same policy ID if you are always using the same days / access permissions / etc.
+> You should use the same policy ID if you are always using the same days / access permissions / etc. For for information and an example, see [this](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) section.
 
 <sup>7</sup>If you are uploading content to an Asset in Azure Media Services with the intent to process it with one of the media processors in our service (i.e. encoders like Media Encoder Standard and Media Encoder Premium Workflow, or analysis engines like Face Detector), then you should be aware of the following limits. 
 
