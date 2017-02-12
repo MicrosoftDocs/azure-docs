@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 # Get started
@@ -49,6 +50,7 @@
 ### [Recover files to a Windows Server using Resource Manager deployment model](backup-azure-restore-windows-server.md)
 ### [Recover files to a Windows Server using the classic deployment model](backup-azure-restore-windows-server-classic.md)
 
+## [Use Role-Based Access Control for Backup Management](backup-rbac-rs-vault.md)
 ## [Enable security features for hybrid backups](backup-azure-security-feature.md)
 ## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
