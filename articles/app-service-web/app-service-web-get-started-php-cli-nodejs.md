@@ -18,16 +18,7 @@ ms.author: cephalin
 
 ---
 # Deploy your first PHP web app to Azure in five minutes
-
-> [!div class="op_single_selector"]
-> * [First HTML site](app-service-web-get-started-html-cli-nodejs.md)
-> * [First .NET app](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [First PHP app](app-service-web-get-started-php-cli-nodejs.md)
-> * [First Node.js app](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [First Python app](app-service-web-get-started-python-cli-nodejs.md)
-> * [First Java app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started-cli](../../includes/app-service-web-selector-get-started-cli.md)]  
 
 This tutorial helps you deploy your first PHP web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
