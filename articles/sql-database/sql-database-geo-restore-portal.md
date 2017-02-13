@@ -20,7 +20,7 @@ ms.author: sstein; carlrab
 ---
 # Restore an Azure SQL Database from a geo-redundant backup with the Azure portal
 
-This article shows you how to restore your database into a new server by using geo-restore with the Azure portal. This can also be done [using PowerShell](sql-database-geo-restore-powershell.md).
+This article shows you how to restore your database into a new server by using geo-restore with the Azure portal. This task can also be done [using PowerShell](sql-database-geo-restore-powershell.md).
 
 ## Restore an Azure SQL Database from a geo-redundant backup by using the Azure portal
 

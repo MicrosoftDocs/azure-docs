@@ -20,27 +20,14 @@ ms.author: sstein
 ---
 # Restore an Azure SQL Database from a geo-redundant backup with PowerShell
 
-This article shows you how to restore your database into a new server by using geo-restore with PowweShell. This can also be done [using the Azure portal](sql-database-geo-restore-portal.md).
-
-## Restore an Azure SQL Database from a geo-redundant backup by using the Azure portal
-
-To geo-restore a database in the Azure portal, do the following steps:
-
-1. Go to the [Azure portal](https://portal.azure.com).
-2. On the left side of the screen select **+New** > **Databases** > **SQL Database**:
-   
-   ![Restore an Azure SQL database](./media/sql-database-geo-restore-portal/new-sql-database.png)
-3. Select **Backup** as the source, and then select the backup you want to restore. Specify a database name, a server you want to restore the database into, and then click **Create**:
-   
-   ![Restore an Azure SQL database](./media/sql-database-geo-restore-portal/geo-restore.png)
-
-4. Monitor the status of the restore operation by clicking the notification icon in the upper right of the page.
+This article shows you how to restore your database into a new server by using geo-restore with PowweShell. This task can also be done [using the Azure portal](sql-database-geo-restore-portal.md).
 
 ## Restore an Azure SQL Database from a geo-redundant backup by using PowerShell
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell-h3.md)]
 
 ### Geo-restore your database into a standalone database
+
 1. Get the geo-redundant backup of your database that you want to restore by using the [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388\(v=azure.300\).aspx) cmdlet.
    
         $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
@@ -49,6 +36,7 @@ To geo-restore a database in the Azure portal, do the following steps:
         Restore-AzureRmSqlDatabase -FromGeoBackup -ResourceGroupName "TargetResourceGroup" -ServerName "TargetServer" -TargetDatabaseName "RestoredDatabase" -ResourceId $GeoBackup.ResourceID -Edition "Standard" -RequestedServiceObjectiveName "S2"
 
 ### Geo-restore your database into an elastic pool
+
 1. Get the geo-redundant backup of your database that you want to restore by using the [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388\(v=azure.300\).aspx) cmdlet.
    
         $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
