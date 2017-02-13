@@ -131,7 +131,7 @@ sh.Close();
 The endpoint definitions move into the App.config file. The NuGet package has already added a range of definitions to the App.config file, which are the required configuration extensions for Service Bus. The following example, which is the exact equivalent of the previous code, should appear directly beneath the **system.serviceModel** element. This code example assumes that your project C# namespace is named **Service**.
 Replace the placeholders with your Service Bus service namespace and SAS key.
 
-```ml
+```xml
 <services>
     <service name="Service.ProblemSolver">
         <endpoint contract="Service.IProblemSolver"
