@@ -43,125 +43,107 @@ Follow the steps as mentioned below to install CentOS 6.6 - 64bit Operating Syst
 
 1. From following links choose a nearest mirror to download a CentOS 6.6 minimal 64-bit ISO.
 
-<http://archive.kernel.org/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+	<http://archive.kernel.org/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
 
-<http://mirror.symnds.com/distributions/CentOS-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+	<http://mirror.symnds.com/distributions/CentOS-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
 
-<http://bay.uchicago.edu/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+	<http://bay.uchicago.edu/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
 
-<http://mirror.nsc.liu.se/centos-store/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+	<http://mirror.nsc.liu.se/centos-store/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
 
-Keep CentOS 6.6 minimal 64-bit ISO in DVD drive and boot the system.
+	Keep CentOS 6.6 minimal 64-bit ISO in DVD drive and boot the system.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
 
 2. Select **Skip** to ignore the media testing process.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
 
 3. Now you can see the installation welcome screen. Here click
 **Next** button.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
 
 4. Select **English** as your preferred Language and click
 **Next** to continue.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
 
 5. Select **US English** as a Keyboard layout. Click **Next**
 to continue installation.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
 
 6. Select the type of devices where you will install. Select
-**Basic storage Devices**.
+**Basic storage Devices**. Click **Next** to continue installation.
 
-Click **Next** to continue installation.
-
-![](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
 
 7. A warning message appears, that denotes the existing data in
 the hard drive will be deleted. Make sure the hard drive does not have
 any important data and click **Yes, discard any data**.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
 
-8. Enter the hostname for your server in **Hostname text box**.
-Click **Configure Network**,
+8. Enter the hostname for your server in **Hostname text box**. Click **Configure Network**,
 
-In **Network Connection** window select your network interface. Click
-**Edit** button to configure IPV4Settings.
+In **Network Connection** window select your network interface. Click **Edit** button to configure IPV4Settings.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
 
-9. Following **Editing System etho** window displays. Select
-**Connect automatically** checkbox. Under “IPv4 Settings” tab, choose
-method as **Manual** and then click **Add** button. Provide the Static
-IP, Netmask, Gateway and DNS Server details. Click **Apply** to save the
-details.
+9. Following **Editing System etho** window displays. Select **Connect automatically** checkbox. Under “IPv4 Settings” tab, choose
+method as **Manual** and then click **Add** button. Provide the Static IP, Netmask, Gateway and DNS Server details. Click **Apply** to save the details.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
 
 10. Select your Time Zone from the Combo box and click **Next**
 to continue.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
 
 11. Enter the **Root password** and confirm the password, click
 **Next** to continue.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
 
 12. Select **Create Custom Layout** as Mode of Partition and
 click **Next** to continue.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
 
-13. Select **Free** partition and click on **Create** for
-creating **/**, **/var/crash** and **/home** partitions with **ext4** as
-File System Type. Create **Swap partition** with **swap** as file system
-type. To allocate partition size, follow the size allocation formula as
-mentioned in below table.
+13. Select **Free** partition and click on **Create** for creating **/**, **/var/crash** and **/home** partitions with **ext4** as
+File System Type. Create **Swap partition** with **swap** as file system type. To allocate partition size, follow the size allocation formula as mentioned in below table.
 
-[!NOTE]
-Linux Master Target (MT) system should not use LVM for root or retention storage spaces. Linux MT configured to avoid LVM partitions/disks discovery by default.
+	[!NOTE]
+	Linux Master Target (MT) system should not use LVM for root or retention storage spaces. Linux MT configured to avoid LVM partitions/disks discovery by default.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
 
 14. After creation of partition click **Next** to continue.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
 
 15. If any pre-existing devices is found, warning message
-appears for formatting.
+appears for formatting. Click **Format** to format the hard drive with latest partition table.
 
-Click **Format** to format the hard drive with latest partition table.
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
+16. Click **Write changes to disk** to apply the partition changes on disk.
 
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
 
+17. Check the **Install boot loader** option and click **Next** to install boot loader on root partition.
 
-16. Click **Write changes to disk** to apply the partition
-changes on disk.
-
-![](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
-
-17. Check the **Install boot loader** option and click **Next**
-to install boot loader on root partition.
-
-![](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
 
 
-18. The Installation process starts. You can monitor the
-progress of installation.
+18. The Installation process starts. You can monitor the progress of installation.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
 
-19. The following screen displays on successful completion of
-installation. Click **Reboot**
+19. The following screen displays on successful completion of installation. Click **Reboot**
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
 
 
 ### Post Installation Steps
