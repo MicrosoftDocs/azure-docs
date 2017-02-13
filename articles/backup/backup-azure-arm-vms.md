@@ -1,5 +1,5 @@
 ---
-title: Back up Azure VMs to a Recovery Services vault | Microsoft Docs
+title: Back up Azure VMs | Microsoft Docs
 description: Discover, register, and back up Azure virtual machines to a recovery services vault.
 services: backup
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
+ms.date: 2/13/2017
 ms.author: trinadhk;jimpark;markgal;
 
 ---

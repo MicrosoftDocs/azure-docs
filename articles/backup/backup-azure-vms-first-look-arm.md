@@ -30,7 +30,7 @@ This tutorial takes you through the steps for creating a recovery services vault
 * Azure Resource Manager-deployed VMs
 * Classic VMs
 * Standard storage VMs
-* Premium storage VMs 
+* Premium storage VMs
 * VMs running on Managed Disks
 * VMs encrypted using Azure Disk Encryption, with BEK and KEK
 
