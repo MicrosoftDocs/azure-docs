@@ -49,7 +49,7 @@ azure vm show --resource-group myResourceGroup --name myDockerVM
 ### Azure CLI 2.0 (Preview)
 Install the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
 
-First, create a resource group for your Docker environment with with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `West US` location:
+First, create a resource group for your Docker environment with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `West US` location:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -68,17 +68,17 @@ az group deployment create --resource-group myResourceGroup \
 
 It takes a few minutes for the deployment to finish. Once the deployment is finished, [move to next step](#step-2-verify-that-compose-is-installed) to SSH to your VM. 
 
-Optionally, to instead return control to the prompt and let the deployment continue in the background, add the `--no-wait` flag to the preceding command. This process allows you perform other work in the CLI whilst the deployment continues for a few minutes. You can then view details about the Docker host status with [az vm show](/cli/azure/vm#show). The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`:
+Optionally, to instead return control to the prompt and let the deployment continue in the background, add the `--no-wait` flag to the preceding command. This process allows you to perform other work in the CLI while the deployment continues for a few minutes. You can then view details about the Docker host status with [az vm show](/cli/azure/vm#show). The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myDockerVM \
   --query [provisioningState] --output tsv
 ```
 
-When this displays `Succeeded`, the deployment has finished and you can SSH to the VM in the following step.
+When this command returns `Succeeded`, the deployment has finished and you can SSH to the VM in the following step.
 
 ## Step 2: Verify that Compose is installed
-Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) or `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] --output tsv` (Azure CLI 2.0 (Preview))  myto view details of your VM, including the DNS name.
+Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) or `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] --output tsv` (Azure CLI 2.0 (Preview)) to view details of your VM, including the DNS name.
 
 To check that Compose is installed on the VM, run the following command:
 
