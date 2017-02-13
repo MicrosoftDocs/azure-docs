@@ -117,7 +117,7 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 
 
 > [!TIP]
-> To delete backups in long-term backup retention, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-retention-portal-powershell.md).
+> To delete backups in long-term backup retention, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 >
 
 1. Open the **SQL Server** blade for your server, **sqldbtutorialserver**.

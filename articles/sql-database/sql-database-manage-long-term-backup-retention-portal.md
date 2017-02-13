@@ -20,7 +20,7 @@ ms.author: carlrab
 ---
 # Configure, manage, and restore from long-term retention of database backups in an Azure Recovery Services vault using the Azure portal
 
-In this topic, you learn how to configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal. You can also perform this task using [PowerShell](sql-database-configure-long-term-retention-powershell.md).
+In this topic, you learn how to configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal. You can also perform this task using [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 For more information about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md).
 
