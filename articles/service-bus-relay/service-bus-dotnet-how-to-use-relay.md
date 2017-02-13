@@ -22,8 +22,8 @@ This article describes how to use the Service Bus Relay service. The samples are
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## What is the Service Bus relay?
-The Service Bus [*Relay*](relay-what-is-it.md) service enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment. The Service Bus relay facilitates this by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or requiring intrusive changes to a corporate network infrastructure.
+## What is Service Bus WCF Relay?
+The Azure Service Bus WCF [*Relay*](relay-what-is-it.md) service enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment. The Service Bus relay facilitates this by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or requiring intrusive changes to a corporate network infrastructure.
 
 ![WCF Relay Concepts](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
@@ -131,7 +131,7 @@ sh.Close();
 The endpoint definitions move into the App.config file. The NuGet package has already added a range of definitions to the App.config file, which are the required configuration extensions for Service Bus. The following example, which is the exact equivalent of the previous code, should appear directly beneath the **system.serviceModel** element. This code example assumes that your project C# namespace is named **Service**.
 Replace the placeholders with your Service Bus service namespace and SAS key.
 
-```csharp
+```ml
 <services>
     <service name="Service.ProblemSolver">
         <endpoint contract="Service.IProblemSolver"
