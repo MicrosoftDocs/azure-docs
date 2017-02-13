@@ -19,7 +19,7 @@
 | Storage accounts | 1,000<sup>5</sup> (fixed) |
 | Policies | 1,000,000<sup>6</sup> |
 | File size| In some scenarios there is a limit on the maximum file size supported for processing in Media Services. <sup>7</sup> |
- 
+  
 <sup>1</sup> S3 RUs are not available in India West.
 
 <sup>2</sup> This number includes queued, finished, active, and canceled jobs. It does not include deleted jobs. You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request.
