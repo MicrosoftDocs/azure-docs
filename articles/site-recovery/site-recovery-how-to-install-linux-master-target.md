@@ -85,9 +85,7 @@ any important data and click **Yes, discard any data**.
 
 	![](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
 
-8. Enter the hostname for your server in **Hostname text box**. Click **Configure Network**,
-
-In **Network Connection** window select your network interface. Click **Edit** button to configure IPV4Settings.
+8. Enter the hostname for your server in **Hostname text box**. Click **Configure Network**, In **Network Connection** window select your network interface. Click **Edit** button to configure IPV4Settings.
 
 	![](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
 
@@ -156,8 +154,7 @@ To enable this parameter, follow the steps as given below:
 
 a. Shut down your virtual machine.
 
-b. Right-click the VM’s entry in the left-hand panel and select **Edit
-Settings.**
+b. Right-click the VM’s entry in the left-hand panel and select **Edit Settings.**
 
 c. Click the **Options** tab.
 
@@ -171,11 +168,9 @@ machine is running”. In order to make this tab active, shutdown machine.
 
 e. See whether already a row with **disk.EnableUUID** exists?
 
-	* If exists and if the value is set to False over write the value with
-True (True and False values are case in-sensitive).
+	* If exists and if the value is set to False over write the value with True (True and False values are case in-sensitive).
 
-	* If exists and is set to true, click on cancel and test the SCSI
-command inside guest operating system after it is boot-up.
+	* If exists and is set to true, click on cancel and test the SCSI command inside guest operating system after it is boot-up.
 
 f. If does not exist click **Add Row.**
 
