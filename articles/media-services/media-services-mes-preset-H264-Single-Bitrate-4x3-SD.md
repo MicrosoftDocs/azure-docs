@@ -1,5 +1,5 @@
 ---
-title: H264 Single Bitrate 4x3 SD | Microsoft Docs
+title: H264 Single Bitrate 4x3 SD Media Encoder Standard preset - Azure | Microsoft Docs
 description: The topic gives an overview of the **H264 Single Bitrate 4x3 SD** task preset.
 author: Juliako
 manager: erikre
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---

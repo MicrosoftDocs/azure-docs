@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2016
+ms.date: 1/11/2017
 ms.author: mimig
 
 ---
@@ -589,7 +589,7 @@ If you receive errors like `Deployment provisioning state was not successful` wh
 
         azure group log show new_res_group --last-deployment
 
-    Then see [Troubleshooting resource group deployments in Azure](../azure-resource-manager/resource-manager-troubleshoot-deployments-cli.md) for additional information.
+    Then see [Troubleshooting resource group deployments in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md) for additional information.
 * Error information is also available in the Azure portal as shown in the following screenshot. To navigate to the error info: click Resource Groups in the Jumpbar, select the Resource Group that had the error, then in the Essentials area of the Resource group blade click the date of the Last Deployment, then in the Deployment history blade select the failed deployment, then in the Deployment blade click the Operation detail with the red exclamation mark. The Status Message for the failed deployment is displayed in the Operation details blade.
 
     ![Screenshot of the Azure portal showing how to navigate to the deployment error message](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)

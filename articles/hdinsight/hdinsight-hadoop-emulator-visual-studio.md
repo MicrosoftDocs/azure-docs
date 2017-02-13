@@ -1,5 +1,5 @@
 ---
-title: Use the Microsoft Azure Data Lake Tools for Visual Studio with the Hortonworks Sandbox | Microsoft Docs
+title: Azure Data Lake Tools for Visual Studio with Hortonworks Sandbox | Microsoft Docs
 description: Learn how to use the Azure Data Lake Tools for VIsual Studio with the Hortonworks sandbox (running in a local VM.) With these tools, you can create and run Hive and Pig jobs on the sandbox and view job output and history.
 services: hdinsight
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 
 ---
@@ -40,6 +40,7 @@ Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get
 ## Connect the tools to the sandbox
 
 1. Open Visual Studio, and select **View**, then **Server Explorer**.
+
 2. From **Server Explorer**, right click the **HDInsight** entry, and then select **Connect to HDInsight Emulator**.
 
     ![Connect to HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)

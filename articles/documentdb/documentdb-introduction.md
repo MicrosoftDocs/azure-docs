@@ -84,6 +84,14 @@ DocumentDB allows you to write application logic as named programs written entir
 
 JavaScript execution within DocumentDB is modeled after the concepts supported by relational database systems, with JavaScript as a modern replacement for Transact-SQL. All JavaScript logic is executed within an ambient ACID transaction with snapshot isolation. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted.
 
+## Are there any online courses on DocumentDB?
+
+Yes, there's a [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) course on Azure DocumentDB. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## Next steps
 Already have an Azure account? Then you can get started with DocumentDB in the [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) by [creating a DocumentDB database account](documentdb-create-account.md).
 

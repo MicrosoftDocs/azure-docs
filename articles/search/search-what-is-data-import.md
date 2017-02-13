@@ -26,8 +26,7 @@ ms.author: ashmaka
 > 
 > 
 
-## Data upload models in Azure search
-There are two ways to populate your Azure Search index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your Azure Search index and let Azure Search automatically pull your data into the search service.
+There are two ways to populate an index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your index and let Azure Search automatically pull in the data.
 
 ## Push data to an index
 This approach refers to programmatically sending your data to Azure Search to make it available for searching. For applications having very low latency requirements (for example, if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
@@ -36,16 +35,18 @@ You can use the [REST API](https://docs.microsoft.com/rest/api/searchservice/Add
 
 This approach is more flexible than the pull model because you can upload documents individually or in batches (up to 1000 per batch or 16 MB, whichever limit comes first). The push model also allows you to upload documents to Azure Search regardless of where your data is.
 
-The data format understood by Azure Search is JSON, and all documents in the dataset must have fields that conform to the field collection defined for you index schema. 
+The data format understood by Azure Search is JSON, and all documents in the dataset must have fields that map to fields defined in your index schema. 
 
 ## Pull data into an index
-The pull model crawls a supported data source and automatically uploads the data into you Azure Search index for you. In Azure Search, this capability is implemented through *indexers*, currently available for [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md),[DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
+The pull model crawls a supported data source and automatically uploads the data into your index. In Azure Search, this capability is implemented through *indexers*, currently available for [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
-Indexers connect an index to a data source (usually a table, view, or equivalent structure), and maps source fields to equivalent fields in the index. During execution, the rowset is automatically transformed to JSON and loaded into the specified index. All indexers support scheduling so that you can specify how frequently the data is to be refreshed. Most indexers provide change tracking if the data source supports it. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index. 
+Indexers connect an index to a data source (usually a table, view, or equivalent structure), and map source fields to equivalent fields in the index. During execution, the rowset is automatically transformed to JSON and loaded into the specified index. All indexers support scheduling so that you can specify how frequently the data is to be refreshed. Most indexers provide change tracking if the data source supports it. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index. 
 
 Indexer functionality is exposed in the [Azure portal](search-import-data-portal.md), the [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations), and the [.NET SDK](https://docs.microsoft.com/otnet/api/microsoft.azure.search.iindexersoperations?redirectedfrom=MSDN#microsoft_azure_search_iindexersoperations). 
 
-An advantage to using the portal is that Azure Search can usually generate a default index schema for you by reading the metadata of the source dataset. You can make any modifications you want to the generated index until the index is processed, after which the only schema edits allowed are those that do not require reindexing. After the index is populated, you can use **Search Explorer** in the portal command bar to query the index.
+An advantage to using the portal is that Azure Search can usually generate a default index schema for you by reading the metadata of the source dataset. You can modify the generated index until the index is processed, after which the only schema edits allowed are those that do not require reindexing. If the changes you want to make impact the schema directly, you would need to rebuild the index. 
+
+After the index is populated, you can use **Search Explorer** in the portal command bar as a verification step.
 
 ## Query an index using Search Explorer
 

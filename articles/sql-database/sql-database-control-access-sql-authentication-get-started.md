@@ -19,7 +19,7 @@ ms.date: 01/17/2017
 ms.author: carlrab
 
 ---
-# SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules
+# SQL Database tutorial: SQL Server authentication, access, and database-level firewall rules
 In this getting-started tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
 
 - View user permissions in the master database and in user databases
@@ -236,9 +236,9 @@ In this section of the tutorial, you create a user account in the AdventureWorks
 
    ![select permissions](./media/sql-database-control-access-sql-authentication-get-started/select_permissions.png)
 
-## Create a database-level firewall rule for AdventureWorksLT database users
+## Create a database-level firewall rule for an AdventureWorksLT database user
 
-In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then log in using this new database-level firewall rule. 
+In this section of the tutorial, you log attempt to log in from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then log in using this new database-level firewall rule. 
 
 > [!NOTE]
 > [Database-level firewall rules](sql-database-firewall-configure.md) increase the portability of your database, a capability that we explore in later tutorials.
@@ -278,7 +278,7 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
-   ![Connect as user1 without firewall rule4](./media/sql-database-control-access-sql-authentication-get-started/user1_add_rule_aw.png)
+   ![add firewall rule](./media/sql-database-control-access-sql-authentication-get-started/user1_add_rule_aw.png)
 
 8. Switch computers again and click **Connect** in the **Connect to Server** dialog box to connect to AdventureWorksLT as user1. 
 
@@ -421,4 +421,5 @@ CREATE USER blankdbuser1
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).
+- For a tutorial using Azure Active Directory authentication, see [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
 

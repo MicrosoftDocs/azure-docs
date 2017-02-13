@@ -1,5 +1,17 @@
 ---
+title: Azure Government Documentation - Tutorials, API Reference | Microsoft Docs
+description: 
+services: Azure-government
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: Azure-government
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Azure Government Documentation
 
@@ -69,11 +81,4 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 </ul>
 	
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Government Documentation
-        </div>
-    </a>
-</div>
+

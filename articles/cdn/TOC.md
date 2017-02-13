@@ -12,6 +12,7 @@
 ### [Cross-origin resource sharing](cdn-cors.md)
 
 ## Manage
+### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
 ### [Manage with PowerShell](cdn-manage-powershell.md)
 ### Configure time-to-live
 #### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)

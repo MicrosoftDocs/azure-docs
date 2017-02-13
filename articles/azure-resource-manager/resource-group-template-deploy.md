@@ -101,7 +101,7 @@ These commands create a resource group, and deploy a template to that resource g
    
      The preceding two examples do not include parameter values. You learn about the options for passing parameter values in the [Parameters](#parameters) section. For now, you are prompted to provide parameter values with the following syntax:
 
-   ```poweshell  
+   ```powershell  
    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
    Supply values for the following parameters:
    (Type !? for Help.)
@@ -110,7 +110,7 @@ These commands create a resource group, and deploy a template to that resource g
      
      After the resources have been deployed, you see a summary of the deployment. The summary includes a **ProvisioningState**, which indicates whether the deployment succeeded.
 
-   ```poweshell   
+   ```powershell   
    DeploymentName    : ExampleDeployment
    ResourceGroupName : ExampleResourceGroup
    ProvisioningState : Succeeded
@@ -190,7 +190,7 @@ You have the following options for providing parameter values:
    
 - Inline parameters. Include individual parameter names in the cmdlet (for example, **-myParameterName**.)
 
-   ```poweshell   
+   ```powershell   
    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
    ```
 - Parameter object. Include the **-TemplateParameterObject** parameter.

@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Active Directory Domain Services Documentation - Tutorials | Microsoft Docs
 description: Learn how to use Active Directory Domain Services to join Azure virtual machines to a domain without using domain controllers and manage them with group policies.
+services: active-directory-ds
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-ds
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Active Directory Domain Services Documentation
 
@@ -153,13 +164,3 @@ Learn how to use Active Directory Domain Services to join Azure virtual machines
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Active Directory Domain Services Documentation
-        </div>
-    </a>
-</div>

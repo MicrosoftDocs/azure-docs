@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -34,8 +34,8 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 
 > [!NOTE]
 > The [Azure portal](http://portal.azure.com/) allows users to sign in using either a personal Microsoft Account or an Azure Active Directory work or school account. To set up Azure Data Catalog using the Azure portal or using the [Data Catalog portal](http://www.azuredatacatalog.com) you must be logged in using an Azure Active Directory account, not a personal account.
-> 
-> 
+>
+>
 
 ## Active Directory policy configuration
 In some situations, users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on. This problem behavior may occur only when the user is on the company network, or may occur only when the user is connecting from outside the company network.
@@ -47,4 +47,3 @@ The Global Authentication Policy allows authentication methods to be enabled sep
  ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
-

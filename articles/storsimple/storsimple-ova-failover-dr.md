@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery and device failover for your StorSimple Virtual Array
+title: Disaster recovery, device failover for StorSimple Virtual Array | Microsoft Docs
 description: Learn more about how to failover your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -122,7 +122,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 This video demonstrates how you can fail over a StorSimple on-premises virtual device to another virtual device.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
 > 
 > 
 

@@ -114,7 +114,7 @@ Use the following steps to install the Dependency Agent on each Linux computer:
 3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
 ### Uninstalling the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the proxy, which is installed automatically with the agent.  You can uninstall both with the following single command:
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the Connector, which is installed automatically with the agent.  You can uninstall both with the following single command:
 
 	rpm -e dependency-agent dependency-agent-connector
 

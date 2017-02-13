@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
+ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 
 ---
@@ -36,7 +36,7 @@ For more information about Azure SQL databases, see [SQL databases](sql-database
 
 ## What features are supported?
 
-The following tables lists the major features of Azure SQL Database and SQL Server, specifies its supportability, and provides a link to more information about the feature on each platform. For Transact-SQL features, follow the link in the table for the category of the feature. See also [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) for more background on the reasons for lack of support for certain types of features.
+The following tables list the major features of Azure SQL Database and SQL Server, specifies its supportability, and provides a link to more information about the feature on each platform. For Transact-SQL features, follow the link in the table for the category of the feature. See also [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) for more background on the reasons for lack of support for certain types of features.
 
 We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
 
@@ -44,7 +44,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 * Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 > [!TIP]
-> To test an existing database for compatibility with Azure SQL Database, see [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> To test an existing database for compatibility with Azure SQL Database, see [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md).
 >
 
 | **Feature** | **SQL Server** | **Azure SQL Database** | 

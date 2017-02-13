@@ -1,6 +1,6 @@
 ---
-title: About VPN Devices for Site-to-Site VPN Gateway connections for Azure Virtual Networks | Microsoft Docs
-description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway connections and contains links to configuration instructions and samples.
+title: About VPN devices for cross-premises Azure connections | Microsoft Docs
+description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway cross-premises connections. Links are provided to configuration instructions and samples.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -19,7 +19,7 @@ ms.author: yushwang;cherylmc
 
 ---
 # About VPN devices for Site-to-Site VPN Gateway connections
-A VPN device is required to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters.
+A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters.
 
 > [!NOTE]
 > When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
@@ -112,7 +112,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | **Property** | **PolicyBased** | **RouteBased and Standard or High Performance VPN gateway** |
 | --- | --- | --- |
 | IKE Version |IKEv1 |IKEv2 |
-| Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128) |
+| Hashing Algorithm |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Phase 2 Security Association (SA) Lifetime (Time) |3,600 seconds |3,600 seconds |
 | Phase 2 Security Association (SA) Lifetime (Throughput) |102,400,000 KB |- |
 | IPsec SA Encryption & Authentication Offers (in the order of preference) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A |See *RouteBased Gateway IPsec Security Association (SA) Offers* (below) |

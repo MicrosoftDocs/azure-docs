@@ -41,7 +41,7 @@ To get started, you need:
 
 ## Create a SQL Data Warehouse
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **+ New** > **Data + Storage** > **SQL Data Warehouse**.
+2. Click **+ New** > **Databases** > **SQL Data Warehouse**.
 
     ![Create](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. In the **SQL Data Warehouse** blade, fill in the information needed, then press 'Create' to create.

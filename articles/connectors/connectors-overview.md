@@ -28,7 +28,7 @@ Connectors are hosted services you can access as part of a logic app to integrat
 
 Each connector action or trigger will have its set of properties to configure.  You can click on the info buttons to learn more about action, or reference its documentation [to learn more](apis-list.md).
 
-If you want to integrate with a service or API that isn't yet a connector, you can also extend logic apps through a [custom connector](../app-service-logic/app-service-logic-create-api-app.md) or just call directly to the service over a protocol like HTTP.
+If you want to integrate with a service or API that isn't yet a connector, you can also extend logic apps through a [custom connector](../logic-apps/logic-apps-create-api-app.md) or just call directly to the service over a protocol like HTTP.
 
 ## Triggers
 Some connectors have a trigger, which means an event from that connector will fire a logic app and pass in any data as part of the trigger.  A trigger is always the first step in a logic app.  Popular triggers include operations like:
@@ -53,9 +53,9 @@ Most connectors require you to configure a *connection* before you can use the c
 Connections can be viewed and managed in Azure by clicking **Browse** and selecting **API Connections**.  From the API Connections resource you can view, edit, update, or re-authorize any connections you have created.
 
 ## Next Steps
-* [Create your first logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
-* [Learn common uses and examples of logic apps](../app-service-logic/app-service-logic-examples-and-scenarios.md)
-* [Get started with enterprise integration triggers and actions](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
+* [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Learn common uses and examples of logic apps](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Get started with enterprise integration triggers and actions](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 
 ---
@@ -28,7 +28,12 @@ ms.author: spelluru
 > 
 > 
 
-In this article, you use an Azure Resource Manager template to create your first Azure data factory.
+In this article, you use an Azure Resource Manager template to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
+
+> [!NOTE]
+> The data pipeline in this tutorial transforms input data to produce output data. It does not copy data from a source data store to a destination data store. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 
 
 ## Prerequisites
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
@@ -607,9 +612,8 @@ This template creates a data factory named GatewayUsingArmDF with a gateway name
 ## See Also
 | Topic | Description |
 |:--- |:--- |
-| [Data Transformation Activities](data-factory-data-transformation-activities.md) |This article provides a list of data transformation activities (such as HDInsight Hive transformation you used in this tutorial) supported by Azure Data Factory. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
 | [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
+| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
 

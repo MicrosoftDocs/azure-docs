@@ -1,15 +1,14 @@
 ---
 title: Azure Government developer guide | Microsoft Docs
 description: This article compares features and provides guidance on developing applications for Azure Government.
-services: ''
+services: azure-government
 cloud: gov
 documentationcenter: ''
-author: Joharve2
-manager: Chrisnie
-editor: ''
+author: sachamicrosoft 
+manager: zakramer
 
 ms.assetid: 6e04e9aa-1a73-442c-a46c-2e4ff87e58d5
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

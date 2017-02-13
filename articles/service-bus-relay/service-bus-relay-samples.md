@@ -1,5 +1,5 @@
 ---
-title: Service Bus relay samples overview | Microsoft Docs
+title: Azure Service Bus relay samples overview | Microsoft Docs
 description: Categorizes and describes Service Bus relay samples with links to each.
 services: service-bus-relay
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: sethm
 
 ---
@@ -21,23 +21,23 @@ ms.author: sethm
 The Service Bus relay samples demonstrate key features in [Service Bus relay](https://azure.microsoft.com/services/service-bus/). This article categorizes and describes the samples available, with links to each.
 
 > [!NOTE]
-> Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Service Bus samples are not installed with the Azure SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Additionally, there is an updated set of Service Bus relay samples [here](https://github.com/Azure-Samples/azure-servicebus-relay-samples) (as of this writing, they are not described in this article).  
+> Additionally, there is an updated set of Service Bus relay samples [here](https://github.com/Azure-Samples/azure-servicebus-relay-samples).  
 > 
 > 
 
-For messaging samples, see [Service Bus messaging samples](../service-bus-messaging/service-bus-samples.md).
+For Service Bus Messaging samples, see [Service Bus messaging samples](../service-bus-messaging/service-bus-samples.md).
 
-## Service Bus relay
-The following samples illustrate how to write applications that use the Service Bus relay service.
+## Azure Service Bus Relay
+The following samples illustrate how to write applications that use the Azure Relay service.
 
-Note that the relay samples require a connection string to access your Service Bus namespace.
+Note that the relay samples require a connection string to access your Relay namespace.
 
-### To obtain a connection string for Azure Service Bus
+### To obtain a connection string for Azure Relay
 1. Log on to the [Azure portal](http://portal.azure.com).
-2. In the left-hand column, click **Service Bus**.
-3. Click the name of your namespace in the list.
+2. Click to expand the list of your namespaces in the **All resources** pane.
+3. Click the name of your Relay namespace in the list.
 4. In the namespace blade, click **Shared access policies**.
 5. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
 6. Copy the connection string to the clipboard.
@@ -45,13 +45,13 @@ Note that the relay samples require a connection string to access your Service B
 ### To obtain a connection string for Service Bus for Windows Server
 1. Run the following PowerShell cmdlet:
    
-    ```
+    ```powershell
     get-sbClientConfiguration
     ```
 2. Paste the connection string into the App.config file for the sample.
 
-## Service Bus relay
-Samples that demonstrate the Service Bus relay.
+## Azure Relay
+Samples that demonstrate Azure Relay.
 
 ### Getting started
 | Sample Name | Description | Minimum SDK Version | Availability |
@@ -81,7 +81,7 @@ Samples that demonstrate various Service Bus relay features.
 ## Next steps
 See the following topics for conceptual overviews of Service Bus.
 
-* [Service Bus relay overview](service-bus-relay-overview.md)
+* [Azure Relay overview](relay-what-is-it.md)
 * [Service Bus architecture](../service-bus-messaging/service-bus-architecture.md)
 * [Service Bus fundamentals](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 

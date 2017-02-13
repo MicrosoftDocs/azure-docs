@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Service Fabric Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
+services: service-fabric
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-fabric
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Service Fabric Documentation
 
@@ -145,11 +156,4 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
 </ul>	
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Service Fabric Documentation
-        </div>
-    </a>
-</div>
+

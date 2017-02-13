@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Authentication for Azure SQL Database and Data Warehouse | Microsoft Docs
+title: Azure Active Directory auth - Azure SQL | Microsoft Docs
 description: Learn how to connect to SQL Database and SQL Data Warehouse by using Azure Active Directory Authentication.
 services: sql-database
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/22/2016
-ms.author: rick.byham@microsoft.com
+ms.date: 01/23/2017
+ms.author: rickbyh
 
 ---
 # Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication
@@ -369,12 +369,14 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## See also
-[Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md)
-
-[Contained Database Users](https://msdn.microsoft.com/library/ff929071.aspx)
-
-[CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
+## Next steps
+- For an overview of access and control in SQL Database, see [SQL Database access and control](sql-database-control-access.md).
+- For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](sql-database-manage-logins.md).
+- For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
+- For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
+- For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).
+- For a tutorial using SQL Server authentication, see [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
+- For a tutorial using Azure Active Directory authentication, see [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md).
 
 <!--Image references-->
 

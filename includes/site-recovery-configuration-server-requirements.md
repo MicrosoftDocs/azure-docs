@@ -1,17 +1,17 @@
 | **Hardware** | |
 | --- |---|
-| Number of CPU Cores| 8 Cores |
+| Number of CPU cores| 8 |
 | RAM| 12 GB|
-| Number of Disks | **3 Disks** <br> - OS Disk<br> - Process Server Cache Disk<br> - Retention Drive (for Failback)|
-| Disk Free Space (Process Server Cache) | 600 GB
-| Disk Free Space (Retention Disk) | 600 GB|
+| Number of disks | 3 <br><br> - OS disk<br> - Process server cache disk<br> - Retention drive (for failback)|
+| Disk free space (process server cache) | 600 GB
+| Disk free space (retention disk) | 600 GB|
 | **Software** | |
-| Operating System Version | Windows Server 2012 R2 |
-| Operating System Locale | English (en-us)|
-| VMware vSphere PowerCLI Version | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
-| Windows Server Roles | Do not enable the following roles <br> **Active Directory Domain Services** <br>**Internet Information Service** <br> **Hyper-V** |
+| Operating system version | Windows Server 2012 R2 |
+| Operating system locale | English (en-us)|
+| VMware vSphere PowerCLI version | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
+| Windows Server roles | Do not enable the following roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 | **Network** | |
-| Network Interface Card Type | VMXNET3 |
-| IP Address Type | Static |
-| Internet Access | The server should be able to access the following URL either directly or through a Proxy Server <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi <br> - time.nist.gov <br> - time.windows.com |
-| Ports | 443 (Control Channel Orchestration)<br>9443 (Data Transport)|
+| Network interface card type | VMXNET3 |
+| IP address type | Static |
+| Internet access | The server should be able to access the following URLs either directly or through a proxy server: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi <br> - time.nist.gov <br> - time.windows.com |
+| Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
