@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/31/2017
+ms.date: 02/10/2017
 ms.author: vakarand
 
 ---
@@ -95,7 +95,7 @@ It is very easy to get started with Azure AD Connect Health. Follow the steps be
 * Get started using Azure AD Connect Health for AD DS
     * [Download Azure AD Connect Health Agent for AD DS.](http://go.microsoft.com/fwlink/?LinkID=820540)
     * [See the Installation Instructions](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-
+    
 ## Azure AD Connect Health Portal
 The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics. https://aka.ms/aadconnecthealth takes you to the main blade of Azure AD Connect Health.  You can think of a blade as a window. On The main blade you see Quick Start, Services within Azure AD Connect Health and additional configuration options. Below the screenshot is a brief explanation of each of these.  After you've deployed the agents, the health service automatically identifies for the services Azure AD Connect Health is monitoring.
 

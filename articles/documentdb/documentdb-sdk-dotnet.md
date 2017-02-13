@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/06/2017
 ms.author: rnagpal
 
 ---
@@ -46,7 +46,12 @@ ms.author: rnagpal
 <tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
-## Release Notes
+## Release notes
+
+### <a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+* Fix for an issue wherein some of the cross-partition queries were failing in the 32-bit host process.
+* Fix for an issue wherein the session container was not being updated with the token for failed requests in Gateway mode.
+* Fix for an issue wherein a query with UDF calls in projection was failing in some cases.
 
 ### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
 * Fix for an issue wherein the session container was not being updated with the token for failed requests.
@@ -180,7 +185,7 @@ ms.author: rnagpal
 ### <a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 * GA SDK
 
-## Release & Retirement Dates
+## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
@@ -191,6 +196,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.4](#1.11.4) |February 06, 2017 |--- |
 | [1.11.3](#1.11.3) |January 26, 2017 |--- |
 | [1.11.1](#1.11.1) |December 21, 2016 |--- |
 | [1.11.0](#1.11.0) |December 08, 2016 |--- |
@@ -219,6 +225,6 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 ## FAQ
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## See Also
+## See also
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
 

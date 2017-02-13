@@ -4,7 +4,7 @@ description: Learn about the software and networking requirements for your StorS
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
@@ -43,7 +43,7 @@ The software requirements include the information on the supported web browsers,
 | **Component** | **Requirement** |
 | --- | --- |
 | Minimum number of virtual processors (cores) |4 |
-| Minimum memory (RAM) |8 GB |
+| Minimum memory (RAM) |8 GB <br> For a file server, 8 GB for less than 2 million files and 16 GB for 2 - 4 million files|
 | Disk space<sup>1</sup> |OS disk - 80 GB <br></br>Data disk - 500 GB to 8 TB |
 | Minimum number of network interface(s) |1 |
 | Minimum Internet bandwidth<sup>2</sup> |5 Mbps |
