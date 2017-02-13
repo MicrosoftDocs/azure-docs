@@ -1,6 +1,6 @@
 ---
 title: Use Docker Compose on a Linux VM in Azure | Microsoft Docs
-description: How to use Docker and Compose on Linux virtual machines in Azure
+description: How to use Docker and Compose on Linux virtual machines with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 02/13/2017
 ms.author: iainfou
 
 ---
@@ -26,8 +26,8 @@ You can use various Azure procedures and available images or Resource Manager te
 
 When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed. You can create a VM and use the Docker VM extension using one of the following CLI versions:
 
-- [Azure CLI 1.0](#azure-cli-1.0) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](#azure-cli-2.0-preview) - our next generation CLI for the resource management deployment model
+- [Azure CLI 1.0](#azure-cli-10) – our CLI for the classic and resource management deployment models
+- [Azure CLI 2.0 (Preview)](#azure-cli-20-preview) - our next generation CLI for the resource management deployment model
 
 
 ### Azure CLI 1.0
@@ -78,7 +78,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 When this command returns `Succeeded`, the deployment has finished and you can SSH to the VM in the following step.
 
 ## Step 2: Verify that Compose is installed
-Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) or `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] --output tsv` (Azure CLI 2.0 (Preview)) to view details of your VM, including the DNS name.
+Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) or `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (Azure CLI 2.0 (Preview)) to view details of your VM, including the DNS name.
 
 To check that Compose is installed on the VM, run the following command:
 
