@@ -132,6 +132,52 @@ select the **Code View** tab at the bottom of the designer.
 To switch back to the full resource JSON, 
 right-click the `<template>.json` file, and select **Open**.
 
+### To reference dependent resources by using parameters in Visual Studio deployment templates
+
+When you want your logic app to reference dependent resources, 
+you can use Azure Resource Manager template functions in your logic app deployment template. 
+For example, you might want your logic app to reference an Azure Function 
+or integration account that you want to deploy alongside your logic app. 
+Follow these guidelines about how to use parameters in your deployment template 
+so that the Logic App Designer renders correctly. 
+
+You can use logic app parameters in these kinds of triggers and actions:
+
+*   Child workflow
+*   Function app
+*   APIM call
+*   API connection runtime URL
+
+Parameters support these constructions: list below, 
+includes variables, resourceId, concat, and so on. 
+For example, you can replace the Azure Function resource ID:
+
+```
+"MyFunction": {
+		"type": "Function",
+		"inputs": {
+		"body":{},
+		"function":{
+		"id":"[resourceid('Microsoft.Web/sites/functions','functionApp','functionName')]"
+		}
+	},
+	"runAfter":{}
+}
+```
+
+**Note** For the Logic App Designer to work when you use parameters, 
+you must provide default values, for example: 
+
+```
+"parameters":{
+	"IntegrationAccount": {
+	"type":"string",
+	"minLength":1,
+	"defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+	}
+},
+```
+
 ### Save your logic app
 
 To save your logic app at anytime, 
