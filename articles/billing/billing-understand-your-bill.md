@@ -19,14 +19,14 @@ ms.author: erihur;genli
 
 ---
 # Understand your bill for Microsoft Azure
-To understand your Azure bill, review the invoice with the summary of charges and the separate detailed daily usage file. This article describes most of the terms shown in the invoice and the daily usage file. To get these files, see [How to download your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). If you're using a free trial subscription, you can get your daily usage information but you don't have an invoice.
+To understand your Azure bill, review the invoice with the summary of charges and the separate detailed daily usage file. This article describes most of the terms shown in the invoice and the daily usage file. To get these files, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). If you're using a free trial subscription, you can get your daily usage information but you don't have an invoice.
 
 The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, like the Visual Studio Enterprise (MPN) subscribers, include monthly credits that you can use on any Azure service based on your needs.
 
 Up to 24 hours of usage at the end of the previous billing period may show up in your current bill. Also charges listed on billing statements for international customers are for estimation purposes only. Banks have different costs for the conversion rates.
 
 ## <a name="pdf"></a> Understand your invoice (.pdf)
-The invoice provides a summary of your charges. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com). For more information, see [How to download your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
+The invoice provides a summary of your charges. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com). For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
 
 The following sections list most of the terms that you see on your invoice and descriptions for each term.
 
@@ -77,7 +77,7 @@ The following table describes the sold to and payment instructions shown on your
 | Payment instructions |If your payment method is invoice, this is where to send checks, wire transfers, or overnight checks. For more information, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) |
 
 ## <a name="csv"></a> Understand detailed usage charges (.csv)
-The usage file shows how much of each resource was used within the current billing period. It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application. If you see two versions available, download version 2. That's the most current file format. For more information, see [How to download your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+The usage file shows how much of each resource was used within the current billing period. It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application. If you see two versions available, download version 2. That's the most current file format. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
 Usage charges are the total **monthly** charges on a subscription minus any credit or discount. You are billed for your past month’s usage.  
 

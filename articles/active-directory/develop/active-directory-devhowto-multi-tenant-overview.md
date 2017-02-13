@@ -170,7 +170,7 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 * [Microsoft Graph API Permission Scopes][MSFT-Graph-AAD]
 * [Azure AD Graph API Permission Scopes][AAD-Graph-Perm-Scopes]
 
-Please use the Disqus comments section below to provide feedback and help us refine and shape our content.
+Please use the comments section below to provide feedback and help us refine and shape our content.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

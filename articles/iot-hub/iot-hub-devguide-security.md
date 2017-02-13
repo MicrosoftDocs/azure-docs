@@ -418,7 +418,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
-[lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: iot-hub-protocol-gateway.md
 [lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-authentication
