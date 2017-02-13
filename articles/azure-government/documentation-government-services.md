@@ -17,8 +17,8 @@ ms.date: 02/10/2017
 ms.author: stemi
 
 ---
-# Azure Government Services
-Azure Government is continually expanding the services that are available.  These services are deployed using the same code that is used in Azure Public.  This section documents two key types of information:
+# Available Services on Azure Government
+Azure Government is continually expanding the services that are available.  These services are deployed using the same code that is used in Azure Public.  This section documents the services that are currently avaiable on Azure Government, including two key types of information:
 
 * **Variations:** Variations due to features that have not been deployed yet or properties (for example, URLs) that are unique to the government environment.  
 * **Considerations:** Government-specific implementation details to ensure data stays within your compliance boundary.
