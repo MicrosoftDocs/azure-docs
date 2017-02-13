@@ -37,7 +37,7 @@ In this How To topic, you learn how to view the oldest restore point from servic
     ![oldest restore point](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
 >
 
 ## Next steps

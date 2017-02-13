@@ -44,7 +44,7 @@ In this tutorial, you learn how to use Azure PowerShell to:
 * You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md). If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) before continuing.
 
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using the [Azure portal](sql-database-get-started-backup-recovery.md).
+> You can perform these same tasks in a getting started tutorial by using the [Azure portal](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 

@@ -87,6 +87,4 @@ The following table lists every connection problem topic that applies directly t
 * [SQL Database Development Overview](sql-database-develop-overview.md)
 * [General transient fault-handling guidance](../best-practices-retry-general.md)
 * [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-* [The learning path for using Azure SQL Database](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [The learning path for using elastic database features and tools](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 

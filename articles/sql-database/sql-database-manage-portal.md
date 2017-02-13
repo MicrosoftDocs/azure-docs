@@ -37,12 +37,12 @@ To view the available SQL Database services, click **More services**, and type *
 ![SQL Database](./media/sql-database-manage-portal/sql-services.png)
 
 ## How do I create or view Azure SQL databases?
-To open the **SQL databases** blade, click **SQL databases**, and then click the database you want to work with, or click **+Add** to create a SQL database. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
+To open the **SQL databases** blade, click **SQL databases**, and then click the database you want to work with, or click **+Add** to create a SQL database. For details, see [Your first Azure SQL database by using the Azure portal](sql-database-get-started.md).
 
 ![SQL databases](./media/sql-database-manage-portal/sql-databases.png)
 
 ## How do I create or view Azure SQL servers?
-To open the **SQL servers** blade, click **SQL servers**, and then click the server you want to work with, or click **+Add** to create a SQL server. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
+To open the **SQL servers** blade, click **SQL servers**, and then click the server you want to work with, or click **+Add** to create a SQL server. For details, see [Your first Azure SQL database by using the Azure portal](sql-database-get-started.md).
 
 ![SQL servers](./media/sql-database-manage-portal/sql-servers.png)
 

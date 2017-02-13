@@ -44,7 +44,7 @@ In this How To topic, you learn how to restore a database from a backup in long-
     ![restored database from vault](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
 
 
 ## Restore from long-term backup retention using PowerShell
@@ -59,7 +59,7 @@ Restoring a database from a long-term retention backup requires the latest [Azur
 
 For more information, see [Storing Azure SQL Database Backups for up to 10 years](sql-database-long-term-retention.md).
 
-For a step-by-step tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md).
 
 ```
 # Restore a database from long-term backup retention

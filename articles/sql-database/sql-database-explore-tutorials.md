@@ -21,7 +21,7 @@ ms.author: carlrab
 ---
  
 # Explore Azure SQL Database tutorials
-The links in the following tables take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
+The links in the following tables take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. 
 
 ## Create servers, databases and server-level firewall rules
 In the following tutorials, you create servers, databases, and server-level firewall rules - and learn to connect and query servers and databases.
@@ -38,7 +38,7 @@ In the following tutorials, you learn about using [database backups](sql-databas
 
 | Tutorial | Description |
 | --- | --- | 
-| [Back up and restore using the Azure portal](sql-database-get-started-backup-recovery.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
+| [Back up and restore using the Azure portal](sql-database-get-started-backup-recovery-portal.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 | [Back up and restore using PowerShell](sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 |  | |
 
@@ -106,5 +106,3 @@ In this tutorial, you learn about [Data Sync](http://download.microsoft.com/down
 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md) |In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
 |  | |
 
-## Next steps
-[Explore Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)

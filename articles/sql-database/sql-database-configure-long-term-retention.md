@@ -88,7 +88,7 @@ In this How To topic, you learn how to configure long-term retention of automate
 
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md).
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md).
 >
 
 ## Configure long-term backup retention using PowerShell
@@ -102,7 +102,7 @@ Configuring long-term retention requires the latest [Azure PowerShell](https://d
 
 For more information, see [Storing Azure SQL Database Backups for up to 10 years](sql-database-long-term-retention.md).
 
-For a step-by-step tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md).
 
 ```
 # Configure long-term backup retention

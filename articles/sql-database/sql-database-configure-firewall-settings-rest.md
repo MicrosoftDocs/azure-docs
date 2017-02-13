@@ -19,14 +19,6 @@ ms.author: sstein
 
 ---
 # Configure Azure SQL Database server-level firewall rules using the REST API
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-firewall-configure.md)
-> * [Azure portal](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST API](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
 
 Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.
 
@@ -71,7 +63,7 @@ For how to articles on creating server-level firewall rules using other methods,
 * [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
 * [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
 
-For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
+For a tutorial on creating a database, see [Your first Azure SQL database](sql-database-get-started.md).
 For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 

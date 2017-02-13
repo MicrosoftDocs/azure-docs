@@ -36,7 +36,7 @@ You can use these backups to:
 * To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
 >
 
 
@@ -79,7 +79,7 @@ Once you add the LTR policy to a database using Azure portal or API, the weekly 
 The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use the Aure portal or PowerShell to access these backups.
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
 >
 
 ## Next steps

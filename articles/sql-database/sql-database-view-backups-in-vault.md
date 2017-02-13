@@ -43,7 +43,7 @@ In this How To topic, you learn how to view information about your database back
     ![backups in vault](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
 >
 
 ## View long-term backup retention information using the PowerShell
