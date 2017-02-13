@@ -137,7 +137,6 @@
 ### [Overview](machine-learning-deploy-consume-web-service-guide.md)
 ### Deploy models
 #### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
 #### [Deploy a web service](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Use external data](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Deploy in multi-regions](machine-learning-how-to-deploy-to-multiple-regions.md)
