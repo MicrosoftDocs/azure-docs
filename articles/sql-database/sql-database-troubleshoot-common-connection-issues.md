@@ -79,7 +79,6 @@ The following table lists every connection problem topic that applies directly t
 
 ## Next steps
 * [Troubleshoot Azure SQL Database performance issues](sql-database-troubleshoot-performance.md)
-* [Troubleshoot Azure SQL Database permissions issues](sql-database-troubleshoot-permissions.md)
 * [Search the documentation on Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [View the latest updates to the Azure SQL Database service](http://azure.microsoft.com/updates/?service=sql-database)
 
