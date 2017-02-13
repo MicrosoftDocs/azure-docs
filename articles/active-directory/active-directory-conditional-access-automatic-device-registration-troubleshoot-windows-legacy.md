@@ -90,7 +90,7 @@ You can also find the status information in the event log under **Applications a
 
   - There is no Service Connection Point object that points to your verified domain name in Azure AD in the AD forest where the computer belongs to.
 
-  - A user has reached the limit of devices. Please see Get Started with Azure Active Device Registration.
+  - A user has reached the limit of devices. Please see Get Started with Azure Active Directory Device Registration.
 
 ## Next steps
 
