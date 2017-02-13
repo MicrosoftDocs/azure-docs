@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
-
 ---
 
 # Enable Application Proxy in the Azure portal
