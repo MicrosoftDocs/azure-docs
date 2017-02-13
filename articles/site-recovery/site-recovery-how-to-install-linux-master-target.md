@@ -168,19 +168,18 @@ machine is running”. In order to make this tab active, shutdown machine.
 
 e. See whether already a row with **disk.EnableUUID** exists?
 
-	1. If the value exists and if the value is set to False over write the value with True (True and False values are case in-sensitive).
+f. If the value exists and if the value is set to False over write the value with True (True and False values are case in-sensitive).
 
-	2. If exists and is set to true, click on cancel
+g. If exists and is set to true, click on cancel
 	
-	3. If does not exist click **Add Row.**
+h. If the value does not exist click **Add Row.**
 
-	4. Add disk.EnableUUID in the Name column.
-
-		* Set its value as TRUE
+i. Add disk.EnableUUID in the Name column and Set its value as TRUE
 
 	NOTE: Do not add the above values along with double-quotes.
+	
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
 #### Download and Install the Additional Packages
 
@@ -338,7 +337,7 @@ multipath id.
 	mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
 	```
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
 5. Finally create the fstab entry to mount the retention drive during every boot
 	```
