@@ -56,7 +56,6 @@ Here are the Fabric settings that you can customize:
 | UpgradeHealthCheckInterval |Time in seconds, default is 60 |The frequency of health status checks during a monitored application upgrades |
 | FabricUpgradeStatusPollInterval |Time in seconds, default is 60 |The frequency of polling for Fabric upgrade status. This value determines the rate of update for any GetFabricUpgradeProgress call |
 | FabricUpgradeHealthCheckInterval |Time in seconds, default is 60 |The frequency of health status check during a  monitored Fabric upgrade |
-| EnableDefaultServicesUpgrade |true or false, default is false |Enable upgrading default services during application upgrade. Default service descriptions would be overwritten after upgrade |
 
 ## Next steps
 Read these articles for more information on cluster management:
