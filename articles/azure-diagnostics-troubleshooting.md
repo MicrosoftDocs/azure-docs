@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Azure Diagnostics
-description: 'Troubleshoot problems when using Azure diagnostics in Azure Cloud Services, Virtual Machines and '
+description: Troubleshoot problems when using Azure diagnostics in Azure Virtual Machines, Service Fabric, or Cloud Services.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 2/09/2017
+ms.date: 02/09/2017
 ms.author: robb
 
 ---
@@ -101,6 +101,7 @@ The previous commands generate the log file *maeventtable.csv*, which you can op
 ## Diagnostics data Tables not found
 The tables in Azure storage holding Azure diagnostics data are named using the code below:
 
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -109,9 +110,11 @@ The tables in Azure storage holding Azure diagnostics data are named using the c
         }
         else
             tableName = "WAD" + eventDestination;
+```
 
 Here is an example:
 
+```XML
         <EtwEventSourceProviderConfiguration provider=”prov1”>
           <Event id=”1” />
           <Event id=”2” eventDestination=”dest1” />
@@ -120,6 +123,7 @@ Here is an example:
         <EtwEventSourceProviderConfiguration provider=”prov2”>
           <DefaultEvents eventDestination=”dest2” />
         </EtwEventSourceProviderConfiguration>
+```
 
 That generates 4 tables:
 
