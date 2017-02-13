@@ -36,13 +36,17 @@ Learn about [adding Swagger metadata](../app-service-api/app-service-api-dotnet-
 
 ### API settings
 
-For the Logic App Designer to parse your Swagger, 
-you must set up CORS and set the APIDefinition properties for your web app, 
-which you can easily do in the Azure portal. 
-Go to your web app's settings blade, 
-and under the API section, set the 'API Definition' to your swagger.json file's URL. 
-Usually, this URL is https://{name}.azurewebsites.net/swagger/docs/v1), 
-and add a CORS policy for '*' to allow requests from Logic App Designer.
+For Logic App Designer to parse your Swagger, 
+you must enable CORS and set the APIDefinition properties for your web app. 
+
+1.	In the Azure portal, select your web app.
+2.	In the blade that opens, find **API**, and select **API definition**. 
+Set the **API defintion location** to your swagger.json file's URL.
+
+	Usually, this URL is https://{name}.azurewebsites.net/swagger/docs/v1).
+
+3.	To allow requests from Logic App Designer, under **API**, 
+select **CORS**, and set a CORS policy for '*'.
 
 ## Call into your custom API
 
@@ -63,9 +67,12 @@ Azure Active Directory authentication, or Certificate Authentication.
 
 ## Secure calls to your API without changing code
 
-In this section, you'll create two Azure Active Directory applications – one for your logic app and one for your web app. 
-You'll authenticate calls to your web app using the service principal (client id and secret) associated with the 
-Azure Active Directory app for your logic app. Finally, you'll include the application IDs in your logic app definition.
+In this section, you will create two Azure Active Directory applications – 
+one for your logic app and one for your web app. 
+Authenticate calls to your web app by using 
+the service principal (client id and secret) associated 
+with your logic apps' Azure Active Directory app. 
+Finally, include the application IDs in your logic app definition.
 
 ### Part 1: Set up an application identity for your logic app
 
@@ -77,25 +84,23 @@ You can set up these identities either in the Azure portal or use PowerShell.
 
 #### Create the application identity in the Azure classic portal
 
-0. In the Azure classic portal, go to your 
+1. In the Azure classic portal, go to your 
 [Azure Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory). 
-0. Select the directory that you use for your web app.
-0. Choose the **Applications** tab.
-0. In the command bar at the bottom of the page, choose **Add**.
-0. Give your app identity a name, and click the next arrow.
-0. Under **App properties**, put in a unique string formatted as a domain, and click the checkmark.
-0. Choose the **Configure** tab.
-0. Go to **Client ID**, and copy this ID for your use in your logic app.
-0. Under **Keys**, from the **Select duration** list, select the duration time for your key.
-0. At the bottom of the page, click **Save**. You might have to wait a few seconds.
-0. Now make sure to copy the key that now appears under **Keys**, so you can use this key in your logic app.
+2. Select the directory that you use for your web app.
+3. Choose the **Applications** tab. In the command bar at the bottom of the page, choose **Add**.
+5. Give your app identity a name, and click the next arrow.
+6. Under **App properties**, put in a unique string formatted as a domain, and click the checkmark.
+7. Choose the **Configure** tab. Go to **Client ID**, and copy the client ID for use in your logic app.
+8. Under **Keys**, open the **Select duration** list, and select the duration time for your key.
+9. At the bottom of the page, click **Save**. You might have to wait a few seconds.
+10. Make sure to copy the key that now appears under **Keys**, so you can use this key in your logic app.
 
 #### Create the application identity using PowerShell
 
-0. `Switch-AzureMode AzureResourceManager`
-0. `Add-AzureAccount`
-0. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://someranddomain.tld" -IdentifierUris "http://someranddomain.tld" -Password "Pass@word1!"`
-0. Make sure to copy the **Tenant ID**, the **Application ID**, and the password you used.
+1. `Switch-AzureMode AzureResourceManager`
+2. `Add-AzureAccount`
+3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://someranddomain.tld" -IdentifierUris "http://someranddomain.tld" -Password "Pass@word1!"`
+4. Make sure to copy the **Tenant ID**, the **Application ID**, and the password you used.
 
 ### Part 2: Protect your web app with an Azure Active Directory app identity
 
@@ -145,7 +150,7 @@ in your deployment template:
         "name" : "web",
         "type" : "config",
         "dependsOn" : [
-            "[concat('Microsoft.Web/sites/','parameters('webAppName'))]"
+				"[concat('Microsoft.Web/sites/','parameters('webAppName'))]"
         ],
         "properties" : {
             "siteAuthEnabled": true,
@@ -175,7 +180,7 @@ In the **Authorization** section of the **HTTP** action:
 
 | Element | Description |
 | ------- | ----------- |
-| type |Type of authentication. For ActiveDirectoryOAuth authentication, the value is ActiveDirectoryOAuth. |
+| type |Type of authentication. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. |
 | tenant |The tenant identifier used to identify the AD tenant. |
 | audience |Required. The resource you are connecting to. |
 | clientID |The client identifier for the Azure AD application. |
@@ -189,7 +194,7 @@ you must include the full authorization section.
 
 ### Certificate authentication
 
-You can use Client certificates to validate the incoming requests to your web app. 
+You can use client certificates to validate the incoming requests to your web app. 
 For how to set up your code, see 
 [How to configure TLS mutual authentication for web app](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
@@ -199,13 +204,13 @@ In the **Authorization** section, you should include:
 
 | Element | Description |
 | ------- | ----------- |
-| type |Required. Type of authentication. For SSL client certificates, the value must be ClientCertificate. |
+| type |Required. Type of authentication. For SSL client certificates, the value must be `ClientCertificate`. |
 | pfx |Required. Base64-encoded contents of the PFX file. |
 | password |Required. Password to access the PFX file. |
 
 ### Basic authentication
 
-To validate the incoming requests, you can use Basic authentication, 
+To validate the incoming requests, you can use basic authentication, 
 such as username and password. Basic authentication is a common pattern, 
 and you can use this authentication in any language used to build your app.
 
@@ -215,7 +220,7 @@ In the **Authorization** section, you should include:
 
 | Element | Description |
 | --- | --- |
-| type |Required. Type of authentication. For Basic authentication, the value must be Basic. |
+| type |Required. Type of authentication. For Basic authentication, the value must be `Basic`. |
 | username |Required. Username to authenticate. |
 | password |Required. Password to authenticate. |
 
@@ -227,8 +232,8 @@ For example, this authentication doesn't lock your API to a specific user or app
 but just to a particular tenant.
 
 To restrict your API to your logic app, for example, 
-in code, you can extract the header that has the JWT, 
-check the caller's identity, and reject requests that don't match.
+through code, extract the header that has the JWT. 
+Check the caller's identity, and reject requests that don't match.
 
 Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal feature, see 
