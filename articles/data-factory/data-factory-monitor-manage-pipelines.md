@@ -568,7 +568,7 @@ On the **Alerts rules** blade, you see any existing alerts. To add an alert, cli
 ![Alert rules blade](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
 
 ### Alert notifications
-After the alert rule matches the condition, you should get an email that says the alert is activated. After the issue is resolved and the alert condition doesn’t match any more, you get an email that says the alert is resolved.
+After the alert rule matches the condition, you should get an email that says the alert is activated. After the issue is resolved and the alert condition doesn’t match anymore, you get an email that says the alert is resolved.
 
 This behavior is different than events where a notification is sent on every failure that an alert rule qualifies for.
 
