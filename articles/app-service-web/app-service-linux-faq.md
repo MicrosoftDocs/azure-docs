@@ -21,13 +21,15 @@ ms.author: aelnably
 
 # Azure App Service Web Apps on Linux FAQ #
 
-**Q:** I want to fork the built-in Docker containers that the platform provides. Where can I find those?
+**Q:** I want to fork the built-in Docker containers that the platform provides. Where can I find those files?
 
 **A:** All Docker files can be found here: https://github.com/azure-app-service. All Docker containers can be found here: https://hub.docker.com/u/appsvc/.
 
 **Q:** I press the restart button in the portal but my webapp did not restart, why is that?
 
-**A:** We are working on enabling the reset button in the near future, right now you have two options, 1- Add or change a dummy application setting, that will force your webapp to restart, 2- Stop and then Start your webapp.
+**A:** We are working on enabling the reset button in the near future, right now you have two options.
+1. Add or change a dummy application setting, this will force your webapp to restart. 
+2. Stop and then Start your webapp.
 
 **Q:** My webapp still uses an old Docker Container image after updating the image on DockerHub? Do you support continuous integration/deployment of custom containers?
 
@@ -37,7 +39,7 @@ ms.author: aelnably
 
 **A:** No, you need to deploy the compiled .net core app with all the dependencies, a full deploy and build experience will be coming in the near future.
 
-**Q:** I am using my own custom container, my app resides in the \home\ directory, but I can't find my files when I browse the content using the scm site or a ftp client. Where are my files?
+**Q:** I am using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content using the SCM site or a ftp client. Where are my files?
 
 **A:** We mount an SMB share to \home\ directory; thus overriding any content there.
 
@@ -55,7 +57,7 @@ ms.author: aelnably
 
 **Q:** Can I SSH to the VM?
 
-**A:** No, we will providing a way to SSH into your app container in the near future.
+**A:** No, we will provide a way to SSH into your app container in the near future.
 
 
 ## Next steps
