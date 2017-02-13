@@ -591,7 +591,7 @@ Protection status can also be monitored in **Protected Items** > *protection gro
 >
 >
 
-You can run a failover for a single machine, or fail over multiple virtual machines that perform the same task or run the same workload. To fail over multiple machines at the same time, you them to a recovery plan.
+You can run a failover for a single machine, or fail over multiple virtual machines that perform the same task or run the same workload. To fail over multiple machines at the same time, you add them to a recovery plan.
 
 ### Create a recovery plan
 1. On the **Recovery Plans** page, click **Add Recovery Plan** and add a recovery plan. Specify details for the plan and select **Azure** as the target.
@@ -664,7 +664,7 @@ To connect to replicated virtual machines in Azure after failover, you'll need:
 - The Windows Firewall on the primary machine set to allow RDP.
 - RDP added to the public endpoint for the Azure virtual machine.
 
-For more about setting this up, see [Troubleshooting remote desktop connection after failover using ASR ](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+For more about setting this up, see [Troubleshooting remote desktop connection after failover using ASR](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## Deploy additional process servers
 If you must scale out your deployment beyond 200 source machines, or if your total daily churn rate exceeds 2 TB, you’ll need additional process servers to handle the traffic volume. To set up an additional process server, check the requirements in [Additional process servers](#additional-process-servers), and then set up the process server according to the following instructions. After setting up the server, you can configure source machines to use it.
