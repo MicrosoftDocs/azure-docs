@@ -52,6 +52,5 @@ This How To article shows you how to restore your database to an earlier point i
 ## Next steps
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-* To view the oldest restore point from the service-generated backups of a database, see [View oldest restore point](sql-database-view-oldest-restore-point.md)
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 

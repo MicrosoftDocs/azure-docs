@@ -52,6 +52,24 @@ The recovery time to restore a database using automated database backups is impa
 > To recover using automated backups, you must be a member of the SQL Server Contributor role in the subscription or be the subscription owner. You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL. 
 > 
 
+## View the oldest restore point using the Azure portal
+
+1. Open the **SQL database** blade for your database.
+
+    ![new sample db blade](./media/sql-database-get-started/new-sample-db-blade.png)
+
+2. On the toolbar, click **Restore**.
+
+    ![restore toolbar](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+
+3. On the Restore blade, review the oldest restore point.
+
+    ![oldest restore point](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+
+> [!TIP]
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
+>
+
 ## Point-In-Time Restore
 Point-In-Time Restore allows you to restore an existing database as a new database to an earlier point in time on the same logical server using [SQL Database automated backups](sql-database-automated-backups.md). You cannot overwrite the existing database. You can restore to an earlier point in time using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
@@ -63,7 +81,9 @@ You generally restore a database to an earlier point for recovery purposes. When
 * ***Database replacement:*** If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. 
 * ***Data recovery:*** If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database will be visible in the database list throughout. If you delete the database during the restore, it will cancel the operation and you will not be charged for the database that did not complete the restore. 
 
-For detailed information about using Point-in-Time Restore to recover from user and application errors, see [Point-in-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+> [!TIP]
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using the Azure portal](sql-database-get-started-backup-recovery-portal.md)
+>
 
 ## Deleted database restore
 Deleted database restore allows you to restore a deleted database to the deletion time for a deleted database on the same logical server using [SQL Database automated backups](sql-database-automated-backups.md). 
