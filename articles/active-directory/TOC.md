@@ -2,7 +2,7 @@
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
 ## [About Azure identity management](fundamentals-identity.md)
-## [Preview the Azure portal experience](active-directory-preview-explainer.md)
+## [Preview the Azure AD portal experience](active-directory-preview-explainer.md)
 
 
 # Get started
@@ -34,7 +34,7 @@
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
 #### [Classic portal](active-directory-accessmanagement-manage-groups.md)
-#### [Powershell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -85,7 +85,7 @@
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 #### [Classic portal](active-directory-create-users-reset-password.md)
 ### [Set expiration policies](active-directory-passwords-set-expiration-policy.md)
-### Enable Password Management
+### Enable password management
 #### [Get started](active-directory-passwords-getting-started.md)
 #### [Deploy](active-directory-passwords-best-practices.md)
 #### [Set up self-service password reset](active-directory-passwords.md)
@@ -191,25 +191,30 @@
 #### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
-#### [Licensing](active-directory-b2b-licensing.md)
-#### [Troubleshooting B2B](active-directory-b2b-troubleshooting.md)
-#### [FAQ](active-directory-b2b-faq.md)
-#### [API and customization](active-directory-b2b-api.md)
-#### [Multi-factor authentication for B2B](active-directory-b2b-mfa-instructions.md)
+#### [B2B user properties](active-directory-b2b-user-properties.md)
 #### [Add a guest user to a role](active-directory-b2b-add-guest-to-role.md)
+#### [API and customization](active-directory-b2b-api.md)
 #### [Delegate invitations](active-directory-b2b-delegate-invitations.md)
 #### [Dynamic groups and B2B](active-directory-b2b-dynamic-groups.md)
-#### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
-#### [Configure SaaS apps for B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Multi-factor authentication for B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B user tokens](active-directory-b2b-user-token.md)
 #### [B2B user claims mapping](active-directory-b2b-claims-mapping.md)
 #### [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
+#### [Compare B2B and B2C](active-directory-b2b-compare-b2c.md)
+#### [Configure SaaS apps for B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
+#### [Licensing](active-directory-b2b-licensing.md)
+#### [Troubleshooting B2B](active-directory-b2b-troubleshooting.md)
+#### [Compare B2B collaboration to B2C](active-directory-b2b-compare-b2c.md)
+#### [Getting support for B2B](active-directory-b2b-support.md)
+#### [FAQ](active-directory-b2b-faq.md)
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
