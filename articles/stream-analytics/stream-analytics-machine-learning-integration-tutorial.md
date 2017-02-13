@@ -48,19 +48,19 @@ For this step, you can use any CSV file, such as the one already specified as av
 
 For our tutorial, create a new storage account by clicking **New** and then searching for 'storage account' and then selecting the resulting icon for storage account and providing details for the creation of the account. Provide a **Name** (azuresamldemosa in my example), create or use an existing **Resource group** and specify a **Location** (for location, it is important that all the resources created in this demo all use the same location if possible).
 
-![create storage account](./media/stream-analtyics-machine-learning-integration-tutorial/create-sa.png)
+![create storage account](./media/stream-analytics-machine-learning-integration-tutorial/create-sa.png)
 
 Once that is completed you can click on Blob service and create a blob container.
 
-![create blob container](./media/stream-analtyics-machine-learning-integration-tutorial/create-sa2.png)
+![create blob container](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
 
 Then provide a **Name** for the container (azuresamldemoblob in my example) and verify the **Access type** is set to 'blob'.
 
-![create blob access type](./media/stream-analtyics-machine-learning-integration-tutorial/create-sa3.png)
+![create blob access type](./media/stream-analytics-machine-learning-integration-tutorial/create-sa3.png)
 
 Now we can populate the blob with our data. Select **Files** and then select the file on your local drive that you downloaded from GitHub. I selected Block blob and 4 MB as a size these should be fine for this demonstration. Then select **Upload** and the portal will create a blob with the text sample for you.
 
-![create blob upload file](./media/stream-analtyics-machine-learning-integration-tutorial/create-sa4.png)
+![create blob upload file](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
 
 Now that the sample data is in a blob it is time to enable the sentiment analysis model in Cortana Intelligence Gallery.
 
@@ -89,7 +89,7 @@ Note the web service URL and access key from the downloaded Excel file, as shown
 1. Go to the [Azure portal](https://portal.azure.com).  
 2. Click **New** > **Intelligence + analytics** > **Stream Analytics**. Enter a name for your job in **Job name**, specify an existing resource group or create a new one as required, and enter the appropriate location for the job in the **Location** field.    
    
-   ![create job](./media/stream-analtyics-machine-learning-integration-tutorial/create-job-1.png)
+   ![create job](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
    
 3. After the job is created, on the **Inputs** tab, select **Add an Input**.  
    
@@ -98,7 +98,7 @@ Note the web service URL and access key from the downloaded Excel file, as shown
 4. Select **Add** and then specify an **Input alias**, select **Data stream**, **Blob Storage** as the input, and then select **Next**.  
 5. On the **Blob Storage Settings** page of the wizard, provide the storage account blob container name you defined earlier when you uploaded the data. Click **Next**. For **Event Serialization Format**, select **CSV**. Accept the default values for the rest of the **Serialization settings** page. Click **OK**.  
    
-   ![add input blob container](./media/stream-analtyics-machine-learning-integration-tutorial/create-job-add-input-blob.png)
+   ![add input blob container](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input-blob.png)
 
 6. On the **Outputs** tab, select **Add an Output**.  
    
