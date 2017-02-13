@@ -119,8 +119,7 @@ If sign-in is required, you can set up everything with the Azure Resource Manage
         "apiVersion": "2015-08-01-preview",
         "name": "[parameters('logicAppName')]",
         "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[resourceId('Microsoft.Web/connections', 'azureblob')]"
+        "dependsOn": ["[resourceId('Microsoft.Web/connections', 'azureblob')]"
         ],
         "properties": {
             "sku": {
@@ -273,7 +272,7 @@ You can construct the equivalent HTTP action like below (the parameters section 
         "dropboxconnector": {
             "type": "Http",
             "metadata": {
-              "apiDefinitionUrl" : "https://avdemo.azurewebsites.net/api/service/apidef/dropboxconnector/?api-version=2015-01-14&format=swagger-2.0-standard"  
+              "apiDefinitionUrl": "https://avdemo.azurewebsites.net/api/service/apidef/dropboxconnector/?api-version=2015-01-14&format=swagger-2.0-standard"  
             },
             "inputs": {
                 "uri": "https://avdemo.azurewebsites.net/api/service/invoke/dropboxconnector/ListFiles?api-version=2015-01-14",
@@ -345,7 +344,7 @@ Now you would write:
 ```
 
 The function `@repeatItem()` was previously used to reference the current item being iterated over. 
-This function is now simplified to just `@item()`. 
+This function is now simplified to `@item()`. 
 
 ### Referencing the outputs of the Foreach
 To further simplify, the outputs of **Foreach** actions are not wrapped in an object called **repeatItems**. 
