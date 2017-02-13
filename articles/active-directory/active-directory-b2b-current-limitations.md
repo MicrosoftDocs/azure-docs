@@ -28,7 +28,7 @@ The API surface is our anticipated direction forward. However, like all prerelea
 ## Possible double Multi-Factor Authentication
 This redundancy can arise if your partner already has an Azure Multi-Factor Authentication policy in place. B2B collaboration Multi-Factor Authentication is performed and managed at the inviting organization. Such authentication is desirable because it covers all identities and gives you control over the authentication strength of your B2B collaboration invitees.
 
-However, if a partner already has Multi-Factor Authentication set up and enforces it, the partner's users might have to perform Multi-Factor Authentication once in their home organization and then again in your organization.
+However, if a partner already has Multi-Factor Authentication set up and enforces it, the partner's users might have to perform the authentication once in their home organization and then again in yours.
 
 In a future release, we will introduce a policy where you can avoid the double authentication issue by choosing to trust the partner's Multi-Factor Authentication.
 
