@@ -54,7 +54,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | AlwaysOn Availability Groups | [Supported](https://msdn.microsoft.com/library/hh510230.aspx) | Not supported - See [Active Geo-Replication](sql-database-geo-replication-overview.md) |
 | Attach a database | [Supported](https://msdn.microsoft.com/library/ms190209.aspx) | Not supported |
 | Application roles | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Auto scale | Not supported | [Supported](sql-database-scale-up.md) |
+| Auto scale | Not supported | [Supported](sql-database-service-tiers.md) |
 | Azure Active Directory | Not supported | [Supported](sql-database-aad-authentication.md) |
 | Azure Data Factory | Not supported - see [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Supported](https://azure.microsoft.com/services/data-factory/) |
 | Auditing | [Supported](https://msdn.microsoft.com/library/cc280386.aspx) | [Supported](sql-database-auditing-get-started.md) |

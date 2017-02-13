@@ -61,7 +61,7 @@ To view, create, or update firewall rules, click **Set server firewall** on the 
 ![firewall rules](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 ## How do I change my SQL database service tier or performance level?
-To update the service tier or performance level of a SQL database, click **Pricing tier (scale DTUs)** on the **SQL database** blade. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md).
+To update the service tier or performance level of a SQL database, click **Pricing tier (scale DTUs)** on the **SQL database** blade. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-service-tiers.md).
 
 ![pricing tiers](./media/sql-database-manage-portal/pricing-tier.png)
 
@@ -75,7 +75,7 @@ To configure dynamic data masking for a SQL database, click **Dynamic data maski
 To configure transparent data encryption for a SQL database, click **Transparent data encryption** on the **SQL database** blade. For details, see [Enable TDE on a database using the portal](https://msdn.microsoft.com/library/dn948096#Anchor_1).
 
 ## How do I view or change the max size of a SQL database?
-To view or change the size a SQL database, click **Database size** on the **SQL database** blade. Update the max size of a database by changing the service tier or performance level. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md).
+To view or change the size a SQL database, click **Database size** on the **SQL database** blade. Update the max size of a database by changing the service tier or performance level. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-service-tiers.md).
 
 ## How do I monitor and improve the performance of a SQL database?
 To monitor and improve performance characteristics of a SQL database, click **Performance overview** on the **SQL database** blade. For details, see [SQL Database Performance Insight](sql-database-performance.md).
