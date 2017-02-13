@@ -79,8 +79,7 @@ After you add an empty disk, you need to initialize it. To initialize the disk, 
     $fileName = "script-file-name"
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
-	
-	
+		
 The script file can contain something like this code to initialize the disks:
 
 ```powershell
@@ -126,6 +125,6 @@ $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Ma
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
-### Next steps
+## Next steps
 
 Create a [snapshot](virtual-machines-windows-snapshot-copy-managed-disk.md).
