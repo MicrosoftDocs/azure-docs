@@ -32,8 +32,8 @@ To learn about software as a service (SaaS) app integration with Azure AD, see [
 
 To configure Azure AD integration with Slack, you need the following items:
 
-* An Azure AD subscription.
-* A Slack SSO-enabled subscription.
+* An Azure AD subscription
+* A Slack SSO-enabled subscription
 
 > [!NOTE]
 > We do not recommend testing the steps in this tutorial using a production environment.
@@ -47,8 +47,8 @@ To test the steps in this tutorial, follow these recommendations:
 ## Scenario description
 In this tutorial, you test Azure AD SSO in a test environment. The scenario to be followed consists of two main building blocks:
 
-* Adding Slack from the gallery.
-* Configuring and testing Azure AD SSO.
+* Adding Slack from the gallery
+* Configuring and testing Azure AD SSO
 
 ## Add Slack from the gallery
 To configure the integration of Slack with Azure AD, add Slack from the gallery to your list of managed SaaS apps by doing the following:
@@ -262,7 +262,7 @@ To assign user Britta Simon to Slack, perform the following steps:
 
 ### Test SSO
 
-In this section, you test your Azure AD SSO configuration using the Access Panel.
+In this section, you test your Azure AD SSO configuration by using the Access Panel.
 
 To test the configuration, go to the Access Panel, and then click the **Slack** tile. The user should be automatically signed in to the Slack application.
 
