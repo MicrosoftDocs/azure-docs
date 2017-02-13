@@ -25,7 +25,7 @@ You can run custom snippets of C# or node.js by using Azure Functions from withi
 * Extending the functionality of Logic Apps with functions that are supported in C# or node.js
 
 ## Create a function for Logic Apps
-We recommend that you create a new function in the Azure Functions portal by using the **Generic Webhook - Node** or **Generic Webhook - C#** templates. This auto-populates a template that accepts `application/json` from a logic app.  If you select the **Integrate** tab in Azure Functions it should have **Mode** set to **Webhook** and **Webhook type** of **Generic JSON**.  Functions that use these templates are automatically discovered and listed in the Logic Apps designer under **Azure Functions in my region.**
+We recommend that you create a new function in the Azure Functions portal by using the **Generic Webhook - Node** or **Generic Webhook - C#** templates. This auto-populates a template that accepts `application/json` from a logic app.  If you select the **Integrate** tab in Azure Functions it should have **Mode** set to **Webhook** and **Webhook type** of **Generic JSON**.  Functions that use these templates are automatically discovered and listed in the Logic App Designer under **Azure Functions in my region.**
 
 Webhook functions accept a request and pass it into the method via a `data` variable. You can access the properties of your payload by using dot notation like `data.foo`.  For example, a simple JavaScript function that converts a DateTime value into a date string looks like the following example:
 

@@ -84,7 +84,7 @@ Now that the manifest is saved, you can give a registered client application acc
 
 1. First go to the **Settings** blade of the client application to which you wish to add access to the new API, click **Required Permissions** and choose **Select an API**.
 2. Then you will be presented with the list of registered resource applications (APIs) in the tenant. Click the resource application to select it, or type the name of the application the search box. When you've found the application, click **Select**.  
-3. This will take you to the **Select Permissions** page, which will show the list of Application Permissions and Delegated Permissions available for the resource application. Select the new permission in order to add it to the client's requested list of permissions. Note: this new permission will be stored in the client application's identity configuration, in the "requiredResourceAccess" collection property.
+3. This will take you to the **Select Permissions** page, which will show the list of Application Permissions and Delegated Permissions available for the resource application. Select the new permission in order to add it to the client's requested list of permissions. This new permission will be stored in the client application's identity configuration, in the "requiredResourceAccess" collection property.
 
 
 That's it. Now your applications will run using their new identity configuration.
@@ -93,7 +93,7 @@ That's it. Now your applications will run using their new identity configuration
 * For more details on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
 * See the [Azure AD developer glossary][AAD-DEVELOPER-GLOSSARY] for definitions of some of the core Azure Active Directory (AD) developer concepts.
 
-Please use the DISQUS comments section below to provide feedback and help us refine and shape our content.
+Please use the comments section below to provide feedback and help us refine and shape our content.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md
