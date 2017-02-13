@@ -62,7 +62,7 @@ To recover from a long-term retention backup:
 4. List the recovery points available to restore
 5. Restore from the recovery point to the target server within your subscription
 
-To recover a database from a backup in long-term retention, see [recover from a backup in long-term retention](sql-database-restore-from-long-term-retention.md).
+To restore a database from a backup in long-term retention using the Azure portal, see [restore from a backup in long-term retention using the Azure portal](sql-database-restore-from-long-term-retention using the Azure portal.md). To restore a database from a backup in long-term retention using PowerShell, see [restore from a backup in long-term retention using powershell](sql-database-restore-from-long-term-retention using powershell.md).
 
 ## How much does Long-Term Retention cost?
 
