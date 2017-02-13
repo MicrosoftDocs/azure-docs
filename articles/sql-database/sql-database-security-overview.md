@@ -14,15 +14,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 06/09/2016
+ms.date: 02/01/2017
 ms.author: thmullan;jackr
 
 ---
 # Securing your SQL Database
 
-This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this article will get you started with resources for protecting data, controlling access, and proactive monitoring. The following diagream illustrates the layers of security provided by SQL Database.
-
-![SQL security and compliance](./media/sql-database-security-overview/diagram.png)
+This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this article will get you started with resources for protecting data, controlling access, and proactive monitoring. 
 
 For a complete overview of security features available on all flavors of SQL, see the [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589). Additional information is also available in the [Security and Azure SQL Database technical white paper](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 

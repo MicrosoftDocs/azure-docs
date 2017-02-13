@@ -59,9 +59,10 @@ This service is targeted at the largest telemetry users and is available to cust
 
 The Event Hubs Dedicated platform is offered to the public through an enterprise agreement with varying sizes of CUs. Each CU provides approximately the equivalent of 200 throughput units and is billed at $31 per hour. You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
 
-## Next Steps
+## Next steps
+Contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated Capacity. You can also learn more about Event Hubs by visiting the following links:
 
 For detailed information about pricing, visit the following links:
 
-- [Event Hubs Dedicated pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
+- [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
 - The [Event Hubs FAQ](event-hubs-faq.md) contains pricing information and answers some frequently asked questions about Event Hubs. 

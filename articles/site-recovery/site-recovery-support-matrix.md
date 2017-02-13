@@ -238,7 +238,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 **Guest operating system architecture** | 64-bit | Prerequisites check will fail if unsupported
 **Operating system disk size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Operating system disk count** | 1 | Prerequisites check will fail if unsupported.
-**Data disk count** | 16 or less (maximum value is a function of the size of the virtual machine being created. 16 = XL) | Prerequisites check will fail if unsupported
+**Data disk count** | 64 or less if you are replicating **VMware VMs to Azure**; 16 or less if you are replicating **Hyper-V VMs to Azure** | Prerequisites check will fail if unsupported
 **Data disk VHD size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Network adapters** | Multiple adapters are supported |
 **Static IP address** | Supported | If the primary virtual machine is using a static IP address you can specify the static IP address for the virtual machine that will be created in Azure.<br/><br/> Static IP address for a **Linux VM running on Hyper-V** isn't supported.

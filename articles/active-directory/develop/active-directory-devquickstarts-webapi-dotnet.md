@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET Getting Started | Microsoft Docs
+title: Azure AD .NET web API getting started | Microsoft Docs
 description: How to build a .NET MVC Web API that integrates with Azure AD for authentication and authorization.
 services: active-directory
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: dastrock
 
 ---
