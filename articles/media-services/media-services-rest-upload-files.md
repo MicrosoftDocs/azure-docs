@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/13/2017
 ms.author: juliako
 
 ---
@@ -505,8 +505,14 @@ The ContentKey is associated to one or more assets by sending a HTTP POST reques
     Host: media.windows.net
 
 
+## Next steps
 
-## Next step
+You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
+
+You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
+
+## Learning paths
+
 Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
