@@ -148,7 +148,7 @@ Multi-path (MPIO) | NA | Yes | Yes
 
 **Azure storage** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
-LRS | Yes | Yes | Yes
+LRS | Yes | Yes | Yes 
 GRS | Yes | Yes | Yes
 Cool storage | No | No | No
 Hot storage| No | No | No
