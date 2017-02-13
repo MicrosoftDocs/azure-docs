@@ -98,7 +98,8 @@ This section covers how to convert your existing Azure VMs from unmanaged disks 
    
     The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 	
-	
+
+.
 2. Convert all of the disks associated with the VM including the OS disk and any data disks.
 
     ```powershell
@@ -144,7 +145,11 @@ This section will show you how to convert your existing Azure VMs on Standard un
     ```powershell
 	ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $resourceGroupName -VMName $vmName
 	```
+1. Stop (deallocate) the VM.
 
+    ```powershell
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    ```
 2.  Upgrade all of the disks to Premium Storage.
 
     ```powershell
@@ -159,8 +164,12 @@ This section will show you how to convert your existing Azure VMs on Standard un
 			}
 		}
     ```
-
-    You can also have a mixture of disks that use standard and Premium storage.
+1. Start the VM.
+    ```powershell
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    ```
+    
+You can also have a mixture of disks that use standard and Premium storage.
 	
 
 ## Next steps
