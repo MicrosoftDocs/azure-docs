@@ -36,7 +36,7 @@ This capability can be used with hundreds of applications that you can add from 
 >
 >
 
-## Next steps
+### Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)

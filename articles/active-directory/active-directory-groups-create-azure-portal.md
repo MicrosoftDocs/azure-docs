@@ -47,7 +47,7 @@ This article explains how to create and populate a new group in the Azure Active
 
    ![Create group confirmation](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
-## Nest steps
+## Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [See existing groups](active-directory-groups-view-azure-portal.md)
