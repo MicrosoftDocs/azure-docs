@@ -16,6 +16,7 @@ ms.date: 07/19/2016
 ms.author: kgremban
 
 ---
+
 # Enable Application Proxy in the Azure portal
 This article walks you through the steps to enable Microsoft Azure AD Application Proxy for your cloud directory in Azure AD.
 
