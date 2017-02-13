@@ -9,7 +9,7 @@
 # Quickstart
 ## [Windows](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
 ## [Linux (preview)](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-## [From template (WordPress)](../web-sites-php-web-site-gallery.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## [WordPress](../app-service-web-get-started-php-portal.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # Common examples
 
