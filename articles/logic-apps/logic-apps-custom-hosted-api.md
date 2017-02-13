@@ -110,20 +110,20 @@ Otherwise, you can make enabling authorization part of your Azure Resource Manag
 
 #### Enable authorization in the Azure portal
 
-0. Find and select your web app. 
+1. Find and select your web app. 
 Under **Settings**, choose **Authentication/Authorization**.
-0. Under **App Service Authentication**, turn authentication **On**, 
+2. Under **App Service Authentication**, turn authentication **On**, 
 and choose **Save**.
 
 At this point, an Application is automatically created for you. 
 You need this Application's Client ID for Part 3, so you must follow these steps:
 
-0. In the Azure classic portal, go to your 
+1. In the Azure classic portal, go to your 
 [Azure Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-0.	Select your directory.
-0. In the search box, find your app.
-0. In the list, select your app.
-0. Choose the **Configure** tab 
+2.	Select your directory.
+3. In the search box, find your app.
+4. In the list, select your app.
+5. Choose the **Configure** tab 
 where you should see the **Client ID**.
 
 #### Deploy your web app using an Azure Resource Manager template
