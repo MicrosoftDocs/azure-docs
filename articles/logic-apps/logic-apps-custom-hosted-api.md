@@ -37,7 +37,7 @@ Learn about [adding Swagger metadata](../app-service-api/app-service-api-dotnet-
 ### API settings
 
 For Logic App Designer to parse your Swagger, 
-you must enable CORS and set the APIDefinition properties for your web app. 
+you must enable CORS and set the API Definition properties for your web app. 
 
 1.	In the Azure portal, select your web app.
 2.	In the blade that opens, find **API**, and select **API definition**. 
@@ -71,7 +71,7 @@ In this section, you will create two Azure Active Directory applications –
 one for your logic app and one for your web app. 
 Authenticate calls to your web app by using 
 the service principal (client id and secret) associated 
-with your logic apps' Azure Active Directory app. 
+with your logic app's Azure Active Directory app. 
 Finally, include the application IDs in your logic app definition.
 
 ### Part 1: Set up an application identity for your logic app
@@ -230,7 +230,7 @@ For example, this authentication doesn't lock your API to a specific user or app
 but just to a particular tenant.
 
 To restrict your API to your logic app, for example, 
-through code, extract the header that has the JWT. 
+in code, extract the header that has the JWT. 
 Check the caller's identity, and reject requests that don't match.
 
 Going further, to implement this authentication entirely in your own code, 
