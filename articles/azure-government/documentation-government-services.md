@@ -47,7 +47,7 @@ In the tables below, services specified as Resource Manager enabled have resourc
 | --- | --- | --- |
 | [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | Yes | Yes |
 | Virtual Network | Yes | Yes |
-| [Load Balancer]((documentation-government-networking.md#support-for-load-balancer)) | Yes | Yes |
+| [Load Balancer](documentation-government-networking.md#support-for-load-balancer) | Yes | Yes |
 | [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger) | Yes | Yes |
 | [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | Yes | Yes |
 | Application Gateway | Yes | Yes |

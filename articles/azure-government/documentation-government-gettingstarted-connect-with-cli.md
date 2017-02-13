@@ -21,7 +21,7 @@ ms.author: zakramer
 
 # Connecting to Azure Government with Azure CLI
 
-Whether you are using Azure CLI to manage a large subscription through script or access features that are not currently available in the Azure portal you need to connect to Azure Government instead of Azure Public.  If you have used Azure CLI in Azure Public, it is mostly the same.  The differences in Azure Government are:
+To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in Azure Public, it is mostly the same.  The differences in Azure Government are:
 
 There are multiple ways to [install the Azure CLI](https://docs.microsoft.com/en-us/azure/xplat-cli-install). If you already have Node installed, the easiest way is to install the npm package:
 
@@ -41,7 +41,7 @@ sudo npm install -g azure-cli
 > If you need to install or update Node.js and npm on your Linux distribution or OS, we recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors.
 
 
-Once you have the Azure CLI installed, you need to log into Azure Government:
+Once you have the Azure CLI installed, you need to log in to Azure Government:
 
 ```
 azure login --username your-user-name@your-gov-tenant.onmicrosoft.com  --environment AzureUSGovernment

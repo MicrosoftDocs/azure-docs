@@ -34,5 +34,5 @@ If you are looking for more information, you can check out:
 * [Step-by-step instruction on connecting to Resource Management](https://blogs.msdn.microsoft.com/azuregov/2015/10/08/configuring-arm-on-azure-gc/)
 * [Azure PowerShell docs on MSDN](https://msdn.microsoft.com/library/mt619274.aspx)
 
-For supplemental information and updates subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
 

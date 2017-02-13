@@ -27,7 +27,7 @@ The portal is the primary way that most people connect to Azure Government.  To 
 
 Subscriptions can be created for your account by connecting to [https://account.windowsazure.us](https://account.windowsazure.us).
 
-Once you login, you should see "Microsoft Azure Government" in the upper left of the main navigation bar.
+Once you log in, you should see "Microsoft Azure Government" in the upper left of the main navigation bar.
 
 
 ![Figure 1: Azure Government Portal](./media/azure-gov-portal-home-figure1.png)
