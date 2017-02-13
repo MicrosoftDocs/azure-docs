@@ -19,12 +19,6 @@ ms.author: carlrab
 
 ---
 # Manage Azure SQL Databases using the Azure portal
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-manage-portal.md)
-> * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 The [Azure portal](https://portal.azure.com/) allows you to create, monitor, and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.
 
@@ -47,7 +41,7 @@ To open the **SQL servers** blade, click **SQL servers**, and then click the ser
 ![SQL servers](./media/sql-database-manage-portal/sql-servers.png)
 
 ## How do I create or view SQL elastic pools?
-To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic pool with the Azure portal](sql-database-elastic-pool-create-portal.md).
+To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic pool with the Azure portal](sql-database-elastic-pool-manage-portal.md).
 
 ![SQL elastic pools](./media/sql-database-manage-portal/elastic-pools.png)
 

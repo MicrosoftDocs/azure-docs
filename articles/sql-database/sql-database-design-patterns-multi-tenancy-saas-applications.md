@@ -147,7 +147,7 @@ Create an [elastic pool custom dashboard for SaaS](https://github.com/Microsoft/
 
 Use the Azure SQL Database tools to [migrate existing databases to scale out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-View our tutorial on how to [create an elastic pool](sql-database-elastic-pool-create-portal.md).  
+To create an elastic pool using the Azure portal, see [create an elastic pool](sql-database-elastic-pool-manage-portal.md).  
 
 Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
 

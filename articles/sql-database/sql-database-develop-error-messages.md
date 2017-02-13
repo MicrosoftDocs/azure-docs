@@ -136,7 +136,7 @@ Related topics:
 
 * [Create an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md) 
 * [Manage an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
-* [Create an elastic pool (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Create an elastic pool (PowerShell)](ql-database-elastic-pool-manage-powershell.md) 
 * [Monitor and manage an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## General errors
