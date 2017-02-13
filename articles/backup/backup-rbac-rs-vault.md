@@ -1,5 +1,5 @@
 ---
-title: 'Use Azure Role-Based Access Control for Backup Management | Microsoft Docs'
+title: 'Use Azure Role-Based Access Control for backup management | Microsoft Docs'
 description: Use Role-based Access Control to manage access to backup management operations in recovery Services vault.
 services: backup
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: markgal; trinadhk
 
 ---
 
-# Use Role-Based Access Control for Backup Management
+# Use Role-Based Access Control for backup management
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 > [!IMPORTANT]
