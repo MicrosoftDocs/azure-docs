@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Secure network traffic between virtual machine
 
-This script creates two virtual machines and secures incoming traffic to both. One virtual machine is accessible on the internet and has an NSG configured to allow traffic on port 22 and port 80. The second virtual machine is not accessible on the internet, and has an NSG configured to only allow traffic from the first virtual machine.
+This script creates two virtual machines and secures incoming traffic to both. One virtual machine is accessible on the internet and has an NSG configured to allow traffic on port 22 and port 80. The second virtual machine is not accessible on the internet, and has an NSG configured to only allow traffic from the first virtual machine. The below script has been written to run in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](./virtual-machines-windows-cli.md).
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 
@@ -43,7 +43,6 @@ This script uses the following commands to create a resource group, virtual mach
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/en-us/cli/azure/storage/account#create) | Creates a storage account. This is where the VM disk is stored. |
 | [az network vnet create](https://docs.microsoft.com/en-us/cli/azure/network/vnet#create) | Creates an Azure virtual network and subnet. |
 | [az network vnet subnet create](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#create) | Creates a subnet. |
 | [az network public-ip create](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#create) | Creates a public IP address with a static IP address and an associated DNS name. |

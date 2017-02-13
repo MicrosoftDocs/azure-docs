@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Quick Create a virtual machine with the Azure CLI
 
-The sample script provided here creates an Azure Virtual Machine with an Ubuntu operating system in the West Europe Azure region. Included in the deployment are all associated resources such as storage and networking components. Once the script has been successfully run, the virtual Machine can be accessed over SSH.
+The sample script provided here creates an Azure Virtual Machine with an Ubuntu operating system in the West Europe Azure region. Included in the deployment are all associated resources such as storage and networking components. Once the script has been successfully run, the virtual Machine can be accessed over SSH. The below script has been written to run in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](./virtual-machines-windows-cli.md).
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 

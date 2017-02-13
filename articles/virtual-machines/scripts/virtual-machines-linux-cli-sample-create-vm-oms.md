@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Monitor a VM with Operations Management Suite
 
-Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, see [What is OMS](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview). This script creates an Azure Virtual Machine in the West Europe Azure region, installs the Operations Management Suite agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console.
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, see [What is OMS](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview). This script creates an Azure Virtual Machine in the West Europe Azure region, installs the Operations Management Suite agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console. The below script has been written to run in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](./virtual-machines-windows-cli.md).
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
@@ -43,7 +43,6 @@ This script uses the following commands to create a resource group, virtual mach
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/en-us/cli/azure/storage/account#create) | Creates a storage account. This is where the VM disk is stored. |
 | [az network vnet create](https://docs.microsoft.com/en-us/cli/azure/network/vnet#create) | Creates an Azure virtual network and subnet. |
 | [az network public-ip create](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#create) | Creates a public IP address with a static IP address and an associated DNS name. |
 | [az network nsg create](https://docs.microsoft.com/en-us/cli/azure/network/nsg#create) | Creates a network security group, which is a security boundary between the internet and the virtual machine. |
