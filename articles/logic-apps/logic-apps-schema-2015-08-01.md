@@ -34,7 +34,7 @@ The biggest change is that you no longer need to deploy API apps into your Azure
 Each way is handled slightly differently because their management and hosting models are different. One advantage of this model is you're no longer constrained to resources that are deployed in your Resource Group. 
 
 ### Managed APIs
-Microsoft manages some APIs on your behalf, such as Office 365, Salesforce, Twitter, FTP, and so on. You can use some managed APIs as-is, such as Bing Translate, while others require configuration. This configuration is called a *connection*.
+Microsoft manages some APIs on your behalf, such as Office 365, Salesforce, Twitter, and FTP. You can use some managed APIs as-is, such as Bing Translate, while others require configuration. This configuration is called a *connection*.
 
 For example, when you use Office 365, you need to create a connection that contains your Office 365 sign-in token. This token is securely stored and refreshed so that your Logic app can always call the Office 365 API. Alternatively, if you want to connect to your SQL or FTP server, you need to create a connection that has the connection string. 
 
@@ -188,13 +188,13 @@ If sign-in is required, you can set up everything with the Azure Resource Manage
     }]
 ```
 
-You can see in this example that the connections are just regular resources that live in your resource group. They reference the managed APIs available to you in your subscription.
+You can see in this example that the connections are just resources that live in your resource group. They reference the managed APIs available to you in your subscription.
 
 ### Your custom Web APIs
 If you use your own APIs (specifically, not Microsoft-managed ones), 
 then you should use the built-in **HTTP** action to call them. 
 For an ideal experience, you should expose a Swagger endpoint for your API. 
-This endpoint will enable the Logic App Designer to render the inputs and outputs for your API. 
+This endpoint enables the Logic App Designer to render the inputs and outputs for your API. 
 Without Swagger, the designer can only show the inputs and outputs as opaque JSON objects.
 
 Here is an example showing the new `metadata.apiDefinitionUrl` property:
@@ -224,7 +224,7 @@ to be usable in the Logic App Designer (although you can secure the API itself w
 ### Using your already deployed API apps with 2015-08-01-preview
 If you previously deployed an API app, you can call it via the **HTTP** action.
 
-For example, if you use Dropbox to list files, your **2014-12-01-preview** schema version definition might have something like this:
+For example, if you use Dropbox to list files, your **2014-12-01-preview** schema version definition might have something like:
 
 ```
 {
@@ -307,9 +307,10 @@ This approach should work for all API app actions. However, remember that these 
 and you should move to one of the two other options above (either a managed API or hosting your custom Web API).
 
 ## 2. Repeat renamed to Foreach
+
 For the previous schema version, we received much customer feedback that **Repeat** was confusing 
-and didn't properly capture that that **Repeat** was really a for each loop. 
-As a result, we have renamed **Repeat** to **Foreach**. For example:
+and didn't properly capture that **Repeat** was really a for-each loop. 
+As a result, we have renamed **Repeat** to **Foreach**. For example, previously you would write:
 
 ```
 {
@@ -326,7 +327,7 @@ As a result, we have renamed **Repeat** to **Foreach**. For example:
 }
 ```
 
-Would now be written as:
+Now you would write:
 
 ```
 {
@@ -343,7 +344,7 @@ Would now be written as:
 }
 ```
 
-Previously the function `@repeatItem()` was used to reference the current item being iterated over. 
+The function `@repeatItem()` was previously used to reference the current item being iterated over. 
 This function is now simplified to just `@item()`. 
 
 ### Referencing the outputs of the Foreach
@@ -424,16 +425,17 @@ Now you can do instead:
 }
 ```
 
-With these changes, the functions `@repeatItem()`, `@repeatBody()` and `@repeatOutputs()` are removed.
+With these changes, the functions `@repeatItem()`, `@repeatBody()`, and `@repeatOutputs()` are removed.
 
 ## 3. Native HTTP listener
-The HTTP Listener capabilities are now built-in, so you no longer need to deploy an HTTP Listener API app. Read about [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
+The HTTP Listener capabilities are now built in, so you no longer need to deploy an HTTP Listener API app. Read about [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
 
 With these changes, the function `@accessKeys()` is removed and has been replaced with the `@listCallbackURL()` function for the purposes of getting the endpoint (when needed). In addition, you now must define at least one trigger in your Logic app now. 
 If you want to `/run` the workflow, you must have one of these triggers: `manual`, `apiConnectionWebhook`, or `httpWebhook`
 
 ## 4. Calling child workflows
-Previously, calling child workflows required going to that workflow, getting the access token, and then pasting that in to the definition of the Logic app that you want to call that child. With the new schema version, the Logic apps engine will automatically generate a SAS at runtime for the child workflow, which means that you don't have to paste any secrets into the definition.  Here is an example:
+Previously, calling child workflows required going to that workflow, getting the access token, and then pasting that in to the definition of the Logic app that you want to call that child. 
+With the new schema version, the Logic Apps engine automatically generates a SAS at runtime for the child workflow, which means that you don't have to paste any secrets into the definition.  Here is an example:
 
 ```
 "mynestedwf": {
@@ -459,13 +461,13 @@ Previously, calling child workflows required going to that workflow, getting the
 }
 ```
 
-A second improvement is we will be giving the child workflows full access to the incoming request. That means that you can pass parameters in the *queries* section and in the *headers* object and that you can fully define the entire body.
+A second improvement is we are giving the child workflows full access to the incoming request. That means that you can pass parameters in the *queries* section and in the *headers* object and that you can fully define the entire body.
 
 Finally, there are required changes to the child workflow. 
 While you could previously call a child workflow directly, 
 now you must define a trigger endpoint in the workflow for the parent to call. 
 Generally, this means you would add a trigger of type **manual**, and then use that trigger in the parent definition. 
-Note that the `host` property specifically has a `triggerName` because you must always specify which trigger you are invoking.
+Note the `host` property specifically has a `triggerName` because you must always specify which trigger you are invoking.
 
 ## Other changes
 ### New queries property
@@ -473,7 +475,7 @@ All action types now support a new input called **queries**.
 This input can be a structured object, rather than you having to assemble the string by hand.
 
 ### parse() function renamed
-We will soon add more content types, so we renamed `parse()` function to `json()`.
+We are adding more content types soon, so we renamed `parse()` function to `json()`.
 
 ## Coming soon: Enterprise Integration APIs
 We do not yet have managed versions of the Enterprise Integration APIs available (such as AS2). 
