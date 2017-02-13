@@ -97,7 +97,7 @@ To create a BACPAC of a SQL database, click **Export** on the **SQL database** b
 ![SQL database export](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## How do I restore a SQL database to a previous point in time?
-To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore.md).
+To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
 
 ![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
 

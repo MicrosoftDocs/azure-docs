@@ -53,7 +53,7 @@ The recovery time to restore a database using automated database backups is impa
 > 
 
 ## Point-In-Time Restore
-Point-In-Time Restore allows you to restore an existing database as a new database to an earlier point in time on the same logical server using [SQL Database automated backups](sql-database-automated-backups.md). You cannot overwrite the existing database. You can restore to an earlier point in time using the [Azure portal](sql-database-point-in-time-restore.md), [PowerShell](sql-database-point-in-time-restore.md), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Point-In-Time Restore allows you to restore an existing database as a new database to an earlier point in time on the same logical server using [SQL Database automated backups](sql-database-automated-backups.md). You cannot overwrite the existing database. You can restore to an earlier point in time using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 
 The database can be restored to any performance level or elastic pool. Ensure you have a sufficient DTU quota on the logical server or elastic pool. Keep in mind that the restore creates a new database and that the service tier and performance level of the restored database may be different than the current state of the live database. Once complete, the restored database is a normal fully accessible online database charged at normal rates based on its service tier and performance level. You do not incur charges until the database restore is complete.

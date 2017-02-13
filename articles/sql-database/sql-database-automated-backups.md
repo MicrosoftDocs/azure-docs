@@ -1,5 +1,5 @@
 ---
-title: SQL Database backups - automatic, geo-redundant | Microsoft Docs
+title: Azure SQL Database backups-automatic, geo-redundant | Microsoft Docs
 description: SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy.
 services: sql-database
 documentationcenter: ''
@@ -85,6 +85,7 @@ The restore API supports backups stored in the vault as long as the vault is in 
 ## Next steps
 
 - Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
-- To restore to a point in time, see [restore database to a point in time](sql-database-point-in-time-restore.md).
+- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](sql-database-point-in-time-restore-portal.md).
+- To restore to a point in time using PowerShell, see [restore database to a point in time using PowerShell](sql-database-point-in-time-restore-powershell.md).
 - To view the oldest restore point from the service-generated backups of a database, see [view oldest restore point](sql-database-view-oldest-restore-point.md)
 - To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](sql-database-configure-long-term-retention.md)
