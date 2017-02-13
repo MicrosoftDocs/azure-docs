@@ -45,7 +45,7 @@ This article includes instructions for an enhanced deployment in the Azure class
 
 The enhanced deployment is a major update. Here's a summary of the improvements we've made:
 
-* **No infrastructure VMs in Azure**: Data replicates directly to an Azure storage account. In addition, there's no need to set up any infrastructure VMs (configuration server, master target server) for replication and failover as was needed in the legacy deployment.  
+* **No infrastructure VMs in Azure**: Data replicates directly to an Azure storage account. In addition, there's no need to set up any infrastructure VMs (like configuration server or master target server) for replication and failover as was needed in the legacy deployment.  
 * **Unified installation**: A single installation provides simple setup and scalability for on-premises components.
 * **Secure deployment**: All traffic is encrypted, and replication management communications are sent over HTTPS 443.
 * **Recovery points**: Support for crash and application-consistent recovery points for Windows and Linux environments, and support for both single VM and multi-VM consistent configurations.
@@ -62,7 +62,7 @@ The enhanced deployment is a major update. Here's a summary of the improvements 
 * You can configure recovery plans that group application workloads that are tiered across multiple machines. If you fail over those plans, Site Recovery provides multi-VM consistency so that machines running the same workloads can be recovered together to a consistent data point.
 
 ## Supported operating systems
-### Windows(64 bit only)
+### Windows (64 bit only)
 * Windows Server 2008 R2 SP1+
 * Windows Server 2012
 * Windows Server 2012 R2
@@ -78,13 +78,13 @@ Scenario components:
 
 * **An on-premises management server**: The management server runs Site Recovery components:
   * **Configuration server**:  Coordinates communication and manages data replication and recovery processes.
-  * **Process server**:  Acts as a replication gateway. It receives data from protected source machines, optimizes it with caching, compression, and encryption, and sends replication data to Azure storage. It also handles push installation of Mobility service to protected machines and performs automatic discovery of VMware VMs.
+  * **Process server**:  Acts as a replication gateway. It receives data from protected source machines; optimizes it with caching, compression, and encryption; and sends replication data to Azure storage. It also handles push installation of Mobility service to protected machines and performs automatic discovery of VMware VMs.
   * **Master target server**: Handles replication data during failback from Azure.
     You can also deploy a management server that acts only as a process server to scale your deployment.
 * **The Mobility service**: This component is deployed on each machine (VMware VM or physical server) that you want to replicate to Azure. It captures data writes on the machine and forwards them to the process server.
-* **Azure**: You don't need to create any Azure VMs to handle replication and failover. The Site Recovery service handles data management, and data replicates directly to Azure storage. Replicated Azure VMs are spun up automatically only when failover to Azure occurs. However, if you want to fail back from Azure to the on-premises site you will need to set up an Azure VM to act as a process server.
+* **Azure**: You don't need to create any Azure VMs to handle replication and failover. The Site Recovery service handles data management, and data replicates directly to Azure storage. Replicated Azure VMs are spun up automatically only when failover to Azure occurs. However, if you want to fail back from Azure to the on-premises site, you will need to set up an Azure VM to act as a process server.
 
-The following graphic shows how these components interact.
+The following graphic shows how these components interact:
 
 ![Component architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
@@ -98,7 +98,7 @@ When you’re planning capacity, here's what you need to think about:
 * **Network bandwidth from source to target**—Planning for network bandwidth required for replication between the source and Azure
 
 ### Source environment considerations
-* **Maximum daily change rate**—A protected machine can only use one process server, and a single process server can handle up to 2 TB of data change per day. Thus, 2 TB is the maximum daily data change rate that’s supported for a protected machine.
+* **Maximum daily change rate**—A protected machine can use only one process server, and a single process server can handle up to 2 TB of data change per day. Thus, 2 TB is the maximum daily data change rate that’s supported for a protected machine.
 * **Maximum throughput**—A replicated machine can belong to one storage account in Azure. A standard storage account can handle a maximum of 20,000 requests per second, and we recommend that you keep the number of IOPS across a source machine to 20,000. For example, if you have a source machine with 5 disks and each disk generates 120 IOPS (8 KB size) on the source, it will be within the Azure per disk IOPS limit of 500. The number of storage accounts required = total source IOPs/20,000.
 
 ### Management server considerations
@@ -108,7 +108,7 @@ The management server runs Site Recovery components that handle data optimizatio
 * The process server uses disk-based cache. We recommend a separate cache disk of 600 GB or more to handle data changes stored in the event of network bottleneck or outage. During deployment, you can configure the cache on any drive that has at least 5 GB of storage available, but 600 GB is the minimum recommendation.
 * As a best practice, we recommend that the management server be located on the same network and LAN segment as the machines you want to protect. It can be located on a different network, but machines you want to protect should have L3 network visibility to it.
 
-Size recommendations for the management server are summarized in the following table.
+Size recommendations for the management server are summarized in the following table:
 
 | **Management server CPU** | **Memory** | **Cache disk size** | **Data change rate** | **Protected machines** |
 | --- | --- | --- | --- | --- |
@@ -128,7 +128,7 @@ Make sure you calculate the bandwidth that would be required for initial replica
 #### Throttling bandwidth used for replication
 VMware traffic replicated to Azure goes through a specific process server. You can throttle the bandwidth that's available for Site Recovery replication on that server as follows:
 
-1. Open the Microsoft Azure Backup MMC snap-in on the main management server or on a management server running additional provisioned process servers. By default, a shortcut for Microsoft Azure Backup is created on desktop, or you can find it in: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+1. Open the Microsoft Azure Backup MMC snap-in on the main management server or on a management server running additional provisioned process servers. By default, a shortcut for Microsoft Azure Backup is created on the desktop, or you can find it in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. In the snap-in, click **Change Properties**.
 
     ![Throttle bandwidth change properties](./media/site-recovery-vmware-to-azure-classic/throttle1.png)
@@ -166,14 +166,14 @@ This table describes a scenario in which:
 
 | **Original management server**<br/><br/>(configuration server) | **Additional process server** | **Cache disk size** | **Data change rate** | **Protected machines** |
 | --- | --- | --- | --- | --- |
-| 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB memory |4 vCPUs (2 sockets * 2 cores @ 2.5 GHz), 8 GB memory |300 GB |250 GB or less |You can replicate 85 or fewer machines. |
-| 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB memory |8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 12 GB memory |600 GB |250 GB to 1 TB |You can replicate between 85-150 machines. |
-| 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz), 18 GB memory |12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) 24 GB memory |1 TB |1 TB to 2 TB |You can replicate between 150-225 machines. |
+| 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB RAM |4 vCPUs (2 sockets * 2 cores @ 2.5 GHz), 8 GB RAM |300 GB |250 GB or less |You can replicate 85 or fewer machines. |
+| 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB RAM |8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 12 GB RAM |600 GB |250 GB to 1 TB |You can replicate between 85-150 machines. |
+| 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz), 18 GB RAM |12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) 24 GB RAM |1 TB |1 TB to 2 TB |You can replicate between 150-225 machines. |
 
 How you scale your servers depends on your preference for a scale-up or scale-out model. You scale up by deploying a few high-end management and process servers, or scale out by deploying more servers with fewer resources. For example: if you need to protect 220 machines you could do either of the following:
 
-* Configure the original management server with 12vCPU, 18 GB of memory, an additional process server with 12vCPU, 24 GB of memory, and configure protected machines to use only the additional process server.
-* Alternatively, you could configure two management servers (2 x 8vCPU, 16 GB RAM) and two additional process servers (1 x 8vCPU and 4vCPU x 1 to handle 135 + 85 (220) machines), and configure protected machines to use only the additional process servers.
+* Configure the original management server with 12 vCPUs, 18 GB of RAM, an additional process server with 12 vCPUs, 24 GB of RAM, and configure protected machines to use only the additional process server.
+* Alternatively, you could configure two management servers (2 x 8 vCPUs, 16 GB RAM) and two additional process servers (1 x 8 vCPUs and 4vCPUs x 1 to handle 135 + 85 (220) machines), and configure protected machines to use only the additional process servers.
 
 Follow the instructions in [Deploy additional process servers](#deploy-additional-process-servers) to set up an additional process server.
 
@@ -183,16 +183,16 @@ The following tables summarize the prerequisites for deploying this scenario.
 ### Azure prerequisites
 | **Prerequisite** | **Details** |
 | --- | --- |
-| **Azure account** |You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. |
-| **Azure storage** |You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage, and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must be in the same region as the Site Recovery service and be associated with the same subscription. Replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>We do not support the move of storage accounts created by using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups. For more information, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).<br/><br/> |
+| **Azure account** |You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). For more information about Site Recovery pricing, see [Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/). |
+| **Azure storage** |You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage, and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must be in the same region as the Site Recovery service and be associated with the same subscription. Replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>We do not support moving storage accounts created by using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups. For more information, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).<br/><br/> |
 | **Azure network** |You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Site Recovery vault.<br/><br/>To fail back after failover to Azure, you’ll need a VPN connection (or Azure ExpressRoute) set up from the Azure network to the on-premises site. |
 
 ### On-premises prerequisites
 | **Prerequisite** | **Details** |
 | --- | --- |
-| **Management server** |You need an on-premises Windows 2012 R2 server running on a virtual machine or physical server. All of the on-premises Site Recovery components are installed on this management server<br/><br/> We recommend you deploy the server as a highly available VMware VM. Failback to the on-premises site from Azure will always be to VMware VMs, regardless of whether you failed over VMs or physical servers. If you don't configure the Management server as a VMware VM, you'll need to set up a separate master target server as a VMware VM to receive failback traffic.<br/><br/>The server should not be a domain controller.<br/><br/>The server should have a static IP address.<br/><br/>The host name of the server should be 15 characters or less.<br/><br/>The operating system locale should be English only.<br/><br/>The management server requires internet access.<br/><br/>You need outbound access from the server as follows: Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL); Ongoing outbound access on HTTPS 443 for replication management; Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/> Make sure these URLs are accessible from the management server: <br/>- \*.hypervrecoverymanager.windowsazure.com<br/>- \*.accesscontrol.windows.net<br/>- \*.backup.windowsazure.com<br/>- \*.blob.core.windows.net<br/>- \*.store.core.windows.net<br/>- https://www.msftncsi.com/ncsi.txt<br/>- [ https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi](https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi " https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi")<br/><br/>If you have IP address-based firewall rules on the server, check that the rules allow communication to Azure. You'll need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) and the HTTPS (443) port. You'll also need to add IP address ranges for the Azure region of your subscription and for West US to your Safe Recipients list. The URL [https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi](https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi " https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi") is used for downloading MySQL. |
-| **VMware vCenter/ESXi host**: |You need one or more vMware vSphere ESX/ESXi hypervisors managing your VMware virtual machines. They should be running ESX/ESXi version 6.0, 5.5, or 5.1 with the latest updates.<br/><br/> We recommend you deploy a VMware vCenter server to manage your ESXi hosts. It should be running vCenter version 6.0 or 5.5 with the latest updates.<br/><br/>Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Site Recovery support is limited to features that were available in version 5.5. |
-| **Protected machines**: |**AZURE**<br/><br/>Machines you want to protect should conform with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements) for creating Azure VMs.<br><br/>If you want to connect to the Azure VMs after failover, you’ll need to enable Remote Desktop connections on the local firewall.<br/><br/>Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 64 disks (thus up to 64 TB). If you have disks larger than 1 TB, consider using database replication such as SQL Server Always On or Oracle Data Guard.<br/><br/>You will need at least 2 GB of available hard drive space on the installation drive for component installation.<br/><br/>Shared disk guest clusters aren't supported. If you have a clustered deployment, consider using database replication such as SQL Server Always On or Oracle Data Guard.<br/><br/>Unified Extensible Firmware Interface(UEFI)/Extensible Firmware Interface(EFI) boot isn't supported.<br/><br/>Machine names should contain between 1 and 63 characters (letters, numbers, and hyphens). The name must start with a letter or number and end with a letter or number. After a machine is protected, you can modify the Azure name.<br/><br/>**VMware VMs**<br/><br>You’ll need to install VMware vSphere PowerCLI 6.0. on the management server (configuration server).<br/><br/>VMware VMs you want to protect should have VMware tools installed and running.<br/><br/>If the source VM has NIC teaming, it’s converted to a single NIC after failover to Azure.<br/><br/>If protected VMs have an iSCSI disk, Site Recovery converts the protected VM iSCSI disk into a VHD file when the VM fails over to Azure. If the iSCSI target can be reached by the Azure VM, it will connect to the iSCSI target and essentially see two disks--the VHD disk on the Azure VM and the source iSCSI disk. In this case, you’ll need to disconnect the iSCSI target that appears on the failed over Azure VM.<br/><br/>For more information about the VMware user permissions that are needed by Site Recovery, see [VMware permissions for vCenter access](#vmware-permissions-for-vcenter-access).<br/><br/> **WINDOWS SERVER MACHINES (on VMware VM or physical server)**<br/><br/>The server should be running a supported 64-bit operating system, like Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.<br/><br/>The operating system should be installed on drive C, and the OS disk should be a Windows basic disk (the OS shouldn’t be installed on a Windows dynamic disk).<br/><br/>For Windows Server 2008 R2 machines, you will need to have .NET Framework 3.5.1 installed.<br/><br/>You'll need to provide an administrator account (you must be a local administrator on the Windows machine) for the push installation of the Mobility Service on Windows servers. If the provided account is a non-domain account, you'll need to disable Remote User Access control on the local machine. For more information, see [Install the mobility service with push installation](#install-the-mobility-service-with-push-installation).<br/><br/>Site Recovery supports VMs with RDM disks. During failback, Site Recovery reuses the RDM disk if the original source VM and RDM disk are available. If they aren’t available, Site Recovery creates a VMDK file for each disk during failback.<br/><br/>**LINUX MACHINES**<br/><br/>You’ll need a supported 64-bit operating system, like Red Hat Enterprise Linux 6.7; Centos 6.5, 6.6, or 6.7; Oracle Enterprise Linux 6.4 or 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3); or SUSE Linux Enterprise Server 11 SP3.<br/><br/>/etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all network adapters. <br/><br/>If you want to connect to an Azure virtual machine running Linux after failover using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot, and that firewall rules allow an ssh connection to it.<br/><br/>Protection can only be enabled for Linux machines with the following storage: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath); or Volume manager: (LVM2). Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3.<br/><br/>Site Recovery supports VMs with RDM disks.  During failback for Linux, Site Recovery doesn’t reuse the RDM disk. Instead, it creates a VMDK file for each corresponding RDM disk. |
+| **Management server** |You need an on-premises Windows 2012 R2 server running on a virtual machine or physical server. All of the on-premises Site Recovery components are installed on this management server<br/><br/> We recommend that you deploy the server as a highly available VMware VM. Failback to the on-premises site from Azure will always be to VMware VMs, regardless of whether you failed over VMs or physical servers. If you don't configure the Management server as a VMware VM, you'll need to set up a separate master target server as a VMware VM to receive failback traffic.<br/><br/>The server must not be a domain controller.<br/><br/>The server must have a static IP address.<br/><br/>The host name of the server must be 15 characters or less.<br/><br/>The operating system locale must be English only.<br/><br/>The management server requires Internet access.<br/><br/>You need outbound access from the server as follows: Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL); Ongoing outbound access on HTTPS 443 for replication management; Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/> Make sure these URLs are accessible from the management server: <br/>- \*.hypervrecoverymanager.windowsazure.com<br/>- \*.accesscontrol.windows.net<br/>- \*.backup.windowsazure.com<br/>- \*.blob.core.windows.net<br/>- \*.store.core.windows.net<br/>- https://www.msftncsi.com/ncsi.txt<br/>- [ https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi](https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi " https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi")<br/><br/>If you have IP address-based firewall rules on the server, check that the rules allow communication to Azure. You'll need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) and the HTTPS (443) port. You'll also need to add IP address ranges for the Azure region of your subscription and for West US to your Safe Recipients list. The URL [https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi](https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi " https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi") is used for downloading MySQL. |
+| **VMware vCenter/ESXi host**: |You need one or more vMware vSphere ESX/ESXi hypervisors managing your VMware virtual machines. They should be running ESX/ESXi version 6.0, 5.5, or 5.1 with the latest updates.<br/><br/> We recommend thatF you deploy a VMware vCenter server to manage your ESXi hosts. It should be running vCenter version 6.0 or 5.5 with the latest updates.<br/><br/>Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Site Recovery support is limited to features that were available in version 5.5. |
+| **Protected machines**: |**AZURE**<br/><br/>Machines you want to protect should conform with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements) for creating Azure VMs.<br><br/>If you want to connect to the Azure VMs after failover, you’ll need to enable Remote Desktop connections on the local firewall.<br/><br/>Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 64 disks (thus up to 64 TB). If you have disks larger than 1 TB, consider using database replication such as SQL Server Always On or Oracle Data Guard.<br/><br/>You will need at least 2 GB of available hard drive space on the installation drive for component installation.<br/><br/>Shared disk guest clusters aren't supported. If you have a clustered deployment, consider using database replication such as SQL Server Always On or Oracle Data Guard.<br/><br/>Unified Extensible Firmware Interface(UEFI)/Extensible Firmware Interface(EFI) boot isn't supported.<br/><br/>Machine names should contain between 1 and 63 characters (letters, numbers, and hyphens). The name must start with a letter or number and end with a letter or number. After a machine is protected, you can modify the Azure name.<br/><br/>**VMware VMs**<br/><br>You’ll need to install VMware vSphere PowerCLI 6.0. on the management server (configuration server).<br/><br/>Install and run VMware tools on VMware VMs you want to protect.<br/><br/>If the source VM has NIC teaming, it’s converted to a single NIC after failover to Azure.<br/><br/>If protected VMs have an iSCSI disk, Site Recovery converts the protected VM iSCSI disk into a VHD file when the VM fails over to Azure. If the iSCSI target can be reached by the Azure VM, it will connect to the iSCSI target and essentially see two disks--the VHD disk on the Azure VM and the source iSCSI disk. In this case, you’ll need to disconnect the iSCSI target that appears on the failed over Azure VM.<br/><br/>For more information about the VMware user permissions that are needed by Site Recovery, see [VMware permissions for vCenter access](#vmware-permissions-for-vcenter-access).<br/><br/> **WINDOWS SERVER MACHINES (on VMware VM or physical server)**<br/><br/>The server should be running a supported 64-bit operating system, like Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.<br/><br/>The operating system must be installed on drive C, and the OS disk must be a Windows basic disk (the OS shouldn’t be installed on a Windows dynamic disk).<br/><br/>For Windows Server 2008 R2 machines, you will need to have .NET Framework 3.5.1 installed.<br/><br/>You'll need to provide an administrator account (you must be a local administrator on the Windows machine) for the push installation of the Mobility Service on Windows servers. If the provided account is a non-domain account, you'll need to disable Remote User Access control on the local machine. For more information, see [Install the mobility service with push installation](#install-the-mobility-service-with-push-installation).<br/><br/>Site Recovery supports VMs with RDM disks. During failback, Site Recovery reuses the RDM disk if the original source VM and RDM disk are available. If they aren’t available, Site Recovery creates a VMDK file for each disk during failback.<br/><br/>**LINUX MACHINES**<br/><br/>You’ll need a supported 64-bit operating system, like Red Hat Enterprise Linux 6.7; Centos 6.5, 6.6, or 6.7; Oracle Enterprise Linux 6.4 or 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3); or SUSE Linux Enterprise Server 11 SP3.<br/><br/>/etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all network adapters. <br/><br/>If you want to connect to an Azure virtual machine running Linux after failover using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot, and that firewall rules allow an ssh connection to it.<br/><br/>Protection can only be enabled for Linux machines with the following storage: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath); or Volume manager: (LVM2). Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3.<br/><br/>Site Recovery supports VMs with RDM disks.  During failback for Linux, Site Recovery doesn’t reuse the RDM disk. Instead, it creates a VMDK file for each corresponding RDM disk. |
 
 Only for Linux VM--ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly. Without this setting, failback will cause a full download even if the VM is available on-premises. Adding this setting ensures that only delta changes are transferred back during failback.
 
@@ -261,17 +261,17 @@ If you want to replicate VMware virtual machines, follow these steps on the mana
 5. In **Registration**, browse and select the registration key you downloaded from the vault.
 
     ![Registration](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
-6. In **Internet Settings**, specify how the Provider running on the configuration server will connect to Azure Site Recovery over the internet.
+6. In **Internet Settings**, specify how the Provider running on the configuration server will connect to Azure Site Recovery over the Internet.
 
    * If you want to connect with the proxy that's currently set up on the machine, select **Connect with existing proxy settings**.
    * If you want the Provider to connect directly, select **Connect directly without a proxy**.
    * If the existing proxy requires authentication, or if you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
-     * If you use a custom proxy, you'll need to specify the address, port, and credentials
+     * If you use a custom proxy, you'll need to specify the address, port, and credentials.
      * If you're using a proxy, you should have already allowed the following URLs:
-       * *.hypervrecoverymanager.windowsazure.com;    
-       * *.accesscontrol.windows.net;
-       * *.backup.windowsazure.com;
-       * *.blob.core.windows.net;
+       * *.hypervrecoverymanager.windowsazure.com    
+       * *.accesscontrol.windows.net
+       * *.backup.windowsazure.com
+       * *.blob.core.windows.net
        * *.store.core.windows.net
 
     ![Firewall](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
@@ -299,7 +299,7 @@ If you want to replicate VMware virtual machines, follow these steps on the mana
 
 
 
-1. In **Summary**, review the information and choose **Install**. When installation finishes, a passphrase is generated. You'll need it when you enable replication, so copy it and keep it in a secure location.
+1. In **Summary**, review the information and choose **Install**. When installation finishes, a passphrase is generated. You'll need this when you enable replication, so copy it and keep it in a secure location.
 
    ![Summary](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 
@@ -326,12 +326,12 @@ Where:
 * /ServerMode: Mandatory. Specifies whether the installation should install the configuration and process servers or the process server only (used to install additional process servers). Input values: CS, PS.
 * InstallDrive: Mandatory. Specifies the folder where the components are installed.
 * /MySQLCredFilePath. Mandatory. Specifies the path to a file where the MySQL server credentials are stored. Get the template to create the file.
-* /VaultCredFilePath. Mandatory. Location of the vault credentials file
-* /EnvType. Mandatory. Type of installation. Values: VMware, NonVMware
+* /VaultCredFilePath. Mandatory. Location of the vault credentials file.
+* /EnvType. Mandatory. Type of installation. Values: VMware, NonVMware.
 * /PSIP and /CSIP. Mandatory. IP address of the process server and configuration server.
 * /PassphraseFilePath. Mandatory. Location of the passphrase file.
 * /ByPassProxy. Optional. Specifies the management server that connects to Azure without a proxy.
-* /ProxySettingsFilePath. Optional. Specifies settings for a custom proxy (either default proxy on the server that requires authentication, or custom proxy)
+* /ProxySettingsFilePath. Optional. Specifies settings for a custom proxy (either default proxy on the server that requires authentication, or custom proxy).
 
 ## Step 6: Set up credentials for the vCenter server
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Discovery/player]
@@ -366,7 +366,7 @@ If you're replicating VMware VMs, you need to add a vCenter server (or ESXi host
 2. Add the vCenter server or ESXi host details, the name of the account you specified to access the vCenter server in the previous step, and the process server that will be used to discover VMware VMs that are managed by the vCenter server. The vCenter server or ESXi host should be located in the same network as the server on which the process server is installed.
 
    > [!NOTE]
-   > If you're adding the vCenter server or ESXi host with an account that doesn't have administrator privileges on the vCenter or host server, make sure the vCenter or ESXi accounts have these privileges enabled: Datacenter, Datastore, Folder, Jost, Network, Resource, Virtual machine, and vSphere Distributed Switch. The vCenter server needs the Storage Views privilege.
+   > If you're adding the vCenter server or ESXi host with an account that doesn't have administrator privileges on the vCenter or host server, make sure the vCenter or ESXi accounts have these privileges enabled: Datacenter, Datastore, Folder, Jost, Network, Resource, Virtual Machine, and vSphere Distributed Switch. The vCenter server needs the Storage Views privilege enabled.
    >
    >
 
@@ -392,12 +392,12 @@ Protection groups are logical groupings of virtual machines or physical servers 
 
     ![Protection group replication](./media/site-recovery-vmware-to-azure-classic/protection-groups3.png)
 
-   * **Multi VM consistency**: If you turn this on, it creates shared application-consistent recovery points across the machines in the protection group. This setting is most relevant when all machines in the protection group are running the same workload. All machines will be recovered to the same data point. This is available whether you're replicating VMware VMs or Windows/Linux physical servers.
+   * **Multi VM consistency**: If you turn this on, it creates shared application-consistent recovery points across the machines in the protection group. This setting is most relevant when all machines in the protection group are running the same workload. All machines will be recovered to the same data point. This is available whether you're replicating VMware VMs or physical servers (Windows or Linux).
    * **RPO threshold**: Sets the RPO. Alerts are generated when the continuous data protection replication exceeds the configured RPO threshold value.
    * **Recovery point retention**: Specifies the retention window. Protected machines can be recovered to any point within this window.
    * **Application-consistent snapshot frequency**: Specifies how frequently recovery points containing application-consistent snapshots will be created.
 
-When you select the check mark, a protection group is created with the name you specified. In addition, a second protection group is created with the name protection-group-name-Failback. This protection group is used if you fail back to the on-premises site after failover to Azure. You can monitor the protection groups as they're created on the **Protected Items** page.
+When you select the check mark, a protection group is created with the name you specified. In addition, a second protection group is created with the name *protection-group-name*-Failback. This protection group is used if you fail back to the on-premises site after failover to Azure. You can monitor the protection groups as they're created on the **Protected Items** page.
 
 ## Step 9: Install the Mobility service
 The first step in enabling protection for virtual machines and physical servers is to install the Mobility service. You can do this in two ways:
@@ -409,12 +409,12 @@ The first step in enabling protection for virtual machines and physical servers 
 When you add machines to a protection group, the Mobility service is automatically pushed and installed on each machine by the process server.
 
 #### Prepare for automatic push on Windows machines
-Here's how to prepare Windows machines so that the Mobility service can be automatically installed by the process server.
+To prepare Windows machines so that the Mobility service can be automatically installed by the process server:
 
 1. Create an account that can be used by the process server to access the machine. The account should have administrator privileges (local or domain). These credentials are only used for push installation of the Mobility service.
 
    > [!NOTE]
-   > If you're not using a domain account, you'll need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, add the DWORD entry LocalAccountTokenFilterPolicy with a value of 1 under. To add the registry entry from a CLI open command or by using PowerShell, enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
+   > If you're not using a domain account, you'll need to disable Remote User Access control on the local machine. To do this, in the registry under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, add the DWORD entry LocalAccountTokenFilterPolicy with a value of 1 under. To add the registry entry from a CLI open command or by using PowerShell, enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
    >
    >
 2. On the Windows Firewall of the machine you want to protect, select **Allow an app or feature through Firewall**, and enable **File and Printer Sharing** and **Windows Management Instrumentation**. For machines that belong to a domain, you can configure the firewall policy with a GPO.
@@ -434,11 +434,11 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
    * On the **Manage Accounts** tab, click **Add Account**.
    * Add the account you created. After adding the account, you'll need to provide the credentials when you add a machine to a protection group.
 3. Check that the /etc/hosts file on the source Linux server contains entries that map the local hostname to IP addresses associated with all network adapters.
-4. Install the latest openssh, openssh-server, openssl packages on the machine you want to protect.
+4. Install the latest openssh, openssh-server, and openssl packages on the machine you want to protect.
 5. Ensure that SSH is enabled and running on port 22.
 6. Enable SFTP subsystem and password authentication in the sshd_config file as follows:
 
-   * Log in as root.
+   * Sign in as root.
    * In the /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication.
    * Uncomment the line and change the value from **no** to **yes**.
    * Find the line that begins with **Subsystem** and uncomment the line.
@@ -491,7 +491,7 @@ After running the wizard, you can change the IP address of the management server
 2. On the **Global** tab, change the IP address of the management server.
 
    > [!NOTE]
-   > Only change the IP address of the management server. The port number for management server communications must be 443 and **Use HTTPS** should be left enabled. Do not change the passphrase.
+   > Only change the IP address of the management server. The port number for management server communications must be 443 and **Use HTTPS** must be left enabled. Do not change the passphrase.
    >
    >
 
@@ -501,10 +501,10 @@ After running the wizard, you can change the IP address of the management server
 1. Copy the appropriate tar archive to the Linux machine you want to protect. See the table under [Install the Mobility service manually](#install-the-mobility-service-manually) to determine which tar archive you should use.
 2. Open a shell program and extract the zipped tar archive to a local path by running: `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`
 3. Create a file named passphrase.txt in the local directory to which you extracted the contents of the tar archive. To do this, copy the passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the management server, and save it in passphrase.txt by running *`echo <passphrase> >passphrase.txt`* in shell.
-4. Install Mobility service by entering *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*.
+4. Install Mobility service by entering the following command: *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*
 5. Specify the internal IP address of the management server and make sure port 443 is selected.
 
-**Install Mobility service from the command line**:
+**Install Mobility service from the command line**
 
 Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the management server and save it as "passphrase.txt" on the management server. Then run the following commands. In our example, the management server IP address is 104.40.75.37 and the HTTPS port is 443:
 
@@ -533,7 +533,7 @@ In addition:
 
 ### Add machines to a protection group
 
-1. Select **Protected Items** > **Protection Group** > **Machines** > **Add Machines**.
+1. Go to **Protected Items** > **Protection Group** > **Machines** > **Add Machines**.
 2. If you're protecting VMware virtual machines, in **Select Virtual Machines**, select a vCenter server that's managing your virtual machines (or the EXSi host on which they're running), and then select the machines.
 
     ![Enable protection for virtual machines](./media/site-recovery-vmware-to-azure-classic/enable-protection2.png)
@@ -543,7 +543,7 @@ In addition:
 4. In **Specify Target Resources**, select the storage account you're using for replication and select whether the settings should be used for all workloads. Premium storage accounts aren't currently supported.
 
    > [!NOTE]
-   > 1. We do not support the move of Storage accounts created by using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                           
+   > 1. We do not support moving storage accounts created by using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                           
    > 2. [Migration of storage accounts](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
    >
    >
@@ -555,7 +555,7 @@ In addition:
 6. Click the check mark to finish adding machines to the protection group and to start initial replication for each machine.
 
    > [!NOTE]
-   > If push installation has been prepared, the Mobility service is automatically installed on machines that don't have it as they're added to the protection group. After the service is installed a protection job starts and fails. After the failure, you'll need to manually restart each machine that's had the Mobility service installed. After the restart, the protection job begins again and initial replication occurs.
+   > If push installation has been prepared, the Mobility service is automatically installed on machines that don't have it as they're added to the protection group. After the service is installed, a protection job starts and fails. After the failure, you'll need to manually restart each machine that's had the Mobility service installed. After the restart, the protection job begins again and initial replication occurs.
    >
    >
 
@@ -563,7 +563,7 @@ You can monitor status on the **Jobs** page.
 
 ![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection5.png)
 
-Protection status can also be monitored in **Protected Items** > <protection group name> > **Virtual Machines**. After initial replication finishes and data is synchronized, machine status changes to** Protected**.
+Protection status can also be monitored in **Protected Items** > *protection group name* > **Virtual Machines**. After initial replication finishes and data is synchronized, machine status changes to **Protected**.
 
 ![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
@@ -651,10 +651,11 @@ Unplanned failover is initiated from Azure and can be performed even if the prim
 > This option isn't available if you're replicating physical servers. You'll need to try to shut those down manually if possible.
 >
 >
+
 3. In **Confirm Failover**, verify the failover direction (to Azure) and select the recovery point you want to use for the failover. If you enabled multi-VM when you configured replication properties, you can recover to the latest application or crash-consistent recovery point. You can also select **Custom recovery point** to recover to an earlier point in time. Click the check mark to start the failover.
 
  ![Add virtual machines](./media/site-recovery-vmware-to-azure-classic/unplanned-failover3.png)
-4. Wait for the unplanned failover job to complete. You can monitor failover progress on the **Jobs** tab. Even if errors occur during unplanned, failover the recovery plan runs until it's complete. You should also be able to see the replica Azure machine appear in **Virtual Machines** in the Azure portal.
+4. Wait for the unplanned failover job to complete. You can monitor failover progress on the **Jobs** tab. Even if errors occur during unplanned failover, the recovery plan runs until it's complete. You should also be able to see the replica Azure machine appear in **Virtual Machines** in the Azure portal.
 
 ### Connect to replicated Azure virtual machines after failover
 To connect to replicated virtual machines in Azure after failover, you'll need:
@@ -669,7 +670,7 @@ For more about setting this up, see [Troubleshooting remote desktop connection a
 If you must scale out your deployment beyond 200 source machines, or if your total daily churn rate exceeds 2 TB, you’ll need additional process servers to handle the traffic volume. To set up an additional process server, check the requirements in [Additional process servers](#additional-process-servers), and then set up the process server according to the following instructions. After setting up the server, you can configure source machines to use it.
 
 ### Set up an additional process server
-You set up an additional process server as follows:
+Set up an additional process server as follows:
 
 * Run the unified wizard to configure a management server as a process server only.
 * If you want to manage data replication using only the new process server, you'll need to migrate your protected machines.
@@ -688,10 +689,10 @@ You set up an additional process server as follows:
 1. Open **Configuration Servers** > **Server** > *name of the original management server* > **Server Details**.
 
  ![Server details](./media/site-recovery-vmware-to-azure-classic/update-process-server1.png)
-2. In the **Process Servers** list, select **Change Process Server** next to the server you want to modify.
+2. In the **Process Servers** list, select **Change Process Server** next to the server you want to change.
 
  ![Update process server](./media/site-recovery-vmware-to-azure-classic/update-process-server2.png)
-3. Choose **Change Process Server**, **Target Process Server**, and select the new management server. Then select the virtual machines that the new process server will handle. Click the information icon to get information about the server. The average space that's needed to replicate each selected virtual machine to the new process server is displayed to help you make load decisions. Click the check mark to start replicating to the new process server.
+3. Choose **Change Process Server**, then choose **Target Process Server**, and select the new management server. Then select the virtual machines that the new process server will handle. Click the information icon to get information about the server. The average space that's needed to replicate each selected virtual machine to the new process server is displayed to help you make load decisions. Click the check mark to start replicating to the new process server.
 
  ![Change the process server](./media/site-recovery-vmware-to-azure-classic/update-process-server3.png)
 
