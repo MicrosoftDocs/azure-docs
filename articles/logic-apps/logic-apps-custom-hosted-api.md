@@ -136,8 +136,8 @@ use your web app's actual https://**URL**.
 
 > [!NOTE]
 > When you create the Application for your web app, 
-> you must use the [Azure classic portal](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) 
-> because the PowerShell commandlet does not set up the required permissions to sign users into a website.
+> you must use the [Azure classic portal](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory). 
+> The PowerShell commandlet doesn't set up the required permissions to sign users into a website.
 
 After you have the client ID and tenant ID, 
 include this part as a sub resource of your web app 
