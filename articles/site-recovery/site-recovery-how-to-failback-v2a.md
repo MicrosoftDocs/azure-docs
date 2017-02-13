@@ -17,32 +17,33 @@ ms.date: 12/15/2016
 ms.author: ruturajd
 
 ---
-# Failback from Azure to On-premises
+# Failback from Azure to on-premises
 This article describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article, when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers, after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
-## Overview of Failback
+## Overview of failback
 Here’s how failback works - After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
 
-1. You [reprotect](site-recovery-how-to-reprotect) the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. For this you also need to 
+1. [Reprotect](site-recovery-how-to-reprotect) the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. For this you also need to 
 	1. Setup an on-premises Master target - Windows MT for Windows VMs and [Linux MT](site-recovery-how-to-install-linux-master-target) for Linux VMs
 	2. Setup a [Process server](site-recovery-vmware-setup-azure-ps-resource-manager)
 	3. And then initiate [Reprotect](site-recovery-how-to-reprotect)
-5. After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
+5. After your Azure VMs are replicating to your on-premises site, you initiate a fail over from Azure to On-premises.
   
 After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
 ### Failback to the original or alternate location
-
 	
-If you failed over a VMware VM, you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes are replicated back. This scenario is known as original location recovery.
+If you failed over a VMware VM, you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes are replicated back. This scenario is known as original location recovery. If the on-premises VM does not exist, it is an alternate location recovery.
 
-* If you fail back to the original VM the following conditions required:
-  * If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
-  * If the VM is on an ESX host but isn’t managed by vCenter, then the hard disk of the VM must be in a datastore accessible by the MT's host.
-  * If your VM is on an ESX host and doesn't use vCenter, then you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
+#### Original location recovery
 
-  
-If the on-premises VM does not exist before reprotecting the VM, then it is called alternate location recovery. Here the reprotect workflow re-creates the on-premises VM.
+If you fail back to the original VM the following conditions required:
+* If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
+* If the VM is on an ESX host but isn’t managed by vCenter, then the hard disk of the VM must be in a datastore accessible by the MT's host.
+* If your VM is on an ESX host and doesn't use vCenter, then you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
+
+#### Alternat location recovery
+If the on-premises VM does not exist before reprotecting the VM, then it is called alternate location recovery. Here the reprotect workflow re-creates the on-premises VM. This will also cause a full data download.
 
 * When you failback to an alternate location the VM will be recovered to the same ESX host as on which the master target server is deployed. The datastore used to create the disk will be the same datastore selected when reprotecting the VM.
 * You can only failback to a VMFS datastore. If you have a vSAN or RDM, Reprotect and Failback will not work.
