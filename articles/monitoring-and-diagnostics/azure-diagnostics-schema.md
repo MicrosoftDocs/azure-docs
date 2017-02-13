@@ -25,7 +25,7 @@ This page indexes Azure Diagnostics Schema versions shipped as part of the Micro
 > Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
 >
 
-Azure Diagnostics is used in conjunction with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+Azure Diagnostics is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
 
 ## Azure SDK and Diagnostics versions shipping chart  
 
