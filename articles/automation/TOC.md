@@ -26,6 +26,7 @@
 ### [Track a runbook job](automation-runbook-execution.md)
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
+### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
@@ -53,7 +54,9 @@
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ### [Source Control Integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Monitor](automation-manage-send-joblogs-log-analytics.md)
+## Monitor
+### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Unlink Azure Automation account from Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migrate
 ### [Migrate from Orchestrator](automation-orchestrator-migration.md)
 ### [Move Automation Account](automation-migrate-account-subscription.md)

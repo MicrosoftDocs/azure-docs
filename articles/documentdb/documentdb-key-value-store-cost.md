@@ -17,7 +17,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
-
 ---
 
 # DocumentDB as a key value store – Cost overview
@@ -28,33 +27,27 @@ This article describes the cost of DocumentDB for simple write and read operatio
 
 ## Why we use Request Units (RUs)
 
-DocumentDB performance is based on the amount of provisioned [Request Units](documentdb-programming.md) (RU) for the partition. The provisioning is at a second granularity and is purchased in RUs/sec ([not to be confused with the hourly billing](https://azure.microsoft.com/pricing/details/documentdb/)). RUs should be considered a currency that simplifies the provisioning of required throughput for the application. Our customers do not have to think of differentiating between read and write capacity units. The single currency model of RUs creates efficiencies to share the provisioned capacity between reads and writes. This provisioned capacity model enables the service to provide a predictable and consistent throughput, guaranteed low latency, and high availability. Finally, we use RU to model throughput but each provisionned RU has also a defined amount of resources (Memory, Core). RU/sec is not only IOPS.
+DocumentDB performance is based on the amount of provisioned [Request Units](documentdb-programming.md) (RU) for the partition. The provisioning is at a second granularity and is purchased in RUs/sec ([not to be confused with the hourly billing](https://azure.microsoft.com/pricing/details/documentdb/)). RUs should be considered as a currency that simplifies the provisioning of required throughput for the application. Our customers do not have to think of differentiating between read and write capacity units. The single currency model of RUs creates efficiencies to share the provisioned capacity between reads and writes. This provisioned capacity model enables the service to provide a predictable and consistent throughput, guaranteed low latency, and high availability. Finally, we use RU to model throughput but each provisioned RU has also a defined amount of resources (Memory, Core). RU/sec is not only IOPS.
 
 As a globally distributed database system, DocumentDB is the only Azure service that provides an SLA on latency, throughput, and consistency in addition to high availability. The throughput you provision is applied to each of the regions associated with your DocumentDB database account. For reads, DocumentDB offers multiple, well-defined [consistency levels](documentdb-consistency-levels.md) for you to choose from. 
 
-The following table shows the number of RUs required to perform read and write transactions based on some document sizes. 
+The following table shows the number of RUs required to perform read and write transactions based on document size of 1KB and 100KBs.
 
 |Document Size|1 Read|1 Write|
 |-------------|------|-------|
 |1 KB|1 RU|5 RUs|
-|5 KB|5 RUs|25 RUs|
-|10 KB|10 RUs|50 RUs|
-|50 KB|50 RUs|250 RUs|
-|100 KB|100 RUs|500 RUs|
+|100 KB|10 RUs|50 RUs|
 
-## Cost of running DocumentDB in Read/Write mode without indexing
+## Cost of Reads and Writes
 
 If you provision 1,000 RU/sec, this amounts to 3.6m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1KB size document, this means that you can consume 3.6m reads or 0.72m writes (3.6mRU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.
 
 |Document Size|1m Read|1m Write|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
-|5 KB|$0.111|$0.556|
-|10 KB|$0.222|$1.111|
-|50 KB|$1.111|$5.556|
-|100 KB|$2.222|$11.111|
+|100 KB|$0.222|$1.111|
 
-Most of the basic blob or object stores like AWS S3 or Azure Blob Storage services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, DocumentDB can be up to 98% cheaper than these other solutions (for 1KB transactions).
+Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, DocumentDB can be up to 98% cheaper than these other solutions (for 1KB transactions).
 
 ## Next steps
 

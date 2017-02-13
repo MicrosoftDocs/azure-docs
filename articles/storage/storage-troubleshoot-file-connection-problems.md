@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 02/07/2017
 ms.author: genli
 
 ---
@@ -41,6 +41,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 * ["Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 * [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 * [Linux VM experiencing random delays in commands like "ls"](#delayproblem)
+* [Error 112 - timeout error](#error112)
 
 **Accessing from other applications**
 * [Can I reference the azure file share for my application through a webjob?](#webjobs)
@@ -239,7 +240,20 @@ file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.+
 
-<a id="webjobs"></a> 
+<a id="error112"></a>
+## Error 112 - timeout error
+
+This error indicates communication failures that prevent re-establishing a TCP connection to the server when “soft” mount option is used, which is the default.
+
+### Cause
+
+This error can be caused by a Linux reconnect issue or other problems that prevent reconnection, such as network errors. Specifying a hard mount will force the client to wait until a connection is established or until explicitly interrupted, and can be used to prevent errors due to network timeouts. However, users should be aware that this could lead to indefinite waits and should handle halting a connection as needed.
+
+### Workaround
+
+The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
+
+<a id="webjobs"></a>
 
 ## Accessing from other applications
 ### Can I reference the azure file share for my application through a webjob?

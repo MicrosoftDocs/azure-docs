@@ -26,7 +26,8 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest Update](storsimple-virtual-array-install-update.md)
+#### [Install latest Update](storsimple-virtual-array-install-update-04.md)
+##### [Install Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Create & manage backups](storsimple-virtual-array-backup.md)
 #### [Clone from backups](storsimple-virtual-array-clone.md)
 #### [Failover and DR](storsimple-virtual-array-failover-dr.md)
@@ -56,7 +57,8 @@
 ### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
 
 ## Release notes
-### [Update 0.3 - current](storsimple-ova-update-03-release-notes.md)
+### [Update 0.4 - current](storsimple-virtual-array-update-04-release-notes.md)
+### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
 
 # StorSimple 8000 Series
@@ -78,7 +80,7 @@
 #### [Unpack, rack, cable an 8100](storsimple-8100-hardware-installation.md)
 
 #### [Unpack, rack, cable an 8600](storsimple-8600-hardware-installation.md)
-#### [Supported hardware for 10-GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Supported hardware for 10 GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Deploy
 #### [StorSimple Manager service](storsimple-manage-service.md)
@@ -150,6 +152,7 @@
 ### Monitor
 #### [Using service dashboard](storsimple-service-dashboard.md)
 #### [Using device dashboard](storsimple-device-dashboard.md)
+#### [Using monitoring charts](storsimple-monitor-device.md)
 #### [Using service alerts](storsimple-manage-alerts.md)
 #### [Using hardware status](storsimple-monitor-hardware-status.md)
 #### [Using monitoring LEDs](storsimple-monitoring-indicators.md)
