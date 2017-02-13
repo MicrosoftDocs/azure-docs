@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 01/27/2017
+ms.date: 02/13/2017
 ms.author: ruturajd
 
 ---
@@ -411,6 +411,6 @@ VMware tools need to be installed on the MT so that it can discover the datastor
 ## Next steps
 Once the Master target has completed installation and registration, you can see the MT appear on the Master Target section in Site Recovery Infrastructure, under the configuration server overview.
 
-You can now proceed with [Reprotection](site-recovery-how-to-reprotect), followed by Failback.
+You can now proceed with [Reprotection](site-recovery-how-to-reprotect.md), followed by Failback.
 
 ## Common issues

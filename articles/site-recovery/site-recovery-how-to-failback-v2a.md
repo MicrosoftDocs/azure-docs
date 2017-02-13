@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 12/15/2016
+ms.date: 02/13/2017
 ms.author: ruturajd
 
 ---
@@ -23,10 +23,10 @@ This article describes how to fail back Azure virtual machines from Azure to the
 ## Overview of failback
 Here’s how failback works - After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
 
-1. [Reprotect](site-recovery-how-to-reprotect) the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. For this you also need to 
-	1. Setup an on-premises Master target - Windows MT for Windows VMs and [Linux MT](site-recovery-how-to-install-linux-master-target) for Linux VMs
+1. [Reprotect](site-recovery-how-to-reprotect.md) the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. For this you also need to 
+	1. Setup an on-premises Master target - Windows MT for Windows VMs and [Linux MT](site-recovery-how-to-install-linux-master-target.md) for Linux VMs
 	2. Setup a [Process server](site-recovery-vmware-setup-azure-ps-resource-manager)
-	3. And then initiate [Reprotect](site-recovery-how-to-reprotect)
+	3. And then initiate [Reprotect](site-recovery-how-to-reprotect.md)
 5. After your Azure VMs are replicating to your on-premises site, you initiate a fail over from Azure to On-premises.
   
 After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
@@ -56,7 +56,7 @@ A physical machine when failed over to Azure can only be failed back as a VMware
 
 ## Have you completed Reprotection?
 Before you proceed further, complete the Reprotect steps so that the virtual machines are in replicated state and you can initiate a failover back to on-premises.
-[How to Reprotect from Azure to On-premises](site-recovery-how-to-reprotect).
+[How to Reprotect from Azure to On-premises](site-recovery-how-to-reprotect.md).
 
 ## Pre-requisites
  

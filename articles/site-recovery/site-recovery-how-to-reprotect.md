@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 12/15/2016
+ms.date: 02/13/2017
 ms.author: ruturajd
 
 ---
@@ -34,7 +34,7 @@ Following are the few pre-requisite steps you need to take or consider when prep
 * Before you fail back you’ll need to create two additional components:
   * **Create a process server**. Process server is used to receive the data from the protected VM in Azure and send the data on-premises. This requires it to be on a low latency network between the process server and the protected VM. Hence the process server can be on-premises (if you are using an express route connection) or on Azure if you are using a VPN.
   * **Create a master target server**: The master target server receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback. 
-		* [A linux VM needs a Linux master target server](site-recovery-how-to-install-linux-master-target). 
+		* [A linux VM needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md). 
 		* A windows VM needs a windows master target. You can re-use the on-premises PS+MT machine.
 * Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback won't be successful. Hence ensure that you take regular scheduled backup of your server. If there was a disaster, you will need to restore it with the same IP address so that failback works.
 * Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
@@ -122,7 +122,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 
 ## Steps to reprotect
 
-Before re-protection, make sure you have installed the [Process server](site-recovery-vmware-setup-azure-ps-resource-manager) in Azure and the on-premises Windows or [Linux Master Target](site-recovery-how-to-install-linux-master-target).
+Before re-protection, make sure you have installed the [Process server](site-recovery-vmware-setup-azure-ps-resource-manager) in Azure and the on-premises Windows or [Linux Master Target](site-recovery-how-to-install-linux-master-target.md).
 
 1. In the Vault > replicated items > select the VM that's been failed over and right click to **Re-Protect**. You can also click the machine and select the reprotect from the command buttons.
 2. In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
