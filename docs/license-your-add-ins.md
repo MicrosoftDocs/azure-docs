@@ -108,7 +108,7 @@ The following figure shows the add-in license query and validation process for O
 
  
 
->**Note**  Task pane and content add-ins allow anonymous access. If the user is not signed in to their Microsoft account, the Office application requesting the add-in home page does not append the license token parameter. For details, see  [Add-in license tokens and anonymous access for Office Add-ins](#bk_anonymous).
+>**Note:**  Task pane and content add-ins allow anonymous access. If the user is not signed in to their Microsoft account, the Office application requesting the add-in home page does not append the license token parameter. For details, see  [Add-in license tokens and anonymous access for Office Add-ins](#bk_anonymous).
  
 
 

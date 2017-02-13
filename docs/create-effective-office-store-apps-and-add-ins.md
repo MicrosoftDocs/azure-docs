@@ -34,7 +34,7 @@ In your title:
 
 You specify your add-in name in two places - be sure to use the same name in both:
 
-- Your add-in manifest; specifically, the  [DisplayName element (OfficeApp complexType) (app manifest schema v1.1)](http://msdn.microsoft.com/library/529159ca-53bf-efcf-c245-e572dab0ef57%28Office.15%29.aspx) element (Office Add-in), or the [Title element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](http://msdn.microsoft.com/library/c4ca4165-ed3a-7ded-d8e3-0a841955d109%28Office.15%29.aspx) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
+- Your add-in manifest; specifically, the  [DisplayName element](http://msdn.microsoft.com/library/529159ca-53bf-efcf-c245-e572dab0ef57%28Office.15%29.aspx) element (Office Add-in), or the [Title element](http://msdn.microsoft.com/library/c4ca4165-ed3a-7ded-d8e3-0a841955d109%28Office.15%29.aspx) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
 - The Seller Dashboard add-in submission form. This specifies the name that is displayed in the Office Store.
 
 ## Write compelling descriptions
@@ -106,7 +106,7 @@ For SharePoint Add-ins, you include an image in your add-in package, and upload 
 
 ### Create an icon for your add-in
 
-For Office Add-ins that you are submitting to the Office Store, you have to link to an image by using the  [IconUrl element (OfficeApp complexType) (app manifest schema v1.1)](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
+For Office Add-ins that you are submitting to the Office Store, you have to link to an image by using the  [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
 
 The formatting requirements for this image differ depending on the add-in type. The following table lists the requirements for the icon image, by add-in type.
 
@@ -118,7 +118,7 @@ The formatting requirements for this image differ depending on the add-in type. 
 |Source location|The image specified must be secured with HTTPS.|The image specified does not have to be secured with HTTPS.|
 |Size|For best appearance, make your icon 64 x 64 pixels. There is no specific size limit, but Outlook will resize the icon to 64 x 64 if necessary. This might result in a less-than-optimal icon display. |Must be 32 x 32 pixels.|
 |Display location|Exchange Administration Center|Office client interface. The Insertion dialog, MRU list, or context box.|
-|Localization| [IconUrl element (OfficeApp complexType) (app manifest schema v1.1)](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.| [IconUrl element (OfficeApp complexType) (app manifest schema v1.1)](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.|
+|Localization| [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.| [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.|
 For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
 
 

@@ -226,7 +226,7 @@ Apply the following best practices when you create and enforce add-in licenses a
 </tr>
 <tr>
 <td>Cache the license check appropriately.</td>
-<td>For add-ins with a perpetual unlimited user license, cache until the license token expires. For add-ins with a multiuser license, either trial or perpetual, cache per session because user assignment can change.<br /><br />Make sure the production version of your add-in does not accept test licenses.<br /><br />When you finish testing your add-in and are ready to move it to production, make sure you add code to the license checks in your add-in so that the add-in no longer accepts test licenses. After you pass the add-in license token to the verification service's <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx">VerifyEntitlementToken</a> method, you can use the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx">VerifyEntitlementTokenResponse</a> object returned by that method to access the add-in license properties.	For test add-in licenses, the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx">IsTest</a> property returns <strong>true</strong> and the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx">IsValid</a> property returns <strong>false</strong>.</td>
+<td>For add-ins with a perpetual unlimited user license, cache until the license token expires. For add-ins with a multiuser license, either trial or perpetual, cache per session because user assignment can change.<br /><br />Make sure the production version of your add-in does not accept test licenses.<br /><br />When you finish testing your add-in and are ready to move it to production, make sure you add code to the license checks in your add-in so that the add-in no longer accepts test licenses. After you pass the add-in license token to the verification service's <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx">VerifyEntitlementToken</a> method, you can use the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx">VerifyEntitlementTokenResponse</a> object returned by that method to access the add-in license properties. For test add-in licenses, the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx">IsTest</a> property returns <strong>true</strong> and the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx">IsValid</a> property returns <strong>false</strong>.</td>
 </tr>
 </table>
 
@@ -235,21 +235,11 @@ Apply the following best practices when you create and enforce add-in licenses a
 <a name="bk_resources"> </a>
 
 
--  [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-    
- 
+-  [License your Office and SharePoint Add-ins](license-your-add-ins.md) 
 -  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
-    
- 
 -  [SharePoint 2013 code sample: Import, validate, and manage add-in licenses](http://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
-    
- 
 -  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model.md)
-    
- 
 -  [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
-    
- 
 -  [VerificationSvc](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
     
  
