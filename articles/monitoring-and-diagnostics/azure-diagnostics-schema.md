@@ -39,7 +39,7 @@ Azure Diagnostics is used in conjunction with other Microsoft diagnostics produc
 |2.8               |1.5                         |"|  
 |2.9               |1.6                         |"|
 |2.96              |1.7                         |"|
-|3.0               |1.8                         |"|
+
 
 
  Azure Diagnostics version 1.0 first shipped in a plug-in model, meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
@@ -53,4 +53,4 @@ Azure Diagnostics is used in conjunction with other Microsoft diagnostics produc
 
 [Diagnostics 1.2 Configuration Schema](azure-diagnostics-schema-1dot2.md)  
 
-[Diagnostics 1.3 to 1.5 Configuration Schema](azure-diagnostics-schema-1dot3-to-1dot5.md)  
+[Diagnostics 1.3 and later Configuration Schema](azure-diagnostics-schema-1dot3-and-later.md)  
