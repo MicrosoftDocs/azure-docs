@@ -66,7 +66,7 @@ In this section of the tutorial, you view information about the security configu
 2. Make note of the name of the Server admin account for the logical server. If you do not remember the password, click **Reset password** to set a new password.
 
 > [!NOTE]
-> To review connection information for this server, go to [View or update server settings](sql-database-view-update-server-settings.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
+> To review connection information for this server, go to [Manage servers](sql-database-manage-servers-portal.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
 >
 
 ## Connect to SQL server using SQL Server Management Studio (SSMS)

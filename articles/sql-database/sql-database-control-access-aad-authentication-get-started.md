@@ -82,7 +82,7 @@ In this section of the tutorial, you view information about the security configu
    ![Save selected AAD admin account](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> To review connection information for this server, go to [View or update server settings](sql-database-view-update-server-settings.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
+> To review connection information for this server, go to [Manage servers](sql-database-manage-servers-portal.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
 >
 
 ## Connect to SQL server using SQL Server Management Studio (SSMS)
