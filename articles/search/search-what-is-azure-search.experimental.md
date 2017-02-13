@@ -20,11 +20,11 @@ ms.author: heidist
 
 Azure Search offers a dedicated and programmable search engine with intelligent search behaviors to power the search bar for content on your website, in your apps, and in corporate file or data stores. 
 
-![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch2.png)
+![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch.png)
 
-Auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support: all of these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
+Auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support: these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
 
-![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts2.png)
+![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts3.png)
 
 ## How it works
 
@@ -35,7 +35,7 @@ To use Azure Search, provision a free or paid service in your Azure subscription
 |Free | A shared service readily available for learning and evaluation |
 |billable | A dedicated service at graduated levels of capacity to accommodate a range of deployment scenarios at different pricing tiers|
 
-Azure Search runs in the cloud as a managed service from Microsoft, and is easily integrated with custom code on any application platform. Your fully managed service and private content is globally available, programmable, scalable, and recoverable. Services run 24-7 with service level agreements backed by Microsoft Azure.
+Azure Search runs in the cloud as a managed service from Microsoft, and can be integrated with custom code on any application platform. Your fully managed service and private content is globally available, programmable, scalable, and recoverable. Services run 24-7 with service level agreements backed by Microsoft Azure.
 
 ## How it compares
 
@@ -75,17 +75,17 @@ Queries can be formulated using the [simple query syntax](https://msdn.microsoft
 
 **Geo-spatial** support allows you to intelligently process, filter, and display geographic locations. Azure Search enables users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
-**Filters** can be used to easily incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
+**Filters** can be used to incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 **High availability** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-**Fully managed** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be easily tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
+**Fully managed** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
 
 **Data integration** using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) allows Azure Search to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
 
 **Document cracking** enables [indexing of major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office as well as PDF and HTML documents.
 
-**Search traffic analytics** are [easily collected and analyzed](search-traffic-analytics.md) to unlock insights from what users are typing into the search box.
+**Search traffic analytics** are [collected and analyzed](search-traffic-analytics.md) to unlock insights from what users are typing into the search box.
 
 **Simple scoring** is a key benefit of Azure Search. [Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are used to allow organizations to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.
 
@@ -93,7 +93,7 @@ Queries can be formulated using the [simple query syntax](https://msdn.microsoft
 
 **Paging** and throttling your search results is [straightforward with the finely tuned control](search-pagination-page-layout.md) that Azure Search offers over your search results.  
 
-**Search explorer** allows you to issue queries against all of your indexes right from your account's Azure portal so you can easily test queries and refine scoring profiles.
+**Search explorer** allows you to issue queries against all of your indexes right from your account's Azure portal so you can test queries and refine scoring profiles.
 
 ## APIs: REST | .Net
 
