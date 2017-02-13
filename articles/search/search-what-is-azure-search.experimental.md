@@ -95,13 +95,6 @@ Queries can be formulated using the [simple query syntax](https://msdn.microsoft
 
 **Search explorer** allows you to issue queries against all of your indexes right from your account's Azure portal so you can test queries and refine scoring profiles.
 
-## APIs: REST | .Net
-
-|Platform |Description |
-|-----|------------|
-|REST | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
-|.NET SDK | .NET wrapper for the REST API for more efficient coding in C# and other managed-code languages targeting the .NET Framework |
-
 ## How to get started
 
 Start with a free service and then create and query an index using sample built-in data. You can use the portal for all tasks, which is a quick way to try out Azure Search before having to write a single line of code.
@@ -111,6 +104,15 @@ Azure subscribers can [provision a service in the Free tier](search-create-servi
 If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
 
 Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
+
+## REST API | .Net SDK
+
+While a number of tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
+
+|Platform |Description |
+|-----|------------|
+|REST | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
+|.NET SDK | .NET wrapper for the REST API for more efficient coding in C# and other managed-code languages targeting the .NET Framework |
 
 ## Watch a short video
 
