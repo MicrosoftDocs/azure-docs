@@ -463,32 +463,36 @@ Don't use ConfigurationManager to retreive configuration values from bolt and sp
 
 The following code demonstrates how to retrieve these values:
 
-    public class MyComponent : ISCPBolt
+```csharp
+public class MyComponent : ISCPBolt
+{
+    // To hold configuration information loaded from context
+    Configuration configuration;
+    ...
+    public MyComponent(Context ctx, Dictionary<string, Object> parms)
     {
-        // To hold configuration information loaded from context
-        Configuration configuration;
-        ...
-        public MyComponent(Context ctx, Dictionary<string, Object> parms)
+        // Save a copy of the context for this component instance
+        this.ctx = ctx;
+        // If it exists, load the configuration for the component
+        if(parms.ContainsKey(Constants.USER_CONFIG))
         {
-            // Save a copy of the context for this component instance
-            this.ctx = ctx;
-            // If it exists, load the configuration for the component
-            if(parms.ContainsKey(Constants.USER_CONFIG))
-            {
-                this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
-            }
-            // Retrieve the value of "Foo" from configuration
-            var foo = this.configuration.AppSettings.Settings["Foo"].Value;
+            this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
         }
-        ...
+        // Retrieve the value of "Foo" from configuration
+        var foo = this.configuration.AppSettings.Settings["Foo"].Value;
     }
+    ...
+}
+```
 
 If you use a `Get` method to return an instance of your component, you must ensure that it passes both the `Context` and `Dictionary<string, Object>` parameters to the constructor. The following example is a basic `Get` method that properly passes these values:
 
-    public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
-    {
-        return new MyComponent(ctx, parms);
-    }
+```csharp
+public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
+{
+    return new MyComponent(ctx, parms);
+}
+```
 
 ## How to update SCP.NET
 
