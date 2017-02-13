@@ -163,7 +163,7 @@ Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceG
 ```
 
 ## How do I create and manage elastic pools using PowerShell?
-For details about creating elastic pools using PowerShell, see [Create a new elastic pool with PowerShell](ql-database-elastic-pool-manage-powershell.md).
+For details about creating elastic pools using PowerShell, see [Create a new elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 For details about managing elastic pools using PowerShell, see [Monitor and manage an elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
