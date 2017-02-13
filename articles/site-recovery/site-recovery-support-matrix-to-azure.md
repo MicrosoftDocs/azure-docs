@@ -174,7 +174,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 **Guest operating system architecture** | 64-bit | Prerequisites check will fail if unsupported
 **Operating system disk size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Operating system disk count** | 1 | Prerequisites check will fail if unsupported.
-**Data disk count** | 16 or less (maximum value is a function of the size of the virtual machine being created. 16 = XL) | Prerequisites check will fail if unsupported
+**Data disk count** | 64 or less | Prerequisites check will fail if unsupported
 **Data disk VHD size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Network adapters** | Multiple adapters are supported |
 **Shared VHD** | Not supported | Prerequisites check will fail if unsupported
