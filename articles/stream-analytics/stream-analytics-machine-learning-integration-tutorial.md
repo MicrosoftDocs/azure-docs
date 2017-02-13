@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/14/2017
 ms.author: jeffstok
-
 ---
+
 # Sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
 This article is designed to help you quickly set up a simple Azure Stream Analytics job, with Azure Machine Learning integration. We will use a sentiment analytics Machine Learning model from the Cortana Intelligence Gallery to analyze streaming text data, and determine the sentiment score in real time. The information in this article can help you understand scenarios such as real-time sentiment analytics on streaming Twitter data, analyze records of customer chats with support staff, and evaluate comments on forums, blogs, and videos, in addition to many other real-time, predictive scoring scenarios.
 
