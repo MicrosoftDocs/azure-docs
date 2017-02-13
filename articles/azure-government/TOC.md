@@ -1,12 +1,11 @@
 # Overview
-## [What is Azure Government?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [What is Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justice and Public Safety](documentation-government-overview-jps.md)
 ## [Department of Defense](documentation-government-overview-dod.md)
 
 # Get Started
-## [Developer guide](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
-## [Developer guide (new)](documentation-government-developer-guide.md)
+## [Developer guide](documentation-government-developer-guide.md)
 ## [Log in to the Azure Government portal](documentation-government-gettingstarted-connect-with-portal.md)
 ## [Provision a web app](documentation-government-howto-deploy-webandmobile.md)
 ## [Connect with PowerShell](documentation-government-gettingstarted-connect-with-ps.md)
@@ -24,7 +23,7 @@
 
 
 # Reference
-## [Images](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Images](documenation-government-image-gallery.md)
 ## [Marketplace](documentation-government-manage-marketplace.md)
 ## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
 
