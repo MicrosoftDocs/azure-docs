@@ -44,7 +44,7 @@ This recommendation applies to the Azure SQL service only; doesn't include SQL r
 ## See also
 This article showed you how to implement the Security Center recommendation "Enable auditing on SQL databases." To learn more about securing your SQL database, see the following:
 
-* [Securing your SQL Database](../sql-database/sql-database-security.md)
+* [Securing your SQL Database](../sql-database/sql-database-security-overview.md)
 
 To learn more about Security Center, see the following:
 
