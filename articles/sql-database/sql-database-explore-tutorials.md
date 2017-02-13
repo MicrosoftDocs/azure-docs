@@ -28,8 +28,8 @@ In the following tutorials, you create servers, databases, and server-level fire
 
 | Tutorial | Description |
 | --- | --- | 
-| [Quick start tutorial: Your first Azure SQL database](sql-database-get-started.md) | When you finish this quick start tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have two server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. Finally, you learn know how to query a database in the Azure portal and to connect and query using SQL Server Management Studio. |
-| [Tutorial: Provision and access an Azure SQL database using PowerShell](sql-database-get-started-powershell.md) | When you finish this tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). |
+| [Your first Azure SQL database](sql-database-get-started.md) | When you finish this quick start tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have two server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. Finally, you learn know how to query a database in the Azure portal and to connect and query using SQL Server Management Studio. |
+| [Provision and access an Azure SQL database using PowerShell](sql-database-get-started-powershell.md) | When you finish this tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). |
 | [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
 |  | |
 
@@ -94,8 +94,12 @@ In the following tutorials, you learn about application and database development
 | --- | --- | 
 | [Create a report using Excel](sql-database-connect-excel.md) |In this tutorial, you learn how to connect Excel to a SQL database in the cloud so you can import data and create tables and charts based on values in the database. |
 | [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) |In this tutorial, you learn how to build an application using SQL Server |
+| [Temporal tables](sql-database-temporal-tables.md) | In this tutorial, you learn about temporal tables.
 | [Use entity framework with elastic tools](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) |In this tutorial, you learn the changes in an Entity Framework application that are needed to integrate with the Elastic Database tools. |
 | [Adopt in-memory OLTP](sql-database-in-memory-oltp-migration.md) | In this tutorial, you learn how to use [in-memory OLTP](sql-database-in-memory.md) to improve the performance of transaction processing. |
+| [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) | In this tutorial, you learn about code first development.
+| [Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) | IN this tutorial, you work with the Tailspon Surveys sample application. |
+| [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample) | In this tutorial, you work with the Contoso Clinic demo application. |
 |  | |
 
 ## Data sync
@@ -105,4 +109,15 @@ In this tutorial, you learn about [Data Sync](http://download.microsoft.com/down
 | --- | --- | 
 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md) |In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
 |  | |
+
+## Monitor and tune
+In the following tutorials, you learn about monitoring and tuning.
+| Tutorial | Description |
+| --- | --- | 
+| [Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools)| In this tutorial, you learn about collecting elastic pool telemetry using PowerShell. |
+| [Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) | In this tutorial, you learn about creating a custom dashboard for monitoring elastic pools. |
+| [Capture extended event to event file target](sql-database-xevent-code-event-file.md)| In this tutorial, you learn to capture extended events to an event target file.|
+| [Capture extended event to ring buffer target](sql-database-xevent-code-ring-buffer.md)| In this tutorial, you learn to capture extended events to an code ring buffer.|
+|  | |
+
 
