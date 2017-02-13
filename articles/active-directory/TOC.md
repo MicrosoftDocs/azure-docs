@@ -137,9 +137,9 @@
 #### Publish on separate networks
 ##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-connectors.md)
-#### [On-premises](application-proxy-working-with-proxy-servers.md)
+#### [Proxy servers](application-proxy-working-with-proxy-servers.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
-#### [SSO for apps](active-directory-appssoaccess-whatis.md)
+#### [Access apps](active-directory-appssoaccess-whatis.md)
 ##### [Azure portal](application-proxy-sso-azure-portal.md)
 #### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
