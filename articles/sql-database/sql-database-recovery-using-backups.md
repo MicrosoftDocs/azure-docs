@@ -116,6 +116,8 @@ Automatic backups protect your databases from user and application errors, accid
 ## Next steps
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-* To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](sql-database-configure-long-term-retention.md)
+* To learn about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md)
+* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-retention-portal.md). 
+* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-retention-portal-powershell.md).
 * To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
 * To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

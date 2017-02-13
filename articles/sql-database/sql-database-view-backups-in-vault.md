@@ -1,3 +1,2 @@
 ---
-redirect_url: /azure/sql-database/sql-database-view-backups-in-vault-portal
---- 
+redirect_url: /azure/sql-database/sql-database-manage-long-term-backup-retention-portal

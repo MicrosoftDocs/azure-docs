@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-long-term-retention-delete-powershell
+redirect_url: /azure/sql-database/sql-database-manage-long-term-backup-retention-powershell
 --- 

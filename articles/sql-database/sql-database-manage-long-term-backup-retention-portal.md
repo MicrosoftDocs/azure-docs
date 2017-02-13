@@ -1,6 +1,6 @@
 ---
-title: 'Azure portal:Configure long-term database backup retention | Microsoft Docs'
-description: Quick reference on how to configure long-term retention of automated Azure SQL database backups in an Azure Recovery Services vault using PowerShell
+title: 'Azure portal:Manage long-term database backup retention | Microsoft Docs'
+description: Quick reference on how to configure, manage, and restore from long-term retention of automated Azure SQL database backups in an Azure Recovery Services vault using the Azure portal
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -15,12 +15,12 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 12/22/2016
-ms.author: carlrab; sstein
+ms.author: carlrab
 
 ---
-# Configure long-term retention of database backups in an Azure Recovery Services vault using the Azure portal
+# Configure, manage, and restore from long-term retention of database backups in an Azure Recovery Services vault using the Azure portal
 
-In this topic, you learn how to configure long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal. You can also perform this task using [PowerShell](sql-database-configure-long-term-retention-powershell.md).
+In this topic, you learn how to configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal. You can also perform this task using [PowerShell](sql-database-configure-long-term-retention-powershell.md).
 
 For more information about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md).
 
@@ -92,12 +92,53 @@ For more information about long-term backup retention, see [Long-term backup ret
 
    ![view recovery services vault](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
+
+## Restore from long-term backup retention using the Azure portal
+
+1. On the **Azure vault backups** blade, click the backup to restore and then click **Select**.
+
+    ![select backup in vault](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+
+2. In the **Database name** text box, provide the name for the restored database.
+
+    ![new database name](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+
+3. Click **OK** to restore your database from the backup in the vault to the new database.
+
+4. On the toolbar, click the notification icon to view the status of the restore job.
+
+    ![restore job progress from vault](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+
+5. When the restore job is completed, open the **SQL databases** blade to view the newly restored database.
+
+    ![restored database from vault](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+
+## View long-term backup retention information using the Azure portal 
+
+1. Open the blade for the Azure Recovery Services vault (go to **All resources** and select it from the list of resources for your subscription) to view the amount of storage used by your database backups in the vault.
+
+   ![view recovery services vault with backups](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault-with-data.png)
+
+2. Open the **SQL database** blade for your database.
+
+    ![new sample db blade](./media/sql-database-get-started/new-sample-db-blade.png)
+
+3. On the toolbar, click **Restore**.
+
+    ![restore toolbar](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+
+4. On the Restore blade, click **Long-term**.
+
+5. Under Azure vault backups, click **Select a backup** to view the available database backups in long-term backup retention.
+
+    ![backups in vault](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+
+> [!TIP]
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
+
 ## Next steps
 
-- To recover a database from a backup in long-term retention using the Azure portal, see [recover from a backup in long-term retention using the Azure portal](sql-database-restore-from-long-term-retention-portal.md)
-- To recover a database from a backup in long-term retention using PowerShell, see [recover from a backup in long-term retention using PowerShell](sql-database-restore-from-long-term-retention-powershell.md)
-- To view backups in the Azure Recovery Services vault, see [view backups in long-term retention](sql-database-view-backups-in-vault.md)
+- To manage backups in long-term backup retention using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 - To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
 - To learn about long-term backup retention, see [long-term backup retention](sql-database-long-term-retention.md)
 - To learn about restoring from backups, see [restore from backup](sql-database-recovery-using-backups.md)
-- To delete long-term retention backups, see [delete long-term retention backups](sql-database-long-term-retention-delete.md)

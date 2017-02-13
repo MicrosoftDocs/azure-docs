@@ -88,4 +88,5 @@ The restore API supports backups stored in the vault as long as the vault is in 
 - To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](sql-database-point-in-time-restore-portal.md).
 - To restore to a point in time using PowerShell, see [restore database to a point in time using PowerShell](sql-database-point-in-time-restore-powershell.md).
 - To view the oldest restore point from the service-generated backups of a database, see [view oldest restore point](sql-database-view-oldest-restore-point.md)
-- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](sql-database-configure-long-term-retention.md)
+- To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-retention-portal.md).
+- To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-retention-portal-powershell.md).

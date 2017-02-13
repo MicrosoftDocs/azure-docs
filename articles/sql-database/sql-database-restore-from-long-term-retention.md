@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-restore-from-long-term-retention
+redirect_url: /azure/sql-database/sql-database-manage-long-term-backup-retention-portal
 --- 
