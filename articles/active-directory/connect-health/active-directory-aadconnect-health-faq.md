@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/12/2017
 ms.author: billmath
 ---
 # Azure AD Connect Health Frequently Asked Questions (FAQ)
@@ -29,9 +29,9 @@ The following table lists the roles and supported Operating System versions.
 
 |Role| Operating System / Version|
 |--|--|
-|AD FS| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012R2 </li> <li> Windows Server 2016  </li> </ul>|
+|AD FS| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 |Azure AD Connect | Version 1.0.9125 or higher.|
-|AD DS| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012R2 </li> <li> Windows Server 2016  </li> </ul>|
+|AD DS| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
 Note that the features provided by the service may differ based on the Role and the Operating System. In other words, all the features may not be available for all OS versions. See the feature descriptions for details.
 

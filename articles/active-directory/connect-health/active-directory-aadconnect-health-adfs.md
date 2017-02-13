@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/12/2017
 ms.author: vakarand
 
 ---
@@ -32,7 +32,7 @@ By selecting an alert you will be provided with additional information as well a
 ### Limited Evaluation of Alerts
 If Azure AD Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Azure AD Connect Health agent will not upload the error events related to Azure AD Connect.
 
-This limits the evaluation of alerts by the service. You'd will see a banner that indicates this condition in the Azure Portal under your service.
+This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the Azure Portal under your service.
 
 ![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/banner.png)
 
