@@ -1,19 +1,19 @@
 ---
 title: Troubleshooting Azure Diagnostics
 description: 'Troubleshoot problems when using Azure diagnostics in Azure Cloud Services, Virtual Machines and '
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 2/09/2017
 ms.author: robb
 
 ---
@@ -26,13 +26,13 @@ Diagnostics is comprised of two components: A guest agent plugin and the monitor
 In a Cloud Service role, log files for the guest agent plugin are located in:
 
 ```
-C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.6.3.0\
+C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.7.4.0\
 ```
 
 In an Azure Virtual Machine, log files for the guest agent plugin are located in:
 
 ```
-C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.6.3.0\Logs\
+C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.7.4.0\Logs\
 ```
 
 The last line of the log files will contain the exit code.  
@@ -58,7 +58,7 @@ The plugin returns the following exit codes:
 | -103 |The plugin process is unable to initialize itself. Specifically it is unable to create the logger object.<p><p>Solution: Verify that sufficient system resources are available to launch new processes. |
 | -104 |Unable to load the rcf file provided by the guest agent.<p><p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM. |
 | -105 |The Diagnostics plugin cannot open the Diagnostics configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked, incorrectly, on the VM. |
-| -106 |Cannot read the Diagnostics configuration file.<p><p>Solution: This is the result of a configuration file not passing schema validation. So the solution is to provide a configuration file that complies with the schema. You can find the XML that is delivered to the Diagnostics extension in the folder *%SystemDrive%\WindowsAzure\Config* on the VM. Open the appropriate XML file and search for **Microsoft.Azure.Diagnostics**, then for the **xmlCfg** field. The data is base64 encoded so you’ll need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.<p> |
+| -106 |Cannot read the Diagnostics configuration file.<p><p>Solution: This is the result of a configuration file not passing schema validation. So the solution is to provide a configuration file that complies with the schema. For Azure Virtual Machine, you can find the configuration that is delivered to the Diagnostics extension in the folder *%SystemDrive%\WindowsAzure\Config* on the VM. Open the appropriate XML file and search for **Microsoft.Azure.Diagnostics**, then for the **xmlCfg** or **WadCfg** field. If the WadCfg field is present, it means the config is in JSON. If the xmlCfg field is present, it means the config is in XML and is base64 encoded, so you’ll need to decode it to see the XML that was loaded by Diagnostics. For Cloud Service role, you can find the configuration that is delivered to the Diagnostics extension at C:\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.7.4.0\config.txt on the VM. The data is base64 encoded so you’ll need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.<p> |
 | -107 |The resource directory pass to the monitoring agent is invalid.<p><p>This is an internal error that should only happen if the monitoring agent is manually invoked, incorrectly, on the VM.</p> |
 | -108 |Unable to convert the Diagnostics configuration file into the monitoring agent configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file. |
 | -110 |General Diagnostics configuration error.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file. |
