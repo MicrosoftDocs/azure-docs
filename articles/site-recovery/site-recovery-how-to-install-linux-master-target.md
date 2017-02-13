@@ -168,19 +168,19 @@ machine is running”. In order to make this tab active, shutdown machine.
 
 e. See whether already a row with **disk.EnableUUID** exists?
 
-	* If exists and if the value is set to False over write the value with True (True and False values are case in-sensitive).
+	1. If the value exists and if the value is set to False over write the value with True (True and False values are case in-sensitive).
 
-	* If exists and is set to true, click on cancel and test the SCSI command inside guest operating system after it is boot-up.
+	2. If exists and is set to true, click on cancel
+	
+	3. If does not exist click **Add Row.**
 
-f. If does not exist click **Add Row.**
+	4. Add disk.EnableUUID in the Name column.
 
-	* Add disk.EnableUUID in the Name column.
+		* Set its value as TRUE
 
-	* Set its value as TRUE
+	NOTE: Do not add the above values along with double-quotes.
 
-NOTE: Do not add the above values along with double-quotes.
-
-![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
 #### Download and Install the Additional Packages
 
@@ -231,7 +231,6 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 > If source protected machines use Reiser or XFS filesystem for the root or boot device, then following additional packages should be 
 download and installed on Linux Master Target prior to the protection.
 > 
-NOTE: 
 
 ***ReiserFS (If used in Suse11SP3. However, ReiserFS is not the default filesystem in Suse11SP3)***
 
@@ -274,7 +273,7 @@ Download the latest Linux Master Target installation bits from here - [https://a
 To download it via your linux, type 
 
 ```
-	wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
+wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 ```
 
 Make sure you download and unzip the installer in your home directory only. If you unzip in into /usr/Local then the installation will fail.
@@ -324,14 +323,14 @@ multipath id.
 	multipath -ll
 	```
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
 3. Format the drive and create a filesystem on the new drive. 
 	
 	```
 	mkfs.ext4 /dev/mapper/<Retention disk's multipath id>
 	```
-![](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
+	![](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
 
 4. Once done with filesystem creation, mount the retention disk.
 	```
@@ -345,11 +344,11 @@ multipath id.
 	```
 	vi /etc/fstab 
 	```
-Press [Insert] to begin editing the file. Create a new line and insert the below text in it.
+	Press [Insert] to begin editing the file. Create a new line and insert the below text in it.
 
-**/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+	**/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
-Press [Esc] and type :wq (write and quit) to close the editor window.
+	Press [Esc] and type :wq (write and quit) to close the editor window.
 
 ### Install Master Target
 
@@ -365,7 +364,7 @@ Before installing the master target server, check that the /etc/hosts file on th
 	```
 	echo <passphrase> >passphrase.txt
 	```
-Example: echo itUx70I47uxDuUVY >passphrase.txt
+	Example: echo itUx70I47uxDuUVY >passphrase.txt
 
 2. Note down the Configuration server's IP address. We will need it in the next step
 
@@ -375,9 +374,9 @@ Example: echo itUx70I47uxDuUVY >passphrase.txt
 	./install -t both -a host -R MasterTarget -d /usr/local/ASR -i <Configuration Server IP Address> -p 443 -s y -c https -P passphrase.txt
 	```
 
-Example: ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
+	Example: ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
 
-Wait til the script completes execution. If the Master Target is successfully registered, you can see the MT listed in the Site Recovery Infrastructure page on the portal.
+	Wait til the script completes execution. If the Master Target is successfully registered, you can see the MT listed in the Site Recovery Infrastructure page on the portal.
 
 #### Installing Master Target using interactive install
 
