@@ -144,14 +144,12 @@ include this part as a sub resource of your web app
 in your deployment template:
 
 ```
-"resources" : [
+"resources": [
     {
         "apiVersion": "2015-08-01",
         "name": "web",
         "type": "config",
-        "dependsOn": [
-				"[concat('Microsoft.Web/sites/','parameters('webAppName'))]"
-        ],
+        "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
         "properties": {
             "siteAuthEnabled": true,
             "siteAuthSettings": {
@@ -170,7 +168,7 @@ click **Deploy to Azure**:
 [![Deploy to Azure](media/logic-apps-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 For the complete template, see 
-[Logic app calls into a custom API hosted on App Service and protected by AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
+[Logic app calls into a custom API hosted on App Service and protected by Azure Active Directory](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
 ### Part 3: Populate the Authorization section in your logic app
 
