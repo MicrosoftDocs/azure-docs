@@ -70,7 +70,7 @@ To enable users to sign in using their organization account, you must manually c
 
   ![Configuring automatic user provisioning in the Azure portal](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
 
-After a guest or member user has been set up in the Dropbox app, he or she receives a separate invitation from Dropbox. To use Dropbox single sign-on, the invitee must accept the invitation by clicking a link in it.
+After guest or member users have been set up in the Dropbox app, they receive a separate invitation from Dropbox. To use Dropbox single sign-on, invitees must accept the invitation by clicking a link in it.
 
 ## Box
 You can enable users to authenticate Box guest users with their Azure AD account by using federation that's based on the SAML protocol. In this procedure, you upload metadata to Box.com.
