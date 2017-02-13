@@ -20,9 +20,9 @@ ms.author: heidist
 
 Azure Search offers a dedicated and programmable search engine with intelligent search behaviors to power the search bar for content on your website, in your apps, and in corporate file or data stores. 
 
-![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-poweredby-azsearch.png)
+![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch.png)
 
-Auto-correct and auto-complete, synonyms and suggestions, tuned ranking and sorting, built-in navigation and paging support: intuitive search, typical of large online retailers and commercial web search engines, can be replicated in custom apps with Azure Search.
+Auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support: all of these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
 
 ![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts2.png)
 
@@ -41,20 +41,20 @@ Azure Search runs in the cloud as a managed service from Microsoft, and is easil
 
 |Platform |Description |
 |-----|------------|
-|REST | HTTP commands supported by any programming platform and language|
+|REST | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
 |.NET SDK | .NET wrapper for the REST API for more efficient coding in C# and other managed-code languages targeting the .NET Framework |
 
 ## How it compares
 
 Google, Bing, and other cloud service providers offer custom search engines with features that power a search bar in custom apps. Most vendors offer comparable baseline features. Typically, its a specialized feature, or the ease and simplicity of APIs, tools, and management that determines the best fit.
 
-In the context of features, Azure Search is differentiated by deep integration with other Azure services. Developers already using Azure App services or other Microsoft products find it easy to incrementally add additional capability like search into custom apps running on Microsoft's cloud platform.
+In a discussion of features, Azure Search is differentiated by deep integration with other Azure services. Developers already using Azure App services or other Microsoft products find it easy to incrementally add additional capability like search into custom apps running on Microsoft's cloud platform.
 
-The Azure portal offers centralized oversight for all services. You can monitor and scale your service easily. Wizards and query exploration provide tooling for data import and simple testing and validation.
+The Azure portal offers centralized oversight for all services. You can monitor and scale your service in the same tool used to manage all of your cloud services. In Azure Search wizards and query exploration provide tooling for data import and simple testing and validation.
 
 At the data layer, there is automated indexing on Azure table storage, blob storage, DocumentDB, SQL Database, SQL Server on Azure VMs. You have full programmatic control over data ingestion. Synchronization between search and inventory databases, for example during Black Friday or Cyber Monday sales, is a business requirement that's not easily met by every vendor.
 
-A common question is why does Azure Search store its own copy of your searchable content. Storing data in the cloud offers the most reliable and high performance throughput, with no impact on transactional data stores. You only store searchable data such as text and numeric data that users search for. It is rare to store fully redundant copies of existing data.
+A common question is why does Azure Search store its own copy of your searchable content. Storing data in the cloud offers the most reliable and high performance throughput, with no impact on transactional data stores. You only store searchable data such as text and numeric data that users search for. It is rare to store a fully redundant copy of existing data.
 
 ## Feature summary
 
@@ -104,7 +104,7 @@ Queries can be formulated using the [simple query syntax](https://msdn.microsoft
 
 ## How to get started
 
-Start with a free service and then create and query an index using sample built-in data. You can use the portal for all tasks, which is an easy to try it out before having to write a single line of code.
+Start with a free service and then create and query an index using sample built-in data. You can use the portal for all tasks, which is a quick way to try out Azure Search before having to write a single line of code.
 
 Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
 
@@ -116,5 +116,5 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 Search engines are the preeminent methodology for finding information on mobile apps, on the web, and in corporate data stores.  
 
-Watch this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138) Channel9, 9 minute video) from program manager, Liam Cavanagh for a visual introduction into Azure Search. The first three minutes are an Azure Search overview, followed by code demonstrations.
+Watch this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138) (Channel9, 9 minute video) from program manager, Liam Cavanagh for a visual introduction into how Azure Search can meet your serach requirements. The first three minutes cover important features and search scenarios, followed by code demonstrations.
 
