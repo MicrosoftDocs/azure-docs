@@ -20,9 +20,9 @@ ms.author: heidist
 
 Azure Search offers a dedicated and programmable search engine with intelligent search behaviors to power the search bar for content on your website, in your apps, and in corporate file or data stores. 
 
-![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch.png)
+![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch3.png)
 
-Auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support: these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
+Auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support - these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
 
 ![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -39,11 +39,11 @@ Azure Search runs in the cloud as a managed service from Microsoft, and can be i
 
 ## How it compares
 
-Google, Bing, and other cloud service providers offer custom search engines with features that power a search bar in custom apps. Most vendors offer comparable baseline features. Typically, it's a specialized feature, or the ease and simplicity of APIs, tools, and management that determines the best fit.
+Google, Bing, and other cloud service providers offer custom search engines with features that power a search bar in custom apps. Many vendors offer comparable baseline features. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
-In a discussion of features, Azure Search is differentiated by deep integration with other Azure services. Developers already using Azure App services or other Microsoft products find it easy to incrementally add additional capability like search into custom apps running on Microsoft's cloud platform.
+In a discussion of features, Azure Search is differentiated by deep integration with other Azure services. Developers already using Azure App Service or other Microsoft services and products find it easy to incrementally add additional capability like search into custom apps running on Microsoft's cloud platform.
 
-The Azure portal offers centralized oversight for all services. You can monitor and scale your service in the same tool used to manage all of your cloud services. In Azure Search, wizards and query exploration provide tooling for data import and simple testing and validation.
+The Azure portal offers centralized oversight for all services. You can monitor and scale your service in the same tool used to manage all of your cloud services. In Azure Search, the index designer, Import Data wizard, and Search Explorer enable fast prototyping, testing, and query validation without code.
 
 At the data layer, there is automated indexing on Azure table storage, blob storage, DocumentDB, SQL Database, SQL Server on Azure VMs. You have full programmatic control over data ingestion. Synchronization between search and inventory databases, for example during Black Friday or Cyber Monday sales, is a business requirement that's not easily met by every vendor.
 
@@ -60,7 +60,7 @@ Azure Search offers the advantages of a cloud solution, but customers often choo
 + Geo-search support for find-near-me searches.
 + Scoring profiles and field boosting to tune search rankings based on business logic or context.
 
-### Feature drilldown
+### <a name="feature-drilldown"></a>Feature drilldown
 
 **Query Features** 
 Queries can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports custom lexical analyzers to allow your application to handle complex search queries using phonetic matching and regular expressions.
@@ -105,14 +105,14 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 
 Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
 
-## REST API | .Net SDK
+### REST API | .Net SDK
 
 While a number of tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
 
 |Platform |Description |
 |-----|------------|
 |REST | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
-|.NET SDK | .NET wrapper for the REST API for more efficient coding in C# and other managed-code languages targeting the .NET Framework |
+|.NET SDK | .NET wrapper for the REST API offers efficient coding in C# and other managed-code languages targeting the .NET Framework |
 
 ## Watch a short video
 
