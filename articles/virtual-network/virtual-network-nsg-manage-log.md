@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/31/2017
 ms.author: jdial
 
 ---
@@ -112,4 +112,4 @@ This log contains information about each rule applied to resources. The followin
 
 ## View and analyze logs
 
-To learn how to view activity log data, read the [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article. To learn how to view diagnostic log data, read the [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article. If you send diagnostics data to Log Analytics, you can use the [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md#use-azure-networking-analytics) (preview) solution for enhanced insights. 
+To learn how to view activity log data, read the [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article. To learn how to view diagnostic log data, read the [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article. If you send diagnostics data to Log Analytics, you can use the [Azure Networ Security Group analytics](../log-analytics/log-analytics-azure-networking-analytics.md) (preview) management solution for enhanced insights. 

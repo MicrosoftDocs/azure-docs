@@ -13,17 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 
 ---
 # Use Ambari Views to debug Tez Jobs on HDInsight
 The Ambari Web UI for HDInsight contains a Tez view that can be used to understand and debug jobs that use Tez as the execution engine. The Tez view allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
-> [!NOTE]
-> The information in this document is specific to Linux-based HDInsight clusters. For information on debugging Tez jobs using Windows-based HDInsight, see [Use the Tez UI to debug Tez jobs on Windows-based HDInsight](hdinsight-debug-tez-ui.md).
-> 
-> 
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 * A Linux-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).

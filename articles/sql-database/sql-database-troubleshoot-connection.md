@@ -4,7 +4,7 @@ description: Troubleshoot the database on server is not currently available erro
 services: sql-database
 documentationcenter: ''
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: ''
 keywords: database on server is not currently available, connect to sql database
 
@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 01/20/2017
 ms.author: daleche
 
 ---

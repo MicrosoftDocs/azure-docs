@@ -1,5 +1,5 @@
 ---
-title: Using the Kubernetes Web UI in Azure Container Service | Microsoft Docs
+title: Manage Azure Kubernetes cluster with web UI | Microsoft Docs
 description: Using the Kubernetes Web UI in Azure Container Service
 services: container-service
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: bburns
 
 ---
 
-# Microsoft Azure Container Service Engine - Using the Kubernetes Web UI
+# Using the Kubernetes Web UI with Azure Container Service
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).

@@ -1,5 +1,5 @@
 ---
-title: Create a secure Service Fabric cluster by using Azure Resource Manager | Microsoft Docs
+title: Create an Azure Service Fabric cluster from a template | Microsoft Docs
 description: This article describes how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
 services: service-fabric
 documentationcenter: .net

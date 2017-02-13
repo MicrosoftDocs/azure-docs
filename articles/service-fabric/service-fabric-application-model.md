@@ -207,6 +207,13 @@ To create a package, right-click the application project in Solution Explorer an
 
 When packaging is complete, you will find the location of the package in the **Output** window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
+### Build a package by command line
+It is also possible to programmatically package up your application using `msbuild.exe`. Under the hood this is what Visual Studio is running so the output will be the same.
+
+```shell
+D:\Temp> msbuild HelloWorld.sfproj /t:Package
+```
+
 ### Test the package
 You can verify the package structure locally through PowerShell by using the **Test-ServiceFabricApplicationPackage** command. This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
 

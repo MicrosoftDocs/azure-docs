@@ -26,7 +26,7 @@ Operations Management Suite (OMS) provides monitoring, alerting, and alert remed
 
 ## Prerequisites
 
-### Operating System
+### Operating system
 
 The OMS Agent extension can be run against these Linux distributions.
 
@@ -39,7 +39,7 @@ The OMS Agent extension can be run against these Linux distributions.
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
 | SUSE Linux Enterprise Server | 11 and 12 |
 
-### Internet Connectivity
+### Internet connectivity
 
 The OMS Agent extension for Linux requires that the target virtual machine is connected to the internet. 
 

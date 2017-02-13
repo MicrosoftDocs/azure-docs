@@ -1,6 +1,6 @@
 ---
-title: Use Azure Resource Manager templates in Azure Stack (tenant developers) | Microsoft Docs
-description: Learn how to use Azure Resource Manager templates in Azure Stack to deploy and provision all of the resources for your application in a single, coordinated operation.
+title: Use Azure Resource Manager templates in Azure Stack | Microsoft Docs
+description: Learn how to use Azure Resource Manager templates in Azure Stack to provision resources.
 services: azure-stack
 documentationcenter: ''
 author: heathl17
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/7/2016
+ms.date: 01/23/2017
 ms.author: helaw
 
 ---

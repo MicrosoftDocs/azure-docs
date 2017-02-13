@@ -1,5 +1,5 @@
 ---
-title: Service Fabric terminology overview | Microsoft Docs
+title: Learn Azure Service Fabric terminology | Microsoft Docs
 description: A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation.
 services: service-fabric
 documentationcenter: .net

@@ -1,6 +1,6 @@
 ---
-title: Patterns for Resource Manager templates | Microsoft Docs
-description: Show design patterns for Azure Resource Manager templates
+title: Design Azure templates for complex solutions | Microsoft Docs
+description: Shows best practices for designing Azure Resource Manager templates for complex scenarios
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -17,7 +17,7 @@ ms.date: 12/19/2016
 ms.author: tomfitz
 
 ---
-# Patterns for designing Azure Resource Manager templates
+# Design patterns for Azure Resource Manager templates when deploying complex solutions
 Using a flexible approach based on Azure Resource Manager templates, you can deploy complex topologies quickly and consistently. You can adapt these deployments easily as core offerings evolve or to accommodate variants for outlier scenarios or customers.
 
 This topic is part of a larger whitepaper. To read the full paper, download [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).

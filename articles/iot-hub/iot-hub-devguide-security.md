@@ -132,7 +132,7 @@ Here are the expected values:
 The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
     var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
-        resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
+        resourceUri = encodeURIComponent(resourceUri);
 
         // Set expiration in seconds
         var expires = (Date.now() / 1000) + expiresInMins * 60;
@@ -418,7 +418,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
-[lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: iot-hub-protocol-gateway.md
 [lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-authentication
@@ -428,7 +428,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

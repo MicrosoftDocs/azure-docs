@@ -1,5 +1,5 @@
 ---
-title: Use BI tools with Apache Spark on HDInsight | Microsoft Docs
+title: Use BI tools with Apache Spark on Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to use notebooks with Apache Spark to create schemas on raw data, save them as Hive tables, and then use BI tools on the Hive table for data analytics
 services: hdinsight
 documentationcenter: ''
@@ -18,7 +18,8 @@ ms.date: 01/06/2017
 ms.author: nitinme
 
 ---
-# Use BI tools with Apache Spark cluster on HDInsight Linux
+# Use BI tools with Apache Spark cluster on Azure HDInsight
+
 Learn how to use Apache Spark in Azure HDInsight to do the following:
 
 * Take raw sample data and save it as a Hive table
@@ -31,7 +32,7 @@ This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * A computer with Microsoft Spark ODBC driver installed (required for Spark on HDInsight to work with Tableau). You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
 * BI tools such as [Power BI](http://www.powerbi.com/) or [Tableau Desktop](http://www.tableau.com/products/desktop). You can get a free preview subscription of Power BI from [http://www.powerbi.com/](http://www.powerbi.com/).
 
@@ -78,7 +79,7 @@ Once your data is saved as a Hive table, in the next section we will connect to 
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-1. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+1. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
         %%sql
         SHOW TABLES

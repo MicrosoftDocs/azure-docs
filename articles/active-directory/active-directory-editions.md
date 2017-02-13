@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -374,7 +374,7 @@ In addition to the generally available features of the Free, Basic, and Premium 
 * [Certificate-based authentication on iOS](active-directory-certificate-based-authentication-ios.md)
 * [Certificate-based authentication on Android](active-directory-certificate-based-authentication-android.md)
 
-## What's next
+## Next steps
 * [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)

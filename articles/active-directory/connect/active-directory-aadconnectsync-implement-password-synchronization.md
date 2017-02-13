@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
-ms.author: markvi;andkjell
+ms.date: 01/13/2017
+ms.author: markvi
 
 ---
 # Implementing password synchronization with Azure AD Connect sync
@@ -159,6 +159,7 @@ If it looks correct in Active Directory, then the next step is to follow the use
     ![Connector space properties of a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
 8. To see the password sync details of the object for the past week, click **Log...**.  
     ![Object log details](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
+    If the object log is empty, then Azure AD Connect has not been able to read the password hash from Active Directory. Look into the eventlog for errors.
 
 The status column can have the following values:
 
@@ -177,6 +178,10 @@ Start by running the script in the section [Get the status of password sync sett
 If the feature is not enabled in Azure AD or if the sync channel status is not enabled, then run the Connect installation wizard. Select **Customize synchronization options** and unselect password sync. This change temporarily disables the feature. Then run the wizard again and re-enable password sync. Run the script again to verify that the configuration is correct.
 
 If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). This script can also be used for other scenarios where the configuration is correct but passwords are not synchronized.
+
+If you installed Azure AD Connect with customized settings, make sure you have granted the account used by the AD Connector the permissions "Replicate Directory Changes" and "Replicate Directory Changes All". See [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) for all permissions needed by this account. Without those permissions, the account will not have permissions to read password hashes in Active Directory.
+
+Then look into the application eventlog. If there is a global problem with password synchronization and the service is operational, as verified by the previous steps, there should be an error with more details.
 
 #### Get the status of password sync settings
 ```

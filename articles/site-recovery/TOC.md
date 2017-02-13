@@ -26,6 +26,7 @@
 ### [Hyper-V VMs to secondary site with SAN](site-recovery-vmm-san.md)
 ### [Hyper-V VMs with single VMM server](site-recovery-single-vmm.md)
 ## Migrate
+### [Migrate to Azure](site-recovery-migrate-to-azure.md)
 ### [Migrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
 ### [AWS Windows instances to Azure](site-recovery-migrate-aws-to-azure.md)
 ## Workloads

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 02/07/2017
 ms.author: billmath
 
 ---
@@ -139,7 +139,10 @@ In order to work around this the AD FS relying party trust for Microsoft Online 
 
 The following claim will do this:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
+    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+
+[!NOTE]
+The last number in the regular expression set the how many parent domains there is in your root domain. Here i have bmcontoso.com so two parent domains are necessary. If three parent domains were to be kept (i.e.: corp.bmcontoso.com), then the number would have been three. Eventualy a range can be indicated, the match will always be made to match the maximum of domains. "{2,3}" will match two to three domains (i.e.: bmfabrikam.com and corp.bmcontoso.com).
 
 Use the following steps to add a custom claim to support sub-domains.
 
@@ -153,7 +156,7 @@ Use the following steps to add a custom claim to support sub-domains.
    
        with
    
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
+        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
     ![Replace claim](./media/active-directory-multiple-domains/sub2.png)
 

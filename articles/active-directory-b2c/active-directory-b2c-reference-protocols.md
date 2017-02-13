@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---
@@ -62,4 +62,5 @@ When you're ready to review some example requests, you can start with one of the
 
 * [Build mobile and native applications by using OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 * [Build web apps by using OpenID Connect](active-directory-b2c-reference-oidc.md)
+* [Build single-page apps using the OAuth 2.0 implicit flow](active-directory-b2c-reference-spa.md)
 

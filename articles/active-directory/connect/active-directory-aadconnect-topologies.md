@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect: Supported topologies | Microsoft Docs'
 description: This topic details supported and unsupported topologies for Azure AD Connect
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -59,7 +59,7 @@ The default configuration in Azure AD Connect sync assumes:
 1. Users have only one enabled account and the forest where this account is located is used to authenticate the user. This assumption is for both password sync and for federation. UserPrincipalName and sourceAnchor/immutableID come from this forest.
 2. Users have only one mailbox.
 3. The forest that hosts the mailbox for a user has the best data quality for attributes visible in the Exchange Global Address List (GAL). If there is no mailbox on the user, then any forest can be used to contribute these attribute values.
-4. If you have a linked mailbox, then there is also another account in a  different forest used for sign in.
+4. If you have a linked mailbox, then there is also another account in a different forest used for sign in.
 
 If your environment does not match these assumptions, the following happens:
 
@@ -118,10 +118,11 @@ In this scenario one (or more) **resource forest** trusts all **account forests*
 ## Office 365 and topology considerations
 Some Office 365 workloads have certain restrictions to supported topologies. If you plan to use any of these, then read the supported topologies topic for the workload.
 
-| Workload |
-| --- | --- |
-| Exchange Online |
-| Skype for Business |
+| Workload |  |
+--------- | ---------
+| Exchange Online | If there is more than one Exchange organization on-premises (i.e. Exchange has been deployed to more than one forest) then you must use Exchange 2013 SP1 or later. Details can be found here: [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx) |
+| Skype for Business | When using multiple forests on-premises then only the account-resource forest topology is supported. Details for supported topologies can be found here: [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx) |
+
 
 ## Staging server
 ![Staging Server](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -138,9 +139,9 @@ It is possible to have more than one staging server when you want to have multip
 Microsoft recommends having a single tenant in Azure AD for an organization.
 Before you plan to use multiple Azure AD tenants, these topics cover common scenarios allowing you to use a single tenant.
 
-| Topic |
-| --- | --- |
-| Delegation using administrative units |
+| Topic |  |
+| --------- | --------- |
+| Delegation using administrative units | [Administrative units management in Azure AD ](../active-directory-administrative-units-management.md) |
 
 ![Multi Forest Multi tenant](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -157,6 +158,7 @@ This topology has the following restrictions to otherwise supported scenarios:
 
 * Only one of the Azure AD tenants can enable Exchange hybrid with the on-premises Active Directory.
 * Windows 10 devices can only be associated with one Azure AD tenant.
+* The SSO option for password synchronization and pass-through authentication can only be used with one Azure AD tenant.
 
 The requirement for mutually exclusive set of objects also applies to writeback. Some writeback features are not supported with this topology since these features assume a single configuration on-premises:
 
@@ -189,4 +191,3 @@ To learn how to install Azure AD Connect for these scenarios, see [Custom instal
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-

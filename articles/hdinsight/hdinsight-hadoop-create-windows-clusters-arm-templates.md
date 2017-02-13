@@ -1,6 +1,6 @@
 ---
-title: Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager templates | Microsoft Docs
-description: Learn how to create clusters for Azure HDInsight using Azure Resource Manager templates.
+title: Create Windows-based Azure HDInsight (Hadoop) using templates | Microsoft Docs
+description: Learn how to create Windows-based clusters in Azure HDInsight using Azure Resource Manager templates.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -14,14 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 01/17/2017
 ms.author: jgao
 
 ---
 # Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager templates
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Learn how to create HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create Windows-based HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). 
+
+The information in this article only applies to Window-based HDInsight clusters. For information on creating Linux-based clusters, see [Create Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 
 ## Prerequisites:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -137,7 +144,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).
 
 ## Appx-A: Resource Manager template
-The following Azure Resource Manger template creates a Windows-based Hadoop cluster with the dependent Azure storage account.
+The following Azure Resource Manager template creates a Windows-based Hadoop cluster with the dependent Azure storage account.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

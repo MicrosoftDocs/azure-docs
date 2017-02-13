@@ -35,6 +35,9 @@ In this document, you will learn how to create a basic C# Storm topology that tr
 
 * Apache HBase on HDInsight cluster (Linux or Windows-based). This is the data store for this example.
 
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [Java](https://java.com) 1.7 or greater on your development environment. Java is used to package the topology when it is submitted to the HDInsight cluster.
 
   * The **JAVA_HOME** environment variable must point to the directory that contains Java.

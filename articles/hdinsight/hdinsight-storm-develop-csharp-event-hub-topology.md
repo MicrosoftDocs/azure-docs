@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2017
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
@@ -26,14 +26,26 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 * **EventHubWriter**: Randomly generates data and writes it to Event Hubs
 * **EventHubReader**: Reads data from Event Hubs and logs the data to the Storm logs
 
-> [!NOTE]
-> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.__
-> 
-> To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
-> 
-> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
-> 
-> For a Java version of this project, which will also work on a Linux-based or Windows-based cluster, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+> [!NOTE] 
+> For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+
+## SCP.NET
+
+These projects use SCP.NET, a NuGet package that makes it easy to create C# topologies and components for use with Storm on HDInsight.
+
+> [!IMPORTANT]
+> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to a Storm on HDInsight cluster that uses Linux. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.__
+
+### Cluster versioning
+
+The Microsoft.SCP.Net.SDK NuGet package used by your project must match the major version of Storm installed on HDInsight. Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, so you must use SCP.NET version 0.10.x.x with these clusters. HDInsight 3.5 uses Storm 1.0.x., so you must use SCP.NET version 1.0.x.x with this cluster version.
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
+HDInsight 3.4 and greater use Mono to run C# topologies. Most things will work with Mono, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
+
+C# topologies must also target .NET 4.5.
 
 ## How to work with Event Hubs
 

@@ -31,7 +31,7 @@ This topic explains how to use Azure PowerShell with Resource Manager templates 
 > [!TIP]
 > For help with debugging an error during deployment, see:
 > 
-> * [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) to learn about getting information that helps you troubleshoot your error
+> * [View deployment operations](resource-manager-deployment-operations.md) to learn about getting information that helps you troubleshoot your error
 > * [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 > 
 > 
@@ -101,7 +101,7 @@ These commands create a resource group, and deploy a template to that resource g
    
      The preceding two examples do not include parameter values. You learn about the options for passing parameter values in the [Parameters](#parameters) section. For now, you are prompted to provide parameter values with the following syntax:
 
-   ```poweshell  
+   ```powershell  
    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
    Supply values for the following parameters:
    (Type !? for Help.)
@@ -110,7 +110,7 @@ These commands create a resource group, and deploy a template to that resource g
      
      After the resources have been deployed, you see a summary of the deployment. The summary includes a **ProvisioningState**, which indicates whether the deployment succeeded.
 
-   ```poweshell   
+   ```powershell   
    DeploymentName    : ExampleDeployment
    ResourceGroupName : ExampleResourceGroup
    ProvisioningState : Succeeded
@@ -124,7 +124,7 @@ These commands create a resource group, and deploy a template to that resource g
    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
    ```
    
-     For more information about using this debugging content to troubleshoot deployments, see [Troubleshooting resource group deployments with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     For more information about using this debugging content to troubleshoot deployments, see [View deployment operations](resource-manager-deployment-operations.md).
 
 ## Deploy private template with SAS token
 You can add your templates to a storage account and link to them during deployment with a SAS token.
@@ -190,7 +190,7 @@ You have the following options for providing parameter values:
    
 - Inline parameters. Include individual parameter names in the cmdlet (for example, **-myParameterName**.)
 
-   ```poweshell   
+   ```powershell   
    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
    ```
 - Parameter object. Include the **-TemplateParameterObject** parameter.
