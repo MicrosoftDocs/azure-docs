@@ -20,7 +20,7 @@ ms.author: heidist
 
 Azure Search offers a dedicated and programmable search engine with intelligent search behaviors to power the search bar for content on your website, in your apps, and in corporate file or data stores. 
 
-![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch.png)
+![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch2.png)
 
 Auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support: all of these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
 
@@ -37,13 +37,6 @@ To use Azure Search, provision a free or paid service in your Azure subscription
 
 Azure Search runs in the cloud as a managed service from Microsoft, and is easily integrated with custom code on any application platform. Your fully-managed service and private content is globally available, programmable, scalable, and recoverable. Services run 24-7 with service level agreements backed by Microsoft Azure.
 
-## APIs: .Net | REST
-
-|Platform |Description |
-|-----|------------|
-|REST | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
-|.NET SDK | .NET wrapper for the REST API for more efficient coding in C# and other managed-code languages targeting the .NET Framework |
-
 ## How it compares
 
 Google, Bing, and other cloud service providers offer custom search engines with features that power a search bar in custom apps. Most vendors offer comparable baseline features. Typically, its a specialized feature, or the ease and simplicity of APIs, tools, and management that determines the best fit.
@@ -56,7 +49,7 @@ At the data layer, there is automated indexing on Azure table storage, blob stor
 
 A common question is why does Azure Search store its own copy of your searchable content. Storing data in the cloud offers the most reliable and high performance throughput, with no impact on transactional data stores. You only store searchable data such as text and numeric data that users search for. It is rare to store a fully redundant copy of existing data.
 
-## Feature summary
+### Feature summary
 
 Azure Search offers the advantages of a cloud solution, but customers often choose it for efficiency of its APIs and breadth of features:
 
@@ -67,7 +60,7 @@ Azure Search offers the advantages of a cloud solution, but customers often choo
 + Geo-search support for find-near-me searches.
 + Scoring profiles and field boosting to tune search rankings based on business logic or context.
 
-## Feature drilldown
+### Feature drilldown
 
 **Query Features** 
 Queries can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports custom lexical analyzers to allow your application to handle complex search queries using phonetic matching and regular expressions.
@@ -101,6 +94,13 @@ Queries can be formulated using the [simple query syntax](https://msdn.microsoft
 **Paging** and throttling your search results is [straightforward with the finely tuned control](search-pagination-page-layout.md) that Azure Search offers over your search results.  
 
 **Search explorer** allows you to issue queries against all of your indexes right from your account's Azure portal so you can easily test queries and refine scoring profiles.
+
+## APIs: REST | .Net
+
+|Platform |Description |
+|-----|------------|
+|REST | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
+|.NET SDK | .NET wrapper for the REST API for more efficient coding in C# and other managed-code languages targeting the .NET Framework |
 
 ## How to get started
 
