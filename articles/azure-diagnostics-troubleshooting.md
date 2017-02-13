@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure Diagnostics
+title: Troubleshooting Azure Diagnostics | Microsoft Docs
 description: Troubleshoot problems when using Azure diagnostics in Azure Virtual Machines, Service Fabric, or Cloud Services.
 services: monitoring-and-diagnostics
 documentationcenter: .net
