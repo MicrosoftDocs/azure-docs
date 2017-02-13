@@ -20,7 +20,7 @@ ms.author: sstein; carlrab
 ---
 # Restore an Azure SQL Database to a previous point in time with PowerShell
 
-This How To article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using PowerShell. This can also be done [with the Azure portal](sql-database-point-in-time-restore-portal.md).  
+This artcile shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using PowerShell. This can also be done [with the Azure portal](sql-database-point-in-time-restore-portal.md).  
 
 ## Restore to a previous point in time 
 

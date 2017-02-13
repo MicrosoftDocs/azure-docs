@@ -56,9 +56,9 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 * [List All Firewall Rules](https://msdn.microsoft.com/library/azure/mt604478.aspx)
 
 ## Next steps
-For a how to article on how to use Transact-SQL to create server-level and database-level firewall rules, see [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md). 
+For a artcile on how to use Transact-SQL to create server-level and database-level firewall rules, see [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md). 
 
-For how to articles on creating server-level firewall rules using other methods, see: 
+For artciles on creating server-level firewall rules using other methods, see: 
 
 * [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
 * [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)

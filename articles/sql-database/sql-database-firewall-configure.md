@@ -124,7 +124,7 @@ Consider the following points when access to the Microsoft Azure SQL Database se
   * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
 ## Next steps
-For how to articles on creating server-level and database-level firewall rules, see:
+For artciles on creating server-level and database-level firewall rules, see:
 
 * [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
 * [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md)

@@ -71,7 +71,7 @@ For more information on these stored procedures, see [sp_set_database_firewall_r
 
 
 ## Next steps
-For how to articles on creating server-level firewall rules using other methods, see: 
+For artciles on creating server-level firewall rules using other methods, see: 
 
 * [Configure Azure SQL Database server-level firewall rules using the Azure Portal](sql-database-configure-firewall-settings.md)
 * [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
