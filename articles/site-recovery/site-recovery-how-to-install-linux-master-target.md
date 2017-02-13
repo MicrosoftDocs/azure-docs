@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 12/20/2016
+ms.date: 01/27/2017
 ms.author: ruturajd
 
 ---
 # How to install Linux master target server
-Once you have failed over your virtual machines, you can failback the VM's, back to on-premises. To failback, first you need to get the virtual machine into protected state, by reprotecting the virtual machine from Azure to on-premises. For this you need a master target server to recieve the traffic on-premises. If your protected virtual machine is a windows VM, then you need a Windows Master Target. For a Linux VM, you need a Linux Master Target to reprotect. Read the steps below on how to create and install a Linux Master Target.
+Once you have failed over your virtual machines, you can failback the VM's, back to on-premises. To failback, first you need to get the virtual machine into protected state, by reprotecting the virtual machine from Azure to on-premises. For this, you need a master target server to receive the traffic on-premises. If your protected virtual machine is a windows VM, then you need a Windows Master Target. For a Linux VM, you need a Linux Master Target to reprotect. Read the steps below on how to create and install a Linux Master Target.
 
 ## Overview
 This article provides information and instructions to install a Linux Master Target.
@@ -27,9 +27,9 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 
 ## Pre-requisites
 
-* To corectly choose the host on which you need to deploy the MT, determine whether the failback is going to be to an exisiting VM on-premises or to a new VM (because the on-premises VM got deleted). 
-	* For an exisiting VM, the MT's host should have access to the VM's datastores.
-	* If the VM does not exist on-premises, the failback VM will be created on the same host as the MT. You can choose any ESXi host to install the MT.
+* To correctly choose the host on which you need to deploy the MT, determine whether the failback is going to be to an existing VM on-premises or to a new VM (because the on-premises VM got deleted). 
+	* For an existing VM, the MT's host should have access to the VM's datastores.
+	* If the VM does not exist on-premises, the failback VM is created on the same host as the MT. You can choose any ESXi host to install the MT.
 * MT should be on a network that can communicate with the process server and the configuration server.
 * MT version should be lesser than or equal to the Process server and the configuration server. (example, if CS is on 9.4, the MT can be on 9.4 and 9.3 - not on 9.5)
 * MT can only be a VMware VM, and not a physical VM.
@@ -89,8 +89,8 @@ any important data and click **Yes, discard any data**.
 
 	![](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
 
-9. Following **Editing System etho** window displays. Select **Connect automatically** checkbox. Under “IPv4 Settings” tab, choose
-method as **Manual** and then click **Add** button. Provide the Static IP, Netmask, Gateway and DNS Server details. Click **Apply** to save the details.
+9. Following **Editing System eth0** window displays. Select **Connect automatically** checkbox. Under “IPv4 Settings” tab, choose
+method as **Manual** and then click **Add** button. Provide the Static IP, Netmask, Gateway, and DNS Server details. Click **Apply** to save the details.
 
 	![](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
 
@@ -121,7 +121,7 @@ File System Type. Create **Swap partition** with **swap** as file system type. T
 
 	![](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
 
-15. If any pre-existing devices is found, warning message
+15. If any pre-existing devices are found, warning message
 appears for formatting. Click **Format** to format the hard drive with latest partition table.
 
 	![](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
@@ -145,7 +145,7 @@ appears for formatting. Click **Format** to format the hard drive with latest pa
 
 
 ### Post Installation Steps
-Next, we will prepar the machine to be configured as a Master Target server.
+Next, we will prepare the machine to be configured as a Master Target server.
 
 To get SCSI ID’s for each of SCSI hard disk in a Linux virtual machine,
 you should enable the parameter “disk.EnableUUID = TRUE”.
@@ -164,20 +164,18 @@ d. Select the **Advanced&gt;General item** on the left and click the
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
 
 “Configuration Parameters” option will be in de-active state when the
-machine is running”. In order to make this tab active, shutdown machine.
+machine is running”. To make this tab active, shutdown machine.
 
 e. See whether already a row with **disk.EnableUUID** exists?
 
-f. If the value exists and if the value is set to False over write the value with True (True and False values are case in-sensitive).
+f. If the value exists and is set to False over write the value with True (True and False values are case in-sensitive).
 
-g. If exists and is set to true, click on cancel
+g. If the value exists and is set to true, click on Cancel.
 	
 h. If the value does not exist click **Add Row.**
 
 i. Add disk.EnableUUID in the Name column and Set its value as TRUE
 
-	NOTE: Do not add the above values along with double-quotes.
-	
 
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
@@ -307,13 +305,13 @@ To apply custom configuration changes, follow the below mentioned steps:
 	./ApplyCustomChanges.sh
 	```
 [!NOTE]
-Execute the script only once on the server. Shutdown the server. We will reboot the server after adding a disk.
+Execute the script only once on the server. Shut down the server. Reboot the server after adding a disk as given in the next steps.
 
 ### Add Retention Disk to Linux MT VM 
 
 Follow the steps as mentioned below to create a retention disk.
 
-1. Attach a new **1 TB** disk to the Linux MT VM and **boot** the machine.
+1. Attach a new **1-TB** disk to the Linux MT VM and **boot** the machine.
 
 2. Invoke **multipath -ll** command to know the retention disk's
 multipath id.
@@ -343,7 +341,7 @@ multipath id.
 	```
 	vi /etc/fstab 
 	```
-	Press [Insert] to begin editing the file. Create a new line and insert the below text in it.
+	Press [Insert] to begin editing the file. Create a new line and insert the following text in it. Edit the Disk multipath ID based on the highlighted multipath ID from the previous command.
 
 	**/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
@@ -358,14 +356,14 @@ Master target server version should be less than or equal to the process server 
 [!NOTE]
 Before installing the master target server, check that the /etc/hosts file on the VM contains entries that map the local hostname to IP addresses associated with all network adapters.
  
-1. Copy the passphrase from **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** on the Configuration server, and save it in passphrase.txt in the same local directory by running below command.
+1. Copy the passphrase from **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** on the Configuration server, and save it in passphrase.txt in the same local directory by running the following command.
 
 	```
 	echo <passphrase> >passphrase.txt
 	```
 	Example: echo itUx70I47uxDuUVY >passphrase.txt
 
-2. Note down the Configuration server's IP address. We will need it in the next step
+2. Note down the Configuration server's IP address. We need it in the next step
 
 3. Run the following command to Install the Master Target server and register the server with the Configuration server.
 	
@@ -379,7 +377,7 @@ Before installing the master target server, check that the /etc/hosts file on th
 
 #### Installing Master Target using interactive install
 
-1. Execute below command to install Master Target. Choose agent role as "Master Target".
+1. Execute following command to install Master Target. Choose agent role as "Master Target".
 
 	```
 	./install
