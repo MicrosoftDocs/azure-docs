@@ -41,7 +41,7 @@ you must enable CORS and set the APIDefinition properties for your web app.
 
 1.	In the Azure portal, select your web app.
 2.	In the blade that opens, find **API**, and select **API definition**. 
-Set the **API defintion location** to your swagger.json file's URL.
+Set the **API definition location** to your swagger.json file's URL.
 
 	Usually, this URL is https://{name}.azurewebsites.net/swagger/docs/v1).
 
@@ -136,7 +136,7 @@ use your web app's actual https://**URL**.
 
 > [!NOTE]
 > When you create the Application for your web app, 
-> you must use the [Azure classic portal](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)  
+> you must use the [Azure classic portal](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) 
 > because the PowerShell commandlet does not set up the required permissions to sign users into a website.
 
 After you have the client ID and tenant ID, 
@@ -146,13 +146,13 @@ in your deployment template:
 ```
 "resources" : [
     {
-        "apiVersion" : "2015-08-01",
-        "name" : "web",
-        "type" : "config",
-        "dependsOn" : [
+        "apiVersion": "2015-08-01",
+        "name": "web",
+        "type": "config",
+        "dependsOn": [
 				"[concat('Microsoft.Web/sites/','parameters('webAppName'))]"
         ],
-        "properties" : {
+        "properties": {
             "siteAuthEnabled": true,
             "siteAuthSettings": {
               "clientId": "<<clientID>>",
