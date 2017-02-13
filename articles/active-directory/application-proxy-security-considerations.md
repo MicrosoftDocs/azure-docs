@@ -25,14 +25,14 @@ ms.author: kgremban
 
 This article explains how Azure AD Application Proxy provides a secure service for publishing and accessing your applications remotely. 
 
-!Azure AD Application Proxy offers the following security benefits:
+Azure AD Application Proxy offers the following security benefits:
 
 **Authenticated access:** Only authenticated connections can accces your network
 
 * Azure AD App Proxy relies on the Azure AD STS for all authentication. For applications published with pre-authentication, no traffic is allowed to pass through the app proxy service to your environment, without a valid STS token.
 * Pre-authentication, by its very nature, blocks a significant number of anonymous attacks, as only authenticated identities are allowed to access the backend application.
 
-`**Conditional access:** Apply richer policy controls before connections to your network are established
+**Conditional access:** Apply richer policy controls before connections to your network are established
 
 * With conditional access, it is possible to further define restrictions on what traffic is allowed to access your backend applications. You can define restrictions based on location, strength of authentication, and user risk profile.
 * This feature enables additional barriers for attackers. You can read more about conditional access [Getting started with Azure Active Directory Conditional Access](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-azuread-connected-apps).
