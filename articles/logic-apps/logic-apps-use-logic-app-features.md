@@ -42,8 +42,8 @@ Although the original flow works, there are some areas that could be improved.
 ### Conditional
 This logic app may result in you getting a lot of emails. The following steps add logic to make sure that you only receive an email when the tweet comes from someone with a certain number of followers.
 
-1. Click the plus and find the action *Get User* for Twitter.
-2. Pass in the **Tweeted by** field from the trigger to get the information about the Twitter user.
+0. In the Logic App Designer, click the plus (+) and find the action *Get User* for Twitter.
+0. Pass in the **Tweeted by** field from the trigger to get the information about the Twitter user.
 
     ![Get user](media/logic-apps-use-logic-app-features/getuser.png)
 3. Click the plus again, but this time select **Add Condition**
