@@ -18,7 +18,7 @@ ms.author: jehollan
 
 ---
 
-# Securing a Logic App
+# Secure access to your logic apps
 
 There are many tools available to help you secure your logic app.
 
@@ -30,7 +30,11 @@ There are many tools available to help you secure your logic app.
 
 ## Secure access to trigger
 
-When working with a logic app that fires on an HTTP Request ([Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md)), you can restrict access so only authorized clients can fire the logic app.  All requests into a logic app are encrypted and secured via SSL.
+When you work with a logic app that fires on an HTTP Request 
+([Request](../connectors/connectors-native-reqres.md) 
+or [Webhook](../connectors/connectors-native-webhook.md)), 
+you can restrict access so that only authorized clients can fire the logic app. 
+All requests into a logic app are encrypted and secured via SSL.
 
 ### Shared Access Signature
 
@@ -55,7 +59,7 @@ POST
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
 ```
 
-In the body, include the property `NotAfter` as a JSON date string, which returns a callback URL which will only be valid until the `NotAfter` date and time.
+In the body, include the property `NotAfter` as a JSON date string, which returns a callback URL that is only valid until the `NotAfter` date and time.
 
 #### Creating URLs with primary or secondary secret key
 
@@ -78,7 +82,7 @@ This setting can be configured within the logic app settings:
 1. Click the **Access control configuration** menu item under **Settings**
 1. Specify the list of IP address ranges to be accepted by the trigger
 
-A valid IP range takes the format `192.168.1.1/255`.  If you want the logic app to only fire as a nested logic app, select the **Only other logic apps** option.  This will write an empty array to the resource, meaning only calls from the service itself (parent logic apps) will successfully fire.
+A valid IP range takes the format `192.168.1.1/255`.  If you want the logic app to only fire as a nested logic app, select the **Only other logic apps** option. This writes an empty array to the resource, meaning only calls from the service itself (parent logic apps) will successfully fire.
 
 > [!NOTE]
 > A logic app with a request trigger could still be executed through the REST API / Management `/triggers/{triggerName}/run` regardless of IP.  This would require authentication against the Azure REST API, and all events would appear in the Azure Audit Log.  Set access control policies accordingly.
@@ -113,22 +117,23 @@ If you are using a [deployment template](logic-apps-create-deploy-template.md) t
 
 ### Adding Azure Active Directory, OAuth, or other security
 
-If you want to add any additional authorization protocols on top of a logic app, use [Azure API Management](https://azure.microsoft.com/services/api-management/).  This provides rich monitoring, security, policy, and documentation for any endpoint, allowing a logic app to be exposed as an API.  Azure API Management can expose a public or private endpoint for the logic app, which could leverage Azure Active Directory, certificate, OAuth, or other security standards.  When a request is received, Azure API Management will forward the request to the logic app (performing any needed transformations or restrictions in-flight).  You can use the incoming IP range settings on the logic app to only allow the logic app to be triggered from API Management.
+If you want to add any additional authorization protocols on top of a logic app, use [Azure API Management](https://azure.microsoft.com/services/api-management/).  This provides rich monitoring, security, policy, and documentation for any endpoint, allowing a logic app to be exposed as an API. Azure API Management can expose a public or private endpoint for the logic app, which could use Azure Active Directory, certificate, OAuth, or other security standards. When a request is received, Azure API Management forwards the request to the logic app (performing any needed transformations or restrictions in-flight).  You can use the incoming IP range settings on the logic app to only allow the logic app to be triggered from API Management.
 
 ## Secure access to manage or edit a logic app
 
-You can restrict access to management operations on a logic app so that only specific users or groups are able to perform operations on the resource.  Logic apps use the Azure [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md)feature, and can be customized with the same tools.  There are a few built-in roles you can assign members of your subscription to as well:
+You can restrict access to management operations on a logic app so that only specific users or groups are able to perform operations on the resource. 
+Logic apps use the Azure [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) feature, and can be customized with the same tools.  There are a few built-in roles you can assign members of your subscription to as well:
 
 * **Logic App Contributor** - Provides access to view, edit, and update a logic app.  Cannot remove the resource or perform admin operations.
 * **Logic App Operator** - Can view the logic app and run history, and enable/disable.  Cannot edit or update the definition.
 
-You can also leverage the [Azure Resource Lock](../azure-resource-manager/resource-group-lock-resources.md) to prevent modification or deletion of a logic app.  This is valuable to prevent production resources from being modified or deleted.
+You can also use the [Azure Resource Lock](../azure-resource-manager/resource-group-lock-resources.md) to prevent modification or deletion of a logic app.  This is valuable to prevent production resources from being modified or deleted.
 
 ## Secure access to contents of the run history
 
 You can restrict access to contents of inputs or outputs from previous runs to specific IP address ranges.  
 
-All data within a workflow run is encrypted in transit and at rest.  When a call to run history is made, the service authenticates the request and provides links to the request and response inputs and outputs.  This link can be protected so only requests to view content from a designated IP address range return the contents.  This can be used for additional access control.  You could even specify an IP address like `0.0.0.0` so no one could access inputs/outputs.  Only someone with admin permissions could remove this restriction, providing the possibility for 'just-in-time' access to workflow contents.
+All data within a workflow run is encrypted in transit and at rest.  When a call to run history is made, the service authenticates the request and provides links to the request and response inputs and outputs.  This link can be protected so only requests to view content from a designated IP address range return the contents. This can be used for additional access control. You could even specify an IP address like `0.0.0.0` so no one could access inputs/outputs.  Only someone with admin permissions could remove this restriction, providing the possibility for 'just-in-time' access to workflow contents.
 
 This setting can be configured within the resource settings of the Azure portal:
 
@@ -177,7 +182,10 @@ The [workflow definition language](http://aka.ms/logicappsdocs) provides a `@par
 
 #### Resource deployment template with secrets
 
-The following is an example of a deployment which references a secure parameter of `secret` at runtime.  In a separate parameters file I could specify the environment value for the `secret`, or leverage [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) to retrieve my secrets at deploy-time.
+The following is an example of a deployment that references a secure parameter of `secret` at runtime. 
+In a separate parameters file, you could specify the environment value for the `secret`, 
+or use [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 
+to retrieve secrets at deploy-time.
 
 ``` json
 {
@@ -256,15 +264,17 @@ All calls from logic apps come from a specific set of IP addresses per region.  
 
 ### On-premises connectivity
 
-Logic apps provides integration with a number of services to provide secure and reliable on-premises communication.
+Logic apps provide integration with several services to provide secure and reliable on-premises communication.
 
 #### On-premises data gateway
 
-Many of the managed connectors from logic apps provide secure connectivity to on-premises systems, including File System, SQL, SharePoint, DB2, and more.  The gateway leverages encrypted channels via Azure Service Bus to relay data on-premises, and all traffic originates from secure outbound traffic from the gateway agent.  More details on how the gateway works [in this article](logic-apps-gateway-install.md#how-the-gateway-works).
+Many of the managed connectors from logic apps provide secure connectivity to on-premises systems, including File System, SQL, SharePoint, DB2, and more.  The gateway uses encrypted channels via Azure Service Bus to relay data on-premises, and all traffic originates from secure outbound traffic from the gateway agent.  More details on how the gateway works [in this article](logic-apps-gateway-install.md#how-the-gateway-works).
 
 #### Azure API Management
 
-[Azure API Management](https://azure.microsoft.com/services/api-management/) has a number of on-premises connectivity options including site-to-site VPN and ExpressRoute integration for secured proxy and communication to on-premises systems.  In the logic app designer, you can quickly select an API exposed from Azure API Management within a workflow, providing quick access to on-premises systems.
+[Azure API Management](https://azure.microsoft.com/services/api-management/) 
+has on-premises connectivity options, including site-to-site VPN and ExpressRoute integration for secured proxy and communication to on-premises systems. 
+In the Logic App Designer, you can quickly select an API exposed from Azure API Management within a workflow, providing quick access to on-premises systems.
 
 #### Hybrid connections from Azure App Service
 
