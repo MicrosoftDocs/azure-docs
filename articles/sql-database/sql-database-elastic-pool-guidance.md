@@ -115,4 +115,3 @@ Not all single databases are optimum candidates for pools. Databases with usage 
 * [Create an elastic pool](sql-database-elastic-pool-manage-portal.md)
 * [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md)
 * [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
-* [PowerShell script for identifying databases suitable for an elastic pool](sql-database-elastic-pool-database-assessment-powershell.md)

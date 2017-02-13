@@ -102,7 +102,7 @@ To restore a SQL database, click **Restore** on the **SQL database** blade. For 
 ![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
 
 ## How do I create an Azure SQL database from a BACPAC file?
-To create a SQL database from a BACPAC file, click **Import database** on the **SQL server** blade. For details, see [Import a BACPAC file to create an Azure SQL database](sql-database-import.md).
+To create a SQL database from a BACPAC file, click **Import database** on the **SQL server** blade. For details, see [Import a BACPAC file to create an Azure SQL database](sql-database-import-portal.md).
 
 ![SQL server](./media/sql-database-manage-portal/server-commands.png)
 
