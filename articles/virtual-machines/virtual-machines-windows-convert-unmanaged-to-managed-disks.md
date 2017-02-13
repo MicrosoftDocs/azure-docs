@@ -20,10 +20,9 @@ ms.author: cynthn
 ---
 # Convert a VM from unmanaged disks to managed disks
 
-If you have existing Azure VMs that use unmanaged disks in storage accounts and you want to be able to take advantage of [Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), you can convert the VMs. The process converts both the OS disk and any attached data disks from using a unmanaged disks in a storage account to using managed disks. The VMs are shut down and deallocated, then you use Powershell to convert the VM to use managed disks. After the conversion, you restart the VM and it will now be using managed disks.
+If you have existing Azure VMs that use unmanaged disks in storage accounts and you want to be able to take advantage of [Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), you can convert the VMs. The process converts both the OS disk and any attached data disks from using an unmanaged disks in a storage account to using managed disks. The VMs are shut down and deallocated, then you use Powershell to convert the VM to use managed disks. After the conversion, you restart the VM and it will now be using managed disks.
 
 Before starting,  make sure that you review [Plan for the migration to Managed Disks](virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
-
 Test the migration process by migrating a test virtual machine before performing the migration in production because the migration process is not reversible.
 
 
@@ -33,7 +32,7 @@ Test the migration process by migrating a test virtual machine before performing
 
 ## Managed Disks and Azure Storage Service Encryption (SSE)
 
-You cannot convert an unmanaged VM created in the Resource Manager deployment model to Managed Disks if any of the attached unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to convert unmanaged VM that are, or have been, in an encrypted storage account:
+You cannot convert an unmanaged VM created in the Resource Manager deployment model to Managed Disks if any of the attached unmanaged disks is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to convert unmanaged VM that are, or have been, in an encrypted storage account:
 
 **Data Disks**:
 1.	Detach the Data Disk from the VM.
@@ -60,7 +59,7 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
 
 If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
 
-The following script updates the availability set to be a managed availabiilty set, then it deallocates, coverts the disks and then restarts each Vm in the availability set.
+The following script updates the availability set to be a managed availability set, then it deallocates, coverts the disks and then restarts each VM in the availability set.
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -84,7 +83,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## Convert existing Azure VMs to managed disks of the same storage type
 
 > [!IMPORTANT]
-> After performing the following procedure, there is a single block blob that remains in the default vhds container. The name of the file is “VMName.xxxxxxx.status”. Do not delete this remaining status object. Future work should address this issue.
+> After performing the following procedure, there is a single block blob that remains in the default /vhds container. The name of the file is “VMName.xxxxxxx.status”. Do not delete this remaining status object. Future work should address this issue.
 
 This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SSD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
 
