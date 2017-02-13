@@ -171,7 +171,7 @@ Talk to your account manager or Azure partner to get started.
 
 | Offer | Resources |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| Enterprise Agreement (EA) | [EA portal](https://ea.azure.com/) and [help docs](https://ea.azure.com/helpdocs) |
+| Enterprise Agreement (EA) | [EA portal](https://ea.azure.com/), [help docs](https://ea.azure.com/helpdocs), and [Power BI report](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Cloud Solution Provider (CSP) | Talk to your provider |
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
