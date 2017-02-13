@@ -120,6 +120,7 @@ If you've successfully provisioned your Azure IoT hub with Azure CLI, and you ne
 ### Device explorer
 The [Device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
 
+
 * *Device identity management* to provision and manage devices registered with your IoT hub.
 * *Receive device-to-cloud* so you can monitor messages sent from your device to your IoT hub.
 * *Send cloud-to-device* so you can send messages to your devices from your IoT hub.
