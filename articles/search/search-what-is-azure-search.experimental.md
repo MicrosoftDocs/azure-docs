@@ -35,19 +35,19 @@ To use Azure Search, provision a free or paid service in your Azure subscription
 |Free | A shared service readily available for learning and evaluation |
 |billable | A dedicated service at graduated levels of capacity to accommodate a range of deployment scenarios at different pricing tiers|
 
-Azure Search runs in the cloud as a managed service from Microsoft, and is easily integrated with custom code on any application platform. Your fully-managed service and private content is globally available, programmable, scalable, and recoverable. Services run 24-7 with service level agreements backed by Microsoft Azure.
+Azure Search runs in the cloud as a managed service from Microsoft, and is easily integrated with custom code on any application platform. Your fully managed service and private content is globally available, programmable, scalable, and recoverable. Services run 24-7 with service level agreements backed by Microsoft Azure.
 
 ## How it compares
 
-Google, Bing, and other cloud service providers offer custom search engines with features that power a search bar in custom apps. Most vendors offer comparable baseline features. Typically, its a specialized feature, or the ease and simplicity of APIs, tools, and management that determines the best fit.
+Google, Bing, and other cloud service providers offer custom search engines with features that power a search bar in custom apps. Most vendors offer comparable baseline features. Typically, it's a specialized feature, or the ease and simplicity of APIs, tools, and management that determines the best fit.
 
 In a discussion of features, Azure Search is differentiated by deep integration with other Azure services. Developers already using Azure App services or other Microsoft products find it easy to incrementally add additional capability like search into custom apps running on Microsoft's cloud platform.
 
-The Azure portal offers centralized oversight for all services. You can monitor and scale your service in the same tool used to manage all of your cloud services. In Azure Search wizards and query exploration provide tooling for data import and simple testing and validation.
+The Azure portal offers centralized oversight for all services. You can monitor and scale your service in the same tool used to manage all of your cloud services. In Azure Search, wizards and query exploration provide tooling for data import and simple testing and validation.
 
 At the data layer, there is automated indexing on Azure table storage, blob storage, DocumentDB, SQL Database, SQL Server on Azure VMs. You have full programmatic control over data ingestion. Synchronization between search and inventory databases, for example during Black Friday or Cyber Monday sales, is a business requirement that's not easily met by every vendor.
 
-A common question is why does Azure Search store its own copy of your searchable content. Storing data in the cloud offers the most reliable and high performance throughput, with no impact on transactional data stores. You only store searchable data such as text and numeric data that users search for. It is rare to store a fully redundant copy of existing data.
+A common question is why does Azure Search store its own copy of your searchable content. Storing data in the cloud offers the most reliable and high-performance throughput, with no impact on transactional data stores. You only store searchable data such as text and numeric data that users search for. It is rare to store a fully redundant copy of existing data.
 
 ### Feature summary
 
@@ -69,11 +69,11 @@ Queries can be formulated using the [simple query syntax](https://msdn.microsoft
 
 **Search suggestions** can be enabled for autocompleted search bars and type-ahead queries. [Actual documents in your index are suggested](https://msdn.microsoft.com/library/azure/dn798936.aspx) as users enter partial search input.
 
-**Hit highlighting** [allows](https://msdn.microsoft.com/library/azure/dn798927.aspx) users to see the snippet of text in each result that contains the matches for their query. You can pick and choose which fields return highlighted snippets.
+**Hit highlighting** [allows](https://msdn.microsoft.com/library/azure/dn798927.aspx) users to see the snippet of text in each result that contains the matches for their query. You can choose which fields return highlighted snippets.
 
-**Faceted navigation** is easily added to your search results page with Azure Search. Using [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search will return all the necessary information to construct a faceted search experience in your app's UI to allow your users to drill down and filter search results (for example, filter catalog items by price-range or brand).
+**Faceted navigation** is easily added to your search results page with Azure Search. Using [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search returns all the necessary information to construct a faceted search experience in your app's UI to allow users to drill down and filter search results (for example, filter catalog items by price-range or brand).
 
-**Geo-spatial** support allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
+**Geo-spatial** support allows you to intelligently process, filter, and display geographic locations. Azure Search enables users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
 **Filters** can be used to easily incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
@@ -116,5 +116,5 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 Search engines are the preeminent methodology for finding information on mobile apps, on the web, and in corporate data stores.  
 
-Watch this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138) (Channel9, 9 minute video) from program manager, Liam Cavanagh for a visual introduction into how Azure Search can meet your serach requirements. The first three minutes cover important features and search scenarios, followed by code demonstrations.
+Watch this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138) (Channel9, 9-minute video) from program manager, Liam Cavanagh for a visual introduction into how Azure Search can meet your serach requirements. The first three minutes cover important features and search scenarios, followed by code demonstrations.
 
