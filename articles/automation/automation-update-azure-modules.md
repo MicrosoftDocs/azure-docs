@@ -47,4 +47,4 @@ If you use cmdlets from these Azure PowerShell modules in your runbooks to manag
 
 ## Next steps
 
-To learn more about Integration Modules and how to create custom modules to further integrate Automation with other systems, services, or tools, see [Integration Modules](automation-integration-modules.md).
+To learn more about Integration Modules and how to create custom modules to further integrate Automation with other systems, services, or solutions, see [Integration Modules](automation-integration-modules.md).
