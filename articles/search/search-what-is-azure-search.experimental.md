@@ -49,21 +49,10 @@ At the data layer, there is automated indexing on Azure table storage, blob stor
 
 A common question is why does Azure Search store its own copy of your searchable content. Storing data in the cloud offers the most reliable and high-performance throughput, with no impact on transactional data stores. You only store searchable data such as text and numeric data that users search for. It is rare to store a fully redundant copy of existing data.
 
-### Feature summary
-
-Azure Search offers the advantages of a cloud solution, but customers often choose it for efficiency of its APIs and breadth of features:
-
-+ APIs for building indexes and search constructs with minimal code. Faceting and filter constructs make it easy to build out categories and navigation for self-directed search. 
-+ Indexer components automate index definition, data import, and refresh for Azure data stores: DocumentDB, SQL Database, SQL Server on Azure VMs, Table storage, Blob storage for unstructured and semi-structured documents.
-+ Query parsing and lexical analysis provide intelligent full text search, with support for language analyzers from Lucene and Microsoft natural language processing. Custom analyzers offer deep control over linguistic analysis, tokenization, and filters.
-+ Auto-complete, suggested queries, synonyms, fuzzy search for incomplete or misspelled keywords, hit-highlighting, moreLikeThis.
-+ Geo-search support for find-near-me searches.
-+ Scoring profiles and field boosting to tune search rankings based on business logic or context.
-
 ### <a name="feature-drilldown"></a>Feature drilldown
 
-**Query Features** 
-Queries can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports custom lexical analyzers to allow your application to handle complex search queries using phonetic matching and regular expressions.
+**Query syntax, parsing and analysis.** 
+Queries can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
 
 **Language support** is [included for 56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
 
@@ -99,11 +88,17 @@ Queries can be formulated using the [simple query syntax](https://msdn.microsoft
 
 Start with a free service and then create and query an index using sample built-in data. You can use the portal for all tasks, which is a quick way to try out Azure Search before having to write a single line of code.
 
-Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
+1. Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
 
-If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+  If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
 
-Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
+  Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
+
+2. Run the **Import data** wizard over the [built-in real estate sample dataset](search-get-started-portal.md).
+
+  This wizard can generate an initial index from most support data sources, which you can use as-is or modify, and load its data.
+
+3. Use Search Explorer to query the index.
 
 ### REST API | .Net SDK
 
@@ -111,8 +106,8 @@ While a number of tasks can be performed in the portal, Azure Search is intended
 
 |Platform |Description |
 |-----|------------|
-|REST | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
-|.NET SDK | .NET wrapper for the REST API offers efficient coding in C# and other managed-code languages targeting the .NET Framework |
+|[REST](https://docs.microsoft.com/rest/api/searchservice/) | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
+|[.NET SDK](search-howto-dotnet-sdk.md) | .NET wrapper for the REST API offers efficient coding in C# and other managed-code languages targeting the .NET Framework |
 
 ## Watch a short video
 
