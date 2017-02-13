@@ -15,8 +15,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/13/2017
 ms.author: sethm
-
 ---
+
 # How to use the Service Bus WCF Relay with .NET
 This article describes how to use the Service Bus Relay service. The samples are written in C# and use the Windows Communication Foundation (WCF) API with extensions contained in the Service Bus assembly. For more information about the Service Bus relay, see the [Azure Relay overview](relay-what-is-it.md).
 

@@ -15,8 +15,8 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/13/2017
 ms.author: jotaub;sethm
-
 ---
+
 # Create a Relay namespace using the Azure portal
 A namespace is a common container for all your Relay components. Multiple Relays can reside in a single namespace, and namespaces often serve as application containers. There are currently two different ways to create a Relay namespace.
 
