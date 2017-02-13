@@ -20,16 +20,16 @@ ms.author: ruturajd
 # Failback from Azure to On-premises
 This article describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article, when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers, after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
-## Overview
-Here’s how failback works:
+## Overview of Failback
+Here’s how failback works - After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
 
-* After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
-  * **Stage 1**: You reprotect the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. For this you also need to 
-		1. Setup an on-premises Master target
-		2. Setup a Process server
-		3. And then initiate Reprotect
-  * **Stage 2**: After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
-  * **Stage 3**: After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
+1. You [reprotect](site-recovery-how-to-reprotect) the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. For this you also need to 
+	1. Setup an on-premises Master target - Windows MT for Windows VMs and [Linux MT](site-recovery-how-to-install-linux-master-target) for Linux VMs
+	2. Setup a [Process server](site-recovery-vmware-setup-azure-ps-resource-manager)
+	3. And then initiate [Reprotect](site-recovery-how-to-reprotect)
+5. After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
+  
+After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
 ### Failback to the original or alternate location
 
@@ -53,21 +53,14 @@ A physical machine when failed over to Azure can only be failed back as a VMware
 * A Windows Server 2008 R2 SP1 machine if protected and failed over to Azure cannot be failed back.
 * Ensure that you discover at least one Master Target server along with the necessary ESX/ESXi hosts to which you need to failback.
 
+## Have you completed Reprotection?
+Before you proceed further, complete the Reprotect steps so that the virtual machines are in replicated state and you can initiate a failover back to on-premises.
+[How to Reprotect from Azure to On-premises](site-recovery-how-to-reprotect).
 
 ## Pre-requisites
-
-* If the VMs you want to fail back to are managed by a vCenter server, you need to make sure you have the required permissions for discovery of VMs on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* If snapshots are present on the on-premises VM, then reprotection will fail. You can delete the snapshots before proceeding to reprotect.
-* Before you fail back you’ll need to create two additional components:
-  * **Create a process server**. Process server is used to receive the data from the protected VM in Azure and send the data on-premises. This requires it to be on a low latency network between the process server and the protected VM. Hence the process server can be on-premises (if you are using an express route connection) or on Azure if you are using a VPN.
-  * **Create a master target server**: The master target server receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback. 
-		* A linux VM needs a Linux master target server. 
-		* A windows VM needs a windows master target.
+ 
 * Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback won't be successful. Hence ensure that you take regular scheduled backup of your server. If there was a disaster, you will need to restore it with the same IP address so that failback works.
-* Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
-* **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
-* You need a new drive added onto the Master target server. This drive is called a retention drive. Add a new disk and format the drive.
-
+* Master target server should not have any snapshots before triggering failback.
 
 ## Steps to failback
 
