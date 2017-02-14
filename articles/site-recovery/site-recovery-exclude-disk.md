@@ -33,7 +33,7 @@ Excluding disks from replication is often necessary because:
 2. Storage and network resources can be saved by not replicating this churn.
 
 ##What are the typical scenarios?
-There are some specific examples of data churn that can be easily identified and are great candidates for exclusion – for example any page file writes, Microsoft SQL server tempdb writes etc. Depending on the workload and the storage subsystem, the page file can register a significant amount churn. However, replicating this data from the primary site to Azure would be resource intensive. Thus the replication of a VM with a single virtual disk having both the OS and the page file can be optimized by:
+There are some specific examples of data churn that can be easily identified and are great candidates for exclusion – for example any page file writes, Microsoft SQL server tempdb writes, etc. Depending on the workload and the storage subsystem, the page file can register a significant amount churn. However, replicating this data from the primary site to Azure would be resource intensive. Thus the replication of a VM with a single virtual disk having both the OS and the page file can be optimized by:
 
 1. Splitting the single virtual disk into two virtual disks – one with the OS and one with the page file
 2. Excluding the page file disk from replication
@@ -46,7 +46,7 @@ Similarly, for Microsoft SQL Server with tempdb and system database file on the 
 ##How to Exclude disk from replication?
 
 ###VMware to Azure
-Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replication) workflow to protect a VM from Azure Site Recovery portal. In the 4th step of Enable replication, there is a column - **DISK TO REPLICATE** whoich can be used to exclude disk from the replication. By default all the disks are selected. Unselect the disk that you want to exclude from replication and complete the steps to enable the replication. 
+Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replication) workflow to protect a VM from Azure Site Recovery portal. In the 4th step of Enable replication, there is a column - **DISK TO REPLICATE** which can be used to exclude disk from the replication. By default all the disks are selected. Unselect the disk that you want to exclude from replication and complete the steps to enable the replication. 
 
 ![Enable replication](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 	
@@ -57,7 +57,7 @@ Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replicat
 > * Only basic disks can be excluded from replication. You can't exclude OS or dynamic disks.
 > * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the machine and then re-enable it.
 > * If you exclude a disk that's needed for an application to operate, after failover to Azure, you’ll need to create it manually in Azure so that the replicated application can run. Alternatively, you could integrate Azure automation into a recovery plan to create the disk during failover of the machine.
-> * Window VM: Disks you create manually in Azure are not failed back. For example, if you fail over three disks and create two directly in Azure VM, only three disks which were failed over are failed back. You can't include disks created manually in failback or in re-protect from On-prem to Azure.
+> * Window VM: Disks you create manually in Azure are not failed back. For example, if you fail over three disks and create two directly in Azure VM, only three disks that were failed over are failed back. You can't include disks created manually itn failback or in reprotect from On-premises to Azure.
 > * Linux VM: Disks you create manually in Azure are failed back. For example, if you fail over three disks and create two directly in Azure, all five will be failed back. You can't exclude disks created manually from failback.
 > 
 
@@ -120,7 +120,7 @@ There are two ways in which you can create this path.
 
 1. Note down the SQL tempdb.mdf and tempdb.ldf path before failover.
 2. From the Azure portal, add a new disk to the failover VM with the same or more size as that of source SQL tempdb disk (Disk3).
-3. Login to the Azure VM. From the disk management(diskmgmt.msc) console initialize and format the newly added disk.
+3. Login to the Azure VM. From the disk management (diskmgmt.msc) console, initialize and format the newly added disk.
 4. Assign the same drive letter that was used by SQL tempdb disk (F:).
 5. Create tempdb folder on F: volume (F:\MSSQL\Data).
 6. Start SQL service from service console.
@@ -173,7 +173,7 @@ Disk3 |	G:\ | User Database2
 
 
 ####VMware to Azure
-When failback is done to the original location, failback VM disk configuration does not have excluded disk. That means the disks which were excluded from VMware to Azure, will be not be available on the failback VM. 
+When failback is done to the original location, failback VM disk configuration does not have excluded disk. That means the disks which were excluded from VMware to Azure, will not be available on the failback VM. 
 
 After planned failover from Azure to on-premises VMware, disks on the VMWare VM (Original Location):
 
@@ -218,7 +218,7 @@ Pagefile settings on the Source VM:
 ![Enable replication](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 	
 
-After you failover the VM from VMware to Azure/Hyper-V to Azure, disks on Azure VM:
+After failover the VM from VMware to Azure or Hyper-V to Azure, disks on Azure VM:
 **Disk name** | **Guest OS disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | OS disk
@@ -247,7 +247,7 @@ Pagefile settings on the On-premise VM:
 
 ![Enable replication](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-After you failover the VM from VMware/Hyper-V to Azure, disks on Azure VM:
+After failover the VM from VMware/Hyper-V to Azure, disks on Azure VM:
 
 **Disk name**| **Guest OS disk#**| **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
