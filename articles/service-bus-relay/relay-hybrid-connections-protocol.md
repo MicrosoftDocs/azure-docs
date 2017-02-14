@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/201
+ms.author: sethm;clemensv
 
 ---
 # Azure Relay Hybrid Connections protocol
@@ -210,7 +210,7 @@ properties at this time:
   Sec-WebSocket-Extensions headers.
 
 #### Accept Message
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -325,7 +325,7 @@ property at this time:
   namespace or Hybrid Connection that confers the **Listen** right.
 
 #### renewToken Message
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
