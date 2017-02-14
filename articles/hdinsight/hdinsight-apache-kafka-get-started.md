@@ -27,7 +27,7 @@ ms.author: larryfr
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-You must have the following to successfully complete this Apache Storm tutorial:
+You must have the following to successfully complete this Apache Kafka tutorial:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
