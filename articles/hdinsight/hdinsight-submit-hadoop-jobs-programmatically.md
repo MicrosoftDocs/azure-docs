@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/14/2017
 ms.author: jgao
 
 ---
@@ -39,7 +39,7 @@ You can submit Hadoop jobs using .NET SDK, Curl, and Azure PowerShell:
 
 - PowerShell
 
-  - [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell)
+  - [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md)
   - [Run Pig jobs using PowerShell](hdinsight-hadoop-use-pig-powershell.md)
   - [Use Sqoop with Hadoop in HDInsight](hdinsight-hadoop-use-sqoop-powershell.md)
   - [Run MapReduce jobs with Hadoop on HDInsight using PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
