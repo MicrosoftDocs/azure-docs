@@ -43,31 +43,46 @@ The Azure IoT Hub client libraries are available as a package you can install on
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
+## Install the Parson JSON parser
+The IoT Hub client libraries use the Parson JSON parser to parse message payloads. In a suitable folder on your computer, clone the Parson GitHub repository using the following command:
+
+```
+git clone https://github.com/kgabis/parson.git
+```
+
 ## Add code to specify the behavior of the device
 On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **remote\_monitoring** folder create the four files **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, and **CMakeLists.txt**.
+
+Copy the files **parson.c** and **parson.h** from your local copy of the Parson respository into the **remote\_monitoring** folder.
 
 The IoT Hub serializer client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands it receives from IoT Hub.
 
 1. In a text editor, open the **remote\_monitoring.c** file. Add the following `#include` statements:
    
     ```
-    #include "iothubtransportamqp.h"
+    #include "iothubtransportmqtt.h"
     #include "schemalib.h"
     #include "iothub_client.h"
-    #include "serializer.h"
+    #include "serializer_devicetwin.h"
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
+    #include "parson.h"
     ```
 2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
    
     ```
     static const char* deviceId = "[Device Id]";
-    static const char* deviceKey = "[Device Key]";
-    static const char* hubName = "IoTHub Name]";
-    static const char* hubSuffix = "azure-devices.net";
+    static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
+
     ```
-3. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device sends temperature, external temperature, humidity, and a device id as telemetry. The device also sends metadata about the device to IoT Hub, including a list of commands that the device supports. This device responds to the commands **SetTemperature** and **SetHumidity**:
+3. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device:
+
+   - Can send temperature, external temperature, humidity, and a device id as telemetry.
+   - Can send metadata about the device to IoT Hub, including a list of commands that the device supports. This device responds to the commands **SetTemperature** and **SetHumidity**.
+   - Can send reported properties, to the device twin in IoT Hub. These reported properties are grouped into configuration, location, and system properties.
+   - Can receive and act on desired properties sent from the device twin in IoT Hub.
+   - Can respond to the **Reboot** and **FirmwareUpdate** direct methods invoked through the device twin in the IoT Hub. The device sends information about the direct methods it supports using reported properties.
    
     ```
     // Define the Model
@@ -106,7 +121,7 @@ The IoT Hub serializer client libraries use a model to specify the format of mes
     END_NAMESPACE(Contoso);
     ```
 
-### Add code to implement the behavior of the device
+### Implement the behavior of the device
 Add the functions to execute when the device receives a command from the hub, and the code to send simulated telemetry to the hub.
 
 1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands defined in the model:
@@ -126,6 +141,29 @@ Add the functions to execute when the device receives a command from the hub, an
       return EXECUTE_COMMAND_SUCCESS;
     }
     ```
+
+1. Add the following functions that handle the direct methods invoked through the IoT hub. These direct methods are defined in the model:
+
+    ```
+    METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
+    {
+      (void)(thermostat);
+
+      METHODRETURN_HANDLE result = MethodReturn_Create(201, "\"Rebooting\"");
+      printf("Received reboot request\r\n");
+      return result;
+    }
+
+    METHODRETURN_HANDLE FirmwareUpdate(Thermostat* thermostat, ascii_char_ptr FWUpdateURI)
+    {
+      (void)(thermostat);
+
+      METHODRETURN_HANDLE result = MethodReturn_Create(201, "\"Processing Firmware Update\"");
+      printf("Recieved firmware update request. Use package at: %s\r\n", FWUpdateURI);
+      return result;
+    }
+    ```
+
 2. Add the following function that sends a message to IoT Hub:
    
     ```
@@ -386,11 +424,13 @@ The following steps describe how to use *CMake* to build your client application
     include_directories(${AZUREIOT_INC_FOLDER})
    
     set(sample_application_c_files
+        ./parson.c
         ./remote_monitoring.c
         ./main.c
     )
    
     set(sample_application_h_files
+        ./parson.h
         ./remote_monitoring.h
     )
    
@@ -399,9 +439,9 @@ The following steps describe how to use *CMake* to build your client application
     target_link_libraries(sample_app
         serializer
         iothub_client
-        iothub_client_amqp_transport
+        iothub_client_mqtt_transport
         aziotsharedutil
-        uamqp
+        umqtt
         pthread
         curl
         ssl

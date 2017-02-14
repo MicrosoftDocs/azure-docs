@@ -214,7 +214,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following functions that handle thedirect methods invoked through the IoT hub. These direct methods are defined in the model:
+1. Add the following functions that handle the direct methods invoked through the IoT hub. These direct methods are defined in the model:
 
     ```
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
