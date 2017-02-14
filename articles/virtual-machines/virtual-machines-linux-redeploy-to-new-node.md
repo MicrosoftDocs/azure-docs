@@ -26,7 +26,7 @@ If you have been facing difficulties troubleshooting SSH or application access t
 You can redeploy a VM using one of the following options. You only need to choose one option to redeploy your VM:
 
 - [Azure CLI 1.0](#azure-cli-10)
-- [Azure CLI 2.0 (Preview)](#azure-cli-20)
+- [Azure CLI 2.0 (Preview)](#azure-cli-20-preview)
 - [Azure portal](#using-azure-portal)
 
 
