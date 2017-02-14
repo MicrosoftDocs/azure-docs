@@ -173,7 +173,7 @@ We have developed a strategy for Azure Active Directory. We install this module 
 Next we add the OAuth strategy, using `passport-azure-ad`, a suite of strategies that connect Azure Active Directory to Passport. We use this strategy for Bearer tokens in this Rest API sample.
 
 > [!NOTE]
-> Although OAuth2 provides a framework in which any known token type can be issued, only certain token types are commonly used. Bearer tokens are the most commonly used tokens for protecting endpoints. They are the most widely issued type of token in OAuth2. Many implementations assume that Bearer tokens are the only type of token that is issued.
+> Although OAuth2 provides a framework in which any known token type can be issued, only certain token types are commonly used. Bearer tokens are the most commonly used tokens for protecting endpoints. They are the most widely issued type of token in OAuth2. Many implementations assume that Bearer tokens are the only type of tokens that are issued.
 >
 >
 
@@ -304,7 +304,7 @@ We need to read these values from the .config file that you created across our a
     var users = [];
     var owner = null;
 
-    // Our logger.s
+    // Our logger.
     var log = bunyan.createLogger({
         name: 'Azure Active Directory Bearer Sample',
              streams: [
@@ -785,7 +785,7 @@ So far we have built a typical REST TODO server without any kind of authorizatio
 >
 >
 
-2. Next, let’s use the Bearer strategy that comes with passport-azure-ad. Look at the code for now and we'll explain the rest shortly. Put this after what you pasted above:
+2. Next let’s use the Bearer strategy that comes with `passport-azure-ad`. Look at the code for now and we'll explain the rest shortly. Put this after what you pasted above:
 
 ```Javascript
     /**
@@ -883,7 +883,7 @@ next();
 ```
 
 ## 19. Run your server application again and ensure it rejects you
-Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We do this test before running any of our client SDKs against this endpoint. The headers that are returned should be enough to tell us whether we're going down the right path.
+Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We do this test before running any of our client SDKs against this endpoint. The headers that are returned should be enough to tell us if we're going down the right path.
 
 1. First, make sure that your mongoDB instance is running:
 
