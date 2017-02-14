@@ -88,7 +88,7 @@ Name of the VM: SalesDB
 Disks on the source VM:
 
 
-**Disk Name** | **Guest OS disk# ** | **Drive letter** | **Data type on the disk**
+**Disk Name** | **Guest OS disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | OS disk
 DB-Disk1| Disk1 | D:\ | SQL system database and User Database1
@@ -160,8 +160,7 @@ Refer to the following Azure guideline for temporary storage disk
 ###Failback (from Azure to on-premises)
 Now let's understand what all disks will be replicated when you do failover from Azure to your on-premises VMware or Hyper-V host. Disks that you create manually in Azure will not be replicated. For example, if you fail over three disks and create two directly in Azure VM, only three disks which were failed over will be failed back. You can't include disks created manually in failback or in re-protect from on-premises to Azure. It also does not replicate temporary storage disk to on-premises.
 
-####Failback to Original Location (OLR)
-When failback is done to the original location, failback VM disk configuration remains the same as that of original VM disk configuration for Hyper-V. That means the disks which were excluded from Hyper-V site to Azure, will be available on the failback VM.
+####Failback to Original location recovery (OLR)
 
 In the above example, Azure VM disk configuration:
 
@@ -172,7 +171,22 @@ Disk1 |	E:\ | Temporary storage [Azure adds this disk and assigns the first avai
 Disk2 |	D:\ | SQL system database and User Database1
 Disk3 |	G:\ | User Database2
 
-After planned failover from Azure to on-premises Hyper-V, disks on the Hyper-V VM(Original Location Replication):
+
+####VMware to Azure
+When failback is done to the original location, failback VM disk configuration does not have excluded disk. That means the disks which were excluded from VMware to Azure, will be not be available on the failback VM. 
+
+After planned failover from Azure to on-premises VMware, disks on the VMWare VM (Original Location):
+
+**Guest OS disk#** | **Drive letter** | **Data type on the disk** 
+--- | --- | --- 
+DISK0 | C:\ | OS disk
+Disk1 |	D:\ | SQL system database and User Database1
+Disk2 |	G:\ | User Database2
+
+####Hyper-V to Azure
+When failback is done to the original location, failback VM disk configuration remains the same as that of original VM disk configuration for Hyper-V. That means the disks which were excluded from Hyper-V site to Azure, will be available on the failback VM.
+
+After planned failover from Azure to on-premises Hyper-V, disks on the Hyper-V VM (Original Location):
 
 **Disk Name** | **Guest OS disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
@@ -188,7 +202,7 @@ DB-Disk4 | Disk4 | G:\ | User Database2
 Let's consider a virtual machine that has a pagefile disk that can be excluded.
 There are two cases:
 
-####Case1: Pagefile is configured on the D: drive
+####Case 1: Pagefile is configured on the D: drive
 Disk configuration:
 
 
@@ -205,7 +219,7 @@ Pagefile settings on the Source VM:
 	
 
 After you failover the VM from VMware to Azure/Hyper-V to Azure, disks on Azure VM:
-**Disk name** | **Guest OS disk# **| **Drive letter** | **Data type on the disk**
+**Disk name** | **Guest OS disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | OS disk
 DB-Disk1 | Disk1 | D:\ | Temporary storage –> pagefile.sys
@@ -218,11 +232,12 @@ Pagefile settings on Azure VM:
 
 ![Enable replication](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-####Case2: Pagefile file is configured on any other drive(other than D: drive)
+####Case 2: Pagefile file is configured on any other drive(other than D: drive)
 
 Source VM disk configuration:
 
-Disk name | Guest OS disk# 	Drive letter 	Data type on the disk
+**Disk name** | **Guest OS disk#** | **Drive letter** | **Data type on the disk**
+--- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | OS disk
 DB-Disk1 (Excluded the disk from the protection) | Disk1 | G:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
@@ -234,7 +249,8 @@ Pagefile settings on the On-premise VM:
 
 After you failover the VM from VMware/Hyper-V to Azure, disks on Azure VM:
 
-**Disk name**| **Guest OS disk#**| **Drive letter**| **Data type on the disk**
+**Disk name**| **Guest OS disk#**| **Drive letter** | **Data type on the disk**
+--- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ 	OS disk
 DB-Disk1 | Disk1 | D:\ | Temporary storage –> pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
