@@ -66,8 +66,7 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
                     </div>
                     <div class="cardText">
                         <h3>Get started with Data Science</h3>
-
-</div>
+                    </div>
                 </div>
             </div>
         </div>
