@@ -169,18 +169,11 @@
 ##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
 
 ##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
-<<<<<<< HEAD
 
 ## Use the IoT device SDK for C
 ### [Introduction](iot-hub-device-sdk-c-intro.md)
 ### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
-=======
-## Get started with the IoT device SDK
-### [Introduction to the Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
-### [IoT device SDK for C: more about IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [IoT device SDK for C: more about serializer](iot-hub-device-sdk-c-serializer.md)
->>>>>>> master
 
 # How To
 ## Plan
