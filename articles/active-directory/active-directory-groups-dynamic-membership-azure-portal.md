@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/14/2017
 ms.author: curtand
 
 ---
@@ -116,6 +116,7 @@ Allowed operators
 | --- | --- | --- |
 | city |Any string value or $null |(user.city -eq "value") |
 | country |Any string value or $null |(user.country -eq "value") |
+| CompanyName | Any string value or $null | (user.CompanyName -eq "value") |
 | department |Any string value or $null |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Any string value or $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -191,7 +192,7 @@ You can also create a rule that selects device objects for membership in a group
 | isManaged |true false null |(device.isManaged -eq "false") |
 | isCompliant |true false null |(device.isCompliant -eq "true") |
 
-## Additional information
+## Next steps
 These articles provide additional information on groups in Azure Active Directory.
 
 * [See existing groups](active-directory-groups-view-azure-portal.md)
