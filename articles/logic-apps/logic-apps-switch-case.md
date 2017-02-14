@@ -1,5 +1,5 @@
 ---
-title: Use Switch Statement in Logic Apps | Microsoft Docs
+title: Use Switch Statement in Azure Logic Apps | Microsoft Docs
 description: Switch statement allows you to easily take different actions based on the value of an expression in Logic Apps
 services: logic-apps
 documentationcenter: dev-center-name
@@ -27,7 +27,7 @@ These scenarios can be achieved by using a switch statement: Logic App evaluates
 ## Prerequisites
 
 - Active Azure subscription.
-	- If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/en-us/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
+	- If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
 - [Basic knowledge of Logic Apps](logic-apps-what-are-logic-apps.md).
 
 ## Working with switch statement in designer
