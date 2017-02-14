@@ -53,20 +53,20 @@ The minimum hardware, software and network configuration required to setup a con
 ### Configuration server installer command-line arguments.
 
 |Parameter Name| Type | Description| Possible Values|
-|-|-|-|
-| /ServerMode| Mandatory|Specifies whether both the configuration and process servers should be installed, or the process server only|CS<br>PS|
+|-|-|-|-|
+| /ServerMode|Mandatory|Specifies whether both the configuration and process servers should be installed, or the process server only|CS<br>PS|
 |/InstallLocation|Mandatory|The folder in which the components are installed| Any folder on the computer|
 |/MySQLCredsFilePath|Mandatory|The file path in which the MySQL server credentials are stored|The file should be the [specified format](#create-a-mysql-credential-file)|
 |/VaultCredsFilePath|Mandatory|The path of the vault credentials file|Valid file path|
 |/EnvType|Mandatory|The type of installation|VMware<br>NonVMware|
-|/PSIP| Mandatory| IP address of the NIC to be used for replication data transfer| Any valid IP Address|
+|/PSIP|Mandatory|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
 |/CSIP|Mandatory|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
 |/PassphraseFilePath|Mandatory|The full path to location of the passphrase file|Valid file path|
-|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy| To do get this value from Venu|
-|/ProxySettingsFilePath|Optional|Proxy settings (The default proxy requires authentication, or a custom proxy)|The file should be in the [specified format](#create-a-proxy-settings-configuration-file)
+|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy|To do get this value from Venu|
+|/ProxySettingsFilePath|Optional|Proxy settings (The default proxy requires authentication, or a custom proxy)|The file should be in the [specified format](#create-a-proxy-settings-configuration-file)|
 |DataTransferSecurePort|Optional|Port number on the PSIP to be used for replication data| Valid Port Number (default value is 9433)|
 |/SkipSpaceCheck|Optional|Skip space check for cache disk| |
-|/AcceptThirdpartyEULA|Mandatory|Flag implies acceptance of third-party EULA||
+|/AcceptThirdpartyEULA|Mandatory|Flag implies acceptance of third-party EULA| |
 |/ShowThirdpartyEULA|Optional|Displays third-party EULA. If provided as input all other parameters are ignored| |
 
 ### Create a MySql credentials file
