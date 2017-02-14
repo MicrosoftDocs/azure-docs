@@ -10,7 +10,7 @@
 ### [Node](iot-hub-node-node-getstarted.md)
 
 ## Use a Raspberry Pi
-### Node
+### Node.js
 #### [Start](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
@@ -55,7 +55,7 @@
 #### [Troubleshoot](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Use an Intel Edison
-### Node
+### Node.js
 #### [Start](iot-hub-intel-edison-kit-node-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
@@ -100,7 +100,7 @@
 #### [Troubleshoot](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Use an Arduino
-### Node
+### Node.js
 #### [Start](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
