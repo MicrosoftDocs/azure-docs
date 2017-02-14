@@ -134,8 +134,12 @@ right-click the `<template>.json` file, and select **Open**.
 
 ### Add references for dependent resources to Visual Studio deployment templates
 
+
+
 When you want your logic app to reference dependent resources, you can use 
+
 [Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions), 
+
 like parameters, in your logic app deployment template. 
 For example, you might want your logic app to reference an Azure Function 
 or integration account that you want to deploy alongside your logic app. 
@@ -150,17 +154,26 @@ You can use logic app parameters in these kinds of triggers and actions:
 *   API connection runtime URL
 
 And you can use these template functions: list below, 
+
 includes parameters, variables, resourceId, concat, and so on. 
+
 For example, here's how you can replace the Azure Function resource ID:
 
 ```
-"parameters":{
+
+"parameters":
+{
 	"functionName": {
+
 	"type":"string",
+
 	"minLength":1,
+
 	"defaultValue":"<FunctionName>"
 	}
+
 },
+
 ```
 
 And where you'd use parameters:
@@ -179,17 +192,29 @@ And where you'd use parameters:
 ```
 
 > [!NOTE] 
+
 > For the Logic App Designer to work when you use parameters, 
+
 > you must provide default values, for example:
+
 > 
+
 > ```
+
 > "parameters": {
+
 >     "IntegrationAccount": {
+
 >     "type":"string",
+
 >     "minLength":1,
+
 >     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+
 >     }
+
 > },
+
 > ```
 
 ### Save your logic app
@@ -217,8 +242,8 @@ you want to deploy your logic app. When you're done, select **Deploy**.
 
 	> [!NOTE]
 	> Make sure that you select the correct template 
-   > and parameters file for the resource group. For example, 
-   > if you want to deploy to a production 
+	> and parameters file for the resource group. For example, 
+	> if you want to deploy to a production 
 	> environment, choose the production parameters file.
 
 	![Deploy to resource group](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
