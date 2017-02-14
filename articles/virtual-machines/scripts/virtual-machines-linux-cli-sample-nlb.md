@@ -42,22 +42,22 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az network vnet create](https://docs.microsoft.com/en-us/cli/azure/network/vnet#create) | Creates an Azure virtual network and subnet. |
-| [az network public-ip create](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#create) | Creates a public IP address with a static IP address and an associated DNS name. |
-| [az network lb create](https://docs.microsoft.com/en-us/cli/azure/network/lb#create) | Creates an Azure Network Load Balancer. |
-| [az network lb probe create](https://docs.microsoft.com/en-us/cli/azure/network/lb/probe#create) | Creates an NLB probe. An NLB probe is used to monitor each VM in the NLB set. If any VM becomes inaccessible, traffic is not routed to the VM. |
-| [az network lb rule create](https://docs.microsoft.com/en-us/cli/azure/network/lb/rule#create) | Creates an NLB rule. In this sample, a rule is created for port 80. As HTTP traffic arrives at the NLB, it is routed to port 80 one of the VM’s in the NLB set. |
-| [az network lb inbound-nat-rule create](https://docs.microsoft.com/en-us/cli/azure/network/lb/inbound-nat-rule#create) | Creates an NLB Network Address Translation rule NAT rules map a port of the NLB to a port on a VM. In this sample a NAT rule is created for SSH traffic to each VM in the NLB set.  |
-| [az network nsg create](https://docs.microsoft.com/en-us/cli/azure/network/nsg#create) | Creates a network security group, which is a security boundary between the internet and the virtual machine. |
-| [az network nsg rule create](https://docs.microsoft.com/en-us/cli/azure/network/nsg/rule#create) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |
-| [az network nic create](https://docs.microsoft.com/en-us/cli/azure/network/nic#create) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |
-| [az vm availability-set create](https://docs.microsoft.com/en-us/cli/azure/network/lb/rule#create) | Creates an availability set. Availability sets ensure application uptime by spreading the set across physical resources such that if failure occurs, the compete set is not effected. |
-| [az vm create](https://docs.microsoft.com/en-us/cli/azure/vm/availability-set#create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, NSG. This command also specifies the virtual machine image to be used, and administrative credentials.  |
-| [az group delete](https://docs.microsoft.com/en-us/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Creates an Azure virtual network and subnet. |
+| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) | Creates a public IP address with a static IP address and an associated DNS name. |
+| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) | Creates an Azure Network Load Balancer. |
+| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | Creates an NLB probe. An NLB probe is used to monitor each VM in the NLB set. If any VM becomes inaccessible, traffic is not routed to the VM. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Creates an NLB rule. In this sample, a rule is created for port 80. As HTTP traffic arrives at the NLB, it is routed to port 80 one of the VM’s in the NLB set. |
+| [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) | Creates an NLB Network Address Translation rule NAT rules map a port of the NLB to a port on a VM. In this sample a NAT rule is created for SSH traffic to each VM in the NLB set.  |
+| [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) | Creates a network security group, which is a security boundary between the internet and the virtual machine. |
+| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |
+| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |
+| [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | Creates an availability set. Availability sets ensure application uptime by spreading the set across physical resources such that if failure occurs, the compete set is not effected. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, NSG. This command also specifies the virtual machine image to be used, and administrative credentials.  |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/en-us/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

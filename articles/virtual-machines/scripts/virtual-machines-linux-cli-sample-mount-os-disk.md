@@ -35,13 +35,13 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) | |
-| [az vm delete](https://docs.microsoft.com/en-us/cli/azure/vm#delete) | |
-| [az vm create](https://docs.microsoft.com/en-us/cli/azure/vm#create) | |
-| [az vm disk attach-existing](https://docs.microsoft.com/en-us/cli/azure/vm/disk#attach-existing) | |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm#show) | Return a list of virtual machines. In this case the query option is used to return the virtual machine operating system disk. This value is then added to a variable name ‘uri’. |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm#delete) | Deletes a virtual machine. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates a virtual machine.  |
+| [az vm disk attach-existing](https://docs.microsoft.com/cli/azure/vm/disk#attach-existing) | Attaches a disk to a virtual machine. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/en-us/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
