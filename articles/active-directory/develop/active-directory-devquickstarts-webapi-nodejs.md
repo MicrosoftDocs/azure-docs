@@ -17,7 +17,7 @@ ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
-# Get started with Web-API for Node.js
+# Get started with web APIs for Node.js
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 **Passport** is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Restify web application. A comprehensive set of strategies support authentication with a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory (Azure AD). We install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
@@ -38,18 +38,18 @@ The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Sa
 We've released all the source code for this running example in GitHub under an MIT license, so feel free to clone (or even better, fork!), and provide feedback and pull requests.
 
 ## About Node.js modules
-We use Node.js modules in this walkthrough. Modules are loadable JavaScript packages that provide specific functionality for your application. You usually install modules by using the Node.js NPM command-line tool in the NPM installation directory. However, some modules, such as the HTTP module, are included the core Node.js package.
+We use Node.js modules in this walkthrough. Modules are loadable JavaScript packages that provide specific functionality for your application. You usually install modules by using the Node.js an NPM command-line tool in the NPM installation directory. However, some modules, such as the HTTP module, are included in the core Node.js package.
 
-Installed modules are saved in the node_modules directory at the root of your Node.js installation directory. Each module in the node_modules directory maintains its own node_modules directory that contains any modules that it depends on. Also, each required module has a node_modules directory. This recursive directory structure represents the dependency chain.
+Installed modules are saved in the **node_modules** directory at the root of your Node.js installation directory. Each module in the **node_modules** directory maintains its own **node_modules** directory that contains any modules that it depends on. Also, each required module has a **node_modules** directory. This recursive directory structure represents the dependency chain.
 
 This dependency chain structure results in a larger application footprint. But it also guarantees that all dependencies are met and that the version of the modules that's used in development is also used in production. This makes the production app behavior more predictable and prevents versioning problems that might affect users.
 
-## 1. Register an Azure AD Tenant
-To use this sample, you need an Azure Active Directory Tenant. If you're not sure what a tenant is or how to get one, see [How to get an Azure AD tenant](active-directory-howto-tenant.md).
+## 1. Register an Azure AD tenant
+To use this sample, you need an Azure Active Directory tenant. If you're not sure what a tenant is or how to get one, see [How to get an Azure AD tenant](active-directory-howto-tenant.md).
 
 ## 2. Create an application
 Next you create an app in your directory that gives Azure AD information that it needs to securely communicate with your app.  Both the client app and web API are represented by a single **Application ID** in this case, since they comprise one logical app.  To create an app,
-follow [these instructions](active-directory-how-applications-are-added.md). If you are building a Line of Business app, [these additional instructions might be useful](../active-directory-applications-guiding-developers-for-lob-applications.md).
+follow [these instructions](active-directory-how-applications-are-added.md). If you are building a line-of-business app, [these additional instructions might be useful](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
 To create an application:
 
@@ -103,7 +103,7 @@ We are using Restify to build our REST API. Restify is a minimal and flexible No
     This command installs Restify.
 
 #### Did you get an error?
-When using npm on some operating systems, you might receive an error that says **Error: EPERM, chmod '/usr/local/bin/..'** and a suggestion that you try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
+When you use NPM on some operating systems, you might receive an error that says **Error: EPERM, chmod '/usr/local/bin/..'** and a suggestion that you try running the account as an administrator. If this occurs, use the sudo command to run NPM at a higher privilege level.
 
 #### Did you get an error regarding DTRACE?
 You might see an error like this when installing Restify:
@@ -400,7 +400,7 @@ return next(); // Keep the server going.
 
 ....
 
-server.post('/service/:add/:object', createObject); // calls createObject on routes that match this.
+server.post('/service/:add/:object', createObject); // Calls createObject on routes that match this.
 
 ```
 
@@ -894,7 +894,7 @@ Let's use `curl` again to see if we now have OAuth2 protection against our endpo
       `$ cd azuread`
       `$ node server.js`
 
-3. Try a basic POST:
+3. Try a basic POST.
 
     `$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
