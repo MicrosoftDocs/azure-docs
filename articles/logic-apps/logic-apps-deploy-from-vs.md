@@ -154,8 +154,7 @@ includes parameters, variables, resourceId, concat, and so on.
 For example, here's how you can replace the Azure Function resource ID:
 
 ```
-"parameters":
-{
+"parameters": {
 	"functionName": {
 	"type":"string",
 	"minLength":1,
@@ -216,11 +215,11 @@ and go to **Deploy** > **New Deployment...**
 3. Now you must select the details for the resource group where 
 you want to deploy your logic app. When you're done, select **Deploy**.
 
-	> [!NOTE]
-	> Make sure that you select the correct template 
-	> and parameters file for the resource group. For example, 
-	> if you want to deploy to a production 
-	> environment, choose the production parameters file.
+  > [!NOTE]
+  > Make sure that you select the correct template 
+  > and parameters file for the resource group. For example, 
+  > if you want to deploy to a production 
+  > environment, choose the production parameters file.
 
 	![Deploy to resource group](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
 
