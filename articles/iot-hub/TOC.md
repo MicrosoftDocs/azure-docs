@@ -203,30 +203,30 @@
 #### [Node.js](iot-hub-node-node-c2d.md)
 ### [Upload files from devices](iot-hub-csharp-csharp-file-upload.md)
 ### Get started with device twins
-#### [Node back end/Node device](iot-hub-node-node-twin-getstarted.md)
-#### [.NET back end/Node device](iot-hub-csharp-node-twin-getstarted.md)
+#### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
+#### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
 ### Use direct methods
-#### [Node back end/Node device](iot-hub-node-node-direct-methods.md)
-#### [.NET back end/Node device](iot-hub-csharp-node-direct-methods.md)
+#### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
+#### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
 ### Get started with device management
-#### [Node back end/Node device](iot-hub-node-node-device-management-get-started.md)
-#### [.NET back end/Node device](iot-hub-csharp-node-device-management-get-started.md)
+#### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
+#### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
 ### How to use twin properties
-#### [Node back end/Node device](iot-hub-node-node-twin-how-to-configure.md)
-#### [.NET back end/Node device](iot-hub-csharp-node-twin-how-to-configure.md)
+#### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
+#### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
 ### Use device jobs to update device firmware
 #### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
-#### [.NET back end/Node device](iot-hub-csharp-node-firmware-update.md)
+#### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
 ### Schedule and broadcast jobs
-#### [Node back end/Node device](iot-hub-node-node-schedule-jobs.md)
-#### [.NET back end/Node device](iot-hub-csharp-node-schedule-jobs.md)
+#### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
+#### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
 ## Manage
 ### Create an IoT hub 
 #### [Use the portal](iot-hub-create-through-portal.md)
 #### [Use the CLI 2.0 Preview](iot-hub-create-using-cli.md)
 #### [Use the CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Use the REST API](iot-hub-rm-rest.md)
-#### [Use Powershell](iot-hub-rm-template-powershell.md)
+#### [Use PowerShell](iot-hub-rm-template-powershell.md)
 #### [Use a template from .NET](iot-hub-rm-template.md)
 ### [Configure file upload](iot-hub-configure-file-upload.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
