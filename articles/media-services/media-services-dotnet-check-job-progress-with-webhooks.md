@@ -47,9 +47,11 @@ This topic shows how to
 
 The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function just listens for the webhook call back from Media Services notifications and logs the results out to the Functions console. In your case you might want to trigger publishing or sent an email to a customer.
 
-The webhook expects a sign in key (credential) to matach the one you pass when you configure the notification endpoint. In this code, the VerifyWebHookRequestSignature method does the verification.
+The webhook expects a sign in key (credential) to matach the one you pass when you configure the notification endpoint. The sign in key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
-You can find the definition of this and other functions [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
+In the following code, the VerifyWebHookRequestSignature method does the verification.
+
+You can find the definition of the following Media Services .NET Azure function [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
 ### Run.csx
 
@@ -246,130 +248,134 @@ The example above produced the following output. You values will vary.
 
 
 ## Adding Webhook to your encoding task
- 
-### Config file
-	
-	<appSettings>
-	  <add key="MediaServicesAccountName" value="AMSAcctName" />
-	  <add key="MediaServicesAccountKey" value="AMSAcctKey" />
-	  <add key="WebhookURL" value="https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>" />
-	  <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-	</appSettings>
 
-### C# code
+1. Create a new C# Console Application in Visual Studio. Enter the Name, Location, and Solution name, and then click OK.
+2. Use [Nuget](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
+3. Update App.config file with appropriate values: 
+	
+	* Azure Media Services name and key that will be sending the toifications, 
+	* webhook URL that expects to get the notifications, 
+	* the sign in key that will match the key that your webhook expects. The sign in key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
-The webhook expects a sign in key (credential) to matach the one you pass when you configure the notification endpoint, as shown in the following example.
+			<appSettings>
+			  <add key="MediaServicesAccountName" value="AMSAcctName" />
+			  <add key="MediaServicesAccountKey" value="AMSAcctKey" />
+			  <add key="WebhookURL" value="https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>" />
+			  <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+			</appSettings>
+4. Update your Program.cs file with the following code
 
-	using System;
-	using System.Configuration;
-	using System.Linq;
-	using Microsoft.WindowsAzure.MediaServices.Client;
-	
-	
-	namespace NotificationWebHook
-	{
-	    class Program
-	    {
-	        // Read values from the App.config file.
-	        private static readonly string _mediaServicesAccountName =
-	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-	        private static readonly string _mediaServicesAccountKey =
-	            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-	        private static readonly string _webHookEndpoint =
-	            ConfigurationManager.AppSettings["WebhookURL"];
-	        private static readonly string _signingKey =
-	             ConfigurationManager.AppSettings["WebhookSigningKey"];
-	
-	        // Field for service context.
-	        private static CloudMediaContext _context = null;
-	
-	        static void Main(string[] args)
-	        {
-	
-	            // Used the cached credentials to create CloudMediaContext.
-	            _context = new CloudMediaContext(new MediaServicesCredentials(
-	                            _mediaServicesAccountName,
-	                            _mediaServicesAccountKey));
-	
-	            byte[] keyBytes = Convert.FromBase64String(_signingKey);
-	
-	            IAsset newAsset = _context.Assets.FirstOrDefault();
-	
-	            // Create an Encoding Job
-	
-	            // Check for existing Notification Endpoint with the name "FunctionWebHook"
-	
-	            var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
-	            INotificationEndPoint endpoint = null;
-	
-	            if (existingEndpoint != null)
-	            {
-	                Console.WriteLine("webhook endpoint already exists");
-	                endpoint = (INotificationEndPoint)existingEndpoint;
-	            }
-	            else
-	            {
-	                endpoint = _context.NotificationEndPoints.Create("FunctionWebHook",
-	                        NotificationEndPointType.WebHook, _webHookEndpoint, keyBytes);
-	                Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
-	            }
-	
-	            // Declare a new encoding job with the Standard encoder
-	            IJob job = _context.Jobs.Create("MES Job");
-	
-	
-	            // Get a media processor reference, and pass to it the name of the 
-	            // processor to use for the specific task.
-	            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-	
-	
-	            ITask task = job.Tasks.AddNew("My encoding task",
-	                processor,
-	                "H264 Multiple Bitrate 720p",
-	                TaskOptions.None);
-	
-	
-	            // Specify the input asset to be encoded.
-	            task.InputAssets.Add(newAsset);
-	
-	            // Add an output asset to contain the results of the job. 
-	            // This output is specified as AssetCreationOptions.None, which 
-	            // means the output asset is not encrypted. 
-	            task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
-	
-	            // Add the WebHook notification to this Task and request all notification state changes
-	            if (endpoint != null)
-	            {
-	                task.TaskNotificationSubscriptions.AddNew(NotificationJobState.All, endpoint, true);
-	                Console.WriteLine("Created Notification Subscription for endpoint: {0}", _webHookEndpoint);
-	            }
-	            else
-	            {
-	                Console.WriteLine("No Notification Endpoint is being used");
-	            }
-	
-	            job.Submit();
-	
-	            Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
-	            Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
-	
-	            Console.WriteLine("Job Submitted");
-	
-	        }
-	        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-	        {
-	            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-	            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-	
-	            if (processor == null)
-	                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-	
-	            return processor;
-	        }
-	
-	    }
-	}
-	
+
+		using System;
+		using System.Configuration;
+		using System.Linq;
+		using Microsoft.WindowsAzure.MediaServices.Client;
+
+
+		namespace NotificationWebHook
+		{
+		    class Program
+		    {
+			// Read values from the App.config file.
+			private static readonly string _mediaServicesAccountName =
+			    ConfigurationManager.AppSettings["MediaServicesAccountName"];
+			private static readonly string _mediaServicesAccountKey =
+			    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+			private static readonly string _webHookEndpoint =
+			    ConfigurationManager.AppSettings["WebhookURL"];
+			private static readonly string _signingKey =
+			     ConfigurationManager.AppSettings["WebhookSigningKey"];
+
+			// Field for service context.
+			private static CloudMediaContext _context = null;
+
+			static void Main(string[] args)
+			{
+
+			    // Used the cached credentials to create CloudMediaContext.
+			    _context = new CloudMediaContext(new MediaServicesCredentials(
+					    _mediaServicesAccountName,
+					    _mediaServicesAccountKey));
+
+			    byte[] keyBytes = Convert.FromBase64String(_signingKey);
+
+			    IAsset newAsset = _context.Assets.FirstOrDefault();
+
+			    // Create an Encoding Job
+
+			    // Check for existing Notification Endpoint with the name "FunctionWebHook"
+
+			    var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
+			    INotificationEndPoint endpoint = null;
+
+			    if (existingEndpoint != null)
+			    {
+				Console.WriteLine("webhook endpoint already exists");
+				endpoint = (INotificationEndPoint)existingEndpoint;
+			    }
+			    else
+			    {
+				endpoint = _context.NotificationEndPoints.Create("FunctionWebHook",
+					NotificationEndPointType.WebHook, _webHookEndpoint, keyBytes);
+				Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
+			    }
+
+			    // Declare a new encoding job with the Standard encoder
+			    IJob job = _context.Jobs.Create("MES Job");
+
+
+			    // Get a media processor reference, and pass to it the name of the 
+			    // processor to use for the specific task.
+			    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+
+			    ITask task = job.Tasks.AddNew("My encoding task",
+				processor,
+				"H264 Multiple Bitrate 720p",
+				TaskOptions.None);
+
+
+			    // Specify the input asset to be encoded.
+			    task.InputAssets.Add(newAsset);
+
+			    // Add an output asset to contain the results of the job. 
+			    // This output is specified as AssetCreationOptions.None, which 
+			    // means the output asset is not encrypted. 
+			    task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
+
+			    // Add the WebHook notification to this Task and request all notification state changes
+			    if (endpoint != null)
+			    {
+				task.TaskNotificationSubscriptions.AddNew(NotificationJobState.All, endpoint, true);
+				Console.WriteLine("Created Notification Subscription for endpoint: {0}", _webHookEndpoint);
+			    }
+			    else
+			    {
+				Console.WriteLine("No Notification Endpoint is being used");
+			    }
+
+			    job.Submit();
+
+			    Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
+			    Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
+
+			    Console.WriteLine("Job Submitted");
+
+			}
+			private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+			{
+			    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+			    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+			    if (processor == null)
+				throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+			    return processor;
+			}
+
+		    }
+		}
+
 
 ## Next step
 Review Media Services learning paths
