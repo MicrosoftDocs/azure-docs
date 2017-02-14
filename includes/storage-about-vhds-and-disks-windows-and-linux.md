@@ -58,8 +58,8 @@ The following table provides a comparison of Premium vs Standard for both unmana
 |    | Azure Premium Disk | Azure Standard Disk |
 |--- | ------------------ | ------------------- |
 | Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
-| Overview  | SSD based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD based cost effective disk support for Dev/Test VM scenarios |
+| Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
 | Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
-| Disk Size | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Unmanaged Disks: 1 GB – 1TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
+| Disk Size | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Unmanaged Disks: 1 GB – 1 TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Max Throughput per Disk | 200 MB/s | 60 MB/s |
 | Max IOPS per Disk | 5000 IOPS | 500 IOPS |
