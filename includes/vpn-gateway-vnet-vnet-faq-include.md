@@ -1,5 +1,5 @@
 ###Does Azure charge for traffic between VNets?
-VNet-to-VNet traffic within the same region is free for both directions. Cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Please refer to the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details.
+VNet-to-VNet traffic within the same region is free for both directions. Cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Refer to the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details.
 
 ###Does VNet-to-VNet traffic travel across the Internet?
 No. VNet-to-VNet traffic travels across the Microsoft Azure backbone, not the Internet.
@@ -26,7 +26,7 @@ No. VNet-to-VNet and Multi-Site connections require Azure VPN gateways with Rout
 No, both virtual networks MUST be using route-based (dynamic routing) VPNs.
 
 ###Can I have overlapping address spaces for VNet-to-VNet configurations?
-No.You can't have overlapping IP address ranges.
+No. You can't have overlapping IP address ranges.
 
 ### Can there be overlapping address spaces among connected virtual networks and on-premises local sites?
 No. You can't have overlapping IP address ranges.

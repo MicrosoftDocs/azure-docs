@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 02/14/2017
 ms.author: cherylmc
 
 ---
@@ -35,7 +35,7 @@ The following cross-premises connections are supported:
 * [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device.
 * [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
 * [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network.
-* [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
+* [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
 For more information about VPN gateway connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
