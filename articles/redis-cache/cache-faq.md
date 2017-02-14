@@ -71,7 +71,7 @@ The FAQs in this section cover common monitoring and troubleshooting questions. 
 
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 * [My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [Why is diagnostics enabled for some new caches but not others?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
+* [Why are diagnostics enabled for some new caches but not others?](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 * [Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -289,7 +289,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 * Develop your system such that it can handle connection blips [due to patching and failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
 #### Performance testing
-* Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Because  `redis-benchmark` does not support SSL, you must [enable the Non-SSL port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Because `redis-benchmark` does not support SSL, you must [enable the Non-SSL port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * The client VM used for testing should be in the same region as your Redis cache instance.
 * We recommend using Dv2 VM Series for your client as they have better hardware and should give the best results.
 * Make sure your client VM you choose has at least as much computing and bandwidth capability as the cache you are testing.
@@ -390,13 +390,13 @@ These tools enable you to monitor the health of your Azure Redis Cache instances
 ### My cache diagnostics storage account settings changed, what happened?
 Caches in the same region and subscription share diagnostics storage settings, and if the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region. If the diagnostics settings for your cache have changed, check to see if the diagnostic settings for another cache in the same subscription and region have changed. One way to check is to view the audit logs for your cache for a `Write DiagnosticSettings` event. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
-### Why is diagnostics enabled for some new caches but not others?
+### Why are diagnostics enabled for some new caches but not others?
 Caches in the same region and subscription share the same diagnostics storage settings. If you create a new cache in the same region and subscription as another cache that has diagnostics enabled, diagnostics is enabled on the new cache using the same settings.
 
 <a name="cache-timeouts"></a>
 
 ### Why am I seeing timeouts?
-Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client-side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
 
