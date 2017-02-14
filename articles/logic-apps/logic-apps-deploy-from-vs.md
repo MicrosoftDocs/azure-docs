@@ -162,7 +162,6 @@ For example, here's how you can replace the Azure Function resource ID:
 	"defaultValue":"<FunctionName>"
 	}
 },
-
 ```
 
 And where you'd use parameters:
