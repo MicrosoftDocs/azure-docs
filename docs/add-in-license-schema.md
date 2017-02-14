@@ -6,7 +6,7 @@ Use the  [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/offic
 
 To support add-in license testing, the Office Store verification web service does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to  **true**. However, the service does interpret the token, and all the properties of the  [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by the service can be read.
 
-```XML
+```xml
 <r>
   <t 
     aid="{2[A-Z] 8-12[0-9]}" 
@@ -172,7 +172,7 @@ When you submit a test add-in license token to the Office Store verification web
 
 The following example shows the add-in license XML for a SharePoint Add-in, representing a trial add-in for which the purchaser has acquired 30 seats. The user is signed in with their Microsoft account.
 
-```XML
+```xml
 <r>
   <t 
     aid="WA900006056" 
@@ -191,7 +191,7 @@ The following example shows the add-in license XML for a SharePoint Add-in, repr
 
 The following example shows the add-in license for a user who is signed in with their organizational identity. Note that the  **cid** attribute is empty.
 
-```XML
+```xml
 <r>
    <t 
      aid="WA104104476" 
