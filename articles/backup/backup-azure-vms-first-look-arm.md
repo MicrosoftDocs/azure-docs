@@ -34,7 +34,7 @@ This tutorial takes you through the steps for creating a recovery services vault
 * VMs running on Managed Disks
 * VMs encrypted using Azure Disk Encryption, with BEK and KEK
 
-For more information on protecting Premium storage VMs, see the article, [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [ Back up and restore of VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+For more information on protecting Premium storage VMs, see the article, [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 > [!NOTE]
 > This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
@@ -95,7 +95,7 @@ A recovery services vault is an entity that stores all the backups and recovery 
 
 To create a recovery services vault:
 
-1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 2. On the Hub menu, click **More services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
@@ -183,13 +183,13 @@ Before registering a VM with a vault, run the discovery process to ensure that a
     The Backup and Backup Goal blades open.
 
     ![Open Scenario blade](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
-3. On the Backup Goal blade, set **Where is your workload running** to Azure and  **What do you want to backup** to Virtual machine, then click **OK**.
+3. On the Backup Goal blade, from the **Where is your workload running** drop-down menu, choose Azure. From the **What do you want to backup** drop-down, choose Virtual machine, then click **OK**.
 
     This registers the VM extension with the vault. The Backup Goal blade closes and the **Backup policy** blade opens.
 
     ![Open Scenario blade](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
-4. On the Backup policy blade, select the backup policy you want to apply to the vault..
+4. On the Backup policy blade, select the backup policy you want to apply to the vault.
 
     ![Select backup policy](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
@@ -207,7 +207,7 @@ Before registering a VM with a vault, run the discovery process to ensure that a
 
     ![Enable Backup](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-After successfully enabling the backup, your the backup policy will execute on schedule. However, proceed to initiate the first backup job.
+After successfully enabling the backup, your backup policy will execute on schedule. However, proceed to initiate the first backup job.
 
 ## Initial backup
 Once a backup policy has been deployed on the virtual machine, that does not mean the data has been backed up. By default, the first scheduled backup (as defined in the backup policy) is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
