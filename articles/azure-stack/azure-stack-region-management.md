@@ -1,3 +1,4 @@
+
 ---
 title: Region management in Azure Stack | Microsoft Docs
 description: Overview of region management in Azure Stack.
@@ -22,9 +23,8 @@ Azure Stack Technical Preview 2 introduces the concept of regions, which are log
 
 The Azure Stack Proof of Concept (POC) is a single node deployment and equals one region. If you set up another instance of Azure Stack POC on separate hardware, this instance will be a different region.
 
-This preview release of Azure Stack introduces a set of region management capabilities available in the **Region Management** tile. In this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
-
 ## Information available through the Region Management tile
+This preview release of Azure Stack introduces a set of region management capabilities available in the **Region Management** tile. In this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
 
  ![The region management tile](media/azure-stack-manage-region/image1.png)
 
