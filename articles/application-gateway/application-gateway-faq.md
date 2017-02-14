@@ -142,11 +142,38 @@ Yes, Azure distributes instances across update and fault domains to ensure that 
 
 **Q. What certificates are supported on Application Gateway?**
 
-PFX, CER.. *************************
+Self signed certs, CA certs, and wild card certs are supported. EV certs are not supported.
 
 **Q. What are the current cipher suites supported by Application Gateway?**
 
-**************
+The following are the current cipher suites supported.
+
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
+
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
+
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
+
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
+
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
+
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
+
+TLS_RSA_WITH_AES_256_GCM_SHA384
+
+TLS_RSA_WITH_AES_128_GCM_SHA256
+
+TLS_RSA_WITH_AES_256_CBC_SHA256
+
+TLS_RSA_WITH_AES_128_CBC_SHA256
+
+TLS_RSA_WITH_AES_256_CBC_SHA
+
+TLS_RSA_WITH_AES_128_CBC_SHA
+
+TLS_RSA_WITH_3DES_EDE_CBC_SHA
+
 
 **Q. Does Application Gateway also support re-encryption of traffic to the backend?**
 
@@ -166,7 +193,7 @@ Up to 20 SSL certificates are supported.
 
 **Q. How many authentication certificates for backend re-encryption are supported?**
 
-Up to 5 authentication certificates are supported. ********************
+Up to 10 authentication certificates are supported with a default of 5.
 
 **Q. Does Application Gateway integrate with Azure Key Vault natively?**
 
@@ -180,7 +207,7 @@ Yes, WAF supports all the features in the Standard SKU.
 
 **Q. What is the CRS version Application Gateway supports?**
 
-Application Gateway supports CRS 2.2. *****************
+Application Gateway supports CRS 2.2.9
 
 **Q. How do I monitor WAF?**
 
@@ -196,7 +223,7 @@ Currently WAF rules are not customizable.
 
 **Q. What rules are currently available?**
 
-WAF currently supports CRS 2.2 **************** which provides baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
+WAF currently supports CRS 2.2.9 which provides baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
 * SQL Injection
 
@@ -230,11 +257,11 @@ There are three logs available for Application Gateway. For more information on 
 
 **Q. How do I know if my backend pool members are healthy?**
 
-fill in this
+You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnotics.md)
 
 **Q. What is the retention policy on the diagnostics logs?**
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference...... fix indefinitely or can be finely tuned from 1-365 days. Diagnostic logs can also be sent to an Event Hub or Log Analytics. insert links. ******************
+Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Log Analytics. Visit [Application Gateway Diagnostics](application-gateway-diagnotics.md) for more details.
 
 **Q. How do I get audit logs for Application Gateway?**
 
@@ -242,7 +269,7 @@ Audit logs are available for Application Gateway. In the portal, click **Activit
 
 **Q. Can I set alerts with Application Gateway?**
 
-Yes, Application Gateway does support alerts, alerts are configured off of metrics.  Application currently has a metric of "throughput" which can be configured to alert. **************
+Yes, Application Gateway does support alerts, alerts are configured off of metrics.  Application Gateway currently has a metric of "throughput" which can be configured to alert. To learn more about alerts visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **Q. Backend health returns unknown status, what could be causing this?**
 
