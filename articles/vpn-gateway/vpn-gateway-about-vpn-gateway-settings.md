@@ -44,13 +44,13 @@ Example:
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ### Configuring the gateway SKU
-**Specifying the gateway SKU in the Azure portal**
+####Specifying the gateway SKU in the Azure portal
 
 If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you are presented with correspond to the Gateway type and VPN type that you select.
 
 For example, if you select the gateway type 'VPN' and the VPN type 'Policy-based', you see only the 'Basic' SKU because that is the only SKU available for PolicyBased VPNs. If you select 'Route-based', you can select from Basic, Standard, and HighPerformance SKUs. 
 
-**Specifying the gateway SKU using PowerShell**
+####Specifying the gateway SKU using PowerShell
 
 The following PowerShell example specifies the `-GatewaySku` as *Standard*.
 
@@ -58,7 +58,7 @@ The following PowerShell example specifies the `-GatewaySku` as *Standard*.
     -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
     -GatewayType Vpn -VpnType RouteBased
 
-**Changing a gateway SKU**
+####Changing a gateway SKU
 
 If you want to upgrade your gateway SKU to a more powerful SKU (from Basic/Standard to HighPerformance), you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
 
