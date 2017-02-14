@@ -45,3 +45,7 @@ After your Ruby web app gets created, you can deploy to it using Git or FTP.
 * [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
 * [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md)
 * [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
+
+<!--Image references-->
+[1]: ./media/app-service-linux-using-ruby/New-Linux.png
+[2]: ./media/app-service-linux-using-ruby/Ruby-UX.png
