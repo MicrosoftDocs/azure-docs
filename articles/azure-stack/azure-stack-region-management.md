@@ -24,11 +24,13 @@ The Azure Stack Proof of Concept (POC) is a single node deployment and equals on
 
 This preview release of Azure Stack introduces a set of region management capabilities available in the **Region Management** tile. In this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
 
- ![](media/azure-stack-manage-region/image1.png)
+## Information available through the Region Management tile
+
+ ![The region management tile](media/azure-stack-manage-region/image1.png)
 
  Here is what’s new in this technical preview: 
 
-  ![](media/azure-stack-manage-region/image2.png)
+  ![Description of panes on the Region Management blade](media/azure-stack-manage-region/image2.png)
   
 1. **Quickstart**. You can find Azure Stack-related documentation and links to it here. 
 
