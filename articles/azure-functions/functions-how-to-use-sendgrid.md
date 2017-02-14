@@ -19,7 +19,7 @@ ms.author: rachelap
 
 ## SendGrid Overview
 
-SendGrid is an SMTP provider in Azure that allows you to send email programmatically by using their API. The SendGrid API supports C#, Go, Java, NodeJS, Python, Ruby, and PHP. 
+Azure Functions supports SendGrid output bindings to enable your functions to send email messages with a few lines of code and a SendGrid account.
 
 > [!IMPORTANT]
 > SendGrid is currently in Preview mode. 
@@ -45,26 +45,6 @@ You must store your SendGrid API Key as an app setting to use it in a function. 
 1. Create an **AppSettings** key in your function app's **Application Settings**.
 
  ![Create an Azure function](./media/functions-how-to-use-sendgrid/functions-configure-sendgrid-api-key-app-settings.png)
-
-Function apps also require a reference to external assemblies before you may use them.  
-
-2. List the SendGrid assembly in the **project.json** file. If no project.json file exists, create one. Azure will automatically create the **project.lock.json** file to track dependencies.
-
- ![Reference SendGrid assembly](./media/functions-how-to-use-sendgrid/functions-reference-sendgrid-assembly.png)
- 
- The contents of the **project.json** file should look like the following:
-
-```json
- {
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Sendgrid": "8.0.5"
-      }
-    }
-   }
-}
-```
 
 ## Configure SendGrid output bindings
 
@@ -105,11 +85,10 @@ The SendGrid API contains all the commands you need to create and send an email.
 1. Replace the code in the function with the following code:
 
 ```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
 
-public static Mail Run(TraceWriter log, string input, out Mail message)
+public static void Run(TraceWriter log, string input, out Mail message)
 {
     message = new Mail
     {        
@@ -117,6 +96,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
     };
 
     var personalization = new Personalization();
+    // change to email of recipient
     personalization.AddTo(new Email("MoreEmailPlease@contoso.com"));   
 
     Content content = new Content
@@ -126,8 +106,6 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
     };
     message.AddContent(content);
     message.AddPersonalization(personalization);
-  
-    return message;
 }
 ```
 
