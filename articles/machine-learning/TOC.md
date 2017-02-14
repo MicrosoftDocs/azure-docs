@@ -175,7 +175,7 @@
 ## [PowerShell module (New)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST managment APIs](/rest/api/machinelearning)
+## [REST API reference](/rest/api/machinelearning)
 ## [Web service error codes](machine-learning-web-service-error-codes.md)
 
 # Related
