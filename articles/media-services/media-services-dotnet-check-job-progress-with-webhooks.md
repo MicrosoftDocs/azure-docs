@@ -47,7 +47,7 @@ This topic shows how to
 
 The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function just listens for the webhook call back from Media Services notifications and logs the results out to the Functions console. In your case you might want to trigger publishing or sent an email to a customer.
 
-The webhook expects a sign in key (credential) to matach the one you pass when you configure the notification endpoint. The sign in key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
+The webhook expects a sign in key (credential) to match the one you pass when you configure the notification endpoint. The sign in key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
 In the following code, the VerifyWebHookRequestSignature method does the verification.
 
@@ -253,7 +253,7 @@ The example above produced the following output. You values will vary.
 2. Use [Nuget](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
 3. Update App.config file with appropriate values: 
 	
-	* Azure Media Services name and key that will be sending the toifications, 
+	* Azure Media Services name and key that will be sending the noifications, 
 	* webhook URL that expects to get the notifications, 
 	* the sign in key that will match the key that your webhook expects. The sign in key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
