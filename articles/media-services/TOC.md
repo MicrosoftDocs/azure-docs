@@ -195,8 +195,8 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Queue storage to monitor job notifications](media-services-dotnet-check-job-progress-with-queues.md)
-### [Monitor with Webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
+### [Monitor job notifications with queue storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitor job notifications with webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Troubleshoot
 ### [Frequently asked questions](media-services-frequently-asked-questions.md)
