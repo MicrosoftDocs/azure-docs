@@ -1,6 +1,6 @@
 ---
 title: Deploy a WordPress app in the Azure portal in five minutes | Microsoft Docs
-description: Learn how easy it is to run web apps in App Service by deploying a WordPress app. Start doing real development quickly and see results immediately.
+description: Learn how easy it is to run web apps in App Service by deploying a WordPress app. See your results immediately.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -42,26 +42,32 @@ You need a Microsoft Azure account. If you don't have an account, you can
 
     This link is a shortcut to immediately configure a new WordPress app in the Azure portal.
 
-3. Type a unique name for the web app in the **App name** box. You will see a green checkmark in the box if the name is unique in the `azurewebsites.net` domain.
+3. In **App name**, type a web app name. You will see a green checkmark in the box if the name is unique in the `azurewebsites.net` domain.
    
-5. In **Resource Group**, click **Create new** create a new [resource group](../azure-resource-manager/resource-group-overview.md), then give your resource group a name.
+5. In **Resource Group**, click **Create new** to create a new [resource group](../azure-resource-manager/resource-group-overview.md), then give it a name.
 
-6. In **Database Provider**, select [**MySQL in App (Preview)**].
+6. In **Database Provider**, select **CleaDB**.
 
-    > [!NOTE]
-    > For production WordPress, you want the **ClearDB** option to create a full-featured MySQL database instead. 
+7. Click **App Service plan/Location** > **Create New**. Configure the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) as shown:
 
-7. Click **App Service plan/Location** > **Create New** to create a new [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+    - In **App Service plan**, type the desired name.
+    - In **Location**, choose a location to host your plan.
+    - Click **Pricing tier**, then select **F1 Free** or another tier that suits you, and then click **Select**.
+    - Click **OK**.
 
-8. In **App Service plan**, type the desired name.
+8. Click **Database** > **Create New**. Configure the SQL Database as shown:
 
-9. In **Location**, choose a location to host your plan.
+    - In **Database Name**, type a database name. 
+    - In **Location**, choose the same location as the App Service plan.
+    - Click **Pricing tier**, then select **Mercury** or another tier that suits you, and then click **Select**.
+    - Click **Legal Terms** and click **Purchase**.
+    - Click **OK**.
 
-10. Click **Pricing tier** and select **F1 Free**,
-
-11. Click **Select**, then **OK**, then **Create**. 
+9. Click **Create**.
 
     Azure now creates your WordPress app based on your configuration. You should see a **Deployment started...** notification.
+
+    ![Deployment started - first WordPress in Azure App Service](./media/app-service-web-get-started-php-portal/deployment-started.png)
    
 ## Launch and manage your WordPress web app
 
@@ -69,7 +75,8 @@ When Azure completes app deployment you see another notification.
 
 ![Deployment succeeded - first WordPress in Azure App Service](./media/app-service-web-get-started-php-portal/deployment-succeeded.png)
 
-1. Click the notification.
+1. Click the notification. If you missed it, you can always access it by clicking the notification bell 
+(![Notification bellow - first WordPress in Azure App Service](./media/app-service-web-get-started-dotnet-portal/notification.png)).
 
     You should now see your web app's management [blade](../azure-resource-manager/resource-group-portal.md#manage-resources) (*blade*: a portal page that opens horizontally).
 
@@ -82,19 +89,16 @@ When Azure completes app deployment you see another notification.
     ![WordPress configuration - first WordPress in Azure App Service](./media/app-service-web-get-started-php-portal/wordpress-config.png)
     
 ## Next steps
-[Create, configure, and deploy a Laravel web app to Azure](app-service-web-php-get-started.md). By following this tutorial, you will learn
-the basic skills you need to run any PHP web app in Azure, such as:
+* [Create, configure, and deploy a Laravel web app to Azure](app-service-web-php-get-started.md) - Learn the basic skills you need to run any PHP web app 
+in Azure, such as:
 
-* Create and configure apps in Azure from PowerShell/Bash.
-* Set PHP version.
-* Use a start file that is not in the root application directory.
-* Enable Composer automation.
-* Access environment-specific variables.
-* Troubleshoot common errors.
+    * Create and configure apps in Azure from PowerShell/Bash.
+    * Set PHP version.
+    * Use a start file that is not in the root application directory.
+    * Enable Composer automation.
+    * Access environment-specific variables.
+    * Troubleshoot common errors.
 
-Or, do more with your first web app. For example:
-
-* Try out [other ways to deploy your code to Azure](web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select
-  **GitHub** instead of **Local Git Repository** in **Deployment options**.
-* Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
-  [Add functionality to your first web app](app-service-web-get-started-2.md).
+* [Deploy your code to Azure App Service](web-sites-deploy.md)- Learn how to deploy from FTP or from source control repositories.
+* [Add functionality to your first web app](app-service-web-get-started-2.md) - Take your Azure app to the next level. Authenticate your users. 
+Scale it based on demand. Set up some performance alerts. All with a few clicks.
