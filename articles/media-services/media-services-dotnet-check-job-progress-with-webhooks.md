@@ -20,14 +20,26 @@ ms.author: juliako
 # Use Azure WebbHooks to monitor Media Services job notifications with .NET
 When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This topic shows how to work with Webhooks.
 
->[!NOTE] Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
->
+
+## Prerequisites
+
+The following are required to complete the tutorial:
+
+* An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
+* .NET Framework 4.0 or later
+* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+* Understanding of [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
 This topic shows how to
 
 *  Define an Azure Function that is customized to respond to webhooks. 
 	
 	In this case the webhook is triggered by Media Services when your encoding job changes status. In the example shown here, all the webhook does is logs the notification message. In your case you might want to trigger publishing or sent an email to a customer.
+	
+	>[!NOTE]
+	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
+	>
 	
 * Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook response to. You could have this code fined as part of another Azure function, but in this case, the code is part of a console app.
 
