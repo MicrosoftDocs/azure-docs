@@ -21,11 +21,11 @@ ms.author: aelnably
 
 # Using Ruby in Web Apps on Linux #
 
-With the latest update to our back end, we introduced support for Ruby v.2.3. By setting the configuration of your Linux web app, you can change the application stack.
+With the latest update to our backend, we introduced support for Ruby v.2.3. By setting the configuration of your Linux web app, you can change the application stack.
 
-## Using Azure Management Portal ##
+## Using Azure Portal ##
 
-From the new menu in the [Azure Portal](https://portal.azure.com), you can choose to create a new Web App on Linux from the Web + Mobile option as shown in the following image:
+From the new menu in the [Azure Portal](https://portal.azure.com), you can choose to create a Web App on Linux from the Web + Mobile option as shown in the following image:
 
 ![Start creating a web app on the Azure portal][1]
 
@@ -38,7 +38,7 @@ Next, the **Create blade** opens as shown in the following image:
 3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](app-service-linux-intro.md).)
 4. Choose the Ruby from the Built-in Runtime stacks.
 
-After your Ruby web app get created, you can deploy to it using Git or FTP.
+After your Ruby web app gets created, you can deploy to it using Git or FTP.
 
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
