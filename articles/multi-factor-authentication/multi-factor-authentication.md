@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 
 ---
@@ -52,6 +52,6 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 
 ## Next steps
 
-- Learn about [How Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md)
+- Learn about [how Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md)
 
-- Read about the different [Versions and billing methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-billing.md)
+- Read about the different [versions and billing methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-billing.md)
