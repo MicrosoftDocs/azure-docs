@@ -17,7 +17,7 @@ ms.date: 02/19/2017
 ms.author: juliako
 
 ---
-# Use Azure WebbHooks to monitor Media Services job notifications with .NET
+# Use Azure WebHooks to monitor Media Services job notifications with .NET
 When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This topic shows how to work with Webhooks.
 
 
@@ -35,7 +35,7 @@ This topic shows how to
 
 *  Define an Azure Function that is customized to respond to webhooks. 
 	
-	In this case the webhook is triggered by Media Services when your encoding job changes status. In the example shown here, all the webhook does is logs the notification message. In your case you might want to trigger publishing or sent an email to a customer.
+	In this case the webhook is triggered by Media Services when your encoding job changes status. In the example shown here, all the webhook does is logs the notification message. In your case you might want to trigger publishing or send an email to a customer.
 	
 	>[!NOTE]
 	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
@@ -45,9 +45,9 @@ This topic shows how to
 
 ## Getting Webhook notifications
 
-The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function just listens for the webhook call back from Media Services notifications and logs the results out to the Functions console. In your case you might want to trigger publishing or sent an email to a customer.
+The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function just listens for the webhook call back from Media Services notifications and logs the results out to the Functions console. In your case you might want to trigger publishing or send an email to a customer.
 
-The webhook expects a sign in key (credential) to match the one you pass when you configure the notification endpoint. The sign in key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
+The webhook expects a signing key (credential) to match the one you pass when you configure the notification endpoint. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
 In the following code, the VerifyWebHookRequestSignature method does the verification.
 
@@ -255,7 +255,7 @@ The example above produced the following output. You values will vary.
 	
 	* Azure Media Services name and key that will be sending the noifications, 
 	* webhook URL that expects to get the notifications, 
-	* the sign in key that will match the key that your webhook expects. The sign in key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
+	* the signing key that will match the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
 			<appSettings>
 			  <add key="MediaServicesAccountName" value="AMSAcctName" />
