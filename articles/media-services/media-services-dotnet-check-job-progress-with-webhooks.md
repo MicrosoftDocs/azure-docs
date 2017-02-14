@@ -18,48 +18,31 @@ ms.author: juliako
 
 ---
 # Use Azure WebbHooks to monitor Media Services job notifications with .NET
-When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). 
+When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This topic shows how to work with Webhooks.
+
+>[!NOTE] Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
+>
 
 This topic shows how to
 
 *  Define an Azure Function that is customized to respond to webhooks. 
 	
-	In this case the webhook is triggered by Media Services when your encoding job changes status. In the example shown here, all the webhood does is logs the notification message. In your case you might want to trigger publishing or sent an email to the customer.
-
+	In this case the webhook is triggered by Media Services when your encoding job changes status. In the example shown here, all the webhook does is logs the notification message. In your case you might want to trigger publishing or sent an email to a customer.
+	
 * Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook response to. You could have this code fined as part of another Azure function, but in this case, the code is part of a console app.
 
 ## Getting Webhook notifications
 
-This code shows how to get notification messages from a Webhook once it is triggered by Media Services. The code sample shows the code for an Azure function that defines a Webhook.
+The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function just listens for the webhook call back from Media Services notifications and logs the results out to the Functions console. In your case you might want to trigger publishing or sent an email to a customer.
 
-Each Azure function has function.json and run code files.
+The webhook expects a sign in key (credential) to matach the one you pass when you configure the notification endpoint. In this code, the VerifyWebHookRequestSignature method does the verification.
 
-### function.json
-	
-	{
-	  "bindings": [
-	    {
-	      "type": "httpTrigger",
-	      "name": "req",
-	      "direction": "in",
-	      "methods": [
-	        "post",
-	        "get",
-	        "put",
-	        "update",
-	        "patch"
-	      ]
-	    },
-	    {
-	      "type": "http",
-	      "name": "res",
-	      "direction": "out"
-	    }
-	  ]
-	}
+You can find the definition of this and other functions [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
 ### Run.csx
-	
+
+The following C# code shows how to get notification messages when your Webhook is triggered by Media Services. 
+
 	///////////////////////////////////////////////////
 	#r "Newtonsoft.Json"
 	
@@ -262,7 +245,9 @@ The example above produced the following output. You values will vary.
 	</appSettings>
 
 ### C# code
-	
+
+The webhook expects a sign in key (credential) to matach the one you pass when you configure the notification endpoint, as shown in the following example.
+
 	using System;
 	using System.Configuration;
 	using System.Linq;
