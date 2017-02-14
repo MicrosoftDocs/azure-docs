@@ -336,6 +336,10 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 
 7. Use the __Ctrl + C__ to exit the consumer, then use the `fg` command to bring the streaming background task back to the foreground. Use __Ctrl + C__ to exit it also.
 
+## Delete the cluster
+
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## Next steps
 
 In this document, you have learned the basics of working with Apache Kafka on HDInsight. Use the following to learn more about working with Kafka:
