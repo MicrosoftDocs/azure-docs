@@ -62,12 +62,12 @@ When you deploy the remote monitoring preconfigured solution, four simulated dev
 
 The simulated devices in the solution can respond to the following cloud-to-device communications:
 
-- *Methods (direct methods)*: A two-way communication method where a connected device is expected to respond immediately.
+- *Methods ([direct methods][lnk-direct-methods])*: A two-way communication method where a connected device is expected to respond immediately.
 - *Commands (cloud-to-device messages)*: A one-way communication method where a device retrieves the command from a durable queue.
 
 For a comparison of these different approaches, see [Cloud-to-device communications guidance][lnk-c2d-guidance].
 
-When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the commands the device can respond to. In the remote monitoring preconfigured solution, these commands are: 
+When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the commands the device can respond to. In the remote monitoring preconfigured solution, the simulated devices support these commands: 
 
 * *Ping Device*: The device responds to this command with an acknowledgement. This command is useful for checking that the device is still active and listening.
 * *Start Telemetry*: Instructs the device to start sending telemetry.
@@ -76,7 +76,7 @@ When a device first connects to IoT Hub in the preconfigured solution, it sends 
 * *Diagnostic Telemetry*: Controls if the device should send the external temperature as telemetry.
 * *Change Device State*: Sets the device state metadata property that the device reports. This command is useful for testing back-end logic.
 
-When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the methods the device can respond to. In the remote monitoring preconfigured solution, these methods are: 
+When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the methods the device can respond to. In the remote monitoring preconfigured solution, the simulated devices support these methods: 
 
 * *Ping Device*: The device responds to this command with an acknowledgement. This method is useful for checking that the device is still active and listening.
 * *Start Telemetry*: Instructs the device to start sending telemetry.
@@ -88,7 +88,7 @@ When a device first connects to IoT Hub in the preconfigured solution, it sends 
 
 You can add more simulated devices to the solution that emit the same telemetry and respond to the same commands and methods.
 
-In addition to responding to commands and methods, devices have properties that are reported to the solution back end and set to new desired values from the solution back end.
+In addition to responding to commands and methods, the solution uses [device twins][lnk-device-twin] to report property values to the solution back end and to set to new desired property values on the device.
 
 ## IoT Hub
 In this preconfigured solution, the IoT Hub instance corresponds to the *Cloud Gateway* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
@@ -122,7 +122,7 @@ The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for de
 ## Device identity registry, device twin, and DocumentDB
 Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.
 
-A device twin is a JSON document managed by the IoT Hub. A device twin for a device contains:
+A [device twin][lnk-device-twin] is a JSON document managed by the IoT Hub. A device twin for a device contains:
 
 - Reported properties sent by the device to the hub. You can view these properties in the solution portal.
 - Desired properties that you want to send to the device. You can set these properties in the solution portal.
@@ -164,3 +164,5 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

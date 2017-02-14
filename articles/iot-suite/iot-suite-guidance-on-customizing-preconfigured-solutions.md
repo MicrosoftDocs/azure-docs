@@ -121,10 +121,10 @@ To notify the IoT hub that a device supports a method, the device must add detai
 }
 ```
 
-The method signature has the following format: `<method name>-<parameter #0 type>-<parameter #1 type>-...-<parameter #n type>`. For example, to specify the **FirmwareUpdate** method expects a string parameter named **fmPackageUri**, use the following method signature:
+The method signature has the following format: `<method name>-<parameter #0 type>-<parameter #1 type>-...-<parameter #n type>`. For example, to specify the **InitiateFirmwareUpdate** method expects a string parameter named **fmPackageUri**, use the following method signature:
 
 ```
-FirmwareUpate-string-fmPackgeUri: description
+InitiateFirmwareUpate-string-FWPackgeUri: description
 ```
 
 For a list of supported parameter types, see the **CommandTypes** class in the Infrastructure project.
@@ -140,28 +140,58 @@ The following code sample from the **SampleDeviceFactory** class in the Common p
 
 ```csharp
 device.Commands.Add(new Command(
-    "FirmwareUpdate",
+    "InitiateFirmwareUpdate",
     DeliveryType.Method,
     "Updates device Firmware. Use parameter 'FwPackageUri' to specifiy the URI of the firmware file, e.g. https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin",
     new[] { new Parameter("FwPackageUri", "string") }
 ));
 ```
 
-This code snippet adds details of the **FirmwareUpdate** method including text to display in the solution portal and details of the required method parameters.
+This code snippet adds details of the **InitiateFirmwareUpdate** method including text to display in the solution portal and details of the required method parameters.
 
 The simulator sends reported properties, including the list of supported methods, to IoT Hub when the simulator starts.
 
-You must add a handler to the simulator code for each method it supports. You can see the existing handlers in the **CoolerDevice** class in the Simulator.WebJob project. The following example shows the handler for **FirmwareUpdate** method:
+You must add a handler to the simulator code for each method it supports. You can see the existing handlers in the **CoolerDevice** class in the Simulator.WebJob project. The following example shows the handler for **InitiateFirmwareUpdate** method:
 
 ```csharp
-public async Task<MethodResponse> OnFactoryReset(MethodRequest methodRequest, object userContext)
+public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodRequest, object userContext)
 {
-    var task = FactoryResetAsync();
-
-    return await Task.FromResult(BuildMethodRespose(new
+    if (_deviceManagementTask != null && !_deviceManagementTask.IsCompleted)
     {
-        Message = "FactoryReset accepted"
-    }));
+        return await Task.FromResult(BuildMethodRespose(new
+        {
+            Message = "Device is busy"
+        }, 409));
+    }
+
+    try
+    {
+        var operation = new FirmwareUpdate(methodRequest);
+        _deviceManagementTask = operation.Run(Transport).ContinueWith(async task =>
+        {
+            // after firmware completed, we reset telemetry
+            var telemetry = _telemetryController as ITelemetryWithTemperatureMeanValue;
+            if (telemetry != null)
+            {
+                telemetry.TemperatureMeanValue = 34.5;
+            }
+
+            await UpdateReportedTemperatureMeanValue();
+        });
+
+        return await Task.FromResult(BuildMethodRespose(new
+        {
+            Message = "FirmwareUpdate accepted",
+            Uri = operation.Uri
+        }));
+    }
+    catch (Exception ex)
+    {
+        return await Task.FromResult(BuildMethodRespose(new
+        {
+            Message = ex.Message
+        }, 400));
+    }
 }
 ```
 
@@ -173,6 +203,12 @@ Inside the method handler, you could:
 - Retrieve desired properties from the *device twin* in IoT Hub.
 - Update a single reported property using the **SetReportedPropertyAsync** method in the **CoolerDevice** class.
 - Update multiple reported properties by creating a new **TwinCollection** instance and calling the **Transport.UpdateReportedPropertiesAsync** method.
+
+The preceding firmware update example performs the following steps:
+
+- Checks the device is able to accept the firmware update request.
+- Asynchronously initiates the firmware update operation and resets the telemetry when the operation is complete.
+- Immediately returns the "FirmwareUpdate accepted" message to indicate the request was accepted by the device.
 
 ### Build and use your own (physical) device
 The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries for connecting numerous device types (languages and operating systems) into IoT solutions.

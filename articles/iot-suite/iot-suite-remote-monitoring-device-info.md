@@ -49,9 +49,10 @@ A device twin stores three types of metadata:
 - *Desired properties* are retrieved from the IoT hub by devices. It is the responsibility of the device to make any necessary configuration change on the device. It is also the responsibility of the device to report the change back to the hub as a reported property. You can set a desired property value through the solution portal.
 - *Tags* only exist in the device twin and are never synchronized with a device. You can set tag values in the solution portal and use them when you filter the list of devices. The solution also uses a tag to identify the icon to display for a device in the solution portal.
 
-Example reported properties from the simulated devices include mnaufacturer, model number, latitude, and longitude. Simulated devices also return the list of supported methods as a reported property.
+Example reported properties from the simulated devices include manufacturer, model number, latitude, and longitude. Simulated devices also return the list of supported methods as a reported property.
 
-
+> [!NOTE]
+> The simulated device code only uses the **Desired.Config.TemperatureMeanValue** and **Desired.Config.TelemetryInterval** desired properties to update the reported properties sent back to IoT Hub. All other desired property change requests are ignored.
 
 A device information metadata JSON document stored in the device registry DocumentDB database has the following structure:
 

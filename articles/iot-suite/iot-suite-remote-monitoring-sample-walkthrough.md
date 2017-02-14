@@ -51,7 +51,7 @@ Each simulated device can send the following message types to IoT Hub:
 > 
 
 ### Properties and device twins
-The simulated devices send the following device properties to the twin in the IoT hub as *reported properties*. The device sends reported properties at startup and in response to a **Change Device State** command or method.
+The simulated devices send the following device properties to the [twin][lnk-device-twins] in the IoT hub as *reported properties*. The device sends reported properties at startup and in response to a **Change Device State** command or method.
 
 | Property | Purpose |
 | --- | --- |
@@ -74,6 +74,26 @@ The simulator seeds these properties in simulated devices with sample values. Ea
 2. Update its configuration with the desired property value.
 3. Send the new value back to the hub as a reported property.
 
+From the solution dashboard, you can use *desired properties* to set properties on a device by using the [device twin][lnk-device-twins]. Typically, a device reads a desired property value from the hub to update its internal state and report the change back as a reported property.
+
+> [!NOTE]
+> The simulated device code only uses the **Desired.Config.TemperatureMeanValue** and **Desired.Config.TelemetryInterval** desired properties to update the reported properties sent back to IoT Hub. All other desired property change requests are ignored in the simulated device.
+
+### Methods
+The simulated devices can handle the following methods ([direct methods][lnk-direct-methods]) invoked from the solution portal through the IoT hub:
+
+| Method | Description |
+| --- | --- |
+| PingDevice |Sends a *ping* to the device to check it is alive |
+| StartTelemetry |Starts the device sending telemetry |
+| StopTelemetry |Stops the device from sending telemetry |
+| ChangeDeviceState |Changes a state property for the device and sends the device info message from the device |
+| InitiateFirmwareUpdate |Instructs the device to perform a firmware update |
+| Reboot |Instructs the device to reboot |
+| FactoryReset |Instructs the device to perform a factory reset |
+
+Some methods use reported properties to report on progress. For example, the **InitiateFirmwareUpdate** method simulates running the update asynchronously on the device. The method returns immediately on the device, while the asynchronous task continues to send status updates back to the solution dashboard using reported properties.
+
 ### Commands 
 The simulated devices can handle the following commands (cloud-to-device messages) sent from the solution portal through the IoT hub:
 
@@ -85,19 +105,6 @@ The simulated devices can handle the following commands (cloud-to-device message
 | ChangeSetPointTemp |Changes the set point value around which the random data is generated |
 | DiagnosticTelemetry |Triggers the device simulator to send an additional telemetry value (externalTemp) |
 | ChangeDeviceState |Changes an extended state property for the device and sends the device info message from the device |
-
-### Methods
-The simulated devices can handle the following methods (direct methods) invoked from the solution portal through the IoT hub:
-
-| Method | Description |
-| --- | --- |
-| PingDevice |Sends a *ping* to the device to check it is alive |
-| StartTelemetry |Starts the device sending telemetry |
-| StopTelemetry |Stops the device from sending telemetry |
-| ChangeDeviceState |Changes a state property for the device and sends the device info message from the device |
-| Firmware Update |Instructs the device to perform a firmware update |
-| Reboot |Instructs the device to reboot |
-| Factory Reset |Instructs the device to perform a factory reset |
 
 > [!NOTE]
 > For a comparison of these commands (cloud-to-device messages) and methods (direct methods), see [Cloud-to-device communications guidance][lnk-c2d-guidance].
@@ -259,3 +266,5 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
