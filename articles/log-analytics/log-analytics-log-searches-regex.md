@@ -39,16 +39,16 @@ Specify different characters.
 
 | Character | Description | Example | Sample Matches |
 |:--|:--|:--|:--|
-| a | One occurrence of the character. | Computer=RegEx("bw-win-sc01.bwren.lab") | bw-win-sc01.bwren.lab |
-| . | Any single character. | Computer=RegEx("bw-win-sc...bwren.lab") | bw-win-sc01.bwren.lab<br>bw-win-sc02.bwren.lab<br>bw-win-sc03.bwren.lab |
-| a? | Zero or one occurrence of the character. | Computer=RegEx("bw-win-sc01?.bwren.lab") | bw-win-sc0.bwren.lab<br>bw-win-sc01.bwren.lab |
-| a* | Zero or more occurrences of the character. | Computer=RegEx("bw-win-sc01*.bwren.lab") | bw-win-sc0.bwren.lab<br>bw-win-sc01.bwren.lab<br>bw-win-sc011.bwren.lab<br>bw-win-sc0111.bwren.lab |
-| a+ | One or more occurrences of the character. | Computer=RegEx("bw-win-sc01*.bwren.lab") | bw-win-sc01.bwren.lab<br>bw-win-sc011.bwren.lab<br>bw-win-sc0111.bwren.lab |
-| [*abc*] | Match any single character in the brackets | Computer=RegEx("bw-win-sc0[123].bwren.lab") | bw-win-sc01.bwren.lab<br>bw-win-sc02.bwren.lab<br>bw-win-sc03.bwren.lab |
-| [*a*-*z*] | Match a single character in the range.  Can include multiple ranges. | Computer=RegEx("bw-win-sc0[1-3].bwren.lab") | bw-win-sc01.bwren.lab<br>bw-win-sc02.bwren.lab<br>bw-win-sc03.bwren.lab |
-| [^*abc*] | None of the characters in the brackets | Computer=RegEx("bw-win-sc0[^123].bwren.lab") | bw-win-sc05.bwren.lab<br>bw-win-sc06.bwren.lab<br>bw-win-sc07.bwren.lab |
-| [^*a*-*z*] | None of the characters in the range. | Computer=RegEx("bw-win-sc0[^1-3].bwren.lab") | bw-win-sc05.bwren.lab<br>bw-win-sc06.bwren.lab<br>bw-win-sc07.bwren.lab |
-| @ | Any string of characters. | Computer=RegEx("bw-win-sc@.bwren.lab") | bw-win-sc01.bwren.lab<br>bw-win-sc02.bwren.lab<br>bw-win-sc03.bwren.lab |
+| a | One occurrence of the character. | Computer=RegEx("srv01.contoso.com") | srv01.contoso.com |
+| . | Any single character. | Computer=RegEx("srv...contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
+| a? | Zero or one occurrence of the character. | Computer=RegEx("srv01?.contoso.com") | srv0.contoso.com<br>srv01.contoso.com |
+| a* | Zero or more occurrences of the character. | Computer=RegEx("srv01*.contoso.com") | srv0.contoso.com<br>srv01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
+| a+ | One or more occurrences of the character. | Computer=RegEx("srv01+.contoso.com") | srv01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
+| [*abc*] | Match any single character in the brackets | Computer=RegEx("srv0[123].contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
+| [*a*-*z*] | Match a single character in the range.  Can include multiple ranges. | Computer=RegEx("srv0[1-3].contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
+| [^*abc*] | None of the characters in the brackets | Computer=RegEx("srv0[^123].contoso.com") | srv05.contoso.com<br>srv06.contoso.com<br>srv07.contoso.com |
+| [^*a*-*z*] | None of the characters in the range. | Computer=RegEx("srv0[^1-3].contoso.com") | srv05.contoso.com<br>srv06.contoso.com<br>srv07.contoso.com |
+| @ | Any string of characters. | Computer=RegEx("srv@.contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
 
 
 ## Multiple occurences of character
