@@ -24,7 +24,7 @@ Learn how to connect directly to Kafka on HDInsight by using an Azure Virtual Ne
 
 ## Why use VPN
 
-HDInsight only allows SSH and HTTPS connections over the internet. Kafka clients must connect directly to Zookeeper and the Kafka broker process, which is only available inside the virtual network that contains HDInsight.
+HDInsight clusters are secured inside an Azure Virtual Network, and only allow incoming SSH and HTTPS traffic. You cannot connect to the Kafka brokers directly over the internet. Instead, you must use a VPN gateway into the virtual network that contains HDInsight. This allows remote clients to directly connect to Kafka over the internet.
 
 > [!NOTE]
 > Kafka applications that run directly on the cluster are already inside the virtual network.
@@ -254,20 +254,34 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
 
     You are prompted to enter the HTTPS login credentials and SSH user credentials for the cluster. These are used to secure HTTPS and SSH access to HDInsight. You may also be prompted to authenticate to your Azure subscription.
 
-
-## Create through Azure templates
-
 ## Create through the Azure Portal
 
 ### Create the virtual network and VPN gateway
 
 Follow the steps in the [Configure a Point-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) document to create a new Azure Virtual Network and VPN gateway.
 
-## Create the Kafka cluster
+### Create the Kafka cluster
+
+1. Follow the steps in [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md#create-a-kafka-cluster), but stop on the __Cluster summary__ blade. Do not use the __Create__ button to create the cluster. Once you are at the __Cluster summary__, continue with step 2 below.
+
+2. From the __Cluster summary__ blade, select the __Edit__ link for the __Advanced settings__ section.
+
+    ![Edit link for advanced settings](./media/hdinsight-apache-kafka-connect-vpn-gateway)
+
+3. From the __Advanced settings__ blade, select the virtual network you created perviously. Select the __default__ subnet for the virtual network. Finally, use the __Next__ button to return to the __Cluster summary__.
+
+    ![Advanced settings blade](./media/hdinsight-apache-kafka-connect-vpn-gateway)
+
+4. From the __Cluster summary__ blade, use the __Create__ button to create the cluster.
 
 ## Configure Kafka
 
-By default, Zookeeper returns the domain name of the Kafka brokers to clients. Since the client cannot resolve domain names for the virtual network, use the following steps to configure the cluster to return IP addresses instead.
+By default, Zookeeper returns the domain name of the Kafka brokers to clients. Since there is no DNS server to resolve the domain names, use the following steps to configure the cluster to return IP addresses instead.
+
+1. From a web browser, navigate to https://CLUSTERNAME.azurehdinsight.net/. Replace __CLUSTERNAME__ with the name of your HDInsight cluster. This opens the Ambari Web UI for the cluster.
+
+2. From the Ambari Web UI, select 
+
 
 1. You need to append the kafka-env template in the Ambari Web UI with the following value. It essentially tells Kafka to use the ip address to register with Zookeeper. One has to switch to using advertised.listeners instead of advertised.host.name.
 One can push data into Kafka brokers over vnet peering by using ip addresses
