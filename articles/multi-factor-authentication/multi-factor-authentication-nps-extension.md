@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 
 ---
@@ -58,6 +58,9 @@ When you install the extension, you need the directory ID and admin credentials 
 ![Find your Directory ID under Azure Active Directory properties](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
 ## Install the NPS extension
+
+> [!IMPORTANT]
+> Install the NPS extension on a different server than the VPN access point. 
 
 To install the NPS Extension for Azure MFA:
 
