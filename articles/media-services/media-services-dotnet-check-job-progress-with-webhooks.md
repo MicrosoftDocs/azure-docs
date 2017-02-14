@@ -35,7 +35,7 @@ This topic shows how to
 
 *  Define an Azure Function that is customized to respond to webhooks. 
 	
-	In this case the webhook is triggered by Media Services when your encoding job changes status. In the example shown here, all the webhook does is logs the notification message. In your case you might want to trigger publishing or send an email to a customer.
+	In this case, the webhook is triggered by Media Services when your encoding job changes status. In the example shown here, the webhook logs notification messages. In your case, you might want to trigger publishing or send an email to a customer.
 	
 	>[!NOTE]
 	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
@@ -45,7 +45,7 @@ This topic shows how to
 
 ## Getting Webhook notifications
 
-The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function just listens for the webhook call back from Media Services notifications and logs the results out to the Functions console. In your case you might want to trigger publishing or send an email to a customer.
+The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function just listens for the webhook call back from Media Services notifications and logs the results out to the Functions console. In your case, you might want to trigger publishing or send an email to a customer.
 
 The webhook expects a signing key (credential) to match the one you pass when you configure the notification endpoint. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
@@ -219,7 +219,7 @@ The following C# code shows how to get notification messages when your Webhook i
 	}
 	
 
-The example above produced the following output. You values will vary.
+The example above produced the following output, your values will vary.
 	
 	C# HTTP trigger function processed a request. RequestUri=https://juliakofunc001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=0jzz5t2BJEKMVq6BjmKqQ5TogaCNqDq5FPd71VCF/LQvE5ujBxpYKw==
 	Request Body = {
@@ -253,9 +253,9 @@ The example above produced the following output. You values will vary.
 2. Use [Nuget](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
 3. Update App.config file with appropriate values: 
 	
-	* Azure Media Services name and key that will be sending the noifications, 
+	* Azure Media Services name and key that will be sending tyounoifications, 
 	* webhook URL that expects to get the notifications, 
-	* the signing key that will match the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
+	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
 			<appSettings>
 			  <add key="MediaServicesAccountName" value="AMSAcctName" />
