@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate Clarizen with Azure Active Director
 Integrating Clarizen with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Clarizen
-- You can enable your users to automatically get signed-on to Clarizen (Single Sign-On) with their Azure AD accounts
+- You can enable your users to automatically get signed-on to Clarizen single sign-on (SSO) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure Management portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,10 +35,9 @@ To configure Azure AD integration with Clarizen, you need the following items:
 - An Azure AD subscription
 - A Clarizen single-sign on enabled subscription
 
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
+>[!NOTE]
+>To test the steps in this tutorial, we do not recommend using a production environment.
+>
 
 To test the steps in this tutorial, you should follow these recommendations:
 
@@ -50,11 +49,10 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Clarizen from the gallery
-2. Configuring and testing Azure AD single sign-on
+* Adding Clarizen from the gallery
+* Configuring and testing Azure AD single sign-on
 
-
-## Adding Clarizen from the gallery
+## Add Clarizen from the gallery
 To configure the integration of Clarizen into Azure AD, you need to add Clarizen from the gallery to your list of managed SaaS apps.
 
 **To add Clarizen from the gallery, perform the following steps:**
@@ -79,8 +77,7 @@ To configure the integration of Clarizen into Azure AD, you need to add Clarizen
 
 	![Creating an Azure AD test user](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
 
-
-##  Configuring and testing Azure AD single sign-on
+##  Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Clarizen based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Clarizen is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Clarizen needs to be established.
@@ -89,13 +86,13 @@ This link relationship is established by assigning the value of the **user name*
 
 To configure and test Azure AD single sign-on with Clarizen, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating a Clarizen test user](#creating-a-clarizen-test-user)** - to have a counterpart of Britta Simon in Clarizen that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your Clarizen application.
 
@@ -112,13 +109,10 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 3. On the **Clarizen Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
-
-    a. In the **Identifier** textbox, type the value as: `Clarizen`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
-
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new) to get these values. 
+    1. In the **Identifier** textbox, type the value as: `Clarizen`
+	2. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
+	>[!NOTE] 
+	>These are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
@@ -159,22 +153,14 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 13. On the **Federated Authentication** dialog, perform the following steps:
 
 	![Federated Authentication](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
+	1. Select **Enable Federated Authentication**.
+	2. Click **Upload** to upload your downloaded certificate.
+	3. In the **Sign-in URL** textbox, put the value of **SAML Single Sign-On Service URL** from Azure AD application configuration window.
+	4. In the **Sign-out URL** textbox, put the value of **Sign-Out URL** from Azure AD application configuration window.
+	5. Select **Use POST**.
+	6. Click **Save**.
 
-	a. Select **Enable Federated Authentication**.
-
-	b. Click **Upload** to upload your downloaded certificate.
-
-	c. In the **Sign-in URL** textbox, put the value of **SAML Single Sign-On Service URL** from Azure AD application configuration window.
-
-	d. In the **Sign-out URL** textbox, put the value of **Sign-Out URL** from Azure AD application configuration window.
-
-	e. Select **Use POST**.
-
-	f. Click **Save**.
-
-  
-
-### Creating an Azure AD test user
+### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
 
 ![Create Azure AD User][100]
@@ -196,23 +182,18 @@ The objective of this section is to create a test user in the Azure Management p
 4. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/active-directory-saas-clarizen-tutorial/create_aaduser_04.png) 
+    1. In the **Name** textbox, type **BrittaSimon**.
+    2. In the **User name** textbox, type the **email address** of BrittaSimon.
+	3. Select **Show Password** and write down the value of the **Password**.
+    4. Click **Create**. 
 
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**. 
-
-
-
-### Creating a Clarizen test user
+### Create a Clarizen test user
 
 In order to enable Azure AD users to log into Clarizen, they must be provisioned into Clarizen.  
-In the case of Clarizen, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+* In the case of Clarizen, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
 
 1. Log in to your Clarizen company site as an administrator.
 
@@ -227,16 +208,12 @@ In the case of Clarizen, provisioning is a manual task.
 4. On the **Invite People** dialog page, perform the following steps:
 
 	![Invite People](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "Invite People")
+	1. In the **Email** textbox, type the email address of Britta Simon account.
+    2. Click **Invite**.
+	>[!NOTE]
+    >The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
 
-	a. In the **Email** textbox, type the email address of Britta Simon account.
-	
-    b. Click **Invite**.
-
-	> [!NOTE]
-    > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
-
-
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Clarizen.
 
@@ -266,21 +243,16 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. Click **Assign** button on **Add Assignment** dialog.
 	
-
-
-### Testing single sign-on
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Clarizen tile in the Access Panel, you should get automatically signed-on to your Clarizen application.
 
-
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

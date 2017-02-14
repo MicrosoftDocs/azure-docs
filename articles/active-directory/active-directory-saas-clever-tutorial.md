@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -26,17 +26,18 @@ After completing this tutorial, the Azure AD users you have assigned to Clever w
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Clever
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Clever
+* Configuring single sign-on
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-clever-tutorial/IC798977.png "Scenario")
 
-## Enabling the application integration for Clever
+## Enable the application integration for Clever
 The objective of this section is to outline how to enable the application integration for Clever.
 
-### To enable the application integration for Clever, perform the following steps:
+**To enable the application integration for Clever, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-clever-tutorial/IC700993.png "Active Directory")
@@ -57,15 +58,18 @@ The objective of this section is to outline how to enable the application integr
    
    ![Clever](./media/active-directory-saas-clever-tutorial/IC798979.png "Clever")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Clever with their account in Azure AD using federation based on the SAML protocol.  
+
 Your Clever application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
+
 The following screenshot shows an example for this.
 
 ![Attributes](./media/active-directory-saas-clever-tutorial/IC798980.png "Attributes")
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Clever** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC784682.png "Configure Single Sign-On")
@@ -86,12 +90,9 @@ The following screenshot shows an example for this.
    
    ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798985.png "Instant Login")
    
-   1. Type the **Login URL**.  
-      
-      > [!NOTE]
-      > The **Login URL** is a custom value.
-      > You can get the actual value from your Clever support team.
-      > 
+   1. Type the **Login URL**.        
+      >[!NOTE]
+      > The **Login URL** is a custom value. You can get the actual value from your Clever support team.
       > 
    2. As **Identity System**, select **ADFS**.
    3. Click **Save**.
@@ -115,19 +116,20 @@ The following screenshot shows an example for this.
     4. Click **Complete**.
 11. Click **Apply Changes**.
 
-## Configuring user provisioning
-In order to enable Azure AD users to log into Clever, they must be provisioned into Clever.  
+## Configure user provisioning
+In order to enable Azure AD users to log into Clever, they must be provisioned into Clever.
+
 In the case of Clever, provisioning is a manual task that needs to be performed by your Clever support team.
 
-> [!NOTE]
-> You can use any other Clever user account creation tools or APIs provided by Clever to provision AAD user accounts.
-> 
-> 
+>[!NOTE]
+>You can use any other Clever user account creation tools or APIs provided by Clever to provision AAD user accounts.
+>  
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Clever, perform the following steps:
+**To assign users to Clever, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Clever **application integration page, click **Assign users**.
    
