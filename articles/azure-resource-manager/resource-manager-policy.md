@@ -139,8 +139,8 @@ The policy rule consists of **If** and **Then** blocks. In the **If** block, you
 The supported logical operators are:
 
 * `"not": {condition  or operator}`
-* `"allOf": [{condition or operator},{condition or operator}]` - 
-* `"anyOf": [{condition or operator},{condition or operator}]` - 
+* `"allOf": [{condition or operator},{condition or operator}]`
+* `"anyOf": [{condition or operator},{condition or operator}]`
 
 The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the logical **And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the logical **Or** operation) requires one or more conditions to be true.
 
@@ -167,7 +167,7 @@ You can nest logical operators. The following example shows a **Not** operation 
 The condition evaluates whether a **field** meets certain criteria. The supported conditions are:
 
 * `"equals": "value"`
-* `"like": "value"` - 
+* `"like": "value"`
 * `"contains": "value"`
 * `"in": ["value1","value2"]`
 * `"containsKey": "keyName"`
