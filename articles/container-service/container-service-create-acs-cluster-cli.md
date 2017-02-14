@@ -1,6 +1,6 @@
 ---
 title: Deploy a Docker container cluster - Azure CLI | Microsoft Docs
-description: Deploy an Azure Container Service cluster using Azure CLI 2.0 Preview
+description: Deploy an Azure Container Service cluster using Azure CLI 2.0 (Preview)
 services: container-service
 documentationcenter: ''
 author: sauryadas
@@ -30,7 +30,7 @@ For help on `az acs` commands, pass the `-h` parameter to any command. For examp
 ## Prerequisites
 To create an Azure Container Service cluster using the Azure CLI 2.0 (Preview), you must:
 * have an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* have installed and set up the [Azure CLI v. 2.0 (Preview)](/cli/azure/install-az-cli2)
+* have installed and set up the [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2)
 
 ## Get started 
 ### Log in to your account
@@ -71,7 +71,7 @@ Other inputs are set to default values (see the following screen) unless overwri
 
 
 ### Quick `acs create` using defaults
-If you have an SSH public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use a command like the following:
+If you have an SSH RSA public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use a command like the following:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
