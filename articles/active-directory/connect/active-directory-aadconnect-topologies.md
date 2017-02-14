@@ -18,16 +18,16 @@ ms.author: billmath
 
 ---
 # Topologies for Azure AD Connect
-The objective of this topic is to describe different on-premises and Azure AD topologies with Azure AD Connect sync as the key integration solution. It describes both supported and unsupported configurations.
+This article describes various on-premises and Azure Active Directory (Azure AD) topologies with Azure AD Connect sync as the key integration solution. It describes both supported and unsupported configurations.
 
-Legend for pictures in the document:
+Legend for pictures in the article:
 
 | Description | Icon |
 | --- | --- |
 | On-premises Active Directory forest |![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
 | Active Directory with filtered import |![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png) |
 | Azure AD Connect sync server |![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png) |
-| Azure AD Connect sync server “Staging mode” |![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png) |
+| Azure AD Connect sync server “staging mode” |![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png) |
 | GALSync with FIM2010 or MIM2016 |![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png) |
 | Azure AD Connect sync server, detailed |![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
@@ -127,7 +127,7 @@ Some Office 365 workloads have certain restrictions to supported topologies. If 
 ## Staging server
 ![Staging Server](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
-Azure AD Connect supports installing a second server in **Staging mode**. A server in this mode reads data from all connected directories but does not write anything to connected directories. It is using the normal synchronization cycle and therefore has an updated copy of the identity data. In a disaster where the primary server fails you can fail over to the staging server. You do this in the Azure AD Connect wizard. This second server can preferably be located in a different datacenter since no infrastructure is shared with the primary server. You must manually copy any configuration change made on the primary server to the second server.
+Azure AD Connect supports installing a second server in **staging mode**. A server in this mode reads data from all connected directories but does not write anything to connected directories. It is using the normal synchronization cycle and therefore has an updated copy of the identity data. In a disaster where the primary server fails you can fail over to the staging server. You do this in the Azure AD Connect wizard. This second server can preferably be located in a different datacenter since no infrastructure is shared with the primary server. You must manually copy any configuration change made on the primary server to the second server.
 
 A staging server can also be used to test a new custom configuration and the effect it has on your data. You can preview the changes and adjust the configuration. When you are happy with the new configuration, you can make the staging server the active server and set the old active server in staging mode.
 
