@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: kgremban
 ---
-# How to get Azure Multi-Factor Authentication
+# Versions and billing methods for Azure Multi-Factor Authentication
 
 When it comes to protecting your accounts, two-step verification should be standard across your organization. This feature is especially important for administrative accounts that have privileged access to resources. For this reason, Microsoft offers basic two-step verification features to Office 365 and Azure administrators. If you want to upgrade the features for your admins, or extend two-step verification to the rest of your users, you can purchase Azure Multi-Factor Authentication. 
 
