@@ -18,7 +18,7 @@
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
 ### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
 ### [Call logic app endpoints as triggers](logic-apps-http-endpoint.md)
-### [Create workflow definitions](logic-apps-author-definitions.md)
+### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
@@ -64,7 +64,7 @@
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
 #### [Track B2B messages in OMS](logic-apps-track-b2b-messages-omsportal.md)
-#### [Query OMS for message tracking](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+#### [Query OMS for messages](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 ### [Manage artifacts in integration accounts](logic-apps-enterprise-integration-accounts.md)
 ### [Pricing & billing](logic-apps-pricing.md)
 
@@ -84,5 +84,5 @@
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
