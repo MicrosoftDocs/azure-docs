@@ -93,7 +93,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 In order to enable Azure AD users to log into Cornerstone OnDemand, they must be provisioned into Cornerstone OnDemand. In the case of Cornerstone OnDemand, provisioning is a manual task.
 
-** To configure user provisioning, perform the following steps:**
+**To configure user provisioning, perform the following steps:**
 
 1. Send the information (e.g.: Name, Emial) about the Azure AD user you want to provision to the Cornerstone OnDemand support team.
 
