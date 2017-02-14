@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/14/2017
 ms.author: kirillg
 
 ---
@@ -35,7 +35,8 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
    
     ![Screenshot of Script Explorer with filtered results](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
-    > [!IMPORTANT] The Script Explorer filter functionality only filters from the ***currently*** loaded set of scripts and does not automatically refresh the currently selected collection.
+    > [!IMPORTANT] 
+    > The Script Explorer filter functionality only filters from the ***currently*** loaded set of scripts and does not automatically refresh the currently selected collection.
 
 1. To refresh the list of scripts loaded by Script Explorer, simply click the **Refresh** command at the top of the blade.
    
