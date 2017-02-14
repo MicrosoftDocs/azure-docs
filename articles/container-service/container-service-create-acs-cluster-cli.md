@@ -19,7 +19,7 @@ ms.date: 02/03/2017
 ms.author: saudas
 
 ---
-# Using the Azure CLI 2.0 (Preview) to create an Azure Container Service cluster
+# Use the Azure CLI 2.0 (Preview) to create an Azure Container Service cluster
 
 Use the `az acs` commands in the Azure CLI 2.0 (Preview) to create and manage clusters in Azure Container Service. You can also deploy an Azure Container Service cluster by using the [Azure portal](container-service-deployment.md) or the Azure Container Service APIs.
 

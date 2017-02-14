@@ -23,7 +23,7 @@ ms.author: anhowe
 # Azure Container Service - Kubernetes walkthrough
 
 
-The instructions in this article show how to use the Azure CLI 2.0 (Preview) commands to create a Kubernetes cluster. Then you can use the `kubectl` command-line tool to start working with the cluster.
+The instructions in this article show how to use the Azure CLI 2.0 (Preview) commands to create a Kubernetes cluster. Then you can use the `kubectl` command-line tool to start working with containers in the cluster.
 
 The following image shows the architecture of a container service cluster with one master and two agents. The master serves the Kubernetes REST API. The agent nodes are grouped in an Azure availability set
 and run your containers. All VMs are in the same private virtual network and are fully accessible to each other.
@@ -38,10 +38,12 @@ This walkthrough assumes that you have installed and set up the [Azure CLI v. 2.
 
 
 
-## Creating your Kubernetes cluster
+## Create your Kubernetes cluster
+
+Here are brief shell commands using the Azure CLI 2.0 (Preview) to create your cluster. For more information, see [Use the Azure CLI 2.0 (Preview) to create an Azure Container Service cluster](container-service-create-acs-cluster-cli.md).
 
 ### Create a resource group
-To create your cluster, you first need to create a resource group in a specific location. Run the following command:
+To create your cluster, you first need to create a resource group in a specific location. Run commands similar to the following:
 
 ```console
 RESOURCE_GROUP=my-resource-group
@@ -54,8 +56,8 @@ Once you have a resource group, you can create a cluster in that group:
 
 ```console
 DNS_PREFIX=some-unique-value
-SERVICE_NAME=any-acs-service-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$SERVICE_NAME --dns-prefix=$DNS_PREFIX
+CLUSTER_NAME=any-acs-cluster-name
+az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX
 ```
 
 > [!NOTE]
@@ -103,7 +105,8 @@ kubectl run nginx --image nginx
 
 This command starts the Nginx Docker container in a pod on one of the nodes.
 
-To see the running container, run
+To see the running container, run:
+
 ```console
 kubectl get pods
 ```
@@ -116,19 +119,19 @@ kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
 This causes Kubernetes to create an Azure load balancer rule with a public IP address. The change
-takes a few minutes to propagate to the load balancer. For more information, see 
+takes a few minutes to propagate to the load balancer. For more information, see [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md).
 
-Run the following command to watch the service change from `pending` to an external ip type:
+Run the following command to watch the service change from `pending` to display an external IP address:
 
 ```console
 watch 'kubectl get svc'
 ```
 
-  ![Image of watching the transition from pending to external ip](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
+  ![Image of watching the transition from pending to external IP address](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
 
 Once you see the external IP address, you can browse to it in your browser:
 
-  ![Image of browsing to nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
+  ![Image of browsing to Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
 
 
 ### Browse the Kubernetes UI
@@ -137,7 +140,7 @@ To see the Kubernetes web interface, you can use:
 ```console
 kubectl proxy
 ```
-This runs a simple authenticated proxy on localhost, which you can use to view the [kubernetes ui](http://localhost:8001/ui)
+This runs a simple authenticated proxy on localhost, which you can use to view the [Kubernetes web UI](http://localhost:8001/ui). For more information, see [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md).
 
 ![Image of Kubernetes dashboard](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -145,11 +148,12 @@ This runs a simple authenticated proxy on localhost, which you can use to view t
 Kubernetes allows you to run commands in a remote Docker container running in your cluster.
 
 ```console
-# Get the name of your nginx pod
+# Get the name of your nginx pods
 kubectl get pods
 ```
 
 Using your pod name, you can run a remote command on your pod.  For example:
+
 ```console
 kubectl exec nginx-701339712-retbj date
 ```
@@ -160,13 +164,13 @@ You can also get a fully interactive session using the `-it` flags:
 kubectl exec nginx-701339712-retbj -it bash
 ```
 
-![Image of curl to podIP](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
+![Remote session inside a container](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
 
 
 
 ## Next steps
 
-See the following resources to do more with your Kubernetes cluster
+To do more with your Kubernetes cluster, see the following resources:
 
 * [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - shows you how to deploy, scale, update, and debug containerized applications.
 * [Kubernetes User Guide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
