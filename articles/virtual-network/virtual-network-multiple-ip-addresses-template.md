@@ -45,7 +45,7 @@ Deploying a template enables you to quickly and consistently create Azure resour
 
 |Name|Description|
 |---|---|
-|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).|
+|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/virtual-machines-windows-faq.md).|
 |adminPassword|Admin password The password must comply with [Azure password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS name for PublicIPAddressName1. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
 |dnsLabelPrefix1|DNS name for PublicIPAddressName2. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
