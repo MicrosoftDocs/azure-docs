@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/23/2016
+ms.date: 02/14/2017
 ms.author: rasquill
 
 ---
@@ -23,15 +23,15 @@ This topic describes how to find publishers, offers, skus, and versions for each
 
 **Table of commonly used Linux images**
 
-| PublisherName | Offer | Sku |
-|:--- |:--- |:--- |:--- |
-| RedHat |RHEL |7.2 |
-| credativ |Debian |8 |
-| SUSE |openSUSE |13.2 |
-| SUSE |SLES |12-SP1 |
-| OpenLogic |CentOS |7.1 |
-| Canonical |UbuntuServer |14.04.4-LTS |
-| CoreOS |CoreOS |Stable |
+Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
+-------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
+UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
+CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
+openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
+RHEL           RedHat                  7.2                 RedHat:RHEL:7.2:latest                                          RHEL                 latest
+SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 
 [!INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
