@@ -1,4 +1,4 @@
----
+--
 title: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs | Microsoft Docs
 description: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs
 services: virtual-machines-linux
@@ -9,18 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 
-ms.assetid: 645e358b-3ca1-4d3d-bf70-b0f287498d7a
+Pms.assetid: 645e358b-3ca1-4d3d-bf70-b0f287498d7a
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 02/14/2017
 ms.author: hermannd
 
 ---
-# Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs
-This article describes various things to consider when you're running SAP NetWeaver on Microsoft Azure SUSE Linux virtual machines (VMs). As of May 19 2016 SAP NetWeaver is officially supported on SUSE Linux VMs on Azure. All details regarding Linux versions, 
+S# Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs
+PThis article describes various things to consider when you're running SAP NetWeaver on Microsoft Azure SUSE Linux virtual machines (VMs). As of May 19 2016 SAP NetWeaver is officially supported on SUSE Linux VMs on Azure. All details regarding Linux versions, 
 SAP kernel versions and so on can be found in SAP Note 1928533 "SAP Applications on Azure: Supported Products and Azure VM types".
 Further documentation about SAP on Linux VMs can be found here : [Using SAP on Linux virtual machines (VMs)](virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -31,6 +31,9 @@ For running SAP NetWeaver on Azure, use only SUSE Linux Enterprise Server SLES 1
 
 You should use Azure Resource Manager for all new tests and installations on Azure. To look for SUSE SLES images and versions by using Azure PowerShell or the Azure command-line interface (CLI), use the following commands. You can then use the output, for example, to define the OS image in a JSON template for deploying a new SUSE Linux VM.
 These PowerShell commands are valid for Azure PowerShell version 1.0.1 and later.
+
+While it's still possible to use the standard SLES images for SAP installations it's recommended to make use of the new SLES for SAP images which are available now on the Azure image gallery. More information about these images can be found on the corresponding [Azure Marketplace page]( https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES-SAP ) or the [SUSE FAQ web page about SLES for SAP]( https://www.suse.com/products/sles-for-sap/frequently-asked-questions/ ).
+
 
 * Look for existing publishers, including SUSE:
   
@@ -48,13 +51,17 @@ These PowerShell commands are valid for Azure PowerShell version 1.0.1 and later
   
    ```
    PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP"
    CLI : azure vm image list-skus westeurope SUSE SLES
+   CLI : azure vm image list-skus westeurope SUSE SLES-SAP
    ```
 * Look for a specific version of a SLES SKU:
   
    ```
-   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
-   CLI : azure vm image list westeurope SUSE SLES 12
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12-SP2"
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP" -skus "12-SP2"
+   CLI : azure vm image list westeurope SUSE SLES 12-SP2
+   CLI : azure vm image list westeurope SUSE SLES-SAP 12-SP2
    ```
 
 ## Installing WALinuxAgent in a SUSE VM
