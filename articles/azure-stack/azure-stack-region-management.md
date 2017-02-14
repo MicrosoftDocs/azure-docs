@@ -36,11 +36,13 @@ This preview release of Azure Stack introduces a set of region management capabi
 
 3. **Infrastructure roles**. Infrastructure roles are the components necessary to run Azure Stack. By clicking a role, you can view the alerts associated with the specific role and the role instances where this role is running.
 
->[!NOTE] In Azure Stack Technical Preview 2, only the Health Controller role surfaces alerts in this journey.
+  >[!NOTE]
+  In Azure Stack Technical Preview 2, only the Health Controller role surfaces alerts in this journey.
 
 4. **Resource providers**. Resource providers is the place to manage the tenant functionality offered by the components required to run Azure Stack. Each one comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
 
->[!NOTE] In Azure Stack Technical Preview 2, only Storage, Compute, and Network resource providers offer an associated experience.
+  >[!NOTE]
+  In Azure Stack Technical Preview 2, only Storage, Compute, and Network resource providers offer an associated experience.
 
 5. **Updates**. In this tile, you can view the update status of your Azure Stack infrastructure, including version, update availability and updates history. For more information, see [Updates management in Azure Stack](azure-stack-updates.md).
 
