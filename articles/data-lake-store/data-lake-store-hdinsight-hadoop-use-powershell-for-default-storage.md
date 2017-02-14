@@ -201,7 +201,7 @@ In this section, we create an HDInsight Hadoop Linux cluster with Data Lake Stor
 
         
 ## Run test jobs on the HDInsight cluster to use the Data Lake Store
-After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
+After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that is already available in the Data Lake Store at **<cluster root>/example/data/sample.log**.
 
 In this section you will SSH into the HDInsight Linux cluster you created and run the a sample Hive query.
 
@@ -219,9 +219,7 @@ In this section you will SSH into the HDInsight Linux cluster you created and ru
 		STORED AS TEXTFILE LOCATION 'adl:///example/data/';
 		SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    You should see the query output on the SSH console. You could also run a SELECT command to list the contents of the log4jLogs table.
-
-		SELECT * FROM log4jLogs LIMIT 10;
+    You should see the query output on the SSH console. 
 
 	> [!NOTE]
    	> The path to the sample data in the CREATE TABLE command above is `adl:///example/data/`, where `adl:///` is the cluster root. Taking the example of the cluster root specified in this tutorial, this will be `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`. So, you could either use the shorter alternative or provide the complete path to the cluster root. 
