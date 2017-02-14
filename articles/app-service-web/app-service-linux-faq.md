@@ -59,6 +59,14 @@ ms.author: aelnably
 
 **A:** No, we will provide a way to SSH into your app container in the near future.
 
+**Q:** I can't browse my custom container's file system or running processes from the SCM site. Why is that?
+
+**A:** The SCM site runs in a separate container, you can't check the file system or running processes of the app container.
+
+**Q:** What are the supported characters in application settings names?
+
+**A:** You can only use A-Z, a-z, 0-9 and underscore for application settings.
+
 
 ## Next steps
 * [Introduction to App Service on Linux](./app-service-linux-intro.md) 
