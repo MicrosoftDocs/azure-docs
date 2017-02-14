@@ -130,7 +130,7 @@ You can create a basic MongoDB instance on a single CentOS VM using the followin
 
 * [Basic MongoDB instance on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `West US` location:
+To create this environment, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login). First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `West US` location:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -190,13 +190,13 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 > [!WARNING]
 > Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count.
 
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `West US` location:
+To create this environment, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login). First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `West US` location:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Next, deploy the MongoDB template with [az group deployment create](/cli/azure/group/deployment#create). Define your own resource names and sizes where needed such as for `newStorageAccountName`, `virtualNetworkName`, and `vmSize`:
+Next, deploy the MongoDB template with [az group deployment create](/cli/azure/group/deployment#create). Define your own resource names and sizes where needed such as for `mongoAdminUsername`, `sizeOfDataDiskInGB`, and `configNodeVmSize`:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -217,7 +217,7 @@ az group deployment create --resource-group myResourceGroup \
   --name myMongoDBCluster --no-wait
 ```
 
-This deployment can take over an hour to deploy and configure all the VM instances. The `--no-wait` flag is used at the end of the preceding command to return control the command prompt once the template deployment has been accepted by the Azure platform. You can then view the deployment status with [az group deployment show](/cli/azure/group/deployment#show). The following example views the status for the `myMongoDBCluster` deployment in the `myResourceGroup` resource group:
+This deployment can take over an hour to deploy and configure all the VM instances. The `--no-wait` flag is used at the end of the preceding command to return control to the command prompt once the template deployment has been accepted by the Azure platform. You can then view the deployment status with [az group deployment show](/cli/azure/group/deployment#show). The following example views the status for the `myMongoDBCluster` deployment in the `myResourceGroup` resource group:
 
 ```azurecli
 az group deployment show --resource-group myResourceGroup --name myMongoDBCluster \
