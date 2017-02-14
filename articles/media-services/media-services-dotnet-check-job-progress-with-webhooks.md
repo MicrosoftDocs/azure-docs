@@ -41,7 +41,7 @@ This topic shows how to
 	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
 	>
 	
-* Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook response to. You could have this code fined as part of another Azure function, but in this case, the code is part of a console app.
+* Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. You could have this code defined as part of another Azure function, but in this case, the code is part of a console app.
 
 ## Getting Webhook notifications
 
