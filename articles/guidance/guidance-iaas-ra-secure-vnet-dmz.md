@@ -44,7 +44,7 @@ The following diagram highlights the important components in this architecture:
 > 
 > 
 
-[![0]][0] 
+![[0]][0] 
 
 To enable Internet traffic to Azure, the architecture includes the following components:
 
@@ -98,8 +98,7 @@ You should log all incoming requests on all ports. Regularly audit the logs, pay
 
 A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. The reference architecture can be deployed either with Windows or Linux VMs by following the directions below:
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2FvirtualNetwork.azuredeploy.json)
+1. Open [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2FvirtualNetwork.azuredeploy.json) in a new tab or browser window. The link takes you to the Azure Portal.
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-public-dmz-network-rg` in the text box.
@@ -109,8 +108,7 @@ A deployment for a reference architecture that implements these recommendations 
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click the **Purchase** button.
 3. Wait for the deployment to complete.
-4. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2Fworkload.azuredeploy.json)
+4. Open [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2Fworkload.azuredeploy.json) in a new tab or browser window.
 5. Once the link has opened in the Azure portal, you must enter values for some of the settings:
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-public-dmz-wl-rg` in the text box.
@@ -119,8 +117,7 @@ A deployment for a reference architecture that implements these recommendations 
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click the **Purchase** button.
 6. Wait for the deployment to complete.
-7. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2Fsecurity.azuredeploy.json)
+7. Open [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2Fsecurity.azuredeploy.json) in a new tab or browser window. 
 8. Once the link has opened in the Azure portal, you must enter values for some of the settings:
    
    * The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-public-dmz-network-rg` in the text box.
