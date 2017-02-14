@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 
 ---
@@ -78,7 +78,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
             Replace **USERNAME** with the SSH user account name for the cluster. Replace **CLUSTERNAME** with the HDInsight cluster name.
         
         > [!NOTE]
-        > On Windows environments, you will need to use the PSCP utility instead of scp. You can download it from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+        > On Windows environments, you may not have the `scp` command. If so, use the PSCP utility instead. You can download it from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
     * For **Windows-based HDInsight**, use the following steps to download the jar files.
      

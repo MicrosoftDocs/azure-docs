@@ -69,15 +69,18 @@
 ## [Deploy Linux virtual machines](azure-stack-linux.md)
 ## [Manage updates](azure-stack-updates.md)
 ## [Develop for Azure Stack](azure-stack-developer.md)
-## Deploy SQL or MySQL resource provider
-### [Use MySQL databases as PaaS on Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
-### [Deploy the SQL Server Resource Provider Adapter on Azure Stack](azure-stack-sql-resource-provider-deploy.md)
+## Offer SQL or MySQL as PaaS
+### [Deploy MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md)
+### [Deploy SQL resource provider](azure-stack-sql-resource-provider-deploy.md)
 
-## Plan and deploy App Service
+## Offer App Service as PaaS
 ### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
 ### [Before you get started](azure-stack-app-service-before-you-get-started.md)
+### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
 ### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
-### [Add an App Service resource provider to Azure Stack](azure-stack-app-service-deploy.md)
+### [Enable FTP publishing](azure-stack-app-service-enable-ftp.md)
+### [Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
+
 
 # Troubleshoot
 ## [Troubleshoot Azure Stack](azure-stack-troubleshooting.md)

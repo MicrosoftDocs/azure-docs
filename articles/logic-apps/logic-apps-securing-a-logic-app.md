@@ -1,6 +1,6 @@
 ---
-title: Securing an Azure Logic App | Microsoft Docs
-description: Secure inputs, access, and control of an Azure Logic App
+title: Secure access to Azure Logic Apps | Microsoft Docs
+description: Add security for protecting access to triggers, inputs and outputs, action parameters, and services used with workflows in Azure Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan

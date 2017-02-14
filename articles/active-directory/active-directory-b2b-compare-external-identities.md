@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/24/2016
+ms.date: 02/09/2017
 ms.author: asuthar
 
 ---
@@ -46,4 +46,3 @@ Each of the scenarios already discussed in this article is addressed by capabili
 | **Deploying an app for...** |Practice management |Supplier extranet |Soccer fans |
 | **Targeting...** |Doctor’s offices |Approved business partners |Anyone with email |
 | **Accessible when...** |Customer admin consents |My admin invites |The consumer signs up |
-

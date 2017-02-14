@@ -1,5 +1,5 @@
 ---
-title: Resize a classic Windows VM | Microsoft Docs
+title: Resize a Windows VM in the classic deployment model - Azure | Microsoft Docs
 description: Resize a Windows virtual machine created in the classic deployment model, using Azure Powershell.
 services: virtual-machines-windows
 documentationcenter: ''
