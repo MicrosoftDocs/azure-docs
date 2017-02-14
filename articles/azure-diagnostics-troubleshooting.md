@@ -84,7 +84,7 @@ For Virtual Machines:
 
 If there are no files in the LocalResourceDirectory folder, the monitoring agent is unable to launch. This is typically caused by an invalid configuration file, an event that should be reported in the CommandExecution.log.
 
-If the Monitoring Agent is successfully collecting event data you see .tsf files for each event defined in your configuration file. The Monitoring Agent logs its errors in the file MaEventTable.tsf. To inspect the contents of this file you can use the tabel2csv application to convert the .tsf file to a comma-separated (.csv) values file:
+If the Monitoring Agent is successfully collecting event data you see .tsf files for each event defined in your configuration file. The Monitoring Agent logs its errors in the file MaEventTable.tsf. To inspect the contents of this file, you can use the tabel2csv application to convert the .tsf file to a comma-separated (.csv) values file:
 
 On a Cloud Service Role:
 
@@ -99,7 +99,7 @@ On a Virtual Machine:
 The previous commands generate the log file *maeventtable.csv*, which you can open and inspect for failure messages.    
 
 ## Diagnostics data Tables not found
-The tables in Azure storage holding Azure diagnostics data are named using the code below:
+The tables in Azure storage holding Azure diagnostics data are named using the following code:
 
 ```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
