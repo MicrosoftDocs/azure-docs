@@ -32,7 +32,7 @@ This article gives a summary of each reference architecture, and helps you to de
 ## Using Azure Active Directory
 You can use Azure AD to create a domain in Azure and link it to an on-premises AD domain. Azure AD enables you to configure single sign-on for users running applications accessed through the cloud.
 
-[![0]][0]
+![[0]][0]
 
 Azure AD is a straightforward way to implement a security domain in Azure. It is used by many Microsoft applications, such as Microsoft Office 365. 
 
@@ -53,7 +53,7 @@ For detailed information about this architecture, see [Implementing Azure Active
 ## Using Active Directory in Azure joined to an on-premises forest
 An organization might need to use features that are provided by AD Domain Services (AD DS) but are not currently implemented by Azure AD. You can host AD DS on-premises, but in a hybrid scenario where elements of an application are located in Azure, it can be more efficient to replicate this functionality and the AD repository to the cloud. This approach can help reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
 
-[![1]][1]
+![[1]][1]
 
 This approach requires that you create your own domain in the cloud and join it to the on-premises forest. You create VMs to host the AD DS services.
 
@@ -74,7 +74,7 @@ For detailed information about this architecture, see [Extending Active Director
 ## Using Active Directory in Azure with a separate forest
 An organization that runs Active Directory (AD) on-premises might have a forest comprising many different domains. You can use domains to provide isolation between functional areas that must be kept separate, possibly for security reasons, but you can share information between domains by establishing trust relationships.
 
-[![2]][2]
+![[2]][2]
 
 An organization that utilizes separate domains can take advantage of Azure by relocating one or more of these domains into a separate forest in the cloud. Alternatively, an organization might wish to keep all cloud resources logically distinct from those held on-premises, and store information about cloud resources in their own directory, as part of a forest also held in the cloud.
 
@@ -93,7 +93,7 @@ For detailed information about this architecture, see [Creating a Active Directo
 ## Using Active Directory Federation Services (AD FS) with Azure
 AD FS can run on-premises, but in a hybrid scenario where applications are located in Azure, it can be more efficient to implement this functionality in the cloud.
 
-[![3]][3]
+![[3]][3]
 
 This architecture is especially useful for:
 
