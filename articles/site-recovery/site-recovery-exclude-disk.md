@@ -46,7 +46,7 @@ Similarly, for Microsoft SQL Server with tempdb and system database file on the 
 ##How to Exclude disk from replication?
 
 ###VMware to Azure
-Follow the [Enable replication](site-recovery-vmware-to-azure.md#Step-6-Replicate-applications) workflow to protect a VM from Azure Site Recovery portal. In the 4th step of Enable replication, there is a column - **DISK TO REPLICATE** whoich can be used to exclude disk from the replication. By default all the disks are selected. Unselect the disk that you want to exclude from replication and complete the steps to enable the replication. 
+Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replication) workflow to protect a VM from Azure Site Recovery portal. In the 4th step of Enable replication, there is a column - **DISK TO REPLICATE** whoich can be used to exclude disk from the replication. By default all the disks are selected. Unselect the disk that you want to exclude from replication and complete the steps to enable the replication. 
 
 ![Enable replication](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 	
