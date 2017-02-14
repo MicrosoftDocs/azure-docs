@@ -44,7 +44,7 @@ This preview release of Azure Stack introduces a set of region management capabi
   >[!NOTE]
   In Azure Stack Technical Preview 2, only Storage, Compute, and Network resource providers offer an associated experience.
 
-5. **Updates**. In this tile, you can view the update status of your Azure Stack infrastructure, including version, update availability and updates history. For more information, see [Updates management in Azure Stack](azure-stack-updates.md).
+5. **Updates**. In this tile, you can view the update status of your Azure Stack infrastructure, including version, update availability, and updates history. For more information, see [Updates management in Azure Stack](azure-stack-updates.md).
 
 ## Next steps
 [Updates management in Azure Stack](azure-stack-updates.md)
