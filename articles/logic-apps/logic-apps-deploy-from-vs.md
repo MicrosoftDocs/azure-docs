@@ -150,7 +150,7 @@ You can use logic app parameters in these kinds of triggers and actions:
 *   API connection runtime URL
 
 And you can use these template functions: list below, 
-includes parameters, resourceId, concat, and so on. 
+includes parameters, variables, resourceId, concat, and so on. 
 For example, here's how you can replace the Azure Function resource ID:
 
 ```
