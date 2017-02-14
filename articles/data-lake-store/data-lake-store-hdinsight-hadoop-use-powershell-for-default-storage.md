@@ -1,12 +1,13 @@
 ---
-title: "PowerShell: Azure HDInsight cluster with Data Lake Store as add-on storage | Microsoft Docs"
+title: "PowerShell: Azure HDInsight cluster with Data Lake Store as default storage | Microsoft Docs"
+description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake
 services: data-lake-store,hdinsight
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
+ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -16,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: nitinme
 
 ---
-# Use Azure PowerShell to create an HDInsight cluster with Data Lake Store (as additional storage)
+# Use Azure PowerShell to create an HDInsight cluster with Data Lake Store (as default storage)
 > [!div class="op_single_selector"]
 > * [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Using PowerShell (for default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -25,15 +26,13 @@ ms.author: nitinme
 >
 >
 
-Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Store, **as additional storage**. For instructions on how to create an HDInsight cluster with Azure Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store as default storage](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md).
-
-For supported cluster types, Data Lake Store can be used as a default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
+Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Store, **as default storage**. For instructions on how to create an HDInsight cluster with Azure Data Lake Store as additional storage, see [Create an HDInsight cluster with Data Lake Store as additional storage](data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ## Using Data Lake Store for HDInsight cluster storage
 
 Here are some important considerations for using HDInsight with Data Lake Store:
 
-* Option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, and 3.5.
+* Option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
 
 * For HBase clusters (Windows and Linux), Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
 
@@ -93,10 +92,11 @@ Follow these steps to create a Data Lake Store.
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
     The output for this should be **True**.
-5. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+
+5. Using Data Lake Store as default storage requires you to specify a root path where the cluster-specific files are copied during cluster creation. Use the cmdlets below to create a root path, which in the snippet below is **/clusters/hdiadlcluster**.
 
         $myrootdir = "/"
-        Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
+        New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/clusters/hdiadlcluster
 
 
 ## Set up authentication for role-based access to Data Lake Store
@@ -153,40 +153,49 @@ In this section, you perform the steps to create a service principal for an Azur
         $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
 
         $objectId = $servicePrincipal.Id
-3. Grant the service principal access to the Data Lake Store folder and the file that you will access from the HDInsight cluster. The snippet below provides access to the root of the Data Lake Store account (where you copied the sample data file), and the file itself.
+3. Grant the service principal access to the Data Lake Store root and all the folders in the root path that you specified earlier. Use the cmdlets below.
 
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
-		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
+		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /clusters -AceType User -Id $objectId -Permissions All
+		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
 
-## Create an HDInsight Linux cluster with Data Lake Store as additional storage
+## Create an HDInsight Linux cluster with Data Lake Store as default storage
 
-In this section, we create an HDInsight Hadoop Linux cluster with Data Lake Store as additional storage. For this release, the HDInsight cluster and the Data Lake Store must be in the same location.
+In this section, we create an HDInsight Hadoop Linux cluster with Data Lake Store as default storage. For this release, the HDInsight cluster and the Data Lake Store must be in the same location.
 
 1. Start with retrieving the subscription tenant ID. You will need that later.
 
         $tenantID = (Get-AzureRmContext).Tenant.TenantId
-2. For this release, for a Hadoop cluster, Data Lake Store can only be used as an additional storage for the cluster. The default storage will still be the Azure storage blobs (WASB). So, we'll first create the storage account and storage containers required for the cluster.
-
-        # Create an Azure storage account
-        $location = "East US 2"
-        $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-
-        New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
-
-        # Create an Azure Blob Storage container
-        $containerName = "<ContainerName>"              # Provide a container name
-        $storageAccountKey = (Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-        $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-        New-AzureStorageContainer -Name $containerName -Context $destContext
-3. Create the HDInsight cluster. Use the following cmdlets.
+        
+2. Create the HDInsight cluster. Use the following cmdlets.
 
         # Set these variables
-        $clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
+        
+		$location = "East US 2"
+        $storageAccountName = $dataLakeStoreName   					   # Data Lake Store account name
+		$storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
+		$clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
         $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential
 
-        New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.4" -OSType Linux -SshCredential $sshCredentials -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
+        New-AzureRmHDInsightCluster `
+               -ClusterType Hadoop `
+               -OSType Linux `
+               -ClusterSizeInNodes $clusterNodes `
+               -ResourceGroupName $resourceGroupName `
+               -ClusterName $clusterName `
+               -HttpCredential $httpCredentials `
+               -Location $location `
+               -DefaultStorageAccountType AzureDataLakeStore `
+               -DefaultStorageAccountName "$storageAccountName.azuredatalakestore.net" `
+               -DefaultStorageRootPath $storageRootPath `
+               -Version "3.5" `
+               -SshCredential $sshCredentials `
+               -AadTenantId $tenantId `
+               -ObjectId $objectId `
+               -CertificateFilePath $certificateFilePath `
+               -CertificatePassword $password
 
     After the cmdlet successfully completes, you should see an output listing the cluster details.
 
@@ -204,22 +213,22 @@ In this section you will SSH into the HDInsight Linux cluster you created and ru
         hive
 2. Using the CLI, enter the following statements to create a new table named **vehicles** by using the sample data in the Data Lake Store:
 
-        DROP TABLE vehicles;
-        CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
-        SELECT * FROM vehicles LIMIT 10;
+        DROP TABLE log4jLogs;
+		CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+		STORED AS TEXTFILE LOCATION 'adl:///example/data/';
+		SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    You should see an output similar to the following:
+    You should see the query output on the SSH console. You could also run a SELECT command to list the contents of the log4jLogs table.
 
-        1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
-        1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
-        1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
-        1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
-        1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
-        1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
-        1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
-        1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
-        1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
-        1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+		SELECT * FROM log4jLogs LIMIT 10;
+
+	> [!NOTE]
+   	> The path to the sample data in the CREATE TABLE command above is `adl:///example/data/`, where `adl:///` is the cluster root. Taking the example of the cluster root specified in this tutorial, this will be `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`. So, you could either use the shorter alternative or provide the complete path to the cluster root. 
+   	>
+   	>
+
+
 
 ## Access Data Lake Store using HDFS commands
 Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
@@ -231,13 +240,7 @@ In this section you will SSH into the HDInsight Linux cluster you created and ru
 
 Once connected, use the following HDFS filesystem command to list the files in the Data Lake Store.
 
-    hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
-
-This should list the file that you uploaded earlier to the Data Lake Store.
-
-    15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
-    Found 1 items
-    -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+    hdfs dfs -ls adl:///
 
 You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
