@@ -35,7 +35,7 @@ To use the Azure CLI in WSL, complete the following.
 | Enable WSL | [Install WSL documentation ](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
 | Install the Azure CLI |[Install the CLI on WSL / Ubuntu 14.04](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu)|
 
-## PowerShell console
+## PowerShell
 
 The Azure CLI can be run natively in Windows. In this configuration, the Azure CLI package is installed on the Windows operating system, and commands can be run from PowerShell. In this configuration, Azure CLI commands and scripts can be run on any supported version of Windows, however platform specific scripting syntax is required. Because of this, scripts cannot necessarily be shared between Mac OS X, Linux, and Windows without modification.
 
@@ -55,5 +55,5 @@ Once completed, a bash session will start that is preloaded with the Azure CLI t
 
 ## Next Steps
 
-[Azure CLI script samples](../virtual-machines-linux-cli-samples.md).
+[Azure CLI script samples](./virtual-machines-linux-cli-samples.md).
 
