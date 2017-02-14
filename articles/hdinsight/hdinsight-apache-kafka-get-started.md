@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/07/2017
+ms.date: 02/14/2017
 ms.author: larryfr
 ---
 # Get started with Apache Kafka (preview) on HDInsight
@@ -53,11 +53,18 @@ Use the following steps to create a Kafka on HDInsight cluster:
    
     ![Create a HDInsight cluster](./media/hdinsight-apache-kafka-get-started/create-hdinsight.png)
 
-2. From the **New HDInsight Cluster** blade, enter a **Cluster Name** and select the **Subscription** to use with this cluster.
-   
-    ![Select subscription](./media/hdinsight-apache-kafka-get-started/new-hdinsight-cluster-blade.png)
+2. From the **Basics** blade, enter the following information:
 
-3. Use **Select Cluster Type** and select the following values on the **Cluster Type configuration** blade:
+    * **Cluster Name**: The name of the HDInsight cluster.
+    * **Subscription**: Select the subscription to use.
+    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use this to access services such as the Ambari Web UI or REST API.
+    * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
+    * **Resource Group**: The resource group to create the cluster in.
+    * **Location**: The Azure region to create the cluster in.
+   
+    ![Select subscription](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
+
+3. Select **Cluster type**, and then set the following values on the **Cluster configuration** blade:
    
     * **Cluster Type**: Kafka
 
@@ -67,46 +74,22 @@ Use the following steps to create a Kafka on HDInsight cluster:
      
     Finally, use the **Select** button to save settings.
      
-    ![Select cluster type](./media/hdinsight-apache-kafka-get-started/cluster-type.png)
+    ![Select cluster type](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
     > [!NOTE]
     > If your Azure subscription does not have access to the Kafka preview, instructions on how to gain access to the preview are displayed. The instructions displayed are similar to the following image:
     >
     > ![preview message: if you would like to deploy a managed Apache Kafka cluster on HDInsight, email us to request preview access](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
 
-4. Use **Credentials** to configure the cluster login and SSH user credentials.  Use the **Select** button to save settings.
-   
-    > [!NOTE]
-    > The cluster login is used when accessing the cluster over the internet using HTTPS. The SSH user is used to connect to the cluster and interactively run commands.
-   
-    ![Configure cluster login](./media/hdinsight-apache-kafka-get-started/cluster-credentials.png)
-   
-    For more information on using SSH with HDInsight, see the following documents:
-   
-    * [Use SSH with HDInsight from a Linux, Unix, or MacOS client](hdinsight-hadoop-linux-use-ssh-unix.md)
-   
-    * [Use SSH with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
+4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
 
-5. Use **Data Source** to configure the primary data store for the cluster. From the **Data Source** blade, use the following information to create a data store for the cluster:
-   
-    * Select **Create new** and then enter a name for the storage account.
-    
-    * Select **Location** and then select a location that is geographically close to you. This location is used to create both the storage account and the HDInsight cluster.
-     
-   Finally, use the **Select** button to save settings.
-     
-    ![Configure storage](./media/hdinsight-apache-kafka-get-started/configure-storage.png)
+5. From the **Storage** blade, select or create a new Storage account. For the steps in this document, leave the other fields on this blade at the default values. Use the __Next__ button to save storage configuration.
 
-6. Use **Pricing**, and then set the **Number of Worker Nodes** to 2. Using 2 worker nodes helps reduce the cost of the cluster and is enough for this example. Use the **Select** button to save settings.
-   
-    ![Pricing](./media/hdinsight-apache-kafka-get-started/pricing.png)
-   
-    > [!NOTE]
-    > The prices displayed in the portal may be different than the prices in the screenshot.
+    ![Set the storage account settings for HDInsight](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-7. Use **Resource Group** to create a group, and enter the name in the field. Also select **Pin to dashboard**. When done, select **Create** to create the cluster.
+6. From the **Summary** blade, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
    
-    ![Resource group field](./media/hdinsight-apache-kafka-get-started/resource-group.png)
+    ![Cluster configuration summary](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
     > [!NOTE]
     > It can take up to 20 minutes to create the cluster.
@@ -121,11 +104,13 @@ Replace **SSHUSER** with the SSH username you provided during cluster creation. 
 
 When prompted, enter the password you used for the SSH account.
 
+If you have a version of Windows that does not include the SSH command, see [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on using the PuTTY client to connect to the cluster.
+
 For information on using SSH with HDInsight, see the following documents:
 
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ##<a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
 
