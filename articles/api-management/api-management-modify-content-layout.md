@@ -79,7 +79,7 @@ Click the **Welcome** page to edit what is displayed on the home page of the dev
 [customize-styles]: api-management-customize-styles.md
 [portal-templates]: api-management-developer-portal-templates.md
 
-[api-management-customization-widget-structure]: ./media/api-management-modify-page-contents/portal-widget-structure.png
-[api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
-[api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
-[api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
+[api-management-customization-widget-structure]: ./media/api-management-modify-content-layout/portal-widget-structure.png
+[api-management-management-console]: ./media/api-management-modify-content-layout/api-management-management-console.png
+[api-management-widgets-header]: ./media/api-management-modify-content-layout/api-management-widgets-header.png
+[api-management-customization-manage-content]: ./media/api-management-modify-content-layout/api-management-customization-manage-content.png

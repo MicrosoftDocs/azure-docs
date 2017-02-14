@@ -25,9 +25,10 @@
 ### [Policy reference index](api-management-policy-reference.md)
 ### [Policies overview](api-management-howto-policies.md)
 ### [Manage secrets using properties](api-management-howto-properties.md)
+### [Secure APIs using client certificate authentication](api-management-howto-mutual-certificates-for-clients.md)
 ## Customize the developer experience
 ### [Modify page content and layout](api-management-modify-content-layout.md)
-### [Customize styling of page elements](api-management-customize-portal.md)
+### [Customize styling of page elements](api-management-customize-styles.md)
 ### [Customize system pages using templates](api-management-developer-portal-templates.md)
 ### [Authentication with AAD](api-management-howto-aad.md)
 ### [Delegated authentication](api-management-howto-setup-delegation.md)
