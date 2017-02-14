@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 01/02/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Lynda.com
 The objective of this tutorial is to show the integration of Azure and Lynda.com.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -37,7 +38,8 @@ The scenario outlined in this tutorial consists of the following building blocks
 ## Enabling the application integration for Lynda.com
 The objective of this section is to outline how to enable the application integration for Lynda.com.
 
-### To enable the application integration for Lynda.com, perform the following steps:
+**To enable the application integration for Lynda.com, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-lynda-tutorial/IC700993.png "Active Directory")
@@ -58,16 +60,16 @@ The objective of this section is to outline how to enable the application integr
    
    ![Lynda.com](./media/active-directory-saas-lynda-tutorial/IC777525.png "Lynda.com")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Lynda.com with their account in Azure AD using federation based on the SAML protocol.
 
-> [!IMPORTANT]
-> In order to be able to configure single sign-on on your Lynda.com tenant, you need to contact first the Lynda.com technical support to get this feature enabled.
-> 
+>[!IMPORTANT]
+>In order to be able to configure single sign-on on your Lynda.com tenant, you need to contact first the Lynda.com technical support to get this feature enabled. 
 > 
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Lynda.com** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777526.png "Configure single sign-on")
@@ -85,21 +87,22 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777530.png "Configure single sign-on")
    
-   ## Configuring user provisioning
+## Configuring user provisioning
 
 There is no action item for you to configure user provisioning to Lynda.com.  
 When an assigned user tries to log into Lynda.com using the access panel, Lynda.com checks whether the user exists.  
+
 If there is no user account available yet, it is automatically created by Lynda.com.
 
-> [!NOTE]
-> You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision AAD user accounts. 
 > 
 
 ## Assigning users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Lynda.com, perform the following steps:
+**To assign users to Lynda.com, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Lynda.com **application integration page, click **Assign users**.
    
