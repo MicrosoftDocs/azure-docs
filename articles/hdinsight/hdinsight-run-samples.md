@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/14/2017
 ms.author: jgao
 
 ---
@@ -134,8 +134,6 @@ In the meantime, the mapper collects the line-oriented output from the stdout of
 When an executable is specified for **reducers**, each reducer task launches the executable as a separate process when the reducer is initialized. As the reducer task runs, it converts its input key/values pairs into lines, and it feeds the lines to the [stdin][stdin-stdout-stderr] of the process.
 
 In the meantime, the reducer collects the line-oriented output from the [stdout][stdin-stdout-stderr] of the process. It converts each line to a key/value pair, which is collected as the output of the reducer. By default, the prefix of a line up to the first Tab character is the key, and the remainder of the line (excluding the Tab character) is the value.
-
-For more information about the Hadoop Streaming interface, see [Hadoop Streaming][hadoop-streaming].
 
 **To submit a C# streaming word count job**
 
