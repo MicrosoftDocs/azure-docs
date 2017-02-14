@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure AD sign-in and sign-out using Node.js
+title: Getting started with Azure AD sign-in and sign-out using Node.js | Microsoft Docs
 description: Learn how to build a Node.js Express MVC web app that integrates with Azure AD for sign-in.
 services: active-directory
 documentationcenter: nodejs
@@ -20,11 +20,11 @@ ms.author: brandwe
 # Node.js web app sign-in and sign-out with Azure AD
 Here we use Passport to:
 
-* Sign the user into the app with Azure Active Directory (Azure AD).
+* Sign the user in to the app with Azure Active Directory (Azure AD).
 * Display information about the user.
 * Sign the user out of the app.
 
-**Passport** is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or restify web application. A comprehensive set of strategies support authentication that uses a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
+*Passport* is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or restify web application. A comprehensive set of strategies support authentication that uses a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
 To do this, take the following steps:
 
@@ -39,7 +39,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 The completed application is provided at the end of this tutorial as well.
 
-## 1. Register an app
+## Step 1: Register an app
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the navigation menu at the top of the page, select your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
@@ -57,7 +57,7 @@ The completed application is provided at the end of this tutorial as well.
 
 6. After you register, Azure AD assigns your app a unique Application ID. You need this value in the following sections, so copy it from the application page.
 
-## 2. Add prerequisites to your directory
+## Step 2: Add prerequisites to your directory
 1. From the command line, change directories to your root folder if you're not already there, and then run the following commands:
 
     * `npm install express`
@@ -74,7 +74,7 @@ The completed application is provided at the end of this tutorial as well.
 
 This installs the libraries that `passport-azure-ad` depends on.
 
-## 3. Set up your app to use the passport-node-js strategy
+## Step 3: Set up your app to use the passport-node-js strategy
 Here, we configure Express to use the OpenID Connect authentication protocol.  Passport is used to do various things, including issue sign-in and sign-out requests, manage the user's session, and get information about the user.
 
 1. To begin, open the `config.js` file at the root of the project, and then enter your app's configuration values in the `exports.creds` section.
@@ -249,8 +249,8 @@ Passport uses a similar pattern for all its strategies (Twitter, Facebook, and s
           ```
 
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is giving your users a way to sign in, sign out, and gathering additional information about the signed-in users.
+## Step 4: Use Passport to issue sign-in and sign-out requests to Azure AD
+Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is giving your users a way to sign in and sign out, and gathering additional information about the signed-in users.
 
 1. First, let's add the default, sign-in, account, and sign-out methods to our `app.js` file:
 
@@ -312,7 +312,7 @@ Your app is now properly configured to communicate with the endpoint by using th
 ```
 
 
-## 5. To display our user in the website, create the views and routes in Express.
+## Step 5: To display our user in the website, create the views and routes in Express
 Now `app.js` is complete. We simply need to add the routes and views that show the information we get to the user, as well as handle the `/logout` and `/login` routes that we  created.
 
 1. Create the `/routes/index.js` route under the root directory.
@@ -366,7 +366,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     <p>familyName: <%= user.name.familyName %></p>
     <p>UPN: <%= user._json.upn %></p>
     <p>Profile ID: <%= user.id %></p>
-    <p>Full Claimes</p>
+  ##Next steps  <p>Full Claimes</p>
     <%- JSON.stringify(user) %>
     <p></p>
     <a href="/logout">Log Out</a>
@@ -400,11 +400,12 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     </html>
     ```
 
-6. Finally, build and run your app! Run `node app.js`, and then go to `http://localhost:3000`.
+##Next steps
+Finally, build and run your app. Run `node app.js`, and then go to `http://localhost:3000`.
 
-7. Sign in with either a personal Microsoft account or a work or school account, and notice how the user's identity is reflected in the /account list. You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.
+Sign in with either a personal Microsoft account or a work or school account, and notice how the user's identity is reflected in the /account list. You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip file here](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Alternatively, you can clone it from GitHub:
+For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Alternatively, you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
