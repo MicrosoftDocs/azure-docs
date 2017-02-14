@@ -72,10 +72,9 @@ the function payload might look like this example:
 
 You can trigger a logic app from inside a function. 
 See [Logic apps as callable endpoints](logic-apps-http-endpoint.md). 
-
 Create a logic app that has a manual trigger, then from inside your function, 
 generate an HTTP POST to the manual trigger URL 
-with the payload that you want to send to the logic app.
+with the payload that you want sent to the logic app.
 
 ### Create a function from Logic App Designer
 
