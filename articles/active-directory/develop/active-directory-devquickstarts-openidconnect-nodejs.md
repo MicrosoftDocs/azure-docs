@@ -24,7 +24,7 @@ Here we use Passport to:
 * Display information about the user.
 * Sign the user out of the app.
 
-*Passport* is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or restify web application. A comprehensive set of strategies support authentication that uses a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
+Passport is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or restify web application. A comprehensive set of strategies support authentication that uses a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
 To do this, take the following steps:
 
@@ -341,7 +341,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
 
  These pass along the request to our views, including the user if present.
 
-3. Create the `/views/index.ejs` view under the root directory. This is a simple page that calls our login and logout methods and enables us to grab account information. Notice that we can use the conditional `if (!user)` as the user is being passed through in the request is evidence we have a signed-in user.
+3. Create the `/views/index.ejs` view under the root directory. This is a simple page that calls our login and logout methods and enables us to grab account information. Notice that we can use the conditional `if (!user)` as the user being passed through in the request is evidence we have a signed-in user.
 
     ```JavaScript
     <% if (!user) { %>
