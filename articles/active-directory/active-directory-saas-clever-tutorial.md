@@ -92,7 +92,7 @@ The following screenshot shows an example for this.
    
    1. Type the **Login URL**.        
       >[!NOTE]
-      > The **Login URL** is a custom value. You can get the actual value from your Clever support team.
+      >The **Login URL** is a custom value. You can get the actual value from your Clever support team.
       > 
    2. As **Identity System**, select **ADFS**.
    3. Click **Save**.
