@@ -86,8 +86,9 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 The device app can also use `devices/{device_id}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
-IoT Hub does not support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.
-IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
+- IoT Hub does not support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.
+- IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
+- IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
 
 Refer to [Messaging developer's guide][lnk-messaging] for more information.
 
@@ -135,10 +136,16 @@ Refer to the [Device twins developer's guide][lnk-devguide-twin] for more inform
 
 ### Update device twin's reported properties
 
-First, a device has to be subscribed to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends a message, containing the device twin update to `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
+The following sequence describes how a device updates the reported properties in the device twin in IoT Hub:
+
+1. A device must first subscribe to the `$iothub/twin/res/#` topic to receive the operation's responses from IoT Hub.
+
+1. A device sends a message that contains the device twin update to the `$iothub/twin/PATCH/properties/reported/?$rid={request id}` topic. This message includes a **request id** value.
+
+1. The service then sends a response message that contains the new ETag value for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request id}`. This response message uses the same **request id** as the request.
 
 The request message body contains a JSON document which provides new values for reported properties (no other property or metadata can be modified).
-Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. E.g.
+Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. For example:
 
         {
             "telemetrySendFrequency": "35m",
@@ -158,7 +165,7 @@ Refer to the [Device twins developer's guide][lnk-devguide-twin] for more inform
 
 ### Receiving desired properties update notifications
 
-When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new version}`, which contain the content of the update performed by the solution back end. For instance,
+When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new version}`, which contain the content of the update performed by the solution back end. For example:
 
         {
             "telemetrySendFrequency": "5m",
