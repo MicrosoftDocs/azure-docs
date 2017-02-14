@@ -1,3 +1,14 @@
+### Disk Persistence 
+
+The following table illustrates the different states for the different disks in an Azure VM and whether the data is persisted or not in each state.
+
+| Disk | Start | Stop/Deallocate | Pause | Reboot | Shutdown | Delete | Failure | Resize | 
+| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
+| OS Disk | Yes | Yes  | Yes | Yes | Yes  | No | No  | Yes | 
+| RAM  | Yes | Yes | Yes | Yes | No   | No | No | No | 
+| Local Temp Disk | Yes | No | Yes | No | No  | No | No | No | 
+| Attached Data Disk | Yes | Yes | Yes | Yes | Yes  | Yes | Yes | Yes | 
+
 ## About VHDs
 
 The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md).
@@ -52,4 +63,3 @@ The following table provides a comparison of Premium vs Standard for both unmana
 | Disk Size | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Unmanaged Disks: 1 GB – 1TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Max Throughput per Disk | 200 MB/s | 60 MB/s |
 | Max IOPS per Disk | 5000 IOPS | 500 IOPS |
-
