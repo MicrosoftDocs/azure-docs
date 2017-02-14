@@ -31,7 +31,7 @@ Next, the **Create blade** opens as shown in the following image:
 1. Give your web app a name.
 2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](app-service-linux-intro.md).)
 3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](app-service-linux-intro.md).)
-4. Choose the application stack that you intend to use. You can choose between several versions of Node.js and PHP.
+4. Choose the application stack that you intend to use. You can choose between several versions of Node.js, PHP, .Net Core and Ruby.
 
 Once you have created the app, you can change the application stack from the application settings as shown in the following image:
 

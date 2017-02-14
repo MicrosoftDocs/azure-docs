@@ -1,24 +1,25 @@
+---		
+title: Explore Azure SQL Database Tutorials | Microsoft Docs		
+description: Learn about SQL Database features and capabilities		
+keywords: ''		
+services: sql-database		
+documentationcenter: ''		
+author: CarlRabeler		
+manager: jhubbard		
+editor: ''		
+		
+ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786		
+ms.service: sql-database		
+ms.custom: overview		
+ms.devlang: NA		
+ms.topic: article		
+ms.tgt_pltfrm: NA		
+ms.workload: data-management		
+ms.date: 02/08/2017		
+ms.author: carlrab		
+		
 ---
-title: Explore Azure SQL Database Tutorials | Microsoft Docs
-description: Learn about SQL Database features and capabilities
-keywords: ''
-services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786
-ms.service: sql-database
-ms.custom: overview
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-management
-ms.date: 12/08/2016
-ms.author: carlrab
-
----
+ 
 # Explore Azure SQL Database tutorials
 The links in the following tables take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
 
@@ -32,13 +33,13 @@ In the following tutorials, you create servers, databases, and server-level fire
 | [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
 |  | |
 
-## Backup and recovery
-In the following tutorial, you restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. 
+## Backups, long-term retention, and database recovery
+In the following tutorials, you learn about using [database backups](sql-database-automated-backups.md), [long-term backup retention](sql-database-long-term-retention.md), and [database recovery using backups](sql-database-recovery-using-backups.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Tutorial: Back up and restore an Azure SQL Database using the Azure portal](sql-database-get-started-backup-recovery.md)| In this tutorial, you use the Azure portal to restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. |
- [Tutorial: Back up and restore an Azure SQL Database using PowerShell](sql-database-get-started-backup-recovery-powershell.md)| In this tutorial, you use PowerShell to restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. |
+| [Back up and restore using the Azure portal](sql-database-get-started-backup-recovery.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
+| [Back up and restore using PowerShell](sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 |  | |
 
 ## Sharded databases
@@ -84,15 +85,6 @@ In the following tutorials, you learn about [securing Azure SQL Database data](s
 | Tutorial | Description |
 | --- | --- | 
 | [Secure sensitive data using Always Encrypted ](sql-database-always-encrypted-azure-key-vault.md) |In this tutorial, you use the Always Encrypted wizard to secure sensitive data in an Azure SQL database. |
-|  | |
-
-## Backups, long-term retention, and database recovery
-In the following tutorials, you learn about using [database backups](sql-database-automated-backups.md), [long-term backup retention](sql-database-long-term-retention.md), and [database recovery using backups](sql-database-recovery-using-backups.md).
-
-| Tutorial | Description |
-| --- | --- | 
-| [Back up and restore using the Azure portal](sql-database-get-started-backup-recovery.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
-| [Back up and restore using PowerShell](sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 |  | |
 
 ## Develop
