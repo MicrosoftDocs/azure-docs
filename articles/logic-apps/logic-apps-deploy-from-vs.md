@@ -132,7 +132,7 @@ select the **Code View** tab at the bottom of the designer.
 To switch back to the full resource JSON, 
 right-click the `<template>.json` file, and select **Open**.
 
-### Add references to dependent resources in Visual Studio deployment templates
+### Add references for dependent resources to Visual Studio deployment templates
 
 When you want your logic app to reference dependent resources, you can use 
 [Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions), 
