@@ -1,10 +1,51 @@
 
 
-## Azure CLI
+## Azure CLI 2.0 (Preview)
+
+Once you have [installed the Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), use the `az vm image list` command to see a list of VM images everywhere. The basic response of the command displays an offline subset of very popular images that looks like the following output, depending when you execute it:
+
+```azurecli
+az vm image list -o table
+You are viewing an offline list of images, use --all to retrieve an up-to-date list
+Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
+-------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
+CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
+openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
+RHEL           RedHat                  7.2                 RedHat:RHEL:7.2:latest                                          RHEL                 latest
+SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+```
+
+### Finding all images
+
+To obtain the current list of all images, use the `az vm image list` command with the `--all` option. Unlike the Azure CLI 1.0 commands, the `az vm image list --all` command returns all images and location information, so the `--all` command takes some time to complete. If you intend to investigate interactively, use `az vm image list --all > allImages.json`, which returns a list of all images currently available on Azure and stores it as a file for local use. 
+
+### Find specific images
+
+More often, you know what image you want, but you need to find it and where its available. Use `az vm image list` with a [JMESPATH query filter](https://docs.microsoft.com/cli/azure/query-az-cli2) to find specific informataion. For example, the following displays the SKUs are available and where for **Debian** (though you should note that without the `--all` switch, it only searches the local cache of common images):
+
+```azurecli
+az vm image list --query '[?contains(offer,`Debian`)]' -o table --all
+You are viewing an offline list of images, use --all to retrieve an up-to-date list
+  Sku  Publisher    Offer    Urn                       Version    UrnAlias
+-----  -----------  -------  ------------------------  ---------  ----------
+    8  credativ     Debian   credativ:Debian:8:latest  latest     Debian
+
+<many addition images are removed for this example>
+```
+
+If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed.
+
+## Azure CLI 1.0 (azure.js)
 > [!NOTE]
 > This article describes how to navigate and select virtual machine images, using a recent installation of either the Azure CLI or Azure PowerShell. As a prerequisite, you would need to change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. 
 > 
-> 
+
 
 The easiest and quickest way to locate an image to use either with `azure vm quick-create` or to create a resource group template file is to call the `azure vm image list` command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer. For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.
 
