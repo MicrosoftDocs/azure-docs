@@ -647,7 +647,7 @@ server.use(restify.bodyParser({
 })); // Allow for JSON mapping to REST.
 ```
 
-## 16. Adding the routes to the server (without authentication for now)
+## 16. Add the routes to the server (without authentication for now)
 ```Javascript
 /// Now the real handlers. Here we just CRUD.
 /**
@@ -698,7 +698,7 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 });
 ```
 
-## 17. Before we add OAuth support, let's run the server.
+## 17. Run the server (before adding OAuth support)
 Test out your server before we add authentication.
 
 The easiest way to test your server is by using curl in a command line. Before we do that, we need a utility that allows us to parse output as JSON.
@@ -774,16 +774,13 @@ So far we have built a typical REST TODO server without any kind of authorizatio
 1. First, we need to indicate that we want to use Passport. Put this right after your other server configuration:
 
     ```Javascript
-    // Let's start using Passport.js.
+            // Let's start using Passport.js.
 
-    server.use(passport.initialize()); // Starts passport.
-    server.use(passport.session()); // Provides session support.
+            server.use(passport.initialize()); // Starts passport.
+            server.use(passport.session()); // Provides session support.
     ```
-
-> [!TIP]
-> When you write APIs, we recommend that you always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the object ID of the user in the token (called through token.oid), which we put in the “owner” field. This ensures that only that user can access their TODOs. There is no exposure in the API of “owner,” so an external user can request the TODOs of others even if they are authenticated.
->
->
+    > [!TIP]
+    > When you write APIs, we recommend that you always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the object ID of the user in the token (called through token.oid), which we put in the “owner” field. This ensures that only that user can access their TODOs. There is no exposure in the API of “owner,” so an external user can request the TODOs of others even if they are authenticated.                    
 
 2. Next let’s use the Bearer strategy that comes with `passport-azure-ad`. Look at the code for now and we'll explain the rest shortly. Put this after what you pasted above:
 
