@@ -34,11 +34,13 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article and log into your Azure account.
 
-2. Register for the preview by running both the following commands in PowerShell after you login and select the appropriate subscription:
+2. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 	```
 	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
 	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+	
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 	```
 	Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 		
