@@ -101,6 +101,7 @@ Follow the following links to get started with App Service on Linux.
 * [Introduction to App Service on Linux](./app-service-linux-intro.md)
 * [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
 
 Post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

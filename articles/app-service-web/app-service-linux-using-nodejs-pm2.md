@@ -58,6 +58,7 @@ Important things to note in this configuration are:
 
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png

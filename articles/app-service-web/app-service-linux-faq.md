@@ -89,6 +89,6 @@ If you have a question, please comment on the article and we will answer it as s
 **A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Please add [Linux] to the title of your idea.
 
 ## Next steps
-* [Introduction to App Service on Linux](./app-service-linux-intro.md) 
 * [What is App Service on Linux?](app-service-linux-intro.md)
-* [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
+
