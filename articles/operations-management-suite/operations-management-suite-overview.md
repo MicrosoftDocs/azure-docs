@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2017
+ms.date: 02/13/2017
 ms.author: bwren
 
 ---
@@ -23,21 +23,21 @@ This article provides an introduction to Operations Management Suite (OMS) inclu
 ## From on-premise to the cloud
 Microsoft has long been providing products for managing enterprise environments.  Multiple products were consolidated into the System Center suite of management products in 2007.  This included Configuration Manager which provides such features as software distribution and inventory, Operations Manager which provides proactive monitoring of systems and applications, Orchestrator which includes runbooks to automate manual processes, and Data Protection Manager for backup and recovery of critical data.
 
-With more computing resources moving to the cloud, System Center products gained more cloud features such as Operations Manager and Orchestrator managing resources in Azure.  They were s98ytill fundamentally designed as on-premise solutions though and require a significant investment in deploying and maintaining on-premise management environment.  To completely leverage the cloud and support future applications, a new approach to management was required.
+With more computing resources moving to the cloud, System Center products gained more cloud features such as Operations Manager and Orchestrator managing resources in Azure.  They were still fundamentally designed as on-premise solutions though and require a significant investment in deploying and maintaining on-premise management environment.  To completely leverage the cloud and support future applications, a new approach to management was required.
 
 ## Introducing Operations Management Suite
 Operations Management Suite (also known as OMS) is a collection of management services that were designed in the cloud from the start.  Rather than deploying and managing on-premise resources, OMS components are entirely hosted in Azure.  Configuration is minimal, and you can be up and running literally in a matter of minutes.  
 
 - **Minimal cost and complexity of deployment.**  Because all of the components and data for OMS are stored in Azure, you can be up and running in a short time without the complexity and investment in on-premise components.
-- **Scale to cloud levels.**  You don’t have to worry about paying for compute resources that you don’t need or about running of storage space since the cloud allows you to pay only for what you actually use and will readily scale to ay load you require.  You can start by managing a few resources to get started and then scale up to your entire environment.
+- **Scale to cloud levels.**  You don’t have to worry about paying for compute resources that you don’t need or about running out of storage space since the cloud allows you to pay only for what you actually use and will readily scale to any load you require.  You can start by managing a few resources to get started and then scale up to your entire environment.
 - **Take advantage of the latest features.**  Features in OMS services are continuously being added and updated.  You constantly have access to the latest features without any requirement to deploy updates.
 - **Integrated services.**  While each of the OMS services provide significant value on their own, they can work together to solve complex management scenarios.  For example, a runbook in Azure Automation might drive a failover process with Azure Site Recovery and then log information to Log Analytics to generate an alert.
 - **Global knowledge.**  Management solutions in OMS continuously have access to the latest information.  The Security and Audit solution for example, can perform a threat analysis using the latest threats being detected around the world.
 - **Access from anywhere.**  Access your management environment from anywhere you have a browser.  Install the OMS app on your smartphone for ready access to your monitoring data.
 
 ### Is it just for the cloud?
-Just because OMS services run in the cloud doesn’t meant that they can’t effectively manage your on-premise environment.  Put an agent on any Windows or Linux computer in your data center, and it will send data to Log Analytics where it can be analyzed along with all other data collected from cloud or on-premise services.  Use Azure Backup and Azure Site Recovery to leverage the cloud for backup and high availability for on-premise resources.  
-Runbooks in the cloud can’t typically access your on-premise resources, but you can install an agent on one or more computers to that will host runbooks in your data center.  When you start a runbook, you simply specify whether you want it to run in the cloud or on a local worker.
+Just because OMS services run in the cloud doesn’t mean that they can’t effectively manage your on-premise environment.  Put an agent on any Windows or Linux computer in your data center, and it will send data to Log Analytics where it can be analyzed along with all other data collected from cloud or on-premise services.  Use Azure Backup and Azure Site Recovery to leverage the cloud for backup and high availability for on-premise resources.  
+Runbooks in the cloud can’t typically access your on-premise resources, but you can install an agent on one or more computers too that will host runbooks in your data center.  When you start a runbook, you simply specify whether you want it to run in the cloud or on a local worker.
 
 ## Hybrid management with System Center
 If you have an existing installation of System Center, you can integrate these components with OMS services to provide a hybrid solution for both your on-premise and cloud environments leveraging the relative specialties of each product.  Connect your existing Operations Manager management group to Log Analytics to analyze managed agents in the cloud.  Use your existing backup process with Data Protection Manager to backup your data to the cloud.  
@@ -116,7 +116,7 @@ Runbooks can be [started through a number of methods](../automation/automation-s
 ![Azure Automation DSC](media/operations-management-suite-overview/overview-dsc.png)
 
 ### Azure Backup and Azure Site Recovery
-Azure Backup and Azure Site Recovery contribute to business continuity and disaster recovery.  They each have features that help you to ensure that applications remain available when outages occur and return to normal operations when systems come back online.  Both services contribute to therecovery point objectives (RPOs) and recovery time objectives (RTOs) defined for your organization. Your RPO defines the acceptable limit in which data isn’t available during an outage, and the RTO limits the acceptable amount of time in which a service or app isn’t available during an outage.
+Azure Backup and Azure Site Recovery contribute to business continuity and disaster recovery.  They each have features that help you to ensure that applications remain available when outages occur and return to normal operations when systems come back online.  Both services contribute to the recovery point objectives (RPOs) and recovery time objectives (RTOs) defined for your organization. Your RPO defines the acceptable limit in which data isn’t available during an outage, and the RTO limits the acceptable amount of time in which a service or app isn’t available during an outage.
 
 #### Azure Backup
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services for OMS.  It protects your application data and retains it for years without any capital investment and with minimal operating costs.  It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint.  It can also be used by System Center Data Protection Manager (DPM) to replicate protected data to Azure for redundancy and long term storage.
