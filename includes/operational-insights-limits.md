@@ -5,9 +5,9 @@
 >
 The following limits apply to Log Analytics resources per subscription:
 
-| Category | Limits | Comments
+| Resource | Default Limit | Comments
 | --- | --- | --- |
-| Number of free workspaces per subscription | 10 | This is a fixed limit and cannot be increased. |
+| Number of free workspaces per subscription | 10 | This limit cannot be increased. |
 | Number of paid workspaces per subscription | N/A | You are limited by the number of resources within a resource group and number of resource groups per subscription | 
 
 
