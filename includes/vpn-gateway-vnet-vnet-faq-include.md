@@ -11,7 +11,7 @@ Yes, it is protected by IPsec/IKE encryption.
 No. The virtual networks can be in the same or different Azure regions (locations).
 
 ###Can a cloud service or a load balancing endpoint span VNets?
-No. A cloud service or a load balancing endpoint CANNOT span across virtual networks, even if they are connected together.
+No. A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
 
 ###Do I need a VPN device to connect VNets together?
 No. Connecting multiple Azure virtual networks together doesn't require a VPN device unless cross-premises connectivity is required.
@@ -25,8 +25,11 @@ No. VNet-to-VNet and Multi-Site connections require Azure VPN gateways with Rout
 ### Can I connect a VNet with a RouteBased VPN Type to another VNet with a PolicyBased VPN type?
 No, both virtual networks MUST be using route-based (dynamic routing) VPNs.
 
-###Can my VNet address spaces overlap for VNet-to-VNet connections?
-No.
+###Can I have overlapping address spaces for VNet-to-VNet configurations?
+No.You can't have overlapping IP address ranges.
+
+### Can there be overlapping address spaces among connected virtual networks and on-premises local sites?
+No. You can't have overlapping IP address ranges.
 
 ###Are redundant tunnels supported?
 Redundant tunnels between a pair of virtual networks are supported when one virtual network gateway is configured as active-active.
@@ -35,4 +38,7 @@ Redundant tunnels between a pair of virtual networks are supported when one virt
 Yes. All VPN tunnels of the virtual network share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
 
 ###Can I use VNet-to-VNet along with multi-site connections?
-Yes. Virtual network connectivity can be used simultaneously with multi-site VPNs. There is a maximum of 10 (Default/Standard Gateways) or 30 (HighPerformance Gateways) VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks, or on-premises sites.
+Yes. Virtual network connectivity can be used simultaneously with multi-site VPNs.
+
+### How many on-premises sites and virtual networks can one virtual network connect to?
+See [Gateway requirements]((../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements) table.

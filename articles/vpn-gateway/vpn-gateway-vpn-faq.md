@@ -121,13 +121,9 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-
-
 ## <a name="V2VMulti"></a>VNet-to-VNet and Multi-Site connections
-[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-### Can there be overlapping address spaces among the connected virtual networks and on-premises local sites?
-No. You cannot have overlapping IP address ranges. 
+[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
@@ -140,14 +136,11 @@ Transit traffic via Azure VPN gateway is possible using the classic deployment m
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be alphanumerical string of length between 1 to 128 characters.
 
-### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
-Yes, but you must configure BGP on both tunnels to the same location.
-
 ### Do I get more bandwidth with more Site-to-Site VPNs than for a single virtual network?
 No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gateway and the available bandwidth.
 
-### How many on-premises sites and virtual networks can one virtual network connect to?
-See [Gateway requirements](vpn-gateway-about-vpn-gateway-settings.md#requirements) table.
+### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
+Yes, but you must configure BGP on both tunnels to the same location.
 
 ### Can I use Point-to-Site VPNs with my virtual network with multiple VPN tunnels?
 Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to multiple on-premises sites and other virtual networks.
@@ -174,3 +167,4 @@ You view additional virtual network information in the [Virtual Network FAQ](../
 
 * For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 * For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+* 
