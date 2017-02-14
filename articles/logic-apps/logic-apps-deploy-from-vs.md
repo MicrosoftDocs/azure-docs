@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 2/14/2017
 ms.author: jehollan
 
 ---
@@ -132,10 +132,11 @@ select the **Code View** tab at the bottom of the designer.
 To switch back to the full resource JSON, 
 right-click the `<template>.json` file, and select **Open**.
 
-### To reference dependent resources by using parameters in Visual Studio deployment templates
+### Add references for dependent resources to Visual Studio deployment templates
 
-When you want your logic app to reference dependent resources, 
-you can use Azure Resource Manager template functions in your logic app deployment template. 
+When you want your logic app to reference dependent resources, you can use 
+[Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions), 
+like parameters, in your logic app deployment template. 
 For example, you might want your logic app to reference an Azure Function 
 or integration account that you want to deploy alongside your logic app. 
 Follow these guidelines about how to use parameters in your deployment template 
@@ -148,9 +149,21 @@ You can use logic app parameters in these kinds of triggers and actions:
 *   APIM call
 *   API connection runtime URL
 
-Parameters support these constructions: list below, 
-includes variables, resourceId, concat, and so on. 
-For example, you can replace the Azure Function resource ID:
+And you can use these template functions: list below, 
+includes parameters, variables, resourceId, concat, and so on. 
+For example, here's how you can replace the Azure Function resource ID:
+
+```
+"parameters":{
+	"functionName": {
+	"type":"string",
+	"minLength":1,
+	"defaultValue":"<FunctionName>"
+	}
+},
+```
+
+And where you'd use parameters:
 
 ```
 "MyFunction": {
@@ -158,25 +171,26 @@ For example, you can replace the Azure Function resource ID:
 		"inputs": {
 		"body":{},
 		"function":{
-		"id":"[resourceid('Microsoft.Web/sites/functions','functionApp','functionName')]"
+		"id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
 		}
 	},
 	"runAfter":{}
 }
 ```
 
-**Note** For the Logic App Designer to work when you use parameters, 
-you must provide default values, for example: 
-
-```
-"parameters":{
-	"IntegrationAccount": {
-	"type":"string",
-	"minLength":1,
-	"defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
-	}
-},
-```
+> [!NOTE] 
+> For the Logic App Designer to work when you use parameters, 
+> you must provide default values, for example:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
 
 ### Save your logic app
 
