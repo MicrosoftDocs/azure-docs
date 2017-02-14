@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Secure network traffic between virtual machine
 
-This script creates two virtual machines and secures incoming traffic to both. One virtual machine is accessible on the internet and has an NSG configured to allow traffic on port 22 and port 80. The second virtual machine is not accessible on the internet, and has an NSG configured to only allow traffic from the first virtual machine. The below script has been written to run in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli.md).
+This script creates two virtual machines and secures incoming traffic to both. One virtual machine is accessible on the internet and has an NSG configured to allow traffic on port 22 and port 80. The second virtual machine is not accessible on the internet, and has an NSG configured to only allow traffic from the first virtual machine. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 

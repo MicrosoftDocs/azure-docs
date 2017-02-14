@@ -20,11 +20,14 @@ ms.author: nepeters
 
 # Troubleshoot a VMs operating system disk
 
-This script mounts the operating system disk of a failed or problematic virtual machine as a data disk to a second virtual machine. This can be useful when troubleshooting disk issues or recovering data. When running this script an existing virtual machine will be needed. The resource group name and virtual machine name will need to be updated in the script sample. The below script has been written to run in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli.md).
+This script mounts the operating system disk of a failed or problematic virtual machine as a data disk to a second virtual machine. This can be useful when troubleshooting disk issues or recovering data. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+
+Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, an existing virtual machine will be needed, and the name and Resource Group of this VM updated in the script sample.
+
 
 ## Mount disk sample
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Quick Create VM")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh?highlight=4-5 "Quick Create VM")]
 
 ## Script explanation
 
