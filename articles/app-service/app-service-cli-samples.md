@@ -20,7 +20,7 @@ ms.author: cfowler
 ---
 # Azure CLI Samples - bash
 
-The following table includes links to Bash scripts built using the Azure CLI.
+The following table includes links to bash scripts built using the Azure CLI.
 
 | Sample | Description  |
 |---|---|

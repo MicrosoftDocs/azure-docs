@@ -18,7 +18,7 @@ ms.date: 02/01/2017
 ms.author: cfowler
 ---
 
-# Scale a web app worldwide with a high-availabilty architecture using Azure CLI 2.0
+# Scale a web app worldwide with a high-availability architecture using Azure CLI 2.0
 
 In this scenario you will create a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete you will have a high-available architecture which allows provides global availability of your web app based on the lowest network latency.
 

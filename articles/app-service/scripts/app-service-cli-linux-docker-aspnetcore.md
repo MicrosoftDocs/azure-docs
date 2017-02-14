@@ -20,7 +20,7 @@ ms.author: cfowler
 
 # Deploy an ASP.NET Core App in a Docker Container using Azure CLI 2.0
 
-In this scenario you will learn how to create a resource group, linux app service plan, web app and deploy an ASP.NET Core application using a docker container.
+In this scenario you will learn how to create a resource group, Linux app service plan, and web app, and deploy an ASP.NET Core application using a Docker Container.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
