@@ -196,14 +196,14 @@ This document describes the criteria that are used to validate that Office 365 w
 |12.4|Office Mix Add-ins must start in the Play View when published to Office Mix.|
 |12.5|All restrictions that apply to content add-ins for PowerPoint also apply to Office Mix Add-ins. |
 
-## 13. Power BI visuals
+## 13. Power BI custom visuals
 
 |Policy number|Description|
 |:-----|:-----|
-|13.1|Power BI visuals must be free.|
-|13.2|Power Bi visuals submitted to the Office Store must be accompanied by a sample file included in the same location as the pbviz, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
-|13.3|Your visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
-|13.4|Your visual must support the core functions of Power BI including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
+|13.1|Power BI custom visuals must be free.|
+|13.2|Power BI custom visuals submitted to the Office Store must be accompanied by a sample file included in the same location as the pbviz file, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
+|13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
+|13.4|Your custom visual must support the core functions of Power BI including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
 
 ## Conclusion
 <a name="bk_conclusion"> </a>
