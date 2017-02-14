@@ -34,14 +34,14 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
-> ExpressRoute gateways and Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with a ExpressRoute or Application gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the ExpressRoute or Application gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager.
+> Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the Application gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager. You must contact support if you want to migrate ExpressRoute gateways in cases where the gateway and the ExpressRoute circuit are in the same subscription. ExpressRoute gateways connecting to ExpressRoute circuits in another subscription cannot be migrated. In such cases, remove the ExpressRoute gateway, migrate the virtual network and recreate the gateway.
 > 
 > 
 
 ## Step 2: Install the latest version of Azure PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 <br>
 

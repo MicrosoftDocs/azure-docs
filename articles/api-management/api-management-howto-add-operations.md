@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 
 ---
 # How to add operations to an API in Azure API Management
@@ -44,6 +44,9 @@ Specify the **HTTP verb** by choosing from the drop-down list.
 <a name="url-template"></a>
 
 Define the URL template by typing in a URL fragment consisting of one or more URL path segments and zero or more query string parameters. The URL template, appended to the base URL of the API, identifies a single HTTP operation. It may contain one or more named variable parts that are identified by curly braces. These variable parts are called template parameters and are dynamically assigned values extracted from the request's URL when the request is being processed by the API Management platform.
+
+> The URL template can include wildcard patterns. For example, specifying `/*` will forward all requests for
+> that HTTP method to the back end service.
 
 ![URL template][api-management-url-template]
 

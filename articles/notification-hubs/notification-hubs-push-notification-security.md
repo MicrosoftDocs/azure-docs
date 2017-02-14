@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security for Notification Hubs
 description: This topic explains security for Azure notification hubs.
 services: notification-hubs

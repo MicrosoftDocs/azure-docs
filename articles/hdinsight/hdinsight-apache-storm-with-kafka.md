@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 ---
 # Use Apache Kafka (preview) with Storm on HDInsight
@@ -27,8 +27,6 @@ Apache Kafka is a publish-subscribe messaging solution that is available with HD
 
 ## Prerequisites
 
-* An Azure subscription
-
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 or higher. Or an equivalent such as [OpenJDK](http://openjdk.java.net/).
   
     > [!NOTE]
@@ -40,9 +38,9 @@ Apache Kafka is a publish-subscribe messaging solution that is available with HD
 
 * An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
   
-  * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-  * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Create the clusters
 
@@ -58,7 +56,7 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json**.
 
@@ -133,9 +131,9 @@ The steps in this document demonstrate how to set these environment variables.
    
     For more information on using SSH with HDInsight, see the following documents:
    
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS and Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the SSH connection to the Kafka cluster, use the following commands to get the zookeeper nodes from Ambari:
 
@@ -205,9 +203,9 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
    
     For more information on using SSH with HDInsight, see the following documents:
    
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the SSH connection to the Storm cluster, use the following commands to run the `set-env-variables.sh` script:
 

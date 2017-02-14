@@ -56,7 +56,9 @@ Open the Application Insights window in Visual Studio: Either click the Applicat
 
 ![In Visual Studio, the Application Insights button shows during debugging.](./media/app-insights-asp-net/55.png)
 
-This view shows telemetry generated in the server side of your app. Experiment with the filters, and click any event to see more detail.
+This view ('Data from debug session') shows telemetry generated in the server side of your app. Experiment with the filters, and click any event to see more detail.
+
+* *No data? Make sure the time range is correct, and click the Search icon.*
 
 [Learn more about Application Insights tools in Visual Studio](app-insights-visual-studio.md).
 
@@ -67,16 +69,35 @@ Unless you chose *Install SDK only,* you can also see the telemetry at the Appli
 
 The portal has more charts, analytic tools, and dashboards than Visual Studio. 
 
-Open your Application Insights resource in the [Azure portal](https://portal.azure.com/).
+Open your Application Insights resource - either sign in to the [Azure portal](https://portal.azure.com/) and find it there, or right-click the project in Visual Studio and let it take you there.
 
 ![Right-click your project and open the Azure portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-The portal opens on a view of the telemetry from your app:
-![](./media/app-insights-asp-net/66.png)
+* *Access error? If you have more than one set of Microsoft credentials, you might be signed in with the wrong set. In the portal, sign out and sign in again.*
 
-* The first telemetry appears in [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
-* Individual events appear in **Search** (1). Data may take a few minutes to appear. Click any event in order to see its properties. 
-* Aggregated metrics appear in the charts (2). It might take a minute or two for data to appear here. Click any chart to open a blade with more detail.
+The portal opens on a view of the telemetry from your app:
+![Application Insights Overview page](./media/app-insights-asp-net/66.png)
+
+Click any tile or chart to see more detail.
+
+### More detail in the portal
+
+* [**Live Metrics Stream**](app-insights-live-stream.md) displays telemetry almost instantly.
+
+    ![From the Overview blade, click Live Stream](./media/app-insights-asp-net/livestream.png)
+
+    Open Live Stream at the same time as your app is running, to allow them to connect.
+
+    Live Stream only shows telemetry for a minute after it is sent. For more historical investigations, use Search, Metrics Explorer, and Analytics. Data may take a few minutes to appear in these places.
+
+* [**Search**](app-insights-diagnostic-search.md) shows individual events such as requests, exceptions, and page views. You can filter by event type, term match, and property values. Click any event to see its properties and related events. 
+
+    ![From the Overview blade, click Search](./media/app-insights-asp-net/search.png)
+
+ * In development mode, you may see a lot of dependency (AJAX) events. These are synchronizations between the browser and the server emulator. To hide them, click the Dependency filter.
+* [**Aggregated metrics**](app-insights-metrics-explorer.md) such as request and failure rates appear in the charts. Click any chart to open a blade with more detail. Click the **Edit** tag of any chart to set filters, size, and so on.
+    
+    ![From the Overview blade, click any chart](./media/app-insights-asp-net/metrics.png)
 
 [Learn more about using Application Insights in the Azure portal](app-insights-dashboards.md).
 
@@ -111,17 +132,25 @@ To upgrade to a [new release of the SDK](https://github.com/Microsoft/Applicatio
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
 ## Add more telemetry
-### Web pages and single-page apps
-1. [Add the JavaScript snippet](app-insights-javascript.md) to your web pages to light up the Browser and Usage blades with data about page views, load times, browser exceptions, AJAX call performance, user and session counts.
-2. [Code custom events](app-insights-api-custom-events-metrics.md) to count, time, or measure user actions.
-
 ### Dependencies, exceptions and performance counters
-[Install Status Monitor](app-insights-monitor-performance-live-website-now.md) on each of your server machines, to get additional telemetry about your app. This is what you get:
+
+[Install Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) on each IIS server machine, to get additional telemetry about your web apps.
+
+If it is already installed, you don't need to do anything. 
+
+You might have used status monitor already, to start monitoring an app at run time. 
+
+By using status monitor in addition to the build-time SDK, you get a more complete set of telemetry that includes:
 
 * [Performance counters](app-insights-performance-counters.md) - 
   CPU, memory, disk and other performance counters relating to your app. 
 * [Exceptions](app-insights-asp-net-exceptions.md) - more detailed telemetry for some exceptions.
-* [Dependencies](app-insights-asp-net-dependencies.md) - calls to REST API or SQL services. Find out whether slow responses by external components are causing performance issues in your app. (If your app runs on .NET 4.6, you don't need Status Monitor to get this telemetry.)
+* [Dependencies](app-insights-asp-net-dependencies.md) - including return values.
+
+### Web pages and single-page apps
+1. [Add the JavaScript snippet](app-insights-javascript.md) to your web pages to light up the Browser and Usage blades with data about page views, load times, browser exceptions, AJAX call performance, user and session counts.
+2. [Code custom events](app-insights-api-custom-events-metrics.md) to count, time, or measure user actions.
+
 
 ### Diagnostic code
 Got a problem? If you want to insert code in your app to help diagnose it, you have several options:
@@ -168,5 +197,4 @@ If you use Visual Studio Team Services, you can [get an annotation marker](app-i
 | --- | --- |
 | **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Debugging with telemetry, diagnostic search, drill through to code. |
 | **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |
-| **[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |
 

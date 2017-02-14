@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
-ms.author: asmalser-msft
+ms.author: asmalser
 
 ---
 # Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory

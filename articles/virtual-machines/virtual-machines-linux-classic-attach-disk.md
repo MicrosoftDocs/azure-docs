@@ -1,5 +1,5 @@
 ---
-title: Attach a disk to a Linux VM | Microsoft Docs
+title: Attach a disk to a Linux VM in Azure | Microsoft Docs
 description: Learn how to attach a data disk to a Linux VM using the Classic deployment model and initialize the disk so it's ready for use
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
 # How to Attach a Data Disk to a Linux Virtual Machine
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-See how to [attach a data disk using the Resource Manager deployment model](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. See how to [attach a data disk using the Resource Manager deployment model](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can attach both empty disks and disks that contain data to your Azure VMs. Both types of disks are .vhd files that reside in an Azure storage account. As with adding any disk to a Linux machine, after you attach the disk you need to initialize and format it so it's ready for use. This article details attaching both empty disks and disks already containing data to your VMs, as well as how to then initialize and format a new disk.
 
@@ -201,7 +200,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 
-* Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
+* In some cases the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
   
     **Ubuntu**
   
@@ -225,7 +224,9 @@ You can read more about using your Linux VM in the following articles:
 
 * [How to log on to a virtual machine running Linux][Logon]
 * [How to detach a disk from a Linux virtual machine](virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Using the Azure CLI with the Classic deployment model](../virtual-machines-command-line-tools.md)
+* [Using the Azure CLI with the Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Configure RAID on a Linux VM in Azure](virtual-machines-linux-configure-raid.md)
+* [Configure LVM on a Linux VM in Azure](virtual-machines-linux-configure-lvm.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md

@@ -3,7 +3,7 @@ title: Add a user to your Azure RemoteApp collection | Microsoft Docs
 description: Learn how to add users to your Azure RemoteApp collection
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 6b751fd2-2b11-499f-a2eb-12cb47f3129b
@@ -12,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # How to add a user to your Azure RemoteApp collection

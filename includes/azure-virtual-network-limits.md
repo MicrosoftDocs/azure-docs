@@ -23,6 +23,7 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
 | Virtual networks per subscription |50 |500 |
+| Subnets per virtual network |1,000 |contact support |
 | DNS Servers per virtual network |9 |25 |
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP connections for a virtual machine or role instance |500K |500K |
@@ -35,9 +36,10 @@ The following limits apply only for networking resources managed through Azure R
 | Public IP addresses (Static) |20 |contact support |
 | Load balancers (internal and internet facing) |100 |contact support |
 | Load balancer rules per load balancer |150 |150 |
-| Public front end IP per load balancer |5 |contact support |
-| Private front end IP per load balancer |30 |contact support |
+| Public front end IP per load balancer |10 |contact support |
+| Private front end IP per load balancer |10 |contact support |
 | VNets peerings per Virtual Network |10 |50 |
+| Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
 Contact support in case you need to increase limits from default.
 

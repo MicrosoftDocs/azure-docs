@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 
 ---
@@ -29,7 +29,7 @@ application.
 > 
 
 ## Prerequisites
-* Install and configure [Azure Powershell](../powershell-install-configure.md).
+* Install and configure [Azure Powershell](/powershell/azureps-cmdlets-docs).
 * Deploy a Node.js app to an Azure Cloud Service. For more information, see [Build and deploy a Node.js application to an Azure Cloud Service](cloud-services-nodejs-develop-deploy-app.md).
 
 ## Step 1: Use Azure PowerShell to configure the service for Remote Desktop access

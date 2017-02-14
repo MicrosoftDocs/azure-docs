@@ -32,7 +32,7 @@ This article gives a summary of each reference architecture, and helps you to de
 ## Using a virtual private network connection
 You can use [Azure VPN Gateway][azure-vpn-gateway] to create a virtual private network (VPN) connection for sending network traffic between Azure virtual networks and on-premises locations. The network traffic flows between the on-premises network and an Azure Virtual Network (VNet) through an IPSec VPN tunnel.
 
-[![0]][0]
+![[0]][0]
 
 This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or it is beneficial to trade slightly extended latency for the flexibility and processing power of the cloud.
 
@@ -51,7 +51,7 @@ For detailed information about this architecture, see [Implementing a Hybrid Net
 ## Using an Azure ExpressRoute connection
 ExpressRoute connections are high bandwidth network connections that use a private dedicated link made through a third-party connectivity provider. The private connection extends your on-premises network into Azure providing access to your own IaaS infrastructure in Azure, public endpoints used in PaaS services, and Office365 SaaS services.
 
-[![1]][1]
+![[1]][1]
 
 This architecture is suitable for hybrid applications with the following characteristics:
 
@@ -77,7 +77,7 @@ For detailed information about this architecture, see [Implementing a hybrid net
 ## Using Azure VPN Gateway to provide a failover connection for Azure ExpressRoute
 Any network can suffer outages. If you are running mission critical services in Azure, you will require a fallback position <!-- option? -->, possibly with reduced bandwidth. For example, you can provide a VPN connection alongside an ExpressRoute circuit. Under normal circumstances, the traffic flows between the on-premises network and an Azure virtual network through the ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel instead.
 
-[![2]][2]
+![[2]][2]
 
 Benefits of using a failover VPN connection:
 

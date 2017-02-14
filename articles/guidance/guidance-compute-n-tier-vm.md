@@ -49,7 +49,7 @@ There are many ways to implement an N-tier architecture. For the most part, the 
 
 ![[0]][0]
 
-* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This is required to reach the availability [SLA][vm-sla] for VMs.
+* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. 
 * **Subnets.** Create a separate subnet for each tier. Specify the address range and subnet mask using [CIDR] notation. 
 * **Load balancers.** Use an [Internet-facing load balancer][load-balancer-external] to distribute incoming Internet traffic to the web tier, and an [internal load balancer][load-balancer-internal] to distribute network traffic from the web tier to the business tier.
 * **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
@@ -155,8 +155,7 @@ Simplify management of the entire system by using centralized administration too
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. The reference architecture is deployed in three stages. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select "open in new tab" or "open in new window" to begin the first stage of the deployment.  
-   [!["Deploy To Azure"][1]][2]
+1. Open [this link][2] in a new tab or browser window to begin the first stage of the deployment. The link takes you to the Azure Portal. 
 2. Once the link has opened in the Azure portal, enter the follow values: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
@@ -165,8 +164,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 3. Check Azure portal notification for a message that the first stage of the deployment is complete.
-4. Right click the button below and select "open in new tab" or "open in new window" to begin the second stage of the deployment.  
-   [!["Deploy To Azure"][1]][3]
+4. Open [this link][3] in a new tab or browser window to begin the second stage of the deployment.
 5. Once the link has opened in the Azure portal, enter the follow values: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-workload-rg` in the text box.
@@ -175,8 +173,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 6. Check Azure portal notification for a message that the second stage of deployment is complete.
-7. Right click the button below and select "open in new tab" or "open in new window" to begin the third stage of the deployment.  
-   [!["Deploy To Azure"][1]][4]
+7. Open [this link][4] in a new tab or browser window to begin the third stage of the deployment.
 8. Once the link has opened in the Azure portal, enter the follow values: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-ntier-sql-network-rg` in the text box.
@@ -193,11 +190,11 @@ To achieve high availability for this reference architecture, deploy to multiple
 
 <!-- links -->
 
-[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[arm-templates]: ../azure-resource-manager/resource-group-authoring-templates/
 [azure-administration]: ../automation/automation-intro.md
-[azure-audit-logs]: ../resource-group-audit.md
+[azure-audit-logs]: ../azure-resource-manager/resource-group-audit.md
 [azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md#configure-each-application-tier-into-separate-availability-sets
-[azure-cli]: ../virtual-machines-command-line-tools.md
+[azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault.md
 [azure-load-balancer]: ../load-balancer/load-balancer-overview.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
@@ -226,9 +223,9 @@ To achieve high availability for this reference architecture, deploy to multiple
 [sql-alwayson-ilb]: https://blogs.msdn.microsoft.com/igorpag/2016/01/25/configure-an-ilb-listener-for-sql-server-alwayson-availability-groups-in-azure-arm/
 [sql-alwayson-listeners]: https://msdn.microsoft.com/en-us/library/hh213417.aspx
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/en-us/library/hh213417.aspx#ConnectToSecondary
-[sql-keyvault]: ../virtual-machines/virtual-machines-windows-ps-sql-keyvault.md
+[sql-keyvault]: ../virtual-machines/windows/sql/virtual-machines-windows-ps-sql-keyvault.md
 [vm-planned-maintenance]: ../virtual-machines/virtual-machines-windows-planned-maintenance.md
-[vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vnet faq]: ../virtual-network/virtual-networks-faq.md
 [wsfc-whats-new]: https://technet.microsoft.com/windows-server-docs/failover-clustering/whats-new-in-failover-clustering
 [Nagios]: https://www.nagios.org/

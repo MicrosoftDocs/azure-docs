@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub cloud to device communications guidance | Microsoft Docs
-description: Azure IoT Hub developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages. 
+title: Azure IoT Hub cloud-to-device options | Microsoft Docs
+description: Developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications. 
 services: iot-hub
 documentationcenter: ''
 author: fsautomata
@@ -17,7 +17,7 @@ ms.date: 11/09/2016
 ms.author: elioda
 
 ---
-# Cloud to device communications guidance
+# Cloud-to-device communications guidance
 IoT Hub provides three options for device apps to expose functionality to a back-end app:
 
 * [Direct methods][lnk-methods], for communications that require immediate confirmation of their result, usually interactive control of the device, e.g. turn on a fan;
@@ -32,9 +32,9 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 | Data flow | Two-way. The device app can respond to the method right away. The solution back end receives the outcome contextually to the request. | One-way. The device app receives a notification with the property change. | One-way. The device app receives the message
 | Durability | Disconnected devices are not contacted. Back end is notified that the device is not connected. | Property values are preserved in the device twin. Device will read it at next reconnection. Property values are retrievable with the [IoT Hub query language][lnk-query]. | Messages can retained by IoT Hub for up to 48 hours. |
 | Targets | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device by **deviceId**. |
-| Size | Up to 8KB requests and 8KB responses. | Maximum desired properties size is 8KB. | Up to 256KB messages. |
+| Size | Up to 8KB requests and 8KB responses. | Maximum desired properties size is 8KB. | Up to 64KB messages. |
 | Frequency | High. Refer to [IoT Hub limits][lnk-quotas] for more information. | Medium. Refer to [IoT Hub limits][lnk-quotas] for more information. | Low. Refer to [IoT Hub limits][lnk-quotas] for more information. |
-| Protocol | Available on MQTT and AMQP. | Currently available only when using MQTT. | Available on all protocol. Device has to poll when using HTTP. |
+| Protocol | Currently available only when using MQTT. | Currently available only when using MQTT. | Available on all protocols. Device must poll when using HTTP. |
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 

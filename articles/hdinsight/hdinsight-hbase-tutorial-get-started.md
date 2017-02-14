@@ -1,5 +1,5 @@
 ---
-title: 'HBase tutorial: Get started with HBase in Hadoop | Microsoft Docs'
+title: 'HBase tutorial: Get started with Windows-based HBase clusters in Hadoop | Microsoft Docs'
 description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: apache hbase,hbase,hbase shell,hbase tutorial
 services: hdinsight
@@ -14,21 +14,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 
 ---
 # HBase tutorial: Get started using Apache HBase with Windows-based Hadoop in HDInsight
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Learn how to create HBase clusters in HDInsight, create HBase tables, and query the tables by using Apache Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
-The information in this document is specific to Windows-based HDInsight clusters. For information on Windows-based clusters, use the tab selector on the top of the page to switch.
-
-> [!NOTE]
-> HBase (version 0.98.0) on Windows-based HDInsight is only available for use with HDInsight 3.1 clusters (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
-> 
-> 
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). The information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [HBase tutorial: Get started using Apache HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## Before you begin
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -79,11 +74,11 @@ Currently, there are two way to access HBase. This section covers using the HBas
 
 For most people, data appears in the tabular format:
 
-![hdinsight hbase tabular data][img-hbase-sample-data-tabular]
+![HDInsight hbase tabular data][img-hbase-sample-data-tabular]
 
 In HBase which is an implementation of BigTable, the same data looks like:
 
-![hdinsight hbase bigtable data][img-hbase-sample-data-bigtable]
+![HDInsight hbase bigtable data][img-hbase-sample-data-bigtable]
 
 It'll make more sense after you finish the next procedure.  
 
@@ -107,7 +102,7 @@ It'll make more sense after you finish the next procedure.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![hdinsight hadoop hbase shell][img-hbase-shell]
+    ![HDInsight hadoop hbase shell][img-hbase-shell]
 6. Get a single row
    
         get 'Contacts', '1000'
@@ -293,7 +288,7 @@ For more information, see:
   HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
 * [Create HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet].
   With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.
-* [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md). Learn how to configure HBase replication across two Azure datacenters.
+* [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md). Learn how to configure HBase replication across two Azure datacenters.
 * [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment].
   Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data by using HBase in a Hadoop cluster in HDInsight.
 

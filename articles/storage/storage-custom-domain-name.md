@@ -3,8 +3,8 @@ title: Configure a domain name for your Blob storage endpoint | Microsoft Docs
 description: Learn how to map a custom user domain to the Blob storage endpoint for an Azure storage account in the Azure Classic Portal.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # Configure a custom domain name for your Blob storage endpoint
@@ -23,8 +23,8 @@ You can configure a custom domain for accessing blob data in your Azure storage 
 
 > [!IMPORTANT]
 > Azure Storage does not yet support HTTPS with custom domains. We are aware that customers are interested in this feature, and it will be available in a future release.
-> 
-> 
+>
+>
 
 There are two ways to point your custom domain to the blob endpoint for your storage account. The simplest way is to create a CNAME record mapping your custom domain and subdomain to the blob endpoint. A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain--note that the subdomain is always required. The destination domain is your Blob service endpoint.
 
@@ -62,7 +62,7 @@ is the same. Note that many basic domain registration packages do not offer DNS 
    provide a host name, which is your Blob service endpoint, in the format **mystorageaccount.blob.core.windows.net** (where **mystorageaccount** is the name of your storage account). The host name to use is provided for you in the text of the **Manage Custom Domain** dialog.
 8. After you have created the CNAME record, return to the **Manage Custom Domain** dialog, and enter the name of your custom domain, including the subdomain, in the **Custom Domain Name** field. For example, if your domain is **contoso.com** and your subdomain is **www**, enter **www.contoso.com**; if your subdomain is **photos**, enter **photos.contoso.com**. Note that the subdomain is required.
 9. Click the **Register** button to register your custom domain.
-   
+
 If the registration is successful, you will see the message **Your custom domain is active**. Users can now view blob data on your custom domain, so long as they have the appropriate permissions.
 
 ## Register a custom domain for your storage account using the intermediary asverify subdomain
@@ -85,7 +85,7 @@ The asverify subdomain is a special subdomain recognized by Azure. By prepending
 8. After you have created the CNAME record, return to the **Manage Custom Domain** dialog, and enter the name of your custom domain in the **Custom Domain Name** field. For example, if your domain is **contoso.com** and your subdomain is **www**, enter **www.contoso.com**; if your subdomain is **photos**, enter **photos.contoso.com**. Note that the subdomain is required.
 9. Click the checkbox that says **Advanced: Use the 'asverify' subdomain to preregister my custom domain**.
 10. Click the **Register** button to preregister your custom domain.
-    
+
     If the preregistration is successful, you will see the message **Your custom domain is active**.
 11. At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account. To complete the process, return to your DNS registrar's website, and create another CNAME record that maps your subdomain to your Blob service endpoint. For example, specify the subdomain as **www** or **photos**, and the hostname as **mystorageaccount.blob.core.windows.net** (where **mystorageaccount** is the name of your storage account). With this step, the registration of your custom domain is complete.
 12. Finally, you can delete the CNAME record you created using **asverify**, as it was necessary only as an intermediary step.
@@ -104,13 +104,13 @@ For example, you might use the following URI to access a web form via a
     http://photos.contoso.com/myforms/applicationform.htm
 
 ## Unregister a custom domain from your storage account
-To unregister a custom domain, follow these steps: 
+To unregister a custom domain, follow these steps:
 
-1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com). 
-2. In the navigation pane, click **Storage**. 
-3. On the **Storage** page, click the name of the storage account to display the dashboard. 
-4. On the ribbon, click **Manage Domain**. 
-5. In the **Manage Custom Domain** dialog box, click **Unregister**. 
+1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com).
+2. In the navigation pane, click **Storage**.
+3. On the **Storage** page, click the name of the storage account to display the dashboard.
+4. On the ribbon, click **Manage Domain**.
+5. In the **Manage Custom Domain** dialog box, click **Unregister**.
 
 ## Additional Resources
 * [How to map Custom Domain to Content Delivery Network (CDN) endpoint](../cdn/cdn-map-content-to-custom-domain.md)

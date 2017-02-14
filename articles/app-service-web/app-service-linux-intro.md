@@ -30,6 +30,7 @@ App Service on Linux currently supports the following application stacks:
 * Node.js
 * PHP
 * .Net Core
+* Ruby
 
 Customers can deploy their applications by using:
 
@@ -63,7 +64,7 @@ Web Apps on Linux is only supported in the Dedicated app service plans and does 
 
 Web Apps on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
 
-Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime if a web app gets restarted.
+Web Apps on Linux does not yet support deployment of .NET Core apps from uncompiled source. You will need to publish/compile your .NET Core app locally first, and then push the published site bits to your app.
 
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
@@ -71,5 +72,5 @@ See the following links to get started with App Service on Linux. You can post q
 * [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
-* [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-intro.md)
-
+* [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-using-dotnetcore.md)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)

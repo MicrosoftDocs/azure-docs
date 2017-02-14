@@ -44,7 +44,7 @@ VMs in Azure require supporting networking and storage resources.
 
 The architecture has the following components: 
 
-* **Availability set**. The [availability set][availability set] contains the VMs. This makes the VMs eligible for the [availability service level agreement (SLA) for Azure VMs][vm-sla]. For the SLA to apply, you need a minimum of two VMs in the same availability set. 
+* **Availability set**. The [availability set][availability set] contains the VMs. This makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla]. 
 * **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a VNet that is further divided into subnets.
 * **Azure Load Balancer**. The [load balancer] distributes incoming Internet requests to the VM instances. The load balancer includes some related resources:
   * **Public IP address**. A public IP address is needed for the load balancer to receive Internet traffic.
@@ -61,7 +61,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Availability set recommendations
 
-Create at least two VMs in the availability set, to support the [availability SLA for Azure VMs][vm-sla]. The Azure load balancer also requires that load-balanced VMs belong to the same availability set.
+For better availability, create at least two VMs in the availability set. The Azure load balancer also requires that load-balanced VMs belong to the same availability set.
 
 Each Azure subscription has default limits in place, including a maximum number of VMs per region. You can increase the limit by filing a support request. For more information, see [Azure subscription and service limits, quotas, and constraints][subscription-limits].  
 
@@ -150,8 +150,7 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, load balancer, and two VMs. It can be deployed with either Windows or Linux VMs. To deploy the architecture, follow these steps: 
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json)
+1. Open [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json) in a new tab or browser window. The link takes you to the Azure Portal.  
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Create new** and enter `ra-multi-vm-rg` in the text box.
@@ -170,8 +169,8 @@ Placing several VMs behind a load balancer is a building block for creating mult
 <!-- Links -->
 [availability set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
-[azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
-[azure-cli]: ../virtual-machines-command-line-tools.md
+[azure-automation]: https://azure.microsoft.com/documentation/services/automation/
+[azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-automation]: ../automation/automation-intro.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
@@ -191,7 +190,7 @@ Placing several VMs behind a load balancer is a building block for creating mult
 [subscription-limits]: ../azure-subscription-service-limits.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
-[vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_2/
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vmss]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
 [vmss-design]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md
 [vmss-quickstart]: https://azure.microsoft.com/documentation/templates/?term=scale+set

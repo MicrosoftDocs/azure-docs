@@ -1,4 +1,4 @@
-﻿---
+---
 title: Password policies and restrictions in Azure Active Directory | Microsoft Docs
 description: Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -22,8 +22,8 @@ This article describes the password policies and complexity    requirements asso
 
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 ## UserPrincipalName policies that apply to all user accounts
 Every user account that needs to sign in to the Azure AD authentication    system must have a unique user principal name (UPN) attribute value    associated with that account. The following table outlines the polices    that apply to both on-premises Active Directory-sourced user accounts    (synced to the cloud) and to cloud-only user accounts.
@@ -49,7 +49,7 @@ The following table describes the available password policy settings that can be
 | Password history duration |Forever |
 | Account Lockout |After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
-## Next Steps
+## Next steps
 * **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 * [Manage your passwords from anywhere](active-directory-passwords.md)
 * [How Password Management works](active-directory-passwords-how-it-works.md)
@@ -60,4 +60,3 @@ The following table describes the available password policy settings that can be
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
-

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor and troubleshoot protection for virtual machines and physical servers | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  Virtual Machine Manager or Hyper-V site protection.
 services: site-recovery
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2016
+ms.date: 01/19/2017
 ms.author: rajanaki
 
 ---

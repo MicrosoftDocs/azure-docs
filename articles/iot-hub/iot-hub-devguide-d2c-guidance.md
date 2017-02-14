@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub device to cloud communications guidance | Microsoft Docs
-description: Azure IoT Hub developer guide - guidance on when to use device-to-cloud messages, reported properties, or file upload. 
+title: Azure IoT Hub device-to-cloud options | Microsoft Docs
+description: Developer guide - guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications. 
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: elioda
 
 ---
-# Device to cloud communications guidance
+# Device-to-cloud communications guidance
 When sending information from the device app to the solution back end, IoT Hub exposes three options:
 
 * [Device-to-cloud (D2C) messages][lnk-d2c], for time series telemetry and alerts;

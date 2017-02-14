@@ -50,7 +50,7 @@ The following diagram highlights the important components in this architecture.
 > 
 > 
 
-[![0]][0] 
+![[0]][0] 
 
 * **On-premises network**. The on-premises network includes local Active Directory servers that can perform authentication and authorization for components located on-premises.
 * **Active Directory servers**. These are domain controllers implementing directory services (AD DS) running as VMs in the cloud. These servers can provide authentication of components running in your Azure virtual network.
@@ -164,7 +164,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [azure-active-directory]: ../active-directory-domain-services/active-directory-ds-overview.md
 [azure-ad-connect]: ../active-directory/active-directory-aadconnect.md
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [GitHub]: https://github.com/mspnp/reference-architectures/tree/master/guidance-ra-identity-adds

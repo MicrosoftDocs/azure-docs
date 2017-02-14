@@ -1,10 +1,9 @@
-
 ---
 title: Change the billing for Azure RemoteApp | Microsoft Docs
 description: Learn how to stop being billed for Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 7866a79c-8530-4ec2-a140-aa518eb237df
@@ -13,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # How to stop being billed for Azure RemoteApp

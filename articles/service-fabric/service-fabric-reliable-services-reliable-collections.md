@@ -1,5 +1,5 @@
-﻿---
-title: Reliable Collections | Microsoft Docs
+---
+title: Save application state in Azure microservices| Microsoft Docs
 description: Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications.
 services: service-fabric
 documentationcenter: .net

@@ -1,10 +1,10 @@
 ---
-title: Create an application gateway using the Azure CLI in Resource Manager | Microsoft Docs
+title: Create an Azure Application Gateway - Azure CLI | Microsoft Docs
 description: Learn how to create an Application Gateway by using the Azure CLI in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
@@ -37,8 +37,6 @@ To perform the steps in this article, you need to [install the Azure Command-Lin
 
 > [!NOTE]
 > If you don't have an Azure account, you need one. Go sign up for a [free trial here](../active-directory/sign-up-organization.md).
-> 
-> 
 
 ## Scenario
 
@@ -55,8 +53,6 @@ This scenario will:
 
 > [!NOTE]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
-> 
-> 
 
 ## Before you begin
 
@@ -124,11 +120,9 @@ azure network application-gateway create -n AdatumAppGateway -l eastus -g Adatum
 
 > [!NOTE]
 > For a list of parameters that can be provided during creation run the following command: **azure network application-gateway create --help**.
-> 
-> 
 
 This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
-If you already have your web application defined with the the backend pool in the preceding steps, once created, load balancing begins.
+If you already have your web application defined with the backend pool in the preceding steps, once created, load balancing begins.
 
 ## Next steps
 

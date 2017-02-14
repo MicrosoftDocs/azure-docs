@@ -1,5 +1,5 @@
 ## Create a device identity
-In this section, you use a Node tool called [IoT Hub Explorer][iot-hub-explorer] to create a device identity for this tutorial.
+In this section, you use a Node.js tool called [IoT Hub Explorer][iot-hub-explorer] to create a device identity for this tutorial.
 
 1. Run the following in your command-line environment:
    
@@ -20,6 +20,6 @@ Refer to [Getting started with IoT Hub][lnk-getstarted] for a way to create devi
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png
 
-[iot-hub-explorer]: https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer
+[iot-hub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
 
 [lnk-getstarted]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
