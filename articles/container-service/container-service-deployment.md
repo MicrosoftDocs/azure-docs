@@ -74,7 +74,7 @@ You can also deploy an Azure Container Service cluster by using the [Azure CLI 2
 
     ![Choose an orchestrator](media/container-service-deployment/acs-portal4-new.png)  <br />
 
-7. If **Kubernetes** is selected in the dropdown, you will need to enter a service principal client ID and service principal client secret. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+7. If **Kubernetes** is selected in the dropdown, you will need to enter a service principal client ID (also called the appId) and service principal client secret (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
     ![Enter service principal for Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
 
