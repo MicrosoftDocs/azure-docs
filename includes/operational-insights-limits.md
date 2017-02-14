@@ -1,5 +1,17 @@
 
-The following limits apply to each Operational Insights / Log Analytics workspace.
+>[!NOTE]
+>Log Analytics was formerly known as Operational Insights.
+>
+>
+The following limits apply to Log Analytics resources per subscription:
+
+| Category | Limits | Comments
+| --- | --- | --- |
+| Number of free workspaces per subscription | 10 | This is a fixed limit and cannot be increased. |
+| Number of paid workspaces per subscription | N/A | You are limited by the number of resources within a resource group and number of resource groups per subscription | 
+
+
+The following limits apply to each Log Analytics workspace:
 
 |  | Free | Standard | Premium | Standalone | OMS |
 | --- | --- | --- | --- | --- | --- |
