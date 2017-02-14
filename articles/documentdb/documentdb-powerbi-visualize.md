@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/14/2016
 ms.author: hawong
 
 ---
@@ -85,7 +85,7 @@ Ready to give it a try? Let's get started.
     Leave the database name, collection name, and SQL statement blank as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.
    
     ![Power BI tutorial for DocumentDB Power BI connector - Desktop Connect Window](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. If you are connecting to this endpoint for the first time, you will be prompted for the account key.  You can retrieve the key from the **Primary Key** box in the **[Read-only Keys](documentdb-manage-account.md#keys)** blade of the Azure portal, or you can use the demo account, in which case the key is `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Enter the account key and click **Connect**.
+7. If you are connecting to this endpoint for the first time, you will be prompted for the account key.  You can retrieve the key from the **Primary Key** box in the **[Read-only Keys](documentdb-manage-account.md#keys)** blade of the Azure portal, or you can use the demo account, in which case the key is `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Enter the account key and click **Connect**.
    
     We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the [Keys](documentdb-manage-account.md#keys) blade of the Azure portal or you can use the demo account information provided above.
    
