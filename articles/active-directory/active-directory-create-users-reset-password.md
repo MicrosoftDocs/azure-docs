@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -32,7 +32,7 @@ Whether you're responding to a user requesting a password reset after a lockout,
 4. In the reset password dialog, click **reset**.
 5. Select the check mark to finish resetting the password.
 
-## What's next
+## Next steps
 * [Add new users to Azure Active Directory](active-directory-create-users.md)
 * [Administering Azure AD](active-directory-administer.md)
 * [Manage passwords in Azure AD](active-directory-manage-passwords.md)

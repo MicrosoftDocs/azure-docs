@@ -148,7 +148,7 @@ Multi-path (MPIO) | N/A | Yes | Yes
 
 **Azure storage** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
 --- | --- | --- | ---
-LRS | Yes | Yes | Yes
+LRS | Yes | Yes | Yes 
 GRS | Yes | Yes | Yes
 Cool storage | No | No | No
 Hot storage| No | No | No
@@ -170,16 +170,16 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 
 **Entity** | **Requirements** | **Details**
 --- | --- | ---
-**Guest operating system** | For Hyper-V to Azure replication, Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication, check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment). | The prerequisites check will fail if unsupported.
-**Guest operating system architecture** | 64-bit | The prerequisites check will fail if unsupported.
-**Operating system disk size** | Up to 1023 GB | The prerequisites check will fail if unsupported.
-**Operating system disk count** | 1 | The prerequisites check will fail if unsupported.
-**Data disk count** | 16 or fewer (Maximum value is a function of the size of the virtual machine being created. 16 = XL.) | The prerequisites check will fail if unsupported.
-**Data disk VHD size** | Up to 1023 GB | The prerequisites check will fail if unsupported.
-**Network adapters** | Multiple adapters are supported. |
-**Shared VHD** | Not supported | The prerequisites check will fail if unsupported.
-**FC disk** | Not supported | The prerequisites check will fail if unsupported.
-**Hard disk format** | VHD <br/><br/> VHDX | Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you failover to Azure. When you failback to on-premises, the virtual machines continue to use the VHDX format.
+**Guest operating system** | Hyper-V to Azure replication: Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication: Check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | Prerequisites check will fail if unsupported.
+**Guest operating system architecture** | 64-bit | Prerequisites check will fail if unsupported
+**Operating system disk size** | Up to 1023 GB | Prerequisites check will fail if unsupported
+**Operating system disk count** | 1 | Prerequisites check will fail if unsupported.
+**Data disk count** | 64 or less if you are replicating **VMware VMs to Azure**; 16 or less if you are replicating **Hyper-V VMs to Azure** | Prerequisites check will fail if unsupported
+**Data disk VHD size** | Up to 1023 GB | Prerequisites check will fail if unsupported
+**Network adapters** | Multiple adapters are supported |
+**Shared VHD** | Not supported | Prerequisites check will fail if unsupported
+**FC disk** | Not supported | Prerequisites check will fail if unsupported
+**Hard disk format** | VHD <br/><br/> VHDX | Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises the virtual machines continue to use the VHDX format.
 **Bitlocker** | Not supported | Bitlocker must be disabled before protecting a virtual machine.
 **VM name** | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. The VM name must start and end with a letter or number. | Update the value in the virtual machine properties in Site Recovery.
 **VM type** | Generation 1<br/><br/> Generation 2 -- Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB of disk space are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
