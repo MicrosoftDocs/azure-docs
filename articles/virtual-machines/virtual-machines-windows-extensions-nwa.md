@@ -38,7 +38,7 @@ Some of the Network Watcher Agent functionality requires that the target virtual
 
 ## Extension schema
 
-The following JSON shows the schema for the Network Watcher Agent extension. The extension neither requires nor supports any user-supplied settings at this time and relies on its default configuarion.
+The following JSON shows the schema for the Network Watcher Agent extension. The extension neither requires nor supports any user-supplied settings at this time and relies on its default configuration.
 
 ```json
 {
