@@ -101,7 +101,7 @@ Since data churn on two disks of the VM are temporary in nature, while protectin
 Disks on the Azure VM after failover:
 
 **Guest OS disk#** | **Drive letter** | **Data type on the disk**
-
+--- | --- | ---
 DISK0 |	C:\ | OS disk
 Disk1 |	E:\ | Temporary storage [Azure adds this disk and assigns the first available drive letter]
 Disk2 | D:\ | SQL system database and User Database1
@@ -166,6 +166,7 @@ When failback is done to the original location, failback VM disk configuration r
 In the above example, Azure VM disk configuration:
 
 **Guest OS disk#** | **Drive letter** | **Data type on the disk** 
+--- | --- | --- 
 DISK0 | C:\ | OS disk
 Disk1 |	E:\ | Temporary storage [Azure adds this disk and assigns the first available drive letter]
 Disk2 |	D:\ | SQL system database and User Database1
@@ -174,6 +175,7 @@ Disk3 |	G:\ | User Database2
 After planned failover from Azure to on-premises Hyper-V, disks on the Hyper-V VM(Original Location Replication):
 
 **Disk Name** | **Guest OS disk#** | **Drive letter** | **Data type on the disk**
+--- | --- | --- | ---
 DB-Disk0-OS | DISK0 |	C:\ | OS disk
 DB-Disk1 | Disk1 | D:\ | SQL system database and User Database1
 DB-Disk2 (Excluded disk) | Disk2 | E:\ | Temp files
@@ -191,6 +193,7 @@ Disk configuration:
 
 
 **Disk name** | **Guest OS disk#** | **Drive letter** | **Data type on the disk**
+--- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | OS disk
 DB-Disk1 (Excluded the disk from the protection) | Disk1 | D:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
@@ -203,6 +206,7 @@ Pagefile settings on the Source VM:
 
 After you failover the VM from VMware to Azure/Hyper-V to Azure, disks on Azure VM:
 **Disk name** | **Guest OS disk# **| **Drive letter** | **Data type on the disk**
+--- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | OS disk
 DB-Disk1 | Disk1 | D:\ | Temporary storage –> pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
