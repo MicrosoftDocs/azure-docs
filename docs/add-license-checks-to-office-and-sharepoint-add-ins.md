@@ -186,7 +186,7 @@ In this example, the code prints out the user ID of the add-in user and whether 
 
 
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -369,7 +369,7 @@ The following example takes a test add-in license token and imports it into the 
 
  
 
-```C#
+```csharp
 // For this example to work, you must add a reference in your project to Microsoft.SharePoint.Client.dll and Microsoft.SharePoint.Client.Runtime.dll.
 
 string rawXMLEntitlementToken = <token that you want to import>;
@@ -428,7 +428,7 @@ The following example retrieves all the add-in licenses for the current user as 
 
  
 
-```C#
+```csharp
 // For this example to work, you must add a reference in your project to Microsoft.SharePoint.Client.dll and Microsoft.SharePoint.Client.Runtime.dll.
 // For this API to work, the SharePoint deployment you are calling must be able to communicate with ACS to validate OAuth tokens.
 
@@ -524,7 +524,7 @@ This example requires a reference to  [Microsoft.SharePoint.Client.Utilities](ht
 
 
 
-```C#
+```csharp
 //Get the license token XML from SharePoint.
 this.rawToken = GetLicenseTokenFromSP(this.productId, this.clientcontext);
 
