@@ -105,7 +105,7 @@ The following PowerShell example specifies the `-VpnType` as *RouteBased*. When 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ## <a name="gwsub"></a>Gateway subnet
-You'll need to create a gateway subnet for your VNet in order to configure a virtual network gateway. The gateway subnet contains the IP addresses that the virtual network gateway service uses. The gateway subnet must be named *GatewaySubnet* to work properly. This name lets Azure know that this subnet should be used for the gateway.
+You'll need to create a gateway subnet for your VNet in order to configure a virtual network gateway. The gateway subnet contains the IP addresses that the virtual network gateway services use. The gateway subnet must be named *GatewaySubnet* to work properly. This name lets Azure know that this subnet should be used for the gateway.
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway service. Some configurations require more IP addresses to be allocated to the gateway service than do others. You want to make sure your gateway subnet contains enough IP addresses to accommodate future growth and possible additional new connection configurations. So, while you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). Look at the requirements for the configuration that you want to create and verify that the gateway subnet that you have will meet those requirements.
 
