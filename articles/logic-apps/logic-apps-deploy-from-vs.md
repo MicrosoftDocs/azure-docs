@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 2/14/2017
 ms.author: jehollan
 
 ---
@@ -178,18 +178,19 @@ And where you'd use parameters:
 }
 ```
 
-**Note** For the Logic App Designer to work when you use parameters, 
-you must provide default values, for example: 
-
-```
-"parameters":{
-	"IntegrationAccount": {
-	"type":"string",
-	"minLength":1,
-	"defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
-	}
-},
-```
+> [!NOTE] 
+> For the Logic App Designer to work when you use parameters, 
+> you must provide default values, for example:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
 
 ### Save your logic app
 
