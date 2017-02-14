@@ -478,7 +478,7 @@ In the preceding command:
 * /LogFilePath: Mandatory. Specifies the log setup file location.
 
 #### Uninstall Mobility service manually
-Mobility service can be uninstalled by using the Uninstall or change a program in Control Panel, or by using the command line.
+Mobility service can be uninstalled by using Uninstall or change a program in Control Panel, or by using the command line.
 
 The command to uninstall Mobility service by using the command line is:
 
