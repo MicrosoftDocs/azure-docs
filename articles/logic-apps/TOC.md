@@ -68,7 +68,8 @@
 ### [Manage artifacts in integration accounts](logic-apps-enterprise-integration-accounts.md)
 ### [Pricing & billing](logic-apps-pricing.md)
 
-## [Scenarios and walkthroughs](logic-apps-examples-and-scenarios.md)
+## Examples, scenarios, and walkthroughs
+### [Overview](logic-apps-examples-and-scenarios.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
