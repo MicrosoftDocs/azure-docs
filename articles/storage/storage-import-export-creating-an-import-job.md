@@ -2,7 +2,7 @@
 title: Creating an Import Job for the Azure Import/Export service | Microsoft Docs
 description: Learn how to create an import for the Microsoft Azure Import/Export service
 author: muralikk
-manager: aungoo
+manager: syadav
 editor: syadav
 services: storage
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
-ms.author: renash
+ms.author: muralikk
 
 ---
 # Creating an Import Job

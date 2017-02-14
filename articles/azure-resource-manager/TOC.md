@@ -49,10 +49,7 @@
 ## Audit and Troubleshoot
 ### [Troubleshoot common deployment errors](resource-manager-common-deployment-errors.md)
 ### [View activity logs](resource-group-audit.md)
-### [View deployment operations with portal](resource-manager-troubleshoot-deployments-portal.md)
-### [View deployment operations with PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
-### [View deployment operations with REST API](resource-manager-troubleshoot-deployments-rest.md)
+### [View deployment operations](resource-manager-deployment-operations.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/19/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
@@ -158,6 +158,9 @@ HDInsight can run HiveQL jobs using a variety of methods. Use the following tabl
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
 | [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## Running Hive jobs on Azure HDInsight using on-premises SQL Server Integration Services
 You can also use SQL Server Integration Services (SSIS) to run a Hive job. The Azure Feature Pack for SSIS provides the following components that work with Hive jobs on HDInsight.
 
@@ -174,8 +177,6 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 * [Use Sqoop with HDInsight](hdinsight-use-sqoop.md)
 * [Use Oozie with HDInsight](hdinsight-use-oozie.md)
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
-
-[check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -203,14 +204,9 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-get-started.md
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

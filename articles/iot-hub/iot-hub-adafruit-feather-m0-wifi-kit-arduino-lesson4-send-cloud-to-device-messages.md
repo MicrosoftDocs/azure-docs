@@ -1,5 +1,5 @@
 ﻿---
-title: Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Microsoft Docs
+title: 'Connect Arduino (C) to Azure IoT - Lesson 4: Cloud-to-device | Microsoft Docs'
 description: A sample application runs on Adafruit Feather M0 WiFi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Adafruit Feather M0 WiFi from your IoT hub to blink the LED.
 services: iot-hub
 documentationcenter: ''

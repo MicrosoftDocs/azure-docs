@@ -18,21 +18,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---
-# Copy an Azure SQL Database
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-copy.md)
-> * [Azure portal](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
+# Copy an Azure SQL database
 
 You can use the Azure [Active Geo-Replication](sql-database-geo-replication-overview.md) feature to create a copy of your SQL database. But unlike geo-replication it terminates the replication link as once the seeding phase is completed. Therefore, the copy database is a snapshot of the source database as of the time of the copy request.  
+
 You can create the database copy on either the same server or a different server. The service tier and performance level (pricing tier) of the database copy are the same as the source database by default. When using the API, you can select a different performance level within the same service tier (edition). After the copy is complete, the copy becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently.  
 
 When you copy a database to the same logical server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner (DBO) on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  
 
-When you copy a database to a different logical server, the security principal on the new server becomes the database owner on the new database. If you use [contained database users](sql-database-manage-logins.md) for data access, ensure that both the primary and secondary databases always have the same user credentials, so after the copy completes you can immediately access it with the same credentials. If you use [Azure Active Directory](../active-directory/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access will generally not work because the logins will not exist on the new server. See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing logins when copying a database to a different logical server. 
+When you copy a database to a different logical server, the security principal on the new server becomes the database owner on the new database. If you use [contained database users](sql-database-manage-logins.md) for data access, ensure that both the primary and secondary databases always have the same user credentials, so after the copy completes you can immediately access it with the same credentials. If you use [Azure Active Directory](../active-directory/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access may not work because the logins do not exist on the new server. See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing logins when copying a database to a different logical server. 
 
 To copy a SQL database, you need the following:
 

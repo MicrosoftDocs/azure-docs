@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/09/2017
 ms.author: awills
 
 ---
@@ -21,7 +21,7 @@ Import any tabular data into [Analytics](app-insights-analytics.md), either to j
 
 You can import data into Analytics using your own schema. It doesn't have to use the standard Application Insights schemas such as request or trace.
 
-Currently, you can import CSV (comma-separated value) files, or similar formats using tab or semicolon separators.
+You can import JSON or DSV (delimiter-separated values - comma, semicolon or tab) files.
 
 There are three situations where importing to Analytics is useful:
 
@@ -69,12 +69,15 @@ Before you can import data, you must define a *data source,* which specifies the
 
     ![Add new data source](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Follow the instructions to upload a sample data file.
+2. Upload a sample data file. (Optional if you upload a schema definition.)
 
- * The first row of the sample can be column headers. (You can change the field names in the next step.)
- * The sample should include at least 10 rows of data.
+    The first row of the sample can be column headers. (You can change the field names in the next step.)
 
-3. Review the schema that the wizard has inferred from your sample. You can adjust the inferred types of the columns if necessary.
+    The sample should include at least 10 rows of data.
+
+3. Review the schema that the wizard has got. If it inferred the types from a sample, you will probably need to adjust the inferred types of the columns.
+
+   (Optional.) Upload a schema definition. See the format below.
 
 4. Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
 
@@ -82,6 +85,37 @@ Before you can import data, you must define a *data source,* which specifies the
 
 5. Create the data source.
 
+### Schema definition file format
+
+Instead of editing the schema in UI, you can load the schema definition from a file. The schema definition format is as follows: 
+
+Delimited format 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+JSON format 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Each column is identified by the location, name and type. 
+
+* Location – For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
+* Name – the displayed name of the column.
+* Type – the data type of that column.
+ 
+In case a sample data was used and file format is delimited, the schema definition must map all columns and add new columns at the end. 
+
+JSON allows partial mapping of the data, therefore the schema definition of JSON format doesn’t have to map every key which is found in a sample data. It can also map columns which are not part of the sample data. 
 
 ## Import data
 
@@ -99,7 +133,7 @@ You can perform the following process manually, or set up an automated system to
 2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
 
- * Endpoint: `https://eus-breeziest-in.cloudapp.net/v2/track`
+ * Endpoint: `https://dc.services.visualstudio.com/v2/track`
  * HTTP method: POST
  * Payload:
 
@@ -111,7 +145,7 @@ You can perform the following process manually, or set up an automated system to
             "baseData":{
                "ver":"2",
                "blobSasUri":"<Blob URI with Shared Access Key>",
-               "sourceName":"<Data source name>",
+               "sourceName":"<Schema ID>",
                "sourceVersion":"1.0"
              }
        },
@@ -125,7 +159,7 @@ You can perform the following process manually, or set up an automated system to
 The placeholders are:
 
 * `Blob URI with Shared Access Key`: You get this from the procedure for creating a key. It is specific to the blob.
-* `Data source name`: The name you gave to your data source. The data in this blob should conform to the schema you defined for this source.
+* `Schema ID`: The schema ID generated for your defined schema. The data in this blob should conform to the schema.
 * `DateTime`: The time at which the request is submitted, UTC. We accept these formats: ISO8601 (like "2016-01-01 13:45:01"); RFC822 ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
 * `Instrumentation key` of your Application Insights resource.
 
@@ -246,7 +280,7 @@ namespace IngestionClient
     public class AnalyticsDataSourceClient 
     { 
         #region Members 
-        private readonly Uri breezeEndpoint = new Uri("https://eus-breeziest-in.cloudapp.net/v2/track"); 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
         private const string RequestContentType = "application/json; charset=UTF-8"; 
         private const string RequestAccess = "application/json"; 
         #endregion Members 
@@ -255,7 +289,7 @@ namespace IngestionClient
 
         public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
         { 
-            HttpWebRequest request = WebRequest.CreateHttp(breezeEndpoint); 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
             request.Method = WebRequestMethods.Http.Post; 
             request.ContentType = RequestContentType; 
             request.Accept = RequestAccess; 
@@ -271,7 +305,10 @@ namespace IngestionClient
             HttpWebResponse response; 
             try 
             { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
             } 
             catch (WebException e) 
             { 
@@ -282,11 +319,10 @@ namespace IngestionClient
                         "Ingestion request failed with status code: {0}. Error: {1}", 
                         httpResponse.StatusCode, 
                         httpResponse.StatusDescription); 
-                } 
-                return false; 
+                    return false; 
+                }
+                throw; 
             } 
-
-            return response.StatusCode == HttpStatusCode.OK; 
         } 
         #endregion Public 
 

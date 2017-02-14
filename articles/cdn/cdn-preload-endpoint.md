@@ -1,9 +1,9 @@
 ---
 title: Pre-load assets on an Azure CDN endpoint | Microsoft Docs
-description: Learn how to pre-load cached content on a CDN endpoint.
+description: Learn how to pre-load cached content on an Azure CDN endpoint.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Pre-load assets on an Azure CDN endpoint

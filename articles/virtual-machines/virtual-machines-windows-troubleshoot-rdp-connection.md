@@ -1,5 +1,5 @@
 ---
-title: Cannot RDP to an Azure VM | Microsoft Docs
+title: Cannot connect with RDP to a Windows VM in Azure | Microsoft Docs
 description: Troubleshoot issues when you cannot connect to your Windows virtual machine in Azure using Remote Desktop
 keywords: Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting
 services: virtual-machines-windows
@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 10/26/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
@@ -37,7 +37,7 @@ After each troubleshooting step, try reconnecting to the VM:
 6. Restart your VM.
 7. Redeploy your VM.
 
-Continue reading if you need more detailed steps and explanations.
+Continue reading if you need more detailed steps and explanations. Verify that local network equipment such as routers and firewalls are not blocking outbound TCP port 3389, as noted in [detailed RDP troubleshooting scenarios](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!TIP]
 > If the **Connect** button for your VM is grayed out in the portal and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).

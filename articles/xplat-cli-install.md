@@ -14,27 +14,27 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/21/2017
 ms.author: rasquill
 
 ---
 # Install the Azure CLI
 > [!div class="op_single_selector"]
-> * [PowerShell](/powershell/azureps-cmdlets-docs)
+> * [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 > * [Azure CLI](xplat-cli-install.md)
 
-Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer: 
+Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer:
 
 * **npm package** - Run npm (the package manager for JavaScript) to install the latest Azure CLI package on your Linux distribution or OS. Requires node.js and npm on your computer.
 * **Installer** - Download an installer for easy installation on Mac or Windows.
 * **Docker container** - Start using the latest CLI in a ready-to-run Docker container. Requires Docker host on your computer.
 
-For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli). 
+For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
 Once the Azure CLI is installed, [connect it with your Azure subscription](xplat-cli-connect.md) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
 
 ## Option 1: Install an npm package
-To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package: 
+To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
 
 ```bash
 npm install -g azure-cli
@@ -47,7 +47,7 @@ sudo npm install -g azure-cli
 ```
 
 > [!NOTE]
-> If you need to install or update Node.js and npm on your Linux distribution or OS, we recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors. 
+> If you need to install or update Node.js and npm on your Linux distribution or OS, we recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors.
 
 If you prefer, download the latest Linux [tar file][linux-installer] for the npm package locally. Then, install the downloaded npm package as follows (on Linux distributions you might need to use **sudo**):
 
@@ -59,10 +59,10 @@ npm install -g <path to downloaded tar file>
 If you use a Mac or Windows computer, the following CLI installers are available for download:
 
 * [Mac OS X installer][mac-installer]
-* [Windows MSI][windows-installer] 
+* [Windows MSI][windows-installer]
 
 > [!TIP]
-> On Windows, you can also download the [Web Platform Installer](https://go.microsoft.com/?linkid=9828653) to install the CLI. This installer gives you the option to install additional Azure SDK and command-line tools after installing the CLI. 
+> On Windows, you can also download the [Web Platform Installer](https://go.microsoft.com/?linkid=9828653) to install the CLI. This installer gives you the option to install additional Azure SDK and command-line tools after installing the CLI.
 
 ## Option 3: Use a Docker container
 If you have set up your computer as a [Docker](https://docs.docker.com/engine/understanding-docker/) host, you can run the latest Azure CLI in a Docker container. Run the following command (on Linux distributions you might need to use **sudo**):
@@ -129,5 +129,5 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
-[cliasm]: virtual-machines-command-line-tools.md
+[cliasm]: /cli/azure/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md

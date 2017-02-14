@@ -179,7 +179,7 @@ In this section you change the AngularJS front end so that it uses Active Direct
 
 Make the following changes to files in the ToDoListAngular project.
 
-1. Open the *index.html* file.
+1. Open the *index.cshtml* file.
 2. Uncomment the lines that reference the Active Directory Authentication Library (ADAL) for JS scripts.
    
         <script src="app/scripts/adal.js"></script>

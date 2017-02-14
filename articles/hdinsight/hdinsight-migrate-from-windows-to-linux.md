@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 01/13/2017
 ms.author: larryfr
 
 ---
@@ -92,7 +92,7 @@ The following table provides guidance on migrating server-side components that a
 | --- | --- |
 | **PowerShell** (server-side scripts, including Script Actions used during cluster creation) |Rewrite as Bash scripts. For Script Actions, see [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) and [Script action development for Linux-based HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. If you need it for server-side scripting, see [Install the Azure CLI](../xplat-cli-install.md) for information on installing on Linux-based platforms. |
-| **.NET components** |.NET is not fully supported on Linux-based HDInsight clusters. Linux-based Storm on HDInsight clusters created after 10/28/2017 support C# Storm topologies using the SCP.NET framework. Additional support for .NET will be added in future updates. |
+| **.NET components** |.NET is not fully supported on all Linux-based HDInsight cluster types. Linux-based Storm on HDInsight clusters created after 10/28/2016 support C# Storm topologies using the SCP.NET framework. Additional support for .NET will be added in future updates. |
 | **Win32 components or other Windows-only technology** |Guidance depends on the component or technology; you may be able to find a version that is compatible with Linux, or you may need to find an alternate solution or rewrite this component. |
 
 ## Cluster creation

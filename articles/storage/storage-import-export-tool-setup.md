@@ -1,8 +1,8 @@
 ---
 title: Setting up the Azure Import/Export tool | Microsoft Docs
 description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 
 ---
 

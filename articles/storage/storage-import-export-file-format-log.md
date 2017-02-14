@@ -14,7 +14,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
+ms.date: 01/15/2017
 ms.author: muralikk
 
 ---

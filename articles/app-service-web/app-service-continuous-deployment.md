@@ -78,7 +78,7 @@ To disable continuous deployment,
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 
@@ -92,5 +92,5 @@ To disable continuous deployment,
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Get started with VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
+[Get started with VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md

@@ -1,5 +1,5 @@
 ﻿---
-title: Create a complete Linux environment using the Azure CLI 2.0 Preview | Microsoft Docs
+title: Create a Linux environment using the Azure CLI 2.0 | Microsoft Docs
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI 2.0 (Preview).
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -50,7 +50,7 @@ First, create the resource group with [az group create](/cli/azure/group#create)
 az group create --name myResourceGroup --location westeurope
 ```
 
-Create the storage account with [az storage account create](/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
+This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). If you instead wish to use unmanaged disks, you need to create a storage account with [az storage account create](/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -164,7 +164,7 @@ az vm availability-set create --resource-group myResourceGroup --location westeu
   --name myAvailabilitySet
 ```
 
-Create the first Linux VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM1`:
+Create the first Linux VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM1` using Azure Managed Disks. If you wish to use unmanaged disks, see the additional note below.
 
 ```azurecli
 az vm create \
@@ -176,10 +176,16 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+If you use Azure Managed Disks, skip this step. If you wish to use unmanaged disks and you created a storage account in the previous steps, you need to add some additional parameters to the proceeding command. Add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`: 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Create the second Linux VM, again with **az vm create**. The following example creates a VM named `myVM2`:
@@ -194,11 +200,17 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+Again, if you do not use the default Azure Managed Disks, add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`:
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 Verify that everything that was built correctly with [az vm show](/cli/azure/vm#show):
 
@@ -242,7 +254,9 @@ By default, the output is in JSON (JavaScript Object Notation). To output as a l
 ```
 
 ## Create a storage account
-You need storage accounts for your VM disks and for any additional data disks that you want to add. You create storage accounts almost immediately after you create resource groups.
+This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). Skip to [Create a virtual network and subnet](#create-a-virtual-network-and-subnet) if you wish to use Azure Managed Disks. 
+
+If you wish to use unmanaged disks, you need to create a storage account for your VM disks and for any additional data disks that you want to add.
 
 Here we use [az storage account create](/cli/azure/storage/account#create), and pass the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates a storage account named `mystorageaccount`:
 
@@ -991,11 +1005,11 @@ Read more about [managing the availability of VMs](virtual-machines-linux-manage
 
 
 ## Create the Linux VMs
-You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You've created the network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 We also specify an SSH key to use for authentication. If you do not have any SSH keys, you can create them by using [these instructions](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Alternatively, you can use the `--admin-password` method to authenticate your SSH connections after the VM is created. This method is typically less secure.
 
-We create the VM by bringing all our resources and information together with the [az vm create](/cli/azure/vm#create) command:
+We create the VM by bringing all our resources and information together with the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named `myVM1` using Azure Managed Disks. If you wish to use unmanaged disks, see the additional note below.
 
 ```azurecli
 az vm create \
@@ -1007,10 +1021,16 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+If you use Azure Managed Disks, skip this step. If you wish to use unmanaged disks and you created a storage account in the previous steps, you need to add some additional parameters to the proceeding command. Add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`: 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Output:
@@ -1066,11 +1086,17 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+Again, if you do not use the default Azure Managed Disks, add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`:
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 At this point, you're running your Ubuntu VMs behind a load balancer in Azure that you can sign into only with your SSH key pair (because passwords are disabled). You can install nginx or httpd, deploy a web app, and see the traffic flow through the load balancer to both of the VMs.
 

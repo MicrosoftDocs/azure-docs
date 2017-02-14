@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/10/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -76,4 +76,3 @@ The Azure Data Catalog portal home page includes a “My Assets” section that 
 
 ## Summary
 Azure Data Catalog provides capabilities that make it easier for users to discover the data sources they need, so they can spend less time looking for data and more time working with it. Saved searches and pinned data assets build on these core capabilities so users can easily identify data sources with which they will work repeatedly.
-

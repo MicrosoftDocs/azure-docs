@@ -22,7 +22,7 @@ The preview of Service Fabric on Linux enables you to build, deploy, and manage 
 
 Service Fabric on Linux is conceptually equivalent to Service Fabric on Windows (except for OS specifics and programming language support). Thus, most of our [existing documentation](http://aka.ms/servicefabricdocs) applies in helping you get familiar with the technology.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Service-Fabric-Linux-Preview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Service-Fabric-Linux-Preview/player]
 > 
 > 
 
