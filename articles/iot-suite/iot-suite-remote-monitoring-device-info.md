@@ -45,7 +45,7 @@ IoT Hub maintains a [device twin][lnk-device-twin] for each simulated and physic
 
 A device twin stores three types of metadata:
 
-- *Reported properties* are sent to an IoT hub by a device. In the remote monitoring solution, simulated devices send reported properties at start up and in response to **Change device state** commands and methods. You can view reported properties in the **Device list** and **Device details** in the solution portal. Reported properties are read only.
+- *Reported properties* are sent to an IoT hub by a device. In the remote monitoring solution, simulated devices send reported properties at start-up and in response to **Change device state** commands and methods. You can view reported properties in the **Device list** and **Device details** in the solution portal. Reported properties are read only.
 - *Desired properties* are retrieved from the IoT hub by devices. It is the responsibility of the device to make any necessary configuration change on the device. It is also the responsibility of the device to report the change back to the hub as a reported property. You can set a desired property value through the solution portal.
 - *Tags* only exist in the device twin and are never synchronized with a device. You can set tag values in the solution portal and use them when you filter the list of devices. The solution also uses a tag to identify the icon to display for a device in the solution portal.
 
@@ -87,7 +87,7 @@ When you first create a device in the solution portal, the solution creates an e
 When a device first connects to the solution, it sends reported properties and a device information message. The reported property values are automatically saved in the device twin. The reported properties include the device manufacturer, model number, serial number, and a list of supported methods. The device information message includes the list of the commands the device supports including information about any command parameters. When the solution receives this message, it updates the device information in the DocumentDB database.
 
 ### View and edit device information in the solution portal
-The device list in the solution portal displays the following device properties as columns by default: **Status**, **DeviceId**, **Manufacturer**, **Model Number**, **Serial Number**, **Firmware**, **Platform**, **Processor**, and **Installed RAM**. You can customize the the columns by clicking **Column editor**. The device properties **Latitude** and **Longitude** drive the location in the Bing Map on the dashboard.
+The device list in the solution portal displays the following device properties as columns by default: **Status**, **DeviceId**, **Manufacturer**, **Model Number**, **Serial Number**, **Firmware**, **Platform**, **Processor**, and **Installed RAM**. You can customize the columns by clicking **Column editor**. The device properties **Latitude** and **Longitude** drive the location in the Bing Map on the dashboard.
 
 ![Device list][img-device-list]
 
@@ -95,7 +95,7 @@ In the **Device Details** pane in the solution portal, you can edit desired prop
 
 ![Device edit][img-device-edit]
 
-You can use the solution portal to remove a device from your solution. When you remove a device, the solution removes the device entry from identity registry and the deletes the device twin. The solution also removes information related to the device from the DocumentDB database. Before you can remove a device, you must disable it.
+You can use the solution portal to remove a device from your solution. When you remove a device, the solution removes the device entry from identity registry and then deletes the device twin. The solution also removes information related to the device from the DocumentDB database. Before you can remove a device, you must disable it.
 
 ![Remove device][img-device-remove]
 

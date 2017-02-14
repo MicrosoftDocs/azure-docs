@@ -27,7 +27,7 @@ The source code is stored in the following GitHub repositories:
 
 ### How do I update to the latest version of the remote monitoring preconfigured solution that uses the IoT Hub device management features?
 * If you deploy a preconfigured solution from the https://www.azureiotsuite.com/ site, it always deploys a new instance of the latest version of the solution.
-* If you deploy a preconfigured solution using the command-line, you can update an existing deployment with new code. See [Cloud deployment][lnk-cloud-deployment] in the GitHub [repository][lnk-remote-monitoring-github].
+* If you deploy a preconfigured solution using the command line, you can update an existing deployment with new code. See [Cloud deployment][lnk-cloud-deployment] in the GitHub [repository][lnk-remote-monitoring-github].
 
 ### How can I add support for a new device method to the remote monitoring preconfigured solution?
 See the section [Add support for a new method to the simulator][lnk-add-method] in the [Customize a preconfigured solution][lnk-customize] article.

@@ -18,13 +18,13 @@ For simplicity, the code on the device generates sample values, but we encourage
 To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 
 ## Before you start
-Before you write any code for your device, you must provision your remote monitoring preconfigured solution and then provision a new custom device in that solution.
+Before you write any code for your device, you must provision your remote monitoring preconfigured solution and then provision a custom device in that solution.
 
 ### Provision your remote monitoring preconfigured solution
-The device you create in this tutorial sends data to an instance of the [remote monitoring][lnk-remote-monitoring] preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, follow the steps below:
+The device you create in this tutorial sends data to an instance of the [remote monitoring][lnk-remote-monitoring] preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, use the following steps:
 
-1. On the <https://www.azureiotsuite.com/> page, click **+** to create a new solution.
-2. Click **Select** on the **Remote monitoring** panel to create your new solution.
+1. On the <https://www.azureiotsuite.com/> page, click **+** to create a solution.
+2. Click **Select** on the **Remote monitoring** panel to create your solution.
 3. On the **Create Remote monitoring solution** page, enter a **Solution name** of your choice, select the **Region** you want to deploy to, and select the Azure subscription to want to use. Then click **Create solution**.
 4. Wait until the provisioning process completes.
 
@@ -39,21 +39,21 @@ When the provisioning process for the remote monitoring solution finishes, click
 
 ### Provision your device in the remote monitoring solution
 > [!NOTE]
-> If you have already provisioned a device in your solution, you can skip this step. You will need to know the device credentials when you create the client application.
+> If you have already provisioned a device in your solution, you can skip this step. You need to know the device credentials when you create the client application.
 > 
 > 
 
 For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial. 
 
-To add a new device to your remote monitoring solution, complete the following steps in the solution dashboard:
+To add a device to your remote monitoring solution, complete the following steps in the solution dashboard:
 
 1. In the lower left-hand corner of the dashboard, click **Add a device**.
    
    ![][1]
-2. In the **Custom Device** panel, click on **Add new**.
+2. In the **Custom Device** panel, click **Add new**.
    
    ![][2]
-3. Choose **Let me define my own Device ID**, enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't already in use, and then click **Create** to provision the device.
+3. Choose **Let me define my own Device ID**. Enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't already in use, and then click **Create** to provision the device.
    
    ![][3]
 4. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key), your client application needs them to connect to the remote monitoring solution. Then click **Done**.

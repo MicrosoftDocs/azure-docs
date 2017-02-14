@@ -56,7 +56,7 @@ In addition to changing the preconfigured Azure Stream Analytics jobs, you can u
 ## Customize devices
 One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the [IoT Device SDK][IoT Device SDK] to connect your physical device to the solution.
 
-For a step-by-step guide to adding devices, see the [Iot Suite Connecting Devices](iot-suite-connecting-devices.md) article and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
+For a step-by-step guide to adding devices, see the [Iot Suite Connecting Devices](iot-suite-connecting-devices.md) article and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). This sample is designed to work with the remote monitoring preconfigured solution.
 
 ### Create your own simulated device
 Included in the [remote monitoring solution source code](https://github.com/Azure/azure-iot-remote-monitoring), is a .NET simulator. This simulator is the one provisioned as part of the solution and you can alter it to send different metadata, telemetry, and respond to different commands and methods.
@@ -67,7 +67,7 @@ The preconfigured simulator in the remote monitoring preconfigured solution simu
 The default set of locations is in Seattle/Redmond, Washington, United States of America. You can change these locations in [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
 ### Add a desired property update handler to the simulator
-A user can set a value for a desired property for a device in the solution portal. It is the reponsibility of the device to handle the property change request when the device retrieves the desired property value. To add support for a property value change through a desired property you need to add a handler to the simulator.
+A user can set a value for a desired property for a device in the solution portal. It is the responsibility of the device to handle the property change request when the device retrieves the desired property value. To add support for a property value change through a desired property, you need to add a handler to the simulator.
 
 The simulator contains handlers for the **SetPointTemp** and **TelemetryInterval** properties that a user can update by setting desired values in the solution portal.
 
@@ -132,7 +132,7 @@ For a list of supported parameter types, see the **CommandTypes** class in the I
 To delete a method, set the method signature to `null` in the reported properties.
 
 > [!NOTE]
-> The solution back end only updates information about supported methods when it recieves a *device information* message from the device.
+> The solution back end only updates information about supported methods when it receives a *device information* message from the device.
 > 
 > 
 
@@ -151,7 +151,7 @@ This code snippet adds details of the **InitiateFirmwareUpdate** method includin
 
 The simulator sends reported properties, including the list of supported methods, to IoT Hub when the simulator starts.
 
-You must add a handler to the simulator code for each method it supports. You can see the existing handlers in the **CoolerDevice** class in the Simulator.WebJob project. The following example shows the handler for **InitiateFirmwareUpdate** method:
+Add a handler to the simulator code for each method it supports. You can see the existing handlers in the **CoolerDevice** class in the Simulator.WebJob project. The following example shows the handler for **InitiateFirmwareUpdate** method:
 
 ```csharp
 public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodRequest, object userContext)
@@ -202,7 +202,7 @@ Inside the method handler, you could:
 - Start an asynchronous task.
 - Retrieve desired properties from the *device twin* in IoT Hub.
 - Update a single reported property using the **SetReportedPropertyAsync** method in the **CoolerDevice** class.
-- Update multiple reported properties by creating a new **TwinCollection** instance and calling the **Transport.UpdateReportedPropertiesAsync** method.
+- Update multiple reported properties by creating a  **TwinCollection** instance and calling the **Transport.UpdateReportedPropertiesAsync** method.
 
 The preceding firmware update example performs the following steps:
 
@@ -234,7 +234,7 @@ Members of the **ReadOnly** role can see the dashboard and the device list, but 
 4. Click **Applications**.
 5. Click the name of the application that matches your preconfigured solution name. If you don't see your application in the list, select **Applications my company owns** in the **Show** dropdown and click the check mark.
 6. At the bottom of the page, click **Manage Manifest** and then **Download Manifest**.
-7. This downloads a .json file to your local machine.  Open this file for editing in a text editor of your choice.
+7. This procedure downloads a .json file to your local machine. Open this file for editing in a text editor of your choice.
 8. On the third line of the .json file, you can see:
    
    ```
