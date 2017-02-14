@@ -294,7 +294,7 @@ You can omit the logical operator for the top-level filter arguments. In this ca
 | system "Windows Server" OR Severity:1 |system AND ("Windows Server" OR Severity:1) |
 
 ### Wildcarding
-The query language supports using the (*\*) character to  represent one or more characters for a value in a query.
+The query language supports using the ( \* ) character to  represent one or more characters for a value in a query.
 
 Examples:
 

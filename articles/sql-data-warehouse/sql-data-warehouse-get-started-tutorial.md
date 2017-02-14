@@ -225,7 +225,8 @@ You are now ready to load data into your data warehouse. This step shows you how
     WITH ( 
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
-            STRING_DELIMITER = ''DATE_FORMAT = '',
+            STRING_DELIMITER = '',
+	    DATE_FORMAT = '',
             USE_TYPE_DEFAULT = False
         ),
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
@@ -354,7 +355,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         LOCATION = 'Time',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value
+        REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
@@ -405,7 +406,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     )
     WITH
     (
-        LOCATION = 'Weather2013'
+        LOCATION = 'Weather2013',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
