@@ -43,7 +43,7 @@ The configuration steps include the following procedures to configure and use Az
 7. Connect to your database by using Azure AD identities.
 
 > [!NOTE]
-> To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, see [Configure Azure AD with Azure SQL Database](sql-database-configure-aad-authentication.md).
+> To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database and SQL Data Warehouse, see [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md).
 >
 
 ## Trust architecture
@@ -91,7 +91,7 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 * Azure AD authentication is supported for SQL Database by the Azure portal **Import Database** and **Export Database** blades. Import and export using Azure AD authentication is also supported from the PowerShell command.   
 
 ## Next steps
-- To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, see [Configure Azure AD with Azure SQL Database](sql-database-configure-aad-authentication.md).
+- To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, see [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md).
 - For an overview of access and control in SQL Database, see [SQL Database access and control](sql-database-control-access.md).
 - For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](sql-database-manage-logins.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).

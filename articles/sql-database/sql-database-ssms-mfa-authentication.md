@@ -20,7 +20,12 @@ ms.author: rickbyh
 
 ---
 # SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse
-Azure SQL Database and Azure SQL Data Warehouse now support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. Active Directory Universal Authentication is an interactive work flow that supports *Azure Multi-Factor Authentication* (MFA). Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options—phone call, text message, smart cards with pin, or mobile app notification—allowing users to choose the method they prefer. For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
+Azure SQL Database and Azure SQL Data Warehouse now support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. Active Directory Universal Authentication is an interactive work flow that supports *Azure Multi-Factor Authentication* (MFA). Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options—phone call, text message, smart cards with pin, or mobile app notification—allowing users to choose the method they prefer. 
+
+* For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
+* For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
+
+## Multi-factor options
 
 SSMS now supports:
 

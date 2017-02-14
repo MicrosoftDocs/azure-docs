@@ -19,9 +19,11 @@ ms.date: 01/23/2017
 ms.author: rickbyh
 
 ---
-# Implement Azure SQL Database multi-factor authentication for SQL Server Management Studio
+# Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio
 
-This topic shows you how to implement Azure SQL Database multi-factor authentication SQL Server Management Studio. For an overview of Azure SQL Database multi-factor authentication, see [Overview of Azure SQL Database multi-factor authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md).
+This topic shows you how to confgure Azure SQL Database multi-factor authentication SQL Server Management Studio. 
+
+For an overview of Azure SQL Database multi-factor authentication, see [Overview of Azure SQL Database multi-factor authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md).
 
 ## Configuration steps.
 

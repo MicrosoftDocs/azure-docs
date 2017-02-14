@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Configure SQL Database Auditing | Microsoft Docs
+title: 'PowerShell: Configure SQL Database Auditing | Microsoft Docs'
 description: Configure Azure SQL Database auditing with PowerShell to track database events and write them to an audit log in your Azure Storage account.
 services: sql-database
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: ronitr; giladm
 ---
 # SQL database auditing
 
-The following section describes how to configure and manage auditing using PowerShell. To configure and manage auditing using the Azure portal, see [Configuring auditing using the Azure portal](sql-database-auditing-portal.md). To configure and manage auditing using PowerShell, see [Configuring auditing using the REST API](sql-database-auditing-rest.md).
+The following section describes how to configure and manage auditing using PowerShell. To configure and manage auditing using the Azure portal, see [Configuring auditing using the Azure portal](sql-database-auditing-portal.md). To configure and manage auditing using the REST API, see [Configuring auditing using the REST API](sql-database-auditing-rest.md).
 
 For an overview of auditing, see [SQL Database auditing](sql-database-auditing.md).
 

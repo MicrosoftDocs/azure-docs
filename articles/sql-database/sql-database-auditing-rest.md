@@ -1,5 +1,5 @@
 ---
-title: 'REST API: Configure SQL Database Auditing | Microsoft Docs
+title: 'REST API: Configure SQL Database Auditing | Microsoft Docs'
 description: Configure Azure SQL Database auditing using the REST API to track database events and write them to an audit log in your Azure Storage account.
 services: sql-database
 documentationcenter: ''
