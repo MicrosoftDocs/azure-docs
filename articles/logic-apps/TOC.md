@@ -11,10 +11,10 @@
 
 # How To
 ## Build
-### [Build and deploy logic apps in Visual Studio](logic-apps-deploy-from-vs.md)
+### [Build and deploy logic apps with Visual Studio](logic-apps-deploy-from-vs.md)
 ### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
-### [Add switch statements](logic-apps-switch-case.md)
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
+### [Add switch statements](logic-apps-switch-case.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
 ### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
 ### [Call logic app endpoints as triggers](logic-apps-http-endpoint.md)
