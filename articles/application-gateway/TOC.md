@@ -1,5 +1,6 @@
 # Overview
 ## [What is Application Gateway?](application-gateway-introduction.md)
+## [Application Gateway FAQ](application-gateway-faq.md)
 ## [Web application firewall](application-gateway-webapplicationfirewall-overview.md)
 ## [Health monitoring](application-gateway-probe-overview.md)
 ## [URL routing](application-gateway-url-route-overview.md)

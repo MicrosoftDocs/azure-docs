@@ -28,11 +28,11 @@ Azure Application Gateway is an Application Delivery Controller (ADC) as a servi
 
 **Q. What features does Application Gateway support?**
 
-Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall (Preview), cookie based session affinity, url path based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
+Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall (preview), cookie based session affinity, url path based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
-Application Gateway is a layer 7 load balancer. This means that Application Gateway deals with web traffic only (HTTP/HTTPS/WebSocket). It supports cookie based session affinity or round robin for load balancing traffic. It supports advanced application delivery control fetures such as web application firewall. Load Balancer, load balances traffic at layer 4 (TCP/UDP).
+Application Gateway is a layer 7 load balancer. This means that Application Gateway deals with web traffic only (HTTP/HTTPS/WebSocket). It supports application load balancing capabilities such as SSL termination, cookie based session affinity, and round robin for load balancing traffic. Load Balancer, load balances traffic at layer 4 (TCP/UDP).
 
 **Q. What protocols does Application Gateway support?**
 
@@ -40,7 +40,7 @@ Application Gateway supports HTTP, HTTPS and WebSocket.
 
 **Q. What resources are supported today as part of backend pool?**
 
-Backend pools can be comprised of NICs, virtual machine scale sets (VMSS), public IPs, internal IPs and Fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
+Backend pools can be comprised of NICs, virtual machine scale sets (VMSS), public IPs, internal IPs and fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
 
 **Q. What regions is the service available in?**
 
@@ -70,6 +70,10 @@ No, Application Gateway does not support static public IP addresses, but it does
 
 Only one public IP address is supported on an Application Gateway.
 
+**Q. Does Application Gateway support x-forwarded-for headers?**
+
+Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
+
 ## Configuration
 
 **Q. Is Application Gateway always deployed in a virtual network?**
@@ -80,7 +84,7 @@ Yes, Application Gateway is always deployed in a virtual network subnet. This su
 
 Application Gateway can talk to instances outside of the virtual network that it is in as long as there is IP connectivity. If you plan to use internal IPs as backend pool members then it requires [VNET Peering](../virtual-network/virtual-network-peering-overview.md) or [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-**Q. Can I deploy anything else in Application Gateway subnet?**
+**Q. Can I deploy anything else in the Application Gateway subnet?**
 
 No, but you can deploy other appliction gateways in the subnet
 
@@ -90,7 +94,7 @@ Network Security Groups are supported on the Appliction Gateway subnet, but exce
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 
-***********reference the limits page*******
+Visit [Application Gateway Limits](../azure-subscription-service-limits.md#application-gateway-limits) to view the limits.
 
 **Q. Can I use Application Gateway for both external and internal traffic simultaneously?**
 
@@ -146,7 +150,7 @@ Self signed certs, CA certs, and wild card certs are supported. EV certs are not
 
 **Q. What are the current cipher suites supported by Application Gateway?**
 
-The following are the current cipher suites supported.
+The following are the current cipher suites supported in order of priority.
 
 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
 
@@ -173,7 +177,6 @@ TLS_RSA_WITH_AES_256_CBC_SHA
 TLS_RSA_WITH_AES_128_CBC_SHA
 
 TLS_RSA_WITH_3DES_EDE_CBC_SHA
-
 
 **Q. Does Application Gateway also support re-encryption of traffic to the backend?**
 
