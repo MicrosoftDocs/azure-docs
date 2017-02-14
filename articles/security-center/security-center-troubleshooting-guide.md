@@ -55,7 +55,7 @@ If you are still having problems with data collection, you can uninstall the age
 1. From the **Azure Portal**, select the virtual machine that is experience data collection issues and click **Extensions**.
 2. Right click in **Microsoft.Azure.Security.Monitoring** and select click **Uninstall**.
 
-	![Removing agent](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig3.png)
+![Removing agent](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig3.png)
 
 The Azure Security Monitoring extension should automatically reinstall itself within several minutes.
 
