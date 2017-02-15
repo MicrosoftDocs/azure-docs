@@ -1,5 +1,5 @@
 ---
-title: 'REST API: Configure SQL Database Auditing | Microsoft Docs'
+title: 'REST API: Manage Azure SQL Database Auditing | Microsoft Docs'
 description: Configure Azure SQL Database auditing using the REST API to track database events and write them to an audit log in your Azure Storage account.
 services: sql-database
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 10/05/2016
 ms.author: ronitr; giladm
 
 ---
-# SQL database auditing
+# Configure and manage SQL database auditing using the REST API
 
 This topic describes how to configure and manage auditing using the REST API. To configure and manage auditing using the Azure portal, see [Configuring auditing using the Azure portal](sql-database-auditing-portal.md). To configure and manage auditing using PowerShell, see [Configuring auditing using PowerShell](sql-database-auditing-powershell.md).
 

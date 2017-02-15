@@ -37,7 +37,7 @@ The configuration steps include the following procedures to configure and use Az
 1. Create and populate Azure AD.
 2. Ensure your database is in Azure SQL Database V12. (Not necessary for SQL Data Warehouse.)
 3. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.
-4. Create an Azure Active Directory administrator for Azure SQL Server or [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Create an Azure Active Directory administrator for Azure SQL server or [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 5. Configure your client computers.
 6. Create contained database users in your database mapped to Azure AD identities.
 7. Connect to your database by using Azure AD identities.
@@ -66,7 +66,7 @@ To create new users, you must have the `ALTER ANY USER` permission in the databa
 To create a contained database user in Azure SQL Database or SQL Data Warehouse, you must connect to the database using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). This is demonstrated in steps 4 and 5 below. Any Azure AD authentication is only possible if the Azure AD admin was created for Azure SQL Database or SQL Data Warehouse server. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside SQL Server can no longer connect to the database using their Azure Active Directory credentials.
 
 ## Azure AD features and limitations
-The following members of Azure AD can be provisioned in Azure SQL Server or SQL Data Warehouse:
+The following members of Azure AD can be provisioned in Azure SQL server or SQL Data Warehouse:
 
 * Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md).
 * Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
@@ -75,11 +75,19 @@ The following members of Azure AD can be provisioned in Azure SQL Server or SQL 
 
 Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other guest accounts (for example gmail.com, yahoo.com) are not supported. If you can log in to [https://login.live.com](https://login.live.com) using the account and password, then you are using a Microsoft account, which is not supported for Azure AD authentication for Azure SQL Database or Azure SQL Data Warehouse.
 
+## Connecting using Azure AD identities
+
+Azure Active Directory authentication supports the following methods of connecting to a database using Azure AD identities:
+
+* Using integrated Windows authentication
+* Using an Azure AD principal name and a password
+* Using Application token authentication
+
 ### Additional considerations
 
 * To enhance manageability, we recommended you provision a dedicated Azure AD group as an administrator.   
-* Only one Azure AD administrator (a user or group) can be configured for an Azure SQL Server or Azure SQL Data Warehouse at any time.   
-* Only an Azure AD administrator for SQL Server can initially connect to the Azure SQL Server or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.   
+* Only one Azure AD administrator (a user or group) can be configured for an Azure SQL server or Azure SQL Data Warehouse at any time.   
+* Only an Azure AD administrator for SQL Server can initially connect to the Azure SQL server or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.   
 * We recommend setting the connection timeout to 30 seconds.   
 * SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure AD authentication.   
 * [ODBC version 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supports Azure Active Directory authentication however `bcp.exe` cannot connect using Azure Active Directory authentication because it uses an older ODBC provider.   

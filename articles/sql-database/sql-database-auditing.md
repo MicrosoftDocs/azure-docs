@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database - Auditing | Microsoft Docs
-description: Azure SQL Database auditing tracks database events and writes them to an audit log in your Azure Storage account.
+description: Azure SQL Database auditing tracks database events and writes them to an audit log in your Azure storage account.
 services: sql-database
 documentationcenter: ''
 author: ronitr
@@ -18,28 +18,28 @@ ms.date: 10/05/2016
 ms.author: ronitr; giladm
 
 ---
-# SQL database auditing
-Azure SQL Database auditing tracks database events and writes them to an audit log in your Azure Storage account.
+# SQL database auditing concepts
+Azure SQL Database auditing tracks database events and writes them to an audit log in your Azure storage account.
 
 Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
 Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
-* [Azure SQL Database Auditing overview]
+* [Azure SQL Database auditing overview]
 * [Set up auditing for your database]
 * [Analyze audit logs and reports]
 
-## <a id="subheading-1"></a>Azure SQL Database Auditing overview
-SQL Database Auditing allows you to:
+## <a id="subheading-1"></a>Azure SQL Database auditing overview
+SQL Database auditing allows you to:
 
 * **Retain** an audit trail of selected events. You can define categories of database actions to be audited.
 * **Report** on database activity. You can use preconfigured reports and a dashboard to get started quickly with activity and event reporting.
 * **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
-There are two **Auditing methods**:
+There are two **auditing methods**:
 
-* **Blob auditing** - logs are written to Azure Blob Storage. This is a newer auditing method, which provides higher performance, supports higher granularity object-level auditing, and is more cost effective.
-* **Table auditing** - logs are written to Azure Table Storage.
+* **Blob auditing** - logs are written to Azure blob storage. This is a newer auditing method, which provides higher performance, supports higher granularity object-level auditing, and is more cost effective.
+* **Table auditing** - logs are written to Azure table storage.
 
 > [!IMPORTANT]
 > The introduction of the new blob auditing brings a major change to the way server auditing policy is being inherited by the database. 
@@ -54,7 +54,7 @@ You can configure auditing for different types of event categories.
 
 An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy applies to all existing and newly created databases on a server.
 
-## Blob Auditing
+## Blob auditing
 
 If server blob auditing is enabled, it always applies to the database (all databases on the server will be audited), regardless of:
     - The database auditing settings.
@@ -63,15 +63,15 @@ If server blob auditing is enabled, it always applies to the database (all datab
 > [!IMPORTANT]
 > Enabling blob auditing on the database, in addition to enabling it on the server, will **not** override or change any of the settings of the server blob auditing - both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the server policy and once by the database policy).
 
-You should avoid enabling both server Blob auditing and database blob auditing together, unless:
+You should avoid enabling both server blob auditing and database blob auditing together, unless:
  * You need to use a different *storage account* or *retention period* for a specific database.
  * You want to audit different event types or categories for a specific database than are being audited for the rest of the databases on this server (for example, table inserts need to be audited only for a specific database).
 
 Otherwise,  we recommended to only enable server-level blob auditing and leave the database-level auditing disabled for all databases.
 
-## Table Auditing
+## Table auditing
 
-If server-level Table auditing is enabled, it only applies to the database if the "Inherit settings from server" checkbox is checked in the database blade (this is checked by default for all existing and newly created databases).
+If server-level table auditing is enabled, it only applies to the database if the "Inherit settings from server" checkbox is checked in the database blade (this is checked by default for all existing and newly created databases).
 
 - If the checkbox is *checked*, any changes made to the auditing settings in database **override** the server settings for this database.
 
@@ -90,7 +90,7 @@ You can explore audit logs using a tool such as [Azure Storage Explorer](http://
 
 
 <!--Anchors-->
-[Azure SQL Database Auditing overview]: #subheading-1
+[Azure SQL Database auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
