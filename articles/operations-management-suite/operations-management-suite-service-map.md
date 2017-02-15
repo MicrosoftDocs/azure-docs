@@ -250,10 +250,14 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## REST API
+All of the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+
+
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security, and integrity of the Service Map service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses, or other contact information.
 
-For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
+For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## Next steps
