@@ -22,7 +22,7 @@ Azure Search offers a dedicated and programmable search engine with intelligent 
 
 ![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch3.png)
 
-Auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support - these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
+Full text search, auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support - these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
 
 ![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -37,11 +37,12 @@ To use Azure Search, provision a free or paid service in your Azure subscription
 
 Azure Search runs in the cloud as a managed service from Microsoft, and can be integrated with custom code on any application platform. Your fully managed service and private content is globally available, programmable, scalable, and recoverable. 
 
-Services run 24-7 with service level agreements backed by Microsoft Azure.
+Highly available services run 24-7 at scale with [99.9% service level agreements backed by Microsoft Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## How it compares
 
-Google, Bing, and other cloud service providers offer custom search engines with features that power a search bar in custom apps. Many vendors offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
+Several cloud service providers offer custom search engines with features that power a search bar in custom apps. 
+Some offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
 Key benefits unique to Azure Search include deep integration with other Azure services (especially at the data layer), level of control over searchable data, Microsoft expertise in hosting your service, tooling, and well-designed APIs that do exactly what you need. 
 
@@ -133,7 +134,12 @@ While a number of tasks can be performed in the portal, Azure Search is intended
 
 Search engines are the preeminent methodology for finding information in mobile apps, on the web, and in corporate data stores. Azure Search makes it simple, while giving you powerful capabilities similar to how search is experienced on large commercial web sites. 
 
-Click this link to open the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138) page on the Microsoft Channel9 website. This 9-minute video from program manager, Liam Cavanagh is a visual introduction into how Azure Search can meet your search requirements. The first three minutes cover key features and search scenarios, followed by a service provisioning walkthrough.
+>[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138]
 
-Four minutes into the video, see how to use the Import Data wizard to create an index using the built-in real estate dataset and use Search Explorer to test-drive various queries.
+ This short video from program manager, Liam Cavanagh is a visual introduction into how Azure Search can meet your search requirements. 
+ 
++ 0-3m5s covers key features and search scenarios.
++ 3m5s-4m15s covers service provisioning. 
++ 4m15s-6m24s demonstrates using Import Data wizard to create an index using the built-in real estate dataset
++ 6m24s-9m32s covers Search Explorer and various queries.
 
