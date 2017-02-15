@@ -20,7 +20,7 @@ ms.author: raynew
 # Replicate Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery by using SAN
 
 
-Use this article if you want to deploy [Site Recovery](site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center VMM clouds) to a secondary VMM site.
+Use this article if you want to deploy [Azure Site Recovery](site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site.
 
 
 This article includes a scenario overview, instructions for configuring SAN storage in VMM, and guidance for setting up replication in the Site Recovery portal. It finishes by testing failover to make sure everything's working as expected.
@@ -66,13 +66,13 @@ Note that:
 **Network mapping** | Set up network mapping so that replicated virtual machines are optimally placed on secondary Hyper-V host servers after failover, and so that they're connected to appropriate VM networks. If you don't configure network mapping, replica VMs won't be connected to any network after failover.<br/><br/> Make sure that VMM networks are configured correctly so that you can set up network mapping during Site Recovery deployment. In VMM, the VMs on the source Hyper-V host should be connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.<br/><br/> The target cloud should have a corresponding VM network, and it in turn should be linked to a corresponding logical network that is associated with the target cloud.<br/><br/>For more about network mapping, see [Site recovery network mapping](site-recovery-network-mapping.md).
 
 ## Step 1: Prepare the VMM infrastructure
-To prepare your VMM infrastructure you need to:
+To prepare your VMM infrastructure, you need to:
 
-1. Verify VMM clouds
-2. Integrate and classify SAN storage in VMM
-3. Create LUNs and allocate storage
-4. Create replication groups
-5. Set up VM networks
+1. Verify VMM clouds.
+2. Integrate and classify SAN storage in VMM.
+3. Create LUNs and allocate storage.
+4. Create replication groups.
+5. Set up VM networks.
 
 ### Verify VMM clouds
 
@@ -81,7 +81,7 @@ Make sure your VMM clouds are set up properly before you begin Site Recovery dep
 ### Integrate and classify SAN storage in the VMM fabric
 
 1. In the VMM console, go to **Fabric** > **Storage** > **Add Resources** > **Storage Devices**.
-2. In the **Add Storage Devices** wizard, choose **Select a storage provider type** and select **SAN and NAS devices discovered and managed by an SMI-S provider**.
+2. In the **Add Storage Devices** wizard, select **Select a storage provider type** and select **SAN and NAS devices discovered and managed by an SMI-S provider**.
 
     ![Provider type](./media/site-recovery-vmm-san/provider-type.png)
 
@@ -89,7 +89,7 @@ Make sure your VMM clouds are set up properly before you begin Site Recovery dep
 4. In **Provider IP address or FQDN** and **TCP/IP port**, specify the settings for connecting to the provider. You can use an SSL connection for SMI-S CIMXML only.
 
     ![Provider connect](./media/site-recovery-vmm-san/connect-settings.png)
-5. In **Run as account** specify a VMM Run As account that can access the provider, or create an account.
+5. In **Run as account**, specify a VMM Run As account that can access the provider, or create an account.
 6. On the **Gather Information** page, VMM automatically tries to discover and import the storage device information. To retry discovery, click **Scan Provider**. If the discovery process succeeds, the discovered storage arrays, storage pools, manufacturer, model, and capacity are listed on the page.
 
     ![Discover storage](./media/site-recovery-vmm-san/discover.png)
@@ -148,11 +148,11 @@ If you want to configure network mapping, do the following:
 
 ## Step 2: Create a vault
 
-1. Sign in to the [Management Portal](https://portal.azure.com) from the VMM server you want to register in the vault.
+1. Sign in to the [Azure portal](https://portal.azure.com) from the VMM server you want to register in the vault.
 2. Expand **Data Services** > **Recovery Services**, and then click **Site Recovery Vault**.
 3. Click **Create New** > **Quick Create**.
 4. In **Name**, enter a friendly name to identify the vault.
-5. In **Region**, select the geographic region for the vault. To check supported regions, see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
+5. In **Region**, select the geographic region for the vault. To check supported regions, see [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Click **Create vault**.
 
     ![New Vault](./media/site-recovery-vmm-san/create-vault.png)
@@ -224,13 +224,13 @@ The Azure Site Recovery Provider can also be installed by using the following co
 
 Parameters:
 
-* **/Credentials**: Required parameter for the location in which the registration key file is located  
-* **/FriendlyName**: Required parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal
-* **/EncryptionEnabled**: Optional parameter only used when replicating from VMM to Azure
-* **/proxyAddress**: Optional parameter that specifies the address of the proxy server
-* **/proxyport**: Optional parameter that specifies the port of the proxy server
-* **/proxyUsername**: Optional parameter that specifies the proxy user name (if the proxy requires authentication)
-* **/proxyPassword**: Optional parameter that specifies the password for authenticating with the proxy server (if the proxy requires authentication)
+* **/Credentials**: Required parameter for the location in which the registration key file is located.  
+* **/FriendlyName**: Required parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
+* **/EncryptionEnabled**: Optional parameter only used when replicating from VMM to Azure.
+* **/proxyAddress**: Optional parameter that specifies the address of the proxy server.
+* **/proxyport**: Optional parameter that specifies the port of the proxy server.
+* **/proxyUsername**: Optional parameter that specifies the proxy user name (if the proxy requires authentication).
+* **/proxyPassword**: Optional parameter that specifies the password for authenticating with the proxy server (if the proxy requires authentication).
 
 ## Step 3: Map storage arrays and pools
 
@@ -243,8 +243,7 @@ Before you start, check that VMM clouds appear in the vault. Clouds are detected
 
 2. Select the storage arrays on the primary site, and map them to storage arrays on the secondary site. In **Storage Pools**, select a source and target storage pool to map.
 
-
-   ![Server registration](./media/site-recovery-vmm-san/storage-map-pool.png)
+    ![Server registration](./media/site-recovery-vmm-san/storage-map-pool.png)
 
 ## Step 4: Configure replication settings
 
@@ -256,7 +255,7 @@ After VMM servers are registered, configure cloud protection settings.
 4. In **Target location**, select the VMM server that manages the cloud you want to use for recovery.
 5. In **Target cloud**, select the target cloud you want to use for VM failover.
    * We recommend that you select a target cloud that meets recovery requirements for the virtual machines you protect.
-   * A cloud can only belong to a single cloud pair — either as a primary or a target cloud.
+   * A cloud can only belong to a single cloud pair--as either a primary or a target cloud.
 6. Site Recovery verifies that clouds have access to SAN storage, and that the storage arrays are mapped.
 7. If verification is successful, in **Replication type**, select **SAN**.
 
@@ -290,12 +289,11 @@ Site Recovery, VMM, and the SMI-S providers provision the target site storage LU
 
 When a storage group is replicating, enable protection for VMs in the VMM console with one of the following methods:
 
-* **New virtual machine** — When you create a VM, you enable replication and associate the VM with the replication group.
+* **New virtual machine**: When you create a VM, you enable replication and associate the VM with the replication group.
   With this option, VMM uses intelligent placement to optimally place the VM storage on the LUNs of the replication group. Site Recovery orchestrates the creation of a shadow VM on the secondary site and allocates capacity so that replica VMs can be started after failover.
-* **Existing virtual machine** — If a virtual machine is already deployed in VMM, you can enable replication and perform a storage migration to a replication group. After completion, VMM and Site Recovery detect the new VM and start managing it in Site Recovery. A shadow VM is created on the secondary site, and capacity is allocated so that the replica VM can be started after failover.
+* **Existing virtual machine**: If a virtual machine is already deployed in VMM, you can enable replication and perform a storage migration to a replication group. After completion, VMM and Site Recovery detect the new VM and start managing it in Site Recovery. A shadow VM is created on the secondary site, and capacity is allocated so that the replica VM can be started after failover.
 
-
-    ![Enable protection](./media/site-recovery-vmm-san/enable-protect.png)
+![Enable protection](./media/site-recovery-vmm-san/enable-protect.png)
 
 After VMs are enabled for replication, they appear in the Site Recovery console. You can view VM properties, track status, and track failover replication groups that contain multiple VMs. In SAN replication, all VMs associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated VMs together.
 
