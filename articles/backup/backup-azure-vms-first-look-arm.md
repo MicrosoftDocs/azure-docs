@@ -250,32 +250,34 @@ Once a backup policy has been deployed on the virtual machine, that does not mea
 
 Unless your initial backup is due to begin soon, it is recommended that you run **Back up Now**.
 
-To run **Back up Now**:
+To run the initial backup job:
 
 1. On the vault dashboard, click the number under **Backup Items**, or click the **Backup Items** tile. <br/>
   ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-    The **Backup Items** blade opens.
+  The **Backup Items** blade opens.
 
   ![Back up items](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
+
 2. On the **Backup Items** blade, select the item.
 
-    ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
+  ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-    The **Backup Items** list opens. <br/>
+  The **Backup Items** list opens. <br/>
 
-    ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
+  ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
+
 3. On the **Backup Items** list, click the ellipses **...** to open the Context menu.
 
-    ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu.png)
+  ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
   The Context menu appears.
 
-    ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
+  ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
 
 4. On the Context menu, click **Backup now**.
 
-    ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
+  ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
   The Backup Now blade opens.
 
@@ -293,14 +295,14 @@ To run **Back up Now**:
 
   The Backup Jobs blade opens.
 
-    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
+  ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
   In the **Backup jobs** blade, you can see the status of all jobs. Check if the backup job for your VM is still in progress, or if it has finished. When a backup job is finished, the status is *Completed*.
 
-   > [!NOTE]
-   > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each VM to flush all writes and take a consistent snapshot.
-   >
-   >
+  > [!NOTE]
+  > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each VM to flush all writes and take a consistent snapshot.
+  >
+  >
 
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
