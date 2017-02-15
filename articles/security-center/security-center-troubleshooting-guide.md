@@ -85,7 +85,7 @@ The guest agent is the parent process of everything the [Microsoft Antimalware](
 - Certain Access Control List (ACL) may prevent disk access.
 - Lack of disk space can block the guest agent from functioning properly. 
 
-By default the Microsoft Antimalware User Interface is disabled, read [Enabling Microsoft Antimalware User Interface on ARM VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) for more information on how to enable it if you need.
+By default the Microsoft Antimalware User Interface is disabled, read [Enabling Microsoft Antimalware User Interface on Azure Resource Manager VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) for more information on how to enable it if you need.
 
 ## Troubleshooting problems loading the dashboard
 
