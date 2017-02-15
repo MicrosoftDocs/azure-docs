@@ -67,7 +67,7 @@ Configuring single sign-on for IdeaScale requires you to retrieve a thumbprint v
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **IdeaScale** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **IdeaScale** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/IC790843.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to IdeaScale** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -121,9 +121,10 @@ In order to enable Azure AD users to log into IdeaScale, they must be provisione
    
    1. In the **Email Addresses** textbox, type the email address of a valid AAD account you want to provision.
    2. Click **Save Changes**. 
-   >[!NOTE]
-   >The Azure Active Directory account holder will get an email with a link to confirm the account before it becomes active.
-   >  
+   
+    >[!NOTE]
+    >The Azure Active Directory account holder will get an email with a link to confirm the account before it becomes active.
+    >  
 
 >[!NOTE]
 >You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision AAD user accounts.
@@ -135,7 +136,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to IdeaScale, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **IdeaScale **application integration page, click **Assign users**.
+2. On the **IdeaScale** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-ideascale-tutorial/IC790854.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
