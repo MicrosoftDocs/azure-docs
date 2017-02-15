@@ -152,7 +152,7 @@ If you are using a cloud-init based Linux distribution such as Ubuntu, for secur
 If you have restored VM to same Resource Group with the same name as originally backed up VM, backup continues on the VM post restore. If you have either restored VM to a different Resource group or specified a different name for restored VM, this is treated as a new VM and you need to setup backup for restored VM.
 
 ## Restoring a VM during Azure dataCenter disaster
-Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account, which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine.
+Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account, which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. Learn more about [Azure Data ceneter resiliency](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## Restoring VMs with special network configurations
 It is possible to back up and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process.
