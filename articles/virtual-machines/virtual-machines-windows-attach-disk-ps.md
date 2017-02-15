@@ -47,7 +47,7 @@ $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'West Central US' 
 $storageType = 'PremiumLRS'
-$dataDiskName = $virtualMachineName + '_datadisk1'
+$dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
 
