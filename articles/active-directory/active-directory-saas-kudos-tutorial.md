@@ -19,6 +19,7 @@ ms.author: jeedes
 
 # Tutorial: Azure Active Directory integration with Kudos
 The objective of this tutorial is to show the integration of Azure and Kudos.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -68,13 +69,13 @@ As part of this procedure, you are required to create a base-64 encoded certific
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Kudos** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Kudos** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-kudos-tutorial/IC787802.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Kudos** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
    ![Configure single sign-on](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configure single sign-on")
-3. On the **Configure App URL** page, in the **Kudos Sign On URL** textbox, type your URL using the following pattern "*https://company.kudosnow.com*", and then click **Next**.
+3. On the **Configure App URL** page, in the **Kudos Sign On URL** textbox, type your URL using the following pattern **https://company.kudosnow.com**, and then click **Next**.
    
    ![Configure App URL](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configure App URL")
 4. On the **Configure single sign-on at Kudos** page, click **Download certificate**, and then save the certificate file on your computer.
@@ -90,7 +91,8 @@ As part of this procedure, you are required to create a base-64 encoded certific
    ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
    
    1. In the Azure classic portal, on the **Configure single sign-on at Kudos** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign on URL ** textbox.
-   2. Create a **base-64 encoded** file from your downloaded certificate.  
+   2. Create a **base-64 encoded** file from your downloaded certificate. 
+   
       >[!TIP]
       >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o) 
       > 
@@ -135,7 +137,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Kudos, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Kudos **application integration page, click **Assign users**.
+2. On the **Kudos** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-kudos-tutorial/IC787811.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
