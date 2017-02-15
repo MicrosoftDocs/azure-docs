@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 02/13/2017
 ms.author: owend
 
 ---
 # Create an Office Data Connection (.odc) file
 
-Use the information in this article to create an .odc file to connect to an Azure Analysis Services server from Excel 2016 version number 16.0.7369.2117 or earlier, or Excel 2013. 
+Information in this article describes how you can create an .odc file to connect to an Azure Analysis Services server from Excel 2016 version number 16.0.7369.2117 or earlier, or Excel 2013. An updated [MSOLAP.7 provider](analysis-services-data-providers.md) is also required.
 
 
 1. Copy the sample .odc connection file below and paste into a text editor. 
