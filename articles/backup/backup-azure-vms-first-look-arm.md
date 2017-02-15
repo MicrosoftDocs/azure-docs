@@ -54,7 +54,7 @@ The following steps lead you through configuring the backup job from the virtual
 
   ![On Hub menu, click More Services to open text dialog, and type Virtual machines](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
-    The list of virtual machines (VM) in the subscription, appears.
+  The list of virtual machines (VM) in the subscription, appears.
 
   ![The list of VMs in the subscription appears.](./media/backup-azure-vms-first-look-arm/list-of-vms.png)
 
