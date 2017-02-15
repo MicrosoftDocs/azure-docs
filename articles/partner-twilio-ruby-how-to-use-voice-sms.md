@@ -87,7 +87,7 @@ First, [set-up a new Azure Linux VM][azure_vm_setup] to act as a host for your n
   2. Select the Public IP that correspends with your Virtual Machine.
   3. Set the **DNS Name Label** in the **Configuration** section. In the case of this example it will look something like this *your-domain-label*.centralus.cloudapp.azure.com
 
-Once you are able to create an SSH session to the Virtual Machine continue with the steps below.
+Once you are able to create an SSH connection to the Virtual Machine continue with the steps below.
 
 ### Install Ruby
 
