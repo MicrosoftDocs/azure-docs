@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/09/2016
+ms.date: 02/09/2017
 ms.author: viviali
 
 ---
@@ -23,8 +23,8 @@ The preview version of Azure AD B2B collaboration requires a CSV file specifying
 
 > [!NOTE]
 > The first row of labels (such as Email, DisplayName, and so on) is necessary for the CSV file to be parsed successfully. The spelling must match the fields specified below. These labels identify the content beneath them. For optional fields that aren't needed, their labels can be removed from the CSV file. The entire column can be left empty.
-> 
-> 
+>
+>
 
 ## Required fields: <br/>
 **Email:** Email address of invited user. <br/>
@@ -54,10 +54,10 @@ Here is a sample CSV you can modify.
 
 > [!NOTE]
 > Copy and paste this into Notepad, and save it with a '.csv' file extension. Then edit this in Excel. It will be structured into a table with labels in the first row.
-> 
+>
 > Add more optional fields in Excel by specifying the label and populating the column beneath it.
-> 
-> 
+>
+>
 
 ```
 Email,DisplayName,InvitationText,InviteRedirectUrl,InvitedToApplications,InvitedToGroups,CcEmailAddress,Language
@@ -77,4 +77,3 @@ Browse our other articles on Azure AD B2B collaboration
 * [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 * [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-

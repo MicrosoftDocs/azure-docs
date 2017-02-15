@@ -38,10 +38,9 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
 ## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## Manage
-### [Diagnostics](application-gateway-diagnostics.md)
-### [Troubleshoot](application-gateway-troubleshooting-502.md)
-
+## Troubleshoot
+### [Troubleshoot errors in Application Gateway](application-gateway-troubleshooting-502.md)
+### [Diagnostic logging and metrics](application-gateway-diagnostics.md)
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [Azure CLI 2.0 preview](/cli/azure/network/application-gateway)

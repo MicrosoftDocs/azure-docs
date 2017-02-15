@@ -1,5 +1,5 @@
 ---
-title: How to customize the Azure API Management developer portal using templates | Microsoft Docs
+title: Customize the API Management developer portal using templates -Azure | Microsoft Docs
 description: Learn how to customize the Azure API Management developer portal using templates.
 services: api-management
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
+ms.date: 01/09/2017
+ms.author: apimpm
 
 ---
 # How to customize the Azure API Management developer portal using templates
@@ -93,7 +93,7 @@ In the previous example there are two products displayed in the developer portal
 }
 ```
 
-The markup in the **Product list** template processes the data to provide the desired output by iterating through the collection of products to display information and a link to each individual product. Note the `<search-control>` and `<page-control>` elements in the markup. These control the display of the searching and paging controls on the page. `ProductsStrings|PageTitleProducts` is a localized string reference that contains the `h2` header text for the page. For a list of string resources, page controls, and icons available for use in developer portal templates, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+The markup in the **Product list** template processes the data to provide the desired output by iterating through the collection of products to display information and a link to each individual product. Note the `<search-control>` and `<page-control>` elements in the markup. These control the display of the searching and paging controls on the page. `ProductsStrings|PageTitleProducts` is a localized string reference that contains the `h2` header text for the page. For a list of string resources, page controls, and icons available for use in developer portal templates, see [API Management developer portal templates reference](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -175,15 +175,9 @@ To restore all templates to their default versions, click **Restore default temp
 
 The restored templates must then be published individually or all at once by following the steps in [To publish a template](#to-publish-a-template).
 
-## Developer portal templates reference
-For reference information for developer portal templates, string resources, icons, and page controls, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+## Next steps
+For reference information for developer portal templates, string resources, icons, and page controls, see [API Management developer portal templates reference](api-management-developer-portal-templates-reference.md).
 
-## Watch a video overview
-Watch the following video to see how to add a discussion board and ratings to the API and operation pages in the developer portal using templates.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management/player]
-> 
-> 
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png

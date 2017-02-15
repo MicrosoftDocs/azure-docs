@@ -41,7 +41,7 @@ Our [reference implementation](guidance-multitenant-identity-tailspin.md) is an 
 ## Register the app with Azure AD
 To enable OpenID Connect, the SaaS provider registers the application inside their own Azure AD tenant.
 
-To register the application, follow the steps in [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md), in the section [Adding an Application](../active-directory/active-directory-integrating-applications.md#adding-an-application).
+To register the application, follow the steps in [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md), in the section [Adding an Application](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application).
 
 In the **Configure** page:
 

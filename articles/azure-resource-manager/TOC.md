@@ -43,19 +43,22 @@
 ### [Create service principal with Azure CLI](resource-group-authenticate-service-principal-cli.md)
 ### [Create service principal with portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
-### [Set management policies](resource-manager-policy.md)
 ### [Lock resources](resource-group-lock-resources.md)
 ### [Security considerations](best-practices-resource-manager-security.md)
+## Set resource policies
+### [What are resource policies?](resource-manager-policy.md)
+### [Assign and manage policies](resource-manager-policy-create-assign.md)
+### [Resource tag policies](resource-manager-policy-tags.md)
+### [Storage policies](resource-manager-policy-storage.md)
+### [Linux VM policies](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Windows VM policies](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Audit and Troubleshoot
 ### [Troubleshoot common deployment errors](resource-manager-common-deployment-errors.md)
 ### [View activity logs](resource-group-audit.md)
-### [View deployment operations with portal](resource-manager-troubleshoot-deployments-portal.md)
-### [View deployment operations with PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
-### [View deployment operations with REST API](resource-manager-troubleshoot-deployments-rest.md)
+### [View deployment operations](resource-manager-deployment-operations.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI (Preview)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
@@ -65,6 +68,7 @@
 
 # Resources
 ## [Throttling requests](resource-manager-request-limits.md)
+## [Track asynchronous operations](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)

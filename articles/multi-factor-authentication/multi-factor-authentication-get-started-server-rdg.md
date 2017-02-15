@@ -1,11 +1,11 @@
 ---
-title: Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
+title: RDG and Azure MFA Server using RADIUS | Microsoft Docs
 description: This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS.
 services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 
 ---
@@ -34,7 +34,7 @@ The RD Gateway uses NPS to send the RADIUS request to Azure Multi-Factor Authent
 4. Copy this policy to create a new one. In the new policy, add a condition that matches the Client Friendly Name with the Friendly name set in step 2 above for the Azure Multi-Factor Authentication Server RADIUS client. Change the Authentication Provider to Local Computer. This policy ensures that when a RADIUS request is received from the Azure Multi-Factor Authentication Server, the authentication occurs locally instead of sending a RADIUS request back to the Azure Multi-Factor Authentication Server which would result in a loop condition. To prevent the loop condition, this new policy must be ordered ABOVE the original policy that forwards to the Multi-Factor Authentication Server.
 
 ## Configure Azure Multi-Factor Authentication
-- - -
+
 The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy between RD Gateway and NPS.  It should be installed on a domain-joined server that is separate from the RD Gateway server. Use the following procedure to configure the Azure Multi-Factor Authentication Server.
 
 1. Open the Azure Multi-Factor Authentication Server and click the RADIUS Authentication icon. Check the Enable RADIUS authentication checkbox.
@@ -44,3 +44,8 @@ The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy bet
 
 ![Radius Authentication](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
+## Next steps
+
+- Integrate Azure MFA and [IIS web apps](multi-factor-authentication-get-started-server-iis.md)
+
+- Get answers in the [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)

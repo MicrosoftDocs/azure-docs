@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/31/2017
 ms.author: banders
 
 ---
@@ -144,6 +144,51 @@ The *Default rule* is created by the system and it creates a health event whenev
    You can set custom thresholds for health event generation by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated.
 6. Click **Save** to save the configuration.  
    ![create custom monitoring rule](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
+
+### Choose the right protocol-ICMP or TCP
+
+Network Performance Monitor (NPM) uses synthetic transactions to calculate network performance metrics like packet loss and link latency. To understand this better, consider an NPM agent connected to one end of a network link. This NPM agent sends probe packets to a second NPM agent connected to another end of the network. The second agent replies with response packets. This process is repeated a few times. By measuring the number of replies and time taken to receive each reply, the first NPM agent assesses link latency and packet drops.
+
+The format, size and sequence of these packets is determined by the protocol that you choose when you create monitoring rules. Based on protocol of the packets, the intermediate network devices (routers, switches etc.) might process these packets differently. Consequently, your protocol choice affects the accuracy of the results. And, your protocol choice also determines whether you must take any manual steps after you deploy the NPM solution.
+
+NPM offers you the choice between ICMP and TCP protocols for executing synthetic transactions.
+If you choose ICMP when you create a synthetic transaction rule, the NPM agents use ICMP ECHO messages to calculate the network latency and packet loss. ICMP ECHO uses the same message that is sent by the conventional Ping utility. When you use TCP as the protocol, NPM agents send TCP SYN packet over the network. This is followed by a TCP handshake completion and then removing the connection using RST packets.
+
+#### Points to consider before choosing the protocol
+Consider the following information before you choose a protocol to use:
+
+##### Discovering multiple network routes
+TCP provides more accurate when discovering multiple routes and it needs with fewer agents in each subnet. For example, one or two agents using TCP can discover all redundant paths between subnets. However, you need several agents using ICMP to achieve similar results. Using ICMP, if you have *N* number of routes between two subnets you need more than 5*N* agents in either a source or destination subnet.
+
+##### Accuracy of results
+Routers and switches tend to assign lower priority to ICMP ECHO packets compared to TCP packets. In certain situations, when network devices are heavily loaded, the data obtained by TCP more closely reflects the loss and latency experienced by applications. This occurs because most of the application traffic flows over TCP. In such cases, ICMP provides less accurate results compared to TCP.
+
+##### Firewall configuration
+TCP protocol requires that TCP packets are sent to a destination port. The default port used by NPM agents is 8084, however you can change this when you configure agents. So, you need to ensure that your network firewalls or NSG rules (in Azure) are allowing traffic on the port. You also need to make sure that the local firewall on the computers where agents are installed is configured to allow traffic on this port.
+
+You can use PowerShell scripts to configure firewall rules on your computers running Windows, however you need to configure your network firewall manually.
+
+In contrast, ICMP does not operate using port. In most enterprise scenarios, ICMP traffic is permitted through the firewalls to allow you to use network diagnostics tools like the Ping utility. So, if you can Ping one machine from another, then you can use the ICMP protocol without having to configure firewalls manually.
+
+> [!NOTE]
+> In case you are not sure what protocol to use, choose ICMP to start with. If you are not satisfied with the results, you can always switch to TCP later.
+
+
+#### How to switch the protocol
+
+If you chose to use ICMP during deployment, you can switch to TCP at any time by editing the default monitoring rule.
+
+##### To edit the default monitoring rule
+1.	Navigate to **Network Performance** > **Monitor** > **Configure** > **Monitor** and then click **Default rule**.
+2.	Scroll to the **Protocol** section and select the protocol that you want to use.
+3.	Click **Save** to apply the setting.
+
+Even if the default rule is using a specific protocol, you can create new rules with a different protocol. You can even create a mix of rules where some of the rules use ICMP and another uses TCP.
+
+
+
+
+
 
 ## Data collection details
 Network Performance Monitor uses TCP SYN-SYNACK-ACK handshake packets to collect loss and latency information and traceroute is also used to get topology information.

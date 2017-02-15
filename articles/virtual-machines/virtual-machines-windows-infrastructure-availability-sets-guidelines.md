@@ -1,5 +1,5 @@
 ---
-title: Azure Availability Set Guidelines | Microsoft Docs
+title: Availability sets for Windows VMs in Azure | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying Availability Sets in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-windows

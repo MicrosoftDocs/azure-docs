@@ -1,5 +1,5 @@
 ---
-title: 'collectd: perf stats for Java on Linux in Azure Application Insights | Microsoft Docs'
+title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
 services: application-insights
 documentationcenter: java

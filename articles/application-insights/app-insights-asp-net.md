@@ -52,7 +52,7 @@ In Visual Studio, you see a count of the events that have been logged.
 
 ## 3. See your telemetry...
 ### ... in Visual Studio
-Open the Application Insights window in Visual Studio: Either click the Application Insights button, or right-click your project in Solution Explorer:
+Open the Application Insights window in Visual Studio: Either click the Application Insights button, or right-click your project in Solution Explorer, select `Application Insights` and then click `Search Live Telemetry`:
 
 ![In Visual Studio, the Application Insights button shows during debugging.](./media/app-insights-asp-net/55.png)
 
@@ -82,7 +82,7 @@ Click any tile or chart to see more detail.
 
 ### More detail in the portal
 
-* [**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream) displays telemetry almost instantly.
+* [**Live Metrics Stream**](app-insights-live-stream.md) displays telemetry almost instantly.
 
     ![From the Overview blade, click Live Stream](./media/app-insights-asp-net/livestream.png)
 
@@ -132,17 +132,25 @@ To upgrade to a [new release of the SDK](https://github.com/Microsoft/Applicatio
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
 ## Add more telemetry
-### Web pages and single-page apps
-1. [Add the JavaScript snippet](app-insights-javascript.md) to your web pages to light up the Browser and Usage blades with data about page views, load times, browser exceptions, AJAX call performance, user and session counts.
-2. [Code custom events](app-insights-api-custom-events-metrics.md) to count, time, or measure user actions.
-
 ### Dependencies, exceptions and performance counters
-[Install Status Monitor](app-insights-monitor-performance-live-website-now.md) on each of your server machines, to get additional telemetry about your app. This is what you get:
+
+[Install Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) on each IIS server machine, to get additional telemetry about your web apps.
+
+If it is already installed, you don't need to do anything. 
+
+You might have used status monitor already, to start monitoring an app at run time. 
+
+By using status monitor in addition to the build-time SDK, you get a more complete set of telemetry that includes:
 
 * [Performance counters](app-insights-performance-counters.md) - 
   CPU, memory, disk and other performance counters relating to your app. 
 * [Exceptions](app-insights-asp-net-exceptions.md) - more detailed telemetry for some exceptions.
-* [Dependencies](app-insights-asp-net-dependencies.md) - calls to REST API or SQL services. Find out whether slow responses by external components are causing performance issues in your app. (If your app runs on .NET 4.6, you don't need Status Monitor to get this telemetry.)
+* [Dependencies](app-insights-asp-net-dependencies.md) - including return values.
+
+### Web pages and single-page apps
+1. [Add the JavaScript snippet](app-insights-javascript.md) to your web pages to light up the Browser and Usage blades with data about page views, load times, browser exceptions, AJAX call performance, user and session counts.
+2. [Code custom events](app-insights-api-custom-events-metrics.md) to count, time, or measure user actions.
+
 
 ### Diagnostic code
 Got a problem? If you want to insert code in your app to help diagnose it, you have several options:
@@ -189,5 +197,4 @@ If you use Visual Studio Team Services, you can [get an annotation marker](app-i
 | --- | --- |
 | **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Debugging with telemetry, diagnostic search, drill through to code. |
 | **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |
-| **[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |
 
