@@ -88,7 +88,7 @@ When a device first connects to IoT Hub in the preconfigured solution, it sends 
 
 You can add more simulated devices to the solution that emit the same telemetry and respond to the same commands and methods.
 
-In addition to responding to commands and methods, the solution uses [device twins][lnk-device-twin] to report property values to the solution back end and to set to new desired property values on the device.
+In addition to responding to commands and methods, the solution uses [device twins][lnk-device-twin]. Devices use device twins to report property values to the solution back end. The solution dashboard uses device twins to set to new desired property values on devices.
 
 ## IoT Hub
 In this preconfigured solution, the IoT Hub instance corresponds to the *Cloud Gateway* in a typical [IoT solution architecture][lnk-what-is-azure-iot].

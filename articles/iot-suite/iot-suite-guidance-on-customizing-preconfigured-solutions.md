@@ -67,9 +67,9 @@ The preconfigured simulator in the remote monitoring preconfigured solution simu
 The default set of locations is in Seattle/Redmond, Washington, United States of America. You can change these locations in [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
 ### Add a desired property update handler to the simulator
-A user can set a value for a desired property for a device in the solution portal. It is the responsibility of the device to handle the property change request when the device retrieves the desired property value. To add support for a property value change through a desired property, you need to add a handler to the simulator.
+You can set a value for a desired property for a device in the solution portal. It is the responsibility of the device to handle the property change request when the device retrieves the desired property value. To add support for a property value change through a desired property, you need to add a handler to the simulator.
 
-The simulator contains handlers for the **SetPointTemp** and **TelemetryInterval** properties that a user can update by setting desired values in the solution portal.
+The simulator contains handlers for the **SetPointTemp** and **TelemetryInterval** properties that you can update by setting desired values in the solution portal.
 
 The following example shows the handler for the **SetPointTemp** desired property in the **CoolerDevice** class:
 
@@ -99,7 +99,7 @@ Note that **SetPointTempPropertyName** is a constant defined as "Config.SetPoint
 You can customize the simulator to add support for a new [method (direct method)][lnk-direct-methods]. There are two key steps required:
 
 - The simulator must notify the IoT hub in the preconfigured solution with details of the method.
-- The simulator must include code to handle the method call when a user invokes it from the **Device details** panel in the solution explorer or through a job.
+- The simulator must include code to handle the method call when you invoke it from the **Device details** panel in the solution explorer or through a job.
 
 The remote monitoring preconfigured solution uses *reported properties* to send details of supported methods to IoT hub. The solution back end maintains a list of all the methods supported by each device along with a history of method invocations. You can view this information about devices and invoke methods in the solution portal.
 
@@ -202,7 +202,7 @@ Inside the method handler, you could:
 - Start an asynchronous task.
 - Retrieve desired properties from the *device twin* in IoT Hub.
 - Update a single reported property using the **SetReportedPropertyAsync** method in the **CoolerDevice** class.
-- Update multiple reported properties by creating a  **TwinCollection** instance and calling the **Transport.UpdateReportedPropertiesAsync** method.
+- Update multiple reported properties by creating a **TwinCollection** instance and calling the **Transport.UpdateReportedPropertiesAsync** method.
 
 The preceding firmware update example performs the following steps:
 
