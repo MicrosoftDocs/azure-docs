@@ -220,7 +220,7 @@ Once connected, you will arrive at a prompt similar to the following.
 
 `rxHadoopListFiles("/")`
 
-    You can also use the WASB style addressing.
+You can also use the WASB style addressing.
 
 `rxHadoopListFiles("wasbs:///")`
 
@@ -256,122 +256,122 @@ Per the section above regarding use of public/private key pairs to access the cl
 A compute context allows you to control whether computation will be performed locally on the edge node, or whether it will be distributed across the nodes in the HDInsight cluster.
 
 1. From RStudio Server or the R console (in an SSH session), use the following to load example data into the default storage for HDInsight.
-
-```
-        # Set the HDFS (WASB) location of example data
-        bigDataDirRoot <- "/example/data"
-        # create a local folder for storaging data temporarily
-        source <- "/tmp/AirOnTimeCSV2012"
-        dir.create(source)
-        # Download data to the tmp folder
-        remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
-        download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
-        download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
-        download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
-        download.file(file.path(remoteDir, "airOT201204.csv"), file.path(source, "airOT201204.csv"))
-        download.file(file.path(remoteDir, "airOT201205.csv"), file.path(source, "airOT201205.csv"))
-        download.file(file.path(remoteDir, "airOT201206.csv"), file.path(source, "airOT201206.csv"))
-        download.file(file.path(remoteDir, "airOT201207.csv"), file.path(source, "airOT201207.csv"))
-        download.file(file.path(remoteDir, "airOT201208.csv"), file.path(source, "airOT201208.csv"))
-        download.file(file.path(remoteDir, "airOT201209.csv"), file.path(source, "airOT201209.csv"))
-        download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
-        download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
-        download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
-        # Set directory in bigDataDirRoot to load the data into
-        inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012") 
-        # Make the directory
-        rxHadoopMakeDir(inputDir)
-        # Copy the data from source to input
-        rxHadoopCopyFromLocal(source, bigDataDirRoot)
-```
-
+   
+   ```
+   # Set the HDFS (WASB) location of example data
+   bigDataDirRoot <- "/example/data"
+   # create a local folder for storaging data temporarily
+   source <- "/tmp/AirOnTimeCSV2012"
+   dir.create(source)
+   # Download data to the tmp folder
+   remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
+   download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
+   download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
+   download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
+   download.file(file.path(remoteDir, "airOT201204.csv"), file.path(source, "airOT201204.csv"))
+   download.file(file.path(remoteDir, "airOT201205.csv"), file.path(source, "airOT201205.csv"))
+   download.file(file.path(remoteDir, "airOT201206.csv"), file.path(source, "airOT201206.csv"))
+   download.file(file.path(remoteDir, "airOT201207.csv"), file.path(source, "airOT201207.csv"))
+   download.file(file.path(remoteDir, "airOT201208.csv"), file.path(source, "airOT201208.csv"))
+   download.file(file.path(remoteDir, "airOT201209.csv"), file.path(source, "airOT201209.csv"))
+   download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
+   download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
+   download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
+   # Set directory in bigDataDirRoot to load the data into
+   inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012") 
+   # Make the directory
+   rxHadoopMakeDir(inputDir)
+   # Copy the data from source to input
+   rxHadoopCopyFromLocal(source, bigDataDirRoot)
+   ```
+   
 2. Next, let's create some data info and define two data sources so that we can work with the data.
-
-```
-        # Define the HDFS (WASB) file system
-        hdfsFS <- RxHdfsFileSystem()
-        # Create info list for the airline data
-        airlineColInfo <- list(
-            DAY_OF_WEEK = list(type = "factor"),
-            ORIGIN = list(type = "factor"),
-            DEST = list(type = "factor"),
-            DEP_TIME = list(type = "integer"),
-            ARR_DEL15 = list(type = "logical"))
-       
-        # get all the column names
-        varNames <- names(airlineColInfo)
-       
-        # Define the text data source in hdfs
-        airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
-        # Define the text data source in local system
-        airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
-       
-        # formula to use
-        formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
-```
-
+   
+   ```
+   # Define the HDFS (WASB) file system
+   hdfsFS <- RxHdfsFileSystem()
+   # Create info list for the airline data
+   airlineColInfo <- list(
+         DAY_OF_WEEK = list(type = "factor"),
+         ORIGIN = list(type = "factor"),
+         DEST = list(type = "factor"),
+         DEP_TIME = list(type = "integer"),
+         ARR_DEL15 = list(type = "logical"))
+   
+   # get all the column names
+   varNames <- names(airlineColInfo)
+   
+   # Define the text data source in hdfs
+   airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
+   # Define the text data source in local system
+   airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
+   
+   # formula to use
+   formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
+   ```
+   
 3. Let's run a logistic regression over the data using the local compute context.
-
-```
-        # Set a local compute context
-        rxSetComputeContext("local")
-        # Run a logistic regression
-        system.time(
-            modelLocal <- rxLogit(formula, data = airOnTimeDataLocal)
-        )
-        # Display a summary 
-        summary(modelLocal)
-```
-
+   
+   ```
+   # Set a local compute context
+   rxSetComputeContext("local")
+   # Run a logistic regression
+   system.time(
+       modelLocal <- rxLogit(formula, data = airOnTimeDataLocal)
+   )
+   # Display a summary 
+   summary(modelLocal)
+   ```
+   
    You should see output that ends with lines similar to the following.
-
-```
-        Data: airOnTimeDataLocal (RxTextData Data Source)
-        File name: /tmp/AirOnTimeCSV2012
-        Dependent variable(s): ARR_DEL15
-        Total independent variables: 634 (Including number dropped: 3)
-        Number of valid observations: 6005381
-        Number of missing observations: 91381
-        -2*LogLikelihood: 5143814.1504 (Residual deviance on 6004750 degrees of freedom)
-       
-        Coefficients:
-                        Estimate Std. Error z value Pr(>|z|)
-        (Intercept)   -3.370e+00  1.051e+00  -3.208  0.00134 **
-        ORIGIN=JFK     4.549e-01  7.915e-01   0.575  0.56548
-        ORIGIN=LAX     5.265e-01  7.915e-01   0.665  0.50590
-        ......
-        DEST=SHD       5.975e-01  9.371e-01   0.638  0.52377
-        DEST=TTN       4.563e-01  9.520e-01   0.479  0.63172
-        DEST=LAR      -1.270e+00  7.575e-01  -1.676  0.09364 .
-        DEST=BPT         Dropped    Dropped Dropped  Dropped
-        ---
-        Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-       
-        Condition number of final variance-covariance matrix: 11904202
-        Number of iterations: 7
-```
-
+   
+   ```
+   Data: airOnTimeDataLocal (RxTextData Data Source)
+   File name: /tmp/AirOnTimeCSV2012
+   Dependent variable(s): ARR_DEL15
+   Total independent variables: 634 (Including number dropped: 3)
+   Number of valid observations: 6005381
+   Number of missing observations: 91381
+   -2*LogLikelihood: 5143814.1504 (Residual deviance on 6004750 degrees of freedom)
+   
+   Coefficients:
+                     Estimate Std. Error z value Pr(>|z|)
+     (Intercept)   -3.370e+00  1.051e+00  -3.208  0.00134 **
+     ORIGIN=JFK     4.549e-01  7.915e-01   0.575  0.56548
+     ORIGIN=LAX     5.265e-01  7.915e-01   0.665  0.50590
+     ......
+     DEST=SHD       5.975e-01  9.371e-01   0.638  0.52377
+     DEST=TTN       4.563e-01  9.520e-01   0.479  0.63172
+     DEST=LAR      -1.270e+00  7.575e-01  -1.676  0.09364 .
+     DEST=BPT         Dropped    Dropped Dropped  Dropped
+     ---
+     Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+   
+     Condition number of final variance-covariance matrix: 11904202
+     Number of iterations: 7
+   ```
+   
 4. Next, let's run the same logistic regression using the Spark context. The Spark context will distribute the processing over all the worker nodes in the HDInsight cluster.
+   
+   ```
+   # Define the Spark compute context 
+   mySparkCluster <- RxSpark()
+   # Set the compute context 
+   rxSetComputeContext(mySparkCluster)
+   # Run a logistic regression 
+   system.time(  
+       modelSpark <- rxLogit(formula, data = airOnTimeData)
+   )
+   # Display a summary
+   summary(modelSpark)
+   ```
 
-```
-        # Define the Spark compute context 
-        mySparkCluster <- RxSpark()
-        # Set the compute context 
-        rxSetComputeContext(mySparkCluster)
-        # Run a logistic regression 
-        system.time(  
-            modelSpark <- rxLogit(formula, data = airOnTimeData)
-        )
-        # Display a summary
-        summary(modelSpark)
-```
-
-
+   
    > [!NOTE]
    > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
    >
    > ​
-
+   
 ## Distribute R code to multiple nodes
 With R Server you can easily take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This is useful when doing a parameter sweep or simulations. The following is an example of how to use `rxExec`.
 
@@ -422,7 +422,6 @@ rxGetInfo(hiveData, getVarInfo = TRUE)
 rxLinMod(querydwelltime ~ devicemake, data=hiveData)
 ```
 
-
 ```
 #..retrieve some sample data from Parquet and run a model 
 
@@ -464,39 +463,40 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 > 
 
 1. From the [Azure portal](https://portal.azure.com), select your R Server on HDInsight cluster.
+   
 2. From the **Settings** blade select **Script Actions** and then **Submit New** to submit a new Script Action.
-
-    ![Image of script actions blade](./media/hdinsight-getting-started-with-r/scriptaction.png)
-
+   
+   ![Image of script actions blade](./media/hdinsight-getting-started-with-r/scriptaction.png)
+   
 3. From the **Submit script action** blade, provide the following information.
-
+   
    * **Name**: A friendly name to identify this script
-
+   
    * **Bash script URI**: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
-
+   
    * **Head**: This should be **un-checked**
-
+   
    * **Worker**: This should be **checked**
-
+   
    * **Edge nodes**: This should be **un-checked**.
-
+   
    * **Zookeeper**: This should be **un-checked**
-
+   
    * **Parameters**: The R packages to be installed. For example, `bitops stringr arules`
-
+   
    * **Persist this script...**: This should be **Checked**  
-
-     > [!NOTE]
-     > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  
-     > 2. Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
-     >    For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).  
-     >
-     >
-
-     ![Adding a script action](./media/hdinsight-getting-started-with-r/submitscriptaction.png)
-     
+   
+   > [!NOTE]
+   > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  
+   > 2. Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
+   >    For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).  
+   >
+   >
+   
+   ![Adding a script action](./media/hdinsight-getting-started-with-r/submitscriptaction.png)
+   
 4. Select **Create** to run the script. Once the script completes, the R packages will be available on all worker nodes.
-
+   
 ## Using Microsoft R Server Operationalization
 When your data modeling is complete, you can operationalize the model to make predictions. To configure for Microsoft R Server operationalization perform the steps below.
 
@@ -505,8 +505,8 @@ First, ssh into the Edge node. For example, ```ssh -L USERNAME@CLUSTERNAME-ed-ss
 After using ssh, change directory to the following directory and sudo the dotnet dll as shown below.
 
 ```
-    cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
-    sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+   cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
+   sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
 ```
 
 To configure Microsoft R Server operationalization with a One-box configuration do the following;
@@ -582,7 +582,7 @@ Steps to decommissioning worker nodes:
 * Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in the image below we have selected wn3 and wn4 to decommission.  
    
    ![decommission worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)  
-
+   
 * Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Decommission"
 * Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Decommission"
 * Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Stop"
