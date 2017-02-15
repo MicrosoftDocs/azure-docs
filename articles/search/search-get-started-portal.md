@@ -26,15 +26,15 @@ This code-free introduction gets you started with predefined data so that you ca
 
 + Prototype an index before you write code in **Import data**
 + Test-drive queries and compare parser behaviors in **Search explorer**
-+ View an existing index published to your service to look up its attributes
++ View an existing index published to your service and look up its attributes
 
 > [!NOTE]
 > This tutorial assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md). 
 > 
-> 
-The tutorial takes about 15-30 minutes to complete, depending on whether account and service sign-up is also required. 
 
-Alternatively, you can watch a 5 minute demonstration of the steps in this tutorial at about 4 minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+The tutorial takes about 15-30 minutes to complete, depending on whether account or service sign-up is also required. 
+
+Alternatively, you can watch a 5-minute demonstration of the steps in this tutorial at about four minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## Find your service
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -103,17 +103,17 @@ In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/20
 
    ![Index and API commands][6]
 
-3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs will give you access to new features not yet generally released. Use the generally available version (2016-09-01) unless directed. 
+3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs give you access to new features not yet generally released. Use the generally available version (2016-09-01) unless directed. 
 
     > [!NOTE]
     > Azure Search REST API and the [.NET library]() are fully equivalent, but **Search explorer** is only equipped to REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
     > 
     > **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements.
 
-4. In the search bar, enter the following queries.
+4. In the search bar, enter the query strings below.
 
 **`search=seattle`**
-`search=` is used to input a keyword search, in this case, returning listings in King County, Washington state, that contain Seattle in any field in the document.
+`search=` is used to input a keyword search, in this case, returning listings in King County, Washington state,  containing Seattle in any field in the document.
 
   ![Search query example][7]
 
@@ -127,16 +127,16 @@ In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/20
 Hit highlights add formatting to text matching the keyword, given matches found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. In this case, the formatted phrase `"granite countertops"` is easier to see in the description field.
 
 **`search=mice&highlight=description`**
-Full text search will find word forms with similar semantics. In this case, search results contain highlighted text for "mouse", for homes that have mouse infestation, in response to a keyword search on "mice". Different forms of the same word can appear in results because of linguistic analysis. Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer. 
+Full text search finds word forms with similar semantics. In this case, search results contain highlighted text for "mouse", for homes that have mouse infestation, in response to a keyword search on "mice". Different forms of the same word can appear in results because of linguistic analysis. Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer. 
 
 **`search=samamish`**
 Misspelled words, like 'samamish' for the Samammish plateau in the SEattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
 
 **`search=samamish~&queryType=full`**
-Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt-in for the full query parser if you require fuzzy search, regular expressions, per-field boosting. For more information about query types supported in the full parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser if you require fuzzy search, regular expressions, or proximity search. For more information about query scenarios enabled by the full parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 **`search=*`**
-Empty searches return everything. You might use this to get a total document count in your index, or if you want to filter or facet over the complete set of documents, as described next.
+Empty searches return everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents, as described next.
 
 **`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`**
 Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. This query filters all results for positional data, where results are less than 10 kilometers from a given point (specified as latitude and longitude coordinates). Geosearch is supported through filters, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
@@ -150,7 +150,7 @@ After you run the wizard once, you can go back and view or modify individual com
 
 To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl Azure Table storage, Blob storage, SQL Server on an Azure VM, and DocumentDB. All of these data sources are supported in the wizard. In code, you can create and populate an index very easily using an *indexer*.
+The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl Azure Table storage, Blob storage, SQL Server on an Azure VM, and DocumentDB. All of these data sources are supported in the wizard. In code, you can create and populate an index easily using an *indexer*.
 
 All other data sources are supported via a push model, where your code pushes new and changed rowsets to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
