@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: rickbyh
 
 ---
@@ -57,11 +57,12 @@ Connection attempts from the Internet and Azure must first pass through the fire
    ![Diagram describing firewall configuration.][1]
 
 ## Connecting from the Internet
-When a computer attempts to connect to your database server from the Internet, the firewall first checks the originating IP address of the request against the full set of firewall rules:
 
-* If the IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted to your Azure SQL Database server.
-* If the IP address of the request is not within one of the ranges specified in the server-level firewall rule, the database-level firewall rules are checked. If the IP address of the request is within one of the ranges specified in the database-level firewall rules, the connection is granted only to the database that has a matching database-level rule.
-* If the IP address of the request is not within the ranges specified in any of the server-level or database-level firewall rules, the connection request fails.
+When a computer attempts to connect to your database server from the Internet, the firewall first checks the originating IP address of the request against the database-level firewall rules, for the database that the connection is requesting:
+
+* If the IP address of the request is within one of the ranges specified in the database-level firewall rules, the connection is granted to the SQL Database that contains the rule.
+* If the IP address of the request is not within one of the ranges specified in the database-level firewall rule, the server-level firewall rules are checked. If the IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted. Server-level firewall rules apply to all SQL databases on the Azure SQL server.  
+* If the IP address of the request is not within the ranges specified in any of the database-level  or server-level firewall rules, the connection request fails.
 
 > [!NOTE]
 > To access Azure SQL Database from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.

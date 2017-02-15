@@ -185,7 +185,7 @@
 #### [HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework players](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
-### [Licensing Microsoft†" Smooth Streaming Client Porting Kit](media-services-sspk.md)
+### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
 ### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
@@ -195,7 +195,8 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Queue storage to monitor job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitor job notifications with queue storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitor job notifications with webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Troubleshoot
 ### [Frequently asked questions](media-services-frequently-asked-questions.md)

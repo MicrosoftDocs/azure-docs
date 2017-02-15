@@ -155,8 +155,7 @@ Simplify management of the entire system by using centralized administration too
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. The reference architecture is deployed in three stages. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select "open in new tab" or "open in new window" to begin the first stage of the deployment.  
-   [!["Deploy To Azure"][1]][2]
+1. Open [this link][2] in a new tab or browser window to begin the first stage of the deployment. The link takes you to the Azure Portal. 
 2. Once the link has opened in the Azure portal, enter the follow values: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
@@ -165,8 +164,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 3. Check Azure portal notification for a message that the first stage of the deployment is complete.
-4. Right click the button below and select "open in new tab" or "open in new window" to begin the second stage of the deployment.  
-   [!["Deploy To Azure"][1]][3]
+4. Open [this link][3] in a new tab or browser window to begin the second stage of the deployment.
 5. Once the link has opened in the Azure portal, enter the follow values: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-workload-rg` in the text box.
@@ -175,8 +173,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 6. Check Azure portal notification for a message that the second stage of deployment is complete.
-7. Right click the button below and select "open in new tab" or "open in new window" to begin the third stage of the deployment.  
-   [!["Deploy To Azure"][1]][4]
+7. Open [this link][4] in a new tab or browser window to begin the third stage of the deployment.
 8. Once the link has opened in the Azure portal, enter the follow values: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-ntier-sql-network-rg` in the text box.
