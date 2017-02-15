@@ -3,7 +3,7 @@ title: Technical articles for classic Windows VMs | Microsoft Azure
 description: A complete list of Microsoft Azure documentation articles for Windows virtual machines in the classic deployment model
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: timlt
 tags: azure-service-management
 editor: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/05/2016
+ms.date: 02/13/2017
 ms.author: danlep
 
 ---
@@ -100,7 +100,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [How to set up endpoints on a classic Azure virtual machine](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Storage
-[About disks and VHDs for Azure virtual machines](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[About disks and VHDs for Azure virtual machines](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to attach a data disk to a classic Windows virtual machine](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
