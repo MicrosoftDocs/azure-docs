@@ -208,7 +208,6 @@ The following example shows the add-in license for a user who is signed in with 
      <d>Ymwiorz9SdzbkYrJnYwRzU/Q6zwFyiuXMkJztKCtmQE=</d>
 </r>
 ```
-test edit
 
 ## Additional resources
 <a name="SP15applicenseschema_addlresources"> </a>
