@@ -322,11 +322,9 @@ After you enable replication, the Mobility service will be installed if you set 
 We recommend that you verify the VM properties, and make any changes you need to.
 
 1. Click **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
-1. In **Properties**, you can view replication and failover information for the VM.
-
-    ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover2.png)
-1. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) if you need to.
-2. Modify settings for the target network, subnet, and IP address that will be assigned to the Azure VM:
+2. In **Properties**, you can view replication and failover information for the VM.
+3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) if you need to.
+4. Modify settings for the target network, subnet, and IP address that will be assigned to the Azure VM:
 
    - You can set the target IP address.
 
@@ -341,9 +339,7 @@ We recommend that you verify the VM properties, and make any changes you need to
      - For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
    - If the virtual machine has multiple network adapters they will all connect to the same network.
    - If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
-
-     ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover4.png)
-1. In **Disks**, you can see the VM operating system, and the data disks that will be replicated.
+5. In **Disks**, you can see the VM operating system, and the data disks that will be replicated.
 
 ## Run a test failover
 
@@ -366,7 +362,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 5. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
 6. After failover is complete, click **Cleanup test failover**, in the recovery plan. In **Notes**, record and save any observations associated with the test failover. Cleanup deletes the VMs that were created during test failover.
 
-[Learn more]((site-recovery-test-failover-to-azure.md)) about preparing for test failover, and connecting to replica Azure VMs.
+[Learn more]((site-recovery-test-failover-to-azure.md) about preparing for test failover, and connecting to replica Azure VMs.
 
 
 ## VMware account permissions
