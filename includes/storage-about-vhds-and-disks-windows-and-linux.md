@@ -2,7 +2,7 @@
 
 The following table illustrates the different states for the different disks in an Azure VM and whether the data is persisted or not in each state.
 
-| Disk | Start | Stop/Deallocate | Pause | Reboot | Shutdown | Delete | Failure | Resize | 
+| Disk | Start | Stop/<br>Deallocate | Pause | Re-<br>boot | Shut-<br>down | Delete | Failure | Resize | 
 | ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
 | OS Disk | Yes | Yes  | Yes | Yes | Yes  | No | No  | Yes | 
 | RAM  | Yes | Yes | Yes | Yes | No   | No | No | No | 
