@@ -47,6 +47,8 @@ You can also use FTP to upload your application to your site. You can get the FT
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
+* [Using Ruby in Azure App Service Web Apps on Linux](app-service-linux-using-ruby.md)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-how-to-create-a-web-app/top-level-create.png

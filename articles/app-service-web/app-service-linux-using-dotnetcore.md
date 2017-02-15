@@ -37,7 +37,7 @@ This will load the .Net Core image and start your web app. You can check that th
         azure webapp config show --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup
 
 ## Next steps
-* [Introduction to App Service on Linux](./app-service-linux-intro.md) 
 * [What is App Service on Linux?](app-service-linux-intro.md)
 * [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [Azure Web App Cross Platform CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
