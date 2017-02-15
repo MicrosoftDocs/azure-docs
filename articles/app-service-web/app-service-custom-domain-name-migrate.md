@@ -1,5 +1,5 @@
 ---
-title: Migrate an active custom domain to App Service
+title: Migrate an active custom domain to Azure App Service | Microsoft Docs
 description: Learn how to migrate a custom domain that is already assigned to a live site to your app in Azure App Service without any downtime.
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 01/30/2017
 ms.author: cephalin
 
 ---
-# Migrate an active custom domain to App Service
+# Migrate an active custom domain to Azure App Service
 
 This article shows you how to migrate an active custom domain to [Azure App Service](../app-service/app-service-value-prop-what-is.md) without any downtime.
 
