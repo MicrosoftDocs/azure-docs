@@ -72,9 +72,9 @@ and deploy three replicas of this web service.
 
     ![Kubernetes Pod Create Dialog](media/k8s/nginx.png)
 
-3. Under **Service**,   Select 'External' and enter port 80.
+3. Under **Service**, select **External** and enter port 80.
 
-    This setting <load-balances></load-balances> traffic to our three
+    This setting load-balances traffic to the three
 replicas.
 
     ![Kubernetes Service Create Dialog](media/k8s/service.png)
