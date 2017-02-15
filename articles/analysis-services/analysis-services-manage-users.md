@@ -82,7 +82,7 @@ Subscription administrators can use **Access control** in the control blade to c
 
 ![Access control in Azure portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Roles apply to users or accounts that need to perform tasks that can be completed in the portal or by using ARM templates such as create a new Analysis Services resource. To learn more, see [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md).
+Roles apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md).
 
 ## Next steps
 If you haven't already deployed a tabular model to your server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).

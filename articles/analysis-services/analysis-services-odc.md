@@ -35,7 +35,7 @@ Information in this article describes how you can create an .odc file to connect
 
 4. Save the file with an **.odc** extension to the C:\Users\\*username*\Documents\My Data Sources folder.
 
-5. Right click the file, and then click **Open in Excel**. Or in Excel, on the **Data** ribbon, click **Existing Connections**, select your file, and then click **Open**.
+5. Right-click the file, and then click **Open in Excel**. Or in Excel, on the **Data** ribbon, click **Existing Connections**, select your file, and then click **Open**.
 
 
 
