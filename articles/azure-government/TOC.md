@@ -6,11 +6,11 @@
 
 # Get Started
 ## [Developer guide](documentation-government-developer-guide.md)
-## [Log in to the Azure Government portal](documentation-government-gettingstarted-connect-with-portal.md)
+## [Log in to the Azure Government portal](documentation-government-get-started-connect-with-portal.md)
 ## [Provision a web app](documentation-government-howto-deploy-webandmobile.md)
-## [Connect with PowerShell](documentation-government-gettingstarted-connect-with-ps.md)
-## [Connect with CLI](documentation-government-gettingstarted-connect-with-cli.md)
-## [Set up Visual Studio for Azure Government](documentation-government-gettingstarted-connect-with-vs.md)
+## [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
+## [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
+## [Set up Visual Studio for Azure Government](documentation-government-get-started-connect-with-vs.md)
 ## [Available Services](documentation-government-services.md)
 
 # How To

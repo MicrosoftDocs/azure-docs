@@ -35,8 +35,8 @@ Once you log in, you should see "Microsoft Azure Government" in the upper left o
 
 
 
-## Next steps
+### Next steps
 For more information about Azure Government, see the following resources:
 
-* [Connect to Azure Government with PowerShell](/documentation-government-connect-with-powershell.md)
-* [Connect to Azure Government with Azure CLI](/documentation-government-connect-with-cli.md)
+* [Connect to Azure Government with PowerShell](documentation-government-get-started-connect-with-ps.md)
+* [Connect to Azure Government with Azure CLI](documentation-government-get-started-connect-with-cli.md)
