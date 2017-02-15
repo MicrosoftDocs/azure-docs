@@ -8,7 +8,7 @@
 ## [Templates for logic apps](logic-apps-use-logic-app-templates.md)
 ## [Create logic apps from templates](logic-apps-arm-provision.md)
 
-# How To
+# How to
 ## Build
 ### [Build and deploy logic apps with Visual Studio](logic-apps-deploy-from-vs.md)
 ### [Add conditions and run workflows](logic-apps-use-logic-app-features.md)
