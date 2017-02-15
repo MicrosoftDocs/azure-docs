@@ -27,9 +27,9 @@ The tutorial uses the Windows Communication Foundation (WCF) REST programming mo
 To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application. Follow the [instructions here](relay-create-namespace-portal.md) to create a Relay namespace.
 
 ## Step 2: Define a REST-based WCF service contract to use with Service Bus
-As with other Service Bus services, when you create a REST-style service, you must define the contract. The contract specifies what operations the host supports. A service operation can be thought of as a web service method. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. The [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) attribute must be applied to each interface, and the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) attribute must be applied to each operation. If a method in an interface that has the [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) does not have the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), that method is not exposed. The code used for these tasks is shown in the example following the procedure.
+When you create a WCF REST-style service, you must define the contract. The contract specifies what operations the host supports. A service operation can be thought of as a web service method. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. The [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) attribute must be applied to each interface, and the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) attribute must be applied to each operation. If a method in an interface that has the [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) does not have the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), that method is not exposed. The code used for these tasks is shown in the example following the procedure.
 
-The primary difference between a basic Service Bus contract and a REST-style contract is the addition of a property to the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). This property enables you to map a method in your interface to a method on the other side of the interface. In this case, we will use [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) to link a method to HTTP GET. This allows Service Bus to accurately retrieve and interpret commands sent to the interface.
+The primary difference between a WCF contract and a REST-style contract is the addition of a property to the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). This property enables you to map a method in your interface to a method on the other side of the interface. In this case, we will use [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) to link a method to HTTP GET. This allows Service Bus to accurately retrieve and interpret commands sent to the interface.
 
 ### To create a Service Bus contract with an interface
 1. Open Visual Studio as an administrator: right-click the program in the **Start** menu, and then click **Run as administrator**.
@@ -50,10 +50,10 @@ The primary difference between a basic Service Bus contract and a REST-style con
     using System.IO;
     ```
    
-    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is the namespace that enables programmatic access to basic features of WCF. Service Bus uses many of the objects and attributes of WCF to define service contracts. You will use this namespace in most of your Service Bus relay applications. Similarly, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) helps define the channel, which is the object through which you communicate with Service Bus and the client web browser. Finally, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contains the types that enable you to create web-based applications.
+    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is the namespace that enables programmatic access to basic features of WCF. WCF Relay uses many of the objects and attributes of WCF to define service contracts. You will use this namespace in most of your relay applications. Similarly, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) helps define the channel, which is the object through which you communicate with Azure Relay and the client web browser. Finally, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contains the types that enable you to create web-based applications.
 7. Rename the `ImageListener` namespace to **Microsoft.ServiceBus.Samples**.
    
-     ```
+    ```csharp
     namespace Microsoft.ServiceBus.Samples
     {
         ...
@@ -85,18 +85,18 @@ The primary difference between a basic Service Bus contract and a REST-style con
     }
     ```
     
-    Doing so enables Service Bus to route HTTP GET requests to `GetImage`, and to translate the return values of `GetImage` into an HTTP GETRESPONSE reply. Later in the tutorial, you will use a web browser to access this method, and to display the image in the browser.
+    Doing so enables the relay service to route HTTP GET requests to `GetImage`, and to translate the return values of `GetImage` into an HTTP GETRESPONSE reply. Later in the tutorial, you will use a web browser to access this method, and to display the image in the browser.
 11. Directly after the `IImageContract` definition, declare a channel that inherits from both the `IImageContract` and `IClientChannel` interfaces.
     
     ```csharp
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
     
-    A channel is the WCF object through which the service and client pass information to each other. Later, you will create the channel in your host application. Service Bus then uses this channel to pass the HTTP GET requests from the browser to your **GetImage** implementation. Service Bus also uses the channel to take the **GetImage** return value and translate it into an HTTP GETRESPONSE for the client browser.
+    A channel is the WCF object through which the service and client pass information to each other. Later, you will create the channel in your host application. Azure Relay then uses this channel to pass the HTTP GET requests from the browser to your **GetImage** implementation. The relay also uses the channel to take the **GetImage** return value and translate it into an HTTP GETRESPONSE for the client browser.
 12. From the **Build** menu, click **Build Solution** to confirm the accuracy of your work so far.
 
 ### Example
-The following code shows a basic interface that defines a Service Bus contract.
+The following code shows a basic interface that defines a WCF Relay contract.
 
 ```csharp
 using System;
@@ -130,9 +130,9 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## Step 3: Implement a REST-based WCF service contract to use Service Bus
-Creating a REST-style Service Bus service requires that you first create the contract, which is defined by using an interface. The next step is to implement the interface. This involves creating a class named **ImageService** that implements the user-defined **IImageContract** interface. After you implement the contract, you then configure the interface using an App.config file. The configuration file contains necessary information for the application, such as the name of the service, the name of the contract, and the type of protocol that is used to communicate with Service Bus. The code used for these tasks is provided in the example following the procedure.
+Creating a REST-style WCF Relay service requires that you first create the contract, which is defined by using an interface. The next step is to implement the interface. This involves creating a class named **ImageService** that implements the user-defined **IImageContract** interface. After you implement the contract, you then configure the interface using an App.config file. The configuration file contains necessary information for the application, such as the name of the service, the name of the contract, and the type of protocol that is used to communicate with the relay service. The code used for these tasks is provided in the example following the procedure.
 
-As with the previous steps, there is very little difference between implementing a REST-style contract and a basic Service Bus contract.
+As with the previous steps, there is very little difference between implementing a REST-style contract and a WCF Relay contract.
 
 ### To implement a REST-style Service Bus contract
 1. Create a new class named **ImageService** directly after the definition of the **IImageContract** interface. The **ImageService** class implements the **IImageContract** interface.
@@ -203,7 +203,7 @@ As with the previous steps, there is very little difference between implementing
 ### To define the configuration for running the web service on Service Bus
 1. In **Solution Explorer**, double-click **App.config** to open it in the Visual Studio editor.
    
-    The **App.config** file resembles a WCF configuration file, and includes the service name, endpoint (that is, the location Service Bus exposes for clients and hosts to communicate with each other), and binding (the type of protocol that is used to communicate). The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) binding, which is not part of the .NET Framework.
+    The **App.config** file includes the service name, endpoint (that is, the location Azure Relay exposes for clients and hosts to communicate with each other), and binding (the type of protocol that is used to communicate). The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
 2. The `<system.serviceModel>` XML element is a WCF element that defines one or more services. Here, it is used to define the service name and endpoint. At the bottom of the `<system.serviceModel>` element (but still within `<system.serviceModel>`), add a `<bindings>` element that has the following content. This defines the bindings used in the application. You can define multiple bindings, but for this tutorial you are defining only one.
    
     ```xml
@@ -217,7 +217,7 @@ As with the previous steps, there is very little difference between implementing
     </bindings>
     ```
    
-    This step defines a Service Bus [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) binding with **relayClientAuthenticationType** set to **None**. This setting indicates that an endpoint using this binding does not require a client credential.
+    The previous code defines a WCF Relay [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding with **relayClientAuthenticationType** set to **None**. This setting indicates that an endpoint using this binding does not require a client credential.
 3. After the `<bindings>` element, add a `<services>` element. Similar to the bindings, you can define multiple services in a single configuration file. However, for this tutorial, you define only one.
    
     ```xml
@@ -244,7 +244,7 @@ As with the previous steps, there is very little difference between implementing
             <behavior name="sbTokenProvider">
                 <transportClientEndpointBehavior>
                     <tokenProvider>
-                        <sharedAccessSignature keyName="RootManageSharedAccessKey" key="SAS_KEY" />
+                        <sharedAccessSignature keyName="RootManageSharedAccessKey" key="YOUR_SAS_KEY" />
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>
@@ -262,7 +262,7 @@ As with the previous steps, there is very little difference between implementing
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
        <add key="Microsoft.ServiceBus.ConnectionString"
-           value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
+           value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY"/>
     </appSettings>
     ```
 6. From the **Build** menu, click **Build Solution** to build the entire solution.
@@ -403,7 +403,7 @@ The following example shows the App.config file associated with the service.
           <behavior name="sbTokenProvider">
             <transportClientEndpointBehavior>
               <tokenProvider>
-                <sharedAccessSignature keyName="RootManageSharedAccessKey" key="[SAS_KEY]" />
+                <sharedAccessSignature keyName="RootManageSharedAccessKey" key="YOUR_SAS_KEY" />
               </tokenProvider>
             </transportClientEndpointBehavior>
           </behavior>
@@ -418,16 +418,16 @@ The following example shows the App.config file associated with the service.
     <appSettings>
         <!-- Service Bus specific app setings for messaging connections -->
         <add key="Microsoft.ServiceBus.ConnectionString"
-            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
+            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey="YOUR_SAS_KEY"/>
     </appSettings>
 </configuration>
 ```
 
-## Step 4: Host the REST-based WCF service to use Service Bus
-This step describes how to run a web service using a console application on Service Bus. A complete listing of the code written in this step is provided in the example following the procedure.
+## Step 4: Host the REST-based WCF service to use Azure Relay
+This step describes how to run a web service using a console application with WCF Relay. A complete listing of the code written in this step is provided in the example following the procedure.
 
 ### To create a base address for the service
-1. In the `Main()` function declaration, create a variable to store the namespace of your Service Bus project. Make sure to replace `yourNamespace` with the name of the service namespace you created previously.
+1. In the `Main()` function declaration, create a variable to store the namespace of your project. Make sure to replace `yourNamespace` with the name of the Relay namespace you created previously.
    
     ```csharp
     string serviceNamespace = "yourNamespace";
@@ -552,9 +552,10 @@ After building the solution, do the following to run the application:
 3. When you are finished, press **Enter** in the command prompt window to close the app.
 
 ## Next steps
-Now that you've built an application that uses the Service Bus relay service, see the following articles to learn more about relayed messaging:
+Now that you've built an application that uses the Service Bus relay service, see the following articles to learn more about Azure Relay:
 
 * [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
-* [How to Use the Service Bus WCF Relay Service](service-bus-dotnet-how-to-use-relay.md)
+* [Azure Relay overview](relay-what-is-it.md)
+* [How to use the WCF relay service with .NET](service-bus-dotnet-how-to-use-relay.md)
 
 [Azure portal]: https://portal.azure.com
