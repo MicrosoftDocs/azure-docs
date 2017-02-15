@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/15/2017
 ms.author: raynew
 
 ---
@@ -347,8 +347,26 @@ We recommend that you verify the VM properties, and make any changes you need to
 
 ## Run a test failover
 
-After you've set everything up, [run a test failover](site-recovery-test-failover-to-azure.md) to make sure everything's working as expected.
+After you've set everything up, run a test failover to make sure everything's working as expected.
 
+1. Select **Recovery Plans** > *recoveryplan_name*, > **Test Failover**.
+2. Select the recovery point to which you want to failover. You can use one of the following options:
+	- **Latest processed**: This options fails over all VMs to the latest recovery point that was processed by the Site Recovery service.
+        - If you fail over a VM, the time stamp of the latest processed recovery point is also shown.
+        - If you fail over a recovery plan, you can go to individual VM > **Latest Recovery Points** to view.
+        - The latest recovery point provides a low RTO (Recovery Time Objective) option.
+	- **Latest app-consistent**: This options fails over all VMs to the latest application consistent recovery point.
+	- **Latest**: This option first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing them over to it. This option provides the lowest RPO (Recovery Point Objective). The VM created after failover will have all the data replicated to Site Recovery when the failover was triggered.
+	- **Custom**: For failover of a VM you can use this option to fail over to a particular recovery point.
+3. Select an **Azure virtual network**. This is the network in which the test VMs are created.
+    - Site Recovery attempts to create test VM in a subnet of same name, and using the same IP addressed specified in the **Compute and Network** settings of the VM.
+    - If a subnet of same name isn't available in the Azure virtual network used for test failover, then the test VM is created in the first subnet, in alphabetical order.
+    - If the same IP address isn't available in the subnet, then the VM gets another IP address from the subnet.
+4. In  **Encryption Key**, select the certificate that was issued when you enabled data encryption during Provider installation. If you didn't enable encryption, ignore this step.
+5. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
+6. After failover is complete, click **Cleanup test failover**, in the recovery plan. In **Notes**, record and save any observations associated with the test failover. Cleanup deletes the VMs that were created during test failover.
+
+[Learn more]((site-recovery-test-failover-to-azure.md)) about preparing for test failover, and connecting to replica Azure VMs.
 
 
 ## VMware account permissions
