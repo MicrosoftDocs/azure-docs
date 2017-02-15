@@ -13,12 +13,12 @@
 ## Build
 ### [Build and deploy logic apps with Visual Studio](logic-apps-deploy-from-vs.md)
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
+### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
 ### [Add switch statements](logic-apps-switch-case.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
 ### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
 ### [Call logic app endpoints as triggers](logic-apps-http-endpoint.md)
-### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
@@ -57,8 +57,8 @@
 ### [Publish from Visual Studio](logic-apps-deploy-from-vs.md)
 
 ## Manage and monitor
-### [Manage logic apps in Visual Studio](logic-apps-manage-from-vs.md)
-### [Monitor your logic apps](logic-apps-monitor-your-logic-apps.md)
+### [Manage logic apps with Visual Studio](logic-apps-manage-from-vs.md)
+### [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
 ### [Manage integration accounts](logic-apps-enterprise-integration-accounts.md)
 ### [Monitor B2B messages](logic-apps-monitor-b2b-message.md)
 #### [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md)
