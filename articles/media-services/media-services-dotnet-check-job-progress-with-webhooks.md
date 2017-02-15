@@ -49,7 +49,7 @@ The code in this section shows an implementation of an Azure function that is a 
 
 The webhook expects a signing key (credential) to match the one you pass when you configure the notification endpoint. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
-In the following code, the VerifyWebHookRequestSignature method does the verification.
+In the following code, the VerifyWebHookRequestSignature method does the verification on the notification message. The purpose of this validation is to ensure that the message was sent by Azure Media Services and hasn’t been tampered with. The signature is optional for Azure functions as it has the **Code** value as a query parameter over Transport Layer Security (TLS), as in this example: https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>. 
 
 You can find the definition of the following Media Services .NET Azure function [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
@@ -249,6 +249,8 @@ The example above produced the following output, your values will vary.
 
 ## Adding Webhook to your encoding task
 
+In this section, the code that adds a webhook notification to a Task is shown. You can also add a job level notifications, which would be more useful for a job with chained tasks.  
+
 1. Create a new C# Console Application in Visual Studio. Enter the Name, Location, and Solution name, and then click OK.
 2. Use [Nuget](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
 3. Update App.config file with appropriate values: 
@@ -263,8 +265,7 @@ The example above produced the following output, your values will vary.
 			  <add key="WebhookURL" value="https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>" />
 			  <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
 			</appSettings>
-4. Update your Program.cs file with the following code
-
+4. Update your Program.cs file with the following code:
 
 		using System;
 		using System.Configuration;
@@ -301,8 +302,6 @@ The example above produced the following output, your values will vary.
 
 			    IAsset newAsset = _context.Assets.FirstOrDefault();
 
-			    // Create an Encoding Job
-
 			    // Check for existing Notification Endpoint with the name "FunctionWebHook"
 
 			    var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
@@ -328,7 +327,6 @@ The example above produced the following output, your values will vary.
 			    // processor to use for the specific task.
 			    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-
 			    ITask task = job.Tasks.AddNew("My encoding task",
 				processor,
 				"H264 Multiple Bitrate 720p",
@@ -343,7 +341,9 @@ The example above produced the following output, your values will vary.
 			    // means the output asset is not encrypted. 
 			    task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
-			    // Add the WebHook notification to this Task and request all notification state changes
+			    // Add the WebHook notification to this Task and request all notification state changes.
+			    // Note that you can also add a job level notifications 
+			    // which would be more useful for a job with chained tasks.  
 			    if (endpoint != null)
 			    {
 				task.TaskNotificationSubscriptions.AddNew(NotificationJobState.All, endpoint, true);
