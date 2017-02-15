@@ -2,7 +2,7 @@
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
 ## [About Azure identity management](fundamentals-identity.md)
-## [Preview the Azure portal experience](active-directory-preview-explainer.md)
+## [Preview the Azure AD portal experience](active-directory-preview-explainer.md)
 
 
 # Get started
@@ -34,7 +34,7 @@
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
 #### [Classic portal](active-directory-accessmanagement-manage-groups.md)
-#### [Powershell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -85,7 +85,7 @@
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 #### [Classic portal](active-directory-create-users-reset-password.md)
 ### [Set expiration policies](active-directory-passwords-set-expiration-policy.md)
-### Enable Password Management
+### Enable password management
 #### [Get started](active-directory-passwords-getting-started.md)
 #### [Deploy](active-directory-passwords-best-practices.md)
 #### [Set up self-service password reset](active-directory-passwords.md)
@@ -191,6 +191,7 @@
 #### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
