@@ -25,7 +25,7 @@ ms.author: rodsan
 | Web Application | <ul><li>[Enforce sequential step order when processing business logic flows](#sequential-logic)</li><li>[Implement rate limiting mechanism to prevent enumeration](#rate-enumeration)</li><li>[Ensure that proper authorization is in place and principle of least privileges is followed](#principle-least-privilege)</li><li>[Business logic and resource access authorization decisions should not be based on incoming request parameters](#logic-request-parameters)</li><li>[Ensure that content and resources are not enumerable or accessible via forceful browsing](#enumerable-browsing)</li></ul> |
 | Database | <ul><li>[Ensure that least-privileged accounts are used to connect to Database server](#privileged-server)</li><li>[Implement Row Level Security RLS to prevent tenants from accessing each others data](#rls-tenants)</li><li>[Sysadmin role should only have valid necessary users](#sysadmin-users)</li></ul> |
 | IoT Cloud Gateway | <ul><li>[Connect to Cloud Gateway using least-privileged tokens](#cloud-least-privileged)</li></ul> |
-| Azure Event Hub | <ul><li>[Use a send-only permissions SAS Key for generating device tokens](#sendonly-sas)</li><li>[Do not use access tokens that provide direct access to the Event Hub](#access-tokens-hub)</li><li>[Connect to Event Hub using SAS keys that have the mimimum permissions required](#sas-minimum-permissions)</li></ul> |
+| Azure Event Hub | <ul><li>[Use a send-only permissions SAS Key for generating device tokens](#sendonly-sas)</li><li>[Do not use access tokens that provide direct access to the Event Hub](#access-tokens-hub)</li><li>[Connect to Event Hub using SAS keys that have the minimum permissions required](#sas-minimum-permissions)</li></ul> |
 | Azure Document DB | <ul><li>[Use resource tokens to connect to DocumentDB whenever possible](#resource-docdb)</li></ul> |
 | Azure Trust Boundary | <ul><li>[Enable fine-grained access management to Azure Subscription using RBAC](#grained-rbac)</li></ul> |
 | Service Fabric Trust Boundary | <ul><li>[Restrict client's access to cluster operations using RBAC](#cluster-rbac)</li></ul> |
@@ -121,7 +121,7 @@ SELECT data
 FROM personaldata 
 WHERE userID=:id < - session var 
 ```
-Now an possible attacker can not tamper and change the application operation since the identifier for retrieving the data is handeld server-side.
+Now an possible attacker can not tamper and change the application operation since the identifier for retrieving the data is handled server-side.
 
 ## <a id="enumerable-browsing"></a>Ensure that content and resources are not enumerable or accessible via forceful browsing
 
@@ -132,7 +132,7 @@ Now an possible attacker can not tamper and change the application operation sin
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | N/A  |
-| Steps | <p>Sensitive static and configuration files should not be kept in the webroot. For content not required to be public, either proper access controls should be applied or removal of the content itself.</p><p>Also, forceful browsing is usually combined with Brute Force techniques to gather information by attempting to access as many URLs as possible to enumerate directories and files on a server. Attackers may check for all variations of commonly existing files. For example, a password file search would encompass files including psswd.txt, password.htm, password.dat, and other variations.</p><p>To mitigate this, capabilities for detection of bruteforce attempts should be included.</p>|
+| Steps | <p>Sensitive static and configuration files should not be kept in the webroot. For content not required to be public, either proper access controls should be applied or removal of the content itself.</p><p>Also, forceful browsing is usually combined with Brute Force techniques to gather information by attempting to access as many URLs as possible to enumerate directories and files on a server. Attackers may check for all variations of commonly existing files. For example, a password file search would encompass files including psswd.txt, password.htm, password.dat, and other variations.</p><p>To mitigate this, capabilities for detection of brute force attempts should be included.</p>|
 
 ## <a id="privileged-server"></a>Ensure that least-privileged accounts are used to connect to Database server
 
@@ -202,7 +202,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | References              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | Steps | A token that grants direct access to the event hub should not be given to the device. Using a least privileged token for the device that gives access only to a publisher would help identify and blacklist it if found to be a rogue or compromised device.|
 
-## <a id="sas-minimum-permissions"></a>Connect to Event Hub using SAS keys that have the mimimum permissions required
+## <a id="sas-minimum-permissions"></a>Connect to Event Hub using SAS keys that have the minimum permissions required
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -299,7 +299,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | N/A  |
-| Steps | <p>Application should safeguard its own configuration and user data in case if phone is rooted or jail broken. Rooting/jail breaking implies unauthorized accesss, which normal users won't do on their own phones. Therefore application should have implicit detection logic on application startup, to detect if the phone has been rooted.</p><p>The detection logic can be simply accessing files which normally only root user can access, for example:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>If the application can access any of these files, it denotes that the application is running as root user.</p>|
+| Steps | <p>Application should safeguard its own configuration and user data in case if phone is rooted or jail broken. Rooting/jail breaking implies unauthorized access, which normal users won't do on their own phones. Therefore application should have implicit detection logic on application startup, to detect if the phone has been rooted.</p><p>The detection logic can be simply accessing files which normally only root user can access, for example:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>If the application can access any of these files, it denotes that the application is running as root user.</p>|
 
 ## <a id="weak-class-wcf"></a>Weak Class Reference in WCF
 
@@ -395,7 +395,7 @@ return result;
 | Applicable Technologies | Generic, MVC5 |
 | Attributes              | N/A, Identity Provider - ADFS, Identity Provider - Azure AD |
 | References              | [Authentication and Authorization in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
-| Steps | <p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identitiy provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p><p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identitiy provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p>
+| Steps | <p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p><p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p>
 
 ### Example
 ```C#

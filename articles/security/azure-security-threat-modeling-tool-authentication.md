@@ -66,7 +66,7 @@ ms.author: rodsan
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | N/A  |
-| Details | <p>Verify the application has additional authorisation (such as step up or adaptive authentication, via multi-factor authentication such as sending OTP in SMS, email etc. or prompting for reauthentication) so the user is challenged before being granted access to sensitive information. This rule also applies for making critical changes to an account or action</p><p>This also means that the adaptation of authentication has to be implemented in such a manner that the application correctly enforces context-sensitive authorisation so as to not allow unauthorised manipulation by means of in example, parameter tampering</p>|
+| Details | <p>Verify the application has additional authorization (such as step up or adaptive authentication, via multi-factor authentication such as sending OTP in SMS, email etc. or prompting for re-authentication) so the user is challenged before being granted access to sensitive information. This rule also applies for making critical changes to an account or action</p><p>This also means that the adaptation of authentication has to be implemented in such a manner that the application correctly enforces context-sensitive authorization so as to not allow unauthorized manipulation by means of in example, parameter tampering</p>|
 
 ## <a id="admin-interface-lockdown"></a>Ensure that administrative interfaces are appropriately locked down
 
@@ -88,7 +88,7 @@ ms.author: rodsan
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | N/A  |
-| Details | <p>The first thing is to verify that forgot password and other recovery paths send a link including a time-limited activation token rather than the password itself. Additional authentication based on soft-tokens (e.g. SMS token, native mobile applications, etc.) can be required as well before the link is sent over. Second, you should not lock out the users account whilst the process of getting a new password is in progress.</p><p>This could lead to a Denial of service attack whenever an attacker decides to intentionally lock out the users with an automated attack. Third, whenever the new password request was set in progress, the message you display should be generalised in order to prevent username enumeration. Fourth, always disallow the use of old passwords and implement a strong password policy.</p> |
+| Details | <p>The first thing is to verify that forgot password and other recovery paths send a link including a time-limited activation token rather than the password itself. Additional authentication based on soft-tokens (e.g. SMS token, native mobile applications, etc.) can be required as well before the link is sent over. Second, you should not lock out the users account whilst the process of getting a new password is in progress.</p><p>This could lead to a Denial of service attack whenever an attacker decides to intentionally lock out the users with an automated attack. Third, whenever the new password request was set in progress, the message you display should be generalized in order to prevent username enumeration. Fourth, always disallow the use of old passwords and implement a strong password policy.</p> |
 
 ## <a id="pword-account-policy"></a>Ensure that password and account policy are implemented
 
@@ -110,7 +110,7 @@ ms.author: rodsan
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | N/A  |
-| Steps | All error messages should be generalised in order to prevent username enumeration. Also sometimes you cannot avoid information leaking in functionalities such as a registration page. Here you need to use rate-limiting methods like CAPTCHA to prevent an automated attack by an attacker. |
+| Steps | All error messages should be generalized in order to prevent username enumeration. Also sometimes you cannot avoid information leaking in functionalities such as a registration page. Here you need to use rate-limiting methods like CAPTCHA to prevent an automated attack by an attacker. |
 
 ## <a id="win-authn-sql"></a>When possible, use Windows Authentication for connecting to SQL Server
 
@@ -187,7 +187,7 @@ ms.author: rodsan
 | Applicable Technologies | Generic |
 | Attributes              | Environment - Azure  |
 | References              | [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
-| Steps | <p>Clusters should always be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it.</p><p>While creating a service fabric cluster, ensure that the security mode is set to "secure" and configure the required X.509 server certificate. Creating an "unsecure" cluster will allow any anonymous user to connect to it if it exposes management endpoints to the public Internet.</p>|
+| Steps | <p>Clusters should always be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it.</p><p>While creating a service fabric cluster, ensure that the security mode is set to "secure" and configure the required X.509 server certificate. Creating an "insecure" cluster will allow any anonymous user to connect to it if it exposes management endpoints to the public Internet.</p>|
 
 ## <a id="fabric-cn-nn"></a>Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate
 
@@ -501,7 +501,7 @@ await deviceClient.SendEventAsync(message);
     hmac.update(toSign);
     var base64signature = hmac.digest('base64');
     var base64UriEncoded = encodeURIComponent(base64signature);
-    // construct autorization string
+    // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
     + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
@@ -520,7 +520,7 @@ await deviceClient.SendEventAsync(message);
     var deviceJSON = {deviceId:"<deviceId>",
     authentication: {
         x509Thumbprint: {
-        primaryThumbprint: "<PrimaryThimbprint>",
+        primaryThumbprint: "<PrimaryThumbprint>",
         secondaryThumbprint: "<SecondaryThumbprint>"
         }
     }}

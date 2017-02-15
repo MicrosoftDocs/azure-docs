@@ -23,7 +23,7 @@ ms.author: rodsan
 | --------------- | ------- |
 | Azure Event Hub | <ul><li>[Secure communication to Event Hub using SSL/TLS](#comm-ssltls)</li></ul> |
 | Dynamics CRM | <ul><li>[Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security](#priv-aspnet)</li></ul> |
-| Azure Data Factory | <ul><li>[Use Data managent gateway while connecting On Prem SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
+| Azure Data Factory | <ul><li>[Use Data management gateway while connecting On Prem SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
 | Identity Server | <ul><li>[Ensure that all traffic to Identity Server is over HTTPS connection](#identity-https)</li></ul> |
 | Web Application | <ul><li>[Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections](#x509-ssltls)</li><li>[Configure SSL certificate for custom domain in Azure App Service](#ssl-appservice)</li><li>[Force all traffic to Azure App Service over HTTPS connection](#appservice-https)</li><li>[Enable HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | Database | <ul><li>[Ensure SQL server connection encryption and certificate validation](#sqlserver-validation)</li><li>[Force Encrypted communication to SQL server](#encrypted-sqlserver)</li></ul> |
@@ -57,7 +57,7 @@ ms.author: rodsan
 | References              | N/A  |
 | Steps | Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security |
 
-## <a id="sqlserver-factory"></a>Use Data managent gateway while connecting On Prem SQL Server to Azure Data Factory
+## <a id="sqlserver-factory"></a>Use Data management gateway while connecting On Prem SQL Server to Azure Data Factory
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -301,7 +301,7 @@ string GetData(int value);
 | Applicable Technologies | MVC5, MVC6 |
 | Attributes              | N/A  |
 | References              | [Enforcing SSL in a Web API Controller](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
-| Steps | If an application has both an HTTPS and an HTTP binding, clients can still use HTTP to access the site. To preevnt this, use an action filter to ensure that requests to protected APIs are always over HTTPS.|
+| Steps | If an application has both an HTTPS and an HTTP binding, clients can still use HTTP to access the site. To prevent this, use an action filter to ensure that requests to protected APIs are always over HTTPS.|
 
 ### Example 
 The following code shows a Web API authentication filter that checks for SSL: 
@@ -365,5 +365,5 @@ Please note that Redis is designed to be accessed by trusted clients inside trus
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Choose your Communcation Protocol](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
+| References              | [Choose your Communication Protocol](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
 | Steps | Secure HTTP/AMQP or MQTT protocols using SSL/TLS. |
