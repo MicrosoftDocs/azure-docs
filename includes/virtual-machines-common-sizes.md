@@ -253,9 +253,9 @@ For information and considerations about using these sizes, see [About the H-ser
 <br>
 
 
-## L-series 
+## Ls-series 
 
-The L-series is optimized for workloads that require low latency local storage, like NoSQL databases (e.g. Cassandra, MongoDB, Cloudera and Redis). The L-series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per CPU core.  
+The Ls-series is optimized for workloads that require low latency local storage, like NoSQL databases (e.g. Cassandra, MongoDB, Cloudera and Redis). The Ls-series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per CPU core.  
 
  
 | Size          | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth | 
