@@ -20,7 +20,7 @@ ms.author: saurinsh
 ---
 # Plan Azure domain-joined Hadoop clusters in HDInsight
 
-The traditional Hadoop is a single user cluster. It is suitable for most companies that have smaller application teams building large data workloads. As Hadoop gains popularity, many enterprises are moving toward a model in which clusters are managed by IT teams and multiple application teams share clusters. Thus, functionalities involving multiuser clusters are among the most requested functionalities in HDInsight.
+The traditional Hadoop is a single-user cluster. It is suitable for most companies that have smaller application teams building large data workloads. As Hadoop gains popularity, many enterprises are moving toward a model in which clusters are managed by IT teams and multiple application teams share clusters. Thus, functionalities involving multiuser clusters are among the most requested functionalities in HDInsight.
 
 Instead of building its own multiuser authentication and authorization, HDInsight relies on the most popular identity provider--Azure Active Directory (Azure AD). The powerful security functionality in Azure AD can be used to manage multiuser authorization in HDInsight. By integrating HDInsight with Azure AD, you can communicate with the clusters by using your Azure AD credentials. HDInsight maps an Azure AD user to a local Hadoop user, so all the services running on HDInsight (Ambari, Hive server, Ranger, Spark thrift server, and others) work seamlessly for the authenticated user.
 
@@ -40,16 +40,16 @@ This is the simplest architecture for integrating HDInsight with Azure AD. The A
 > In this architecture, you cannot use Azure Data Lake Store with HDInsight cluster.
 
 
-Prerequisites for Azure AD:
+Prerequisites for the Active Directory:
 
 * An [Organizational Unit](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) must be created, within which you place the HDInsight cluster VMs and the service principals used by the cluster.
-* [Lightweight Directory Access Protocols](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) must be set up for communicating with Azure AD. The certificate used to set up LDAPS must be a real certificate (not a self-signed certificate).
+* [Lightweight Directory Access Protocols](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) must be set up for communicating with the Active Diectory. The certificate used to set up LDAPS must be a real certificate (not a self-signed certificate).
 * Reverse DNS zones must be created on the domain for the IP address range of the HDInsight Subnet (for example 10.2.0.0/24 in the previous picture).
 * A service account or a user account is needed. Use this account to create the HDInsight cluster. This account must have the following permissions:
 
     - Permissions to create service principal objects and machine objects within the organizational unit
     - Permissions to create reverse DNS proxy rules
-    - Permissions to join machines to the Azure AD domain
+    - Permissions to join machines to the Active Directory domain
 
 **HDInsight integrated with a cloud-only Azure AD**
 
@@ -76,7 +76,7 @@ Prerequisites for Azure AD:
 
 **HDInsight integrated with an on-premises Active Directory via VPN**
 
-This architecture is similar to HDInsight integrated with Active Directory running on Azure IAAS. The only difference is that Azure AD is on-premises and the line of sight for HDInsight to Azure AD is via a [VPN connection from Azure to an on-premises network](../expressroute/expressroute-introduction.md).
+This architecture is similar to HDInsight integrated with Azure AD running on Azure IAAS. The only difference is that Azure AD is on-premises and the line of sight for HDInsight to Azure AD is via a [VPN connection from Azure to an on-premises network](../expressroute/expressroute-introduction.md).
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_3.png)
 
@@ -123,10 +123,10 @@ This architecture is similar to HDInsight integrated with a cloud-only Azure AD.
 
 The Azure AD DS creates domain controller machines on the cloud and provides IP addresses for them. It creates two domain controllers for high availability.
 
-The Azure AD DS exists only in Classic VNets, so you need access to the Azure classic portal, and you must create a classic VNet for configuring Azure AD DS. The HDInsight VNet exists in the Azure portal, which needs to be peered with the classic VNet by using VNet to VNet peering.
+The Azure AD DS exists only in classic VNets, so you need access to the Azure classic portal, and you must create a classic VNet for configuring Azure AD DS. The HDInsight VNet exists in the Azure portal, which needs to be peered with the classic VNet by using VNet to VNet peering.
 
 > [!NOTE]
-> Peering between the Classic and Azure Resource Manager VNets requires that both VNets are in the same region and are under the same Azure subscription.
+> Peering between the classic and Azure Resource Manager VNets requires that both VNets are in the same region and are under the same Azure subscription.
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
 
