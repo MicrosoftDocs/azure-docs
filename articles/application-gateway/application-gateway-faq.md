@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for Application Gateway | Microsoft Docs
-description: This page provides answers to frequently asked questions 
+title: Frequently asked questions for Azure Application Gateway | Microsoft Docs
+description: This page provides answers to frequently asked questions about Azure Application Gateway
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -278,4 +278,6 @@ Yes, Application Gateway does support alerts, alerts are configured off metrics.
 
 The most common reason is access to the backend is being blocked by an NSG or custom DNS. Visit [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md) to learn more.
 
+## Next Steps
 
+To learn more about Application Gateway visit [Introduction to Application Gateway](application-gateway-introduction.md).
