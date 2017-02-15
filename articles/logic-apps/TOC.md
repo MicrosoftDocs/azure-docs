@@ -12,8 +12,8 @@
 # How To
 ## Build
 ### [Build and deploy logic apps with Visual Studio](logic-apps-deploy-from-vs.md)
-### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
+### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
 ### [Add switch statements](logic-apps-switch-case.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
 ### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
@@ -66,13 +66,16 @@
 #### [Track B2B messages in OMS](logic-apps-track-b2b-messages-omsportal.md)
 #### [Query OMS for messages](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 ### [Manage artifacts in integration accounts](logic-apps-enterprise-integration-accounts.md)
-### [Pricing & billing](logic-apps-pricing.md)
 
 ## Examples, scenarios, and walkthroughs
 ### [Overview](logic-apps-examples-and-scenarios.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
+
+## Pricing & billing
+### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+### [Billing plans](logic-apps-pricing.md)
 
 # Reference
 ## [REST API](/rest/api/logic/)
@@ -83,6 +86,5 @@
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps)
-## [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)  
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
