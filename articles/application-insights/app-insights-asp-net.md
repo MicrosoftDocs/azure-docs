@@ -52,7 +52,7 @@ In Visual Studio, you see a count of the events that have been logged.
 
 ## 3. See your telemetry...
 ### ... in Visual Studio
-Open the Application Insights window in Visual Studio: Either click the Application Insights button, or right-click your project in Solution Explorer:
+Open the Application Insights window in Visual Studio: Either click the Application Insights button, or right-click your project in Solution Explorer, select `Application Insights` and then click `Search Live Telemetry`:
 
 ![In Visual Studio, the Application Insights button shows during debugging.](./media/app-insights-asp-net/55.png)
 
