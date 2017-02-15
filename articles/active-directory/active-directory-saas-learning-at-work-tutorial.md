@@ -116,12 +116,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
     1. Click **Download metadata**, and then save the file on your computer.
     2. Click **Next**.
-5. To get SSO configured for your application, contact Learning at Work (Saba Cloud) support team and provide them with the following:
-   
-    • The downloaded metadata
-    • The **Issuer Url**
-    • The **SAML SSO URL**
-    • The **Single Sign Out Service URL**
+5. To get SSO configured for your application, contact Learning at Work (Saba Cloud) support team and provide them with the following:  
+     * The downloaded metadata
+     * The **Issuer Url**
+     * The **SAML SSO URL**
+     * The **Single Sign Out Service URL**
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Azure AD Single Sign-On][10]
@@ -147,14 +146,15 @@ In this section, you create a test user in the classic portal called Britta Simo
    
     ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_04.png) 
 5. On the **Tell us about this user** dialog page, perform the following steps:
+
     ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png) 
-   
+  
     1. As Type Of User, select New user in your organization.
     2. In the User Name **textbox**, type **BrittaSimon**.
     3. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
+
    ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_06.png) 
-   
    1. In the **First Name** textbox, type **Britta**.  
    2. In the **Last Name** textbox, type, **Simon**.
    3. In the **Display Name** textbox, type **Britta Simon**.
@@ -166,7 +166,6 @@ In this section, you create a test user in the classic portal called Britta Simo
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_08.png) 
-   
     1. Write down the value of the **New Password**.
     2. Click **Complete**.   
 
