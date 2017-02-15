@@ -66,7 +66,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Innotas** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Innotas** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Innotas** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -88,7 +88,7 @@ The objective of this section is to outline how to enable users to authenticate 
 There is no action item for you to configure user provisioning to Innotas.  
 When an assigned user tries to log into Innotas using the access panel, Innotas checks whether the user exists.  
 
->!NOTE]
+>[!NOTE]
 >If there is no user account available yet, it is automatically created by Innotas.
 >
 
