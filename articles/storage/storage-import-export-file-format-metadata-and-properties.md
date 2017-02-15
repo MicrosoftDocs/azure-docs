@@ -1,5 +1,5 @@
 ---
-title: Azure Import-Export metadata and properties file format | Microsoft Docs
+title: Azure Import/Export metadata and properties file format | Microsoft Docs
 description: Learn how to specify metadata and properties for one or more blobs that are part of an import or export job
 author: muralikk
 manager: syadav

@@ -1,5 +1,5 @@
 ---
-title: Retrieving state information for an Azure Import/Export service job | MicrosoftDocs
+title: Retrieving state info for an Azure Import/Export job | MicrosoftDocs
 description: Learn how to obtain state information for Microsoft Azure Import/Export service jobs
 author: muralikk
 manager: syadav

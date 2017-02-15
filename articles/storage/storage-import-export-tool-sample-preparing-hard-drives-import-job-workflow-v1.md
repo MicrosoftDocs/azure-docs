@@ -1,5 +1,5 @@
 ---
-title: Sample workflow to prepare hard drives for an import job (v1) | Microsoft Docs
+title: Sample workflow to prep hard drives for an Azure Import job | Microsoft Docs
 description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import-Export Service
 author: muralikk
 manager: syadav
