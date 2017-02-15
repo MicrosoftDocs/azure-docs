@@ -21,9 +21,6 @@ ms.author: rachelap
 
 Azure Functions supports SendGrid output bindings to enable your functions to send email messages with a few lines of code and a SendGrid account.
 
-> [!IMPORTANT]
-> SendGrid is currently in Preview mode. 
-
 To use the SendGrid API in an Azure Function, you must have a [SendGrid account](http://SendGrid.com), if you do not have one already. Additionally, you must have a SendGrid API Key. Log in to your [SendGrid account](http://SendGrid.com) and click **Settings** then **API Key** to generate an API key. Keep this key available as you use it in an upcoming step.
 
 You are now ready to create an Azure Function app.
@@ -85,6 +82,7 @@ The SendGrid API contains all the commands you need to create and send an email.
 1. Replace the code in the function with the following code:
 
 ```cs
+#r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
 
