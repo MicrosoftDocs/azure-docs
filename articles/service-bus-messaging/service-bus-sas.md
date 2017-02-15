@@ -58,7 +58,7 @@ You can configure the [SharedAccessAuthorizationRule](/dotnet/api/microsoft.serv
 
 A maximum of 12 such rules can be configured on a Service Bus namespace, queue, or topic. Rules that are configured on a Service Bus namespace apply to all entities in that namespace.
 
-![SAS](./media/service-bus-sas/IC676272.gif)
+![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
 In this figure, the *manageRuleNS*, *sendRuleNS*, and *listenRuleNS* authorization rules apply to both queue Q1 and topic T1, while *listenRuleQ* and *sendRuleQ* apply only to queue Q1 and *sendRuleT* applies only to topic T1.
 
