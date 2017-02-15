@@ -78,6 +78,7 @@ Remember, that the replication will only happen over S2S VPN, or the private pee
 ### Which Master target server to use for reprotect?
 A master target server is required on-premises to receive the data from the process server and then write to the on-premises VM's VMDK. If you are protecting Windows VMs, you need a Windows master target server, and here you can reuse the on-premises PS+MT <!-- !todo component -->. For Linux VMs, you will need to setup an additional Linux master target on-premises.
 
+
 Click on the following links to reads the steps on How to install a Master Target server.
 
 * [How to install Windows Master Target server](site-recovery-vmware-to-azure.md#run-site-recovery-unified-setup)
