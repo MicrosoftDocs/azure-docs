@@ -83,9 +83,10 @@ The following tables describes the ports and protocols that are required for com
 |HTTPS|9091|	Enable Connector trust certificate automatic renewal
 
 ### Table 6b - Password Hash Sync with SSO
-If you are enabling 'Single Sign On with 'Password Sync' and there is a firewall between Azure AD Connect and Azure AD make sure that"
+If you are enabling 'Single Sign On with 'Password Sync' and there is a firewall between Azure AD Connect and Azure AD make sure that:
 - The Azure AD Connect server can communicate with *.msappproxy.net
 - Azure AD Connect can make HTTPS requests to Azure AD on the ports below:
+
 |Protocol|Port Number|Description
 | --- | --- | ---
 |HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
