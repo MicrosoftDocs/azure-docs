@@ -75,7 +75,7 @@ Configuring single sign-on for Coupa requires you to retrieve a thumbprint value
    
    ![Coupa SP metadata](./media/active-directory-saas-coupa-tutorial/IC791901.png "Coupa SP metadata")
 4. In a different browser window, sign on to the Azure classic portal.
-5. On the **Coupa** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+5. On the **Coupa** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791902.png "Configure Single Sign-On")
 6. On the **How would you like users to sign on to Coupa** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -95,6 +95,7 @@ Configuring single sign-on for Coupa requires you to retrieve a thumbprint value
    
    ![Security Controls](./media/active-directory-saas-coupa-tutorial/IC791900.png "Security Controls")
 10. In the **Log in using Coupa credentials** section, perform the following steps:  
+
    ![Log in using Coupa credentials](./media/active-directory-saas-coupa-tutorial/IC791906.png "Log in using Coupa credentials") 
    1. Select **Log in using SAML**.
    2. Click **Browse** to upload your downloaded Azure Active metadata file.
