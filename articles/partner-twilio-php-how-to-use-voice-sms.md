@@ -133,8 +133,8 @@ $message = "Hello world.";
 try
 {
     $call = $client->calls->create(
-        $from_number, 
-        $to_number,
+        $to_number, 
+        $from_number,
         ['url' => $url.'?Message='.urlencode($message)]
     );
 }
@@ -201,13 +201,11 @@ The following PHP page results in a TwiML response that says **Hello World** on 
 </Response>
 ```
 
-As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for PHP contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **Services\_Twilio\_Twiml** class in the Twilio library for PHP:
+As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for PHP contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **Twilio\Twim** class in the Twilio library for PHP:
 
 ```php
-require_once('Services/Twilio.php');
-
-$response = new Services_Twilio_Twiml();
-$response->say("Hello world.");
+$response = new Twilio\Twiml();
+$response->say('Hello');
 print $response;
 ```
 
@@ -216,10 +214,17 @@ For more information about TwiML, see [https://www.twilio.com/docs/api/twiml][tw
 Once you have your PHP page set up to provide TwiML responses, use the URL of the PHP page as the URL passed into the  `Services_Twilio->account->calls->create`  method. For example, if you have a Web application named **MyTwiML** deployed to an Azure hosted service, and the name of the PHP page is **mytwiml.php**, the URL can be passed to  **Services_Twilio->account->calls->create**  as shown in the following example:
 
 ```php
-require_once 'Services/Twilio.php';
+// Required if your environment does not handle autoloading
+require __DIR__ . '/vendor/autoload.php';
 
-$sid = "your_twilio_account_sid";
-$token = "your_twilio_authentication_token";
+// Use the REST API Client to make requests to the Twilio REST API
+use Twilio\Rest\Client;
+
+// Your Account SID and Auth Token from twilio.com/console
+$sid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+$token = 'your_auth_token';
+$client = new Client($sid, $token);
+
 $from_number = "NNNNNNNNNNN";
 $to_number = "NNNNNNNNNNN";
 $url = "http://<your_hosted_service>.cloudapp.net/MyTwiML/mytwiml.php";
@@ -227,14 +232,12 @@ $url = "http://<your_hosted_service>.cloudapp.net/MyTwiML/mytwiml.php";
 // The phone message text.
 $message = "Hello world.";
 
-$client = new Services_Twilio($sid, $token, "2010-04-01");
-
 try
 {
-    $call = $client->account->calls->create(
-        $from_number, 
-        $to_number,
-          $url.'?Message='.urlencode($message)
+    $call = $client->calls->create(
+        $to_number, 
+        $from_number,
+        ['url' => $url.'?Message='.urlencode($message)]
     );
 }
 catch (Exception $e) 
