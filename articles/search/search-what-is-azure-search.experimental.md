@@ -22,7 +22,9 @@ Azure Search offers a dedicated and programmable search engine with intelligent 
 
 ![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch3.png)
 
-Adding a great search experience is a necessity for web and mobile apps. Full text search with autocompleted query terms, spelling corrections, and matches based on semantically identical but superficially different inputs ("car" and "auto") is almost the minimum bar, despite the technical complexity backing the experience. Equally important are operational requirements for scale, reliability, and synchronization between search and backend data stores. Azure Search provides a comprehensive range of capabilities for both search experience and operations.
+Adding a great search experience is a necessity for web and mobile apps. Full text search with autocompleted query terms, spelling corrections, and matches based on semantically identical but superficially different inputs ("car" and "auto") is almost the minimum bar, despite the technical complexity backing the experience. Equally important are operational requirements for scale, reliability, and synchronization between search and backend data stores. 
+
+Azure Search provides a comprehensive range of capabilities for both search experience and operations.
 
 ![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -73,7 +75,7 @@ Azure Search supports language analyzers for [56 different languages](https://ms
 
 #### Data integration
 
-You can push any JSON data structure to an Azure Search index. Additionally, for supported data sources, you can use [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
+You can push JSON data structures to an Azure Search index. Additionally, for supported data sources, you can use [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
 
 **Document cracking** enables [indexing of major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office as well as PDF and HTML documents.
 
