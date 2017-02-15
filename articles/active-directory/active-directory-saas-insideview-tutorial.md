@@ -68,7 +68,7 @@ As part of this procedure, you are required to create a base-64 encoded certific
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **InsideView** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **InsideView** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794131.png "Configure Single SignOn")
 2. On the **How would you like users to sign on to InsideView** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -92,8 +92,8 @@ As part of this procedure, you are required to create a base-64 encoded certific
    2. In the Azure classic portal, on the **Configure single sign-on at InsideView** dialog page, copy the **Service Provider (SP) Initiated Endpoint** value, and then paste it into the **SamlP/WS-Fed Unsolicated EndPoint** textbox.
    3. Create a **base-64 encoded** file from your downloaded certificate.      
       >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o) 
-      > 
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
+      >
    4. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox
    5. Complete the following:
     * In the **Crm User Id Mapping** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
