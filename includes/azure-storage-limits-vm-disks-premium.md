@@ -14,7 +14,7 @@
 | --- | --- | --- | --- |
 | Disk size |128 GiB |512 GiB |1024 GiB (1 TB) |
 | Max IOPS per disk |500 |2300 |5000 |
-| Max throughput per disk |100 MB per second |150 MB per second |200 MB per second |
+| Max throughput per disk |100 MB/s | 150 MB/s |200 MB/s |
 | Max number of disks per storage account |280 |70 |35 |
 
 **Premium unmanaged virtual machine disks: per VM limits**

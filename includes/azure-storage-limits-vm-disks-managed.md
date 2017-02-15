@@ -6,21 +6,13 @@
 | IOPS per disk | 500 |500 |500 |500 |500 |
 | Throughput per disk | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 
 
-**Premium managed virtual machine disks**
-
-| Premium Disk Type | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Disk size |128 GiB |512 GiB |1024 GiB (1 TB) |
-| Max IOOPS per disk |500 |2300 |5000 |
-| Max throughput per disk |100 MB/s |150 MB/s |200 MB/s |
-
 **Premium managed virtual machine disks: per disk limits**
 
 | Premium Storage Disk Type | P10 | P20 | P30 |
 | --- | --- | --- | --- |
 | Disk size |128 GiB |512 GiB |1024 GiB (1 TB) |
 | Max IOPS per disk |500 |2300 |5000 |
-| Max throughput per disk |100 MB per second |150 MB per second |200 MB per second |
+| Max throughput per disk |100 MB/s |150 MB/s |200 MB/s |
 
 **Premium managed virtual machine disks: per VM limits**
 
