@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 02/15/2017
 ms.author: genli
 
 ---
@@ -25,6 +25,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 * [Quota error when trying to open a file](#quotaerror)
 * [Slow performance when you access Azure File storage from Windows or from Linux](#slowboth)
+* [How to trace the read and write operations in Azure File Storage](#traceop)
 
 **Windows client problems**
 
@@ -38,11 +39,13 @@ This article lists common problems that are related to Microsoft Azure File stor
 **Linux client problems**
 
 * [Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure Files](#encryption)
-* ["Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
+* [Intermittent IO Error - "Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 * [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 * [Linux VM experiencing random delays in commands like "ls"](#delayproblem)
+* [Error 112 - timeout error](#error112)
 
 **Accessing from other applications**
+
 * [Can I reference the azure file share for my application through a webjob?](#webjobs)
 
 <a id="quotaerror"></a>
@@ -97,6 +100,14 @@ If hotfix is installed, the following output is displayed:
 > Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
 >
 >
+
+<a id="traceop"></a>
+
+### How to trace the read and write operations in Azure File Storage
+
+[Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) is able to show you a client’s request in clear text and there’s a pretty good relation between wire requests and transactions (assuming SMB here not REST).  The downside is that you have to run this on each client which is time-consuming if you have many IaaS VM workers.
+
+If you use the Message Analyze with ProcMon, you can get a pretty good idea which App code is responsible for the transactions.
 
 <a id="additional"></a>
 
@@ -239,7 +250,20 @@ file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.+
 
-<a id="webjobs"></a> 
+<a id="error112"></a>
+## Error 112 - timeout error
+
+This error indicates communication failures that prevent re-establishing a TCP connection to the server when “soft” mount option is used, which is the default.
+
+### Cause
+
+This error can be caused by a Linux reconnect issue or other problems that prevent reconnection, such as network errors. Specifying a hard mount will force the client to wait until a connection is established or until explicitly interrupted, and can be used to prevent errors due to network timeouts. However, users should be aware that this could lead to indefinite waits and should handle halting a connection as needed.
+
+### Workaround
+
+The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
+
+<a id="webjobs"></a>
 
 ## Accessing from other applications
 ### Can I reference the azure file share for my application through a webjob?

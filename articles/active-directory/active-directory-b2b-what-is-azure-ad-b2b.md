@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 
 ---
@@ -27,7 +27,7 @@ Azure AD B2B collaboration capabilities enable organizations of all sizes and in
 
 ## How does it work?
 
-In the current release (in the [Azure classic portal](https://manage.windowsazure.com)), to establish a relationship with an organization, IT pros and information workers can add users from another org one or a few at a time through the portal or the Invitation Manager API. Now, admins can use the new portal experiences in the Azure portal (https://portal.azure.com) and PowerShell for this. And information workers can use the Access Panel experiences in http://myapps.microsoft.com. Developers can create applications using the Azure AD B2B invitation manager API to add B2B collaboration users and customize the invitation and onboarding workflows.
+In the current preview release, to establish a relationship with an organization, IT pros and information workers can add users from another org one or a few at a time through the portal or the Invitation Manager API. Admins can use the new portal experiences in the Azure portal (https://portal.azure.com) and PowerShell for this. And information workers can use the Access Panel experiences in http://myapps.microsoft.com. Developers can create applications using the Azure AD B2B invitation manager API to add B2B collaboration users and customize the invitation and onboarding workflows.
 
 B2B collaboration users are typically brought on board through an invitation + redemption process. Here's how it works.
 
@@ -80,9 +80,8 @@ You have been using the B2B collaboration capabilities that we had in public pre
 
 Browse our other articles on Azure AD B2B collaboration:
 
-* [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-how-it-works.md)
+* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
 * [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
 * [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
@@ -90,4 +89,5 @@ Browse our other articles on Azure AD B2B collaboration:
 * [Azure Active Directory B2B collaboration frequently-asked questions (FAQ)](active-directory-b2b-faq.md)
 * [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
 * [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
+* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

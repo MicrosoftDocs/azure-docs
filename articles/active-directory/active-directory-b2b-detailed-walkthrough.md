@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/09/2016
+ms.date: 02/09/2017
 ms.author: viviali
 
 ---
@@ -58,7 +58,7 @@ We will add Carol next, who needs access to applications as well as membership t
 
 ## Adding Carol to the Contoso directory, granting access to apps, and giving group membership
 1. Use Windows PowerShell with the Azure AD Module installed to find the application IDs and group IDs within Contoso.
-   
+
    * Retrieve AppPrincipalId using cmdlet `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`, same as for Bob
    * Retrieve ObjectId for groups using cmdlet `Get-MsolGroup | fl DisplayName, ObjectId`. This brings up a list of all groups in Contoso and their ObjectIds. Group IDs can also be retrieved as the Object ID in the Properties tab of the group in the Azure portal.  
      ![Retrieve IDs and groups for Carol](./media/active-directory-b2b-detailed-walkthrough/CarolPowerShell.png)
@@ -82,4 +82,3 @@ Browse our other articles on Azure AD B2B collaboration:
 * [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 * [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-

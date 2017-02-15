@@ -1,5 +1,17 @@
 ---
+title: Azure Government Documentation - Tutorials, API Reference | Microsoft Docs
+description: 
+services: Azure-government
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: Azure-government
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Azure Government Documentation
 

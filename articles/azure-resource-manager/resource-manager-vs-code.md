@@ -29,7 +29,7 @@ To work with the JSON templates in VS Code, you need to install an extension. Th
 2. Open Quick Open (Ctrl+P) 
 3. Run the following command: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Restart VS Code when prompted to enable the extension. 
    
    Job done!

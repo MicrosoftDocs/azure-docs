@@ -12,10 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
-ms.date: 01/17/2017
-ms.author: vakarand
-
+ms.date: 02/12/2017
+ms.author: billmath
 ---
 # Azure AD Connect Health Frequently Asked Questions (FAQ)
 This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
@@ -31,13 +29,29 @@ The following table lists the roles and supported Operating System versions.
 
 |Role| Operating System / Version|
 |--|--|
-|AD FS| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012R2 </li> <li> Windows Server 2016  </li> </ul>|
+|AD FS| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 |Azure AD Connect | Version 1.0.9125 or higher.|
-|AD DS| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012R2 </li> <li> Windows Server 2016  </li> </ul>|
+|AD DS| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
 Note that the features provided by the service may differ based on the Role and the Operating System. In other words, all the features may not be available for all OS versions. See the feature descriptions for details.
 
+**Q: How many licenses do I need to monitor my infrastructure?**
 
+* First Connect Health agent requires at least one Azure AD Premium license.
+* Each additional registered agent requires 25 additional AADP licenses. 
+* Agent count is equivalent to the total number of agents registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS.)
+
+Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
+
+Example:
+
+| Registered Agents | Licenses Needed | Example Monitoring Configuration |
+| ------ | --------------- | --- |
+| 1 | 1 | 1 AAD Connect Server |
+| 2 | 26| 1 AAD Connect Server and 1 Domain Controller |
+| 3 | 51 | 1 AD FS Server, 1 AD FS Proxy and 1 Domain Controller |
+| 4 | 76 | 1 AD FS Server, 1 AD FS Proxy and 2 Domain Controller |
+| 5 | 101 | 1 AAD Connect Server, 1 AD FS Server, 1 AD FS Proxy and 2 Domain Controllers |
 ## Installation Questions
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 

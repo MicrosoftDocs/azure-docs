@@ -50,7 +50,7 @@ The following diagram highlights the important components in this architecture.
 > 
 > 
 
-[![0]][0] 
+![[0]][0] 
 
 * **On-premises network**. The on-premises network includes local Active Directory servers that can perform authentication and authorization for components located on-premises.
 * **Active Directory servers**. These are domain controllers implementing directory services (AD DS) running as VMs in the cloud. These servers can provide authentication of components running in your Azure virtual network.

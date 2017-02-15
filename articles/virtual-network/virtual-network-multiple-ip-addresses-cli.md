@@ -34,9 +34,26 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article and log into your Azure account.
 
-2. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
-	- Until you receive an e-mail notifying you that you've been accepted into the preview
-	- Without following the instructions in the email you receive
+2. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
+	```
+	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+	
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+	```
+	Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+		
+	```powershell
+	FeatureName                            ProviderName      RegistrationState
+	-----------                            ------------      -----------------      
+	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+	```
+		
+	>[!NOTE] 
+	>This may take a few minutes.
+
 3. [Create a resource group](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Change the ``` --address-prefixes ``` and ```--address-prefix``` fields to the following to follow the exact sceanrio outlined in this article:
 
 	```azurecli

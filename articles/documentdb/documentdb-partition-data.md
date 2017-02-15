@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 02/09/2017
 ms.author: arramac
 
 ---
@@ -131,7 +131,7 @@ The following table lists differences in working with a single-partition and par
         <tr>
             <td valign="top"><p>Minimum Throughput</p></td>
             <td valign="top"><p>400 request units per second</p></td>
-            <td valign="top"><p>10,000 request units per second</p></td>
+            <td valign="top"><p>2,500 request units per second</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Maximum Throughput</p></td>
@@ -171,11 +171,11 @@ For this sample, we picked `deviceId` since we know that (a) since there are a l
 
 
 > [!NOTE]
-> In order to create partitioned collections, you must specify a throughput value of > 10,000 request units per second. Since throughput is in multiples of 100, this has to be 10,100 or higher.
+> In order to create partitioned collections using the SDK, you must specify a throughput value equal or greater than 10,100 RU/s. To set a throughput value between 2,500 and 10,000 for partitioned collections you must temporarily use the Azure portal, as these new lower values are not yet available in the SDK.
 > 
 > 
 
-This method makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a collection as your performance needs evolve. See [Performance Levels](documentdb-performance-levels.md) for more details.
+This method makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a collection as your performance needs evolve. 
 
 ### Reading and writing documents
 Now, let's insert data into DocumentDB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
@@ -291,7 +291,7 @@ When an application using a single-partition collection needs higher throughput 
 To migrate from a single-partition collection to a partitioned collection
 
 1. Export data from the single-partition collection to JSON. See [Export to JSON file](documentdb-import-data.md#export-to-json-file) for additional details.
-2. Import the data into a partitioned collection created with a partition key definition and over 10,000 request units per second throughput, as shown in the example below. See [Import to DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) for additional details.
+2. Import the data into a partitioned collection created with a partition key definition and over 2,500 request units per second throughput, as shown in the example below. See [Import to DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) for additional details.
 
 ![Migrating Data to a Partitioned collection in DocumentDB][3]  
 
@@ -326,7 +326,7 @@ One of the most common use cases of DocumentDB is for logging and telemetry. It 
 
 * If your use case involves a small rate of writes acculumating over a long period of time, and need to query by ranges of timestamps and other filters, then using a rollup of the timestamp e.g. date as a partition key is a good approach. This allows you to query over all the data for a date from a single partition. 
 * If your workload is write heavy, which is generally more common, you should use a partition key that’s not based on timestamp so that DocumentDB can distribute writes evenly across a number of partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
-* A third approach is a hybrid one where you have multiple collections, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different performance levels based on the time window, e.g. the collection for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
+* A third approach is a hybrid one where you have multiple collections, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different throughput based on the time window, e.g. the collection for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
 
 ### Partitioning and multi-tenancy
 If you are implementing a multi-tenant application using DocumentDB, there are two major patterns for implementing tenancy with DocumentDB – one partition key per tenant, and one collection per tenant. Here are the pros and cons for each:
