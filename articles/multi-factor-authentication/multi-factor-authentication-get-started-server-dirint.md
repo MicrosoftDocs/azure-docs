@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/04/2016
+ms.date: 02/14/2017
 ms.author: kgremban
 
 ---
 # Directory integration between Azure MFA Server and Active Directory
-The Directory Integration section allows you to configure the server to integrate with Active Directory or another LDAP directory.  It allows you to configure attributes to match the directory schema and set up automatic synchronization of users.
+Use the Directory Integration section of the Azure MFA Server to integrate with Active Directory or another LDAP directory. You can configure attributes to match the directory schema and set up automatic user synchronization.
 
 ## Settings
-By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory.  The tab allows you to override the default behavior and to bind to a different LDAP directory, an ADAM directory, or specific Active Directory domain controller.  It also provides for the use of LDAP Authentication to proxy LDAP or for LDAP Bind as a RADIUS target, pre-authentication for IIS Authentication, or primary authentication for User Portal.  The following table describes the individual settings.
+By default, the Azure Multi-Factor Authentication (MFA) Server is configured to import or synchronize users from Active Directory.  The Directory Integration tab allows you to override the default behavior and to bind to a different LDAP directory, an ADAM directory, or specific Active Directory domain controller.  It also provides for the use of LDAP Authentication to proxy LDAP or for LDAP Bind as a RADIUS target, pre-authentication for IIS Authentication, or primary authentication for User Portal.  The following table describes the individual settings.
 
 ![Setttings](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
 
@@ -44,7 +44,7 @@ The following table describes the LDAP configuration settings.
 | Bind DN or Bind username |Enter the distinguished name of the user record for the account to use when binding to the LDAP directory.<br><br>The bind distinguished name is only used when Bind Type is Simple or SSL.  <br><br>Enter the username of the Windows account to use when binding to the LDAP directory when Bind Type is Windows.  If left blank, the logged-on user's account will be used to bind. |
 | Bind Password |Enter the bind password for the Bind DN or username being used to bind to the LDAP directory.  To configure the password for the Multi-Factor Auth Server AdSync Service, synchronization must be enabled and the service must be running on the local machine.  The password will be saved in the Windows Stored Usernames and Passwords under the account the Multi-Factor Auth Server AdSync Service is running as.  The password will also be saved under the account the Multi-Factor Auth Server user interface is running as and under the account the Multi-Factor Auth Server Service is running as.  <br><br> Note:  Since the password is only stored in the local server's Windows Stored Usernames and Passwords, this step will need to be done on each Multi-Factor Auth Server that needs access to the password. |
 | Query size limit |Specify the size limit for the maximum number of users that a directory search will return.  This limit should match the configuration on the LDAP directory.  For large searches where paging is not supported, import and synchronization will attempt to retrieve users in batches.  If the size limit specified here is larger than the limit configured on the LDAP directory, some users may be missed. |
-| Test button |Click the Test button to test binding to the LDAP server.  <br><br> Note: The Use LDAP option does not need to be selected in order to test binding.  This allows the binding to be tested prior to using the LDAP configuration. |
+| Test button |Click **Test** to test binding to the LDAP server.  <br><br> Note: The Use LDAP option does not need to be selected in order to test binding.  This allows the binding to be tested prior to using the LDAP configuration. |
 
 ## Filters
 Filters allow you to set criteria to qualify records when performing a directory search.  By setting the filter you can scope the objects you want to synchronize.  
@@ -91,9 +91,9 @@ Attributes may be customized as necessary for a specific directory.  This allows
 | Custom |Enter the attribute name of the attribute that contains a custom phone number in |
 | a user record.  The default is blank. | |
 | Extension |Enter the attribute name of the attribute that contains the phone number extension in a user record.  The value of the extension field will be used as the extension to the primary phone number only.  The default is blank. <br><br>Note: If the Extension attribute is not specified, extensions can be included as part of the phone attribute.  The extension should be preceded with an 'x' so it can be parsed.  For example 555-123-4567 x890 would result in 555-123-4567 as the phone number and 890 as the extension. |
-| Restore Defaults button |Click the Restore Defaults button to return all attributes back to their default value.  The defaults should work properly with the normal Active Directory or ADAM schema. |
+| Restore Defaults button |Click **Restore Defaults** to return all attributes back to their default value.  The defaults should work properly with the normal Active Directory or ADAM schema. |
 
-To edit attributes, simply click the edit button on the Attributes tab.  This will bring up a windows that allows you to edit the attributes.
+To edit attributes, click **Edit** on the Attributes tab.  This will bring up a windows that allows you to edit the attributes.
 
 ![Edit Attributes](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -124,17 +124,13 @@ The **Remove** button allows the administrator to delete one or more synchroniza
 
 > [!WARNING]
 > Once a synchronization item record has been removed, it cannot be recovered. You will need to re-add the synchronization item record if you deleted it by mistake.
-> 
-> 
 
 The synchronization item or synchronization items have been removed from Multi-Factor Auth Server.  The Multi-Factor Auth Server service will no longer process the synchronization items.
 
 The Move Up and Move Down buttons allow the administrator to change the order of the synchronization items.  The order is important since the same user may be a member of more than one synchronization item (e.g. a container and a security group).  The settings applied to the user during synchronization will come from the first synchronization item in the list to which the user is associated.  Therefore, the synchronization items should be put in priority order.
 
 > [!TIP]
-> A full synchronization should be performed after removing synchronization items.  A full synchronization should be performed after ordering synchronization items.  Click the Synchronize Now button to perform a full synchronization.
-> 
-> 
+> A full synchronization should be performed after removing synchronization items.  A full synchronization should be performed after ordering synchronization items.  Click **Synchronize Now** to perform a full synchronization.
 
 ## Multi-Factor Auth Servers
 Additional Multi-Factor Auth Servers may be set up to serve as a backup RADIUS proxy, LDAP proxy, or for IIS Authentication. The Synchronization configuration will be shared among all of the agents. However, only one of these agents may have the Multi-Factor Auth Server service running. This tab allows you to select the Multi-Factor Auth Server that should be enabled for synchronization.
