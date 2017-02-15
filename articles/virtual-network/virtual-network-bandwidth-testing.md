@@ -20,9 +20,9 @@ ms.author: steveesp
 
 # Bandwidth/Throughput testing (NTTTCP)
 
-When testing network throughput performance in Azure, it is best to use a tool that targets the network for testing and minimizes the use of other resources that could impact performance. NTTTCP is recommended.
+When testing network throughput performance in Azure, it's best to use a tool that targets the network for testing and minimizes the use of other resources that could impact performance. NTTTCP is recommended.
 
-Copy the tool to 2 Azure VMs of the same size. One VM will function as SENDER
+Copy the tool to two Azure VMs of the same size. One VM functions as SENDER
 and the other as RECEIVER.
 
 #### Deploying VMs for testing
@@ -32,10 +32,9 @@ Make a note of the RECEIVER's IP address. Let's call that IP "a.b.c.r"
 
 Make a note of the number of cores on the VM. Let's call this "\#num\_cores"
  
-Run the NTTTCP test for 300 secs (5 Mins) on the sender and receiver VM's.
+Run the NTTTCP test for 300 secs (5 Mins) on the sender VM and receiver VM.
 
-Tip: When setting this up for the first time, you might try a shorter test
-period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
+Tip: When setting this test up for the first time, you might try a shorter test period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
 
 Note: The sender **and** receiver must specify **the same** test duration
 parameter (-t).
@@ -46,7 +45,7 @@ Receiver parameters: ntttcp -r -t 10 -P 1
 
 Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 
-Note: the above sample should only be used to confirm your configuration. Please read on for valid examples of testing.
+Note: the above sample should only be used to confirm your configuration. Valid examples of testing are covered later in this document.
 
 ## Testing VMs running WINDOWS:
 
@@ -78,7 +77,7 @@ Start NTTTCP on the RECEIVER (**run from CMD**, not from PowerShell):
 
 ntttcp -r –m [2\*\#num\_cores],\*,a.b.c.r -t 300
 
-If the VM has 4 cores and an IP address of 10.0.0.4, it would look like this:
+If the VM has four cores and an IP address of 10.0.0.4, it would look like this:
 
 ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
@@ -92,7 +91,7 @@ Wait for the results.
 
 ## Testing VMs running LINUX:
 
-Use nttcp-for-linux. Get it from <https://github.com/Microsoft/ntttcp-for-linux>
+Use nttcp-for-linux. It is avaialble from <https://github.com/Microsoft/ntttcp-for-linux>
 
 On the Linux VMs (both SENDER and RECEIVER), run these command to prepare
 ntttcp-for-linux on your VMs:
