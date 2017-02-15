@@ -142,12 +142,12 @@ While a number of tasks can be performed in the portal, Azure Search is intended
 
 Search engines are the preeminent methodology for finding information in mobile apps, on the web, and in corporate data stores. Azure Search makes it simple, while giving you capabilities similar to how search is experienced on large commercial web sites. 
 
->[!VIDEO https://sec.ch9.ms/sessions/69613110-c334-4f25-bb36-08e5a93456b5/138AzureSearchOverview.mp4]
+>[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
 
- This short video from program manager Liam Cavanagh explains features and workflow. 
+ This 9-minute video from program manager Liam Cavanagh explains features and workflow. 
  
-+ 0-3m30s covers key features and search scenarios.
-+ 3m30s-4m15s covers service provisioning. 
-+ 4m15s-6m08s demonstrates using Import Data wizard to create an index using the built-in real estate dataset
-+ 6m08s-9m32s covers Search Explorer and various queries.
++ 0-3 minutes covers key features and use-cases.
++ 3-4 minutes covers service provisioning. 
++ 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
++ 6-9 minutes covers Search Explorer and various queries.
 

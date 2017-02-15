@@ -29,7 +29,7 @@ This code-free introduction gets you started with predefined data so that you ca
 + Test queries and compare parser behaviors in **Search explorer**
 + View an existing index published to your service and look up its attributes
 
-**Time Estimate:** This tutorial takes about 15 minutes to complete, or longer if account or service sign-up is also required. 
+**Time Estimate:** About 15 minutes, but longer if account or service sign-up is also required. 
 
 Alternatively, you can watch a 6-minute demonstration of the steps in this tutorial at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -108,16 +108,16 @@ In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/20
 3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs give you access to new features not yet generally released. Use the generally available version (2016-09-01) unless directed. 
 
     > [!NOTE]
-    > Azure Search REST API and the [.NET library]() are fully equivalent, but **Search explorer** is only equipped to REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
+    > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) and the [.NET library](search-howto-dotnet-sdk.md#core-scenarios) are fully equivalent, but **Search explorer** is only equipped to handle REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
     > 
     > **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements.
 
-4. In the search bar, enter the query strings below.
+4. In the search bar, enter the query strings below and click **Search**.
+
+  ![Search query example][7]
 
 **`search=seattle`**
 The `search` parameter is used to input a keyword search, in this case, returning listings in King County, Washington state,  containing Seattle in any field in the document.
-
-  ![Search query example][7]
 
 **`search=seattle&facet=beds`**
 The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of bedrooms, with a count of the documents or matches for each one. `"beds"` can be specified as a facet because it is marked as a filterable and facetable field in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms).  The `&` symbol is used to append search parameters.
@@ -135,17 +135,17 @@ Full text search finds word forms with similar semantics. In this case, search r
 Misspelled words, like 'samamish' for the Samammish plateau in the SEattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
 
 **`search=samamish~&queryType=full`**
-Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser if you require fuzzy search, regular expressions, or proximity search. For more information about query scenarios enabled by the full parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser if you require fuzzy search, regular expressions, proximity search, or other advanced query types. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 **`search=*`**
 Empty searches return everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents, as described next.
 
 **`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`**
-Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. This query filters all results for positional data, where results are less than 10 kilometers from a given point (specified as latitude and longitude coordinates). Geosearch is supported through filters, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. This query filters all results for positional data, where results are less than 10 kilometers from a given point (specified as latitude and longitude coordinates). Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 Normally, filter expressions are specified as $filter with a `$` character. In Search Explorer, you should omit the `$`.
 
-Geospatial search is useful if your search application has a 'find near me' feature or uses map navigation. It is not full text search, however. If you have application requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
+Geospatial search is useful if your search application has a 'find near me' feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
 
 ## Next steps
 
