@@ -7,15 +7,15 @@
 ## [Create your first logic app](logic-apps-create-a-logic-app.md)
 ## [Templates for logic apps](logic-apps-use-logic-app-templates.md)
 ## [Create logic apps from templates](logic-apps-arm-provision.md)
-## [Add conditions and run workflows](logic-apps-use-logic-app-features.md)
 
 # How To
 ## Build
 ### [Build and deploy logic apps with Visual Studio](logic-apps-deploy-from-vs.md)
+### [Add conditions and run workflows](logic-apps-use-logic-app-features.md)
+### [Add switch statements](logic-apps-switch-case.md)
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
-### [Add switch statements](logic-apps-switch-case.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
 ### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
 ### [Call logic app endpoints as triggers](logic-apps-http-endpoint.md)
