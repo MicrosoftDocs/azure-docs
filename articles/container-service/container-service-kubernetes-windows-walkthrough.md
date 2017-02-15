@@ -132,7 +132,7 @@ After creating the cluster and connecting with `kubectl`, you can try starting a
   kubectl get pods
   ```
 
-5. Once the service is running, to see the internal and external IP addresses of the service, type:
+5. After the service is running, to see the internal and external IP addresses of the service, type:
 
   ```
   kubectl get svc
@@ -140,7 +140,7 @@ After creating the cluster and connecting with `kubectl`, you can try starting a
 
   ![IP addresses of Windows service](media/container-service-kubernetes-windows-walkthrough/externalip.png)
 
-  The addition of the external IP address takes several minutes. Before the load balancer configures the address, it appears as `<pending>`.
+  The addition of the external IP address takes several minutes. Before the load balancer configures the external address, it appears as `<pending>`.
 
 
 6. After the external IP address is available, you can reach the service in your web browser.
@@ -149,7 +149,42 @@ After creating the cluster and connecting with `kubectl`, you can try starting a
 
 
 ## Access the Windows nodes
-Windows nodes can be accessed through an RDP SSH tunnel via the master node. To do this, follow these [instructions](ssh.md#create-port-80-tunnel-to-the-master), replacing port 80 with 3389. Since your windows machine is already using port 3389, it is recommended to use 3390 to Windows Node 0, 10.240.245.5, 3391 to Windows Node 1, 10.240.245.6, and so on as shown in the following image:
+Windows nodes can be accessed through an RDP SSH tunnel via the master node. 
+
+There are multiple options for creating SSH tunnels on Windows. This section describes how to use PuTTY to create the tunnel.
+
+1. [Download PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to your Windows system.
+
+2. Run the application.
+
+3. Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** looks similar to `adminuser@PublicDNSName`. Enter 2200 for the **Port**.
+
+    ![PuTTY configuration 1](media/putty1.png)
+
+4. Select **SSH > Auth**. Add a path to your private key file (.ppk format) for authentication. You can use a tool such as [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to generate this file from the SSH key used to create the cluster.
+
+    ![PuTTY configuration 2](media/putty2.png)
+
+5. Select **SSH > Tunnels** and configure the following forwarded ports:
+
+    * **Source Port:** Use 80 for DC/OS or 2375 for Swarm.
+    * **Destination:** Use localhost:80 for DC/OS or localhost:2375 for Swarm.
+
+    The following example is configured for DC/OS, but will look similar for Docker Swarm.
+
+    > [!NOTE]
+    > Port 80 must not be in use when you create this tunnel.
+    > 
+
+    ![PuTTY configuration 3](media/putty3.png)
+
+6. When you're finished, click **Session > Save** to save the connection configuration.
+
+7. To connect to the PuTTY session, click **Open**. When you connect, you can see the port configuration in the PuTTY event log.
+
+    ![PuTTY event log](media/putty4.png)
+
+To do this, follow these [instructions](ssh.md#create-port-80-tunnel-to-the-master), replacing port 80 with 3389. Since your windows machine is already using port 3389, it is recommended to use 3390 to Windows Node 0, 10.240.245.5, 3391 to Windows Node 1, 10.240.245.6, and so on as shown in the following image:
 
 ![Image of Windows RDP tunnels](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
 
