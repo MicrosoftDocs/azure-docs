@@ -19,34 +19,34 @@ ms.author: toddabel
 ---
 # Monitor and diagnose Azure Service Fabric applications
 
-Although monitoring and diagnostics are critical in a live production environment, you want to be sure you use them as you develop your services, to make sure they work when you move to a real-world setup. Azure Service Fabric makes it easy to implement diagnostics that can work seamlessly both in single-machine, local development setups, and in real-world, production cluster setups.
+Monitoring and diagnostics are critical in a live production environment. Azure Service Fabric can help you implement monitoring and diagnostics as you develop your service, to ensure that the service works seamlessly both in a single-machine, local development environment, and in a real-world, production cluster setup.
 
-Monitoring and diagnostics can help you develop your services to:
-* Minimize disruption to the user
+Monitoring and diagnostics can help, as you develop your services, to:
+* Minimize disruption to your customers
 * Provide business insights
 * Monitor resource usage
 * Detect hardware and software failures or performance issues
 * Diagnose potential service behavior issues
 
-Monitoring is a broad term that includes the following:
+Monitoring is a broad term that includes the following tasks:
 * Instrumenting the code
 * Collecting instrumentation logs
 * Analyzing logs
 * Visualizing insights based on the log data
 * Alerting based on log values and insights
 * Monitoring the infrastructure
-* Allowing engineers to detect and diagnose issues that affect their customers.
+* Detecting and diagnosing issues that affect your customers
 
-This article is intended to provide an overview of monitoring for Service Fabric clusters hosted in Azure or on-premises, deployed on Windows or Linux, and using the .NET Framework. We look at three important aspects of monitoring and diagnostics:
-- Instrument code or infrastructure
-- Collection of generated events
+This article gives an overview of monitoring for Service Fabric clusters hosted either in Azure, on-premises, deployed on Windows or Linux, or using the .NET Framework. We look at three important aspects of monitoring and diagnostics:
+- Instrumenting the code or infrastructure
+- Collecting generated events
 - Storage, aggregation, visualization, and analysis
 
-Although products are available that cover all three areas, many customers choose different technologies for each aspect of monitoring. It is important that each piece works together to deliver an end-to-end monitoring solution for the application.
+Although multiple products are available that cover all three areas, many customers choose different technologies for each aspect of monitoring. It is important that each piece works together to deliver an end-to-end monitoring solution for the application.
 
 ## Monitoring infrastructure
 
-Although Service Fabric can help keep an application running during infrastructure failures, you need to understand whether an error is occurring in the application or in the underlying infrastructure. You also need to monitor the infrastructure for capacity planning, so you know when to add or remove infrastructure. It's important to monitor and troubleshoot both the infrastructure and the application that make up a Service Fabric deployment. Even if an application is available to customers, the infrastructure might still be experiencing problems.
+Service Fabric can help keep an application running during infrastructure failures, but you need to understand whether an error is occurring in the application or in the underlying infrastructure. You also need to monitor the infrastructure for capacity planning, so you know when to add or remove infrastructure. It's important to monitor and troubleshoot both the infrastructure and the application that make up a Service Fabric deployment. Even if an application is available to customers, the infrastructure might still be experiencing problems.
 
 ### Azure Monitor
 
@@ -60,7 +60,6 @@ We recommend using Operations Management Suite to monitor your on-premises infra
 
 ### Service Fabric support logs
 
-<<<<<<< HEAD
 If you need to contact Microsoft support for help with your Azure Service Fabric cluster, support logs are almost always required. If your cluster is hosted in Azure, support logs are automatically configured and collected as part of creating a cluster. The logs are stored in a dedicated storage account that can be seen in your cluster's resource group. There is no fixed name to the storage account, but within the account you see blob containers and tables with names that start with 'fabric'. If you have a standalone cluster, use the guidance in [Create and manage a standalone Azure Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and [Configuration settings for a standalone Windows cluster](service-fabric-cluster-manifest.md) to set up collection for these logs. For standalone Service Fabric instances, the logs should be sent to a local file share. You are **required** to have these logs for support, but they are not intended to be usable by anyone outside of the Microsoft customer support team.
 
 ## Instrument your code
@@ -77,7 +76,6 @@ When you create an Azure Service Fabric solution from a template in Visual Studi
 
 #### Using structured EventSource events
 
-<<<<<<< HEAD
 Each of the following events is defined for a specific case, for example, a service type was registered. When you define messages this way, data can be packaged with the text of the error. You can more easily search and filter based on the names or values of the specified properties. Structuring the instrumentation output makes it easier to consume, but requires more thought and time to define a new event for each use case. Some event definitions can be shared across the entire application, for example, a method start or stop event would be reused across many services within an application. A domain-specific service, like an order system, might have a **CreateOrder** event, which has its own unique event. Often, this approach generates a large number of events, and potentially requires coordination of identifiers across project teams. For a complete example of structure **EventSource** events in Service Fabric, see the **PartyCluster.ApplicationDeployService** event in the Party Cluster sample.
 
 ```csharp
@@ -209,8 +207,8 @@ Some third-party providers use this approach, including [Serilog](https://serilo
 
 5. Instrument the code the same as if you were using ASP.NET Core without Serilog.
 
-> [!NOTE]
-> We recommend that you don't use the static Log.Logger with this approach, because Service Fabric can host multiple instances of the same service type within a single process. If you use the static Log.Logger, the last writer of the property enrichers will have values shown for all instances that are running. This is one reason why the _logger variable is a private member variable of the service class. Also, you must make the _logger available to common code, which might be used across services.
+  > [!NOTE]
+  > We recommend that you don't use the static Log.Logger with the preceding example, because Service Fabric can host multiple instances of the same service type within a single process. If you use the static Log.Logger, the last writer of the property enrichers will have values shown for all instances that are running. This is one reason why the _logger variable is a private member variable of the service class. Also, you must make the _logger available to common code, which might be used across services.
 
 ### Choosing a logging provider
 
@@ -239,7 +237,7 @@ Azure Diagnostics works only for Service Fabric clusters deployed to Azure, and 
 
 [Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) can route events from a node to one or more monitoring destinations. Because it is included as a NuGet package in your service project, EventFlow code and configuration travel with the service, eliminating the per-node configuration issue mentioned earlier about Azure Diagnostics. EventFlow runs within your service process, and connects directly to the configured outputs. Because of the direct connection, EventFlow works for Azure, container, and on-premises service deployments. Be careful if you run EventFlow in high-density scenarios, such as in a container, because each EventFlow pipeline makes an external connection. If you host a lot of processes, you get a lot of outbound connections! This isn't as much a concern for Service Fabric applications, because all replicas of a ServiceType run within the same process, which limits the number of outbound connections. EventFlow also offers event filtering, so that only the events that match the specified filter are sent. For detailed information about how to use EventFlow with Service Fabric, see [Collect logs directly from an Azure Service Fabric service process](service-fabric-diagnostic-collect-logs-without-an-agent.md).
 
-To use EventFlow
+To use EventFlow:
 
 1. Add the NuGet package to your service project.
 2. In the service's **Main** function, create the EventFlow pipeline, and then configure the outputs. In the following example, we use Serilog as an output:
@@ -279,7 +277,7 @@ To use EventFlow
   }
   ```
 
-3. Create a file in the service's \\PackageRoot\\ Config folder named eventFlowConfig.json. Inside the file, the configuration looks like this:
+3. Create a file named eventFlowConfig.json in the service's \\PackageRoot\\Config folder. Inside the file, the configuration looks like this:
 
   ```json
       {
