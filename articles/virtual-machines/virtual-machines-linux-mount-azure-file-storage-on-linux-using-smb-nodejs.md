@@ -71,7 +71,7 @@ To do so, add the following line to the `/etc/fstab`:
 
 File storage offers file shares in the cloud that use the standard SMB protocol. With the latest release of File storage, you can also mount a file share from any OS that supports SMB 3.0. When you use an SMB mount on Linux, you get easy backups to a robust, permanent archiving storage location that is supported by an SLA.
 
-Moving files from a VM to an SMB mount that's hosted on File storage is a great way to debug logs, because the same SMB share can be mounted locally to your Mac, Linux, or Windows workstation. SMB isn't the best solution for streaming Linux or application logs in real time, because the SMB protocol is not built to handle such heavy logging duties. A dedicated, unified logging layer tool such as Fluentd would be a better choice than SMB for collecting Linux and application logging output.
+Moving files from a VM to an SMB mount that's hosted on File storage is a great way to debug logs. That's because the same SMB share can be mounted locally to your Mac, Linux, or Windows workstation. SMB isn't the best solution for streaming Linux or application logs in real time, because the SMB protocol is not built to handle such heavy logging duties. A dedicated, unified logging layer tool such as Fluentd would be a better choice than SMB for collecting Linux and application logging output.
 
 For this detailed walkthrough, we create the prerequisites needed to first create the File storage share, and then mount it via SMB on a Linux VM.
 
@@ -87,7 +87,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 2. Show the Storage account keys.
 
-    When you create a Storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you rotate keys to the second key in the pair, you create a new key pair. New Storage account keys are always created in pairs, ensuring that you always have at least one unused storage key ready to rotate to. To show the Storage account keys, use the following code:
+    When you create a Storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New Storage account keys are always created in pairs, ensuring that you always have at least one unused storage key ready to switch to. To show the Storage account keys, use the following code:
 
     ```azurecli
     azure storage account keys list myStorageAccount \
@@ -106,7 +106,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 4. Create the mountpoint directory.
 
-    You need to create a local directory in the Linux file system to mount the SMB share to. Anything written or read from the local mount directory is forwarded to the SMB share that's hosted on File storage. To create the directory, use the following code:
+    You must create a local directory in the Linux file system to mount the SMB share to. Anything written or read from the local mount directory is forwarded to the SMB share that's hosted on File storage. To create the directory, use the following code:
 
     ```bash
     sudo mkdir -p /mnt/mymountdirectory
@@ -120,7 +120,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 6. Persist the SMB mount through reboots.
 
-    When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown. To remount the SMB share on boot, you must add a line to the Linux /etc/fstab. Linux uses the fstab file to list the file systems it needs to mount during the boot process. Adding the SMB share ensures that the File storage share is a permanently mounted file system for the Linux VM. Adding the File storage SMB share to a new VM is possible when you use cloud-init.
+    When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown. To remount the SMB share on boot, you must add a line to the Linux /etc/fstab. Linux uses the fstab file to list the file systems that it needs to mount during the boot process. Adding the SMB share ensures that the File storage share is a permanently mounted file system for the Linux VM. Adding the File storage SMB share to a new VM is possible when you use cloud-init.
 
     ```bash
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
