@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: jeedes
 
 ---
@@ -109,16 +109,12 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
  
 	![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_01.png)
 
-3. On the **FirmPlay - Employee Advocacy for Recruiting Domain and URLs** section, perform the following steps:
+3. On the **FirmPlay - Employee Advocacy for Recruiting Domain and URLs** section, in the **Sign On URL** textbox, type a URL using the following pattern: `https://<your-subdomain>.firmplay.com/`
 
 	![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_02.png)
 
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<your-subdomain>.firmplay.com/`
-
-	b. In the **Identifier** textbox, type the value as `FirmPlayProd`
-
 	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign On URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [FirmPlay - Employee Advocacy for Recruiting support team](mailto:engineering@firmplay.com) to get these values. 
+	> Please note that this is not the real value. You have to update this value with the actual Sign On URL. Contact [FirmPlay - Employee Advocacy for Recruiting support team](mailto:engineering@firmplay.com) to get this value. 
 
 4. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
