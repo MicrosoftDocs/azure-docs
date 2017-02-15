@@ -6,7 +6,6 @@ documentationcenter: ''
 author: robinsh
 manager: timlt
 editor: tysonn
-tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
 ms.service: storage
@@ -53,6 +52,7 @@ A data disk is a VHD that’s attached to a virtual machine to store application
 Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. Otherwise, you add data disks after you create the virtual machine.
 
 You can add data disks to a virtual machine at any time, by **attaching** the disk to the virtual machine. You can use a VHD that you’ve uploaded or copied to your storage account, or one that Azure creates for you. Attaching a data disk associates the VHD file with the VM by placing a ‘lease’ on the VHD so it can’t be deleted from storage while it’s still attached.
+
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 

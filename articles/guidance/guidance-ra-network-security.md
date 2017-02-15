@@ -34,7 +34,7 @@ The patterns & practices group has created a set of reference architectures to a
 
 This architecture shows how to create a DMZ (also known as a perimeter network) to filter traffic between Azure and your on-premises network. The DMZ consists of a set of network virtual appliances (NVAs) that can perform tasks such as acting as a firewall, inspecting network packets, and denying access to suspicious requests. These NVAs are implemented as Azure VMs.  
 
-[![0]][0]
+![[0]][0]
 
 For detailed information about this architecture, see [Implementing a secure hybrid network architecture in Azure][secure-hybrid-network-architecture].
 
@@ -42,7 +42,7 @@ For detailed information about this architecture, see [Implementing a secure hyb
 
 This architecture builds on the previous one, but adds a second DMZ to filter traffic between Azure and the Internet.
 
-[![1]][1]
+![[1]][1]
 
 
 For detailed information about this architecture, see  [Implementing a DMZ between Azure and the Internet][dmz-azure-internet].
