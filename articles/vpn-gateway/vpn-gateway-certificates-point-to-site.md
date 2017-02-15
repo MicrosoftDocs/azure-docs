@@ -40,8 +40,8 @@ The following steps walk you through creating a self-signed certificate using ma
 As part of the VPN Gateway configuration for Point-to-Site connections, the public key for the root certificate is uploaded to Azure. 
 
 1. To obtain a .cer file from the certificate, open **certmgr.msc**. Locate the self-signed root certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**.
-2. In the Wizard, click **Next**, select **No, do not export the private key**, and then click **Next**.
-3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).** Then, click **Next**. 
+2. In the Wizard, click **Next**. **No, do not export the private key**, and then click **Next**.
+3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).**, and then click **Next**. 
 4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
 5. Click **Finish** to export the certificate. You will see **The export was successful**. Click **OK** to close the wizard.
 
