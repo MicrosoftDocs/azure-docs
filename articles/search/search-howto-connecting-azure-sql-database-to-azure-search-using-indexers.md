@@ -203,7 +203,8 @@ While the SQL Integrated Change Tracking policy is recommended, it can only be u
 * The value of this column increases with each insert or update.
 * Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-> [!IMPORTANT] We strongly recommend using a **rowversion** column for change tracking. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query.
+> [!IMPORTANT] 
+> We strongly recommend using a **rowversion** column for change tracking. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query.
 
 To use a high water mark policy, create or update your data source like this:
 
