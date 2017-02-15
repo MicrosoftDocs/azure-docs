@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
-ms.author: ryanwi;chackdan;maburlik
+ms.date: 12/15/2016
+ms.author: chackdan;maburlik
 
 ---
 # Create a standalone cluster running on Windows Server
@@ -60,7 +60,7 @@ Unpack the standalone package to your machine, copy the sample config file to th
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
 
-See [Environment Setup](service-fabric-cluster-standalone-deployment-preparation#environmentsetup) section at [Plan and prepare your cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting details.
+See Environment Setup section at [Plan and prepare your cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting details.
 
 If you're finished running development scenarios, you can remove the Service Fabric cluster from the machine by referring to steps in section below "[Remove a cluster](#removecluster_anchor)". 
 
