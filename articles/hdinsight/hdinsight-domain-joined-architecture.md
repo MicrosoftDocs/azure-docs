@@ -43,7 +43,7 @@ This is the simplest architecture for integrating HDInsight with Azure AD. The A
 Prerequisites for the Active Directory:
 
 * An [Organizational Unit](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) must be created, within which you place the HDInsight cluster VMs and the service principals used by the cluster.
-* [Lightweight Directory Access Protocols](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) must be set up for communicating with the Active Diectory. The certificate used to set up LDAPS must be a real certificate (not a self-signed certificate).
+* [Lightweight Directory Access Protocols](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) must be set up for communicating with the Active Directory. The certificate used to set up LDAPS must be a real certificate (not a self-signed certificate).
 * Reverse DNS zones must be created on the domain for the IP address range of the HDInsight Subnet (for example 10.2.0.0/24 in the previous picture).
 * A service account or a user account is needed. Use this account to create the HDInsight cluster. This account must have the following permissions:
 
