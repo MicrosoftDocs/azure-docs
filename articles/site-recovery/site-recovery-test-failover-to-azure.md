@@ -13,11 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/09/2017
+ms.date: 2/15/2017
 ms.author: pratshar
 
 ---
 # Test 	Failover to Azure in Site Recovery
+> [!div class="op_single_selector"]
+> * [Test Failover to Azure](./site-recovery-test-failover-to-azure.md)
+> * [Test Failover (VMM to VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using Azure as the recovery site. 
 
