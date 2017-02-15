@@ -31,6 +31,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 * [Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
 * [Error 53 attempting to mount an Azure File Share](#error53)
+* [Error 87 The parameter is incorrect while attempting to mount an Azure File Share](#error87)
 * [Net use was successful but I don’t see the Azure file share mounted in Windows Explorer](#netuse)
 * [My storage account contains "/" and the net use command fails](#slashfails)
 * [My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
@@ -141,8 +142,9 @@ For more information on using Portqry, see [Description of the Portqry.exe comma
 ### Solution for Cause 2
 Work with your IT organization to open Port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
+<a id="error87"></a>
 ### Cause 3
-"System Error 53" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
+"System Error 53 or System error 87" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
