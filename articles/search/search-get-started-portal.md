@@ -47,7 +47,8 @@ This tutorial assumes an [Azure subscription](https://azure.microsoft.com/pricin
 ## Check for space
 Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object. 
 
-> [!TIP] Tiles on the service dashboard show how many indexes, indexers, and data sources you already have. The Indexer tile shows success and failure indicators. Click the tile to view the indexer count. 
+> [!TIP] 
+> Tiles on the service dashboard show how many indexes, indexers, and data sources you already have. The Indexer tile shows success and failure indicators. Click the tile to view the indexer count. 
 >
 > ![Tiles for indexers and datasources][1]
 >

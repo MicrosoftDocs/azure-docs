@@ -24,7 +24,7 @@ Azure Search offers a dedicated and programmable search engine with intelligent 
 
 Having a solid search experience is a necessity for most web and mobile apps. Full text search with auto-completed query terms, spelling corrections, and matches based on semantically identical but superficially different inputs ("car" and "auto") is almost the minimum bar, despite the technical complexity backing the experience. Equally important are operational requirements for scale, reliability, and synchronization between search and backend data stores. 
 
-Azure Search provides a comprehensive range of capabilities for both search experience and operations.
+Azure Search provides a comprehensive range of capabilities so you can meet both search and operational requirements.
 
 ![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts3.png)
 
