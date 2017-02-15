@@ -110,7 +110,7 @@ In addition to the required `type`, `name`, `apiVersion`, and `location` propert
 +      ],
 ```
 
-The scale set needs to know what size of vm to create (the "sku name"), as well as how many such VMs to create (the "sku capacity"). To see which VM sizes are available, refer to the [VM Sizes documentation](../virtual-machines/virtual-machines-windows-sizes).
+The scale set needs to know what size of vm to create (the "sku name"), as well as how many such VMs to create (the "sku capacity"). To see which VM sizes are available, refer to the [VM Sizes documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes).
 
 ```diff
 +      "sku": {
