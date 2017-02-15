@@ -28,7 +28,7 @@ After completing this tutorial, the Azure AD users you have assigned to Aha! wil
 The scenario outlined in this tutorial consists of the following building blocks:
 
 * Enabling the application integration for Aha!
-* Configuring single sign-on
+* Configuring single sign-on (SSO)
 * Configuring user provisioning
 * Assigning users
 
@@ -65,7 +65,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Aha!** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Aha!** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798946.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Aha!** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -120,7 +120,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Aha!, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Aha! **application integration page, click **Assign users**.
+2. On the **Aha!** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-aha-tutorial/IC798956.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
