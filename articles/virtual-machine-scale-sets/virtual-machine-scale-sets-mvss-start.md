@@ -25,7 +25,7 @@ ms.author: negat
 
 ## A Minimum Viable Scale Set
 
-Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
+Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). Those already familiar with templates can safely skip to the "Next Steps" section to see how to modify this template for other scenarios. However, those less familiar with templates might find this piece by piece description helpful. To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
 
 First, we define the `$schema` and `contentVersion` of the template. `$schema` defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. `contentVersion` is actually not used by Azure at all. Instead, it is to help you keep track of which version of the template this is.
 
