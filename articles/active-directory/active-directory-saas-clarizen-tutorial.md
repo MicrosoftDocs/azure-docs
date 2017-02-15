@@ -110,10 +110,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
     1. In the **Identifier** textbox, type the value as: `Clarizen`
-	2. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
+    2. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
+	
 	>[!NOTE] 
-	>These are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new) to get these values. 
-
+	>These are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new) to get these values.
+	>
 4. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png) 	
