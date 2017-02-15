@@ -30,7 +30,7 @@ ms.author: genli
 Azure Active Directory Role-based Access Control (RBAC) allows users to be added to multiple roles. For more information, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 > [!WARNING]
-> Deleting or renaming the Azure Account Administrator’s email address may result in unexpected and undesirable behavior with the Azure account, including (but not limited to) an inability to log in to Azure, make changes to the account, or manage resources. It is strongly recommended to avoid deleting or renaming the Account Administrator email address.
+> Deleting or renaming the Azure Account Administrator's email address may result in unexpected and undesirable behavior with the Azure account, including (but not limited to) an inability to log in to Azure, make changes to the account, or manage resources. It is strongly recommended to avoid deleting or renaming the Account Administrator's email address.
 >
 >
 
