@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 02/15/2017
 ms.author: yurid
 
 ---
@@ -50,7 +50,7 @@ You can also obtain more information about the installation process by reading t
 > If the Azure Security Center Agent is misbehaving, you will need to restart the target VM since there is no command to stop and start the agent.
 
 
-If you are still having problems with data collection, you can uninstall the agent by follow the steps below:
+If you are still having problems with data collection, you can uninstall the agent by following the steps below:
 
 1. From the **Azure Portal**, select the virtual machine that is experience data collection issues and click **Extensions**.
 2. Right click in **Microsoft.Azure.Security.Monitoring** and select click **Uninstall**.
@@ -72,6 +72,20 @@ The other log files that you can review for troubleshooting purpose are:
 In a working system you should see a connection to the mdsd process on TCP 29130. This is the syslog communicating with the mdsd process. You can validate this behavior by running the command below:
 
 `netstat -plantu | grep 29130`
+
+## Troubleshooting endpoint protection not working properly
+
+The guest agent is the parent process of everything the [Microsoft Antimalware](../security/azure-security-antimalware.md) extension does. When the guest agent process fails, the Microsoft Antimalware that runs as a child process of the guest agent may also fail.  In scenarios like that is recommended to verify the following options:
+
+- If the target VM is a custom image and the creator of the VM never installed guest agent.
+- If the target is a Linux VM instead of a Windows VM then installing the Windows version of the antimalware extension on a Linux VM will fail. The Linux guest agent has specific requirements in terms of OS version and required packages, and if those requirements are not met the VM agent will not work there either. 
+- If the VM was created with an old version of guest agent. If it was, you should be aware that some old agents could not auto-update itself to the newer version and this could lead to this problem. Always use the latest version of guest agent if creating your own images.
+- Some third-party administration software may disable the guest agent, or block access to certain file locations. If you have third-party installed on your VM, make sure that the agent is on the exclusion list.
+- Certain firewall settings or Network Security Group (NSG) may block network traffic to and from guest agent.
+- Certain Access Control List (ACL) may prevent disk access.
+- Lack of disk space can block the guest agent from functioning properly. 
+
+By default the Microsoft Antimalware User Interface is disabled, read [Enabling Microsoft Antimalware User Interface on ARM VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) for more information on how to enable it if you need.
 
 ## Troubleshooting problems loading the dashboard
 
