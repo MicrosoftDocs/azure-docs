@@ -70,7 +70,7 @@ The following screenshot shows an example for this.
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Clever** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Clever** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC784682.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Clever** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -90,7 +90,8 @@ The following screenshot shows an example for this.
    
    ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798985.png "Instant Login")
    
-   1. Type the **Login URL**.        
+   1. Type the **Login URL**.  
+   
       >[!NOTE]
       >The **Login URL** is a custom value. You can get the actual value from your Clever support team.
       > 
@@ -131,7 +132,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Clever, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Clever **application integration page, click **Assign users**.
+2. On the **Clever** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-clever-tutorial/IC798987.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
