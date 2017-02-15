@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/08/2016
+ms.date: 02/14/2017
 ms.author: robinsh
 
 ---
@@ -42,16 +42,14 @@ If the needs of your application exceed the scalability targets of a single stor
 
 See [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
-#### Managed virtual machine disks
+### Managed virtual machine disks
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
 
-#### Unmanaged virtual machine disks
-
-### Standard virtual machine disks
+### Standard unmanaged virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
 
-### Premium virtual machine disks
+### Premium unmanaged virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ## Scalability targets for Azure resource manager
