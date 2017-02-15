@@ -93,4 +93,4 @@ Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSph
 
 
 ## Next steps
-[Set up your target environment](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) in Azure.
+[Set up your target environment](./site-recovery-prepare-target-vmware-to-azure.md) in Azure.
