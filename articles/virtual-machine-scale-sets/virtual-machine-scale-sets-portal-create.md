@@ -32,16 +32,16 @@ First, navigate to the [Azure portal](https://portal.azure.com) in a web browser
 ## Create the Linux virtual machine
 Now you can use the default settings and quickly create the virtual machine.
 
-* On the `Basics` blade, enter a name for the scale set. This name becomes the base of the FQDN of the load balancer in front of the scale set, so make sure the name is unique across all of Azure.
+* On the `Basics` blade, enter a name for the scale set. This name becomes the base of the FQDN of the load balancer in front of the scale set, so make sure the name is unique across all Azure.
 * Select your desired OS type, enter your desired username, and select which authentication type you prefer. If you choose a password, it must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). If you choose `SSH public key`, be sure to only paste in your public key, NOT your private key:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
-* Choose whether you would like to limit the scale set to a single placement group or whether it should span multiple placement groups. Allowing the scale set to span placement groups allows for scale sets over 100 VMs in capacity (up to 1,000) with certain limitations. For more details, see [this documentation](./virtual-machine-scale-sets-placement-groups.md).
+* Choose whether you would like to limit the scale set to a single placement group or whether it should span multiple placement groups. Allowing the scale set to span placement groups allows for scale sets over 100 VMs in capacity (up to 1,000) with certain limitations. For more information, see [this documentation](./virtual-machine-scale-sets-placement-groups.md).
 * Enter your desired resource group name and location, and then click `OK`.
-* On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all of Azure.
+* On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all Azure.
 * Choose your desired operating system disk image, instance count, and machine size.
-* Choose your desired disk type: managed or unmanaged. For more information, see [this documentation](./virtual-machine-scale-sets-managed-disks.md). If you chose to have the scale set span multiple placement groups, this option will not be available because managed disk is a requirment for scale sets to span placement groups.
+* Choose your desired disk type: managed or unmanaged. For more information, see [this documentation](./virtual-machine-scale-sets-managed-disks.md). If you chose to have the scale set span multiple placement groups, this option will not be available because managed disk is required for scale sets to span placement groups.
 * Enable or disable autoscale and configure if enabled:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
