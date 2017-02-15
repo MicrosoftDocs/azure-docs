@@ -46,11 +46,11 @@ Dedicated services run 24-7 at scale with [99.9% service level agreements](https
 Several cloud service providers offer custom search engines with features that power a search bar in custom apps. 
 Some offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
-Key benefits unique to Azure Search include:
+Key strengths of Azure Search include:
 
 + Language and custom analysis in the query processing pipeline. It's not unusual to support multiple languages, or to require different levels of processing on a field by field basis. Some fields might need full text search, but others might need minimal or specialized processing based on field contents.
 
-+ Solid user experience features for intuitive search. Superficially simple, but backed by powerful query parsers and analyzers with the ability to structure interesting and complex queries. 
++ Solid user experience features for intuitive search. Superficially simple, but backed by powerful query parsers and analyzers with the ability to structure interesting and complex queries. Well-designed APIs reduce much of the complexity.
 
 + Deep integration with other Azure services (especially at the data layer) with precision control over searchable data. 
 
@@ -131,7 +131,7 @@ Start with a free service, and then [create and query an index using sample buil
 
 3. Use [Search Explorer](search-get-started-portal.md#query-index) to query the index.
 
-### REST API | .Net SDK
+## REST API | .Net SDK
 
 While a number of tasks can be performed in the portal, Azure Search is intended for developers who want to integrate search functionality into existing applications. The following programming interfaces are available.
 

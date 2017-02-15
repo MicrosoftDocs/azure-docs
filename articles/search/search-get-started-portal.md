@@ -63,6 +63,9 @@ To keep this task portal-based, we use a built-in sample dataset that can be cra
     ![Import data command][2]
 
 2. In the wizard, click **Data Source** > **Samples** > **realestate-us-sample**. This data source is preconfigured with a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+
+    ![Select sample dataset][9]
+
 3. Click **OK** to create the data source.
 
 #### Step 2: Define the index
@@ -88,7 +91,7 @@ This object defines an executable process. You could put it on recurring schedul
   ![realestate indexer][8]
 
 ## Check progress
-To check progress, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
+To monitor data import, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
 
    ![Indexer progress message][4]
 
@@ -97,7 +100,9 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
    ![Search explorer command][5]
 
-In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138), the following steps are demonstrated at 6m08s into the video.
+> [!TIP]
+> In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138), the following steps are demonstrated at 6m08s into the video.
+>
 
 1. Click **Search explorer** on the command bar.
 
@@ -117,7 +122,7 @@ In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/20
   ![Search query example][7]
 
 **`search=seattle`**
-The `search` parameter is used to input a keyword search, in this case, returning listings in King County, Washington state,  containing Seattle in any field in the document.
+The `search` parameter is used to input a keyword search, in this case, returning listings in King County, Washington state, containing Seattle in any searchable field in the document.
 
 **`search=seattle&facet=beds`**
 The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of bedrooms, with a count of the documents or matches for each one. `"beds"` can be specified as a facet because it is marked as a filterable and facetable field in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms).  The `&` symbol is used to append search parameters.
@@ -132,7 +137,7 @@ Hit highlights add formatting to text matching the keyword, given matches found 
 Full text search finds word forms with similar semantics. In this case, search results contain highlighted text for "mouse", for homes that have mouse infestation, in response to a keyword search on "mice". Different forms of the same word can appear in results because of linguistic analysis. Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer. 
 
 **`search=samamish`**
-Misspelled words, like 'samamish' for the Samammish plateau in the SEattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
+Misspelled words, like 'samamish' for the Samammish plateau in the Seattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
 
 **`search=samamish~&queryType=full`**
 Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser if you require fuzzy search, regular expressions, proximity search, or other advanced query types. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
@@ -174,3 +179,4 @@ Learn more about other features mentioned in this article by visiting these link
 [6]: ./media/search-get-started-portal/search-explorer-changeindex-se2.png
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
+[9]: ./media/search-get-started-portal/import-datasource-sample2.png
