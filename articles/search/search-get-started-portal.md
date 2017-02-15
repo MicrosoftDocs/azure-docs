@@ -14,7 +14,7 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/14/2017
+ms.date: 02/15/2017
 ms.author: heidist
 
 ---
@@ -24,6 +24,7 @@ In the Azure portal, start with a predefined sample dataset to quickly generate 
 
 This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tools are not a substitute for code, they are useful for these tasks:
 
++ Hands on learning with minimal ramp-up
 + Prototype an index before you write code in **Import data**
 + Test-drive queries and compare parser behaviors in **Search explorer**
 + View an existing index published to your service and look up its attributes
@@ -34,7 +35,7 @@ This code-free introduction gets you started with predefined data so that you ca
 
 The tutorial takes about 15-30 minutes to complete, depending on whether account or service sign-up is also required. 
 
-Alternatively, you can watch a 5-minute demonstration of the steps in this tutorial at about four minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+Alternatively, you can watch a 6-minute demonstration of the steps in this tutorial at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## Find your service
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -50,7 +51,7 @@ Tiles on the service dashboard show how many indexes, indexers, and data sources
 
   ![Tiles for indexers and datasources][1]
 
-## Create an index and load data
+## <a name="create-index"></a> Create an index and load data
 Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors.
 
 To keep this task portal-based, we use a built-in sample dataset that can be crawled using an indexer via the **Import data** wizard. 
@@ -90,7 +91,7 @@ To check progress, go back to the service dashboard, scroll down, and double-cli
 
    ![Indexer progress message][4]
 
-## Query the index
+## <a name="query-index"></a> Query the index
 You now have a search index that's ready to query. **Search explorer** is a query tool built into the portal. It provides a search box so that you can verify a search input returns the data you expect. 
 
    ![Search explorer command][5]
