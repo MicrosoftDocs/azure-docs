@@ -53,13 +53,13 @@ The dashboard displays the following information:
 * The **Jobs** panel displays information about scheduled jobs. You can schedule your own jobs on **Management jobs** page.
 
 ## View the device list
-The device list shows all the registered devices in the solution. You view and edit device metadata, add or remove devices, and send commands to devices.
+The *device list* shows all the registered devices in the solution. From the device list you can view and edit device metadata, add or remove devices, and invoke methods on devices.
 
-1. Click **Devices** in the left-hand menu to show the *device list* for this solution.
+1. Click **Devices** in the left-hand menu to show the device list for this solution.
    
    ![Device list in dashboard][img-devicelist]
 2. The device list initially shows four simulated devices created by the provisioning process. You can add additional simulated and physical devices to the solution.
-3. You can customize the information shown in the device list by clicking **Column editor**. You can add and remove columns that display reported properties and tags. You can also reorder and rename columns:
+3. You can customize the information shown in the device list by clicking **Column editor**. You can add and remove columns that display reported property and tag values. You can also reorder and rename columns:
    
    ![Column editor][img-columneditor]
 4. To view device details, click a device in the device list.
@@ -68,7 +68,7 @@ The device list shows all the registered devices in the solution. You view and e
 
 The **Device Details** panel contains six sections:
 
-* A collection of links that enable you to customize the device icon, disable the device, add a rule, send a command, or invoke a method. For a comparison of commands (device-to-cloud messages) and methods (direct methods), see [Cloud-to-device communications guidance][lnk-c2d-guidance].
+* A collection of links that enable you to customize the device icon, disable the device, add a rule, invoke a method, or send a command. For a comparison of commands (device-to-cloud messages) and methods (direct methods), see [Cloud-to-device communications guidance][lnk-c2d-guidance].
 * The **Device Twin - Tags** section enables you to edit tag values for the device. You can display tag values in the device list and use tag values to filter the device list.
 * The **Device Twin - Desired Properties** section enables you to set property values to be sent to the device.
 * The **Device Twin - Reported Properties** section shows property values sent from the device.
@@ -92,6 +92,22 @@ You can customize the device icon displayed in the device list from the **Device
 > 
 > 
 
+## Invoke a method on a device
+From the **Device Details** panel, you can invoke methods on the device. When a device first starts, it sends information about the methods it supports to the solution.
+
+1. Click **Methods** in the **Device Details** panel for the selected device:
+   
+   ![Device commands in dashboard][img-devicemethods]
+2. Select **Reboot** in the method list.
+3. Click **Invoke Method**.
+4. You can see the status of the method invocation in the method history.
+   
+   ![Method status in dashboard][img-pingmethod]
+
+The solution tracks the status of each method it invokes. When the device completes the method, you see a new entry in the method history table.
+
+Some methods start asynchronous jobs on the device. For example, the **InitiateFirmwareUpdate** method starts an asynchronous task to perform the update. The device uses reported properties to report on the status of the firmware update as it progresses.
+
 ## Send a command to a device
 From the **Device Details** panel, you can send commands to the device. When a device first starts, it sends information about the commands it supports to the solution.
 
@@ -105,20 +121,6 @@ From the **Device Details** panel, you can send commands to the device. When a d
    ![Command status in dashboard][img-pingcommand]
 
 The solution tracks the status of each command it sends. Initially the result is **Pending**. When the device reports that it has executed the command, the result is set to **Success**.
-
-## Invoke a method on a device
-From the **Device Details** panel, you can invoke methods on the device. When a device first starts, it sends information about the methods it supports to the solution.
-
-1. Click **Methods** in the **Device Details** panel for the selected device:
-   
-   ![Device commands in dashboard][img-devicemethods]
-2. Select **PingDevice** from the method list.
-3. Click **Invoke Method**.
-4. You can see the status of the method invocation in the method history.
-   
-   ![Method status in dashboard][img-pingmethod]
-
-The solution tracks the status of each method it invokes. When the device completes the method, you see a new entry in the method history table.
 
 ## Add a new simulated device
 When you deploy the preconfigured solution, you automatically provision four sample devices that you can see in the device list. These devices are *simulated devices* running in an Azure WebJob. Simulated devices make it easy for you to experiment with the preconfigured solution without the need to deploy real, physical devices. If you do want to connect a real device to the solution, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
@@ -146,8 +148,8 @@ The following steps show you how to add a simulated device to the solution:
    
     ![View telemetry from new device][img-runningnew-2]
 
-## Edit the device metadata
-When a device first connects to the solution, it sends its metadata to the solution, and the IoT hub stores the values in the device twin. You can create a desired property that contains a value to send to a device. The reported properties show the most recent metadata values sent by the device. For more information, see [Device identity registry, device twin, and DocumentDB][lnk-devicemetadata].
+## Device properties
+The remote monitoring preconfigured solution uses [device twins][lnk-device-twin] to synchronize device metadata between devices and the solution back end. A device twin is a JSON document stored in IoT Hub that stores property values for an individual device. Devices regulary send metadata to the solution back end as *reported properties* to store in the device twin. The solution back end can set *desired properties* in the device twin to send metadata updates to devices. The reported properties show the most recent metadata values sent by the device. For more information, see [Device identity registry, device twin, and DocumentDB][lnk-devicemetadata].
 
 > [!NOTE]
 > The solution also uses a DocumentDB database to store device-specific data related to commands and methods.
@@ -164,7 +166,7 @@ When a device first connects to the solution, it sends its metadata to the solut
 4. In the **Device Details** panel, the new latitude value initially shows as a desired property, and the old latitude value shows as a reported property:
    
     ![Edit device metadata][img-editdevice3]
-5. The simulated device in the preconfigured solution does not read the desired properties. A real device should read the desired properties from the IoT hub, make the changes to its configuration, and report the new values to the hub as reported properties.
+5. Currently, simulated devices in the preconfigured solution only processes the **Desired.Config.TemperatureMeanValue** and the **Desired.Config.TelemetryInterval** desired properties. A real device should read all desired properties from the IoT hub, make the changes to its configuration, and report the new values to the hub as reported properties.
 
 On the **Device Details** panel, you can also edit the **Device Twin - Tags** in the same way that you edit **Device Twin - Desired Properties**. However, unlike desired properties, tags do not synchronize with the device. Tags only exist in the device twin in the IoT hub. Tags are useful for building custom filters in the device list.
 
@@ -253,6 +255,8 @@ The following steps show you how to create a job that invokes the firmware updat
 4. On the **Invoke Method** page, enter then details of the method to invoke, and then click **Schedule**:
    
    ![Configure method job][img-invokemethodjob]
+
+The **InitiateFirmwareUpdate** method starts a task asynchronously on the device and immediately returns. The firmware update process then uses reported properties to report on the update process as it runs.
 
 ### Create a job to edit the device twin
 
@@ -357,3 +361,4 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

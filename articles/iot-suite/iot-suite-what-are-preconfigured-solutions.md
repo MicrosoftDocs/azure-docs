@@ -58,7 +58,7 @@ The following diagram illustrates the key elements of the remote monitoring solu
 When you deploy the remote monitoring preconfigured solution, four simulated devices are pre-provisioned in the solution that simulate a cooling device. These simulated devices have a built-in temperature and humidity model that emits telemetry. These simulated devices are included to:
 - Illustrate the end-to-end flow of data through the solution.
 - Provide a convenient source of telemetry.
-- Provide a target for commands if you are a back-end developer using the solution as a starting point for a custom implementation.
+- Provide a target for methods or commands if you are a back-end developer using the solution as a starting point for a custom implementation.
 
 The simulated devices in the solution can respond to the following cloud-to-device communications:
 
@@ -67,7 +67,13 @@ The simulated devices in the solution can respond to the following cloud-to-devi
 
 For a comparison of these different approaches, see [Cloud-to-device communications guidance][lnk-c2d-guidance].
 
-When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the commands the device can respond to. In the remote monitoring preconfigured solution, the simulated devices support these commands: 
+When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the methods the device can respond to. In the remote monitoring preconfigured solution, simulated devices support these methods:
+
+* *Initiate Firmware Update*: this method initiates an asynchronous task on the device to perform a firmware update. The asynchronous task uses reported properties to deliver status updates to the solution dashboard.
+* *Reboot*: this method causes the simulated device to reboot.
+* *FactoryReset*: this method triggers a factory reset on the simulated device.
+
+When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the commands the device can respond to. In the remote monitoring preconfigured solution, simulated devices support these commands:
 
 * *Ping Device*: The device responds to this command with an acknowledgement. This command is useful for checking that the device is still active and listening.
 * *Start Telemetry*: Instructs the device to start sending telemetry.
@@ -76,19 +82,9 @@ When a device first connects to IoT Hub in the preconfigured solution, it sends 
 * *Diagnostic Telemetry*: Controls if the device should send the external temperature as telemetry.
 * *Change Device State*: Sets the device state metadata property that the device reports. This command is useful for testing back-end logic.
 
-When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the methods the device can respond to. In the remote monitoring preconfigured solution, the simulated devices support these methods: 
+You can add more simulated devices to the solution that emit the same telemetry and respond to the same methods and commands.
 
-* *Ping Device*: The device responds to this command with an acknowledgement. This method is useful for checking that the device is still active and listening.
-* *Start Telemetry*: Instructs the device to start sending telemetry.
-* *Stop Telemetry*: Instructs the device to stop sending telemetry.
-* *Change Device State*: Sets the device state metadata property that the device reports. This method is useful for testing back-end logic.
-* *Firmware Update*: Instructs the device to perform a firmware update.
-* *Reboot*: Instructs the device to reboot.
-* *Factory Reset*: Instructs the device to perform a factory reset.
-
-You can add more simulated devices to the solution that emit the same telemetry and respond to the same commands and methods.
-
-In addition to responding to commands and methods, the solution uses [device twins][lnk-device-twin]. Devices use device twins to report property values to the solution back end. The solution dashboard uses device twins to set to new desired property values on devices.
+In addition to responding to commands and methods, the solution uses [device twins][lnk-device-twin]. Devices use device twins to report property values to the solution back end. The solution dashboard uses device twins to set to new desired property values on devices. For example, during the firmware update process the simulated device reports the status of the update using reported properties.
 
 ## IoT Hub
 In this preconfigured solution, the IoT Hub instance corresponds to the *Cloud Gateway* in a typical [IoT solution architecture][lnk-what-is-azure-iot].

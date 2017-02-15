@@ -55,7 +55,15 @@ The simulated devices send the following device properties to the [twin][lnk-dev
 
 | Property | Purpose |
 | --- | --- |
-| Device.DeviceID |Id that is either provided or assigned when a device is created in the solution. |
+| Config.TelemetryInterval | Frequency (seconds) the device sends telemetry |
+| Config.TemperatureMeanValue | Specifies the mean value for the simulated temperature telemtry |
+| Device.DeviceID |Id that is either provided or assigned when a device is created in the solution |
+| Device.DeviceState | State reported by the device |
+| Device.CreatedTime |Time the device was created in the solution |
+| Device.StartupTime |Time the device was started |
+| Device.LastDesiredPropertyChange |The version number of the last desired property change |
+| Device.Location.Latitude |Latitude location of the device |
+| Device.Location.Longitude |Longitude location of the device |
 | System.Manufacturer |Device manufacturer |
 | System.ModelNumber |Model number of the device |
 | System.SerialNumber |Serial number of the device |
@@ -63,13 +71,8 @@ The simulated devices send the following device properties to the [twin][lnk-dev
 | System.Platform |Platform architecture of the device |
 | System.Processor |Processor running the device |
 | System.InstalledRAM |Amount of RAM installed on the device |
-| Device.DeviceState | State reported by the device |
-| Device.CreatedTime |Time the device was created in the solution |
-| Device.UpdatedTime |Last time properties were updated for the device |
-| Location.Latitude |Latitude location of the device |
-| Location.Longitude |Longitude location of the device |
 
-The simulator seeds these properties in simulated devices with sample values. Each time the simulator initializes a simulated device, the device reports the pre-defined metadata to IoT Hub. Reported properties can only be updated by the device. To change a reported property, you set a desired property in solution portal. It is the responsibility of the device to:
+The simulator seeds these properties in simulated devices with sample values. Each time the simulator initializes a simulated device, the device reports the pre-defined metadata to IoT Hub as reported properties. Reported properties can only be updated by the device. To change a reported property, you set a desired property in solution portal. It is the responsibility of the device to:
 1. Periodically retrieve desired properties from the IoT hub.
 2. Update its configuration with the desired property value.
 3. Send the new value back to the hub as a reported property.
@@ -84,10 +87,6 @@ The simulated devices can handle the following methods ([direct methods][lnk-dir
 
 | Method | Description |
 | --- | --- |
-| PingDevice |Sends a *ping* to the device to check it is alive |
-| StartTelemetry |Starts the device sending telemetry |
-| StopTelemetry |Stops the device from sending telemetry |
-| ChangeDeviceState |Changes a state property for the device and sends the device info message from the device |
 | InitiateFirmwareUpdate |Instructs the device to perform a firmware update |
 | Reboot |Instructs the device to reboot |
 | FactoryReset |Instructs the device to perform a factory reset |
