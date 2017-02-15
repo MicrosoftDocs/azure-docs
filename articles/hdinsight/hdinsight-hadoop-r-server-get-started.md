@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/02/2017
+ms.date: 02/15/2017
 ms.author: jeffstok
 
 ---
@@ -46,52 +46,56 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
     ![Image of creating a new cluster](./media/hdinsight-getting-started-with-r/newcluster.png)
 
-3. Enter a name for the cluster in the **Cluster Name** field. If you have multiple Azure subscriptions, use the **Subscription** entry to select the one you want to use.
+3. In the **Quick create** experience, enter a name for the cluster in the **Cluster Name** field. If you have multiple Azure subscriptions, use the **Subscription** entry to select the one you want to use.
 
     ![Cluster name and subscription selections](./media/hdinsight-getting-started-with-r/clustername.png)
 
-4. Select **Cluster Configuration**. On the **Cluster Configuration** blade, select the following options:
+4. Select **Cluster type** to open the **Cluster configuration** blade. On the **Cluster Configuration** blade, select the following options:
 
    * **Cluster Type**: R Server
    * **Version**: select the version of R Server to install on the cluster. Select the newest version for the latest capabilities. Other versions are available if needed for compatibility. Release notes for each of the available versions are available [here](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes).
    * **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node.  If you would prefer to not have it installed, then un-check the check box. If you choose to have it installed then you’ll find the URL for accessing the RStudio Server login on a portal application blade for your cluster once it’s been created.
-     Leave the other options at the default values and use the **Select** button to save the cluster type.
+   Leave the other options at the default values and use the **Select** button to save the cluster type.
+   
+   ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
+         
+5. Enter a **Cluster login username** and **Cluster login password**.
 
-     ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
-
-   ​
-
-5. Select **Credentials** and enter a **Cluster Login Username** and **Cluster Login Password**.
-
-    Enter an **SSH Username**.  SSH is used to remotely connect to the cluster using a **Secure Shell (SSH)** client. You can either specify the SSH user in this dialog or after the cluster has been created (Configuration tab for the cluster). R Server is configured to expect a **SSH username** of “remoteuser”.  If you use a different username, you will have to perform an additional step after the cluster is created.
-
-    ![Credentials blade](./media/hdinsight-getting-started-with-r/clustercredentials.png)
-
-    **SSH Authentication Type**: Select **PASSWORD** as the authentication type unless you prefer use of a public key.  You’ll need a public/private key pair if you’d like to access R Server on the cluster via a remote client, e.g. RTVS, RStudio or another desktop IDE. Note that you will need to choose SSH password if you install RStudio Server community edition.     
-
-    To create and use a public/private key pair select ‘PUBLIC KEY’ and proceed as follows.  These instructions assume that you have Cygwin with ssh-keygen or equivalent installed.
-
+   Specify a **SSH Username**.  SSH is used to remotely connect to the cluster using a **Secure Shell (SSH)** client. You can either specify the SSH user in this dialog or after the cluster has been created (Configuration tab for the cluster). R Server is configured to expect a **SSH username** of “remoteuser”.  **If you use a different username, you will have to perform an additional step after the cluster is created.**
+   
+   Leave the box checked for **Use same password as cluster login** to use **PASSWORD** as the authentication type unless you prefer use of a public key.  You’ll need a public/private key pair if you’d like to access R Server on the cluster via a remote client, e.g. RTVS, RStudio or another desktop IDE. Note that you will need to choose a SSH password if you install RStudio Server community edition.     
+   
+   To create and use a public/private key pair uncheck **Use same password as cluster login** and then select **PUBLIC KEY** and proceed as follows.  These instructions assume that you have Cygwin with ssh-keygen or equivalent installed.
+   
    * Generate a public/private key pair from the command prompt on your laptop:
+   
+   `ssh-keygen -t rsa -b 2048`
 
-        ssh-keygen -t rsa -b 2048 –f <private-key-filename>
+   * Follow the prompt to name a key file and then enter a passphrase for added security. Your screen should look something like the following:
 
-   * This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:
+   ![SSH cmd line in Windows](./media/hdinsight-getting-started-with-r/sshcmdline.png)
+   
+   * This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  furiosa and furiosa.pub.
+   
+   ![SSH dir](./media/hdinsight-getting-started-with-r/dir.png)
 
-     ![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
-
+   * Then specify the public key file (*.pub) when assigning HDI cluster credentials and finally confirm your resource group and region and select **Next**
+   
+   ![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
+   
    * Change permissions on the private keyfile on your laptop
-
-        chmod 600 <private-key-filename>
-
+   
+   `chmod 600 <private-key-filename>`
+   
    * Use the private key file with SSH for remote login, e.g.
+   
+   `ssh –i <private-key-filename> remoteuser@<hostname public ip>`
+   
+   or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [Get started with SacaleR on Apache Spark document](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).)
+   
+6. The quick create will transition you to the **Storage** blade to select the storage account settings to be used for the primary location of the HDFS file system used by the cluster. Select either a new or existing Azure Storage account or an existing Data Lake Storage account.
 
-        ssh –i <private-key-filename> remoteuser@<hostname public ip>
-
-     or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [Get started with SacaleR on Apache Spark document](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).)
-
-6. Select **Data Source** to select a data source to be the primary location of the HDFS file system used by the cluster. Select either a new or existing Azure Storage account or an existing Data Lake Storage account.
-
-   1. If you select an Azure Storage account you may select an existing storage account by selecting **Select storage account** and then selecting the account. Or create a new account using the **Create New** link in the **Select storage account** section.
+   1. If you select an Azure Storage account you may select an existing storage account by selecting **Select a storage account** and then selecting the account. Or create a new account using the **Create New** link in the **Select a storage account** section.
 
       > [!NOTE]
       > If you select **New** you must enter a name for the new storage account. A green check will appear if the name is accepted.
@@ -110,7 +114,9 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
       Use the **Select** button to save the data source configuration.
 
 
-7. Select **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Unless you know that you'll need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
+7. The **Summary** blade will then display to validate all your settings. Here you can change your **Cluster size** to modify the number of servers in your cluster and also specify any **Script actions** you want to run. Unless you know that you'll need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
+   
+   ![cluster summary](./media/hdinsight-getting-started-with-r/clustersummary.png)
 
    > [!NOTE]
    > If needed, you can re-size your cluster later through the Portal (Cluster -> Settings -> Scale Cluster) to increase or decrease the number of worker nodes.  This can be useful for idling down the cluster when not in use, or for adding capacity to meet the needs of larger tasks.
@@ -130,19 +136,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
      Use the **Select** button to save the node pricing configuration.
 
-8. Select the **Resource Group** to use by either selecting an existing resource group or creating a new one. If you select **Create New** then enter the name of the new resource group. A green check will appear to indicate that the new group name is available.
-
-   ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/useexistingrg.png)
-
-   ​
-
-9. After reviewing your selections, it is now time to create the cluster. To do so select **Pin to Startboard** and then **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure portal.
-
-   You will note that there is also a link for **Automation options**. Clicking on this link will display scripts that can be used to automate the creation of a cluster with the selected configuration. These scripts are also available from the Azure portal entry for your cluster once it has been created.
-
-   | While creating                           | Creation complete                        |
-   | ---------------------------------------- | ---------------------------------------- |
-   | ![Creating indicator on startboard](./media/hdinsight-getting-started-with-r/provisioning.png) | ![Created cluster tile](./media/hdinsight-getting-started-with-r/provisioned.png) |
+   You will note that there is also a link for **Download template and parameters**. Clicking on this link will display scripts that can be used to automate the creation of a cluster with the selected configuration. These scripts are also available from the Azure portal entry for your cluster once it has been created.
 
    > [!NOTE]
    > It will take some time for the cluster to be created, usually around 20 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
@@ -159,7 +153,9 @@ If you’ve chosen to include RStudio Server community edition in your installat
 
 2. Or by opening the entry for your cluster in the Azure portal, selecting the R Server Dashboards quick link and then selecting the R Studio Dashboard:
 
-     ![Access the R studio dashboard](./media/hdinsight-getting-started-with-r/rstudiodashboard.png)
+     ![Access the R studio dashboard](./media/hdinsight-getting-started-with-r/rstudiodashboard1.png)
+     
+     ![Access the R studio dashboard](./media/hdinsight-getting-started-with-r/rstudiodashboard2.png)
 
    > [!IMPORTANT]
    > No matter the method, the first time you login you will need to authenticate two times.  At the first authentication, provide the cluster Admin userid and password. At the second prompt provide the SSH userid and password. Subsequent logins will only require the SSH password and userid. 
@@ -453,7 +449,8 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 1. From the [Azure portal](https://portal.azure.com), select your R Server on HDInsight cluster.
 2. From the **Settings** blade select **Script Actions** and then **Submit New** to submit a new Script Action.
 
-    ![Image of script actions blade](./media/hdinsight-getting-started-with-r/newscriptaction.png)
+    ![Image of script actions blade](./media/hdinsight-getting-started-with-r/scriptaction.png)
+
 3. From the **Submit script action** blade, provide the following information.
 
    * **Name**: A friendly name to identify this script
@@ -479,7 +476,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
      >
      >
 
-     ![Adding a script action](./media/hdinsight-getting-started-with-r/scriptaction.png)
+     ![Adding a script action](./media/hdinsight-getting-started-with-r/submitscriptaction.png)
      
 4. Select **Create** to run the script. Once the script completes, the R packages will be available on all worker nodes.
 
