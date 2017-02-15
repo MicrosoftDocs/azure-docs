@@ -194,6 +194,29 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
+## Change Private IP address to static for a VM having dynamic Private IP Allocation 
+For a bigger enterprize it is hard assign a static Private IP Manually to the VM.
+The Prefer to deploy a VM with Dynamic Private IP and then change it back to static Private IP so that any services/application hosted on the VM do not get fail after VM reboot.
+
+If nic name is not know then nic the nic details for a pertical Resource group can be fech using below code.
+
+```powershell
+Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
+```
+After we identify the applicable nic then below are the setps to change the IP allocation from Dynamic to Static and display the IP.
+Below is an example:
+
+```powershell
+$RG = "TestRG"
+$NIC_name = "testnic1"
+
+$nic = Get-AzureRmNetworkInterface -ResourceGroupName $RG -Name $NIC_name
+$nic.IpConfigurations[0].PrivateIpAllocationMethod = 'Static'
+Set-AzureRmNetworkInterface -NetworkInterface $nic 
+$IP = $nic.IpConfigurations[0].PrivateIpAddress
+
+Write-Host "IP allocation has been set to Static Allocation and the IP is :: " $IP -NoNewline
+```
 
 ## Next steps
 * Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
