@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Flatter Files wit
 Integrating Flatter Files with Azure AD provides you with the following benefits: 
 
 * You can control in Azure AD who has access to Flatter Files 
-* You can enable your users to automatically get signed-on to Flatter Files single sign-on (SSO)) with their Azure AD accounts
+* You can enable your users to automatically get signed-on to Flatter Files single sign-on (SSO) with their Azure AD accounts
 * You can manage your accounts in one central location - the Azure Active Directory classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -94,7 +94,6 @@ To configure and test Azure AD single sign-on with Flatter Files, you need to co
 
 ### Configure Azure AD single sign-on
 The objective of this section is to enable Azure AD single sign-on in the Azure AD classic portal and to configure single sign-on in your Flatter Files application. As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
-
 To configure single sign-on for Flatter Files, you need a registered domain. If you don't have a registered domain yet, contact your Flatter Files support team via [support@flatterfiles.com](mailto:support@flatterfiles.com).  
 
 **To configure Azure AD single sign-on with Flatter Files, perform the following steps:**
@@ -103,8 +102,7 @@ To configure single sign-on for Flatter Files, you need a registered domain. If 
    
     ![Configure Single Sign-On][6] 
 2. On the **How would you like users to sign on to Flatter Files** page, select **Azure AD Single Sign-On**, and then click **Next**.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_02.png) 
+       ![Configure Single Sign-On](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_02.png) 
 3. On the **Configure App Settings** dialog page, click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_03.png) 
@@ -130,15 +128,17 @@ To configure single sign-on for Flatter Files, you need a registered domain. If 
    
     ![Configure Single Sign-On](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_08.png)  
    1. In the Domain textbox, type your registered domain.
-   >[!NOTE]
-   >If you don't have a registered domain yet, contact your Flatter Files support team via [support@flatterfiles.com](mailto:support@flatterfiles.com). 
-   >    
+   
+    >[!NOTE]
+    >If you don't have a registered domain yet, contact your Flatter Files support team via [support@flatterfiles.com]
+(mailto:support@flatterfiles.com). 
+    >    
    2. In the Azure classic portal, on the Configure single sign-on at Flatter Files dialog, copt the Single Sign-On Service URL, and then paste it into the Identity Provider URL textbox.
    3.  Create a **base-64 encoded** file from your downloaded certificate.  
+ 
    >[!TIP]
-   >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+   >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
    >  
-   
    4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **FlatterFiles Identity Provider Certificate** textbox.
    5. Click **Update**.
 9. In the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
