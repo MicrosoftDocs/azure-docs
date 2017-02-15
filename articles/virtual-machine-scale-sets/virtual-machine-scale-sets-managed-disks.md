@@ -20,17 +20,17 @@ ms.author: negat
 ---
 # Azure VM scale sets and managed disks
 
-Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now support virtual machines with managed disks. This has several benefits, including:
+Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now support virtual machines with managed disks. Using managed disks with scale sets has several benefits, including:
 
-1. The user no longer needs to pre-create and manage storage accounts to store the OS disks for the scale set VMs.
+1. You no longer need to pre-create and manage storage accounts to store the OS disks for the scale set VMs.
 
-2. The user can attach managed data disks to the scale set.
+2. You can attach managed data disks to the scale set.
 
 3. With managed disk, a scale set can have capacity as high as 1,000 VMs if based on a platform image or 100 VMs if based on a custom image.
 
 ## Get Started
 
-A simple way to get started with managed disk scale sets is to deploy one from the Azure Portal. For more information on how to do this, see [this article](./virtual-machine-scale-sets-portal-create.md). Another simple way to get started is to use [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) to deploy a scale set. The following example shows how to create an Ubuntu based scale set with 10 VMs, each with a 50GB and 100GB data disk:
+A simple way to get started with managed disk scale sets is to deploy one from the Azure Portal. For more information, see [this article](./virtual-machine-scale-sets-portal-create.md). Another simple way to get started is to use [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) to deploy a scale set. The following example shows how to create an Ubuntu based scale set with 10 VMs, each with a 50 GB and 100 GB data disk:
 
 ```bash
 az group create -l southcentralus -n dsktest
