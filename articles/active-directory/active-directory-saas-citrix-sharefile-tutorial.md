@@ -42,7 +42,7 @@ The objective of this section is to outline how to enable the application integr
 
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
-   ![Active Directory](./media/active-directory-saas-citrix-sharefile-tutorial/IC700993.png "Active Directory")
+=   ![Active Directory](./media/active-directory-saas-citrix-sharefile-tutorial/IC700993.png "Active Directory")
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
@@ -66,7 +66,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Citrix ShareFile** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Citrix ShareFile** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Enable single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Enable single sign-on")
 2. On the **How would you like users to sign on to Citrix ShareFile** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -86,7 +86,6 @@ The objective of this section is to outline how to enable users to authenticate 
 8. On the **Single Sign-On/ SAML 2.0 Configuration** dialog page under **Basic Settings**, perform the following steps:
    
    ![Single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773628.png "Single sign-on")
-   
    1. Click **Enable SAML**.
    2. In the Azure classic portal, on the **Configure single sign-on at Citrix ShareFile** dialog page, copy the **Entity ID** value, and then paste it into the **Your IDP Issuer/ Entity ID** textbox.
    3. In the Azure classic portal, on the **Configure single sign-on at Citrix ShareFile** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
@@ -129,7 +128,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Citrix ShareFile, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Citrix ShareFile **application integration page, click **Assign users**.
+2. On the **Citrix ShareFile** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-citrix-sharefile-tutorial/IC773631.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
