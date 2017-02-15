@@ -1,5 +1,5 @@
 ---
-title: Setting properties and metadata during the Azure Import/Export import process | Microsoft Docs
+title: Setting properties and metadata using Azure Import/Export | Microsoft Docs
 description: Learn how to specify properties and metadata to be set on the destination blobs when running the Azure Import/Export tool to prepare your drives.
 author: muralikk
 manager: syadav
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---
