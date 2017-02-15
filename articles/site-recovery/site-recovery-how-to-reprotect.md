@@ -122,7 +122,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 
 ## Steps to reprotect
 
-Before re-protection, make sure you have installed the [Process server](site-recovery-vmware-setup-azure-ps-resource-manager) in Azure and the on-premises Windows or [Linux Master Target](site-recovery-how-to-install-linux-master-target.md).
+Before re-protection, make sure you have installed the [Process server](site-recovery-vmware-setup-azure-ps-resource-manager.md) in Azure and the on-premises Windows or [Linux Master Target](site-recovery-how-to-install-linux-master-target.md).
 
 1. In the Vault > replicated items > select the VM that's been failed over and right click to **Re-Protect**. You can also click the machine and select the reprotect from the command buttons.
 2. In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
