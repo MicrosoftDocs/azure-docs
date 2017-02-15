@@ -65,7 +65,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Huddle** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Huddle** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787833.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Huddle** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -80,10 +80,10 @@ The objective of this section is to outline how to enable users to authenticate 
    
    1. Click **Download certificate**, and then save the certificate file on your computer.
    2. Copy the **Issuer URL** value, the **SAML SSO URL** value and the downloaded certificate, and then send them to the Huddle support team.  
-   >[!NOTE]
-   >Single sign-on needs to be enabled by the Huddle support team.
-   > You will get a notification when the configuration has been completed. 
-   > 
+   
+    >[!NOTE]
+    >Single sign-on needs to be enabled by the Huddle support team. You will get a notification when the configuration has been completed. 
+    > 
 5. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787837.png "Configure Single Sign-On")
@@ -106,9 +106,10 @@ In order to enable Azure AD users to log into Huddle, they must be provisioned i
    1. In the **Choose a team to invite people to join** list, select **team**.
    2. Type the **Email Address** of a valid AAD account you want to provision into the related textbox.
    3. Click **Invite**.   
-   >[!NOTE]
-   >The Azure AD account holder will receive an email including a link to confirm the account before it becomes active. 
-   > 
+   
+    >[!NOTE]
+    >The Azure AD account holder will receive an email including a link to confirm the account before it becomes active. 
+    > 
 
 >[!NOTE]
 >You can use any other Huddle user account creation tools or APIs provided by Huddle to provision AAD user accounts. 
@@ -120,7 +121,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Huddle, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Huddle **application integration page, click **Assign users**.
+2. On the **Huddle** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-huddle-tutorial/IC787840.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
