@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 02/13/2017
 ms.author: marsma
 
 ---
@@ -29,6 +29,7 @@ Retrieving property and metadata values for a storage resource is a two-step pro
 > [!IMPORTANT]
 > Property and metadata values for a storage resource are not populated unless you call one of the **FetchAttributes** methods.
 >
+> You will receive a `400 Bad Request` if any name/value pairs contain non-ASCII characters. Metadata name/value pairs are valid HTTP headers, and so must adhere to all restrictions governing HTTP headers. It is therefore recommended that you use URL encoding or Base64 encoding for names and values containing non-ASCII characters.
 >
 
 ## Setting and Retrieving Properties

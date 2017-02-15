@@ -106,6 +106,7 @@
 #### [Deploy](active-directory-azureadjoin-devices-group-policy.md)
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
 #### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
+
 #### [Understand Windows 10 integration](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Use Windows 10 devices](active-directory-azureadjoin-windows10-devices.md)
 #### [FAQs](active-directory-conditional-access-automatic-device-registration-faq.md)
@@ -123,25 +124,31 @@
 
 ### [Give remote access to your apps](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md)
+#### [Understand connectors](application-proxy-understand-connectors.md)
+
 #### Publish apps
 ##### [Azure portal](application-proxy-publish-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-publish.md)
+#### [Security](application-proxy-security-considerations.md)
+#### [Networks](application-proxy-network-topology-considerations.md)
+#### [Remote Desktop](application-proxy-publish-remote-desktop.md)
+#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### Publish on separate networks
 ##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-connectors.md)
+#### [Proxy servers](application-proxy-working-with-proxy-servers.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
-#### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
+#### [Access apps](active-directory-appssoaccess-whatis.md)
 ##### [Azure portal](application-proxy-sso-azure-portal.md)
+#### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
+#### [Custom home page](application-proxy-office365-app-launcher.md)
 #### [Conditional access](active-directory-application-proxy-conditional-access.md)
 #### [Silent install](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
-### [Understand SSO for apps](active-directory-appssoaccess-whatis.md)
-
-### Integrate SaaS apps
-#### [Azure portal](active-directory-enterprise-apps-manage-sso.md)
-#### [Classic portal](active-directory-sso-integrate-saas-apps.md)
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
@@ -164,7 +171,6 @@
 
 ### [Use SCIM provision users](active-directory-scim-provisioning.md)
 ### [Document library](active-directory-apps-index.md)
-
 
 ## Manage your directory
 ### Custom domain names

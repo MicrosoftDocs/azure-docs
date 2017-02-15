@@ -44,6 +44,7 @@
 ### [Integration Modules](automation-integration-modules.md)
 ### [Schedules](automation-schedules.md)
 ### [Variables](automation-variables.md)
+### [Update Azure PowerShell modules](automation-update-azure-modules.md)
 ## Automate scenarios
 ### [Runbook gallery](automation-runbook-gallery.md)
 ### [Start/stop virtual machines](automation-solution-startstopvm-graphical.md)
