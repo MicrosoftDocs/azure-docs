@@ -55,6 +55,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
    * **Cluster Type**: R Server
    * **Version**: select the version of R Server to install on the cluster. Select the newest version for the latest capabilities. Other versions are available if needed for compatibility. Release notes for each of the available versions are available [here](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes).
    * **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node.  If you would prefer to not have it installed, then un-check the check box. If you choose to have it installed then you’ll find the URL for accessing the RStudio Server login on a portal application blade for your cluster once it’s been created.
+
    Leave the other options at the default values and use the **Select** button to save the cluster type.
    
    ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
@@ -111,7 +112,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    2. If you select use of an existing Data Lake Store then select the ADLS storage account to use and add the cluster ADD identity to your cluster to allow access to the store. For more information on this process review [Creating HDInsight cluster with Data Lake Store using Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
-   Use the **Select** button to save the data source configuration.
+   Use the **Select** button to save the data source configuration.
 
 
 7. The **Summary** blade will then display to validate all your settings. Here you can change your **Cluster size** to modify the number of servers in your cluster and also specify any **Script actions** you want to run. Unless you know that you need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
@@ -121,7 +122,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
    > [!NOTE]
    > If needed, you can re-size your cluster later through the Portal (Cluster -> Settings -> Scale Cluster) to increase or decrease the number of worker nodes.  This can be useful for idling down the cluster when not in use, or for adding capacity to meet the needs of larger tasks.
    >
-   > ​
+   > 
 
     Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include:  
 
@@ -141,7 +142,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
    > [!NOTE]
    > It will take some time for the cluster to be created, usually around 20 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
    >
-   > ​
+   > 
 
 ## Connect to RStudio Server
 
@@ -370,7 +371,7 @@ A compute context allows you to control whether computation will be performed lo
    > [!NOTE]
    > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
    >
-   > ​
+   >
    
 ## Distribute R code to multiple nodes
 With R Server you can easily take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This is useful when doing a parameter sweep or simulations. The following is an example of how to use `rxExec`.
