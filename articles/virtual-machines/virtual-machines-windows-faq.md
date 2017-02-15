@@ -43,6 +43,7 @@ Don’t use the temporary disk to store data. It is only temporary storage, so y
 
 If you have an application that needs to use the D: drive letter, you can reassign drive letters so that the temporary disk uses something other than D:. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
+
 ## How can I change the drive letter of the temporary disk?
 You can change the drive letter by moving the page file and reassigning drive letters, but you need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -69,7 +70,9 @@ No. Adding a NIC can only be done at creation time.
 ## Are there any computer name requirements?
 Yes. The computer name can be a maximum of 15 characters in length. See [Infrastructure naming guidelines](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
 
-## What are the username requirements when creating a VM?Usernames can be a maximum of 20 characters in length and cannot end in a period ("."). 
+## What are the username requirements when creating a VM?
+
+Usernames can be a maximum of 20 characters in length and cannot end in a period ("."). 
 
 
 The following usernames are not allowed:
