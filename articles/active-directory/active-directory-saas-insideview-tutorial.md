@@ -39,7 +39,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 The objective of this section is to outline how to enable the application integration for InsideView.
 
 **To enable the application integration for InsideView, perform the following steps:**
-
+ 
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-insideview-tutorial/IC700993.png "Active Directory")
@@ -63,7 +63,7 @@ The objective of this section is to outline how to enable the application integr
 ## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to InsideView with their account in Azure AD using federation based on the SAML protocol.  
-
+ 
 As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
 **To configure single sign-on, perform the following steps:**
@@ -91,9 +91,10 @@ As part of this procedure, you are required to create a base-64 encoded certific
    1. In the **STS Name** textbox, type a name for your configuration.
    2. In the Azure classic portal, on the **Configure single sign-on at InsideView** dialog page, copy the **Service Provider (SP) Initiated Endpoint** value, and then paste it into the **SamlP/WS-Fed Unsolicated EndPoint** textbox.
    3. Create a **base-64 encoded** file from your downloaded certificate.      
-      >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
-      >
+
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
+     >
    4. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox
    5. Complete the following:
     * In the **Crm User Id Mapping** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
