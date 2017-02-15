@@ -91,7 +91,7 @@ SSH into the public IP using your SSH public key.  From a Mac or Linux workstati
 [How to Use SSH keys with Windows on Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```
-ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
+ssh -i ~/.ssh/azure_id_rsa ops@40.112.255.214
 ```
 
 ## Next Steps
