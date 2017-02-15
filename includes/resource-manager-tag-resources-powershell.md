@@ -42,7 +42,7 @@ Every time you apply tags to a resource or resource group, you overwrite the exi
   Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
   ```
 
-To apply all tags from a resource group to resources in the resource group **without retaining any existing tags on the resources**, use the following script:
+To apply all tags from a resource group to its resources, and **not retain existing tags on the resources**, use the following script:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -52,7 +52,7 @@ foreach ($g in $groups)
 }
 ```
 
-For a more robust solution, you can apply all tags from a resource group to resources in the resource group, and **retain any existing tags on resources that are not duplicates**.
+To apply all tags from a resource group to its resources, and **retain existing tags on resources that are not duplicates**, use the following script:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
