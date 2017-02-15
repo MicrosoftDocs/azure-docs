@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 02/14/2016
 ms.author: trinadhk; jimpark; markgal;
 
 ---
@@ -29,6 +29,11 @@ After the snapshot is taken, the data is transferred by the Azure Backup service
 ![Azure virtual machine backup architecture](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
+
+> [!NOTE]
+> Azure Backup doesn't include temporary disk attached to virtual machine when taking backup. Learn more on [temporary disk](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+>
+>
 
 ### Data consistency
 Backing up and restoring business critical data is complicated by the fact that business critical data must be backed up while the applications that produce the data are running. To address this, Azure Backup provides application-consistent backups for Microsoft workloads by using VSS to ensure that data is written correctly to storage.
