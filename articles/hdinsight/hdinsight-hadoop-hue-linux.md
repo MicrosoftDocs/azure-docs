@@ -13,12 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 02/09/2017
 ms.author: nitinme
 
 ---
 # Install and use Hue on HDInsight Hadoop clusters
-Learn how to install Hue on HDInsight Linux clusters and use tunneling to route the requests to Hue.
+
+Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue.
+
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## What is Hue?
 Hue is a set of Web applications used to interact with a Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, etc. The following components are available with Hue installations on an HDInsight Hadoop cluster.
@@ -38,8 +42,8 @@ Hue is a set of Web applications used to interact with a Hadoop cluster. You can
 >
 
 ## Install Hue using Script Actions
-The following script action can be used to install Hue on a Linux-based HDInsight cluster.
-    https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+
+The script to install Hue on a Linux-based HDInsight cluster is available at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with either Azure Storage Blobs (WASB) or Azure Data Lake Store as default storage.
 
 This section provides instructions about how to use the script when provisioning the cluster using the Azure Portal.
 
@@ -68,15 +72,22 @@ This section provides instructions about how to use the script when provisioning
 4. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Use Hue with HDInsight clusters
+
 SSH Tunneling is the only way to access Hue on the cluster once it is running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight Linux cluster.
 
+> [!NOTE]
+> We recommend using Firefox web browser to follow the instructions below.
+>
+>
+
 1. Use the information in [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) to create an SSH tunnel from your client system to the HDInsight cluster, and then configure your Web browser to use the SSH tunnel as a proxy.
+
 2. Once you have created an SSH tunnel and configured your browser to proxy traffic through it, you must find the host name of the primary head node. You can do this by connecting to the cluster using SSH on port 22. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` where **USERNAME** is your SSH user name and **CLUSTERNAME** is the name of your cluster.
 
     For more information on using SSH, see the following documents:
 
-   * [Use SSH with Linux-based HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
+   * [Use SSH with HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
+   * [Use SSH with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. Once connected, use the following command to obtain the fully qualified domain name of the primary headnode:
 
         hostname -f
@@ -119,10 +130,12 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 ## Important considerations
 1. The script used to install Hue installs it only on the primary headnode of the cluster.
+
 2. During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration. After the script finishes installing Hue, it might take some time for other Hadoop services to start up. This might affect Hue's performance initially. Once all services start up, Hue will be fully functional.
 3. Hue does not understand Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:
 
-     set hive.execution.engine=mr;
+     	set hive.execution.engine=mr;
+
 4. With Linux clusters, you can have a scenario where your services are running on the primary headnode while the Resource Manager could be running on the secondary. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 
    ![Hue portal error](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue portal error")

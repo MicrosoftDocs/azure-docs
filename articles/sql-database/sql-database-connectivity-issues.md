@@ -5,7 +5,7 @@ keywords: sql connection,connection string,connectivity issues,transient error,c
 services: sql-database
 documentationcenter: ''
 author: dalechen
-manager: felixwu
+manager: cshepard 
 editor: ''
 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
@@ -15,7 +15,7 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 01/20/2017
 ms.author: daleche
 
 ---

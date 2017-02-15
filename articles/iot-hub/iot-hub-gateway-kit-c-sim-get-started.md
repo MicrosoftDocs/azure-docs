@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Gateway Starter Kit | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Get started | Microsoft Docs'
 description: Get started with IoT Gateway Starter Kit, create your Azure IoT hub, and connect Gateway to the IoT hub
 services: iot-hub
 documentationcenter: ''

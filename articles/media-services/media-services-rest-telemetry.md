@@ -217,10 +217,6 @@ The steps described in this topic are:
 	
 	{"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.MonitoringConfiguration"},"Id":"nb:mcid:UUID:1a8931ae-799f-45fd-8aeb-9641740295c2","NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Created":"2015-12-02T05:10:43.7680396Z","LastModified":"2015-12-02T05:10:43.7680396Z","Settings":{"__metadata":{"type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.ComponentMonitoringSettings)"},"results":[{"Component":"Channel","Level":"Normal"},{"Component":"StreamingEndpoint","Level":"Disabled"}]}}}
 
-## Consuming telemetry information
-
-For information about consuming telemetry information, see [this](media-services-telemetry-overview.md) topic.
-
 ## Stop telemetry
 
 ###Request
@@ -233,6 +229,10 @@ For information about consuming telemetry information, see [this](media-services
 	Authorization: (redacted)
 	Content-Type: application/json; charset=utf-8
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
+
+## Consuming telemetry information
+
+For information about consuming telemetry information, see [this](media-services-telemetry-overview.md) topic.
 
 ## Next steps
 

@@ -1,12 +1,20 @@
 ---
 title: Azure Government Operations Management Suite | Microsoft Docs
 description: This article describes how Log Analytics in Operations Management Suite is applicable to US Government agencies and solution providers
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: sacha
 manager: jobruno
-editor: ''
+
+ms.assetid:
+ms.service: azure-government
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: azure-government
+ms.date: 12/05/2016
+ms.author: saweld
 ---
 
 # Azure Government cybersecurity: Monitoring and securing your assets with Operations Management Suite 

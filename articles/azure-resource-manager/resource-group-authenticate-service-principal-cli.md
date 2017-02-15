@@ -1,5 +1,5 @@
 ---
-title: Create service principal with Azure CLI | Microsoft Docs
+title: Create identity for Azure app with Azure CLI | Microsoft Docs
 description: Describes how to use Azure CLI to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 01/17/2017
 ms.author: tomfitz
 
 ---
@@ -29,6 +29,7 @@ When you have an app or script that needs to access resources, you can set up an
 
 * You can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 * You do not have to change the app's credentials if your responsibilities change. 
+* You can use a certificate to automate authentication when executing an unattended script.
 
 This topic shows you how to use [Azure CLI for Mac, Linux, and Windows](../xplat-cli-install.md) to set up an application to run under its own credentials and identity.
 

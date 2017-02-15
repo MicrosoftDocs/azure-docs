@@ -29,9 +29,8 @@ The following administrator roles are available:
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
   >
   >
-* **Compliance administrator**:
+* **Compliance administrator**: Users with this role have management permissions within in the [Office 365 Security & Compliance Center](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1?ui=en-US&rs=en-US&ad=US&fromAR=1) and [Exchange Admin Center](https://technet.microsoft.com/en-us/library/jj657489(v=exchg.150).aspx), and access to read reports in the Office 365 Admin Center. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **CRM service administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Customer LockBox access approver**: When the LockBox service is enabled, users with this role can approve requests for Microsoft engineers to access company information. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Device administrators**: Users with this role become Administrators on all Windows 10 devices that are joined to Azure Active Directory.
 * **Directory readers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
 * **Directory synchronization accounts**: Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
@@ -40,6 +39,9 @@ The following administrator roles are available:
 * **Intune service administrator**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Skype for Business service administrator**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). This role was referred to previously as the **Lync service administrator** role.
 * **Guest inviter**: Users in this role can manage guest invitations. It does not include any other permissions.
+* **Mailbox Administrator**: This role is only used as part of Exchange Online email support for RIM Blackberry devices. If your organization does not use Exchange Online email on RIM Blackberry devices, do not use this role.
+* **Partner Tier 1 Support**: Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
+* **Partner Tier 2 Support**: Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 * **[Password administrator/Helpdesk administrator](#password-administrator)**: Resets passwords, manages service requests, and monitors service health. Password administrators can reset passwords only for users and other password administrators.
 
   > [!NOTE]
@@ -110,7 +112,7 @@ The global administrator has access to all administrative features. By default, 
 7. When you have finished, click **Save**.
 
 ## Next steps
-* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Manage users](active-directory-create-users.md)

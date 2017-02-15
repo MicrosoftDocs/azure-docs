@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric content roadmap | Microsoft Docs
+title: Learn about Azure Service Fabric | Microsoft Docs
 description: An overview and getting started guide for Service Fabric where applications are composed of many microservices to provide scale and resilience. 
 services: service-fabric
 documentationcenter: .net
@@ -52,7 +52,7 @@ The Service Fabric SDK includes an add-in for Visual Studio that provides templa
 Try this extensive [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) to get familiar with the end-to-end development flow for Service Fabric.  Learn to create a stateless service, configure monitoring and health reports, and perform an application upgrade. 
 
 The following Channel9 video walks you through the process of creating a C# app in Visual Studio:  
-<center><a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
+<center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
 <img src="./media/service-fabric-content-roadmap/first-app-vid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -73,7 +73,7 @@ You can build Service Fabric applications on MacOS X to run on Linux clusters. T
 [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 
 ## Core concepts
-[Service Fabric terminology](service-fabric-technical-overview.md), [Appliacation model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
+[Service Fabric terminology](service-fabric-technical-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
 
 <table><tr><th>Core concepts</th><th>Design time</th><th>Run time</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">

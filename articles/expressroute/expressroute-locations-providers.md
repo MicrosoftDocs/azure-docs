@@ -1,10 +1,10 @@
 ---
-title: ExpressRoute locations | Microsoft Docs
-description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
+title: 'Locations and connectivity providers: Azure ExpressRoute | Microsoft Docs'
+description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by location.
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
@@ -13,10 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 02/13/2017
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
+
+> [!div class="op_single_selector"]
+> * [Locations By Provider](expressroute-locations.md)
+> * [Providers By Location](expressroute-locations-providers.md)
+
+
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
 ## <a name="partners"></a>ExpressRoute connectivity providers
@@ -31,38 +37,37 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
-| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **South America** |Brazil South |Sao Paulo |
 | **Europe** |North Europe, West Europe, UK West, UK South |Amsterdam, Dublin, London, Newport(Wales), Paris |
 | **Asia** |East Asia, Southeast Asia |Hong Kong, Singapore |
 | **Japan** |Japan West, Japan East |Osaka, Tokyo |
 | **Australia** |Australia Southeast, Australia East |Melbourne, Sydney |
 | **India** |India West, India Central, India South |Chennai, Mumbai |
-| **South Korea** | Korea Central, Korea South | Busan, Seoul |
+| **South Korea** |Korea Central, Korea South |Busan, Seoul |
 
 ### Regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- | --- |
-| **US Government cloud** |US Gov Iowa, US Gov Virginia, US DoD Central+, US DoD East+  |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
+| **US Government cloud** |US Gov Iowa, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **China** |China North, China East |Beijing, Shanghai |
 | **Germany** |Germany Central, Germany East |Berlin, Frankfurt |
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
 
 ## <a name="locations"></a>Connectivity provider locations
-> [!div class="op_single_selector"]
-> * [Locations By Provider](expressroute-locations.md#locations)
-> * [Providers By Location](expressroute-locations-providers.md#locations)
-> 
-> 
+
+The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](expressroute-locations.md#locations). 
+
 
 ### Production Azure
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** |Equinix |
+| **Busan** |LG CNS+, Sejong Telecom |
 | **Chennai** |SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
@@ -78,8 +83,10 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Mumbai** |Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Paris** |Interxion, Equinix+ |
+| **Quebec City** | Megaport |
 | **Sao Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
+| **Seoul** |KINX, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
@@ -97,7 +104,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, Level 3 Communications+, Verizon |
-| **Silicon Valley** | Equinix+ |
+| **Silicon Valley** | Equinix |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### China
@@ -149,9 +156,9 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | --- | --- |
 | **Asia** |Avanade Inc., OneAs1a |
 | **Australia** | IT Consultancy |
-| **Europe** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
-| **US** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
-
+| **Europe** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
+| **North America** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
+| **South America** |Avanade Inc. |
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).

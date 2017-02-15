@@ -97,6 +97,39 @@ Most applications also require the presence of a domain controller and a DNS ser
 ### Removing reference to other domain controllers
 When you are doing a test failover, you will not bring all of the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment you will need to [seize FSMO Active Directory roles and do metadata cleanup](http://aka.ms/ad_seize_fsmo) for missing domain controllers. 
 
+### Troubleshooting domain controller issues during test failover
+
+
+On a command prompt run the following command to check whether SYSVOL and NETLOGON folders are shared:
+
+	NET SHARE
+
+On the command prompt run the following command to ensure that the domain controller is functioning properly.
+
+	dcdiag /v > dcdiag.txt
+
+In the output log, look for following text to confirm that the domain controller is functioning well. 
+
+* "passed test Connectivity"
+* "passed test Advertising"
+* "passed test MachineAccount"
+
+If the above conditions are satisfied, it is likely that the domain controller will function well. If this is not the case, try following steps.
+
+
+* Do an authoritative restore of the domain controller.
+	* Although it is [not recommended to use FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/) but if you are still using it then follow the steps provided [here](https://support.microsoft.com/en-in/kb/290762) to do an authoritative restore. You can read more about Burflags talked about in the previous link [here](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+	* If you are using DFSR replication then follow the steps available [here](https://support.microsoft.com/en-us/kb/2218556) to do an authoritative restore. You can also use Powershell functions available on this [link](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) for this purpose. 
+	
+* Bypass initial synchronization requirement by setting following registry key to 0. If this DWORD doesn't exist then you can create it under node 'Parameters'. You can read more about it [here](https://support.microsoft.com/en-us/kb/2001093)
+
+	    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
+
+* Disable the requirement that a global catalog server be available to validate user logon by setting following registry key to 1. If this DWORD doesn't exist then you can create it under node 'Lsa'. You can read more about it [here](http://support.microsoft.com/kb/241789/EN-US)
+
+    	HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures
+
+
 
 ### DNS and domain controller on different machines
 If DNS isn't on the same virtual machine as the domain controller you’ll need to create a DNS VM for the test failover. If they're on the same VM, you can skip this section.

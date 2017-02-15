@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/27/2017
 ms.author: charwen
 
 ---
 # Optimize ExpressRoute Routing
 When you have multiple ExpressRoute circuits, you have more than one path to connect to Microsoft. As a result, suboptimal routing may happen - that is, your traffic may take a longer path to reach Microsoft, and Microsoft to your network. The longer the network path, the higher the latency. Latency has direct impact on application performance and user experience. This article will illustrate this problem and explain how to optimize routing using the standard routing technologies.
 
-## Suboptimal routing case 1
+## Suboptimal routing from customer to Microsoft
 Let's take a close look at the routing problem by an example. Imagine you have two offices in the US, one in Los Angeles and one in New York. Your offices are connected on a Wide Area Network (WAN), which can be either your own backbone network or your service provider's IP VPN. You have two ExpressRoute circuits, one in US West and one in US East, that are also connected on the WAN. Obviously, you have two paths to connect to the Microsoft network. Now imagine you have Azure deployment (e.g. Azure App Service) in both US West and US East. Your intention is to connect your users in Los Angeles to Azure US West and your users in New York to Azure US East because your service admin advertises that users in each office access the nearby Azure services for optimal experiences. Unfortunately, the plan works out well for the east coast users but not for the west coast users. The cause of the problem is the following. On each ExpressRoute circuit, we advertise to you both the prefix in Azure US East (23.100.0.0/16) and the prefix in Azure US West (13.100.0.0/16). If you don't know which prefix is from which region, you are not able to treat it differently. Your WAN network may think both of the prefixes are closer to US East than US West and therefore route both office users to the ExpressRoute circuit in US East. In the end, you will have many unhappy users in the Los Angeles office.
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
@@ -30,7 +30,7 @@ To optimize routing for both office users, you need to know which prefix is from
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
-## Suboptimal routing case 2
+## Suboptimal routing from Microsoft to customer
 Here is another example where connections from Microsoft take a longer path to reach your network. In this case, you use on-premises Exchange servers and Exchange Online in a [hybrid environment](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Your offices are connected to a WAN. You advertise the prefixes of your on-premises servers in both of your offices to Microsoft through the two ExpressRoute circuits. Exchange Online will initiate connections to the on-premises servers in cases such as mailbox migration. Unfortunately, the connection to your Los Angeles office is routed to the ExpressRoute circuit in US East before traversing the entire continent back to the west coast. The cause of the problem is similar to the first one. Without any hint, the Microsoft network can't tell which customer prefix is close to US East and which one is close to US West. It happens to pick the wrong path to your office in Los Angeles.
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)

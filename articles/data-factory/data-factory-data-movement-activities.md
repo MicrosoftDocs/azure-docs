@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/22/2017
 ms.author: jingwang
 
 ---
@@ -63,11 +63,12 @@ If you need to move data to/from a data store that Copy Activity doesn't support
 ### Supported file formats
 You can use Copy Activity to **copy files as-is** between two file-based data stores, such as Azure Blob, Azure Data Lake Store, Amazon S3, FTP, File System, and HDFS. To do so, you can skip the [format section](data-factory-create-datasets.md) in both the input and output dataset definitions. The data is copied efficiently without any serialization/deserialization.
 
-Copy Activity also reads from and writes to files in specified formats: **text, Avro, ORC, Parquet, and JSON**. You can do the following copy activities, for example:
+Copy Activity also reads from and writes to files in specified formats: **text, Avro, ORC, Parquet, and JSON**, and compression codec **GZip, Deflate, BZip2, and ZipDeflate** are supported. You can do the following copy activities, for example:
 
-* Copy data in text (CSV) format from Azure Blob and write to Azure SQL Database.
-* Copy files in text (CSV) format from File System on-premises and write to Azure Blob in Avro format.
-* Copy data in Azure SQL Database and write to HDFS on-premises in ORC format.
+* Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
+* Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
+* Copy data in on-premises SQL Server and write to Azure Data Lake Store in ORC format.
+* Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
 
 ## <a name="global"></a>Globally available data movement
 Azure Data Factory is available only in the West US, East US, and North Europe regions. However, the service that powers Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Services by region](https://azure.microsoft.com/regions/#services) for availability of Data Factory and Data Movement in a region.

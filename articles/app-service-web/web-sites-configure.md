@@ -167,7 +167,7 @@ For more information, see [How to: Monitor web endpoint status].
 [pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale a web app in Azure App Service]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
-[Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Try App Service]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

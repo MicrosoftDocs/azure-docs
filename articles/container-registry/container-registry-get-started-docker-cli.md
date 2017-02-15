@@ -1,5 +1,5 @@
 ---
-title: Docker operations on a container registry | Microsoft Docs
+title: Docker images in Azure container registry | Microsoft Docs
 description: Push and pull Docker images to an Azure container registry using the Docker CLI
 services: container-registry
 documentationcenter: ''

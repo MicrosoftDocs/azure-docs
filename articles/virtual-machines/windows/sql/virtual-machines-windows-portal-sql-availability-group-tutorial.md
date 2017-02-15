@@ -52,7 +52,8 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
-## <a name="CreateCluster"></a>Create the cluster
+<a name="CreateCluster"></a>
+## Create the cluster
 
 After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.  
 
@@ -332,6 +333,8 @@ You are now ready to configure an Availability Group using the following steps:
 
 At this point, you have an Availability Group with replicas on two instances of SQL Server. You can move the Availability Group between instances. You cannot connect to the Availability Group yet because you do not have a listener. In Azure virtual machines, the listener requires a load balancer. The next step is to create the load balancer in Azure.
 
+<a name="configure-internal-load-balancer"></a>
+
 ## Create an Azure load balancer
 
 On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP address for the Availability Group listener. This section summarizes how to create the load balancer in the Azure portal.
@@ -360,8 +363,6 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
    ![Create Load Balancer](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/84-createloadbalancer.png)
 
 1. Click **Create**, to create the load balancer.
-
-## Configure the load balancer
 
 To configure the load balancer, you need to create a backend pool, a probe, and set the load balancing rules. Do these in the Azure portal.
 
