@@ -18,13 +18,13 @@ ms.author: jeffstok
 
 ---
 # Get started using R Server on HDInsight
-HDInsight includes an R Server option to be integrated into your HDInsight cluster. This allows R scripts to use Spark and MapReduce to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight cluster and then run an R script that demonstrates using Spark for distributed R computations.
+HDInsight includes an R Server option to be integrated into your HDInsight cluster. This allows R scripts to use Spark and MapReduce to run distributed computations. In this document, you learn how to create an R Server on HDInsight cluster and then run an R script that demonstrates using Spark for distributed R computations.
 
 ## Prerequisites
-* **An Azure subscription**: Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) for more information.
+* **An Azure subscription**: Before you begin this tutorial, you must have an Azure subscription. Go to [Get a Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) for more information.
 * **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. Linux, Unix, and OS X systems provide an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-  * **SSH keys (optional)**: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password is easier, and allows you to get started without having to create a public/private key pair; however, using a key is more secure.
+  * **SSH keys (optional)**: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password is easier, and allows you to get started without having to create a public/private key pair. However, using a key is more secure.
 
       The steps in this document assume that you are using a password. For information on how to create and use SSH keys with HDInsight, see the following documents:
 
@@ -36,7 +36,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 ## Create the cluster
 > [!NOTE]
-> The steps in this document will guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 >
 > 
 
@@ -61,11 +61,11 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
          
 5. Enter a **Cluster login username** and **Cluster login password**.
 
-   Specify a **SSH Username**.  SSH is used to remotely connect to the cluster using a **Secure Shell (SSH)** client. You can either specify the SSH user in this dialog or after the cluster has been created (Configuration tab for the cluster). R Server is configured to expect a **SSH username** of “remoteuser”.  **If you use a different username, you will have to perform an additional step after the cluster is created.**
+   Specify an **SSH Username**.  SSH is used to remotely connect to the cluster using a **Secure Shell (SSH)** client. You can either specify the SSH user in this dialog or after the cluster has been created (Configuration tab for the cluster). R Server is configured to expect an **SSH username** of “remoteuser”.  **If you use a different username, you will have to perform an additional step after the cluster is created.**
    
-   Leave the box checked for **Use same password as cluster login** to use **PASSWORD** as the authentication type unless you prefer use of a public key.  You’ll need a public/private key pair if you’d like to access R Server on the cluster via a remote client, e.g. RTVS, RStudio or another desktop IDE. Note that you will need to choose a SSH password if you install RStudio Server community edition.     
+   Leave the box checked for **Use same password as cluster login** to use **PASSWORD** as the authentication type unless you prefer use of a public key.  You’ll need a public/private key pair if you’d like to access R Server on the cluster via a remote client, for example RTVS, RStudio or another desktop IDE. You will need to choose an SSH password if you install RStudio Server community edition.     
    
-   To create and use a public/private key pair uncheck **Use same password as cluster login** and then select **PUBLIC KEY** and proceed as follows.  These instructions assume that you have Cygwin with ssh-keygen or equivalent installed.
+   To create and use a public/private key pair un-check **Use same password as cluster login** and then select **PUBLIC KEY** and proceed as follows.  These instructions assume that you have Cygwin with ssh-keygen or equivalent installed.
    
    * Generate a public/private key pair from the command prompt on your laptop:
    
@@ -75,7 +75,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    ![SSH cmd line in Windows](./media/hdinsight-getting-started-with-r/sshcmdline.png)
    
-   * This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  furiosa and furiosa.pub.
+   * This creates a private key file and a public key file under the name <private-key-filename>.pub, for example furiosa and furiosa.pub.
    
    ![SSH dir](./media/hdinsight-getting-started-with-r/dir.png)
 
@@ -87,13 +87,13 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
    
    `chmod 600 <private-key-filename>`
    
-   * Use the private key file with SSH for remote login, e.g.
+   * Use the private key file with SSH for remote login
    
    `ssh –i <private-key-filename> remoteuser@<hostname public ip>`
    
    or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [Get started with SacaleR on Apache Spark document](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).)
    
-6. The quick create will transition you to the **Storage** blade to select the storage account settings to be used for the primary location of the HDFS file system used by the cluster. Select either a new or existing Azure Storage account or an existing Data Lake Storage account.
+6. The quick create transitions you to the **Storage** blade to select the storage account settings to be used for the primary location of the HDFS file system used by the cluster. Select either a new or existing Azure Storage account or an existing Data Lake Storage account.
 
    1. If you select an Azure Storage account you may select an existing storage account by selecting **Select a storage account** and then selecting the account. Or create a new account using the **Create New** link in the **Select a storage account** section.
 
@@ -109,12 +109,12 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
       > [!IMPORTANT]
       > Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be in the same region.
 
-   2. If you select use of an existing Data Lake Store then select the ADLS storage account to use and add the cluster ADD identity to your cluster to allow access to the store. For more information on this process see [Creating HDInsight cluster with Data Lake Store using Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
+   2. If you select use of an existing Data Lake Store then select the ADLS storage account to use and add the cluster ADD identity to your cluster to allow access to the store. For more information on this process review [Creating HDInsight cluster with Data Lake Store using Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
       Use the **Select** button to save the data source configuration.
 
 
-7. The **Summary** blade will then display to validate all your settings. Here you can change your **Cluster size** to modify the number of servers in your cluster and also specify any **Script actions** you want to run. Unless you know that you'll need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
+7. The **Summary** blade will then display to validate all your settings. Here you can change your **Cluster size** to modify the number of servers in your cluster and also specify any **Script actions** you want to run. Unless you know that you need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
    
    ![cluster summary](./media/hdinsight-getting-started-with-r/clustersummary.png)
 
@@ -130,7 +130,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
    * The performance of R Server analyses is linear in the size of data being analyzed. For example:  
 
      * For small to modest data, performance will be best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best see  Compute context options for R Server on HDInsight.<br>
-     * If you log into the edge node and run your R script then all but the ScaleR rx-functions will execute <strong>locally</strong> on the edge node so the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.
+     * If you log in to the edge node and run your R script then all but the ScaleR rx-functions will execute <strong>locally</strong> on the edge node so the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.
 
      ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
@@ -147,7 +147,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 If you’ve chosen to include RStudio Server community edition in your installation then you can access the RStudio login via two different methods.
 
-1. Either by going to the following URL (where **CLUSTERNAME** is the name of the cluster your created): 
+1. Either by going to the following URL (where **CLUSTERNAME** is the name of the cluster you've created): 
 
     https://**CLUSTERNAME**.azurehdinsight.net/rstudio/
 
@@ -158,7 +158,7 @@ If you’ve chosen to include RStudio Server community edition in your installat
      ![Access the R studio dashboard](./media/hdinsight-getting-started-with-r/rstudiodashboard2.png)
 
    > [!IMPORTANT]
-   > No matter the method, the first time you login you will need to authenticate two times.  At the first authentication, provide the cluster Admin userid and password. At the second prompt provide the SSH userid and password. Subsequent logins will only require the SSH password and userid. 
+   > No matter the method, the first time you log in you will need to authenticate two times.  At the first authentication, provide the cluster Admin userid and password. At the second prompt provide the SSH userid and password. Subsequent logins will only require the SSH password and userid. 
 
 ## Connect to the R Server edge node
 Connect to R Server edge node of the HDInsight cluster using SSH:
@@ -174,7 +174,7 @@ Connect to R Server edge node of the HDInsight cluster using SSH:
 
 If you used a password to secure your SSH user account you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
-For more information on using SSH with Linux-based HDInsight, see the following articles:
+For more information on using SSH with Linux-based HDInsight, review the following articles:
 
 * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -223,7 +223,7 @@ Once connected, you will arrive at a prompt similar to the following.
         rxHadoopListFiles("wasbs:///")
 
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
-Per the section above regarding use of public/private key pairs to access the cluster, it is possible to setup access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
+Per the section above regarding use of public/private key pairs to access the cluster, it is possible to set up access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
 
     myNameNode <- "default"
     myPort <- 0 
@@ -457,20 +457,20 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 
    * **Bash script URI**: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
 
-   * **Head**: This should be **unchecked**
+   * **Head**: This should be **un-checked**
 
    * **Worker**: This should be **checked**
 
-   * **Edge nodes**: This should be **unchecked**.
+   * **Edge nodes**: This should be **un-checked**.
 
-   * **Zookeeper**: This should be **unchecked**
+   * **Zookeeper**: This should be **un-checked**
 
    * **Parameters**: The R packages to be installed. For example, `bitops stringr arules`
 
    * **Persist this script...**: This should be **Checked**  
 
      > [!NOTE]
-     > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, e.g.  `useCRAN bitops, stringr, arules`.  
+     > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  
      > 2. Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
      >    For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).  
      >
@@ -500,7 +500,7 @@ To configure Microsoft R Server operationalization with a One-box configuration 
 
 ![one box op](./media/hdinsight-hadoop-r-server-get-started/admin-util-one-box-.png)
 
-As an optional step you can perform Diagnostic checks by running a diagnostics test as shown below.
+As an optional step you can perform Diagnostic checks by running a diagnostic test as shown below.
 
 * Select “6. Run diagnostic tests”
 * Select “A. Test configuration”
@@ -509,7 +509,7 @@ As an optional step you can perform Diagnostic checks by running a diagnostics t
 * Exit the Admin Utility
 * Exit SSH
 
-![Diagnostics for op](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+![Diagnostic for op](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
 
 At this stage, the configuration for Operationalization is complete. Now you can use the ‘mrsdeploy’ package on your RClient to connect to the Operationalization on Edge node and start using its features like [remote execution](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) and [web-services](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login, as explained below:
 
@@ -541,7 +541,7 @@ On Putty, you can set it up as well.
 
 ![putty ssh connection](./media/hdinsight-hadoop-r-server-get-started/putty.png)
 
-Once your SSH session is active, the traffic from your machine’s port 12800 will be forwarded to the Edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your remoteLogin() method. This will login to the Edge node’s operationalization through port forwarding.
+Once your SSH session is active, the traffic from your machine’s port 12800 will be forwarded to the Edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your remoteLogin() method. This will log in to the Edge node’s operationalization through port forwarding.
 
 ```
 library(mrsdeploy)
@@ -561,7 +561,7 @@ Microsoft R Server is currently not managed through Yarn. If the worker nodes ar
  
 Steps to decommissioning worker nodes:
  
-* Login to HDI cluster's Ambari console and click on "hosts" tab
+* Log in to HDI cluster's Ambari console and click on "hosts" tab
 * Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.  
    
    ![decommission worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)  
