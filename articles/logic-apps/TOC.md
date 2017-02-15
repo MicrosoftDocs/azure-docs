@@ -25,7 +25,7 @@
 ### [Troubleshooting](logic-apps-diagnosing-failures.md)
 ### [Limits and config](logic-apps-limits-and-config.md)
 
-## B2B with Enterprise Integration Pack (EIP)
+## B2B with Enterprise Integration Pack
 ### [Integration accounts](logic-apps-enterprise-integration-create-integration-account.md)
 ### [Partners](logic-apps-enterprise-integration-partners.md)
 ### [Agreements](logic-apps-enterprise-integration-agreements.md)
@@ -38,19 +38,19 @@
 ### [Add maps for XML transform](logic-apps-enterprise-integration-maps.md)
 ### [Add certificates for B2B security](logic-apps-enterprise-integration-certificates.md)
 ### [Store metadata for artifacts](logic-apps-enterprise-integration-metadata.md)
-### [AS2 integration](logic-apps-enterprise-integration-as2.md)
+### [AS2 enterprise integration](logic-apps-enterprise-integration-as2.md)
 ### [AS2 encoding](logic-apps-enterprise-integration-as2-encode.md)
 ### [AS2 decoding](logic-apps-enterprise-integration-as2-decode.md)
-### [EDIFACT integration](logic-apps-enterprise-integration-edifact.md)
+### [EDIFACT enterprise integration](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT encoding](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT decoding](logic-apps-enterprise-integration-edifact-decode.md)
-### [X12 integration](logic-apps-enterprise-integration-x12.md)
+### [X12 enterprise integration](logic-apps-enterprise-integration-x12.md)
 ### [X12 encoding](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md)
 
 ## Access on-premises data
+### [Connect to on-premises data](logic-apps-gateway-connection.md)
 ### [Install data gateway](logic-apps-gateway-install.md)
-### [Connect to data gateway](logic-apps-gateway-connection.md)
 
 ## Automate and deploy
 ### [Create automated deployment templates](logic-apps-create-deploy-template.md)
