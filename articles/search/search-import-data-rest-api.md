@@ -14,7 +14,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 ---
 
@@ -27,7 +27,7 @@ ms.author: ashmaka
 >
 >
 
-This article will show you how to use the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to import data into an Azure Search index.
+This article will show you how to use the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) to import data into an Azure Search index.
 
 Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md).
 
@@ -36,7 +36,7 @@ In order to push documents into your index using the REST API, you will issue an
 ## I. Identify your Azure Search service's admin api-key
 When issuing HTTP requests against your service using the REST API, *each* API request must include the api-key that was generated for the Search service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
+1. To find your service's api-keys you must log into the [Azure portal](https://portal.azure.com/)
 2. Go to your Azure Search service's blade
 3. Click on the "Keys" icon
 
@@ -172,7 +172,7 @@ A status code of `503` will be returned if none of the items in the request were
 >
 >
 
-For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## Next
 After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index](search-query-overview.md) for details.

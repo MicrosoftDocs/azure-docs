@@ -266,7 +266,7 @@ Agile software development is a must-have for many companies who want to adopt A
 * [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
 * [Agile Development in Practice: Tips and Tricks for Modernized Development Cycle](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 * [Advanced deployment strategies for Azure Web Apps using Resource Manager templates](http://channel9.msdn.com/Events/Build/2015/2-620)
-* [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
+* [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - The JSON Validator](http://jsonlint.com/)
 * [ARMClient – Set up GitHub publishing to site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)

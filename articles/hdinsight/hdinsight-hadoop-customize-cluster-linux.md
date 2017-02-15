@@ -189,8 +189,8 @@ In this section, we use Azure Resource Manager templates to create an HDInsight 
 #### Before you begin
 
 * For information about configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* For instructions on how to create templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
-* If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+* For instructions on how to create templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+* If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
 
 #### Create clusters using Script Action
 

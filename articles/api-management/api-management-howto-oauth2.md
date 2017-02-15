@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 
 ---
@@ -63,7 +63,7 @@ Specify the **Authorization code grant types** by checking the desired types. **
 
 Enter the **Authorization endpoint URL**. For Azure Active Directory, this URL will be similar to the following URL, where `<client_id>` is replaced with the client id that identifies your application to the OAuth 2.0 server.
 
-    https://login.windows.net/<client_id>/oauth2/authorize
+`https://login.windows.net/<client_id>/oauth2/authorize`
 
 The **Authorization request method** specifies how the authorization request is sent to the OAuth 2.0 server. By default **GET** is selected.
 
@@ -73,7 +73,7 @@ The next section is where the **Token endpoint URL**, **Client authentication me
 
 For an Azure Active Directory OAuth 2.0 server, the **Token endpoint URL** will have the following format, where `<APPID>`  has the format of `yourapp.onmicrosoft.com`.
 
-    https://login.windows.net/<APPID>/oauth2/token
+`https://login.windows.net/<APPID>/oauth2/token`
 
 The default setting for **Client authentication methods** is **Basic**, and  **Access token sending method** is **Authorization header**. These values are configured on this section of the form, along with the **Default scope**.
 

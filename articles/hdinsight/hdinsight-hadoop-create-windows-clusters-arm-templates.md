@@ -21,7 +21,7 @@ ms.author: jgao
 # Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager templates
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Learn how to create HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md). For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ## Prerequisites:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -31,7 +31,7 @@ Before you begin the instructions in this article, you must have the following:
 * [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell or Azure CLI
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -43,8 +43,8 @@ A Resource Manager template for creating an HDInsight cluster and the dependent 
 
 For more information about Resource Manager template, see
 
-* [Author Azure Resource Manager templates](../resource-group-authoring-templates.md)
-* [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
+* [Author Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
 
 ## Deploy with PowerShell
 The following procedure creates an HDInsight cluster.
@@ -120,7 +120,7 @@ The following sample creates a cluster and its dependent storage account and con
 
 
 ## Deploy with REST API
-See [Deploy with the REST API](../resource-group-template-deploy-rest.md).
+See [Deploy with the REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
 ## Deploy with Visual Studio
 With Visual Studio, you can create a resource group project and deploy it to Azure through the user interface. You select the type of resources to include in your project and those resources are automatically added to Resource Manager template. The project also provides a PowerShell script to deploy the template.
@@ -133,8 +133,8 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 * For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](../solution-dev-test-environments.md).
-* To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../resource-group-authoring-templates.md).
-* For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../resource-group-template-functions.md).
+* To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
+* For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).
 
 ## Appx-A: Resource Manager template
 The following Azure Resource Manger template creates a Windows-based Hadoop cluster with the dependent Azure storage account.

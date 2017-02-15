@@ -1,5 +1,3 @@
-
-
 ---
 title: Access Key Vault behind a firewall | Microsoft Docs
 description: Learn how to access Azure Key Vault from an application behind a firewall

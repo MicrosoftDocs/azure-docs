@@ -18,7 +18,11 @@ ms.author: barbkess
 
 ---
 # How to create a support ticket for SQL Data Warehouse
-If you having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
+If you are having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
+
+> [!NOTE] 
+> As of 12/20/2016, the resource health check in the Azure portal is not accurate. We are actively working to fix this issue. 
+
 
 ## Create a support ticket
 1. Open the [Azure portal][Azure portal].

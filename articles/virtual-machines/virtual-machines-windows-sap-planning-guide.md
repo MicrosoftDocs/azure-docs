@@ -1,4 +1,4 @@
----
+﻿---
 title: SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide | Microsoft Docs
 description: SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide
 services: virtual-machines-windows
@@ -67,7 +67,7 @@ ms.author: sedusch
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
@@ -228,7 +228,7 @@ ms.author: sedusch
 [planning-guide-microsoft-azure-networking]:virtual-machines-windows-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-windows-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
 
-[powershell-install-configure]:../powershell-install-configure.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../azure-resource-manager/resource-group-authoring-templates.md
 [resource-group-overview]:../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md

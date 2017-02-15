@@ -164,7 +164,7 @@ If you encounter problems with Service Map, you can gather troubleshooting infor
 #### Microsoft Dependency Agent
 To generate troubleshooting data from the Dependency Agent, open a Command Prompt as administrator and run the CollectDependencyAgentData.vbs script using the following command.  You can add the --help flag to show additional options.
 
-	cd C:\Program Files\Bluestripe\Collector\scripts
+	cd C:\Program Files\Microsoft Dependency Agent\scripts
 	cscript CollectDependencyData.vbs
 
 The Support Data Package is saved in the %USERPROFILE% directory for the current user.  You can use the --file <filename> option to save it to a different location.

@@ -4,16 +4,15 @@ description: You can use the Configuration Change Tracking solution in Log Analy
 services: operations-management-suite
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -87,4 +86,3 @@ You can view changes to your infrastructure and then drill-into details for the 
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed change tracking data.
-

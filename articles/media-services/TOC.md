@@ -44,7 +44,7 @@
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)
 ##### [Output metadata](media-services-output-metadata-schema.md)
-#### MES Presets 
+#### [MES Presets](media-services-mes-presets-overview.md) 
 ##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -134,8 +134,8 @@
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
-### [Process with Face redaction](media-services-face-redaction.md)
-#### [Face redaction walkthrough](media-services-redactor-walkthrough.md)
+### [Process with Face Redactor](media-services-face-redaction.md)
+#### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
 

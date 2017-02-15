@@ -57,7 +57,7 @@ Direct method invocations on a device are HTTP calls which comprise:
 ```
 {
     "methodName": "reboot",
-    "timeoutInSeconds": 200,
+    "responseTimeoutInSeconds": 200,
     "payload": {
         "input1": "someInput",
         "input2": "anotherInput"
@@ -65,7 +65,7 @@ Direct method invocations on a device are HTTP calls which comprise:
 }
 ```
 
-  Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
+Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
 
 ### Response
 The back-end app receives a response which comprises:

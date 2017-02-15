@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2016
-ms.author: msfussell
+ms.author: mfussell
 
 ---
 # Preview: Deploy a Windows container to Service Fabric
@@ -68,6 +68,7 @@ In the Service Fabric [application model](service-fabric-application-model.md), 
 
 In the service manifest, add a `ContainerHost` for the entry point. Then set the `ImageName` to be the name of the container repository and image. The following partial manifest shows an example of how to deploy the container called `myimage:v1` from a repository called `myrepo`:
 
+```xml
     <CodePackage Name="Code" Version="1.0">
         <EntryPoint>
           <ContainerHost>
@@ -76,6 +77,7 @@ In the service manifest, add a `ContainerHost` for the entry point. Then set the
           </ContainerHost>
         </EntryPoint>
     </CodePackage>
+```
 
 You can provide input commands by specifying the optional `Commands` element with a comma-delimited set of commands to run inside the container.
 
@@ -93,6 +95,7 @@ Resource governance is a capability of the container that restricts the resource
 > 
 > 
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -100,11 +103,12 @@ Resource governance is a capability of the container that restricts the resource
             MemoryInMB="1024" MemorySwapInMB="4084" MemoryReservationInMB="1024" />
         </Policies>
     </ServiceManifestImport>
-
+```
 
 ## Authenticate a repository
 To download a container, you might have to provide sign-in credentials to the container repository. The sign-in credentials, specified in the application manifest, are used to specify the sign-in information, or SSH key, for downloading the container image from the image repository. The following example shows an account called *TestUser* along with the password in clear text (*not* recommended):
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -113,6 +117,7 @@ To download a container, you might have to provide sign-in credentials to the co
             </ContainerHostPolicies>
         </Policies>
     </ServiceManifestImport>
+```
 
 We recommend that you encrypt the password by using a certificate that's deployed to the machine.
 
@@ -120,6 +125,7 @@ The following example shows an account called *TestUser*, where the password was
 
 The private key of the certificate that's used to decrypt the password must be deployed to the local machine in an out-of-band method. (In Azure, this method is Azure Resource Manager.) Then, when Service Fabric deploys the service package to the machine, it can decrypt the secret. By using the secret along with the account name, it can then authenticate with the container repository.
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -128,10 +134,12 @@ The private key of the certificate that's used to decrypt the password must be d
             </ContainerHostPolicies>
         </Policies>
     </ServiceManifestImport>
+```
 
 ## Configure container port-to-host port mapping
 You can configure a host port used to communicate with the container by specifying a `PortBinding` in the application manifest. The port binding maps the port to which the service is listening inside the container to a port on the host.
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -140,13 +148,14 @@ You can configure a host port used to communicate with the container by specifyi
             </ContainerHostPolicies>
         </Policies>
     </ServiceManifestImport>
-
+```
 
 ## Configure container-to-container discovery and communication
 By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest as shown in the following example. The endpoint `Endpoint1` can specify a fixed port (for example, port 80). It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
 
 If you specify an endpoint, using the `Endpoint` tag in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service. Other services that are running in the cluster can thus discover this container using the REST queries for resolving.
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -155,6 +164,7 @@ If you specify an endpoint, using the `Endpoint` tag in the service manifest of 
             </ContainerHostPolicies>
         </Policies>
     </ServiceManifestImport>
+```
 
 By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section. 
 
@@ -163,6 +173,7 @@ Environment variables can be specified for each code package in the service mani
 
 The following service manifest XML snippet shows an example of how to specify environment variables for a code package:
 
+```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>a guest executable service in a container</Description>
         <ServiceTypes>
@@ -181,9 +192,11 @@ The following service manifest XML snippet shows an example of how to specify en
             </EnvironmentVariables>
         </CodePackage>
     </ServiceManifest>
+```
 
 These environment variables can be overridden at the application manifest level:
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <EnvironmentOverrides CodePackageRef="FrontendService.Code">
@@ -191,6 +204,7 @@ These environment variables can be overridden at the application manifest level:
             <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
         </EnvironmentOverrides>
     </ServiceManifestImport>
+```
 
 In the previous example, we specified an explicit value for the `HttpGateway` environment variable (19000), while we set the value for `BackendServiceName` parameter via the `[BackendSvc]` application parameter. These settings enable you to specify the value for `BackendServiceName`value when you deploy the application and not have a fixed value in the manifest.
 
@@ -198,6 +212,7 @@ In the previous example, we specified an explicit value for the `HttpGateway` en
 
 An example application manifest follows:
 
+```xml
     <ApplicationManifest ApplicationTypeName="SimpleContainerApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>A simple service container application</Description>
         <Parameters>
@@ -219,10 +234,11 @@ An example application manifest follows:
             </Policies>
         </ServiceManifestImport>
     </ApplicationManifest>
-
+```
 
 An example service manifest (specified in the preceding application manifest) follows:
 
+```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description> A service that implements a stateless front end in a container</Description>
         <ServiceTypes>
@@ -248,6 +264,7 @@ An example service manifest (specified in the preceding application manifest) fo
             </Endpoints>
         </Resources>
     </ServiceManifest>
+```
 
 ## Next steps
 Now that you have deployed a containerized service, learn how to manage its lifecycle by reading [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).

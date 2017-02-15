@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 12/23/2016
 ms.author: nitinme
 
 ---
@@ -61,7 +61,7 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.1.1</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>

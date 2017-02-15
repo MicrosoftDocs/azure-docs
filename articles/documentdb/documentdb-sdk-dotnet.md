@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/22/2016
 ms.author: rnagpal
 
 ---
@@ -47,10 +47,21 @@ ms.author: rnagpal
 </table></br>
 
 ## Release Notes
-> [!IMPORTANT]
-> Starting with version 1.9.2 release, you may receive System.NotSupportedException when querying partitioned collections. To avoid this error, ensure that your host process is 64-bit. For Executable projects, this can be done by unchecking the "Prefer 32-bit" option in the project properties window, on the Build tab.
-> 
-> 
+
+> [!NOTE]
+> Starting with version 1.9.2 release, you may receive System.NotSupportedException when running queries on partitioned collections if your host process is 32-bit. To avoid this exception, ensure that your host process is 64-bit. For more information, see [Troubleshooting](#troubleshooting).
+
+### <a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
+* Minor performance fix for the CreateDocumentCollectionIfNotExistsAsync API introduced in 1.11.0.
+* Peformance fix in the SDK for scenarios that involve high degree of concurrent requests.
+
+### <a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
+* Support for new classes and methods to process the [change feed](documentdb-change-feed.md) of documents within a collection.
+* Support for cross-partition query continuation and some perf improvements for cross-partition queries.
+* Addition of CreateDatabaseIfNotExistsAsync and CreateDocumentCollectionIfNotExistsAsync methods.
+* LINQ support for system functions: IsDefined, IsNull and IsPrimitive.
+* Fix for automatic binplacing of Microsoft.Azure.Documents.ServiceInterop.dll and DocumentDB.Spatial.Sql.dll assemblies to application’s bin folder when using the Nuget package with projects that have project.json tooling.
+* Support for emitting client side ETW traces which could be helpful in debugging scenarios.
 
 ### <a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
 * Added direct connectivity support for partitioned collections.
@@ -103,7 +114,7 @@ ms.author: rnagpal
 * Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
 ### <a name="1.5.3"/>[1.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-* **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream.
+* **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream'.
 
 ### <a name="1.5.2"/>[1.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
 * Expanded LINQ support including new operators for paging, conditional expressions and range comparison.
@@ -167,15 +178,6 @@ ms.author: rnagpal
 ### <a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 * GA SDK
 
-> [!NOTE]
-> There was a change of NuGet package name between preview and GA. We moved from **Microsoft.Azure.Documents.Client** to **Microsoft.Azure.DocumentDB**
-> <br/>
-> 
-> 
-
-### <a name="0.9.x-preview"/>[0.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
-* Preview SDKs [Obsolete]
-
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
@@ -183,15 +185,12 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
-> [!WARNING]
-> All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** will be retired on **February 29, 2016**. 
-> 
-> 
-
 <br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.1](#1.11.1) |December 21, 2016 |--- |
+| [1.11.0](#1.11.0) |December 08, 2016 |--- |
 | [1.10.0](#1.10.0) |September 27, 2016 |--- |
 | [1.9.5](#1.9.5) |September 01, 2016 |--- |
 | [1.9.4](#1.9.4) |August 24, 2016 |--- |
@@ -214,10 +213,14 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.2.0](#1.2.0) |July 06, 2015 |--- |
 | [1.1.0](#1.1.0) |April 30, 2015 |--- |
 | [1.0.0](#1.0.0) |April 08, 2015 |--- |
-| [0.9.3-prelease](#0.9.x-preview) |March 12, 2015 |February 29, 2016 |
-| [0.9.2-prelease](#0.9.x-preview) |January , 2015 |February 29, 2016 |
-| [.9.1-prelease](#0.9.x-preview) |October 13, 2014 |February 29, 2016 |
-| [0.9.0-prelease](#0.9.x-preview) |August 21, 2014 |February 29, 2016 |
+
+## Troubleshooting
+
+If you receive an error that partition routing information cannot be extracted from the query when running in a 32-bit process, do one of the following in Visual Studio:
+- For executable applications, on the **Project** menu, click *Project name* **Properties...** Then, on the **Build** tab, clear the **Prefer 32-bit** box.
+- For VSTest based test projects, on the Test menu, select **Test Settings** | **Default Processor Architecture as X64**.
+- For locally deployed ASP.NET Web applications, on the  **Tools** menu, select **Options** | **Projects and Solutions** | **Web Projects**, and then check the **Use the 64 bit version of IIS Express for web sites and projects** box.
+
 
 ## FAQ
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

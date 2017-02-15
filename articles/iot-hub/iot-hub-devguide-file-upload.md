@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/04/2017
 ms.author: dobett
 
 ---
@@ -33,7 +33,7 @@ Use file upload to send media files and large telemetry batches uploaded by inte
 Refer to [Device-to-cloud communication guidance][lnk-d2c-guidance] if in doubt between using reported properties, device-to-cloud messages, or file upload.
 
 ## Associate an Azure Storage account with IoT Hub
-To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can do this either through the [Azure portal][lnk-management-portal], or programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. Once you have associated an Azure Storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
+To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can complete this task either through the [Azure portal][lnk-management-portal], or programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. Once you have associated an Azure Storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
 
 > [!NOTE]
 > The [Azure IoT SDKs][lnk-sdks] automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
@@ -49,7 +49,7 @@ IoT Hub has an endpoint specifically for devices to request a SAS URI for storag
 }
 ```
 
-IoT Hub returns the following, which the device uses to upload the file:
+IoT Hub returns the following data, which the device uses to upload the file:
 
 ```
 {
@@ -63,7 +63,7 @@ IoT Hub returns the following, which the device uses to upload the file:
 
 ### Deprecated: initialize a file upload with a GET
 > [!NOTE]
-> This section describes deprecated functionality for how to receive a SAS URI from IoT Hub. Please use the POST method described above.
+> This section describes deprecated functionality for how to receive a SAS URI from IoT Hub. You should use the POST method described previously.
 > 
 > 
 
@@ -81,7 +81,7 @@ The device is responsible for uploading the file to storage using the Azure Stor
 }
 ```
 
-The value of `isSuccess` is a Boolean representing whether or not the file was uploaded successfully. The status code for `statusCode` is the status for the upload of the file to storage, and the `statusDescription` corresponds to the `statusCode`.
+The value of `isSuccess` is a Boolean representing whether the file was uploaded successfully. The status code for `statusCode` is the status for the upload of the file to storage, and the `statusDescription` corresponds to the `statusCode`.
 
 ## Reference topics:
 The following reference topics provide you with more information about uploading files from a device.
@@ -100,7 +100,7 @@ As explained in [Endpoints][lnk-endpoints], IoT Hub delivers file upload notific
 | LastUpdatedTime |Timestamp indicating when the file was last updated. |
 | BlobSizeInBytes |Size of the uploaded file. |
 
-**Example**. This is an example body of a file upload notification message.
+**Example**. This example shows the body of a file upload notification message.
 
 ```
 {
@@ -128,7 +128,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
 * [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 

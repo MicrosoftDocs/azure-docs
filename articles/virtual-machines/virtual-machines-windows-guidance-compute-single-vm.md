@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/29/2016
-ms.author: mikewasson
+ms.author: mwasson
 
 ---
 # Best Practices for running a Windows VM on Azure

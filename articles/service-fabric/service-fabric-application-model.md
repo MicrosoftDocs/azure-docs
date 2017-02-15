@@ -49,7 +49,7 @@ The following diagram shows the relationship between applications and service in
 ## Describe a service
 The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest</Description>
@@ -71,7 +71,7 @@ The service manifest declaratively defines the service type and version. It spec
   <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
   <DataPackage Name="MyData" Version="DataVersion1" />
 </ServiceManifest>
-~~~
+```
 
 **Version** attributes are unstructured strings and not parsed by the system. These are used to version each component for upgrades.
 
@@ -83,14 +83,14 @@ The service manifest declaratively defines the service type and version. It spec
 
 **ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
 
-~~~
+```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
   </Section>
 </Settings>
-~~~
+```
 
 > [!NOTE]
 > A service manifest can contain multiple code, configuration, and data packages. Each of those can be versioned independently.
@@ -112,7 +112,7 @@ The application manifest declaratively describes the application type and versio
 
 Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ApplicationManifest
       ApplicationTypeName="MyApplicationType"
@@ -131,7 +131,7 @@ Thus, an application manifest describes elements at the application level and re
      </Service>
   </DefaultServices>
 </ApplicationManifest>
-~~~
+```
 
 Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. These are also used to version each component for upgrades.
 
@@ -158,7 +158,7 @@ For more information about other features supported by application manifests, re
 ### Package layout
 The application manifest, service manifest(s), and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -175,7 +175,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
-~~~
+```
 
 The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with the names **MyCodeA** and **MyCodeB**, then two folders with the same names would contain the necessary binaries for each code package.
 
@@ -197,16 +197,16 @@ When packaging is complete, you will find the location of the package in the **O
 ### Test the package
 You can verify the package structure locally through PowerShell by using the **Test-ServiceFabricApplicationPackage** command. This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
 
-~~~
+```
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 False
 Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
-~~~
+```
 
 This error shows that the *MySetup.bat* file referenced in the service manifest **SetupEntryPoint** is missing from the code package. After the missing file is added, the application verification passes:
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -228,7 +228,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 PS D:\temp>
-~~~
+```
 
 Once the application is packaged correctly and passes verification, then it's ready for deployment.
 

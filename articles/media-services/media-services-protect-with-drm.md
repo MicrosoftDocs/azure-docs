@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 12/11/2016
 ms.author: juliako
 
 ---
 # Using PlayReady and/or Widevine dynamic common encryption
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -46,6 +47,7 @@ This topic would be useful to developers that work on applications that deliver 
 You can download the sample described in this article from [here](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## Configuring Dynamic Common Encryption and DRM License Delivery Services
+
 The following are general steps that you would need to perform when protecting your assets with PlayReady, using the Media Services license delivery service, and also using dynamic encryption.
 
 1. Create an asset and upload files into the asset.
@@ -53,13 +55,13 @@ The following are general steps that you would need to perform when protecting y
 3. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key.
 4. Configure the content key’s authorization policy. The content key authorization policy must be configured by you and met by the client in order for the content key to be delivered to the client.
 
-When creating the content key authorization policy, you need to specify the following: delivery method (PlayReady or Widevine), restrictions (open or token), and information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
+	When creating the content key authorization policy, you need to specify the following: delivery method (PlayReady or Widevine), restrictions (open or token), and information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
 
-1. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), the type of dynamic encryption (for example, Common Encryption), PlayReady or Widevine license acquisition URL.
+5. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming or all), the type of dynamic encryption (for example, Common Encryption), PlayReady or Widevine license acquisition URL.
 
-You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
+	You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 
-1. Create an OnDemand locator in order to get a streaming URL.
+6. Create an OnDemand locator in order to get a streaming URL.
 
 You will find a complete .NET example at the end of the topic.
 
@@ -98,7 +100,7 @@ For detailed information, see [Configure Content Key Authorization Policy](media
 Configure the delivery policy for your asset. Some things that the asset delivery policy configuration includes:
 
 * The DRM license acquisition URL.
-* The asset delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all).
+* The asset delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming or all).
 * The type of dynamic encryption (in this case, Common Encryption).
 
 For detailed information, see [Configure asset delivery policy ](media-services-rest-configure-asset-delivery-policy.md).

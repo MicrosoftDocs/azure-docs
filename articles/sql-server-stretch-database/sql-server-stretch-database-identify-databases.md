@@ -13,7 +13,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
+ms.date: 01/05/2017
 ms.author: douglasl
 
 ---
@@ -52,6 +52,4 @@ Enable Stretch Database.
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
-
-[All topics for Azure SQL Server Stretch Database service](sql-server-stretch-database-index-all-articles.md)
 

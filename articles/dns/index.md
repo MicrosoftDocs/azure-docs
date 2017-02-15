@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to manage your DNS records using Azure Domain Name System. Documentation shows how to set up and manage DNS zones and records for domain names.
 ---
-#DNS Documentation
+# DNS Documentation
 
-Azure DNS (Domain Name System) is a service for DNS domains provide name resolution using Microsoft Azure infrastructure.  By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+Learn how to manage your DNS records using Azure Domain Name System, a hosting service. Tutorials, API references, and other documentation show you how to set up and manage DNS zones and records for domain names.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -84,7 +85,8 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
 
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
-<li><div class="cardSize">
+<li>
+	<div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -97,7 +99,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -113,7 +115,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">

@@ -1,5 +1,5 @@
 ---
-title: Manage features and data volume for Application Insights | Microsoft Docs
+title: Manage pricing and data volume for Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: awills
 
 ---
-# Manage features and data volume in Application Insights
+# Manage pricing and data volume in Application Insights
 
 
 Pricing for [Azure Application Insights][start] is based on data volume per application. Low usage during development or for a small app is likely to be free, because there's a free monthly allowance of telemetry data.
@@ -25,7 +25,38 @@ Each Application Insights resource is charged as a separate service, and contrib
 
 There are two pricing plans. The default plan is called Basic. You can opt for the Enterprise plan, which has a daily charge, but enables certain additional features such as [continuous export](app-insights-export-telemetry.md).
 
-[See the pricing plan][pricing].
+
+## The pricing plans
+
+
+[See the pricing plan][pricing] for current charges.
+
+### Basic plan
+
+**Basic** is the default plan. 
+
+* Use this plan unless you want features such as [Continuous Export](app-insights-export-telemetry.md) or [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&clcid=0x409). These aren't available in the Basic plan.
+* In the Basic plan, you are charged per GB of telemetry received at the Application Insights portal.
+* Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
+
+### Enterprise plan
+
+* In the Enterprise plan, your app can use all the features of Application Insights. 
+* You pay per node that is sending telemetry for any apps in the Enterprise plan. 
+ * A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your app.
+ * Development machines and client browsers and devices are not included in this count. 
+ * If your app has several components that send telemetry, such as a web service and a back-end worker, they will be counted separately.
+* Across a subscription, your charges are per node, not per app. If you have five nodes sending telemetry for 12 apps, then the charge is for five nodes.
+* Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge / 744. If your app scales to use more servers at a 
+* For each node that sends telemetry (from one or more Enterprise apps) in any hour, you get a quota of telemetry. This is accumulated over the day and across all Enterprise apps in your Azure subscription. At the end of each day (midnight UTC), a charge is made for any telemetry that your Enterprise apps have sent beyond the accumulated quota. 
+* Quota is not carried over from one day to the next.
+
+
+### Multi-step web tests
+
+There's an additional charge for [**Multi-step web tests**](app-insights-monitor-web-app-availability.md#multi-step-web-tests). This refers to web tests that perform a sequence of actions. 
+
+There is no separate charge for 'ping tests' of a single page. Telemetry from both ping tests and multi-step tests is charged along with other telemetry from your app.
 
 ## Review pricing plan for your Application Insights resource
 Open the Features + Pricing blade in the Application Insights resource for your application.
@@ -104,27 +135,6 @@ To discover the actual sampling rate no matter where it has been applied, use an
 
 In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of  previous discarded records. 
 
-## Which pricing plan should I choose?
-
-Unless you need the advanced features offered by the Enterprise plan, the Basic plan is simpler and slightly more cost-effective. You get a free data allowance per app per month, and then a charge per additional GB of telemetry sent by your app. 
-
-## Nodes in the Enterprise plan
-
-If you choose the Enterprise price plan, part of your bill is calculated from the number of nodes that are sending data to Application Insights.
-
-A node is a server that hosts your application. It can be a virtual machine, or a Platform-as-a-Service instance, or a physical machine. 
-
-Developer workstations that run your application during debugging are not included in the node count. Client apps that run in browsers or mobile devices are not included.
-
-Nodes are counted in every hour. Although node prices are quoted per month, prices are actually charged per hour, so that you will be charged less for a node that sends telemetry for only some hours of the month.
-
-If your application scales with varying load to use more or less server instances, then the Application Insights Enterprise plan charges will scale up and down as well.
-
-Nodes may be shared between apps. For example, if you have three applications running on two VMs, and the Application Insights resources for these applications are in the same subscription and in the Enterprise plan, then the number of nodes found in this subscription is two.
-
-The data allowance of 200MB per node per day is pooled between nodes in the same subscription. If you have two nodes that host apps in the Enterprise plan, that send data for 16 hours and 20 hours in a day, then the data allowance for that day is ((16+20)/24)*200MB = 300MB. If, at the end of that day, your apps in the Enterprise plan have sent more than 300MB, then you will be charged at the per-GB rate for the excess.
-
-The Enterprise plan's allowance is not shared with applications for which you have chosen the Basic plan.
 
 ## Transition from the old pricing tiers
 

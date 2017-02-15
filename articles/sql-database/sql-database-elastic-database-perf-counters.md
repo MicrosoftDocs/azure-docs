@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
 ms.service: sql-database
-ms.custom: sharded databases
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

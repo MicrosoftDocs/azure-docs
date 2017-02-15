@@ -1,4 +1,3 @@
-
 ---
 title: Upload a custom image for Azure RemoteApp | Microsoft Docs
 description: Learn how to upload a custom image for Azure RemoteApp

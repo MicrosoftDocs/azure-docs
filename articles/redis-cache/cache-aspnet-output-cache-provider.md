@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/27/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 
 ---
@@ -35,25 +35,27 @@ The Redis Output Cache Provider NuGet package has a dependency on the StackExcha
 
 The NuGet package downloads and adds the required assembly references and adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Output Cache Provider.
 
-    <caching>
-      <outputCachedefault Provider="MyRedisOutputCache">
-        <providers>
-          <!--
-          <add name="MyRedisOutputCache"
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-          -->
-          <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-      </outputCache>
-    </caching>
+```xml
+<caching>
+  <outputCachedefault Provider="MyRedisOutputCache">
+    <providers>
+      <!--
+      <add name="MyRedisOutputCache"
+        host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+      />
+      -->
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+  </outputCache>
+</caching>
+```
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
@@ -71,7 +73,9 @@ Configure the attributes with the values from your cache blade in the Microsoft 
 
 Add an OutputCache directive to each page for which you wish to cache the output.
 
-    <%@ OutputCache Duration="60" VaryByParam="*" %>
+```
+<%@ OutputCache Duration="60" VaryByParam="*" %>
+```
 
 In this example the cached page data will remain in the cache for 60 seconds, and a different version of the page is cached for each parameter combination. For more information about the OutputCache directive, see [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837).
 

@@ -119,7 +119,7 @@ Use the following template:
     "parameters": { 
       "org": { 
          "type": "array", 
-             "defaultValue": [ 
+         "defaultValue": [ 
              "Contoso", 
              "Fabrikam", 
              "Coho" 
@@ -166,13 +166,13 @@ copy element has **name** set to **storagecopy** and the **dependsOn** element f
                      "count": 3 
                   }
             },
-           {
-               "apiVersion": "2015-06-15", 
-               "type": "Microsoft.Compute/virtualMachines", 
-               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-               "dependsOn": ["storagecopy"],
-               ...
-           }
+            {
+                "apiVersion": "2015-06-15", 
+                "type": "Microsoft.Compute/virtualMachines", 
+                "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+                "dependsOn": ["storagecopy"],
+                ...
+            }
         ],
         "outputs": {}
     }
@@ -426,7 +426,7 @@ In the resources section, deploy multiple instances of the template that defines
 },
 ```
 
-In the resources section, deploy multiple instances of the virtual machine. For the data disks, reference the nested deployment that contains the correct number or data disks and the correct names for data disks.
+In the resources section, deploy multiple instances of the virtual machine. For the data disks, reference the nested deployment that contains the correct number of data disks and the correct names for data disks.
 
 ```
 {

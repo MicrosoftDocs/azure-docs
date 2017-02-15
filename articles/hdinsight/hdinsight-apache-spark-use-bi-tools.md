@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/06/2017
 ms.author: nitinme
 
 ---
@@ -23,11 +23,6 @@ Learn how to use Apache Spark in Azure HDInsight to do the following:
 
 * Take raw sample data and save it as a Hive table
 * Use BI tools such as Power BI and Tableau to analyze and visualize the data.
-
-> [!NOTE]
-> This tutorial is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
->
->
 
 This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Use BI tools with Apache Spark on HDInsight.ipynb** under the **Python** folder.
 
@@ -136,6 +131,12 @@ Once you have saved the data as a Hive table, you can use Power BI to connect to
    You can add as many visualizations as you want for the same dataset and pin them to the dashboard for a snapshot of your data. Also, Spark clusters on HDInsight are connected to Power BI with direct connect. This means that Power BI always has the most up-to-date from your cluster so you do not need to schedule refreshes for the dataset.
 
 ## <a name="tableau"></a>Use Tableau Desktop to analyze data in the Hive table
+
+> [!NOTE]
+> This section is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
+>
+>
+
 1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
 2. In the Spark SQL connection dialog box, provide the values as shown below, and then click **OK**.
 

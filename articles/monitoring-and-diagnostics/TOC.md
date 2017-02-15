@@ -30,7 +30,7 @@
 ### [Configure webhook on an activity log alert](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archive the activity log](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Stream the activity log to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Audit operations with Resource Manager](../resource-group-audit.md)
+### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)
 ## Manage diagnostic logs
 ### [Archive](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Stream to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)

@@ -3,8 +3,8 @@ title: Get started with Azure Blob storage (object storage) using .NET | Microso
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 ---
 
 # Get started with Azure Blob storage using .NET
@@ -28,9 +28,9 @@ Azure Blob storage is a service that stores unstructured data in the cloud as ob
 ### About this tutorial
 This tutorial shows how to write .NET code for some common scenarios using Azure Blob storage. Scenarios covered include uploading, listing, downloading, and deleting blobs.
 
-**Prerequisities:**
+**Prerequisites:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
@@ -192,7 +192,7 @@ When you call **ListBlobs** on the _photos_ container (as in the above sample), 
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to
+Optionally, you can set the **UseFlatBlobListing** parameter of the **ListBlobs** method to
 **true**. In this case, every blob in the container is returned as a **CloudBlockBlob** object. The call to **ListBlobs** to return a flat listing looks like this:
 
 ```csharp

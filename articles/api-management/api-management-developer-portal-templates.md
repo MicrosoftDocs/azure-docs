@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 
 ---
@@ -57,65 +57,69 @@ The **Template data** pane provides a guide to the data model for the entities t
 
 In the previous example there are two products displayed in the developer portal that were retrieved from the data displayed in the **Template data** pane, as shown in the following example.
 
-    {
-        "Paging": {
-            "Page": 1,
-            "PageSize": 10,
-            "TotalItemCount": 2,
-            "ShowAll": false,
-            "PageCount": 1
+```json
+{
+    "Paging": {
+        "Page": 1,
+        "PageSize": 10,
+        "TotalItemCount": 2,
+        "ShowAll": false,
+        "PageCount": 1
+    },
+    "Filtering": {
+        "Pattern": null,
+        "Placeholder": "Search products"
+    },
+    "Products": [
+        {
+            "Id": "56ec64c380ed850042060001",
+            "Title": "Starter",
+            "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+            "Terms": "",
+            "ProductState": 1,
+            "AllowMultipleSubscriptions": false,
+            "MultipleSubscriptionsCount": 1
         },
-        "Filtering": {
-            "Pattern": null,
-            "Placeholder": "Search products"
-        },
-        "Products": [
-            {
-                "Id": "56ec64c380ed850042060001",
-                "Title": "Starter",
-                "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
-                "Terms": "",
-                "ProductState": 1,
-                "AllowMultipleSubscriptions": false,
-                "MultipleSubscriptionsCount": 1
-            },
-            {
-                "Id": "56ec64c380ed850042060002",
-                "Title": "Unlimited",
-                "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
-                "Terms": null,
-                "ProductState": 1,
-                "AllowMultipleSubscriptions": false,
-                "MultipleSubscriptionsCount": 1
-            }
-        ]
-    }
+        {
+            "Id": "56ec64c380ed850042060002",
+            "Title": "Unlimited",
+            "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+            "Terms": null,
+            "ProductState": 1,
+            "AllowMultipleSubscriptions": false,
+            "MultipleSubscriptionsCount": 1
+        }
+    ]
+}
+```
 
 The markup in the **Product list** template processes the data to provide the desired output by iterating through the collection of products to display information and a link to each individual product. Note the `<search-control>` and `<page-control>` elements in the markup. These control the display of the searching and paging controls on the page. `ProductsStrings|PageTitleProducts` is a localized string reference that contains the `h2` header text for the page. For a list of string resources, page controls, and icons available for use in developer portal templates, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-    <search-control></search-control>
-    <div class="row">
-        <div class="col-md-9">
-            <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
-        </div>
+```html
+<search-control></search-control>
+<div class="row">
+    <div class="col-md-9">
+        <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-        {% if products.size > 0 %}
-        <ul class="list-unstyled">
-        {% for product in products %}
-            <li>
-                <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
-                {{product.description}}
-            </li>    
-        {% endfor %}
-        </ul>
-        <paging-control></paging-control>
-        {% else %}
-        {% localized "CommonResources|NoItemsToDisplay" %}
-        {% endif %}
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+    {% if products.size > 0 %}
+    <ul class="list-unstyled">
+    {% for product in products %}
+        <li>
+            <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
+            {{product.description}}
+        </li>    
+    {% endfor %}
+    </ul>
+    <paging-control></paging-control>
+    {% else %}
+    {% localized "CommonResources|NoItemsToDisplay" %}
+    {% endif %}
     </div>
+</div>
+```
 
 ## To save a template
 To save a template, click save in the template editor.

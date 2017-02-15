@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/09/2016
 ms.author: kipandya
 
 ---
@@ -52,6 +52,8 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
     string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+    
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
     //Setting read region selection preference
     connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference

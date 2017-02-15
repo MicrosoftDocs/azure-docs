@@ -1,6 +1,11 @@
 # Pull request etiquette and best practices for Microsoft contributors to Azure documentation
 To publish changes to documentation, you submit pull requests from your fork. Every pull request has to be reviewed prior to being merged. Read this article to understand how you should work with pull request reviewers and how you can create pull requests that are easier and faster to review so the pull request queue works better for everyone.
 
+## Creating a pull request
+See GitHub's documentation for basic information about how to create a pull request:
+
+https://help.github.com/articles/creating-a-pull-request/
+
 ## Working with pull request reviewers
 Here's the basics you need to know about working with pull request reviewers.
 
@@ -11,7 +16,7 @@ Here's the basics you need to know about working with pull request reviewers.
   * Provides feedback before merging
   
   Pull request reviewers are in a content governance role. The primary intent is not to simply merge whatever is submitted as quickly as possible. Expect feedback that will require you to make updates, especially for new and heavily revised articles.
-* <b>Plan ahead with your pull request reviewer:</b>
+* <b>Plan ahead with the pull request reviewers:</b>
   
   * For high-priority pull requests
   * Pull requests for timed/dated releases

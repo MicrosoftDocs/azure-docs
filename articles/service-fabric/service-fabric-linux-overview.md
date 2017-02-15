@@ -34,6 +34,7 @@ The limited preview supports the creation of one-box development clusters in add
 > 
 > 
 
+
 ## Supported tooling
 The preview supports interaction with the cluster through Azure CLI. For Java developers, integration with Eclipse and Yeoman is provided with Eclipse supported on Linux and on OSX. The OSX integration uses a Linux VM under the hood via vagrant. For C# developers, integration with Yeoman is provided to generate application templates.
 

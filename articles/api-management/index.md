@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use API Management to publish APIs securely and at scale. Documentation shows how to create modern API gateways for existing backend services.
 ---
 # API Management Documentation
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services.  API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing backend services hosted anywhere.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +26,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +99,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -111,7 +112,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

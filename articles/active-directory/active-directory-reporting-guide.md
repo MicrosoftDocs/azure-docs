@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: dhanyahk
 manager: femila
-editor: ''
 
 ms.assetid: b60d7f22-f271-4148-a3c8-b0ed0eccd106
 ms.service: active-directory
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/16/2016
 ms.author: femila
 
 ---
@@ -28,7 +27,6 @@ ms.author: femila
 * [Getting started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md)
 * [Azure Active Directory Reporting Audit Events](active-directory-reporting-audit-events.md)
 * [Azure Active Directory Reporting Retention](active-directory-reporting-retention.md)
-* [Azure Active Directory Reporting Backfill](active-directory-reporting-backfill.md)
 * [Azure Active Directory Reporting Latencies](active-directory-reporting-latencies.md)
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)
 

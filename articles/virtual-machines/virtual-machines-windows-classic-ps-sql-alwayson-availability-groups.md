@@ -27,8 +27,6 @@ ms.author: mikeray
 > 
 > 
 
-<br/>
-
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
@@ -45,7 +43,7 @@ This scenario is chosen for its simplicity, not for its cost effectiveness or ot
 This tutorial is intended to show you the steps required to set up the described solution above without elaborating on the details of each step. Therefore, instead of showing you the GUI configuration steps, it uses PowerShell scripting to take you quickly through each step. It assumes the following:
 
 * You already have an Azure account with the virtual machine subscription.
-* You have installed the [Azure PowerShell cmdlets](../powershell-install-configure.md).
+* You have installed the [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs).
 * You already have a solid understanding of Always On Availability Groups for on-premise solutions. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Connect to Your Azure Subscription and Create the Virtual Network

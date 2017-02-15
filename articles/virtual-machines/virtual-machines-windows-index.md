@@ -36,7 +36,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Environment setup
 [Free account](https://azure.microsoft.com/free/)
 
-[Install Azure PowerShell](../powershell-install-configure.md)
+[Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 [Install Azure CLI](../xplat-cli-install.md)
 

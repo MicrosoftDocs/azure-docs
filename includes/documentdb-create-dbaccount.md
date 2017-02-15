@@ -1,4 +1,4 @@
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
 2. In the Jumpbar, click **New**, click **Databases**, and then click **NoSQL (DocumentDB)**.
    
    ![Screen shot of the Azure portal, highlighting More Services, and DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -16,11 +16,11 @@
    ![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. After the DocumentDB account is created, it is ready for use with the default settings. To review the default settings, click the **NoSQL (DocumentDB)** icon on the Jumpbar, click your new account, and then click **Default Consistency** in the Resource Menu.
+5. After the DocumentDB account is created, it is ready for use with the default settings. To review the default settings, click the **NoSQL (DocumentDB)** icon on the Jumpbar, click your new account, and then click **Default consistency** in the resource menu.
 
    ![Screen shot showing how to open your Azure DocumentDB database account in the Azure portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   The default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency by clicking **Default Consistency** in the resource menu. To learn more about the consistency levels offered by DocumentDB, see [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+   The default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency by selecting one of the other consistency options available. To learn more about the consistency levels offered by DocumentDB, see [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps

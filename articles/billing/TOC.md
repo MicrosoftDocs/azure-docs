@@ -1,7 +1,5 @@
-# Get started
-## [Create free account](https://azure.microsoft.com/free/)
+# [Get started](billing-getting-started.md)
 ## [Sign up with Office 365 account](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Subscription pricing](https://azure.microsoft.com/pricing/)
 ## [Supported countries and currencies](../billing-countries-and-currencies.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md)
 ## [Frequently asked questions](../billing-subscription-faq.md)
@@ -17,12 +15,12 @@
 ### [Transfer subscription ownership](../billing-subscription-transfer.md)
 ### [Reactivate disabled subscription](../billing-subscription-become-disable.md)
 ### [Upgrade from free subscription](../billing-upgrade-azure-subscription.md)
-### [Switch to different subscription](../billing-how-to-switch-azure-offer.md)
+### [Switch subscription offer](../billing-how-to-switch-azure-offer.md)
 ### [Cancel subscription](../billing-how-to-cancel-azure-subscription.md)
 ## Manage account
 ### [Edit profile](../billing-how-to-change-azure-account-profile.md)
 ### [Update payment information](../billing-how-to-change-credit-card.md)
-### [Link  Office 365 tenant](../billing-add-office-365-tenant-to-azure-subscription.md)
+### [Link Office 365 tenant](../billing-add-office-365-tenant-to-azure-subscription.md)
 ## Troubleshoot
 ### [Sign-up issues](../billing-troubleshoot-azure-sign-up-issues.md)
 ### [Declined card](../billing-credit-card-fails-during-azure-sign-up.md)

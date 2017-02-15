@@ -4,7 +4,7 @@ description: What to do in the event of an Azure Storage outage
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---

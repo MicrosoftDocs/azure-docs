@@ -2,6 +2,7 @@
 ## [What is DocumentDB?](documentdb-introduction.md)
 ## [Core concepts](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with DocumentDB](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
+### [Java console app](documentdb-java-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
 ## Build a web app
@@ -18,12 +20,12 @@
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
 ## [Develop Locally](documentdb-nosql-local-emulator.md)
+### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FAQ](documentdb-faq.md)
 
 # How To
 
 ## Plan
-### [Storage and performance](documentdb-manage.md)
 ### [Partitioning and scaling](documentdb-partition-data.md)
 ### [Consistency](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
@@ -38,24 +40,29 @@
 ### [Secure access to data](documentdb-secure-access-to-data.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
 ### [Performance levels](documentdb-performance-levels.md)
-### [Resource quotas](documentdb-limits.md)
-### [Increase quotas](documentdb-increase-limits.md)
 ### [Request units](documentdb-request-units.md)
-### [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Create an account](documentdb-automation-resource-manager-cli.md)
+#### [Add or remove regions](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
 ### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
+### [Track changes with Change feed](documentdb-change-feed.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
-### DocumentDB for MongoDB developers
-#### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
-#### [Create account](documentdb-create-mongodb-account.md)
-#### [Connect to your account](documentdb-connect-mongodb-account.md)
-#### [Use MongoChef](documentdb-mongodb-mongochef.md)
-#### [Protocol support samples](documentdb-mongodb-samples.md)
+
+## Use DocumentDB Support for MongoDB
+### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
+### [Create account](documentdb-create-mongodb-account.md)
+### [Connect to your account](documentdb-connect-mongodb-account.md)
+### [Migrate your data](documentdb-mongodb-migrate.md)
+### [Use Robomongo](documentdb-mongodb-robomongo.md)
+### [Use MongoChef](documentdb-mongodb-mongochef.md)
+### [Protocol support samples](documentdb-mongodb-samples.md)
 
 ## Use the portal
 ### [Create a database account](documentdb-create-account.md)

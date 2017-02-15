@@ -13,15 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/13/2016
 ms.author: jeannt
 
 ---
 # Guide to Net# neural network specification language for Azure Machine Learning
 ## Overview
-Net# is a language developed by Microsoft that is used to define neural network architectures for neural network modules in Microsoft Azure Machine Learning. In this article, you will learn:  
+Net# is a language developed by Microsoft that is used to define neural network architectures. You can use Net# in neural network modules in Microsoft Azure Machine Learning, or in the `rxNeuralNetwork()` function in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
 
-* Basic concepts related to neural networks
+In this article, you will learn basic concepts needed to develop a custom neural network: 
+
 * Neural network requirements and how to define the primary components
 * The syntax and keywords of the Net# specification language
 * Examples of custom neural networks created using Net# 

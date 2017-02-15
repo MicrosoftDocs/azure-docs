@@ -20,10 +20,14 @@ ms.author: rogardle
 
 ---
 # Connect to an Azure Container Service cluster
-The DC/OS, Kubernetes and Docker Swarm clusters that are deployed Azure Container Service all expose REST endpoints.  For Kubernetes,
+The DC/OS, Kubernetes, and Docker Swarm clusters that are deployed Azure Container Service all expose REST endpoints.  For Kubernetes,
 this endpoint is securely exposed on the internet and you can access it directly from any machine connected to the internet. For DC/OS 
 and Docker Swarm you must create an SSH tunnel in order to securely connect to the REST endpoint. Each of these connections is
 described below.
+
+> [!NOTE]
+> Kubernetes support in Azure Container Service is currently in preview.
+>
 
 ## Connecting to a Kubernetes cluster.
 To connect to a Kubernetes cluster, you need to have the `kubectl` command line tool installed.  The easiest way to install this

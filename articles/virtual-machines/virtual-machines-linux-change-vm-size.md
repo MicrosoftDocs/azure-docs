@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
-ms.author: mikewasson
+ms.author: mwasson
 
 ---
 # How to resize a Linux VM

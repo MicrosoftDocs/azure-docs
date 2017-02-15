@@ -1,4 +1,3 @@
-
 ---
 title: Authentication Scenarios for Azure AD | Microsoft Docs
 description: An overview of the five most common authentication scenarios for Azure Active Directory (AAD)

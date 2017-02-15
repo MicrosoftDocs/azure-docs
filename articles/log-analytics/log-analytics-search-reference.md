@@ -4,16 +4,15 @@ description: The Log Analytics search reference describes the search language an
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -42,8 +41,8 @@ This query returns results that contain the word "system" in any field that has 
 
 > [!NOTE]
 > Not all fields are indexed this way, but the most common textual fields (such as descriptions and names) typically would be.
-> 
-> 
+>
+>
 
 ```
 system error
@@ -59,8 +58,8 @@ This query returns results that contain the words *system* and *error*. It then 
 
 > [!IMPORTANT]
 > All the field names and the values for the string and text fields are case sensitive.
-> 
-> 
+>
+>
 
 ## Filter expression
 The following subsections explain the filter expressions.
@@ -250,6 +249,29 @@ TimeGenerated:[NOW..NOW+1DAY]
 SampleValue:[0..2]
 ```
 
+### Regular Expressions
+You can specify a search condition for a field with a regular expression by using the Regex keyword.
+
+**Syntax**
+
+```
+field:Regex("Regular Expression")
+```
+
+```
+field=Regex("Regular Expression")
+```
+
+**Example**
+
+```
+Computer=Regex("C.*")
+```
+
+```
+Computer=Regex("^C.*")
+```
+
 ### Logical operators
 The query languages support the logical operators (*AND*, *OR*, and *NOT*) and their C-style aliases (*&&*, *||*, and *!*) respectively. You can use parentheses to group these operators.
 
@@ -284,16 +306,16 @@ Type=Event Computer=*SQL*
 
 > [!NOTE]
 > Wildcards cannot be used within quotations today. Message=`"*This text*"` will consider the (\*) used as a literal (\*) character.
-> 
+>
 > ## Commands
-> 
+>
 
 The commands apply to the results that are returned by the query. Use the pipe character ( | ) to apply a command to the retrieved results. Multiple commands must be separated by the pipe character.
 
 > [!NOTE]
 > Command names can be written in upper case or lower case, unlike the field names and the data.
-> 
-> 
+>
+>
 
 ### Sort
 Syntax:
@@ -787,4 +809,3 @@ For additional information about log searches:
 
 * Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
 * Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) to extend log searches.
-

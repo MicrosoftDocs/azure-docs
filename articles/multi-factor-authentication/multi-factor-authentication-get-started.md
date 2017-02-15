@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.date: 01/06/2017
 ms.author: kgremban
 
 ---
@@ -64,7 +64,7 @@ The following table is a comparison of the features that are available with Mult
 | PIN mode | | ● |
 | Fraud alert |● | ● |
 | MFA Reports |● | ● |
-| One-Time Bypass | ● | ● |
+| One-Time Bypass | | ● |
 | Custom greetings for phone calls | ● | ● |
 | Customizable caller ID for phone calls | ● | ● |
 | Trusted IPs | ● | ● |

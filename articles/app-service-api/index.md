@@ -1,10 +1,10 @@
 ---
 layout: LandingPage
-
+description: Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials, videos, and other documentation.
 ---
 # App Service - API Apps Documentation
 
-API Apps is one of four app types offered by Azure App Service. API apps in Azure App Service provides a rich feature set to develop, host and consume APIs in the cloud and on-premises. Azure App Service is a fully managed platform for web, mobile, and integration scenarios.
+Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials, videos, and other documentation show you how create and deploy API apps.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -116,8 +116,6 @@ API Apps is one of four app types offered by Azure App Service. API apps in Azur
         </a>
     </li>     
 </ul>
-
----
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">

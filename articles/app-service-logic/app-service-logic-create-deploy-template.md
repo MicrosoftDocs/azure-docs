@@ -18,7 +18,7 @@ ms.author: jehollan
 
 ---
 # Create a logic app deployment template
-After a logic app has been created, you might want to create it as an Azure Resource Manager template. This way, you can easily deploy the logic app to any environment or resource group where you might need it. For an introduction to Resource Manager templates, be sure to check out the articles on [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) and [deploying resources by using Azure Resource Manager templates](../resource-group-template-deploy.md).
+After a logic app has been created, you might want to create it as an Azure Resource Manager template. This way, you can easily deploy the logic app to any environment or resource group where you might need it. For an introduction to Resource Manager templates, be sure to check out the articles on [authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) and [deploying resources by using Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Logic app deployment template
 A logic app has three basic components:
@@ -62,7 +62,7 @@ After PowerShell is installed, you can generate a template by using the followin
 After you create your logic app template, you can continue to add or modify parameters that you might need. For example, if your definition includes a resource ID to an Azure function or nested workflow that you plan to deploy in a single deployment, you can add more resources to your template and parameterize IDs as needed. The same applies to any references to custom APIs or Swagger endpoints you expect to deploy with each resource group.
 
 ## Deploy a logic app template
-You can deploy your template by using any number of tools, including PowerShell, REST API, Visual Studio Release Management, and the Azure Portal Template Deployment. See this article about [deploying resources by using Azure Resource Manager templates](../resource-group-template-deploy.md) for additional information. Also, we recommend that you create a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameters) to store values for the parameter.
+You can deploy your template by using any number of tools, including PowerShell, REST API, Visual Studio Release Management, and the Azure Portal Template Deployment. See this article about [deploying resources by using Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md) for additional information. Also, we recommend that you create a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameters) to store values for the parameter.
 
 ### Authorize OAuth connections
 After deployment, the logic app works end-to-end with valid parameters. However, OAuth connections still will need to be authorized to generate a valid access token. You can do this by opening the logic app in the designer and then authorizing connections. Or, if you want to automate, you can use a script to consent to each OAuth connection. There's an example script on GitHub under the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.

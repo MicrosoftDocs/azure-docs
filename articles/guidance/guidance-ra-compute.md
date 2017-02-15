@@ -35,8 +35,6 @@ The reference architectures in this series are designed to build on each other, 
 ## Running a single VM
 This reference architecture contains a set of baseline recommendations for running any Windows or Linux VM in Azure. 
 
-A single VM is useful as a basic development or test environment, or for non-critical workloads, but is not recommended for hosting mission-critical systems or production applications. 
-
 > [!NOTE]
 > This architecture is the basis for the other architectures in this series. It is important to understand the concepts here, even if you are not deploying a single VM by itself.
 > 
@@ -46,7 +44,7 @@ A single VM is useful as a basic development or test environment, or for non-cri
 
 Considerations:
 
-* Single VM instances do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. Instead, it is recommended to put two or more VMs in an availability set. The next architecture demonstrates this approach.
+* Not recommended for mission-critical systems. Instead, it is recommended to put two or more VMs in an availability set. The next architecture demonstrates this approach.
 
 For detailed information, see [Running a Windows VM on Azure][single-vm] and [Running a Linux VM on Azure][single-vm-linux].
 
@@ -58,7 +56,6 @@ To improve availability and scalability, deploy several VMs in an availability s
 
 Benefits:
 
-* VMs in this configuration qualify for the SLA for Virtual Machines.
 * Provides improved availability and scalability.
 * This architecture is a building block for running N-tier applications on Azure, as shown in the next architecture.
 

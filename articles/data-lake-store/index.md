@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to set up, manage, and access a hyper-scale, Hadoop-compatible data lake repository for analytics on data of any size, type, and ingestion speed.
 ---
 # Data Lake Store Documentation
 
-Azure Data Lake Store is a hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.  Azure Data Lake Store can be accessed from Hadoop (available with HDInsight cluster) using the WebHDFS-compatible scenarios. It includes all the enterprise-grade capabilities for security, manageability, scalability, reliability, and availability.
+Learn how to use Data Lake Store to create a hyper-scale, Hadoop-compatible repository for analytics on data of any size, type, and ingestion speed. Tutorials, API references, and other documentation show you how to set up, manage, and access a data lake repository for operational and exploratory analytics.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -169,7 +170,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -185,7 +186,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

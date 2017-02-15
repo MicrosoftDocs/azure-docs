@@ -25,8 +25,8 @@ This topic compares the encoding capabilities of **Media Encoder Standard** and 
 ### <a id="billing"></a>Billing meter used by each encoder
 | Media Processor Name | Applicable Pricing | Notes |
 | --- | --- | --- |
-| **Media Encoder Standard** |ENCODER |Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the ENCODER column. |
-| **Media Encoder Premium Workflow** |PREMIUM ENCODER |Encoding Tasks will be charged according to the size of the output Asset, in GBytes, at the rate specified [here][1], under the PREMIUM ENCODER column. |
+| **Media Encoder Standard** |ENCODER |Encoding Tasks will be charged based on the total duration, in minutes, of all the media files produced as output, at the rate specified [here][1], under the ENCODER column. |
+| **Media Encoder Premium Workflow** |PREMIUM ENCODER |Encoding Tasks will be charged based on the total duration, in minutes, of all the media files produced as output, at the rate specified [here][1], under the PREMIUM ENCODER column. |
 
 ### Input Container/File Formats
 | Input Container/File Formats | Media Encoder Standard | Media Encoder Premium Workflow |

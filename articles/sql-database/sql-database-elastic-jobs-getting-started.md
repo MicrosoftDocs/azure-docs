@@ -8,7 +8,7 @@ author: ddove
 
 ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
-ms.custom: jobs
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -286,7 +286,7 @@ To trigger job deletion, use the **Remove-AzureSqlJob** cmdlet and set the **Job
     Remove-AzureSqlJob -JobName $jobName
 
 ## Create a custom database target
-Custom database targets can be defined in Elastic Database jobs which can be used either for execution directly or for inclusion within a custom database group. Since **Elastic Database pools** are not yet directly supported via the PowerShell APIs, you simply create a custom database target and custom database collection target which encompasses all the databases in the pool.
+Custom database targets can be defined in Elastic Database jobs which can be used either for execution directly or for inclusion within a custom database group. Since **elastic pools** are not yet directly supported via the PowerShell APIs, you simply create a custom database target and custom database collection target which encompasses all the databases in the pool.
 
 Set the following variables to reflect the desired database information:
 

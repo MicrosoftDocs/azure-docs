@@ -52,6 +52,8 @@ If your project is already set up to use Maven for build, merge the following co
 
 Then, refresh the project dependencies to get the binaries downloaded.
 
+```XML
+
     <repositories>
        <repository>
           <id>central</id>
@@ -68,7 +70,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
         <version>[1.0,)</version>
       </dependency>
     </dependencies>
-
+```
 
 * *Build or checksum validation errors?* Try using a specific version, such as: `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
@@ -78,6 +80,8 @@ If your project is already set up to use Gradle for build, merge the following c
 
 Then refresh the project dependencies to get the binaries downloaded.
 
+```JSON
+
     repositories {
       mavenCentral()
     }
@@ -86,6 +90,7 @@ Then refresh the project dependencies to get the binaries downloaded.
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
+```
 
 * *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *To update to a new SDK*
@@ -111,6 +116,8 @@ Manually add the SDK:
 Add ApplicationInsights.xml to the resources folder in your project, or make sure it is added to your project’s deployment class path. Copy the following XML into it.
 
 Substitute the instrumentation key that you got from the Azure portal.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -141,6 +148,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
@@ -157,8 +165,10 @@ Application Insights SDK looks for the key in this order:
 
 You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
 
-    telemetryClient.InstrumentationKey = "...";
+```Java
 
+    telemetryClient.InstrumentationKey = "...";
+```
 
 ## 4. Add an HTTP filter
 The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
@@ -166,6 +176,8 @@ The last configuration step allows the HTTP request component to log each web re
 Locate and open the web.xml file in your project, and merge the following code under the web-app node, where your application filters are configured.
 
 To get the most accurate results, the filter should be mapped before all other filters.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -177,9 +189,12 @@ To get the most accurate results, the filter should be mapped before all other f
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 #### If you're using Spring Web MVC 3.1 or later
 Edit these elements in *-servlet.xml to include the Application Insights package:
+
+```XML
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -189,14 +204,18 @@ Edit these elements in *-servlet.xml to include the Application Insights package
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
+```
 
 #### If you're using Struts 2
 Add this item to the Struts configuration file (usually named struts.xml or struts-default.xml):
+
+```XML
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
+```
 
 (If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
 
@@ -230,7 +249,7 @@ When viewing the properties of a request, you can see the telemetry events assoc
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics]() is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](app-insights-analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
@@ -272,20 +291,25 @@ Open **Settings**, **Servers**, to see a range of performance counters.
 ### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the ApplicationInsights.xml file:
 
+```XML
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### Collect additional performance counters
 You can specify additional performance counters to be collected.
 
 #### JMX counters (exposed by the Java Virtual Machine)
+
+```XML
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` – The name displayed in the Application Insights portal.
 * `objectName` – The JMX object name.
@@ -298,12 +322,14 @@ You can specify additional performance counters to be collected.
 #### Windows performance counters
 Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
+```XML
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName – The name displayed in the Application Insights portal.
 * categoryName – The performance counter category (performance object) with which this performance counter is associated.
@@ -352,7 +378,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 * Add [monitoring to your web pages](app-insights-javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](app-insights-api-custom-events-metrics.md) to track usage in the browser or at the server.
 * Create [dashboards](app-insights-dashboards.md) to bring together the key charts for monitoring your system.
-* Use [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
+* Use  [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
 * For more information, see the [Java Developer Center](/develop/java/).
 
 <!--Link references-->

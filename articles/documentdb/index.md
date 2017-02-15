@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use DocumentDB, a schema-free NoSQL document database. Tutorials show how to integrate with apps and use SQL queries on JSON documents.
 ---
 #DocumentDB Documentation
 
-Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
+Learn how to use DocumentDB in high-performance applications for web, mobile, gaming, and IoT. Tutorials and other documentation show you how to store JSON data and perform SQL queries over a flexible schema in this NoSQL database service.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -191,7 +192,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

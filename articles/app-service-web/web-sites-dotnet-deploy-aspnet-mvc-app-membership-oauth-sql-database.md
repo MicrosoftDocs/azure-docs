@@ -440,7 +440,7 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/library/syst
           }
    
     If you do a global search for *AllowAnonymous*, you'll see that it is used in the login and registration methods of the Account controller.
-3. In *CmController.cs*, add `[Authorize(Roles = "canEdit")]` to the HttpGet and HttpPost methods that change data (Create, Edit, Delete, every action method except Index and Details) in the *Cm* controller. A portion of the completed code is shown below: 
+3. In *ContactsController.cs*, add `[Authorize(Roles = "canEdit")]` to the HttpGet and HttpPost methods that change data (Create, Edit, Delete, every action method except Index and Details) in the *Cm* controller. A portion of the completed code is shown below: 
    
         // GET: Cm/Create
         [Authorize(Roles = "canEdit")]

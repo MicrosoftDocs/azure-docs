@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/11/2016
+ms.date: 12/22/2016
 ms.author: arramac
 
 ---
@@ -93,9 +93,8 @@ The following table shows the consistency for queries based on the indexing mode
 
 The following code sample show how create a DocumentDB collection using the .NET SDK with consistent indexing on all document insertions.
 
-     // Default collection creates a hash index for all string and numeric    
-     // fields. Hash indexes are compact and offer efficient
-     // performance for equality queries.
+     // Default collection creates a hash index for all string fields and a range index for all numeric    
+     // fields. Hash indexes are compact and offer efficient performance for equality queries.
 
      var collection = new DocumentCollection { Id ="defaultCollection" };
 

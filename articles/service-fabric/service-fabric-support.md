@@ -19,41 +19,41 @@ ms.author: chackdan
 ---
 # Azure Service Fabric support options
 
-To deliver the appropriate support for your service fabric clusters that you are running your application work loads on, we have set up various options for you. Depending on the level of support needed and the severity of the issue, you get to pick the right options. 
+To deliver the appropriate support for your Service Fabric clusters that you are running your application work loads on, we have set up various options for you. Depending on the level of support needed and the severity of the issue, you get to pick the right options. 
 
 
 <a id="getlivesitesupportonazure"></a>
 
-## Production or live-site issues / or to request paid support for Azure
+## Report production or live-site issues or request paid support for Azure
 
-For reporting live-site issues on your service fabric cluster deployed on Azure, Open a ticket for professional support [on Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+For reporting live-site issues on your Service Fabric cluster deployed on Azure, Open a ticket for professional support [on Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 or [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
-Learn more about
+Learn more about:
  
 - [Professional Support from Microsoft for Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
 
-## Production or live-site issues / paid support for standalone service fabric clusters
+## Report production or live-site issues or request paid support for standalone Service Fabric clusters
 
-For reporting live-site issues on your service fabric cluster deployed on premise or on other clouds, Open a ticket for professional support on [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
+For reporting live-site issues on your Service Fabric cluster deployed on premise or on other clouds, open a ticket for professional support on [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
-Learn more about
+Learn more about:
 
 - [Professional Support from Microsoft for on-premise](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 
 <a id="getsupportonissues"></a>
-## Report azure Service Fabric issues 
+## Report Azure Service Fabric issues 
+We have set up a GitHub repo for reporting Service Fabric issues.  We are also actively monitoring the following forums.
 
+### GitHub repo 
 Report Azure Service Fabric Issues on [Service-Fabric-issues git repo](https://github.com/Azure/service-fabric-issues). This repo is intended for reporting and tracking issues with Azure Service Fabric and for making small feature requests. **Do not use this to report live-site issues**.
 
-We are also actively monitoring the following forums and recommend that you use them as described below:
-
-### StackOverflow and MSDN
+### StackOverflow and MSDN forums
 
 The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] are best used for asking questions about how the platform works and how you might accomplish certain tasks with it.
 
@@ -63,18 +63,16 @@ The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place
 
 
 <a id="releasesuport"></a>
+## Supported Service Fabric versions.
 
-## Supported Service fabric versions.
+Make sure that your cluster is always running a supported Service Fabric version. As and when we announce the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
- Make sure to keep your cluster running a supported service fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Refer to the following documents on details on how to keep your cluster running a supported Service Fabric version.
 
-Refer to the following documents on details on how to keep your cluster running a supported service fabric version.
-
-- [Upgrade service fabric version on an Azure cluster ](service-fabric-cluster-upgrade.md)
-- [Upgrade service fabric version on a standalone windows server cluster ](service-fabric-cluster-upgrade-windows-server.md)
+- [Upgrade Service Fabric version on an Azure cluster ](service-fabric-cluster-upgrade.md)
+- [Upgrade Service Fabric version on a standalone windows server cluster ](service-fabric-cluster-upgrade-windows-server.md)
  
-Here are the list of the service fabric versions that are supported and their support end dates.
-
+Here are the list of the Service Fabric versions that are supported and their support end dates.
 
 | **Service Fabric runtime cluster** | **End of Support Date** |
 | --- | --- |
@@ -89,7 +87,7 @@ Here are the list of the service fabric versions that are supported and their su
 ## Next steps
 
 - [Upgrade service fabric version on an Azure cluster ](service-fabric-cluster-upgrade.md)
-- [Upgrade service fabric version on a standalone windows server cluster ](service-fabric-cluster-upgrade-windows-server.md)
+- [Upgrade Service Fabric version on a standalone windows server cluster ](service-fabric-cluster-upgrade-windows-server.md)
 
 <!--references-->
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric

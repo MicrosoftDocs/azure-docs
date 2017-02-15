@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 
 ---
@@ -68,28 +68,30 @@ Click **Delegated Permissions** beside the newly added **Windows** **Azure Servi
 
 Prior to invoking the APIs that generate the backup and restore it, it is necessary to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget package to retrieve the token.
 
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+```c#
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 
-    namespace GetTokenResourceManagerRequests
+namespace GetTokenResourceManagerRequests
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-                if (result == null) {
-                    throw new InvalidOperationException("Failed to obtain the JWT token");
-                }
-
-                Console.WriteLine(result.AccessToken);
-
-                Console.ReadLine();
+            if (result == null) {
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
+
+            Console.WriteLine(result.AccessToken);
+
+            Console.ReadLine();
         }
     }
+}
+```
 
 Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the following instructions.
 
@@ -109,10 +111,12 @@ Once the values are specified, the code example should return a token similar to
 
 Before calling the backup and restore operations described in the following sections, set the authorization request header for your REST call.
 
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```c#
+request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```
 
-## <a name="step1"> </a>Backup an API Management service
-To backup an API Management service issue the following HTTP request:
+## <a name="step1"> </a>Back up an API Management service
+To back up an API Management service issue the following HTTP request:
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
 
@@ -125,18 +129,20 @@ where:
 
 In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Set the value of the `Content-Type` request header to `application/json`.
 
 Backup is a long running operation that may take multiple minutes to complete.  If the request was successful and the backup process was initiated you’ll receive a `202 Accepted` response status code with a `Location` header.  Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress you will continue to receive a '202 Accepted' status code. A Response code of `200 OK` will indicate successful completion of the backup operation.
 
-**Note**:
+Please note the following constraints when making a backup request.
 
 * **Container** specified in the request body **must exist**.
 * While backup is in progress you **should not attempt any service management operations** such as SKU upgrade or downgrade, domain name change, etc.
@@ -159,12 +165,14 @@ where:
 
 In the body of the request, specify the backup file location, i.e. Azure storage account name, access key, blob container name, and backup name:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Set the value of the `Content-Type` request header to `application/json`.
 

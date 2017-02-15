@@ -11,7 +11,7 @@ tags: ''
 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
-ms.custom: auth and access
+ms.custom: authentication and authorization
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -34,7 +34,7 @@ Microsoft Azure SQL Database provides a relational database service for Azure an
 
 To configure your firewall, you create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server and database levels.
 
-* **Server-level firewall rules:** These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same logical server. These rules are stored in the **master** database. Server-level firewall rules can be configured by using the portal or by using Transact-SQL statements.
+* **Server-level firewall rules:** These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same logical server. These rules are stored in the **master** database. Server-level firewall rules can be configured by using the portal or by using Transact-SQL statements. To create server-level firewall rules using the Azure portal or PowerShell, you must be the subscription owner or a subscription contributor. To create a server-level firewall rule using Transact-SQL, you must connect to the SQL Database instance as the server-level principal login or the Azure Active Directory administrator (which means that a server-level firewall rule must first be created by a user with Azure-level permissions).
 * **Database-level firewall rules:** These rules enable clients to access individual databases within your Azure SQL Database server. You can create these rules for each database and they are stored in the individual databases. (You can create database-level firewall rules for the **master** database.) These rules can be helpful in restricting access to certain (secure) databases within the same logical server. Database-level firewall rules can only be configured by using Transact-SQL statements.
 
 **Recommendation:** Microsoft recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements and you don't want to spend time configuring each database individually.
@@ -139,7 +139,7 @@ For help in connecting to an Azure SQL database from open source or third-party 
 To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## Additional resources
-* [Securing your database](sql-database-security.md)
+* [Securing your database](sql-database-security-overview.md)
 * [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->

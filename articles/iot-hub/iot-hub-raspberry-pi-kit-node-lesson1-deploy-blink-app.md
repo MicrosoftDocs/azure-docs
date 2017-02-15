@@ -122,7 +122,7 @@ To configure the device connection, follow these steps:
 Congratulations! You've successfully created the first sample application for Pi.
 
 ## Deploy and run the sample application
-### Install Node.js and  on Pi
+### Install Node.js and NPM on Pi
 Install Node.js and NPM on Pi by running the following command:
 
 ```bash

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 12/21/2016
 ms.author: rnagpal
 
 ---
@@ -48,6 +48,12 @@ ms.author: rnagpal
 
 ## Release Notes
 
+The DocumentDB .NET Core SDK has feature parity with the latest version of the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md).
+
+### <a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
+
+The DocumentDB .NET Core SDK enables you to build fast, cross-platform [ASP.NET Core](https://www.asp.net/core) and [.NET Core](https://www.microsoft.com/net/core#windows) apps to run on Windows, Mac, and Linux. The latest release of the DocumentDB .NET Core SDK is fully [Xamarin](https://www.xamarin.com) compatible and be used to build applications that target iOS, Android, and Mono (Linux).  
+
 ### <a name="0.1.0-preview"/>[0.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0-preview)
 
 The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform [ASP.NET Core](https://www.asp.net/core) and [.NET Core](https://www.microsoft.com/net/core#windows) apps to run on Windows, Mac, and Linux.
@@ -64,7 +70,8 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |--- |
+| [1.0.0](#1.0.0) |December 21, 2016 |--- |
+| [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |December 31, 2016 |
 
 ## See Also
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 

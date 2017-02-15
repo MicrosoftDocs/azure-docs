@@ -1,11 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to send push notifications from any backend to any mobile device with Notification Hubs. Tutorials, API references, and other documentation.
 ---
 #Notification Hubs Documentation
 
-Azure Notification Hubs provide an easy-to-use, multi-platform, scaled-out push infrastructure that enables you to send mobile push notifications from any backend (in the cloud or on-premises) to any mobile platform.
-
-With Notification Hubs, you can easily send cross-platform, personalized push notifications, abstracting the details of the different platform notification systems (PNS). With a single API call, you can target individual users or entire audience segments containing millions of users, across all their devices.
+Learn how to use Notification Hubs, a multi-platform, scalable push-notification engine for quickly sending millions of messages. Tutorials, API references, and other documentation show you how to set up and send push notifications from any backend to any mobile device. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -27,7 +26,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -156,52 +155,45 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Notification Hubs PowerShell Cmdlets</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-	<li>
-        <a href="/dotnet/api/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Notification Hubs .NET API Reference</p>
-                    </div>
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-	<li>
-        <a href="/rest/api/notificationhubs/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Notification Hubs REST API</p>
+                        <p><a href="/rest/api/notificationhubs">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 ---
 

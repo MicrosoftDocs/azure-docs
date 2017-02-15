@@ -116,7 +116,7 @@ This PowerShell command set creates a virtual machine for a line-of-business ser
 
 * Uses the Windows Server 2012 R2 Datacenter image.
 * Is an extra small virtual machine.
-* Has the name contoso-test.
+* Has the name Contoso100-test.
 * Is automatically domain joined to the contoso100 managed domain.
 * Is added to the same virtual network as the managed domain.
 

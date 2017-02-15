@@ -111,7 +111,7 @@ The overview blade is the gateway to more information about your app.
 * **Overview** - Return to the app overview blade.
 * **Activity log** - Alerts and Azure administrative events.
 * [**Access control**](app-insights-resources-roles-access-control.md) - Provide access to team members and others.
-* [**Tags**](../resource-group-using-tags.md) - Use tags to group your app with others.
+* [**Tags**](../azure-resource-manager/resource-group-using-tags.md) - Use tags to group your app with others.
 
 INVESTIGATE
 
@@ -138,7 +138,7 @@ CONFIGURE
 
 SETTINGS
 
-* [**Locks**](../resource-group-lock-resources.md) - lock Azure resources
+* [**Locks**](../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
 * [**Automation script**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
 SUPPORT

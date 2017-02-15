@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 
 ---
@@ -32,56 +32,59 @@ Each resource or resource group can have a maximum of 15 tags. The tag name is l
 > 
 
 ## Templates
-To tag a resource during deployment, simply add the **tags** element to the resource you are deploying, and provide the tag name and value. The tag name and value do not need to pre-exist in your subscription. You can provide up to 15 tags for each resource.
+To tag a resource during deployment, add the **tags** element to the resource you are deploying, and provide the tag name and value. The tag name and value do not need to pre-exist in your subscription. You can provide up to 15 tags for each resource.
 
 The following example shows a storage account with a tag.
 
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2015-06-15",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "tags": {
-                "dept": "Finance"
-            },
-            "properties": 
-            {
-                "accountType": "Standard_LRS"
-            }
-        }
-    ]
-
-Currently, Resource Manager does not support processing an object for the tag names and values. Instead, pass an object for the tag values, but you must still specify the tag names, as shown in the following example.
-
+```json
+"resources": [
     {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "tagvalues": {
-          "type": "object",
-          "defaultValue": {
-            "dept": "Finance",
-            "project": "Test"
-          }
-        }
-      },
-      "resources": [
-      {
-        "apiVersion": "2015-06-15",
         "type": "Microsoft.Storage/storageAccounts",
-        "name": "examplestorage",
-        "tags": {
-          "dept": "[parameters('tagvalues').dept]",
-          "project": "[parameters('tagvalues').project]"
-        },
+        "apiVersion": "2015-06-15",
+        "name": "[concat('storage', uniqueString(resourceGroup().id))]",
         "location": "[resourceGroup().location]",
-        "properties": {
-          "accountType": "Standard_LRS"
+        "tags": {
+            "dept": "Finance"
+        },
+        "properties": 
+        {
+            "accountType": "Standard_LRS"
         }
-      }]
     }
+]
+```
 
+Currently, Resource Manager does not support processing an object for the tag names and values. Instead, pass an object for the tag values, but you must still specify the tag names, as shown in the following example:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "tagvalues": {
+      "type": "object",
+      "defaultValue": {
+        "dept": "Finance",
+        "project": "Test"
+      }
+    }
+  },
+  "resources": [
+  {
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "examplestorage",
+    "tags": {
+      "dept": "[parameters('tagvalues').dept]",
+      "project": "[parameters('tagvalues').project]"
+    },
+    "location": "[resourceGroup().location]",
+    "properties": {
+      "accountType": "Standard_LRS"
+    }
+  }]
+}
+```
 
 ## Portal
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
@@ -103,7 +106,7 @@ You can also use tags to categorize costs by runtime environment; such as, the b
 You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from
 the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](../billing-usage-rate-card-overview.md). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more details, see [Understand your bill for Microsoft Azure](../billing/billing-understand-your-bill.md).
+When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Microsoft Azure](../billing/billing-understand-your-bill.md).
 
 ![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 

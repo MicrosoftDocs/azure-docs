@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis.
 ---
 # Azure Data Factory Documentation
 
-Azure Data Factory is a cloud-based data integration service that automates the movement and transformation of data. The Data Factory service creates data integration solutions that can ingest data from various stores, transform and process the data, and publish the result data back to the data stores.
+Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -81,45 +82,45 @@ Azure Data Factory is a cloud-based data integration service that automates the 
 </ul>
 
 ---
- 
+
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize"><p />
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
-                        <p><a href="/azure/data-factory/data-factory-sdks">Azure Data Factory Developer Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
+                        <p><a href="/azure/data-factory/data-factory-sdks">Azure Data Factory Developer Reference</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize"><p />
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/datafactory/">REST API</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/datafactory/">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 

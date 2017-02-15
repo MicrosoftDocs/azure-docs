@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 12/07/2016
 ms.author: juliako;mingfeiy
 
 ---
@@ -48,7 +48,7 @@ For more information, see
 * If you plan to have multiple content keys that require the same policy configuration, it is strongly recommended to create a single authorization policy and reuse it with multiple content keys.
 * The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
 * If you add or update your asset’s delivery policy, you must delete an existing locator (if any) and create a new locator.
-* Currently, you cannot encrypt HDS streaming format, or progressive downloads.
+* Currently, you cannot encrypt progressive downloads.
 
 ## AES-128 Dynamic Encryption
 ### Open Restriction

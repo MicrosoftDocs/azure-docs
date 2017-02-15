@@ -50,33 +50,38 @@ The sample copies data from Amazon S3 to an Azure blob every hour. The JSON prop
 
 **Amazon S3 linked service**
 
-    {
-        "name": "AmazonS3LinkedService",
-        "properties": {
-            "type": "AwsAccessKey",
-            "typeProperties": {
-                "accessKeyId": "<access key id>",
-                "secretAccessKey": "<secret access key>"
-            }
+```json
+{
+    "name": "AmazonS3LinkedService",
+    "properties": {
+        "type": "AwsAccessKey",
+        "typeProperties": {
+            "accessKeyId": "<access key id>",
+            "secretAccessKey": "<secret access key>"
         }
     }
+}
+```
 
 **Azure Storage linked service**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **Amazon S3 input dataset**
 
 Setting **"external": true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory. Set this property to true on an input dataset that is not produced by an activity in the pipeline.
 
+```json
     {
         "name": "AmazonS3InputDataset",
         "properties": {
@@ -96,117 +101,119 @@ Setting **"external": true** informs the Data Factory service that the dataset i
             "external": true
         }
     }
-
+```
 
 
 **Azure Blob output dataset**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
-    {
-        "name": "AzureBlobOutputDataSet",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/fromamazons3/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```json
+{
+    "name": "AzureBlobOutputDataSet",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/fromamazons3/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**.
 
-    {
-        "name": "CopyAmazonS3ToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "FileSystemSource",
-                            "recursive": true
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```json
+{
+    "name": "CopyAmazonS3ToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "FileSystemSource",
+                        "recursive": true
                     },
-                    "inputs": [
-                        {
-                            "name": "AmazonS3InputDataset"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutputDataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "AmazonS3ToBlob"
-                }
-            ],
-            "start": "2014-08-08T18:00:00Z",
-            "end": "2014-08-08T19:00:00Z"
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AmazonS3InputDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutputDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "AmazonS3ToBlob"
+            }
+        ],
+        "start": "2014-08-08T18:00:00Z",
+        "end": "2014-08-08T19:00:00Z"
     }
-
+}
+```
 
 
 ## Linked service properties
@@ -237,59 +244,67 @@ The **typeProperties** section is different for each type of dataset and provide
 >
 
 ### Sample dataset with prefix
-    {
-        "name": "dataset-s3",
-        "properties": {
-            "type": "AmazonS3",
-            "linkedServiceName": "link- testS3",
-            "typeProperties": {
-                "prefix": "testFolder/test",
-                "bucketName": "testbucket",
-                "format": {
-                    "type": "OrcFormat"
-                }
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true
-        }
-    }
 
+```json
+{
+    "name": "dataset-s3",
+    "properties": {
+        "type": "AmazonS3",
+        "linkedServiceName": "link- testS3",
+        "typeProperties": {
+            "prefix": "testFolder/test",
+            "bucketName": "testbucket",
+            "format": {
+                "type": "OrcFormat"
+            }
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
 ### Sample data set (with version)
-    {
-        "name": "dataset-s3",
-        "properties": {
-            "type": "AmazonS3",
-            "linkedServiceName": "link- testS3",
-            "typeProperties": {
-                "key": "testFolder/test.orc",
-                "bucketName": "testbucket",
-                "version": "WBeMIxQkJczm0CJajYkHf0_k6LhBmkcL",
-                "format": {
-                    "type": "OrcFormat"
-                }
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true
-        }
-    }
 
+```json
+{
+    "name": "dataset-s3",
+    "properties": {
+        "type": "AmazonS3",
+        "linkedServiceName": "link- testS3",
+        "typeProperties": {
+            "key": "testFolder/test.orc",
+            "bucketName": "testbucket",
+            "version": "WBeMIxQkJczm0CJajYkHf0_k6LhBmkcL",
+            "format": {
+                "type": "OrcFormat"
+            }
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
+    }
+}
+```
 
 ### Dynamic paths for S3
 In the sample, we use fixed values for key and bucketName properties in the Amazon S3 dataset.
 
-    "key": "testFolder/test.orc",
-    "bucketName": "testbucket",
+```json
+"key": "testFolder/test.orc",
+"bucketName": "testbucket",
+```
 
 You can have Data Factory calculate the key and bucketName dynamically at runtime by using system variables such as SliceStart.
 
-    "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
-    "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
+```json
+"key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
+"bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
+```
 
 You can do the same for the prefix property of an Amazon S3 dataset. See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of supported functions and variables.
 

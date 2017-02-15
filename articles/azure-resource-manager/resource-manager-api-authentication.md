@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2016
+ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 
 ---
-# How to use Azure Active Directory and Resource Manager to manage a customer’s resources
+# Use Resource Manager authentication API to access subscriptions
 ## Introduction
 If you are a software developer who needs to create an app that manages customer's Azure resources, this topic shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions. 
 
@@ -222,7 +222,7 @@ When your application authenticates a user from an Azure AD, it creates a servic
 
 You only have an access token for Azure Resource Manager - you need a new access token to call the Azure AD Graph API. Every application in Azure AD has permission to query its own service principal object, so an app-only access token is sufficient.
 
-<a id="app-azure-ad-graph">
+<a id="app-azure-ad-graph" />
 
 ### Get app-only access token for Azure AD Graph API
 To authenticate your app and get a token to Azure AD Graph API, issue a Client Credential Grant OAuth2.0 flow token request to Azure AD token endpoint (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).

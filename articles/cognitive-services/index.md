@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to add intelligent capabilities to your applications, such as vision, speech, and language analytics. Get quick start guides and API references.
 ---
 #Cognitive Services Documentation
 
-Cognitive Services (Preview) is a series of APIs which can be used to enable natural and contextual interaction within your applications.  Cognitive Services offers Language, Speech, Vision, Search, and Knowledge APIs.
+Learn how to enable natural and contextual interaction within your applications with Cognitive Services. Quick start tutorials and API references help you incorporate artificial intelligence capabilities for text, speech, vision, and search. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -64,52 +65,31 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Reference</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Cognitive Services Managed Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/cognitiveservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Cognitive Services REST API</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 

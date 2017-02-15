@@ -54,7 +54,7 @@ The Azure REST API allows you to perform management operations on services hoste
 
 ## Create a template
 
-Azure Resource Management templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template based approach allows you to define all the resources that you need for HDInsight in one template, and to manage changes to the group as a whole through **deployments** that apply changes to the group.
+Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template based approach allows you to define all the resources that you need for HDInsight in one template, and to manage changes to the group as a whole through **deployments** that apply changes to the group.
 
 Templates are usually provided in two parts; the template itself, and a parameters file that you populate with values specific to your configuration. For exmaple, the cluster name, admin name and password. When directly using the REST API, you must combine these into one file. The format of this JSON document is:
 

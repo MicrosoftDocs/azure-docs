@@ -136,7 +136,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```
 
 ## Node Version & Package Management
-The node version is currently locked at `5.9.1`. We're investigating adding support for more versions and making it configurable.
+The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
 
 You can include packages in your function by 
 uploading a *package.json* file to your function's folder in the function app's file system. For file upload instructions, see the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
@@ -153,7 +153,7 @@ Once the packages you need are installed, you import them to your function in th
 ```javascript
 // Import the underscore.js library
 var _ = require('underscore');
-var version = process.version; // version === 'v5.9.1'
+var version = process.version; // version === 'v6.5.0'
 
 module.exports = function(context) {
     // Using our imported underscore.js library

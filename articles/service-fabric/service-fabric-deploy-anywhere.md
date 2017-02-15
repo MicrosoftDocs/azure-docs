@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 
 ---
@@ -27,7 +27,7 @@ Creating a cluster on Azure is done either via a Resource Model template or the 
 You are able to create clusters on VMs running these operating systems:
 
 * Windows Server 2012 R2
-* Windows Server 2016 (After it is announced as generally available)
+* Windows Server 2016 
 * Linux Ubuntu 16.04 (in public preview) 
 
 ## Create Service Fabric standalone clusters on-premise or with any cloud provider
@@ -50,7 +50,7 @@ The process for creating a Service Fabric cluster on-premises is similar to the 
 You are able to create clusters on VMs or computers running these operating systems:
 
 * Windows Server 2012 R2
-* Windows Server 2016 (After it is announced as generally available)
+* Windows Server 2016 
 * Linux ( coming soon)
 
 ## Advantages of Service Fabric clusters on Azure over standalone Service Fabric clusters created on-premises
@@ -64,7 +64,8 @@ Running Service Fabric clusters on Azure provides advantages over the on-premise
 * **Auto-scaling:** For clusters on Azure, we provide built-in auto-scaling functionality due to Virtual Machine scale-sets. In on-premises and other cloud environments, you have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
 
 ## Next steps
-Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
-Create a cluster on VMs or computers running Linux: [Service Fabric on Linux](service-fabric-linux-overview.md)
+* Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Create a cluster on VMs or computers running Linux: [Service Fabric on Linux](service-fabric-linux-overview.md)
+* Learn about [Service Fabric support options](service-fabric-support.md)
 

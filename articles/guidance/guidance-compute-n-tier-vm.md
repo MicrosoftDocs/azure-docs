@@ -49,7 +49,7 @@ There are many ways to implement an N-tier architecture. For the most part, the 
 
 ![[0]][0]
 
-* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This is required to reach the availability [SLA][vm-sla] for VMs.
+* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. 
 * **Subnets.** Create a separate subnet for each tier. Specify the address range and subnet mask using [CIDR] notation. 
 * **Load balancers.** Use an [Internet-facing load balancer][load-balancer-external] to distribute incoming Internet traffic to the web tier, and an [internal load balancer][load-balancer-internal] to distribute network traffic from the web tier to the business tier.
 * **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
@@ -193,9 +193,9 @@ To achieve high availability for this reference architecture, deploy to multiple
 
 <!-- links -->
 
-[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[arm-templates]: ../azure-resource-manager/resource-group-authoring-templates/
 [azure-administration]: ../automation/automation-intro.md
-[azure-audit-logs]: ../resource-group-audit.md
+[azure-audit-logs]: ../azure-resource-manager/resource-group-audit.md
 [azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md#configure-each-application-tier-into-separate-availability-sets
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault.md
@@ -228,7 +228,7 @@ To achieve high availability for this reference architecture, deploy to multiple
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/en-us/library/hh213417.aspx#ConnectToSecondary
 [sql-keyvault]: ../virtual-machines/virtual-machines-windows-ps-sql-keyvault.md
 [vm-planned-maintenance]: ../virtual-machines/virtual-machines-windows-planned-maintenance.md
-[vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vnet faq]: ../virtual-network/virtual-networks-faq.md
 [wsfc-whats-new]: https://technet.microsoft.com/windows-server-docs/failover-clustering/whats-new-in-failover-clustering
 [Nagios]: https://www.nagios.org/

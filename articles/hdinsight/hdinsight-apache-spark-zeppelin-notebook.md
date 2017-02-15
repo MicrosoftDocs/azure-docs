@@ -13,12 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: nitinme
 
 ---
 # Use Zeppelin notebooks with Apache Spark cluster on HDInsight Linux
 HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
+
+> [!NOTE]
+> By default, Zeppelin notebooks are available only for Spark 1.6.2 on HDInsight cluster version 3.5. If you want to use Zeppelin on other versions of HDInsight Spark clusters, you can install Zeppelin using script action. For instructions, see [Install Zeppelin notebooks for Apache Spark cluster on HDInsight Linux](hdinsight-apache-spark-use-zeppelin-notebook.md).
+> 
+>
 
 **Prerequisites:**
 

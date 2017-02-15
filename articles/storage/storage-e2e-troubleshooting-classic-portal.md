@@ -4,7 +4,7 @@ description: A tutorial demonstrating end-to-end troubleshooting with Azure Stor
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 
 ms.assetid: 6b23cba5-0d53-439e-870b-de8e406107d8
 ms.service: storage
@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---

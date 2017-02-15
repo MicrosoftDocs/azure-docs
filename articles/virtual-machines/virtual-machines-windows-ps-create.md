@@ -24,7 +24,7 @@ This article shows you how to quickly create an Azure Virtual Machine running Wi
 All the steps in this article are required to create a virtual machine and it should take about 30 minutes to do the steps. Replace example parameter values in the commands with names that make sense for your environment.
 
 ## Step 1: Install Azure PowerShell
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Step 2: Create a resource group
 All resources must be contained in a resource group, so lets create that first.  

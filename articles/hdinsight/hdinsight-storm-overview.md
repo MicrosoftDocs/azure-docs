@@ -33,8 +33,9 @@ Apache Storm on HDInsight is a managed cluster integrated into the Azure environ
   * Supports a mix of programming languages: Read data using Java, then process it using C#
     
     > [!NOTE]
-    > C# topologies are only supported on Windows-based HDInsight clusters.
+    > To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
     > 
+    > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
     > 
   * Use the **Trident** Java interface to create Storm topologies that support "exactly once" processing of messages, "transactional" datastore persistence, and a set of common stream analytics operations
 * Includes built-in scale-up and scale-down features: Scale an HDInsight cluster with no impact to running Storm topologies

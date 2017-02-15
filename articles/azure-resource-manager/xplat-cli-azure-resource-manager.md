@@ -1,4 +1,3 @@
-
 ---
 title: Manage resources with the Azure CLI | Microsoft Docs
 description: Use the Azure Command-Line Interface (CLI) to manage Azure resources and groups

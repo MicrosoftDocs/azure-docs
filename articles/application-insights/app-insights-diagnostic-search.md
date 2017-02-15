@@ -165,7 +165,8 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 
 ## <a name="questions"></a>Q & A
 ### <a name="limits"></a>How much data is retained?
-Up to 500 events per second from each application. Events are retained for seven days.
+
+See the [Limits summary](app-insights-pricing.md#limits-summary).
 
 ### How can I see POST data in my server requests?
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](app-insights-search-diagnostic-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.

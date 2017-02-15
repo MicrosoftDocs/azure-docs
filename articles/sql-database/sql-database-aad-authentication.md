@@ -1,6 +1,6 @@
 ---
-title: Connect to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication | Microsoft Docs
-description: Learn how to connect to SQL Database by using Azure Active Directory Authentication.
+title: Azure Active Directory Authentication for Azure SQL Database and Data Warehouse | Microsoft Docs
+description: Learn how to connect to SQL Database and SQL Data Warehouse by using Azure Active Directory Authentication.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
-ms.custom: auth and access
+ms.custom: authentication and authorization
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -130,7 +130,7 @@ The following procedures provide step by step instructions on how to change the 
 > 
 
 ## 4. Create an Azure AD administrator for Azure SQL Server
-Each Azure SQL Server (which hosts a SQL Database or SQL Data Warehouse) starts with a single server administrator account that is the administrator of the entire Azure SQL Server. A second SQL Server administrator must be created, that is an Azure AD account. This principal is created as a contained database user in the master database. As administrators, the server administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about the server administrator accounts, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md) and the **Logins and Users** section of [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+Each Azure SQL Server (which hosts a SQL Database or SQL Data Warehouse) starts with a single server administrator account that is the administrator of the entire Azure SQL Server. A second SQL Server administrator must be created, that is an Azure AD account. This principal is created as a contained database user in the master database. As administrators, the server administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about the server administrator accounts, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
 
 When using Azure Active Directory with Geo-Replication, the Azure Active Directory administrator must be configured for both the primary and the secondary servers. If a server does not have an Azure Active Directory administrator, then Azure Active Directory logins and users receive a "Cannot connect" to server error.
 

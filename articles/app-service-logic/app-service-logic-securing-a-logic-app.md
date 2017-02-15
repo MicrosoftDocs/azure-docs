@@ -48,7 +48,7 @@ URLs you retrieve after regeneration are signed with the new access key.
 
 #### Creating callback URLs with an expiration date
 
-If you are sharing out the URL with other parties, you can generate URLs with specific keys and expiration dates as needed.  This allows you to seamlessly roll keys, or ensure access to fire an app is restricted to a certain timespan.  You can specify an expiration date for a URL through the [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers.md) as follows:
+If you are sharing out the URL with other parties, you can generate URLs with specific keys and expiration dates as needed.  This allows you to seamlessly roll keys, or ensure access to fire an app is restricted to a certain timespan.  You can specify an expiration date for a URL through the [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers) as follows:
 
 ``` http
 POST 
@@ -59,7 +59,7 @@ In the body, include the property `NotAfter` as a JSON date string, which return
 
 #### Creating URLs with primary or secondary secret key
 
-When you generate or list callback URLs for request-based triggers, you can also specify which key to use to sign the URL.  You can generate a URL signed by a specific key through the [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers.md) as follows:
+When you generate or list callback URLs for request-based triggers, you can also specify which key to use to sign the URL.  You can generate a URL signed by a specific key through the [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers) as follows:
 
 ``` http
 POST 

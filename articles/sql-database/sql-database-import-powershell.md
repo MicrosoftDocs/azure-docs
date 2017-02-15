@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 8d78da13-43fe-4447-92e0-0a41d0321fd4
 ms.service: sql-database
-ms.custom: migrate and move; how to
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -19,7 +19,6 @@ ms.author: sstein
 
 ---
 # Import a BACPAC file to create an Azure SQL database by using PowerShell
-**Single database**
 
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-import.md)
@@ -48,7 +47,7 @@ To import a SQL database, you need the following:
 ## Set up the variables for your environment
 There are a few variables where you need to replace the example values with the specific values for your database and your storage account.
 
-The server name should be a server that currently exists in the subscription selected in the previous step. It should be the server you want the database to be created in. Importing a database directly into an elastic pool is not supported. But you can first import into a single database, and then move the database into a pool.
+The server name should be a server that currently exists in the subscription selected in the previous step. It should be the server you want the database to be created in. Importing a database directly into an elastic pool is not supported. But you can first import as a single database, and then move the database into a pool.
 
 The database name is the name you want for the new database.
 

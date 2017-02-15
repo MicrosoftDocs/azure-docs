@@ -4,16 +4,15 @@ description: This article shows the steps to connect the Windows computers in yo
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -94,6 +93,12 @@ If you've used the command line or script previously to install or configure the
 
 ## Install the agent using DSC in Azure Automation
 
+You can use the following script example to install the agent using DSC in Azure Automation. The example installs the 64-bit agent, identified by the `URI` value. You can also use the 32-bit version by replacing the URI value. The URIs for both versions are:
+
+- Windows 64 bit agent - https://go.microsoft.com/fwlink/?LinkId=828603
+- Windows 32 bit agent - https://go.microsoft.com/fwlink/?LinkId=828604
+
+
 >[!NOTE]
 This procedure and script example will not upgrade an existing agent.
 
@@ -122,7 +127,7 @@ Configuration MMAgent
         }
 
         xRemoteFile OIPackage {
-            Uri = "http://download.microsoft.com/download/0/C/0/0C072D6E-F418-4AD4-BCB2-A362624F400A/MMASetup-AMD64.exe"
+            Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
             DestinationPath = $OIPackageLocalPath
         }
 
@@ -135,11 +140,37 @@ Configuration MMAgent
             DependsOn = "[xRemoteFile]OIPackage"
         }
     }
-}  
+}
 
 
 ```
 
+### Get the latest ProductId value
+
+The `ProductId value` in the MMAgent.ps1 script is unique to each agent version. When an updated version of each agent is published, the ProductId value changes. So, when the ProductId changes in the future, you can find the agent version using a simple script. After you have the latest agent version installed on a test server, you can use the following script to get the installed ProductId value. Using the latest ProductId value, you can update the value in the MMAgent.ps1 script.
+
+```
+$InstalledApplications  = Get-ChildItem hklm:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+
+
+foreach ($Application in $InstalledApplications)
+
+{
+
+     $Key = Get-ItemProperty $Application.PSPath
+
+     if ($Key.DisplayName -eq "Microsoft Monitoring Agent")
+
+     {
+
+        $Key.DisplayName
+
+        Write-Output ("Product ID is: " + $Key.PSChildName.Substring(1,$Key.PSChildName.Length -2))
+
+     }
+
+}  
+```
 
 ## Configure an agent manually or add additional workspaces
 If you've installed agents but did not configure them or if you want the agent to report to multiple workspaces, you can use the following information to enable an agent or reconfigure it. After you've configured the agent, it will register with the agent service and will get necessary configuration information and management packs that contain solution information.

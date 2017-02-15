@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/30/2016
+ms.date: 12/07/2016
 ms.author: danlep
 
 ---
 # Set up GPU drivers for N-series VMs
-To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, you must install NVIDIA graphics drivers on each VM after deployment. This article is also available for [Windows VMs](virtual-machines-windows-n-series-driver-setup?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, you must install NVIDIA graphics drivers on each VM after deployment. This article is also available for [Windows VMs](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -33,9 +33,9 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
 ### NVIDIA Tesla drivers for NC VMs
 
-* [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899)
+* [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899) (.run self-extracting installer)
 
-## Driver installation on Ubuntu 16.04 LTS
+## Tesla driver installation on Ubuntu 16.04 LTS
 
 1. Make an SSH connection to the Azure N-series VM.
 
@@ -48,10 +48,10 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
     ![lspci command output](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
 
-3. Download the self-extracting .run file to your system. For example:
+3. Download the .run file for the driver for your distribution. The following example command downloads the Ubuntu 16.04 LTS Tesla driver to the /tmp directory:
 
     ```bash
-    wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run <download URL>
+    wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
     ```
 
 4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
@@ -62,7 +62,7 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
     sudo apt install make
     ```
 
-4. Change to the directory containing the driver package and run commands similar to the following:
+4. Change to the directory containing the driver installer and run commands similar to the following:
 
     ```bash
     chmod +x NVIDIA-Linux-x86_64-367.48.run
@@ -76,6 +76,28 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
 ![NVIDIA device status](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
+
+## Optional installation of NVIDIA CUDA Toolkit on Ubuntu 16.04 LTS
+
+You can optionally install NVIDIA CUDA Toolkit 8.0 on NC VMs running Ubuntu 16.04 LTS. In addition to GPU drivers, the Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.
+
+To install the CUDA Toolkit, run commands similar to the following:
+
+```bash
+CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
+
+wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+rm -f /tmp/${CUDA_REPO_PKG}
+
+sudo apt-get update
+
+sudo apt-get install cuda-drivers
+```
+
+The installation can take several minutes.
 
 ## Next steps
 

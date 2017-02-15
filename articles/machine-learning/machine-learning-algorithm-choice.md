@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 
 ---
 # How to choose algorithms for Microsoft Azure Machine Learning
-The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
+The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
 ## The Machine Learning Algorithm Cheat Sheet
 The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.
@@ -322,7 +322,7 @@ And for those overachievers who wish to [specify their own network
 structure](http://go.microsoft.com/fwlink/?LinkId=402867), the
 possibilities are inexhaustible.
 
-## ![Boundaries learned by neural networks][6]
+![Boundaries learned by neural networks][6]
 ***The boundaries learned by neural networks can be complex and
 irregular***
 
@@ -436,6 +436,14 @@ fits VW, but if yours does, it may be worth your while to climb the
 learning curve on its interface. It's also available as [stand-alone
 open source code](https://github.com/JohnLangford/vowpal_wabbit) in
 several languages.
+
+## More help with algorithms
+* For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples
+](machine-learning-basics-infographic-with-algorithm-examples.md).
+* For a list by category of all the machine learning algorithms available in Azure Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
+* For a complete alphabetical list of algorithms and modules in Azure Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
+* To download and print a diagram that gives an overview of the capabilities of Azure Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+
 
 <!-- Media -->
 

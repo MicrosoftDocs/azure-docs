@@ -1,5 +1,3 @@
-
-
 ---
 title: Join a personal device to your organization| Microsoft Docs
 description: Explains how users can register their personal Windows 10 devices to their corporate network, and provides deployment steps for a BYOD scenario.

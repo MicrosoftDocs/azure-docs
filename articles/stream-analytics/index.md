@@ -1,9 +1,11 @@
 ---
 layout: LandingPage
+description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
 ---
-#Stream Analytics Documentation
 
-Azure Stream Analytics is a fully managed real-time event processing engine that helps to unlock deep insights from data.  Stream Analytics make it easy to set up real-time analytic computations on data streaming from devices, sensors, web sites, social media, applications, infrastructure system, and more.
+# Stream Analytics Documentation
+
+Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Analytics, a fully managed event-processing engine. Tutorials and other documentation show you how to analyze data in real time from applications, sensors, devices, social media, and more. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -118,66 +120,43 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
-	<li>
-        <a href="/powershell/azureps-cmdlets-docs">
+    <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	<li>
-        <a href="/dotnet/api">
+    <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Managed Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="Languages</h3>
+                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Query language</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	<li>
-        <a href="https://msdn.microsoft.com/library/azure/dn834998">
+    <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Query Language</h3>
-                        <p>Stream Analytics Query Language Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="REST</h3>
+                        <p><a href="/rest/api/streamanalytics">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	<li>
-        <a href="/rest/api/streamanalytics">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Stream Analytics REST API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>	
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">

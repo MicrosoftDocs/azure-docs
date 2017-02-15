@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.
 ---
 #Data Catalog Documentation
 
-Azure Data Catalog is a fully managed cloud service that enables users to discover the data sources they need, and to understand the data sources they find, while helping organizations get more value from their existing investments. Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to discover, understand, and consume data sources. Data Catalog includes a crowdsourcing model of metadata and annotations, and allows all users to contribute their knowledge to build a community and culture of data.
+Learn how to use Data Catalog to help your organization and team discover, understand, and consume your data sources. Tutorials, REST API reference, and other documentation show you how to plan and set up your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
 
 <ul class="panelContent cardsFTitle">
     <li>

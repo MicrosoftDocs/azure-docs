@@ -170,47 +170,53 @@ In this step, you create input and output datasets that represent input and outp
 
 ### Prepare On-premises SQL Server for the tutorial
 1. In the database you specified for the on-premises SQL Server linked service (**SqlServerLinkedService**), use the following SQL script to create the **emp** table in the database.
-   
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL, 
-            FirstName varchar(50),
-            LastName varchar(50),
-            CONSTRAINT PK_emp PRIMARY KEY (ID)
-        )
-        GO 
+
+	```SQL   
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL, 
+        FirstName varchar(50),
+        LastName varchar(50),
+        CONSTRAINT PK_emp PRIMARY KEY (ID)
+    )
+    GO
+	``` 
 2. Insert some sample into the table: 
    
-        INSERT INTO emp VALUES ('John', 'Doe')
-        INSERT INTO emp VALUES ('Jane', 'Doe')
+	```SQL
+    INSERT INTO emp VALUES ('John', 'Doe')
+    INSERT INTO emp VALUES ('Jane', 'Doe')
+	```
 
 ### Create input dataset
+
 1. In the **Data Factory Editor**, click **... More**, click **New dataset** on the command bar, and click **SQL Server table**. 
 2. Replace the JSON in the right pane with the following text:
-   
-         {        
-             "name": "EmpOnPremSQLTable",
-             "properties": {
-                 "type": "SqlServerTable",
-                 "linkedServiceName": "SqlServerLinkedService",
-                 "typeProperties": {
-                     "tableName": "emp"
-                 },
-                 "external": true,
-                 "availability": {
-                     "frequency": "Hour",
-                     "interval": 1
-                 },
-                 "policy": {
-                     "externalData": {
-                         "retryInterval": "00:01:00",
-                         "retryTimeout": "00:10:00",
-                         "maximumRetry": 3
-                     }
-                 }
-             }
-         }     
-   
+
+	```JSON   
+	{        
+		"name": "EmpOnPremSQLTable",
+		"properties": {
+			"type": "SqlServerTable",
+			"linkedServiceName": "SqlServerLinkedService",
+			"typeProperties": {
+				"tableName": "emp"
+			},
+			"external": true,
+			"availability": {
+				"frequency": "Hour",
+				"interval": 1
+			},
+			"policy": {
+				"externalData": {
+					"retryInterval": "00:01:00",
+					"retryTimeout": "00:10:00",
+					"maximumRetry": 3
+				}
+			}
+		}
+	}     
+	```   	
    Note the following points: 
    
    * **type** is set to **SqlServerTable**.
@@ -222,28 +228,30 @@ In this step, you create input and output datasets that represent input and outp
 3. Click **Deploy** on the command bar to deploy the dataset.  
 
 ### Create output dataset
+
 1. In the **Data Factory Editor**, click **New dataset** on the command bar, and click **Azure Blob storage**.
 2. Replace the JSON in the right pane with the following text: 
-   
-         {
-             "name": "OutputBlobTable",
-             "properties": {
-                 "type": "AzureBlob",
-                 "linkedServiceName": "AzureStorageLinkedService",
-                 "typeProperties": {
-                       "folderPath": "adftutorial/outfromonpremdf",
-                       "format": {
-                         "type": "TextFormat",
-                         "columnDelimiter": ","
-                       }
-                 },
-                 "availability": {
-                       "frequency": "Hour",
-                       "interval": 1
-                 }
-               }
-         }
-   
+
+	```JSON   
+	{
+		"name": "OutputBlobTable",
+		"properties": {
+			"type": "AzureBlob",
+			"linkedServiceName": "AzureStorageLinkedService",
+			"typeProperties": {
+				"folderPath": "adftutorial/outfromonpremdf",
+				"format": {
+					"type": "TextFormat",
+					"columnDelimiter": ","
+				}
+			},
+			"availability": {
+				"frequency": "Hour",
+				"interval": 1
+			}
+		}
+     }
+	```   
    Note the following points: 
    
    * **type** is set to **AzureBlob**.
@@ -255,20 +263,20 @@ In this step, you create input and output datasets that represent input and outp
    
    To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the partitionedBy property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
 
-```
-"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-"fileName": "{Hour}.csv",
-"partitionedBy": 
-[
+	```JSON
+	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+	"fileName": "{Hour}.csv",
+	"partitionedBy": 
+	[
+	
+	    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+	],
+	```
 
-    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-],
-```
-
-See [Move data to/from Azure Blob Storage](data-factory-azure-blob-connector.md) for details about JSON properties.
+	See [Move data to/from Azure Blob Storage](data-factory-azure-blob-connector.md) for details about JSON properties.
 3. Click **Deploy** on the command bar to deploy the dataset. Confirm that you see both the datasets in the tree view.  
 
 ## Create pipeline
@@ -276,50 +284,51 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
 1. In Data Factory Editor, click **... More**, and click **New pipeline**. 
 2. Replace the JSON in the right pane with the following text:    
-   
-         {
-             "name": "ADFTutorialPipelineOnPrem",
-             "properties": {
-             "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-             "activities": [
+
+	```JSON   
+     {
+         "name": "ADFTutorialPipelineOnPrem",
+         "properties": {
+         "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+         "activities": [
+           {
+             "name": "CopyFromSQLtoBlob",
+             "description": "Copy data from on-prem SQL server to blob",
+             "type": "Copy",
+             "inputs": [
                {
-                 "name": "CopyFromSQLtoBlob",
-                 "description": "Copy data from on-prem SQL server to blob",
-                 "type": "Copy",
-                 "inputs": [
-                   {
-                     "name": "EmpOnPremSQLTable"
-                   }
-                 ],
-                 "outputs": [
-                   {
-                     "name": "OutputBlobTable"
-                   }
-                 ],
-                 "typeProperties": {
-                   "source": {
-                     "type": "SqlSource",
-                     "sqlReaderQuery": "select * from emp"
-                   },
-                   "sink": {
-                     "type": "BlobSink"
-                   }
-                 },
-                 "Policy": {
-                   "concurrency": 1,
-                   "executionPriorityOrder": "NewestFirst",
-                   "style": "StartOfInterval",
-                   "retry": 0,
-                   "timeout": "01:00:00"
-                 }
+                 "name": "EmpOnPremSQLTable"
                }
              ],
-             "start": "2016-07-05T00:00:00Z",
-             "end": "2016-07-06T00:00:00Z",
-             "isPaused": false
+             "outputs": [
+               {
+                 "name": "OutputBlobTable"
+               }
+             ],
+             "typeProperties": {
+               "source": {
+                 "type": "SqlSource",
+                 "sqlReaderQuery": "select * from emp"
+               },
+               "sink": {
+                 "type": "BlobSink"
+               }
+             },
+             "Policy": {
+               "concurrency": 1,
+               "executionPriorityOrder": "NewestFirst",
+               "style": "StartOfInterval",
+               "retry": 0,
+               "timeout": "01:00:00"
+             }
            }
-         }
-   
+         ],
+         "start": "2016-07-05T00:00:00Z",
+         "end": "2016-07-06T00:00:00Z",
+         "isPaused": false
+       }
+     }
+	```   
    > [!IMPORTANT]
    > Replace the value of the **start** property with the current day and **end** value with the next day.
    > 

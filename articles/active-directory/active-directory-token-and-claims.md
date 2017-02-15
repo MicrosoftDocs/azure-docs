@@ -45,6 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > 
 
 #### Claims in id_tokens
+> [!div class="mx-codeBreakAll"]
 | JWT Claim | Name | Description |
 | --- | --- | --- |
 | `appid` |Application ID |Identifies the application that is using the token to access a resource. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. <br><br> **Example JWT Value**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |

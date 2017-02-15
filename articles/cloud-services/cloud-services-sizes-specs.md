@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/1/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 
 ---
 # Sizes for Cloud Services
-This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](cloud-services-model-and-package.md#csdef).
+This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](cloud-services-model-and-package.md#csdef). Prices for each size are available on the [Cloud Services Pricing](https://azure.microsoft.com/pricing/details/cloud-services/) page.
 
 > [!NOTE]
 > To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
@@ -34,7 +34,7 @@ There are multiple standard sizes to choose from on Azure. Considerations for so
 * The A-series VMs can be deployed on various hardware types and processors. The size is throttled, based on the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
 * The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
-The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
+The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Cloud Services Pricing Details](https://azure.microsoft.com/pricing/details/cloud-services/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 The following considerations might help you decide on a size:
 
@@ -58,6 +58,8 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [Standard_A0](#a-series) |50 |
 | [Standard_A1-4](#a-series) |100 |
 | [Standard_A5-7](#a-series) |100 |
+| [Standard_A1-8v2](#av2-series) |100 |
+| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
 | [D1-14](#d-series) |160 |
 | [D1-15v2](#dv2-series) |210 - 250* |
@@ -97,6 +99,19 @@ For information and considerations about using these sizes, see [About the H-ser
 | Standard_A11 |16 |112 |382 |16 |16x500 |4 / very high |
 
 \*RDMA capable
+
+## Av2-series
+
+| Size        | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2x500              | 1 / moderate              |
+| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4x500              | 2 / moderate              |
+| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4 / high                  |
+| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8 / high                  |
+| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4X500              | 2 / moderate              |
+| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8x500              | 4 / high                  |
+| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16x500             | 8 / high                  |
+
 
 ## D-series
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |

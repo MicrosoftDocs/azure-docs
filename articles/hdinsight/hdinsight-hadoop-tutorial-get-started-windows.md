@@ -91,7 +91,7 @@ about HDInsight versions and their SLAs, see
    | Resource Group |Select an existing Azure resource group or create a new resource group. A basic HDInsight cluster contains a cluster and its default storage account.  You can group the two into a resource group for easy management. |
    | Credentials |Enter the cluster login username and password. Windows based cluster can have 2 user accounts.  The cluster user (or HTTP user) is used to manage the cluster and submit jobs.  You can optionally create a remote desktop (RDP) user account to remote connect to the cluster. If you choose to enable remote desktop, you will create the RDP user account. |
    | Data Source |Click Create New to create a new default Azure storage account. Use the cluster name as the default container name. Every HDinsight cluster has a default Blob container on an Azure storage accont.  The location of the default Azure storage account determines the location of the HDInsight cluster. |
-   | Node Pricing Tiers |Use 1 or 2 worker nodes with the default worker node and head note pricing tier for this tutorial. |
+   | Node Pricing Tiers |Use 1 or 2 worker nodes with the default worker node and head node pricing tier for this tutorial. |
    | Optional Configuration |Skip this part. |
 4. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is creating, and will change to display the HDInsight icon once creation has completed.
    

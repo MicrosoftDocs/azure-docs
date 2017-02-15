@@ -1,9 +1,11 @@
 ---
 layout: LandingPage
+description: Learn how to use Azure Storage - Blob, Table, Queue, File, and Virtual Machine Disk storage in the cloud. Tutorials, API references, and other documentation.
 ---
-#Storage Documentation
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  It is highly scalable, elastic, globally accessible, and automatically load-balances your data based on traffic.  Azure Storage provides the following four services to meet application needs:  Blob storage, Table storage, Queue storage, Disk storage, and File storage.
+# Storage Documentation
+
+Learn how to use Azure Storage, a cloud storage service that is durable, available, and scalable. Tutorials, API references, and other documentation show you how to set up and manage Blob, Table, Queue, File, and Virtual Machine Disk storage.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,7 +100,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -119,13 +121,14 @@ Azure Storage is the cloud storage solution for modern applications that rely on
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">REST: Import/export</a></p>
+                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">Blobs, Queues, Tables, and Files</a></p>
                         <p><a href="/rest/api/storagerp">REST: Resource provider</a></p>
+                        <p><a href="/rest/api/storageimportexport">REST: Import/export</a></p>
                    </div>
                 </div>
             </div>

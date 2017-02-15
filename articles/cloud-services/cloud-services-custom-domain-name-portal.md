@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 
 ---
@@ -28,7 +28,7 @@ When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.n
 
 However, you can also expose your application on your own domain name, such as **contoso.com**. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
 
-Do you already undestand what CNAME and A records are? [Jump past the explaination](#add-a-cname-record-for-your-custom-domain).
+Do you already understand what CNAME and A records are? [Jump past the explanation](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
 > The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).

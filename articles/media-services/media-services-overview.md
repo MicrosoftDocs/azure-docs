@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 12/14/2016
 ms.author: juliako;anilmur
 
 ---
 # Azure Media Services overview and common scenarios
+
 Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services.
@@ -25,17 +26,27 @@ You can build end-to-end workflows using entirely Media Services. You can also c
 You can choose to stream your content live or deliver content on demand. This topic shows common scenarios for delivering your content [live](media-services-overview.md#live_scenarios) or [on demand](media-services-overview.md#vod_scenarios). The topic also links to other relevant topics.
 
 ## SDKs and tools
+
 To build Media Services solutions, you can use:
 
 * [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 * One of the available client SDKs:
-* [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
-* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
-* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
-* [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
+	* [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
+	* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
+	* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+	* [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
 * Existing tools:
-* [Azure portal](https://portal.azure.com/)
-* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
+	* [Azure portal](https://portal.azure.com/)
+	* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
+
+The following image shows some of the most commonly used objects when developing against the Media Services OData model.
+
+Click the image to view it full size.  
+
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+
+You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.14).  
+
 
 ## Media Services learning paths
 You can view AMS learning paths here:
@@ -44,15 +55,16 @@ You can view AMS learning paths here:
 * [AMS on Demand Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ## Prerequisites
+
 To start using Azure Media Services, you should have the following:
 
 1. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com).
 2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).
 3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md).
 
-Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).
+	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).
 
-1. (Recommended) Allocate one or more scale units. It is recommended to allocate one or more scale units for applications in production environment.   For more information, see [Managing streaming endpoints](media-services-portal-manage-streaming-endpoints.md).
+4. (Recommended) Allocate one or more scale units. It is recommended to allocate one or more scale units for applications in production environment.   For more information, see [Managing streaming endpoints](media-services-portal-manage-streaming-endpoints.md).
 
 ## Concepts and overview
 For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
@@ -60,22 +72,22 @@ For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 For a how-to series that introduces you to all the main components of Azure Media Services, see [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). This series has a great overview of concepts and it uses the AMSE tool to demonstrate AMS tasks. Note that AMSE tool is a Windows tool. This tool supports most of the tasks you can achieve programmatically with [AMS SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), or  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ## <a id="vod_scenarios"></a>Delivering Media on-Demand with Azure Media Services: common scenarios and tasks
-This section describes common scenarios and provides links to relevant topics. The following diagram shows the major parts of the Media Services platform that are involved in delivering content on demand. 
+This section describes common scenarios and provides links to relevant topics. The following diagram shows the major parts of the Media Services platform that are involved in delivering content on demand.
 
 ![VoD workflow](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 ### Protect content in storage and deliver streaming media in the clear (non-encrypted)
 1. Upload a high-quality mezzanine file into an asset.
-   
+
     It is recommended to apply storage encryption option to your asset in order to protect your content during upload and while at rest in storage.
-2. Encode to a set of adaptive bitrate MP4 files. 
-   
+2. Encode to a set of adaptive bitrate MP4 files.
+
     It is recommended to apply storage encryption option to the output asset in order to protect your content at rest.
-3. Configure asset delivery policy (used by dynamic packaging). 
-   
-    If your asset is storage encrypted, you **must** configure asset delivery policy. 
+3. Configure asset delivery policy (used by dynamic packaging).
+
+    If your asset is storage encrypted, you **must** configure asset delivery policy.
 4. Publish the asset by creating an OnDemand locator.
-   
+
     Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 5. Stream published content.
 
@@ -88,28 +100,28 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 4. Configure content key authorization policy.
 5. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
 6. Publish the asset by creating an OnDemand locator.
-7. Stream published content. 
+7. Stream published content.
 
 ### Use Media Analytics to derive actionable insights from your videos
 Media Analytics is a collection of speech and vision components that make it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
 1. Upload a high-quality mezzanine file into an asset.
 2. Use one of the following Media Analytics services to process your videos:
-   
+
    * **Indexer** – [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
    * **Hyperlapse** – [Hyperlapse Media Files with Azure Media Hyperlapse](media-services-hyperlapse-content.md)
    * **Motion detection** – [Motion Detection for Azure Media Analytics](media-services-motion-detection.md).
    * **Face detection and Face emotions** – [Face and Emotion Detection for Azure Media Analytics](media-services-face-and-emotion-detection.md).
    * **Video summarization** – [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
-3. Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
+3. Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage.
 
 ### Deliver progressive download
 1. Upload a high-quality mezzanine file into an asset.
 2. Encode to a single MP4 file.
 3. Publish the asset by creating an OnDemand or SAS locator.
-   
+
     If using OnDemand locator, make sure to have at least one streaming reserved unit on the streaming endpoint from which you plan to progressively download content.
-   
+
     If using SAS locator, the content is downloaded from the Azure blob storage. In this case, you do not need to have streaming reserved units.
 4. Progressively download content.
 
@@ -126,11 +138,11 @@ Optionally, multiple live time synchronized encoders. For certain critical live 
 * (optionally) encode your stream into adaptive bitrate stream
 * preview your live stream,
 * record and store the ingested content in order to be streamed later (Video-on-Demand)
-* deliver the content through common streaming protocols (for example, MPEG DASH, Smooth, HLS, HDS) directly to your customers, or to a Content Delivery Network (CDN) for further distribution.
+* deliver the content through common streaming protocols (for example, MPEG DASH, Smooth, HLS) directly to your customers, or to a Content Delivery Network (CDN) for further distribution.
 
 **Microsoft Azure Media Services** (AMS) provides the ability to ingest,  encode, preview, store, and deliver your live streaming content.
 
-When delivering your content to customers your goal is to deliver a high quality video to various devices under different network conditions. To take care of quality and network conditions, use live encoders to encode your stream to multi-bitrate (adaptive bitrate) video stream.  To take care of streaming on different devices, use Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream to different protocols. Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
+When delivering your content to customers your goal is to deliver a high quality video to various devices under different network conditions. To take care of quality and network conditions, use live encoders to encode your stream to multi-bitrate (adaptive bitrate) video stream.  To take care of streaming on different devices, use Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream to different protocols. Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 In Azure Media Services, **Channels**, **Programs**, and **StreamingEndpoints** handle all the live streaming functionalities including ingest, formatting, DVR, security, scalability and redundancy.
 
@@ -140,8 +152,8 @@ A **Channel** represents a pipeline for processing live streaming content. A Cha
 
 > [!NOTE]
 > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
-> 
-> 
+>
+>
 
 * An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
@@ -194,4 +206,3 @@ For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/supp
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
-

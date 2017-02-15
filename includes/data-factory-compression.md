@@ -8,25 +8,27 @@ Processing large data sets can cause I/O and network bottlenecks. Therefore, com
 
 To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
 
-    {  
-        "name": "AzureBlobDataSet",  
-          "properties": {  
-            "availability": {  
-                "frequency": "Day",  
-                  "interval": 1  
-            },  
-            "type": "AzureBlob",  
-            "linkedServiceName": "StorageLinkedService",  
-            "typeProperties": {  
-                "fileName": "pagecounts.csv.gz",  
-                  "folderPath": "compression/file/",  
-                  "compression": {  
-                    "type": "GZip",  
-                    "level": "Optimal"  
-                  }  
-            }  
-          }  
-    }  
+```json
+{  
+    "name": "AzureBlobDataSet",  
+      "properties": {  
+        "availability": {  
+            "frequency": "Day",  
+              "interval": 1  
+        },  
+        "type": "AzureBlob",  
+        "linkedServiceName": "StorageLinkedService",  
+        "typeProperties": {  
+            "fileName": "pagecounts.csv.gz",  
+              "folderPath": "compression/file/",  
+              "compression": {  
+                "type": "GZip",  
+                "level": "Optimal"  
+              }  
+        }  
+      }  
+}  
+```
 
 The **compression** section has two properties:  
 

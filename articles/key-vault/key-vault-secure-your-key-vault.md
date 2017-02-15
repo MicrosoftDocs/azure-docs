@@ -230,7 +230,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
   Link to key vault REST API reference documentation.
 * [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Link to Key access control reference documentation.
+  Link to Secret access control reference documentation.
 * [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Link to Key access control reference documentation.

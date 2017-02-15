@@ -21,9 +21,9 @@ ms.author: larryfr
 # Create Linux-based clusters in HDInsight using the Azure CLI
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-The Azure CLI is a cross-platform command-line utility that allows you to manage Azure Services. It can be used, along with Azure Resource management templates, to create an HDInsight cluster, along with associated storage accounts and other services.
+The Azure CLI is a cross-platform command-line utility that allows you to manage Azure Services. It can be used, along with Azure Resource Manager templates, to create an HDInsight cluster, along with associated storage accounts and other services.
 
-Azure Resource Management templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define all the resources that you need for HDInsight in one template. It also lets you manage changes to the group as a whole through **deployments**, which apply changes to the entire group.
+Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define all the resources that you need for HDInsight in one template. It also lets you manage changes to the group as a whole through **deployments**, which apply changes to the entire group.
 
 The steps in this document walk through the process of creating a new HDInsight cluster using the Azure CLI and a template.
 
@@ -35,12 +35,13 @@ The steps in this document walk through the process of creating a new HDInsight 
 > 
 
 ## Prerequisites
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure CLI**. The steps in this document were last tested with Azure CLI version 0.10.1.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]

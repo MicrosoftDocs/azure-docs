@@ -26,7 +26,7 @@ ms.author: juliako
   
  This preset produces a single MP4 file with a bitrate of 2200 kbps, and stereo AAC audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
   
- XMLl  
+ XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
