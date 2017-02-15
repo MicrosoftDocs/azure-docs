@@ -32,9 +32,9 @@ Make a note of the RECEIVER's IP address. Let's call that IP "a.b.c.r"
 
 Make a note of the number of cores on the VM. Let's call this "\#num\_cores"
  
-Run the NTTTCP test for 300 secs (5 Mins) on the sender VM and receiver VM.
+Run the NTTTCP test for 300 seconds (or 5 minutes) on the sender VM and receiver VM.
 
-Tip: When setting this test up for the first time, you might try a shorter test period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
+Tip: When setting up this test for the first time, you might try a shorter test period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
 
 Note: The sender **and** receiver must specify **the same** test duration
 parameter (-t).
@@ -45,7 +45,7 @@ Receiver parameters: ntttcp -r -t 10 -P 1
 
 Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 
-Note: the above sample should only be used to confirm your configuration. Valid examples of testing are covered later in this document.
+Note: the preceding sample should only be used to confirm your configuration. Valid examples of testing are covered later in this document.
 
 ## Testing VMs running WINDOWS:
 
@@ -91,10 +91,9 @@ Wait for the results.
 
 ## Testing VMs running LINUX:
 
-Use nttcp-for-linux. It is avaialble from <https://github.com/Microsoft/ntttcp-for-linux>
+Use nttcp-for-linux. It is available from <https://github.com/Microsoft/ntttcp-for-linux>
 
-On the Linux VMs (both SENDER and RECEIVER), run these command to prepare
-ntttcp-for-linux on your VMs:
+On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare ntttcp-for-linux on your VMs:
 
 CentOS - Install Git:
 ``` bash
@@ -113,7 +112,7 @@ Make and Install on both:
  make && make install
 ```
 
-As in the Windows example, we'll assume the Linux RECEIVER's IP is 10.0.0.4
+As in the Windows example, we assume the Linux RECEIVER's IP is 10.0.0.4
 
 Start NTTTCP-for-Linux on the RECEIVER:
 
