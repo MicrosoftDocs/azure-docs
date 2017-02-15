@@ -68,13 +68,13 @@ Configuring single sign-on for FreshService requires you to retrieve a thumbprin
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **FreshService** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **FreshService** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/IC790810.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to FreshService** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
    ![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/IC790811.png "Configure Single Sign-On")
-3. On the **Configure App URL** page, in the **FreshService Sign On URL** textbox, type your URL used by your users to sign on to your Freshdesk application (e.g.: "*http://democompany.freshservice.com/*"), and then click **Next**.
+3. On the **Configure App URL** page, in the **FreshService Sign On URL** textbox, type your URL used by your users to sign on to your Freshdesk application (e.g.: **http://democompany.freshservice.com/**), and then click **Next**.
    
    ![Configure App URL](./media/active-directory-saas-freshservice-tutorial/IC790812.png "Configure App URL")
 4. On the **Configure single sign-on at FreshService** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
@@ -96,10 +96,10 @@ Configuring single sign-on for FreshService requires you to retrieve a thumbprin
    3. In the Azure classic portal, on the **Configure single sign-on at FreshService** dialog page, copy the **Remote Login URL** value, and then paste it into the **SAML Login URL** textbox.
    4. In the Azure classic portal, on the **Configure single sign-on at FreshService** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
    5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Security Certificate Fingerprint** textbox.
+   
       >[!TIP]
       >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
       >
-
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/IC790817.png "Configure Single Sign-On")
@@ -125,9 +125,10 @@ In order to enable Azure AD users to log into FreshService, they must be provisi
    ![New Requester](./media/active-directory-saas-freshservice-tutorial/IC790820.png "New Requester")   
    1. Enter the **First Name** and **Email** attributes of a valid Azure Active Directory account you want to provision into the related textboxes.
    2. Click **Save**.
-   >[!NOTE]
-   >The Azure Active Directory account holder will get an email including a link to confirm the account before it becomes active
-   >  
+   
+    >[!NOTE]
+    >The Azure Active Directory account holder will get an email including a link to confirm the account before it becomes active
+    >  
 
 >[!NOTE]
 >You can use any other FreshService user account creation tools or APIs provided by FreshService to provision AAD user accounts.
@@ -139,7 +140,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to FreshService, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **FreshService **application integration page, click **Assign users**.
+2. On the **FreshService** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-freshservice-tutorial/IC790821.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
