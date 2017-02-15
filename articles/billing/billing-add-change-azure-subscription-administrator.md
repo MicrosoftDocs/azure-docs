@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/15/2017
 ms.author: genli
 
 ---
@@ -29,11 +29,15 @@ ms.author: genli
 
 Azure Active Directory Role-based Access Control (RBAC) allows users to be added to multiple roles. For more information, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
+> [!WARNING]
+> Deleting or renaming the Azure Account Administrator’s email address may result in unexpected and undesirable behavior with the Azure account, including (but not limited to) an inability to log in to Azure, make changes to the account, or manage resources. It is strongly recommended to avoid deleting or renaming the Account Administrator email address.
+>
+>
 
 ## How to add an admin for a subscription
 **Azure portal**
 
-To add someone as an admin for a subscription in the Azure portal, you give them the owner role. The owner role can only manage the resources in the subscription that you assigned. This role does not have access privilege to other subscriptions. The owners you add through the [Azure portal](https://portal.azure.com) cannot manage resource in the [Azure classic portal](https://manage.windowsazure.com). 
+To add someone as an admin for a subscription in the Azure portal, you give them the owner role. The owner role can only manage the resources in the subscription that you assigned. This role does not have access privilege to other subscriptions. The owners you add through the [Azure portal](https://portal.azure.com) cannot manage resource in the [Azure classic portal](https://manage.windowsazure.com).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **Subscription** > *the subscription that you want the admin to access*.
@@ -66,7 +70,7 @@ The following email address can be added as a Co-Administrator:
   You can use a Microsoft Account to sign in to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone, and Xbox LIVE.
 * **Organizational account**</br>
   An organizational account is an account that is created under Azure Active Directory. The organizational account address has this format:
-  
+
     user@&lt;your domain&gt;.onmicrosoft.com
 
 ## Limitations and restrictions to administrator accounts
@@ -108,5 +112,4 @@ If you're not sure who the account administrator is for your subscription, use t
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
 
 ## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
-
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
