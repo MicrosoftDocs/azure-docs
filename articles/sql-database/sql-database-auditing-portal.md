@@ -22,7 +22,7 @@ ms.author: ronitr; giladm
 
 The following section describes how to configure and manage auditing using the Azure Portal. To configure and manage auditing using PowerShell, see [Configuring auditing using PowerShell](sql-database-auditing-powershell.md). To configure and manage auditing using the REST API, see [Configuring auditing using the REST API](sql-database-auditing-rest.md).
 
-For an overview of auditing, see [SQL Database auditing](sql-database-auditing-get-startted.md).
+For an overview of auditing, see [SQL Database auditing](sql-database-auditing-get-started.md).
 
 ## Configure blob auditing
 
