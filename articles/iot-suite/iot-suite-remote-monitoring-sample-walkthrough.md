@@ -56,7 +56,7 @@ The simulated devices send the following device properties to the [twin][lnk-dev
 | Property | Purpose |
 | --- | --- |
 | Config.TelemetryInterval | Frequency (seconds) the device sends telemetry |
-| Config.TemperatureMeanValue | Specifies the mean value for the simulated temperature telemtry |
+| Config.TemperatureMeanValue | Specifies the mean value for the simulated temperature telemetry |
 | Device.DeviceID |Id that is either provided or assigned when a device is created in the solution |
 | Device.DeviceState | State reported by the device |
 | Device.CreatedTime |Time the device was created in the solution |

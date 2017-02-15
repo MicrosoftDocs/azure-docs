@@ -149,7 +149,7 @@ The following steps show you how to add a simulated device to the solution:
     ![View telemetry from new device][img-runningnew-2]
 
 ## Device properties
-The remote monitoring preconfigured solution uses [device twins][lnk-device-twin] to synchronize device metadata between devices and the solution back end. A device twin is a JSON document stored in IoT Hub that stores property values for an individual device. Devices regulary send metadata to the solution back end as *reported properties* to store in the device twin. The solution back end can set *desired properties* in the device twin to send metadata updates to devices. The reported properties show the most recent metadata values sent by the device. For more information, see [Device identity registry, device twin, and DocumentDB][lnk-devicemetadata].
+The remote monitoring preconfigured solution uses [device twins][lnk-device-twin] to synchronize device metadata between devices and the solution back end. A device twin is a JSON document stored in IoT Hub that stores property values for an individual device. Devices regularly send metadata to the solution back end as *reported properties* to store in the device twin. The solution back end can set *desired properties* in the device twin to send metadata updates to devices. The reported properties show the most recent metadata values sent by the device. For more information, see [Device identity registry, device twin, and DocumentDB][lnk-devicemetadata].
 
 > [!NOTE]
 > The solution also uses a DocumentDB database to store device-specific data related to commands and methods.
@@ -166,7 +166,7 @@ The remote monitoring preconfigured solution uses [device twins][lnk-device-twin
 4. In the **Device Details** panel, the new latitude value initially shows as a desired property, and the old latitude value shows as a reported property:
    
     ![Edit device metadata][img-editdevice3]
-5. Currently, simulated devices in the preconfigured solution only processes the **Desired.Config.TemperatureMeanValue** and the **Desired.Config.TelemetryInterval** desired properties. A real device should read all desired properties from the IoT hub, make the changes to its configuration, and report the new values to the hub as reported properties.
+5. Currently, simulated devices in the preconfigured solution only process the **Desired.Config.TemperatureMeanValue** and the **Desired.Config.TelemetryInterval** desired properties. A real device should read all desired properties from the IoT hub, make the changes to its configuration, and report the new values to the hub as reported properties.
 
 On the **Device Details** panel, you can also edit the **Device Twin - Tags** in the same way that you edit **Device Twin - Desired Properties**. However, unlike desired properties, tags do not synchronize with the device. Tags only exist in the device twin in the IoT hub. Tags are useful for building custom filters in the device list.
 
