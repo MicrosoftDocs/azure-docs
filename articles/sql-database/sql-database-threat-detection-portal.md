@@ -62,7 +62,7 @@ This topic shows you how to set up threat detection and explore anomalous databa
 ## Next steps
 
 * For an overview of Azure SQL Database threat detection, see [Threat detection overview](sql-database-threat-detection.md).
-* For an overview of auditing, see [SQL Database auditing](sql-database-auditing.md).
+* For an overview of auditing, see [SQL Database auditing](sql-database-auditing-get-started.md).
 
 
 <!--Image references-->
