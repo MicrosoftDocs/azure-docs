@@ -54,7 +54,7 @@ ARM templates also allow you to define variables to be used later on in the temp
 +  "variables": {},
 ```
 
-Next we have the resources of the template. This is where we define what we actually want to deploy. Unlike the `parameters` and `variables` (which were JSON objects), `resources` is a JSON list of JSON objects.
+Next we have the resources of the template. This is where we define what we actually want to deploy. Unlike the `parameters` and `variables` (which are JSON objects), `resources` is a JSON list of JSON objects.
 
 ```diff
 +  "resources": [
