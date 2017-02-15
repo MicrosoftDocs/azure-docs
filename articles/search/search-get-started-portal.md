@@ -113,15 +113,15 @@ In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/20
 4. In the search bar, enter the query strings below.
 
 **`search=seattle`**
-`search=` is used to input a keyword search, in this case, returning listings in King County, Washington state,  containing Seattle in any field in the document.
+The `search` parameter is used to input a keyword search, in this case, returning listings in King County, Washington state,  containing Seattle in any field in the document.
 
   ![Search query example][7]
 
 **`search=seattle&facet=beds`**
-`facet` is a search parameter that returns categories and a count. In this case, returning categories based on the number of bedrooms, with a count of the documents or matches for each one. `"beds"` can be specified as a facet because it is marked as a filterable and facetable field in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms).  The `&` symbol is used to append search parameters.
+The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of bedrooms, with a count of the documents or matches for each one. `"beds"` can be specified as a facet because it is marked as a filterable and facetable field in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms).  The `&` symbol is used to append search parameters.
 
 **`search=seattle&filter=bed gt 3`**
-`filter` is a search parameter for returning results matching filter criteria. In this case, bedrooms greater than 3. Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+The `filter` parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 **`search=granite countertops&highlight=description`**
 Hit highlights add formatting to text matching the keyword, given matches found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. In this case, the formatted phrase `"granite countertops"` is easier to see in the description field.
@@ -146,17 +146,16 @@ Normally, filter expressions are specified as $filter with a `$` character. In S
 Geospatial search is useful if your search application has a 'find near me' feature or uses map navigation. It is not full text search, however. If you have application requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
 
 ## Next steps
-After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable. To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects.
 
-To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
++ Modify any of the objects you just created. After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable. To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects. To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl Azure Table storage, Blob storage, SQL Server on an Azure VM, and DocumentDB. All of these data sources are supported in the wizard. In code, you can create and populate an index easily using an *indexer*.
++ Try the tools and steps with other data sources. The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl Azure Table storage, Blob storage, SQL Server on an Azure VM, and DocumentDB. All of these data sources are supported in the wizard. In code, you can create and populate an index easily using an *indexer*.
 
-All other data sources are supported via a push model, where your code pushes new and changed rowsets to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
++ All other data sources are supported via a push model, where your code pushes new and changed rowsets to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-To learn more about other features mentioned in this article, visit these links:
+Learn more about other features mentioned in this article by visiting these links:
 
-* [Indexers](search-indexer-overview.md)
+* [Indexers overview](search-indexer-overview.md)
 * [Create Index (includes a detailed explanation of the index attributes)](https://docs.microsoft.com/rest/api/searchservice/create-index)
 * [Search Explorer](search-explorer.md)
 * [Search Documents (includes examples of query syntax)](https://docs.microsoft.com/rest/api/searchservice/search-documents)
