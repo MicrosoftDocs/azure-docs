@@ -51,8 +51,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![Add application](./media/active-directory-saas-chromeriver-tutorial/IC749321.png "Add application")
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
-   ![Add an application from gallerry](./media/active-directory-saas-chromeriver-tutorial/IC749322.png "Add an application from gallerry")
+      ![Add an application from gallerry](./media/active-directory-saas-chromeriver-tutorial/IC749322.png "Add an application from gallerry")
 6. In the **search box**, type **Chromeriver**.
    
    ![Application Gallery](./media/active-directory-saas-chromeriver-tutorial/IC802756.png "Application Gallery")
@@ -64,7 +63,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Chromeriver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Chromeriver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/IC802757.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Chromeriver** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -74,7 +73,8 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure App Settings](./media/active-directory-saas-chromeriver-tutorial/IC802759.png "Configure App Settings")
    
-   1. In the **Reply URL** textbox, type your Chromeriver **AssertionConsumerService URL** (e.g.: *https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911*).       
+   1. In the **Reply URL** textbox, type your Chromeriver **AssertionConsumerService URL** (e.g.: *https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911*).  
+   
      >[!NOTE]
      >You can get this value from your Chromeriver support team.
      >  
@@ -85,8 +85,8 @@ The objective of this section is to outline how to enable users to authenticate 
 5. Send the downloaded metadata file to your Chromeriver support team.
    
  >[!NOTE]
- >Your Chromeriver support team has to do the actual SSO configuration.  
- >You will get a notification when SSO has been enabled for your subscription.
+ >Your Chromeriver support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
+ >
 
 6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
@@ -108,7 +108,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Chromeriver, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Chromeriver **application integration page, click **Assign users**.
+2. On the **Chromeriver** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-chromeriver-tutorial/IC802762.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
