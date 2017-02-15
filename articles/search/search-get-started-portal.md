@@ -26,16 +26,16 @@ This code-free introduction gets you started with predefined data so that you ca
 
 + Hands on learning with minimal ramp-up
 + Prototype an index before you write code in **Import data**
-+ Test-drive queries and compare parser behaviors in **Search explorer**
++ Test queries and compare parser behaviors in **Search explorer**
 + View an existing index published to your service and look up its attributes
 
-> [!NOTE]
-> This tutorial assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md). 
-> 
-
-The tutorial takes about 15-30 minutes to complete, depending on whether account or service sign-up is also required. 
+**Time Estimate:** This tutorial takes about 15 minutes to complete, or longer if account or service sign-up is also required. 
 
 Alternatively, you can watch a 6-minute demonstration of the steps in this tutorial at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+
+## Prerequisites
+
+This tutorial assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md). 
 
 ## Find your service
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -47,9 +47,10 @@ Alternatively, you can watch a 6-minute demonstration of the steps in this tutor
 ## Check for space
 Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object. 
 
-Tiles on the service dashboard show how many indexes, indexers, and data sources you already have. The Indexer tile shows success and failure indicators. Click the tile to view the indexer count. 
-
-  ![Tiles for indexers and datasources][1]
+> [!TIP] Tiles on the service dashboard show how many indexes, indexers, and data sources you already have. The Indexer tile shows success and failure indicators. Click the tile to view the indexer count. 
+>
+> ![Tiles for indexers and datasources][1]
+>
 
 ## <a name="create-index"></a> Create an index and load data
 Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors.
@@ -65,9 +66,9 @@ To keep this task portal-based, we use a built-in sample dataset that can be cra
 3. Click **OK** to create the data source.
 
 #### Step 2: Define the index
-The wizard can usually generate an index for any data source it can crawl. Minimally, an index requires a name, and a fields collection, with one field marked as the document key to uniquely identify each document.
+Creating an index is typically manual and code-based, but the wizard can generate an index for any data source it can crawl. Minimally, an index requires a name, and a fields collection, with one field marked as the document key to uniquely identify each document.
 
-Fields have data types and attributes. The check boxes across the top of the field list are *index attributes* that control how the field is used. 
+Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used. 
 
 * **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example when fields used only in filter expressions. 
 * **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
@@ -92,11 +93,11 @@ To check progress, go back to the service dashboard, scroll down, and double-cli
    ![Indexer progress message][4]
 
 ## <a name="query-index"></a> Query the index
-You now have a search index that's ready to query. **Search explorer** is a query tool built into the portal. It provides a search box so that you can verify a search input returns the data you expect. 
+You now have a search index that's ready to query. **Search explorer** is a query tool built into the portal. It provides a search box so that you can verify whether search results are what you expect. 
 
    ![Search explorer command][5]
 
-In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138), the following steps are demonstrated at 6m24s into the video.
+In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138), the following steps are demonstrated at 6m08s into the video.
 
 1. Click **Search explorer** on the command bar.
 
@@ -148,11 +149,13 @@ Geospatial search is useful if your search application has a 'find near me' feat
 
 ## Next steps
 
-+ Modify any of the objects you just created. After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable. To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects. To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
++ Modify any of the objects you just created. After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable.
+
+  To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects. To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
 + Try the tools and steps with other data sources. The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl Azure Table storage, Blob storage, SQL Server on an Azure VM, and DocumentDB. All of these data sources are supported in the wizard. In code, you can create and populate an index easily using an *indexer*.
 
-+ All other data sources are supported via a push model, where your code pushes new and changed rowsets to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
++ All other data sources are supported via a push model, where your code pushes new and changed rowsets in JSON to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 Learn more about other features mentioned in this article by visiting these links:
 

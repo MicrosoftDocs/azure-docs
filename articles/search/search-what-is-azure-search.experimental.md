@@ -22,7 +22,7 @@ Azure Search offers a dedicated and programmable search engine with intelligent 
 
 ![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch3.png)
 
-Full text search with sophisticated linguistic analysis, auto-correct and auto-complete, synonyms and suggestions, boosting and tuned ranking, filtering and sorting, built-in navigation and paging support - these features contribute to an intuitive search experience typical of what users now expect, and are easy to implement using Azure Search.
+Adding a great search experience is a necessity for web and mobile apps. Full text search with autocompleted query terms, spelling corrections, and matches based on semantically identical but superficially different inputs ("car" and "auto") is almost the minimum bar, despite the technical complexity backing the experience. Equally important are operational requirements for scale, reliability, and synchronization between search and backend data stores. Azure Search provides a comprehensive range of capabilities for both search experience and operations.
 
 ![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -44,11 +44,19 @@ Dedicated services run 24-7 at scale with [99.9% service level agreements](https
 Several cloud service providers offer custom search engines with features that power a search bar in custom apps. 
 Some offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
-Key benefits unique to Azure Search include deep integration with other Azure services (especially at the data layer), level of control over searchable data, Microsoft expertise in hosting your service, tooling, and well-designed APIs that do exactly what you need. 
+Key benefits unique to Azure Search include:
 
-At the data layer, Azure Search provides automated indexing on Azure table storage, blob storage, DocumentDB, SQL Database, SQL Server on Azure VMs. You have full programmatic control over data ingestion. Synchronization between search and inventory databases, for example during high-traffic promotional events like Black Friday, is a business requirement that's not easily met by every vendor.
++ Language and custom analysis in the query processing pipeline. It's not unusual to support multiple languages, or to require different levels of processing on a field by field basis. Some fields might need full text search, but others might need minimal or specialized processing based on field contents.
 
-Developers already using other Azure services, such as App Service or Application Insights, find it easy to incrementally add additional capability like search into custom apps that leverage other services on Microsoft's cloud platform. The Azure portal offers centralized oversight for all services. You can monitor and scale your service in the same tool used to manage all of your cloud services. In Azure Search, the portal includes an index designer, Import Data wizard, and Search Explorer. This enable fast prototyping, testing, and query validation without code.
++ Solid user experience features for intuitive search. Superficially simple, but backed by powerful query parsers and analyzers with the ability to structure interesting and complex queries. 
+
++ Deep integration with other Azure services (especially at the data layer) with precision control over searchable data. 
+
+  At the data layer, Azure Search provides automated indexing on Azure table storage, blob storage, DocumentDB, SQL Database, SQL Server on Azure VMs. You have full programmatic control over data ingestion. Synchronization between search and inventory databases, for example during high-traffic promotional events like Black Friday, is a business requirement that's not easily met by every vendor.
+
+  Developers already using other Azure services, such as App Service or Application Insights, find it easy to incrementally add additional capability like search into custom apps that leverage other services on Microsoft's cloud platform.
+  
+  The Azure portal offers centralized oversight for all services. You can monitor and scale your service in the same tool used to manage all of your cloud services. In Azure Search, the portal includes an index designer, Import Data wizard, and Search Explorer. This enable fast prototyping, testing, and query validation without code.
 
 > [!NOTE]
 > It's common for a search technology to store searchable data in an index. On the surface, it looks like duplication of storage, but indexes are typically much smaller than the external data stores used by applications, storing only the fields and metadata directly applicable in a query operation. It is rare to store a fully redundant copy of existing data. Storing data with the service offers the most reliable and high-performance throughput, with no impact on transactional data stores. 
