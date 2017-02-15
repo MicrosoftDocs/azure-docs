@@ -37,15 +37,17 @@ Now you can use the default settings and quickly create the virtual machine.
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
+* Choose whether you would like to limit the scale set to a single placement group or whether it should span multiple placement groups. Allowing the scale set to span placement groups allows for scale sets over 100 VMs in capacity (up to 1,000) with certain limitations. For more details, see [this documentation](./virtual-machine-scale-sets-placement-groups.md).
 * Enter your desired resource group name and location, and then click `OK`.
 * On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all of Azure.
 * Choose your desired operating system disk image, instance count, and machine size.
+* Choose your desired disk type: managed or unmanaged. For more information, see [this documentation](./virtual-machine-scale-sets-managed-disks.md). If you chose to have the scale set span multiple placement groups, this option will not be available because managed disk is a requirment for scale sets to span placement groups.
 * Enable or disable autoscale and configure if enabled:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-* On the `Summary` blade, when validation is done, click `OK`.
-* Finally, on the `Purchase` blade, click `Purchase` to start the scale set deployment.
+* On the `Summary` blade, when validation is done, click `OK` to start the scale set deployment.
+
 
 ## Connect to a VM in the scale set
 Once your scale set is deployed, navigate to the `Inbound NAT Rules` tab of the load balancer for the scale set:
