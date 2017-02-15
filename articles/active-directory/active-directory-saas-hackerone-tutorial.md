@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with HackerOne, you need the following items:
 
 * An Azure subscription
-* A HackerOne single-sign on enabled subscription
+* A HackerOne SSO enabled subscription
 
 >[!NOTE]
 >To test the steps in this tutorial, we do not recommend using a production environment. 
@@ -41,7 +41,7 @@ To configure Azure AD integration with HackerOne, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario Description
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.  
@@ -49,7 +49,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 The scenario outlined in this tutorial consists of two main building blocks:
 
 *  Adding HackerOne from the gallery
-*  Configuring and testing Azure AD single sign-on
+*  Configuring and testing Azure AD SSO
 
 ## Add HackerOne from the gallery
 To integrate HackerOne into Azure AD, you need to add HackerOne from the gallery to your list of managed SaaS apps.
@@ -128,11 +128,12 @@ As part of this procedure, you are required to create a base-64 encoded certific
     1. In the **Email Domain** textbox, type a registered domain.
     2. On the Azure classic portal, copy the **Single Sign-On Service URL**, and then paste it into the Single Sign On URL textbox.
     3. Create a **base-64 encoded** file from your downloaded certificate.  
+    
        >[!TIP] 
        >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
        >
     4. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate** textbox.
-    5. Click the **Save**
+    5. Click **Save**.
 9. On the Authentication Settings dialog, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) 
@@ -160,6 +161,7 @@ Next, you create a test user in the classic portal called Britta Simon.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hackerone-tutorial/create_aaduser_03.png) 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+
     ![Creating an Azure AD test user](./media/active-directory-saas-hackerone-tutorial/create_aaduser_04.png) 
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
