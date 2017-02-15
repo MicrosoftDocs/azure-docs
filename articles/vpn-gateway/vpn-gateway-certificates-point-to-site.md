@@ -57,18 +57,15 @@ You don't install the self-signed certificate directly on the client computer. Y
 The following steps walk you through one way to generate a client certificate from a self-signed certificate. You may generate multiple client certificates from the same certificate. Each client certificate can then be exported and installed on the client computer. 
 
 1. On the same computer that you used to create the self-signed certificate, open a command prompt as administrator.
-2. In this example, "ARMP2SRootCert" refers to the self-signed certificate that you generated. 
-   
-   * Change *"ARMP2SRootCert"* to the name of the self-signed root that you are generating the client certificate from. Make sure you are using the name of the root certificate, which is whatever the 'CN=' value was that you specified when you created the self-signed root.
-   * Change *ClientCertificateName* to the name you want to generate a client certificate to be. 
+2. Modify and run the sample to generate a client certificate.
+	* Change *"ARMP2SRootCert"* to the name of the self-signed root that you are generating the client certificate from. Make sure you are using the name of the root certificate, which is whatever the 'CN=' value was that you specified when you created the self-signed root.
+	* Change *ClientCertificateName* to the name you want to generate a client certificate to be.<br><br>If you run the following example without modifying it, the result is a client certificate named ClientCertificateName in your Personal certificate store that was generated from root certificate ARMP2SRootCert.
 
-    Modify and run the sample to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named ClientCertificateName in your Personal certificate store that was generated from root certificate ARMP2SRootCert.
+			makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
 
-        makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
 
-1. All certificates are stored in your 'Certificates - Current User\Personal\Certificates' store on your computer. You can generate as many client certificates as needed based on this procedure.
+### <a name="clientkey"></a>Part 2 - Export a client certificate                                                                                                                        
 
-### <a name="clientkey"></a>Part 2 - Export a client certificate
 1. To export a client certificate, open **certmgr.msc**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
 3. On the **Export File Format** page, you can leave the defaults selected. Then click **Next**. 
