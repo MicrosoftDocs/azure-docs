@@ -1,6 +1,6 @@
 ---
-title: How to monitor a storage account | Microsoft Docs
-description: Learn how to monitor a storage account in Azure by using the Azure Portal.
+title: How to monitor an Azure Storage account | Microsoft Docs
+description: Learn how to monitor a storage account in Azure by using the Azure portal.
 services: storage
 documentationcenter: ''
 author: robinsh
@@ -17,14 +17,14 @@ ms.date: 12/08/2016
 ms.author: robinsh
 
 ---
-# Monitor a storage account in the Azure Portal
+# Monitor a storage account in the Azure portal
 ## Overview
-You can monitor your storage account from the [Azure Portal](https://portal.azure.com). When you configure your storage account for monitoring through the portal, Azure Storage uses [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) to track metrics for your account and log request data.
+You can monitor your storage account from the [Azure portal](https://portal.azure.com). When you configure your storage account for monitoring through the portal, Azure Storage uses [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) to track metrics for your account and log request data.
 
 > [!NOTE]
-> Additional costs are associated with examining monitoring data in the [Azure Portal](https://portal.azure.com). For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
+> Additional costs are associated with examining monitoring data in the [Azure portal](https://portal.azure.com). For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
 > 
-> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging. You can enable metrics for Azure File storage via the [Azure Portal](https://portal.azure.com).
+> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging. You can enable metrics for Azure File storage via the [Azure portal](https://portal.azure.com).
 > 
 > Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. 
 > 
@@ -33,36 +33,26 @@ You can monitor your storage account from the [Azure Portal](https://portal.azur
 > 
 
 ## How to: Configure monitoring for a storage account
-1. In the [Azure Portal](https://portal.azure.com), click **Storage**, and then click the storage account name to open the dashboard.
-2. Click **Configure**, and scroll down to the **monitoring** settings for the blob, table, and queue services.
+1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the storage account name to open the dashboard.
+1. To open the **Diagnostic blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
    
     ![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
-3. In **monitoring**, set the level of monitoring and the data retention policy for each service:
-   
-   * To set the monitoring level, select one of the following:
-     
-     **Minimal** - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the blob, table, and queue services.
-     
-     **Verbose** - In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Azure Storage Service API. Verbose metrics enable closer analysis of issues that occur during application operations.
-     
-     **Off** - Turns off monitoring. Existing monitoring data is persisted through the end of the retention period.
+1. Select the **services** you wish to monitor and the **data retention policy** for the metrics data. You can also disable monitoring by setting **Status** to **Off**.
 
-* To set the data retention policy, in **Retention (in days)**, type the number of days of data to retain from 1 to 365 days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by system at no cost.
+   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by the system at no cost.
 
-1. When you finish the monitoring configuration, click **Save**.
+1. When you finish the monitoring configuration, select **Save**.
 
-You should start seeing monitoring data on the dashboard and the **Monitor** page after about an hour.
+You should start seeing monitoring data on the storage account blade and the **Metrics** blade of the services you selected to monitor after about an hour.
 
-Until you configure monitoring for a storage account, no monitoring data is collected, and the metrics charts on the dashboard and **Monitor** page are empty.
+After you enable monitoring and set a retention policy, you can choose which of the available metrics to monitor in the [Azure portal](https://portal.azure.com), and which metrics to plot in the metrics charts. A default set of metrics is displayed for each service. You can select **Edit** on a metrics chart to configure which metrics are displayed in the chart.
 
-After you set the monitoring levels and retention policies, you can choose which of the available metrics to monitor in the [Azure Portal](https://portal.azure.com), and which metrics to plot on metrics charts. A default set of metrics is displayed at each monitoring level. You can use **Add Metrics** to add or remove metrics from the metrics list.
-
-Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [About Storage Analytics Metrics](http://msdn.microsoft.com/library/azure/hh343258.aspx).
+Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics).
 
 ## How to: Customize the dashboard for monitoring
 On the dashboard, you can choose up to six metrics to plot on the metrics chart from nine available metrics. For each service (blob, table, and queue), the Availability, Success Percentage, and Total Requests metrics are available. The metrics available on the dashboard are the same for minimal or verbose monitoring.
 
-1. In the [Azure Portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 2. To change the metrics that are plotted on the chart, take one of the following actions:
    
    * To add a new metric to the chart, click the colored check box next to the metric header in the table below the chart.
@@ -81,7 +71,7 @@ On the **Monitor** page, you can view the full set of metrics for your storage a
 Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed on the **Monitor** page. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.
 
 ## How to: Add metrics to the metrics table
-1. In the [Azure Portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 2. Click **Monitor**.
    
     The **Monitor** page opens. By default, the metrics table displays a subset of the metrics that are available for monitoring. The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services. Use **Add Metrics** to select the metrics you want to monitor from all available metrics.
@@ -100,7 +90,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 4. Hover over the right side of the dialog box to display a scrollbar that you can drag to scroll additional metrics into view.
    
     ![AddMetricsScrollbar](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
-5. Click the down arrow by a metric to expand a list of operations the metric is scoped to include. Select each operation that you want to view in the metrics table in the [Azure Portal](https://portal.azure.com).
+5. Click the down arrow by a metric to expand a list of operations the metric is scoped to include. Select each operation that you want to view in the metrics table in the [Azure portal](https://portal.azure.com).
    
     In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
    
@@ -118,7 +108,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 ## How to: Configure logging
 For each of the storage services available with your storage account (blob, table, and queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.
 
-1. In the [Azure Portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 2. Click **Configure**, and use the Down arrow on the keyboard to scroll down to **logging**.
    
     ![Storagelogging](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
