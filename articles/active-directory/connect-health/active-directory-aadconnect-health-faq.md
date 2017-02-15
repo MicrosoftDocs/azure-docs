@@ -29,9 +29,9 @@ The following table lists the roles and supported operating system versions.
 
 |Role| Operating system / Version|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
-|Azure AD Connect | Version 1.0.9125 or higher.|
-|Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Azure AD Connect | Version 1.0.9125 or higher|
+|Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
 Note that the features provided by the service may differ based on the role and the operating system. In other words, all the features may not be available for all operating system versions. See the feature descriptions for details.
 
@@ -60,10 +60,10 @@ Example:
 
 The impact of installing the Microsoft Azure AD Connect Health Agent, AD FS, web application proxy servers, Azure AD Connect (sync) servers, domain controllers is minimal with respect to the CPU, memory consumption, network bandwidth, and storage.
 
-The following numbers are an approximation.
+The following numbers are an approximation:
 
-    * CPU consumption: ~1-5% increase
-    * Memory consumption: Up to 10 % of the total system memory
+* CPU consumption: ~1-5% increase
+* Memory consumption: Up to 10 % of the total system memory
 
 > [!NOTE]
 > If the agent cannot communicate with Azure, the agent stores the data locally for a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
@@ -79,7 +79,7 @@ No. The installation of the agents will not require you to reboot the server. Ho
 
 For example, on Windows Server 2008 R2, installation of .NET 4.5 Framework requires a server reboot.
 
-**Q: Does Azure AD Connect Health Services work through a pass-through HTTP proxy?**
+**Q: Does Azure AD Connect Health work through a pass-through HTTP proxy?**
 
 Yes. For ongoing operations, you can configure the Health Agent to use an HTTP proxy to forward outbound HTTP requests.
  Read more about [configuring HTTP Proxy for Health Agents](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
@@ -90,7 +90,7 @@ If you need to configure a proxy during agent registration, you might need to mo
 2. Select **Use a Proxy Server for your LAN**.
 3. Select **Advanced** if you have different proxy ports for HTTP and HTTPS/Secure.
 
-**Q: Does Azure AD Connect Health Services support Basic authentication when connecting to HTTP proxies?**
+**Q: Does Azure AD Connect Health support Basic authentication when connecting to HTTP proxies?**
 
 No. A mechanism to specify an arbitrary user name and password for Basic authentication is not currently supported.
 
@@ -112,16 +112,16 @@ In this case, manually delete the entry that belongs to the older server. The da
 
 The health agent can fail to register due to the following possible reasons:
 
-* The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required endpoints and ports. See the [Requirements Section](active-directory-aadconnect-health-agent-install.md#requirements) for details.
+* The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required endpoints and ports. See the [requirements section](active-directory-aadconnect-health-agent-install.md#requirements) for details.
 * Outbound communication is subjected to an SSL inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the steps to complete the agent registration fail.
 * The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Role Based Access Control](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) to delegate access to other users.
 
-**Q: I am getting alerted about "Health Service data is not up to date". How to troubleshoot the issue?**
+**Q: I am getting alerted that "Health Service data is not up to date." How do I troubleshoot the issue?**
 
-Health Services generate the alert when it does not receive all the data points from the server in the last two hours. There can be multiple reasons for this alert.
+Azure AD Connect Health generates the alert when it does not receive all the data points from the server in the last two hours. There can be multiple reasons for this alert.
 
-* The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required end points and ports. See the [Requirements Section](active-directory-aadconnect-health-agent-install.md#requirements) for details.
-* Outbound communication is subjected to an SSL inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the process fails to upload data to the Connect Health Service.
+* The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required end points and ports. See the [requirements section](active-directory-aadconnect-health-agent-install.md#requirements) for details.
+* Outbound communication is subjected to an SSL inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the process fails to upload data to the Azure AD Connect Health service.
 * You can use the connectivity command built into the agent. [Read more](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
 * The agents also support outbound connectivity via an unauthenticated HTTP Proxy. [Read more](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
@@ -136,7 +136,7 @@ Azure AD Connect Health alerts get resolved on a success condition. Azure AD Con
 
 ## Migration questions
 
-This section applies only to customers who were notified about an upcoming migration of their Azure AD Connect Health Service data.
+This section applies only to customers who were notified about an upcoming migration of their Azure AD Connect Health data.
 
 **Q: Will I have to register my agents or configure my notification settings again after the migration happens?**
 
