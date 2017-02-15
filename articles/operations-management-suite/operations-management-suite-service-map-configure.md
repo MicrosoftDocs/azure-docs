@@ -195,7 +195,7 @@ Traces are written to c:\Windows\Logs\OpsMgrTrace.  You can stop the tracing wit
 #### Microsoft Dependency Agent
 To generate troubleshooting data from the Dependency Agent, login with an account that has sudo or root privileges and run the following command.  You can add the --help flag to show additional options.
 
-	/opt/microsoft/dependency-agent/scripts/collect-dependency-agent-data.sh
+	/opt/microsoft/dependency-agent/lib/scripts/collect-dependency-agent-data.sh
 
 The Support Data Package is saved to /var/opt/microsoft/dependency-agent/log (if root) under the Agent's installation directory, or to the home directory of the user running the script (if non-root).  You can use the --file <filename> option to save it to a different location.
 
