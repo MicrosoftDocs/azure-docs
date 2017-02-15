@@ -260,11 +260,11 @@ There are three logs available for Application Gateway. For more information on 
 
 **Q. How do I know if my backend pool members are healthy?**
 
-You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnotics.md)
+You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
 **Q. What is the retention policy on the diagnostics logs?**
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Log Analytics. Visit [Application Gateway Diagnostics](application-gateway-diagnotics.md) for more details.
+Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Log Analytics. Visit [Application Gateway Diagnostics](application-gateway-diagnostics.md) for more details.
 
 **Q. How do I get audit logs for Application Gateway?**
 
