@@ -3,7 +3,7 @@ title: Azure Kubernetes cluster for Windows | Microsoft Docs
 description: Deploy and get started with a Kubernetes cluster for Windows containers in Azure Container Service
 services: container-service
 documentationcenter: ''
-author: danlep
+author: dlepow
 manager: timlt
 editor: ''
 tags: acs, azure-container-service, kubernetes
@@ -26,31 +26,33 @@ ms.author: dlepow
 This article shows how to create a Kubernetes cluster in Azure Container Service that contains Windows nodes to run Windows containers. 
 
 > [!NOTE]
-> Support for Windows containers with Kubernetes in Azure Container Service is in preview. Currently, you can only use the Azure portal to create a Kubernetes cluster with Windows nodes.
+> Support for Windows containers with Kubernetes in Azure Container Service is in preview. Use the Azure portal or a Resource Manager template to create a Kubernetes cluster with Windows nodes. This feature isn't currently supported with the Azure CLI 2.0 (Preview).
 
 
 
 The following image shows the architecture of a Kubernetes cluster in Azure Container Service with one Linux master node and two Windows agent nodes. 
 
-* The master serves the Kubernetes REST API and is accessible by SSH on port 22 or `kubectl` on port 443. 
+* The Linux master serves the Kubernetes REST API and is accessible by SSH on port 22 or `kubectl` on port 443. 
 * The Windows agent nodes are grouped in an Azure availability set
 and run your containers. The Windows nodes can be accessed through an RDP SSH tunnel via the master node. Azure load balancer rules are dynamically added to the cluster depending on exposed services.
 
-All VMs are in the same private virtual network and are fully accessible to each other. All VMs run a kubelet, Docker, and a Proxy.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
 
+All VMs are in the same private virtual network and are fully accessible to each other. All VMs run a kubelet, Docker, and a Proxy.
 ## Prerequisites
 
 
+* **SSH RSA public key**: When deploying through the portal or one of the Azure quickstart templates, you need to provide the public key for authentication against Azure Container Service virtual machines. To create Secure Shell (SSH) RSA keys, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
 
+* **Service principal client ID and secret**: For more information and guidance, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
 
 
 
 ## Create the cluster
 
-Use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal). 
+You can use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) with Windows agent nodes. Note the following steps:
 
 *Steps to be added*
 
@@ -60,42 +62,19 @@ Use the Azure portal to [create a Kubernetes cluster](container-service-deployme
 
 ## Connect to the cluster
 
-Use the `kubectl` command-line tool to connect from your local computer to the master node of the Kubernetes cluster. For steps, see [Connect to an Azure Container Service cluster]().
-
-
-## Access the Windows nodes
- windows nodes can be accessed through an RDP SSH tunnel via the master node.  To do this, follow these [instructions](ssh.md#create-port-80-tunnel-to-the-master), replacing port 80 with 3389.  Since your windows machine is already using port 3389, it is recommended to use 3390 to Windows Node 0, 10.240.245.5, 3391 to Windows Node 1, 10.240.245.6, and so on as shown in the following image:
-
-![Image of Windows RDP tunnels](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
-
-
-
+Use the `kubectl` command-line tool to connect from your local computer to the master node of the Kubernetes cluster. For steps, see [Connect to an Azure Container Service cluster](container-service-connect#connect-to-a-kubernetes-cluster). You can use `kubectl` commands to access the Kubernetes web UI and to create and manage Windows container workloads.
 
 ## Create your first Kubernetes service
 
-After completing this walkthrough you will know how to:
- * access Kubernetes cluster via SSH,
- * deploy a simple Windows Docker application and expose to the world,
- * and deploy a hybrid Windows / Linux Docker application.
- 
-1. After successfully deploying the template write down the master FQDN (Fully Qualified Domain Name).
-   1. If using Powershell or CLI, the output parameter is in the OutputsString section named 'masterFQDN'
-   2. If using Portal, to get the output you need to:
-     1. navigate to "resource group"
-     2. click on the resource group you just created
-     3. then click on "Succeeded" under *last deployment*
-     4. then click on the "Microsoft.Template"
-     5. now you can copy the output FQDNs and sample SSH commands
+After creating the cluster and connecting with `kubectl`, you can try starting a basic Windows web app and expose it to the internet. In this example, you specify the container resources using a YAML file, and then create it using `kubctl apply`.
 
-   ![Image of docker scaling](images/portal-kubernetes-outputs.png)
+1. To see a list of your nodes, type `kubectl get nodes`.  If you want full details of the nodes, type:  
 
-2. SSH to the master FQDN obtained in step 1.
+  ```
+  kubectl get nodes -o yaml
+  ```
 
-3. Explore your nodes and running pods:
-  1. to see a list of your nodes type `kubectl get nodes`.  If you want full detail of the nodes, add `-o yaml` to become `kubectl get nodes -o yaml`.
-  2. to see a list of running pods type `kubectl get pods --all-namespaces`.  By default DNS, heapster, and the dashboard pods will be assigned to the Linux nodes.
-
-4. Start your first Docker image by editing a file named `simpleweb.yaml` filling in the contents below, and then apply by typing `kubectl apply -f simpleweb.yaml`.  This will start a windows simple web application and expose to the world.
+2. Create a file named `simpleweb.yaml` and copy the contents below. This file sets up a web app using the Windows Server 2016 Server Core base OS image from [Docker Hub](https://hub.docker.com/r/microsoft/windowsservercore/).  
 
   ```yaml
   apiVersion: v1
@@ -138,95 +117,45 @@ After completing this walkthrough you will know how to:
           beta.kubernetes.io/os: windows
   ```
 
-5. Type `watch kubectl get pods` to watch the deployment of the service that takes about 30 seconds.  Once running, type `kubectl get svc` and curl the 10.x address to see the output, eg. `curl 10.244.1.4`
+3. To start the application, type:
 
-6. Type `watch kubectl get svc` to watch the addition of the external IP address that will take about 2-5 minutes.  Once there, you can take the external IP and view in your web browser.
+  ```
+  kubectl apply -f simpleweb.yaml
+  ```
+  
+  > [!NOTE] 
+  > The configuration includes `type: LoadBalancer`. This setting causes the service to be exposed to the internet through an Azure load balancer. For more information, see [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md).
+  
+4. To verify the deployment of the service (which takes about 30 seconds), type:
 
-7. The next step in this walkthrough is to deploy a hybrid Linux / Windows app.  This application uses a Windows ASP.Net WebAPI front end, and a linux redis database as the backend.  The ASP.Net WebAPI looks up the redis database via the fqdn redis-master.default.svc.cluster.local.  To run this app, paste the contents below into a file named `hybrid.yaml` and type `kubectl apply -f hybrid.yaml`.  This will take about 10 minutes to pull down the images.
-
-  ```yaml
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: redis-master
-    labels:
-      app: redis
-      tier: backend
-      role: master
-  spec:
-    ports:
-      # the port that this service should serve on
-    - port: 6379
-      targetPort: 6379
-    selector:
-      app: redis
-      tier: backend
-      role: master
-  ---
-  apiVersion: extensions/v1beta1
-  kind: Deployment
-  metadata:
-    name: redis-master
-  spec:
-    replicas: 1
-    template:
-      metadata:
-        labels:
-          app: redis
-          role: master
-          tier: backend
-      spec:
-        containers:
-        - name: master
-          image: redis
-          resources:
-            requests:
-              cpu: 100m
-              memory: 100Mi
-          ports:
-          - containerPort: 6379
-        nodeSelector:
-          beta.kubernetes.io/os: linux
-  ---
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: aspnet-webapi-todo
-    labels:
-      app: aspnet-webapi-todo
-      tier: frontend
-  spec:
-    ports:
-      # the port that this service should serve on
-    - port: 80
-      targetPort: 80
-    selector:
-      app: aspnet-webapi-todo
-      tier: frontend
-    type: LoadBalancer
-  ---
-  apiVersion: extensions/v1beta1
-  kind: Deployment
-  metadata:
-    name: aspnet-webapi-todo
-  spec:
-    replicas: 1
-    template:
-      metadata:
-        labels:
-          app: aspnet-webapi-todo
-          tier: frontend
-      spec:
-        containers:
-        - name: aspnet-webapi-todo
-          image: anhowe/aspnet-web-api-todo2:latest
-        nodeSelector:
-          beta.kubernetes.io/os: windows
+  ```
+  kubectl get pods
   ```
 
-8. Type `watch kubectl get pods` to watch the deployment of the service that takes about 10 minutes.  Once running, type `kubectl get svc` and for the app names `aspnet-webapi-todo` copy the external address and open in your webbrowser.  As shown in the following image, the traffic flows from your webbrowser to the ASP.Net WebAPI frontend and then to the hybrid container.
+5. Once the service is running, to see the internal and external IP addresses of the service, type:
 
-   ![Image of hybrid traffic flow](images/hybrid-trafficflow.png)
+  ```
+  kubectl get svc
+  ``` 
+
+  ![IP addresses of Windows service](media/container-service-kubernetes-windows-walkthrough/externalip.png)
+
+  The addition of the external IP address takes several minutes. Before the load balancer configures the address, it appears as `<pending>`.
+
+
+6. After the external IP address is available, you can reach the service in your web browser.
+
+  ![Windows server app in browser](media/container-service-kubernetes-windows-walkthrough/containerwebserver.png)
+
+
+## Access the Windows nodes
+Windows nodes can be accessed through an RDP SSH tunnel via the master node. To do this, follow these [instructions](ssh.md#create-port-80-tunnel-to-the-master), replacing port 80 with 3389. Since your windows machine is already using port 3389, it is recommended to use 3390 to Windows Node 0, 10.240.245.5, 3391 to Windows Node 1, 10.240.245.6, and so on as shown in the following image:
+
+![Image of Windows RDP tunnels](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
+
+
+
+
 
 
 
@@ -234,6 +163,6 @@ After completing this walkthrough you will know how to:
 
 Here are recommended links to learn more about Kubernetes:
 
-1. [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) - shows you how to deploy, scale, update, and debug containerized applications.
-2. [Kubernetes Userguide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
-3. [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides a number of examples on how to run real applications with Kubernetes.
+* [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) - shows you how to deploy, scale, update, and debug containerized applications.
+* [Kubernetes Userguide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
+* [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides a number of examples on how to run real applications with Kubernetes.
