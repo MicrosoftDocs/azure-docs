@@ -52,11 +52,11 @@
 ### [Connect to on-premises data](logic-apps-gateway-connection.md)
 ### [Install data gateway](logic-apps-gateway-install.md)
 
-## Automate and deploy
+## Automate & deploy
 ### [Create automated deployment templates](logic-apps-create-deploy-template.md)
 ### [Publish from Visual Studio](logic-apps-deploy-from-vs.md)
 
-## Manage and monitor
+## Manage & monitor
 ### [Manage logic apps with Visual Studio](logic-apps-manage-from-vs.md)
 ### [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
 ### [Manage integration accounts](logic-apps-enterprise-integration-accounts.md)
