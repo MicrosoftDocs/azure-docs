@@ -111,7 +111,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    2. If you select use of an existing Data Lake Store then select the ADLS storage account to use and add the cluster ADD identity to your cluster to allow access to the store. For more information on this process review [Creating HDInsight cluster with Data Lake Store using Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
-      Use the **Select** button to save the data source configuration.
+   Use the **Select** button to save the data source configuration.
 
 
 7. The **Summary** blade will then display to validate all your settings. Here you can change your **Cluster size** to modify the number of servers in your cluster and also specify any **Script actions** you want to run. Unless you know that you need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
@@ -163,7 +163,7 @@ If you’ve chosen to include RStudio Server community edition in your installat
 ## Connect to the R Server edge node
 Connect to R Server edge node of the HDInsight cluster using SSH:
 
-    ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+   `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
 > [!NOTE]
 > You can also find the `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` address in the Azure portal by selecting your cluster then **All Settings**, **Apps**, and **RServer**. This will display the SSH Endpoint information for the edge node.
@@ -181,50 +181,53 @@ For more information on using SSH with Linux-based HDInsight, review the followi
 
 Once connected, you will arrive at a prompt similar to the following.
 
-    username@ed00-myrser:~$
+`username@ed00-myrser:~$`
 
 ## Use the R console
-1. From the SSH session, use the following command to start the R console.
 
-        R
+1. From the SSH session, use the following command to start the R console.  
+   
+   ```
+   R
 
-    You will see output similar to the following.
-
-        R version 3.2.2 (2015-08-14) -- "Fire Safety"
-        Copyright (C) 2015 The R Foundation for Statistical Computing
-        Platform: x86_64-pc-linux-gnu (64-bit)
+   You will see output similar to the following.
+   R version 3.2.2 (2015-08-14) -- "Fire Safety"
+   Copyright (C) 2015 The R Foundation for Statistical Computing
+   Platform: x86_64-pc-linux-gnu (64-bit)
+   
+   R is free software and comes with ABSOLUTELY NO WARRANTY.
+   You are welcome to redistribute it under certain conditions.
+   Type 'license()' or 'licence()' for distribution details.
+   
+   Natural language support but running in an English locale
+   
+   R is a collaborative project with many contributors.
+   Type 'contributors()' for more information and
+   'citation()' on how to cite R or R packages in publications.
+   
+   Type 'demo()' for some demos, 'help()' for on-line help, or
+   'help.start()' for an HTML browser interface to help.
+   Type 'q()' to quit R.
        
-        R is free software and comes with ABSOLUTELY NO WARRANTY.
-        You are welcome to redistribute it under certain conditions.
-        Type 'license()' or 'licence()' for distribution details.
-       
-        Natural language support but running in an English locale
-       
-        R is a collaborative project with many contributors.
-        Type 'contributors()' for more information and
-        'citation()' on how to cite R or R packages in publications.
-       
-        Type 'demo()' for some demos, 'help()' for on-line help, or
-        'help.start()' for an HTML browser interface to help.
-        Type 'q()' to quit R.
-       
-        Microsoft R Server version 8.0: an enhanced distribution of R
-        Microsoft packages Copyright (C) 2016 Microsoft Corporation
-       
-        Type 'readme()' for release notes.
-       
-        >
+   Microsoft R Server version 8.0: an enhanced distribution of R
+   Microsoft packages Copyright (C) 2016 Microsoft Corporation
+   
+   Type 'readme()' for release notes.
+   >
+   ```
+   
 2. From the `>` prompt, you can enter R code. R server includes packages that allow you to easily interact with Hadoop and run distributed computations. For example, use the following command to view the root of the default file system for the HDInsight cluster.
 
-        rxHadoopListFiles("/")
+`rxHadoopListFiles("/")`
 
     You can also use the WASB style addressing.
 
-        rxHadoopListFiles("wasbs:///")
+`rxHadoopListFiles("wasbs:///")`
 
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
 Per the section above regarding use of public/private key pairs to access the cluster, it is possible to set up access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
 
+```
     myNameNode <- "default"
     myPort <- 0 
     
@@ -246,7 +249,7 @@ Per the section above regarding use of public/private key pairs to access the cl
       port         = myPort,
       consoleOutput= TRUE
     )
-
+```
 
 
 ## Use a compute context
@@ -254,6 +257,7 @@ A compute context allows you to control whether computation will be performed lo
 
 1. From RStudio Server or the R console (in an SSH session), use the following to load example data into the default storage for HDInsight.
 
+```
         # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
         # create a local folder for storaging data temporarily
@@ -279,9 +283,11 @@ A compute context allows you to control whether computation will be performed lo
         rxHadoopMakeDir(inputDir)
         # Copy the data from source to input
         rxHadoopCopyFromLocal(source, bigDataDirRoot)
+```
 
 2. Next, let's create some data info and define two data sources so that we can work with the data.
 
+```
         # Define the HDFS (WASB) file system
         hdfsFS <- RxHdfsFileSystem()
         # Create info list for the airline data
@@ -302,9 +308,11 @@ A compute context allows you to control whether computation will be performed lo
        
         # formula to use
         formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
+```
 
 3. Let's run a logistic regression over the data using the local compute context.
 
+```
         # Set a local compute context
         rxSetComputeContext("local")
         # Run a logistic regression
@@ -313,9 +321,11 @@ A compute context allows you to control whether computation will be performed lo
         )
         # Display a summary 
         summary(modelLocal)
+```
 
-    You should see output that ends with lines similar to the following.
+   You should see output that ends with lines similar to the following.
 
+```
         Data: airOnTimeDataLocal (RxTextData Data Source)
         File name: /tmp/AirOnTimeCSV2012
         Dependent variable(s): ARR_DEL15
@@ -339,9 +349,11 @@ A compute context allows you to control whether computation will be performed lo
        
         Condition number of final variance-covariance matrix: 11904202
         Number of iterations: 7
+```
 
 4. Next, let's run the same logistic regression using the Spark context. The Spark context will distribute the processing over all the worker nodes in the HDInsight cluster.
 
+```
         # Define the Spark compute context 
         mySparkCluster <- RxSpark()
         # Set the compute context 
@@ -352,6 +364,8 @@ A compute context allows you to control whether computation will be performed lo
         )
         # Display a summary
         summary(modelSpark)
+```
+
 
    > [!NOTE]
    > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
@@ -361,25 +375,28 @@ A compute context allows you to control whether computation will be performed lo
 ## Distribute R code to multiple nodes
 With R Server you can easily take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This is useful when doing a parameter sweep or simulations. The following is an example of how to use `rxExec`.
 
-    rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+`rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )`
 
 If you are still using the Spark or MapReduce context, this will return the nodename value for the worker nodes that the code `(Sys.info()["nodename"])` is ran on. For example, on a four node cluster, you may receive output similar to the following.
 
-    $rxElem1
-        nodename
-    "wn3-myrser"
+
+```
+$rxElem1
+    nodename
+"wn3-myrser"
     
-    $rxElem2
-        nodename
-    "wn0-myrser"
+$rxElem2
+    nodename
+"wn0-myrser"
     
-    $rxElem3
-        nodename
-    "wn3-myrser"
+$rxElem3
+    nodename
+"wn3-myrser"
     
-    $rxElem4
-        nodename
-    "wn3-myrser"
+$rxElem4
+    nodename
+"wn3-myrser"
+```
 
 ## Accessing Data in Hive and Parquet
 A new feature available in R Server 9.0 and above allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.  
@@ -562,7 +579,7 @@ Microsoft R Server is currently not managed through Yarn. If the worker nodes ar
 Steps to decommissioning worker nodes:
  
 * Log in to HDI cluster's Ambari console and click on "hosts" tab
-* Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.  
+* Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in the image below we have selected wn3 and wn4 to decommission.  
    
    ![decommission worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)  
 
