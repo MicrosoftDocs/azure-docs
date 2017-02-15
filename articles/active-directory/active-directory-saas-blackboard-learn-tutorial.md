@@ -125,8 +125,8 @@ Blackboard Learn application expects the SAML assertions in a specific format. P
 3. On the **Configure App Settings** dialog page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_04.png) 
-    1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Blackboard Learn application using the following pattern: **https://\<company name-pricing\>.blackboard.com/**
-    2. click **Next**
+    1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Blackboard Learn application using the following pattern: **https://\<company name-pricing\>.blackboard.com/**.
+    2. click **Next**.
 4. On the **Configure single sign-on at Blackboard Learn** page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_05.png)
@@ -156,13 +156,15 @@ In this section, you create a test user in the classic portal called Britta Simo
     ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_03.png) 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_04.png)   
 5. On the **Tell us about this user** dialog page, perform the following steps:
+
     ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_05.png) 
     1. As Type Of User, select New user in your organization.
     2. In the User Name **textbox**, type **BrittaSimon**.
     3. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
+
    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-tutorial/create_aaduser_06.png) 
    1. In the **First Name** textbox, type **Britta**.  
    2. In the **Last Name** textbox, type, **Simon**.
