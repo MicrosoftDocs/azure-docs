@@ -2,10 +2,10 @@
 
 ## Azure CLI 2.0 (Preview)
 
-Once you have [installed the Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), use the `az vm image list` command to see a list of VM images everywhere. The basic response of the command displays an offline subset of very popular images that looks like the following output, depending when you execute it:
+Once you have [installed the Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), use the `az vm image list` command to see a list of VM images everywhere. The basic response of the command `az vm image list -o table` displays an offline subset of very popular images that looks like the following output, depending when you execute it:
 
 ```azurecli
-az vm image list -o table
+
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
@@ -27,7 +27,7 @@ To obtain the current list of all images, use the `az vm image list` command wit
 
 ### Find specific images
 
-More often, you know what image you want, but you need to find it and where its available. Use `az vm image list` with a [JMESPATH query filter](https://docs.microsoft.com/cli/azure/query-az-cli2) to find specific informataion. For example, the following displays the SKUs are available and where for **Debian** (though you should note that without the `--all` switch, it only searches the local cache of common images):
+More often, you know what image you want, but you need to find it and where it is available. Use `az vm image list` with a [JMESPATH query filter](https://docs.microsoft.com/cli/azure/query-az-cli2) to find specific informataion. For example, the following displays the SKUs are available and where for **Debian** (though you should note that without the `--all` switch, it only searches the local cache of common images):
 
 ```azurecli
 az vm image list --query '[?contains(offer,`Debian`)]' -o table --all
@@ -36,12 +36,15 @@ You are viewing an offline list of images, use --all to retrieve an up-to-date l
 -----  -----------  -------  ------------------------  ---------  ----------
     8  credativ     Debian   credativ:Debian:8:latest  latest     Debian
 
-<many addition images are removed for this example>
+<list shortened for the example>
 ```
 
-If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed.
+If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from above you know that `credativ` has a Debian offer, you can see where the 
 
-## Azure CLI 1.0 (azure.js)
+
+
+## Azure CLI 1.0 
+
 > [!NOTE]
 > This article describes how to navigate and select virtual machine images, using a recent installation of either the Azure CLI or Azure PowerShell. As a prerequisite, you would need to change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. 
 > 
