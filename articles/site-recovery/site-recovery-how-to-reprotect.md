@@ -26,6 +26,9 @@ After reprotect completes and the protected virtual machines are replicating, yo
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
+For a quick video overview, you can also go through the video here.
+[!Video https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises]
+
 ## Pre-requisites
 Following are the few pre-requisite steps you need to take or consider when preparing for reprotect.
 
@@ -40,6 +43,7 @@ Following are the few pre-requisite steps you need to take or consider when prep
 * Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
 * **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
 * You need a new drive added onto the Master target server. This drive is called a retention drive. Add a new disk and format the drive.
+
 
 ### Why do I need a S2S VPN or an ExpressRoute to replicate data back to on-premises?
 Where replication from on-premises to Azure can happen over internet or an ExpressRoute with public peering, reprotect and failback requires a S2S VPN set up to replicate data. **The network should be provided such that the failed over VMs in Azure can reach(ping) the on-premises configuration server** . You may be also deploying a process server in the Azure network of the failed over VM - this process server should also be able to communicate with the on-premises configuration server.
@@ -157,3 +161,5 @@ Once the VM has entered into protected state, you can initiate a failback. The f
 [Steps to initiate failback of the VM](site-recovery-how-to-failback-v2a.md#steps-to-failback)
 
 ## Common issues 
+
+* If your virtual machines were created using a template, you should ensure before protection that each VM has a unique UUID for the disks. If the on-premises VM's UUID clashes with that of the Master target (because both were created from the same template), then reprotection will fail. You will need to deploy another Master target that has not been created from the same template.

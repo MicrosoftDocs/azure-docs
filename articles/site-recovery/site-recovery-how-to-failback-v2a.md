@@ -31,6 +31,9 @@ Here’s how failback works - After you’ve failed over to Azure, you fail back
   
 After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
+For a quick video overview, you can also go through the video here.
+[!Video https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises]
+
 ### Failback to the original or alternate location
 	
 If you failed over a VMware VM, you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes are replicated back. This scenario is known as original location recovery. If the on-premises VM does not exist, it is an alternate location recovery.
