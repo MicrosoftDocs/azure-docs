@@ -66,7 +66,7 @@ As part of this procedure, you are required to create a base-64 encoded certific
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **AppDynamics** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **AppDynamics** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configure Single SignOn")
 2. On the **How would you like users to sign on to AppDynamics** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -91,9 +91,10 @@ As part of this procedure, you are required to create a base-64 encoded certific
    1. As **Authentication Provider**, select **SAML**.
    2. In the Azure classic portal, on the **Configure single sign-on at AppDynamics** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
    3. In the Azure classic portal, on the **Configure single sign-on at AppDynamics** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
-   4. Create a **base-64 encoded** file from your downloaded certificate.     
+   4. Create a **base-64 encoded** file from your downloaded certificate.  
+   
       >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
       > 
    5. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox
    6. Click **Save**.
@@ -131,7 +132,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to AppDynamics, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **AppDynamics **application integration page, click **Assign users**.
+2. On the **AppDynamics** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-appdynamics-tutorial/IC790231.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
