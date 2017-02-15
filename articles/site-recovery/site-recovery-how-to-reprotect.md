@@ -29,6 +29,8 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 For a quick video overview, you can also go through the video here.
 [!Video https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises]
 
+read about the complete process of failback here.
+
 ## Pre-requisites
 Following are the few pre-requisite steps you need to take or consider when preparing for reprotect.
 
@@ -43,6 +45,7 @@ Following are the few pre-requisite steps you need to take or consider when prep
 * Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
 * **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
 * You need a new drive added onto the Master target server. This drive is called a retention drive. Add a new disk and format the drive.
+* Master target has other pre-requisites that are listed in [Common things to check on a Master Target before Reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-master-target).
 
 
 ### Why do I need a S2S VPN or an ExpressRoute to replicate data back to on-premises?
@@ -113,6 +116,7 @@ Click on the following links to reads the steps on How to install a Master Targe
 
 * The Master Target should have atleast one VMFS datastore attached. If there are none, the Datastore input on the reprotect page will be empty and you will no tbe able to proceed.
 
+* Master Target server cannot have any snapshots on the disks. If there are snapshots, Reprotect/Failback will fail.
 
 <!--
 ### Failback policy
