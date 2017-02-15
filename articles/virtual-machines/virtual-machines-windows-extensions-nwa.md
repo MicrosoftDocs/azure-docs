@@ -22,7 +22,7 @@ ms.author: dennisg
 
 ## Overview
 
-[Azure Network Watcher](https://review.docs.microsoft.com/en-us/azure/network-watcher/) is a network performance monitoring, diagnostic and analytics service that allows you to monitor your network in Azure. The Network Watcher Agent virtual machine extension is required for some of the Network Watcher features to be supported on your virtual machines. This includes capturing network traffic on demand and other advanced functionality.
+[Azure Network Watcher](https://review.docs.microsoft.com/en-us/azure/network-watcher/) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine extension is a requirement for some of the Network Watcher features on Azure virtual machines. This includes capturing network traffic on demand and other advanced functionality.
 
 This document details the supported platforms and deployment options for the Network Watcher Agent virtual machine extension for Windows.
 
