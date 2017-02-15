@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/15/2017
 ms.author: tomfitz
 
 ---
@@ -24,6 +24,10 @@ ms.author: tomfitz
 > You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. To support tagging, redeploy these resources through Resource Manager. All other resources support tagging.
 > 
 > 
+
+## Ensure tag consistency with policies
+
+Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values. For more information, see [Apply resource policies for tags](resource-manager-policy-tags.md).
 
 ## Templates
 
