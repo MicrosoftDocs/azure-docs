@@ -60,7 +60,7 @@ Next we have the resources of the template. This is where we define what we actu
 +  "resources": [
 ```
 
-All resources require a `type`, `name`, `apiVersion`, and `location`. Our first resource is a `virtualNetwork` with name `myVnet` and apiVersion `2016-03-30`. To figure out the latest api versions for a resource, refer to the [https://docs.microsoft.com/rest/api/](Azure REST API documentation).
+All resources require a `type`, `name`, `apiVersion`, and `location`. Our first resource is of type `Microsft.Network/virtualNetwork` with name `myVnet` and apiVersion `2016-03-30`. To figure out the latest api versions for a resource type, refer to the [https://docs.microsoft.com/rest/api/](Azure REST API documentation).
 
 ```diff
 +    {
