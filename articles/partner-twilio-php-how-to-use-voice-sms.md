@@ -44,7 +44,7 @@ The following is a list of Twilio verbs. Learn about the other verbs and capabil
 * **&lt;Gather&gt;**: Collects numeric digits entered on the telephone keypad.
 * **&lt;Hangup&gt;**: Ends a call.
 * **&lt;Play&gt;**: Plays an audio file.
-* **&lt;Pause&gt;**: Waits silently for a specified number of seconds.
+* **&lt;Queue&gt;**: Add the to a queue of callers.
 * **&lt;Record&gt;**: Records the caller's voice and returns a URL of a file that contains the recording.
 * **&lt;Redirect&gt;**: Transfers control of a call or SMS to the TwiML at a different URL.
 * **&lt;Reject&gt;**: Rejects an incoming call to your Twilio number without billing you
