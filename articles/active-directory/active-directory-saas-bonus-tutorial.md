@@ -66,13 +66,13 @@ Configuring SSO for Bonus.ly requires you to retrieve a thumbprint value from a 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Bonus.ly** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Bonus.ly** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Bonus.ly** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configure single sign-on")
-3. On the **Configure App URL** page, in the **Bonus.ly Tenant URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Bonus.ly*", and then click **Next**: 
+*3. On the **Configure App URL** page, in the **Bonus.ly Tenant URL** textbox, type your URL using the following pattern **https://\<tenant-name\>.Bonus.ly**, and then click **Next**: 
    
    ![Configure app URL](./media/active-directory-saas-bonus-tutorial/IC773684.png "Configure app URL")
 4. On the **Configure single sign-on at Bonus.ly** page, click **download Certificate**, and then save the certificate file locally as **c:\\Bonusly.cer**.
@@ -90,10 +90,10 @@ Configuring SSO for Bonus.ly requires you to retrieve a thumbprint value from a 
    2. In the Azure classic portal, on the **Configure single sign-on at Bonus.ly** dialog page, copy the **Issuer ID** value, and then paste it into the **IdP Issuer** textbox.
    3. In the Azure classic portal, on the **Configure single sign-on at Bonus.ly** dialog page, copy the **Remote Login URL** value, and then paste it into the **IdP Login URL** textbox.
    4. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Cert Fingerprint** textbox.
+   
     >[!TIP]
-    >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+    >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
     > 
-
 9. Click **save**.
 10. On the Microsoft Azure classic portal, select the configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
@@ -125,9 +125,10 @@ In order to enable Azure AD users to log into Bonus.ly, they must be provisioned
    ![Add User](./media/active-directory-saas-bonus-tutorial/IC781045.png "Add User")  
    1. Type the “**Email**, **First name**, **Last name**” of a valid AAD account you want to provision into the related textboxes.
    2. Click **Save**.
-   >[!NOTE]
-   >The AAD account holder will receive an email that includes a link to confirm the account before it becomes active.
-   >  
+   
+     >[!NOTE]
+     >The AAD account holder will receive an email that includes a link to confirm the account before it becomes active.
+     >  
 
 >[!NOTE]
 >You can use any other Bonus.ly user account creation tools or APIs provided by Bonus.ly to provision AAD user accounts.
