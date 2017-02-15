@@ -97,7 +97,7 @@ Each Resource Manager resources has its own `properties` section for configurati
 +    },
 ```
 
-In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource can have a `dependsOn` JSON list that specifies what other resources from this deployment need to finish deploying before deploying this resource. In this case there is only one element in this list, the virtual network from above. This must finish provisioning before the scale set because the scale set needs the network to exist before creating VMs in order to give those VMs private IP addresses from the network (from the ranges specified previously). The format of the dependsOn is `<type>/<name>` (the same `type` and `name` we used previously in the virtual network resource definition).
+In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource can have a `dependsOn` JSON list that specifies what other resources from this deployment need to finish deploying before deploying this resource. In this case there is only one element in this list, the virtual network from above. This must finish provisioning before the scale set can start deploying because the scale set needs the network to exist before creating any VMs. This way, the scale set can give these VMs private IP addresses from the IP address ranges specified in the network properties previously. The format of the dependsOn is `<type>/<name>` (the same `type` and `name` we used previously in the virtual network resource definition).
 
 ```diff
 +    {
