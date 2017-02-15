@@ -56,16 +56,16 @@
 ### [Create automated deployment templates](logic-apps-create-deploy-template.md)
 ### [Publish from Visual Studio](logic-apps-deploy-from-vs.md)
 
-## Manage
+## Manage and monitor
 ### [Manage logic apps in Visual Studio](logic-apps-manage-from-vs.md)
 ### [Monitor your logic apps](logic-apps-monitor-your-logic-apps.md)
+### [Manage integration accounts](logic-apps-enterprise-integration-accounts.md)
 ### [Monitor B2B messages](logic-apps-monitor-b2b-message.md)
 #### [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
 #### [Track B2B messages in OMS](logic-apps-track-b2b-messages-omsportal.md)
 #### [Query OMS for messages](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
-### [Manage artifacts in integration accounts](logic-apps-enterprise-integration-accounts.md)
 
 ## Examples, scenarios, and walkthroughs
 ### [Overview](logic-apps-examples-and-scenarios.md)
