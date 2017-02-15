@@ -68,7 +68,7 @@ As part of this procedure, you are required to create a base-64 encoded certific
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **BambooHR** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **BambooHR** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Scenario](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Scenario")
 2. On the **How would you like users to sign on to BambooHR** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -93,8 +93,9 @@ As part of this procedure, you are required to create a base-64 encoded certific
    
    1. In the Azure classic portal, on the **Configure single sign-on at BambooHR** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **SSO Login URL ** textbox.
    2. Create a **base-64 encoded** file from your downloaded certificate.  
+   
       >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o) 
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
       > 
    3. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
    4. Click **Save**.
@@ -129,7 +130,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to BambooHR, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **BambooHR **application integration page, click **Assign users**.
+2. On the **BambooHR** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
