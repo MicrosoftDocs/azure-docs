@@ -81,8 +81,6 @@ This guide shows you how to use features such as Azure Storage Analytics, client
 
 ![][1]
 
-*Figure 1 Monitoring, Diagnostics, and Troubleshooting*
-
 This guide is intended to be read primarily by developers of online services that use Azure Storage Services and IT Pros responsible for managing such online services. The goals of this guide are:
 
 * To help you maintain the health and performance of your Azure Storage accounts.
@@ -116,7 +114,7 @@ You should continuously monitor your Azure applications to ensure they are healt
 * Recording hourly metrics and using them to monitor average values such as average error counts and request rates.
 * Investigating potential issues using diagnostics tools as discussed later in the section "[Diagnosing storage issues]."
 
-The charts in Figure 3 below illustrate how the averaging that occurs for hourly metrics can hide spikes in activity. The hourly metrics appear to show a steady rate of requests, while the minute metrics reveal the fluctuations that are really taking place.
+The charts in the following image illustrate how the averaging that occurs for hourly metrics can hide spikes in activity. The hourly metrics appear to show a steady rate of requests, while the minute metrics reveal the fluctuations that are really taking place.
 
 ![][3]
 
