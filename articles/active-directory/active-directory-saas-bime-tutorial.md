@@ -67,7 +67,7 @@ Configuring SSO for Bime requires you to retrieve a thumbprint value from a cert
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Bime** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Bime** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-bime-tutorial/IC771709.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Bime** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -90,8 +90,9 @@ Configuring SSO for Bime requires you to retrieve a thumbprint value from a cert
    1. Select **Enable SAML authentication**.
    2. In the Azure classic portal, on the **Configure single sign-on at Bime** dialog page, copy the **Remote Login URL** value, and then paste it into the **Remote Login URL** textbox.
    3. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.       
+      
       >[!TIP]
-      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI) 
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI). 
       > 
    4. Click **Save**.
 8. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
