@@ -22,7 +22,7 @@ Azure Search offers a dedicated and programmable search engine with intelligent 
 
 ![Search bar powered by Azure Search](./media/search-what-is-azure-search/search-powered-by-azsearch3.png)
 
-Adding a great search experience is a necessity for web and mobile apps. Full text search with autocompleted query terms, spelling corrections, and matches based on semantically identical but superficially different inputs ("car" and "auto") is almost the minimum bar, despite the technical complexity backing the experience. Equally important are operational requirements for scale, reliability, and synchronization between search and backend data stores. 
+Having a solid search experience is a necessity for most web and mobile apps. Full text search with auto-completed query terms, spelling corrections, and matches based on semantically identical but superficially different inputs ("car" and "auto") is almost the minimum bar, despite the technical complexity backing the experience. Equally important are operational requirements for scale, reliability, and synchronization between search and backend data stores. 
 
 Azure Search provides a comprehensive range of capabilities for both search experience and operations.
 
@@ -65,31 +65,31 @@ Key strengths of Azure Search include:
 
 ### <a name="feature-drilldown"></a>Feature drilldown
 
-#### Full text search and linguistic analysis
+#### Full text search and text analysis
 
 Queries can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
 
 #### Language support
 
-Azure Search supports language analyzers for [56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
+Azure Search supports lexical analyzers for [56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
 
 #### Data integration
 
-You can push JSON data structures to an Azure Search index. Additionally, for supported data sources, you can use [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
+You can push JSON data structures to populate an Azure Search index. Additionally, for supported data sources, you can use [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
 
-**Document cracking** enables [indexing of major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office as well as PDF and HTML documents.
+**Document cracking** enables [indexing of major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office, PDF, and HTML documents.
 
 #### Search experience
 
-+ **Search suggestions** can be enabled for autocompleted search bars and type-ahead queries. [Actual documents in your index are suggested](https://msdn.microsoft.com/library/azure/dn798936.aspx) as users enter partial search input.
++ **Search suggestions** can be enabled for auto-completed search bars and type-ahead queries. [Actual documents in your index are suggested](https://msdn.microsoft.com/library/azure/dn798936.aspx) as users enter partial search input.
 
-+ **Faceted navigation** is easily added to your search results page with Azure Search. Using [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search returns all the necessary information to construct a faceted search experience in your app's UI to allow users to drill down and filter search results (for example, filter catalog items by price-range or brand).
++ **Faceted navigation** is enabled through a [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx). Azure Search returns a faceted navigation structure for your app's UI, for self-directed filtering (for example, to filter catalog items by price-range or brand).
 
 + **Filters** can be used to incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-+ **Hit highlighting** [allows](https://msdn.microsoft.com/library/azure/dn798927.aspx) users to see the snippet of text in each result that contains the matches for their query. You can choose which fields return highlighted snippets.
++ **Hit highlighting** [applies visual formatting to a matching keyword in search results](https://msdn.microsoft.com/library/azure/dn798927.aspx). You can choose which fields return highlighted snippets.
 
-+ **Simple scoring** is a key benefit of Azure Search. [Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are used to allow organizations to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.
++ **Simple scoring** is a key benefit of Azure Search. [Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are used to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.
 
 + **Sorting** is offered for multiple fields via the index schema and then toggled at query-time with a single search parameter.
 
@@ -121,13 +121,13 @@ Start with a free service, and then [create and query an index using sample buil
 
 1. Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
 
-  If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+  Non-subscribers can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and use free credits to try out paid Azure services. After credits are used up, you can keep the account and use free Azure services, such as Websites. Your credit card is never be charged, unless you explicitly change your settings and ask to be charged.
 
-  Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
+  Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
 
 2. Run the **Import data** wizard over the [built-in real estate sample dataset](search-get-started-portal.md#create-index).
 
-  This wizard can generate an initial index from most support data sources, which you can use as-is or modify, and load its data.
+  This wizard can generate and load an index from most Azure data sources. Code is required for data sources not specifically supported by the wizard.
 
 3. Use [Search Explorer](search-get-started-portal.md#query-index) to query the index.
 
@@ -142,11 +142,9 @@ While a number of tasks can be performed in the portal, Azure Search is intended
 
 ## Watch a short video
 
-Search engines are the preeminent methodology for finding information in mobile apps, on the web, and in corporate data stores. Azure Search makes it simple, while giving you capabilities similar to how search is experienced on large commercial web sites. 
+Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Search makes it simple, while giving you capabilities similar to how search is experienced on large commercial web sites. This 9-minute video from program manager Liam Cavanagh explains how a search engine can help, key features, and a typical workflow in Azure Search. 
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
-
- This 9-minute video from program manager Liam Cavanagh explains features and workflow. 
  
 + 0-3 minutes covers key features and use-cases.
 + 3-4 minutes covers service provisioning. 
