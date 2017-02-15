@@ -3,8 +3,8 @@
 
 URLs for Azure Government Cloud:
 
-- https://pod01-srs1.ugv.hypervrecoverymanager.windowsazure.us
-- https://pod01-prot2.ugv.backup.windowsazure.us
-- https://pod01-id1.ugv.backup.windowsazure.us
-- https://pod01-srs1.ugi.hypervrecoverymanager.windowsazure.us
-- https://pod01-id1.ugi.backup.windowsazure.us
+- *.ugv.hypervrecoverymanager.windowsazure.us
+- *.ugv.backup.windowsazure.us
+- *.ugi.hypervrecoverymanager.windowsazure.us
+- *.ugi.backup.windowsazure.us
+
