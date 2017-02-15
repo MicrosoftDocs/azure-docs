@@ -23,7 +23,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 **General problems (occur in both Windows and Linux clients)**
 
-I* [Quota error when trying to open a file](#quotaerror)
+* [Quota error when trying to open a file](#quotaerror)
 * [Slow performance when you access Azure File storage from Windows or from Linux](#slowboth)
 
 **Windows client problems**
