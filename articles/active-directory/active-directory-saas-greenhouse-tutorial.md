@@ -29,7 +29,7 @@ After completing this tutorial, the Azure AD users you have assigned to Greenhou
 The scenario outlined in this tutorial consists of the following building blocks:
 
 * Enabling the application integration for Greenhouse
-* Configuring single sign-on
+* Configuring single sign-on (SSO)
 * Configuring user provisioning
 * Assigning users
 
@@ -66,7 +66,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Greenhouse** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Greenhouse** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-greenhouse-tutorial/IC790786.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Greenhouse** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -79,6 +79,7 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure single sign-on](./media/active-directory-saas-greenhouse-tutorial/IC790789.png "Configure single sign-on")
 5. Forward that Metadata file to Greenhouse Support team.
+
 >[!NOTE]
 >Single sign-on has to be enabled by the Greenhouse support team.
 >
@@ -105,6 +106,7 @@ In order to enable Azure AD users to log into Greenhouse, they must be provision
    ![Add New User](./media/active-directory-saas-greenhouse-tutorial/IC790793.png "Add New User")
    1. In the **Enter user emails** textbox, type the email address of a valid Azure Active Directory account you want to provision.
    2. Click **Save**.    
+   
       >[!NOTE]
       >The Azure Active Directory account holders will receive an email including a link to confirm the account before it becomes active.
       >  
@@ -119,7 +121,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Greenhouse, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Greenhouse **application integration page, click **Assign users**.
+2. On the **Greenhouse** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-greenhouse-tutorial/IC790794.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
