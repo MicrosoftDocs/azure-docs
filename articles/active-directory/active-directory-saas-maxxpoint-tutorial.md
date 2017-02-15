@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/15/2017
 ms.author: jeedes
 
 ---
@@ -109,11 +109,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
  
 	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
 
-3. On the **MaxxPoint Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, in the **Identifier** textbox, type : `https://maxxpoint.westipc.com/saml`.
+3. On the **MaxxPoint Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, no need to perform any steps.
 
 	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_02.png)
 	
-4. If you wish to configure the application in **SP initiated mode**, on the **MaxxPoint Domain and URLs** section perform the following steps:
+4. On the **MaxxPoint Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
 	
 	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_03.png)
 
@@ -122,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
 	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier. Here we suggest you to use the unique value of URL in the Identifier. Contact [MaxxPoint support team](mailto:iumsupport@intercall.com) to get these values.
+	> Please note that this is not the real value. You have to update this value with the actual Sign On URL. Contact [MaxxPoint support team](mailto:iumsupport@intercall.com) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
