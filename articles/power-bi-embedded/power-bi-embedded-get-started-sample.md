@@ -54,7 +54,7 @@ Let's walk through setting up your Visual Studio development environment to acce
 
 You should see a response like:
 
-````
+```
 Checking import state... Publishing
 Checking import state... Succeeded
 ```

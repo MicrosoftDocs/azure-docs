@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/3/2017
+ms.date: 02/9/2017
 ms.author: toddabel
 
 ---
@@ -60,6 +60,7 @@ We recommend using Operations Management Suite to monitor your on-premises infra
 
 ### Service Fabric support logs
 
+<<<<<<< HEAD
 If you need to contact Microsoft support for help with your Azure Service Fabric cluster, support logs are almost always required. If your cluster is hosted in Azure, support logs are automatically configured and collected as part of creating a cluster. The logs are stored in a dedicated storage account that can be seen in your cluster's resource group. There is no fixed name to the storage account, but within the account you see blob containers and tables with names that start with 'fabric'. If you have a standalone cluster, use the guidance in [Create and manage a standalone Azure Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and [Configuration settings for a standalone Windows cluster](service-fabric-cluster-manifest.md) to set up collection for these logs. For standalone Service Fabric instances, the logs should be sent to a local file share. You are **required** to have these logs for support, but they are not intended to be usable by anyone outside of the Microsoft customer support team.
 
 ## Instrument your code
@@ -67,6 +68,15 @@ If you need to contact Microsoft support for help with your Azure Service Fabric
 Instrumenting the code is the basis for most other aspects of monitoring your services. Instrumentation is the only way you have of knowing that something is wrong and to diagnose what needs to be fixed. Although technically it's possible to connect a debugger to a production service, it's not a common practice. So, having detailed instrumentation data is important. When producing this volume of information, shipping all events off the local node can be expensive. Many services use a two-part strategy for dealing with the volume of instrumentation data:
 1.  All events are kept in a local rolling log file for a short interval of days, and are collected only when needed for debugging. Usually, the events needed for detailed diagnosis are left on the node to reduce costs and resource utilization.
 2.  Any events that indicate service health are sent to a central repository, where they can be used to raise alerts of an unhealthy service. Service-health events include error events, heartbeat events, and performance events.
+=======
+If you should need to contact Microsoft support for help with your Azure Service Fabric Cluster, support logs are almost always required. If your cluster is hosted within Azure, these logs are automatically configured and collected as part of creating a cluster. The logs are stored in a dedicated storage account that can be seen in your cluster's resource group. There is no fixed name to the storage account, but within the account you see blob containers and tables starting with 'fabric'. If your cluster is a standalone cluster, you should configure collection of these logs following the guidance in [Create and manage a standalone Azure Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md). For standalone Service Fabric, the logs should be sent to a local file share. You are **required** to have these logs for support, but they are not intended to be usable by anyone outside of the Microsoft customer support team. Using my best Obi-Wan Kenobi impression, these are not the logs you are interested in...
+
+## Instrument your code
+
+Instrumenting the code is the basis for most other aspects of monitoring your services. It is often surprising to people how much instrumentation is needed, but considering that this instrumentation is the only way you have of knowing something is wrong and to diagnose what needs to be fixed. While it is technically possible to do, it is unusual to connect a debugger to a production service, so having detailed instrumentation data is important. When producing this volume of information shipping all events off the local node can be expensive. Many services use a two-part strategy for dealing with the volume of instrumentation data:
+* All events are kept in local rolling log file for a short interval of days and only collected when needed for debugging. Typically the events needed for detailed diagnosis are left on the node to reduce costs and resource utilization
+* Any events indicating service health such as error events, heart beat events or performance events are sent to a central repository where they can be used to raise alerts of an unhealthy service.
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 
 Some solutions automatically instrument your code. Although these products can work well, manual instrumentation is almost always needed. In the end, you must have enough information to forensically debug the application. The next sections describe different approaches to instrumenting your code, and when you should choose one approach over another.
 
@@ -76,7 +86,11 @@ When you create an Azure Service Fabric solution from a template in Visual Studi
 
 #### Using structured **EventSource** events
 
+<<<<<<< HEAD
 Each of the following events is defined for a specific case, for example, a service type was registered. When you define messages this way, data can be packaged with the text of the error. You can more easily search and filter based on the names or values of the specified properties. Structuring the instrumentation output makes it easier to consume, but requires more thought and time to define a new event for each use case. Some event definitions can be shared across the entire application, for example, a method start or stop event would be reused across many services within an application. A domain-specific service, like an order system, might have a **CreateOrder** event, which has its own unique event. Often, this approach generates a large number of events, and potentially requires coordination of identifiers across project teams. For a complete example of structure **EventSource** events in Service Fabric, see the **PartyCluster.ApplicationDeployService** event in the Party Cluster sample.
+=======
+Each of the following events is defined for a specific use case, a service type was registered for example. Having messages defined in this way allows data to be packaged along with the text of the error. This allows for better searching and filtering based on the names or values of the properties specified. Structuring the instrumentation output makes it easier to consume, but requires more thought and time to define a new event for each use case. Some event definitions can be shared across the entire application, for example, a method start or stop event would be reused across many services within an application. A domain-specific service, such as an order system, may have a CreateOrder event, which will have its own unique event. Often this approach generates lots of events and potentially requires coordination of identifiers across project teams. For a complete example of structured EventSources in Service Fabric look at the [PartyCluster.ApplicationDeployService.ServiceEventSource](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster/blob/master/src/PartyCluster.ApplicationDeployService/ServiceEventSource.cs) within the Party Cluster sample.
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 
 ```csharp
     [EventSource(Name = "MyCompany-VotingState-VotingStateService")]
@@ -135,14 +149,23 @@ Because defining specific events can be difficult, many people define a few even
             WriteEvent(ErrorEventId, error, msg);
         }
 ```
+<<<<<<< HEAD
 Using a hybrid approach of both structured and generic instrumentation also can work well. Structured instrumentation is used for reporting errors and metrics. Generic events can be used for the detailed logging that is consumed by engineers for troubleshooting.
 
 ### ASP.NET Core logging
 
 It's important to carefully plan how you will instrument your code. The right instrumentation plan can help you avoid potentially destabilizing your code base, and then needing to reinstrument. To reduce the risk, you can choose an instrumentation library like [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), which is part of Microsoft ASP.NET Core. ASP.NET Core has an [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) interface that you can use with the provider of your choice, while minimizing the impact on existing code. You can use the code not only in ASP.NET Core on Windows and Linux, but also in the full framework, so you can standardize your instrumentation code across the .NET Framework and .NET Core.
+=======
+Using a hybrid approach of both structured and generic instrumentation can also work well. In this case structured instrumentation is used for reporting errors and metrics, while generic events can be used for the detailed logging that is consumed by engineers when troubleshooting.
+
+### ASP.NET Core logging
+
+Choosing how to instrument your code can be difficult, if you chose poorly and have to reinstrument, you are revisiting and potentially destabilizing your code base. To reduce the risk, developers can choose an instrumentation library such as [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) provided by ASP.NET Core. This provides an [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) interface that allows the provider of your choice to be used while minimizing the impact to existing code. Another nice aspect of this is that the code can be used not only in .NET Core on Windows and Linux, but in the full .NET framework too, giving the ability to standardize your instrumentation code across .NET and .NET Core.
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 
 #### Using Microsoft.Extensions.Logging in Service Fabric
 
+<<<<<<< HEAD
 1. Add the Microsoft.Extensions.Logging NuGet package to the project you want to instrument. Also, add any provider packages (for a third-party package, see the following example). For more information, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 2. Add a using directive for Microsoft.Extensions.Logging to your service file.
 3. Define a private variable within your service class:
@@ -157,16 +180,42 @@ It's important to carefully plan how you will instrument your code. The right in
 ```csharp
         _logger.LogDebug("Debug-level event from Microsoft.Logging");
         _logger.LogInformation("Informational-level event from Microsoft.Logging");
+=======
+1. Add the **Microsoft.Extensions.Logging** NuGet package to the project you are instrumenting. You'll also want to add any provider packages, we'll do this for a third-party package below. See [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) for more information
+
+2. Add a **using** directive for 'Microsoft.Extensions.Logging' to your service file
+
+3. Define a private variable within your service class
+
+    ```csharp
+        private ILogger _logger = null;
+    ```
+
+4. In the constructor of your service class, add
+    
+    ```csharp
+        _logger = new LoggerFactory().CreateLogger<Stateless>();
+    ```
+
+5. Start instrumenting your code in your methods. Here are a few samples
+    
+    ```csharp
+
+        _logger.LogDebug("Debug level event from Microsoft.Logging");
+        _logger.LogInformation("Informational level event from Microsoft.Logging");
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 
         // In this variant, we're adding structured properties RequestName and Duration, which have values MyRequest and the duration of the request.
         // Later in the article, we discuss why this step is useful.
         _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
-```
+
+    ```
 
 #### Using other logging providers
 
 Some third-party providers use this approach, including [Serilog](https://serilog.net/), [NLog](http://nlog-project.org/), and [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). You can plug each of these into ASP.NET Core Logging, or you can use them separately. Serilog has a feature that enriches all messages sent from a logger. This feature can be useful to output the service name, type, and partition information. To use this capability in the ASP.NET Core infrastructure, do the following steps:
 
+<<<<<<< HEAD
 1. Add the Serilog, Serilog.Extensions.Logging, and Serilog.Sinks.Observable NuGet packages to the project. For the next example, also add Serilog.Sinks.Literate. A better approach is shown later in this article.
 2. In Serilog, create a LoggerConfiguration and the logger instance.
 ```csharp
@@ -178,6 +227,28 @@ Some third-party providers use this approach, including [Serilog](https://serilo
 ```
 4. In the service constructor, add the following code. The code creates the property enrichers for the ServiceTypeName, ServiceName, PartitionId, and InstanceId properties of the service. It also adds a property enricher to the ASP.NET Core logging factory, so you can use the Microsoft.Extensions.Logging.ILogger in your code.
 ```csharp
+=======
+1. Add **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Observable** NuGet packages to the project. Also add **SeriLog.Sinks.Literate** for this example, a better approach is shown later in this article
+2. Create a LoggerConfiguration and the logger instance in SeriLog
+
+    ```csharp
+
+        Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
+
+    ```
+
+3. Add an SeriLog.ILogger argument to the service constructor and pass the newly created logger
+    
+    ```csharp
+
+        ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
+
+    ```
+
+4. In the service constructor, add the following, which creates the property enrichers for the ServiceTypeName, ServiceName, PartitionId, and InstanceId properties of the service. It also adds it to the ASP.NET Core logging factory so the Microsoft.Extensions.Logging.ILogger can be used in your code.
+    
+    ```csharp
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
         public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
             : base(context)
         {
@@ -193,8 +264,14 @@ Some third-party providers use this approach, including [Serilog](https://serilo
 
             _logger = new LoggerFactory().AddSerilog(serilog.ForContext(properties)).CreateLogger<Stateless>();
         }
+<<<<<<< HEAD
 ```
 5. Instrument the code the same as if you were using ASP.NET Core without Serilog.
+=======
+    ```
+
+5. Instrument the code the same as when using ASP.NET Core without SeriLog.
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 
 > [!NOTE]
 > We recommend that you don't use the static Log.Logger with this approach, because Service Fabric can host multiple instances of the same service type within a single process. If you use the static Log.Logger, the last writer of the property enrichers would have values shown for all instances that are running. This is one reason why the _logger variable is a private member variable of the service class. Also, you must make the _logger available to common code, which might be used across services.
@@ -224,15 +301,27 @@ Azure Diagnostics works only for Service Fabric clusters deployed to Azure, and 
 
 ### EventFlow
 
+<<<<<<< HEAD
 [Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) can route events from a node to one or more monitoring destinations. Because it is included as a NuGet package in your service project, EventFlow code and configuration travel with the service, eliminating the per-node configuration issue mentioned earlier about Azure Diagnostics. EventFlow runs within your service process, and connects directly to the configured outputs. Because of the direct connection, EventFlow works for Azure, container, and on-premises service deployments. Be careful if you run EventFlow in high-density scenarios, such as in a container, because each EventFlow pipeline makes an external connection. If you host a lot of processes, you get a lot of outbound connections! This isn't as much a concern for Service Fabric applications, because all replicas of a ServiceType run within the same process, which limits the number of outbound connections. EventFlow also offers event filtering, so that only the events that match the specified filter are sent. For detailed information about how to use EventFlow with Service Fabric, see [Collect logs directly from an Azure Service Fabric service process](service-fabric-diagnostic-collect-logs-without-an-agent.md).
+=======
+[EventFlow was released by the Visual Studio](https://github.com/Azure/diagnostics-eventflows) team and provides a mechanism for routing events from a node to one or more monitoring destinations. Because it is included as a NuGet package in your service project the code and the configuration for EventFlow travels with the service, eliminating the per node configuration issue mentioned about Azure Diagnostics. EventFlow runs within your service process and directly connects to the configured outputs. Because of this direct connection, EventFlow works for Azure, container or on-premise deployments of a service. Care must be taken when running many replicas on the same node because each EventFlow pipeline makes an external connection. If you are hosting lots of processes, you end up with lots of outbound connections! This isn't as much of an issue for Service Fabric applications because all replicas of a ServiceType run within the same process, limiting the number of outbound connections. EventFlow also offers filtering of events, so only the events that match the specified filter are sent. For detailed information on using EventFlow with Service Fabric, see [Collect logs directly from an Azure Service Fabric service process](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 
 To use EventFlow
 
+<<<<<<< HEAD
 1. Add the NuGet package to your service project.
 2. In the service's **Main** function, create the EventFlow pipeline, and then configure the outputs. In the following example, we use Serilog as an output:
 ```csharp
     internal static class Program
     {
+=======
+Using EventFlow is pretty easy
+1. Add the NuGet package to your service project
+2. Within the service's **Main** function create the EventFlow pipeline and configure the outputs. In this case, we're showing using SeriLog as an output
+    ```csharp
+
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
         /// <summary>
         /// This is the entry point of the service host process.
         /// </summary>
@@ -242,8 +331,7 @@ To use EventFlow
             {
                 using (var pipeline = ServiceFabricDiagnosticPipelineFactory.CreatePipeline("MonitoringE2E-Stateless-Pipeline"))
                 {
-                    IObserver<LogEvent> serilogInput = pipeline.Inputs.OfType<SerilogInput>().First();
-                    Log.Logger = new LoggerConfiguration().WriteTo.Observers(events => events.Subscribe(serilogInput)).CreateLogger();
+                    Log.Logger = new LoggerConfiguration().WriteTo.EventFlow(pipeline).CreateLogger();
 
                     // The ServiceManifest.xml file defines one or more service type names.
                     // Registering a service maps a service type name to a .NET type.
@@ -263,6 +351,7 @@ To use EventFlow
                 throw;
             }
         }
+<<<<<<< HEAD
     }
 ```
 3. Create a file in the service's \\PackageRoot\\ Config folder named eventFlowConfig.json. Inside the file, the configuration looks like this:
@@ -341,6 +430,83 @@ You can see the traces at the bottom of the preceding screenshot. You can see we
 In the filter definition, the type is **metadata**. This declares that an event that has a property of 'RequestName' with the value 'MyRequest', and that another property, 'Duration', contains the duration of the request, in milliseconds. This is what you see in the request event in Application Insights. The same approach works with any of the supported EventFlow inputs, including **EventSource**.
 
 If the cluster is a standalone cluster that cannot be connected to a cloud-based solution for policy reasons, you can use Elastic Search as an output. However, other outputs can be written, and pull requests are encouraged. Some third-party providers for ASP.NET Core logging also have solutions that support on-premises installations.
+=======
+
+    ```
+3. Create a file in the service's PackageRoot | Config folder named *eventFlowConfig.json*. Inside the file the configuration looks like
+    ```json
+        {
+        "inputs": [
+            {
+            "type": "EventSource",
+            "sources": [
+                { "providerName": "Microsoft-ServiceFabric-Services" },
+                { "providerName": "Microsoft-ServiceFabric-Actors" },
+                { "providerName": "MyCompany-MonitoringE2E-Stateless" }
+            ]
+            },
+            {
+            "type": "Serilog"
+            }
+        ],
+        "filters": [
+            {
+            "type": "drop",
+            "include": "Level == Verbose"
+            },
+            {
+            "type": "metadata",
+            "metadata": "request",
+            "requestNameProperty": "RequestName",
+            "include":  "RequestName==MyRequest",
+            "durationProperty": "Duration",
+            "durationUnit": "milliseconds"
+            }
+        ],
+        "outputs": [
+            {
+            "type": "StdOutput"
+            },
+            {
+            "type": "ApplicationInsights",
+            "instrumentationKey": "== instrumentation key here =="
+            }
+        ],
+        "schemaVersion": "2016-08-11",
+        "extensions": []
+        }
+    ```
+In the configuration there are two inputs defined, the two EventSource based sources created by Service Fabric and the EventSource for the service. Notice that the system level and health events that use ETW are not available to EventFlow. This is because a high level privilege is required to listen to an ETW source and services should never run with any high privileges. The other input is SeriLog, it's configuration occurred in the **Main** method.  There are also some filters applied, the first tells EventFlow to drop all events that are of an event level of verbose. We'll come back to the other filter definition in a minute. There are also two outputs configured, standard output, which will write to the output window within Visual Studio. The other output is ApplicationInsights, be sure to add your instrumentation key.
+
+4. The last step is to instrument the code. In this example, we're going to instrument RunAsync in a few different ways as an example. In the code below, we're still using SeriLog and some of the syntax used is specific to SeriLog. Be aware of the specific capabilities for the logging solution you choose. There are three events generated, a debug level event and two informational, the second which is tracking the request duration. With the configuration of EventFlow above, the Debug level event should not flow to the output.
+
+    ```csharp
+        Stopwatch sw = Stopwatch.StartNew();
+
+        while (true)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            sw.Restart();
+
+            // Delay a random interval to provide a more interesting request duration.
+            await Task.Delay(TimeSpan.FromMilliseconds(DateTime.Now.Millisecond), cancellationToken);
+
+            ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
+            _logger.LogDebug("Debug level event from Microsoft.Logging");
+            _logger.LogInformation("Informational level event from Microsoft.Logging");
+            _logger.LogInformation("{RequestName} {Duration}", "MyRequest", sw.ElapsedMilliseconds);
+        }
+    ```
+
+To view the events in Application Insights, open the Azure portal and navigate to your ApplicationInsights resource. Then click "Search" in the upper left and the events should be visible.
+
+![Application Insights Search view of events](./media/service-fabric-diagnostics-overview/ai-search-events.png)
+
+The traces are at the bottom of the picture. You can see we have only two events, the debug level event was dropped by EventFlow. So what's the request entry above the trace? It's the third '_logger' instrumentation line that shows the event was translated into a request metric within Application Insights. Let's go back to the filter definition, where the type is 'metadata'. This is declaring that an event that has a property of 'RequestName' with the value 'MyRequest' and that another property, 'Duration' contains the duration of the request in milliseconds. This is what you see in the request event in Application Insights. The same approach works with any of the supported EventFlow inputs including EventSource.
+
+If the cluster is a standalone cluster that cannot be connected to a cloud-based solution for policy reasons, EventFlow supports Elastic Search as an output, but other outputs can be written and pull requests are encouraged. Some of the third-party providers for ASP.NET Core logging also have solutions that support on-premises installations.
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 
 ## Azure Service Fabric health and load reporting
 
@@ -354,27 +520,39 @@ Health monitoring is critical to various aspects of operating a service. Health 
 
 Another aspect of service health is reporting metrics from the service. Metrics are important in Service Fabric because they are used to balance resource usage. Metrics also can be used as an indicator of system health. For example, you might have an application that has many services, and each instance reports a Request Per Second (RPS) metric. If one service is using more resources than another service, Service Fabric moves service instances around the cluster, to try to maintain even resource utilization. For a more detailed explanation of how this works, see [Manage resource consumption and load in Service Fabric with metrics](service-fabric-cluster-resource-manager-metrics.md).
 
+<<<<<<< HEAD
 Metrics also can help give you insight into how your service is performing. Over time, you can use metrics to check that the service is operating within expected parameters. For instance, if based on trends, at 9am on Monday morning the average RPS is 1,000, then you might set up a health report that alerts you if the RPS is below 500 or above 1500. Everything might be perfectly fine, but it might be worth a look to be sure that your customers are having a great experience. Your service can define a set of metrics that can be reported for health check purposes, but which do not affect the resource balancing of the cluster. To do this, set the metric weight to zero. We recommend that you start all metrics with a weight of zero, and don't increase the weight until you are sure that you understand how weighting the metrics affects resource balancing for your cluster.
+=======
+Metrics also give insight into how your service is performing and over time can be used to check that the service is operating within expected parameters. For instance, if based on trends, at 9am on Monday morning the average RPS is 1000, then you may setup a health report that alerts if the RPS is below 500 or above 1500. Everything may be perfectly fine, but it may be worth a look to ensure your customers are having a great experience. Your service can define a set of metrics that can be reported for health purposes, but does not affect the resource balancing of the cluster, set the metric weight to zero. We recommend that you start all metrics with a weight of zero and don't increase the weight until you are sure that you understand how this impacts resource balancing for your cluster.
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 
 > [!TIP]
 > Don't use too many weighted metrics. It can be difficult to understand why service instances are being moved around for balancing. A few metrics can go a long way!
 
 Anything that can indicate the health and performance of your application are candidates for metrics and health reports. A CPU performance counter can tell you how much your node is utilized, but it doesn't tell you whether a particular service is healthy, because multiple services might be running on a single node. On the other hand, metrics like RPS, items processed, or request latency all can indicate the health of a specific service.
 
+<<<<<<< HEAD
 To report health, add code similar to this:
 
+=======
+To report health, add code such as
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 ```csharp
- if (!result.HasValue)
- {
-     HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-     this.Partition.ReportInstanceHealth(healthInformation);
- }
+        if (!result.HasValue)
+        {
+            HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
+            this.Partition.ReportInstanceHealth(healthInformation);
+        }
 ```
 
+<<<<<<< HEAD
 To report a metric, add code similar to this to your service:
 
+=======
+To report a metric add code like the following to your service
+>>>>>>> ae25f4579ec704430d8a091d24ac20864769815d
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+        this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
 ```
 
 ## Watchdogs

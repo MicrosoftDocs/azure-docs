@@ -468,8 +468,7 @@ The following recommendations are useful for determining if there is an issue wi
 ## Solution deployment
 If you have an existing on-premises infrastructure already configured with a VPN appliance, you can deploy the reference architecture by following these steps:
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn%2Fazuredeploy.json)
+1. Open [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn%2Fazuredeploy.json) in a new tab or browser window. The link takes you to the Azure Portal. 
 2. Wait for the link to open in the Azure portal, then follow these steps: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-rg` in the text box.

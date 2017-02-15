@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/08/2017
+ms.date: 02/10/2017
 ms.author: alkohli
 
 ---
@@ -23,7 +23,7 @@ ms.author: alkohli
 
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 4. They also contain a list of the StorSimple software updates included in this release. 
 
-Update 4 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 3.1. The device version associated with Update 4 is 6.3.9600.17818.
+Update 4 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 3.1. The device version associated with Update 4 is 6.3.9600.17820.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 

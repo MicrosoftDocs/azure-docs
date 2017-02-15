@@ -1,3 +1,4 @@
+
 ### Installation failures
 | **Sample error message** | **Recommended action** |
 |--------------------------|------------------------|

@@ -20,25 +20,46 @@ ms.author: cynthn
 ---
 # Convert a VM from unmanaged disks to managed disks
 
-If you have existing Azure VMs that use unmanaged disks in storage accounts and you want to be able to take advantage of [Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), you can convert the VMs. The VMs are shut down and deallocated, then you use Powershell to convert the VM to use managed disks. After the conversion, you restart the VM and it will now be using managed disks.
+If you have existing Azure VMs that use unmanaged disks in storage accounts and you want to be able to take advantage of [Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), you can convert the VMs. The process converts both the OS disk and any attached data disks from using an unmanaged disks in a storage account to using managed disks. The VMs are shut down and deallocated, then you use Powershell to convert the VM to use managed disks. After the conversion, you restart the VM and it will now be using managed disks.
 
 Before starting,  make sure that you review [Plan for the migration to Managed Disks](virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
-
-The process converts both the OS disk and any attached data disks from using a unmanaged disks in a storage account to using managed disks. 
-
-This process requires a restart of the VM, so you can schedule the migration of your VMs during a pre-existing maintenance window.
-
 Test the migration process by migrating a test virtual machine before performing the migration in production because the migration process is not reversible.
 
 
 > [!IMPORTANT] 
 > During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
 
+
+## Managed Disks and Azure Storage Service Encryption (SSE)
+
+You cannot convert an unmanaged VM created in the Resource Manager deployment model to Managed Disks if any of the attached unmanaged disks is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to convert unmanaged VM that are, or have been, in an encrypted storage account:
+
+**Data Disks**:
+1.	Detach the Data Disk from the VM.
+2.	Copy the VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): `https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+3.	Attach the copied disk to the VM and convert the VM.
+
+**OS Disk**:
+1.	Stop deallocated the VM. Save the VM configuration if needed.
+2.	Copy the OS VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): `https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+3.	Create a VM that uses managed disks and attach that VHD file as the OS disk during creation.
+
+
+## Before you begin
+If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
+
+
 ## Convert VMs in an availability set to managed disks in a managed availability set
 
 If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
 
-The following script updates the availability set to be a managed availabiilty set, then it deallocates, coverts the disks and then restarts each Vm in the availability set.
+The following script updates the availability set to be a managed availability set, then it deallocates, coverts the disks and then restarts each VM in the availability set.
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -61,6 +82,9 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 
 ## Convert existing Azure VMs to managed disks of the same storage type
 
+> [!IMPORTANT]
+> After performing the following procedure, there is a single block blob that remains in the default /vhds container. The name of the file is “VMName.xxxxxxx.status”. Do not delete this remaining status object. Future work should address this issue.
+
 This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SSD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
 
 1. Create variables and deallocate the VM. This example sets the resource group name to **myResourceGroup** and the VM name to **myVM**.
@@ -72,7 +96,6 @@ This section covers how to convert your existing Azure VMs from unmanaged disks 
     ```
    
     The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
-	
 	
 2. Convert all of the disks associated with the VM including the OS disk and any data disks.
 
@@ -117,9 +140,13 @@ This section will show you how to convert your existing Azure VMs on Standard un
 	If you get internal server error, please retry 2-3 times before reaching out to our support team.
 
     ```powershell
-	ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $resourceGroupName -VMName
+	ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $resourceGroupName -VMName $vmName
 	```
+1. Stop (deallocate) the VM.
 
+    ```powershell
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    ```
 2.  Upgrade all of the disks to Premium Storage.
 
     ```powershell
@@ -134,8 +161,13 @@ This section will show you how to convert your existing Azure VMs on Standard un
 			}
 		}
     ```
+1. Start the VM.
 
-    You can also have a mixture of disks that use standard and Premium storage.
+    ```powershell
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    ```
+    
+You can also have a mixture of disks that use standard and Premium storage.
 	
 
 ## Next steps

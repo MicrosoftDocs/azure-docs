@@ -1,5 +1,5 @@
 ---
-title: Configure proxy and firewall settings in Log Analytics | Microsoft Docs
+title: Configure proxy and firewall settings in Azure Log Analytics | Microsoft Docs
 description: Configure proxy and firewall settings when your agents or OMS services need to use specific ports.
 services: log-analytics
 documentationcenter: ''
@@ -12,14 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: banders;magoedte
 
 ---
 # Configure proxy and firewall settings in Log Analytics
-Actions needed to configure proxy and firewall settings for Log Analytics in OMS differ when you use Operations Manager and its agents versus Microsoft Monitoring Agents that connect directly to servers. Review the following sections for the type of agent that you use.
+Actions needed to configure proxy and firewall settings for Log Analytics differ for the type of agents that you are using. Review the following sections for the type of agent that you use.
 
-## Configure proxy and firewall settings with the Microsoft Monitoring Agent
+## Settings for the OMS Gateway
+
+If your agents do not have Internet access, they can instead send their data using your own network resources to the OMS Gateway. The Gateway collects their data and sends it to the OMS service on their behalf.
+
+Configure agents that communicate with the OMS Gateway using its fully qualified domain name and custom port number.
+
+The OMS Gateway needs Internet access. Use the same proxy server or firewall settings for the OMS Gateway that you would for the type of agents you have. For more information about the OMS Gateway, see [Connect computers and devices to OMS using the OMS Gateway](log-analytics-oms-gateway.md).
+
+## Configure settings with the Microsoft Monitoring Agent
 For the Microsoft Monitoring Agent to connect to and register with the OMS service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. The following tables list the ports that OMS needs.
 
 | **Agent Resource** | **Ports** | **Bypass HTTPS inspection** |
@@ -67,7 +75,7 @@ Copy the following sample, update it with information specific to your environme
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## Configure proxy and firewall settings with Operations Manager
+## Configure settings with Operations Manager
 For an Operations Manager management group to connect to and register with the OMS service, it must have access to the port numbers of your domains and URLs. If you use a proxy server for communication between the Operations Manager management server and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. Even if an Operations Manager management server is not behind a proxy server, its agents might be. In this case, the proxy server should be configured in the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the OMS web service.
 
 In order for Operations Manager agents to communicate with the OMS service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version. The proxy setting for agents is specified in the Operations Manager console. Your version should be one of the following:
