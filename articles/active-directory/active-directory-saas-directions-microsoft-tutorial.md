@@ -24,14 +24,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A valid Azure subscription
 * A Directions on Microsoft subscription
 
-If you don’t have a federated Directions on Microsoft subscription yet, email a request to “*service@DirectionsOnMicrosoft.com*”.
+If you don’t have a federated Directions on Microsoft subscription yet, email a request to **service@DirectionsOnMicrosoft.com**.
 
 After completing this tutorial, the Azure Active Directory users you have assigned to Directions on Microsoft will be able to single sign into the application using single sign-on.
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 * Enabling the application integration for Directions on Microsoft
-* Configuring single sign-on
+* Configuring single sign-on (SSO)
 * Configuring user provisioning
 * Assigning users
 
@@ -68,7 +68,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure SSO, perform the following steps:**
 
-1. In the Azure classic portal, on the **Directions on Microsoft** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Directions on Microsoft** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Enable Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Enable Single Sign-On")
 2. On the **How would you like users to sign on to Directions on Microsoft** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -101,7 +101,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Directions on Microsoft, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Directions on Microsoft **application integration page, click **Assign users**.
+2. On the **Directions on Microsoft** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
