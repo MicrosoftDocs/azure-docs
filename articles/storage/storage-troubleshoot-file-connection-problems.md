@@ -38,7 +38,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 **Linux client problems**
 
 * [Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure Files](#encryption)
-* ["Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
+* [Intermittent IO Error - "Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 * [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 * [Linux VM experiencing random delays in commands like "ls"](#delayproblem)
 * [Error 112 - timeout error](#error112)
