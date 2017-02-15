@@ -89,7 +89,7 @@ Click on the following links to reads the steps on How to install a Master Targe
     
 * **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
 
-* You need a new drive added onto your existing Master target server. This drive is called a retention drive. Add a new disk and format the drive. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
+* You need a new drive added onto your existing Windows Master target server. This drive is called a retention drive. Add a new disk and format the drive. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
    
    a. Volume shouldn't be in use for any other purpose (target of replication etc.)
 
@@ -111,6 +111,7 @@ Click on the following links to reads the steps on How to install a Master Targe
 
 * Enable the disk.EnableUUID = True parameter on the MT VM via the vCenter properties. <!-- !todo Needs link. -->
 
+* The Master Target should have atleast one VMFS datastore attached. If there are none, the Datastore input on the reprotect page will be empty and you will no tbe able to proceed.
 
 
 <!--
