@@ -20,7 +20,6 @@
 ### [PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [REST](network-watcher-check-next-hop-rest.md)
 ## View your network topology
-### [REST](network-watcher-topology-rest.md)
 ## Troubleshoot VPN Gateway and connections
 ### [REST](network-watcher-troubleshoot-manage-rest.md)
 # How to
@@ -28,7 +27,6 @@
 ## [Diagnose On-Premises VPN Connectivity](network-watcher-diagnose-on-premises-connectivity.md)
 ## [Analyze packet captures to identify Network anomalies](network-watcher-deep-packet-inspection.md)
 ## [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
-## [Perform compliance and audit on your network using PowerShell](network-watcher-nsg-auditing-powershell.md)
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [.NET](/dotnet/api)

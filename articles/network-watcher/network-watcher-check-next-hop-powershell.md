@@ -97,7 +97,6 @@ The following list shows the currently available NextHopType values:
 
 ## Next steps
 
-Learn how to review your network security group settings programmatically by visiting [NSG Auditing with Network Watcher](network-watcher-nsg-auditing-powershell.md)
 
 
 

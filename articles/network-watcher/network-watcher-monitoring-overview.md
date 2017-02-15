@@ -41,7 +41,7 @@ Network Watcher currently has the following capabilities:
 * **[Security group view](network-watcher-security-group-view-overview.md)** - This feature gets the effective and applied security rules that are applied on a VM.
 * **[NSG Flow logging](network-watcher-nsg-flow-logging-overview.md)** - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port and Protocol.
 * **[Virtual Network Gateway and Connection troubleshooting](network-watcher-troubleshoot-manage-rest.md)** - This feature provides the ability to troubleshoot Virtual Network Gateways and Connections.
-* **[Network Subscription Limits](network-watcher-network-subscription-limit.md)** - This feature enables you to view network resource usage against limits.
+* **Network Subscription Limits** - This feature enables you to view network resource usage against limits.
 * **Configuring Diagnostics Log** – This feature provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
 
 ## Network resource level monitoring

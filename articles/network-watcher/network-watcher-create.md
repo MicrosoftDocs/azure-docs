@@ -71,7 +71,6 @@ Now that you have an instance of Network Watcher, learn about the features avail
 * [Next hop](network-watcher-next-hop-overview.md)
 * [Security group view](network-watcher-security-group-view-overview.md)
 * [NSG flow logging](network-watcher-nsg-flow-logging-overview.md)
-* [Virtual Network Gateway troubleshooting](network-watcher-troubleshoot-overview.md)
 
 Once a Network Watcher instance has been created, package capture can be configured by following the article [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
