@@ -134,7 +134,7 @@ While a number of tasks can be performed in the portal, Azure Search is intended
 
 Search engines are the preeminent methodology for finding information in mobile apps, on the web, and in corporate data stores. Azure Search makes it simple, while giving you powerful capabilities similar to how search is experienced on large commercial web sites. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138]
+>[!VIDEO https://sec.ch9.ms/sessions/69613110-c334-4f25-bb36-08e5a93456b5/138AzureSearchOverview.mp4]
 
  This short video from program manager, Liam Cavanagh is a visual introduction into how Azure Search can meet your search requirements. 
  
