@@ -826,7 +826,7 @@ You can monitor OS encryption progress in three ways:
                               |-- virtualMachines
                                    |-- [Your virtual machine]
                                         |-- InstanceView
-~~~~                
+	~~~~                
 
  In the InstanceView, scroll down to see the encryption status of your drives.
 
