@@ -1,6 +1,6 @@
 ---
-title: List of connectors to use in Azure Logic apps | Microsoft Docs
-description: Get a complete list of the Microsoft-managed connectors you can use to build and create your logic apps
+title: Connectors for Azure Logic Apps | Microsoft Docs
+description: Choose from Microsoft-managed connectors to build and create logic apps
 services: logic-apps
 documentationcenter: ''
 author: MandiOhlinger
@@ -72,7 +72,7 @@ Use the enterprise connectors to create logic apps for B2B scenarios that includ
 ### Connectors can be triggers
 Several connectors provide triggers that can notify your app when specific events occur. 
 For example, the FTP connector has the OnUpdatedFile trigger. 
-You can build either a logic app, PowerApp or Flow that listens to this trigger and performs an action whenever the trigger fires.
+You can build either a logic app, PowerApp, or Flow that listens to this trigger and performs an action whenever the trigger fires.
 
 There are two types of triggers:  
 
@@ -110,7 +110,7 @@ Actions map to operations that are defined in the Swagger metadata.
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Connects to your business Microsoft OneDrive and uploads, deletes, lists your files, and more."
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox and access your email and more."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Connects to Microsoft Project Online."
-[rssdoc]: ./connectors-create-api-rss.md "RSS connector allows the you to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed."
+[rssdoc]: ./connectors-create-api-rss.md "RSS connector allows the you to publish and retrieve feed items. It also lets you trigger operations when a new item is published to the feed."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
 [sendgriddoc]: ./connectors-create-api-sendgrid.md "Connects to Microsoft Project Online."
 [service-busdoc]: ./connectors-create-api-servicebus.md "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
