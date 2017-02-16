@@ -349,7 +349,7 @@ Azure Disk Encryption helps safeguard the disk-encryption keys and secrets in yo
 #### Create a key vault
 To create a key vault, use one of the following options:
 
-* ["101-Create-KeyVault" Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
+* ["101-Key-Vault-Create" Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Azure PowerShell key vault cmdlets](https://msdn.microsoft.com/library/dn868052.aspx)
 * Azure Resource Manager
 
