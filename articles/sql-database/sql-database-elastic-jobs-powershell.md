@@ -18,11 +18,6 @@ ms.author: ddove
 
 ---
 # Create and manage SQL Database elastic jobs using PowerShell (preview)
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
-> * [PowerShell](sql-database-elastic-jobs-powershell.md)
-> 
-> 
 
 The PowerShell APIs for **Elastic Database jobs** (in preview), let you define a group of databases against which scripts will execute. This article shows how to create and manage **Elastic Database jobs** using PowerShell cmdlets. See [Elastic jobs overview](sql-database-elastic-jobs-overview.md). 
 
