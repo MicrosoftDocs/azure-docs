@@ -89,7 +89,7 @@ If you are enabling 'Single Sign On with 'Password Sync' and there is a firewall
 
 |Protocol|Port Number|Description
 | --- | --- | ---
-|HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
+|HTTPS|9090|	Enable SSO registration (required only for the SSO registration process).
 
 ## Table 7a & 7b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 The following tables describe the endpoints, ports, and protocols that are required for communication between Azure AD Connect Health agents and Azure AD
