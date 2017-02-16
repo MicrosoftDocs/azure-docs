@@ -18,7 +18,7 @@ ms.author: kgremban
 
 ---
 # Configure Azure Multi-Factor Authentication settings
-This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers a variety of topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all of these features are available in every version of Azure Multi-Factor Authentication.
+This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers various topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all these features are available in every version of Azure Multi-Factor Authentication.
 
 | Feature | Description | 
 |:--- |:--- ||
@@ -26,20 +26,24 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 | [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. |
 | [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |
 | [Caching](#caching-in-azure-multi-factor-authentication) |Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |
-| [Trusted IPs](#trusted-ips) |Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. |
+| [Trusted IPs](#trusted-ips) |Administrators of a managed or federated tenant can use Trusted IPs to bypass two-step verification for users that sign in from the company’s local intranet. |
 | [App Passwords](#app-passwords) |An app password allows an application that is not MFA-aware to bypass multi-factor authentication and continue working. |
 | [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
 | [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |
 
 ## Access the Azure MFA Management Portal
 
-The configuration for some of the features below is found in the Azure Multi-Factor Authentication Management Portal. There are two different ways that you can access the MFA management portal, which are both done via the Azure portal. The first is by managing a Multi-Factor Auth Provider if you use consumption-based MFA. The second is via the MFA service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
+The features covered in this article are configured in the Azure Multi-Factor Authentication Management Portal. There are two ways to access the MFA management portal through the Azure classic portal. The first is by managing a Multi-Factor Auth Provider. The second is via the MFA service settings. 
 
 ### Use an Auth Provider
+
+If you use a Multi-Factor Auth Provider for consumption-based MFA, use this method to access the management portal.
 
 To access the MFA Management Portal via an Azure Multi-Factor Auth Provider, sign into the Azure classic portal as an administrator and select the Active Directory option. Click the **Multi-Factor Auth Providers** tab, then select your directory and click the **Manage** button at the bottom.
 
 ### Use the MFA Service Settings page 
+
+If you have a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility + Security license, use this method to access the MFA service settings page .
 
 To access the MFA Management Portal via the MFA Service Settings page, sign into the Azure classic portal as an administrator and select the Active Directory option. Click on your directory and then click the **Configure** tab. Under the multi-factor authentication section, select **Manage service settings**. At the bottom of the MFA Service Settings page, click the **Go to the portal** link.
 
@@ -190,7 +194,7 @@ Whether Trusted IPs is enabled or not, two-step verification is required for bro
 3. On the Service Settings page, under Trusted IPs, you have two options:
    
    * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS.
-   * **For requests from a specific range of public IPs** – Enter the IP addresses in the text box provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges. All users who are signing in from these IP address will bypass two-step verification.
+   * **For requests from a specific range of public IPs** – Enter the IP addresses in the text box provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
 4. Click **Save**.
 5. Once the updates have been applied, click **Close**.
 
@@ -217,12 +221,12 @@ The following is an important list of things that you should know about app pass
 > App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints. This is because domain passwords are required to authenticate on-premises and app passwords are required to authenticate with the cloud.
 
 ### Naming Guidance for App Passwords
-App password names should reflect the device on which they are used. For instance, if you have a laptop that has non-browser apps such as Outlook, Word, and Excel, create one app password named Laptop and use that app password in all of these applications. Then, create another app password named Desktop for the same applications on your desktop computer. 
+App password names should reflect the device on which they are used. For instance, if you have a laptop that has non-browser apps such as Outlook, Word, and Excel, create one app password named Laptop and use that app password in these applications. Then, create another app password named Desktop for the same applications on your desktop computer. 
 
 Microsoft recommends creating one app password per device, not one app password per application.
 
 ### Federated (SSO) App Passwords
-Azure AD supports federation (single sign-on) with on-premises Windows Server Active Directory Domain Services (AD DS). If your organization is federated with Azure AD and you are going to be using Azure Multi-Factor Authentication, then the following information about app passwords is important for you. This secion only applies to federated (SSO) customers.
+Azure AD supports federation (single sign-on) with on-premises Windows Server Active Directory Domain Services (AD DS). If your organization is federated with Azure AD and you are going to be using Azure Multi-Factor Authentication, then the following information about app passwords is important for you. This section only applies to federated (SSO) customers.
 
 * App passwords are verified by Azure AD and therefore bypass federation. Federation is only actively used when setting up app passwords.
 * For federated (SSO) users, we never go to the Identity Provider (IdP) unlike the passive flow. The passwords are stored in the organizational id. If the user leaves the company, that info has to flow to organizational id using DirSync in real time. Account disable/deletion may take up to three hours to sync, delaying disable/deletion of App Password in Azure AD.
@@ -256,10 +260,10 @@ By default, users cannot create app passwords. This feature must be enabled. To 
 ### Create app passwords
 Users can create app passwords during their initial registration. They are given an option at the end of the registration process that allows them to create app passwords.
 
-Users can also create app passwords after registration by changing their settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](./end-user/multi-factor-authentication-end-user-app-passwords.md).
+Users can also create app passwords after registration by changing their settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
 ## Remember Multi-Factor Authentication for devices that users trust
-Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users. It allows you to give users the option to by-pass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance usability by minimizing the number of times a user my perform two-step verification on the same device.
+Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users. It allows you to give users the option to by-pass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance usability by minimizing the number of times a user may perform two-step verification on the same device.
 
 > [!NOTE]
 > This feature is implemented as a browser cookie cache. It doesn't work if your browser cookies are not enabled.
@@ -282,7 +286,7 @@ However, if an account or device is compromised, remembering MFA for trusted dev
 
 Once you enable this feature, users can mark a device as trusted when they sign in by checking **Don't ask again**.
 
-![Don't ask again - screenshot](./media/multi-factor-authentication-security-best-practices/trusted.png)
+![Don't ask again - screenshot](./media/multi-factor-authentication-whats-next/trusted.png)
 
 ## Selectable Verification Methods
 You can choose which verification methods are available for your users. The table below provides a brief overview of each method.

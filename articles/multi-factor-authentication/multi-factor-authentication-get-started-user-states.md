@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 02/16/2017
 ms.author: kgremban
 
 ---
@@ -23,7 +23,7 @@ User accounts in Azure Multi-Factor Authentication have the following three dist
 | State | Description | Non-browser apps affected | 
 |:---:|:---:|:---:|
 | Disabled |The default state for a new user not enrolled Azure Multi-Factor Authentication (MFA). |No |
-| Enabled |The user has been enrolled in Azure MFA, but has not registered. They wioll be prompted to register the next time they sign in. |No.  They continue to work until the registration process is completed. |
+| Enabled |The user has been enrolled in Azure MFA, but has not registered. They will be prompted to register the next time they sign in. |No.  They continue to work until the registration process is completed. |
 | Enforced |The user has been enrolled and has completed the registration process for Azure MFA. |Yes.  Apps require app passwords. |
 
 ## Changing a user state
