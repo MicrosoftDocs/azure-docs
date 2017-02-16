@@ -196,3 +196,4 @@ Example:
 [install-az-cli2]: https://docs.microsoft.com/en-us/cli/azure/install-az-cli2
 [az-documentdb-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb
 [az-documentdb-create-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb#create
+[rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
