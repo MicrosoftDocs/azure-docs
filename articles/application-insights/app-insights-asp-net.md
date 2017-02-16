@@ -23,12 +23,12 @@ ms.author: awills
 You need:
 
 * Visual Studio 2013 update 3 or later. Later is better.
-* A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
+* A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, by using your [Microsoft account](http://live.com).
 
 There are alternative topics to look at if you are interested in:
 
-* [Instrumenting a web app at run time](app-insights-monitor-performance-live-website-now.md)
-* [Azure Cloud services](app-insights-cloudservices.md)
+* [Instrumenting a web app at runtime](app-insights-monitor-performance-live-website-now.md)
+* [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> Step 1: Add the Application Insights SDK
 If it's a new project, make sure Application Insights is selected when you create a new project in Visual Studio.
@@ -135,7 +135,7 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 The following are other types of telemetry you can add.
 ### Dependencies, exceptions, and performance counters
 
-[Install status monitor](http://go.microsoft.com/fwlink/?LinkId=506648) on each IIS server machine, to get additional telemetry about your web apps. If it is already installed, you don't need to do anything. (You might have used status monitor already, to start monitoring an app at run time.)
+[Install status monitor](http://go.microsoft.com/fwlink/?LinkId=506648) on each IIS server machine, to get additional telemetry about your web apps. If it is already installed, you don't need to do anything. (You might have used status monitor already, to start monitoring an app at runtime.)
 
 By using status monitor in addition to the build-time SDK, you get a more complete set of telemetry that includes:
 
@@ -144,8 +144,8 @@ By using status monitor in addition to the build-time SDK, you get a more comple
 * [Exceptions](app-insights-asp-net-exceptions.md): More detailed telemetry for some exceptions.
 * [Dependencies](app-insights-asp-net-dependencies.md): Including return values.
 
-### Web pages and single-page apps
-1. [Add the JavaScript snippet](app-insights-javascript.md) to your web pages to show data about page views, load times, browser exceptions, AJAX call performance, and user and session counts. These appear in the Browser and Usage blades.
+### Webpages and single-page apps
+1. [Add the JavaScript snippet](app-insights-javascript.md) to your webpages to show data about page views, load times, browser exceptions, AJAX call performance, and user and session counts. These appear in the Browser and Usage blades.
 2. [Code custom events](app-insights-api-custom-events-metrics.md) to count, time, or measure user actions.
 
 
@@ -153,7 +153,7 @@ By using status monitor in addition to the build-time SDK, you get a more comple
 Got a problem? If you want to insert code in your app to help diagnose it, you have several options:
 
 * [Capture log traces](app-insights-asp-net-trace-logs.md): If you're already using Log4N, NLog, or System.Diagnostics.Trace to log trace events, the output can be sent to Application Insights. You can correlate this output with requests, search through it, and analyze it.
-* [Custom events and metrics](app-insights-api-custom-events-metrics.md): Use TrackEvent() and TrackMetric() in either server or web page code.
+* [Custom events and metrics](app-insights-api-custom-events-metrics.md): Use TrackEvent() and TrackMetric() in either server or webpage code.
 * [Tag telemetry with additional properties](app-insights-api-filtering-sampling.md#add-properties).
 
 Use [Search](app-insights-diagnostic-search.md) to find and correlate specific events, and [Analytics](app-insights-analytics.md) to perform more powerful queries.
