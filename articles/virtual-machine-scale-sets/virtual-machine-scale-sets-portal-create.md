@@ -50,7 +50,7 @@ Now you can use the default settings and quickly create the virtual machine.
 
 
 ## Connect to a VM in the scale set
-Once your scale set is deployed, navigate to the `Inbound NAT Rules` tab of the load balancer for the scale set:
+If you chose to limit your scale set to a single placement group, then the scale set is deployed with NAT rules configured to let you connect to the scale set easily (if not, to connect to the virtual machines in the scale set, you likely need to create a jumpbox in the same virtual network as the scale set). To see them, navigate to the `Inbound NAT Rules` tab of the load balancer for the scale set:
 
 ![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 
