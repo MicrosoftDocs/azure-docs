@@ -26,13 +26,13 @@ ms.author: raynew
 
 This article describes how to replicate on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
- If only you want to migrate VMware VMs with a simple failover, without full replication (replicate, failover, failback), read [this article](site-recovery-migrate-to-azure.md).
+ If your intend is to migrate VMware VMs to Azure, read [this article](site-recovery-migrate-to-azure.md) to learn more before you proceed.
 
 Post comments and questions at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Steps
 
-Here's what you do:
+Here's what you need to do:
 
 1. Verify prerequisites and limitations.
 2. Set up Azure network and storage accounts.
@@ -41,7 +41,7 @@ Here's what you do:
 4. Create a Recovery Services vault. The vault contains configuration settings, and orchestrates replication.
 5. Specify source, target, and replication settings.
 6. Deploy the Mobility service on VMs you want to replicate.
-7. Enable replication for VMs.
+7. Enable replication for the VMs.
 7. Run a test failover to make sure everything's working as expected.
 
 ## Prerequisites
@@ -49,7 +49,7 @@ Here's what you do:
 **Support requirement** | **Details**
 --- | ---
 **Azure** | Learn about [Azure requirements](site-recovery-prereq.md#azure-requirements)
-**On-premises configuration server** | You need a VMware VM running Windows Server 2012 R2 or later. You set up this server during Site Recovery deployment.<br/><br/> By default the process server and master target server are also installed on this VM. When you scale up, you might need a separate process server. If you do, it has the same requirements as the configuration server.<br/><br/> [Learn more](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure) about these components.
+**On-premises configuration server** | You need a VMware VM running Windows Server 2012 R2 or later. You set up this server during Site Recovery deployment.<br/><br/> By default the process server and master target server are also installed on this VM. When you scale up, you might need a separate process server, and it has the same requirements as the configuration server.<br/><br/> Learn more about these components [here](site-recovery-set-up-vmware-to-azure.md#Configuration-server-minimum-requirements)
 **On-premises VMware servers** | One or more VMware vSphere servers, running 6.0, 5.5, 5.1 with latest updates. Servers should be located in the same network as the configuration server (or separate process server).<br/><br/> We recommend a vCenter server to manage hosts, running 6.0 or 5.5 with the latest updates. Only features that are available in 5.5 are supported when you deploy version 6.0.
 **On-premises VMs** | VMs you want to replicate should be running a [supported operating system](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). VM should have VMware tools running.
 **URLs** | The configuration server needs access to these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> If you have IP address-based firewall rules, ensure they allow communication to Azure.<br/></br> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.<br/></br> Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).<br/><br/> Allow this URL for the MySQL download: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
@@ -57,25 +57,13 @@ Here's what you do:
 
 
 
-## Limitations
-
-**Limitation** | **Details**
---- | ---
-**Azure** | Storage and network accounts must be in the same region as the vault<br/><br/> If you use a premium storage account, you also need a standard store account to store replication logs<br/><br/> You can't replicate to premium accounts in Central and South India.
-**On-premises configuration server** | VMware VM adapter type should be VMXNET3. If it isn't, [install this update](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1)<br/><br/> vSphere PowerCLI 6.0 should be installed.<br/><br> The machine shouldn't be a domain controller, or have a static IP address.<br/><br/> The host name should be 15 characters or less, and operating system should be in English.
-**VMware** | Only 5.5 features are supported in vCenter 6.0. Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS.
-**VMs** | Verify [Azure VM limitations](site-recovery-prereq.md#azure-requirements)<br/><br/> You can't replicate VMs with encrypted disks, or VMs with UEFI/EFI boot.<br/><br> Shared disk clusters aren't supported. If the source VM has NIC teaming, it's converted to a single NIC after failover.<br/><br/> If VMs have an iSCSI disk, Site Recovery converts it to a VHD file after failover. If the iSCSI target can be reached by the Azure VM, it connects to it, and sees both it and the VHD. If this happens, disconnect the iSCSI target.<br/><br/> If you want to enable multi-VM consistency, which enables VMs running the same workload to be recovered together to a consistent data point, open port 20004 on the VM.<br/><br/> Windows must be installed on the C drive. The OS disk should be basic, and not dynamic. The data disk can be dynamic.<br/><br/> Linux /etc/hosts files on VMs should contain entries that map the local host name to IP addresses associated with all network adapters. The host name, mount points, device name, system paths, and file names (/etc; /usr) should be in English only.<br/><br/> Specific types of [Linux storage](site-recovery-support-matrix-to-azure.md#support-for-storage) are supported.<br/><br/>Create or set **disk.enableUUID=true** in the VM settings. This provides a consistent UUID to the VMDK, so that it mounts correctly, and ensures that only delta changes are transferred back to on-premises during failback, without full replication.
-
-
 ## Set up Azure
 
 1. [Set up an Azure network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
-
     - Azure VMs will be placed in this network when they're created after failover.
     - You can set up a network in [Resource Manager](../resource-manager-deployment-model.md), or in classic mode.
 
 2. Set up an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for replicated data.
-
     - The account can be standard or [premium](../storage/storage-premium-storage.md).
     - You can set up an account in Resource Manager, or in classic mode.
 
@@ -103,19 +91,7 @@ Here's what you do:
     - For Linux, the account should be a root user on the source Linux server.
 
 
-
-
-## Create a Recovery Services vault
-1. Sign in to the [Azure portal](https://portal.azure.com) > **Site Recovery**
-2. Click **New** > **Management** >
-3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a resource group](../azure-resource-manager/resource-group-template-deploy-portal.md), or select an existing one. Specify an Azure region. To check supported regions, see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
-5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard** and then click **Create**.
-
-    ![New vault](./media/site-recovery-vmware-to-azure/new-vault-settings.png)
-
-The new vault will appear on the **Dashboard** > **All resources**, and on the main **Recovery Services vaults** blade.
-
+[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
 ## Select the protection goal
 
@@ -154,56 +130,15 @@ Before you start:
 
 Then run the Unified Setup installation file on the configuration server.
 
-1. In Unified Setup > **Before you begin**, select **Install the configuration server and process server**.
 
-   ![Before you start](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
-2. In **Third-Party Software License**, click **I Accept the third party license agreement**, to download and install MySQL.
+[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-    ![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz105.PNG)
-3. In **Registration**, browse and select the registration key you downloaded from the vault.
-
-    ![Registration](./media/site-recovery-vmware-to-azure/combined-wiz3.png)
-4. In **Internet Settings**, specify how the Provider running on the configuration server connects to Site Recovery over the internet (443).
-
-   * If you want the Provider to connect directly, select **Connect directly to Azure Site Recovery without a proxy server**.
-   * If you want to use a proxy, select **Connect to Azure Site Recovery using a proxy server**, and specify the settings.
-
-     ![Firewall](./media/site-recovery-vmware-to-azure/combined-wiz4.png)
-5. In **Prerequisites Check**, setup verifies settings.  If a time warning appears, verify that the time in **Date and Time** settings is the same as the time zone.
-
-    ![Prerequisites](./media/site-recovery-vmware-to-azure/combined-wiz5.png)
-6. In **MySQL Configuration**, specify credentials that are used to log onto the MySQL server instance that will be installed.
-
-    ![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz6.png)
-7. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then setup checks that PowerCLI 6.0 is installed.
-
-    ![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz7.png)
-8. In **Install Location**, select where you want to install the binaries and store the cache. You can select any drive that has 5 GB of storage available, but we recommend a cache drive with at least 600 GB of free space.
-
-    ![Install location](./media/site-recovery-vmware-to-azure/combined-wiz8.png)
-9. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 is used to orchestrate replication. Don't use 443 for replication traffic.
-
-    ![Network selection](./media/site-recovery-vmware-to-azure/combined-wiz9.png)
-
-
-10. In **Summary**, review the information and click **Install**. When installation finishes a passphrase is generated. You need it when you enable replication so copy it and keep it in a secure location. After registration finishes the server is displayed in **Servers** in the vault.
-
-   ![Summary](./media/site-recovery-vmware-to-azure/combined-wiz10.png)
-
-
-
+> [!NOTE]
+> The configuration server can be installed via command line. For more information, see [Installing the configuration server using Command-line tools](http://aka.ms/installconfigsrv).
 
 ### Add the account for automatic discovery
 
- Add the account you created for auto-discovery of VMware VMs.
-
-1. On the configuration server, run **CSPSConfigtool.exe**. It's available as a shortcut on the desktop, or in the **[INSTALL LOCATION]\home\svsystems\bin** folder.
-2. Click **Manage Accounts** > **Add Account**.
-
-    ![Add account](./media/site-recovery-vmware-to-azure/credentials1.png)
-3. In **Account Details**, add the account that will be used for automatic discovery. It can take 15 minutes or more for the account name to appear in the portal. To update immediately, click **Configuration Servers** > server name > **Refresh Server**.
-
-    ![Details](./media/site-recovery-vmware-to-azure/credentials2.png)
+[!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
 ### Connect to VMware servers
 
@@ -213,18 +148,15 @@ Connect to vSphere ESXi hosts or vCenter servers, to discover VMware VMs.
     - Datacenter, Datastore, Folder, Host, Network, Resource, Virtual machine, vSphere Distributed Switch.
     - The vCenter server needs the Storage views privilege.
 - When you add VMware servers, it can take 15 minutes or longer for them to appear in the portal.
+To allow Azure Site Recovery to discover virtual machines running in your on-premises environment, you need to connect your VMware vCenter Server or vSphere ESXi hosts with Site Recovery.
 
+Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
 
-1. Check that the configuration server has network access to the vSphere hosts and vCenter servers.
-2. Click **Prepare infrastructure** > **Source**. In **Prepare source**, select the configuration server. Click **+vCenter** to add a vSphere host or vCenter server.
-3. In **Add vCenter**, specify a friendly name for the server, and the IP address or FQDN. Leave the port 443 setting, unless VMware servers are configured to listen for requests on a different port. Then, select the account you created for automatic discovery, and click **OK**.
-
-    ![VMware](./media/site-recovery-vmware-to-azure/vmware-server.png)
+[!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
 Site Recovery connects to VMware servers using the specified settings, and discovers VMs.
 
 ## Set up the target
-
 
 Before you set up the target environment, check you have an [Azure storage account and network](#set-up-azure)
 
@@ -345,26 +277,24 @@ We recommend that you verify the VM properties, and make any changes you need to
 
 After you've set everything up, run a test failover to make sure everything's working as expected.
 
-1. Select **Recovery Plans** > *recoveryplan_name*, > **Test Failover**.
-2. Select the recovery point to which you want to failover. You can use one of the following options:
-	- **Latest processed**: This options fails over all VMs to the latest recovery point that was processed by the Site Recovery service.
-        - If you fail over a VM, the time stamp of the latest processed recovery point is also shown.
-        - If you fail over a recovery plan, you can go to individual VM > **Latest Recovery Points** to view.
-        - The latest recovery point provides a low RTO (Recovery Time Objective) option.
-	- **Latest app-consistent**: This options fails over all VMs to the latest application consistent recovery point.
-	- **Latest**: This option first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing them over to it. This option provides the lowest RPO (Recovery Point Objective). The VM created after failover will have all the data replicated to Site Recovery when the failover was triggered.
-	- **Custom**: For failover of a VM you can use this option to fail over to a particular recovery point.
-3. Select an **Azure virtual network**. This is the network in which the test VMs are created.
-    - Site Recovery attempts to create test VM in a subnet of same name, and using the same IP addressed specified in the **Compute and Network** settings of the VM.
-    - If a subnet of same name isn't available in the Azure virtual network used for test failover, then the test VM is created in the first subnet, in alphabetical order.
-    - If the same IP address isn't available in the subnet, then the VM gets another IP address from the subnet.
-4. In  **Encryption Key**, select the certificate that was issued when you enabled data encryption during Provider installation. If you didn't enable encryption, ignore this step.
-5. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
-6. After failover is complete, click **Cleanup test failover**, in the recovery plan. In **Notes**, record and save any observations associated with the test failover. Cleanup deletes the VMs that were created during test failover.
 
-[Learn more]((site-recovery-test-failover-to-azure.md) about preparing for test failover, and connecting to replica Azure VMs.
+1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
 
+    ![Test failover](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
+1. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).  
+
+1. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
+
+1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+
+1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+
+1. If you [prepared for connections after failover](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
+
+1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover.
+
+For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 ## VMware account permissions
 
 Site Recovery needs access to VMware for the process server to automatically discover VMs, and for failover and failback of VMs.
@@ -387,7 +317,7 @@ After you get replication up and running, when an outage occurs you fail over to
 
 - [Learn more](site-recovery-failover.md) about different types of failovers, and how to run them.
 - If you're migrating machines rather than replicating and failing back, [read more](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
-- [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs from Azure, back to the primary on-premises site.
+- [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.
 
 ## Third-party software notices and information
 Do Not Translate or Localize

@@ -1,5 +1,4 @@
 ---
-=======
 title: Prerequisites for replication to Azure by using Azure Site Recovery | Microsoft Docs
 description: This article summarizes prerequisites for replicating VMs and physical machines to Azure by using the Azure Site Recovery service.
 services: site-recovery
@@ -17,7 +16,6 @@ ms.workload: storage-backup-recovery
 ms.date: 12/11/2016
 ms.author: rajanaki
 ---
-
 
 #  Prerequisites for replication to Azure by using Azure Site Recovery
 
@@ -49,16 +47,16 @@ Post any comments at the bottom of the article, or ask technical questions on th
 Following are the required components for disaster recovery of VMware virtual machines or physical Windows or Linux servers in addition to the ones mentioned in [Azure requirements](#Azure requirements).
 
 
-- **Configuration server or additional process server**: You will need to set up an on-premises machine as the configuration server to coordinate communications between the on-premises site and Azure, and to manage data replication. <br></br>
+### **Configuration server or additional process server**: You will need to set up an on-premises machine as the configuration server to coordinate communications between the on-premises site and Azure, and to manage data replication. <br></br>
 
-- **VMware vCenter or vSphere host**
+1. **VMware vCenter or vSphere host**
 
 | **Component** | **Requirements** |
 | --- | --- |
 | **vSphere** | One or more VMware vSphere hypervisors.<br/><br/>Hypervisors should be running vSphere version 6.0, 5.5, or 5.1 with the latest updates.<br/><br/>We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. This is the network in which the configuration server is located, unless you’ve set up a dedicated process server. |
 | **vCenter** | We recommend that you deploy a VMware vCenter server to manage your vSphere hosts. It should be running vCenter version 6.0 or 5.5, with the latest updates.<br/><br/>**Limitation**: Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Site Recovery support is limited to features that were also available in version 5.5.||
 
-- **Replicated machine prerequisites**
+1. **Replicated machine prerequisites**
 
 
 | **Component** | **Requirements** |
