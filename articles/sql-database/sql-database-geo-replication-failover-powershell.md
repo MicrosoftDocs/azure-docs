@@ -19,12 +19,6 @@ ms.author: sstein
 
 ---
 # Initiate a planned or unplanned failover for Azure SQL Database with PowerShell
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 This article shows you how to Initiate a planned or unplanned failover for SQL Database with PowerShell. To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-powershell.md).
 
