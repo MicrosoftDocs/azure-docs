@@ -39,9 +39,10 @@
 ## Integrate with Azure Services
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Create HDInsight cluster with Data Lake Store using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Create HDInsight cluster with Data Lake Store using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Create HDInsight cluster with Data Lake Store using Resource Manager template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [HDInsight with Data Lake Store - Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [HDInsight with Data Lake Store as default storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+### [HDInsight with Data Lake Store as additional storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [HDInsight with Data Lake Store - Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Use with Power BI](data-lake-store-power-bi.md)

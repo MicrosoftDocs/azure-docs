@@ -302,7 +302,6 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())
