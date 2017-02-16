@@ -155,7 +155,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Mimecast Personal Portal, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Mimecast Personal Portal **application integration page, click **Assign users**.
+2. On the **Mimecast Personal Portal** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795007.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
