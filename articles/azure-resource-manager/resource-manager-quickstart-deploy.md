@@ -19,7 +19,7 @@ ms.author: tomfitz
 ---
 # Deploy resources to Azure
 
-This topic explains how to deploy resources to your Azure subscription. It uses a Resource Manager template, and either Azure PowerShell or Azure CLI.
+This topic shows how to deploy resources to your Azure subscription. You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template that defines the infrastructure for your solution.
 
 For an introduction to concepts of Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
 
@@ -27,13 +27,15 @@ For an introduction to concepts of Resource Manager, see [Azure Resource Manager
 
 This topic assumes you are deploying the template from the [Create your first Azure Resource Manager template](/azure/templates/) topic. You can use a different template, but the parameters you pass are different than what is shown in this topic.
 
-After creating your template, you are ready to deploy it. Whether using PowerShell or Azure CLI, you perform the following steps:
+After creating a template, the general steps for deploying your template are:
 
 1. Log in to your account
 2. Select the subscription to use (only necessary if you have multiple subscriptions, and you want to use one that is not the default subscription)
 3. Create a resource group
 4. Deploy the template
 5. Check your deployment status
+
+The following sections show how to perform those steps with [PowerShell](#powershell) or [Azure CLI](#azure-cli).
 
 ## PowerShell
 
@@ -74,13 +76,13 @@ After creating your template, you are ready to deploy it. Whether using PowerShe
 
 5. You can specify template parameters as PowerShell parameters when deploying a template. The earlier example did not include any template parameters, so the default values in the template were used. To deploy another storage account, and provide parameter values for the storage name prefix and the storage account SKU, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment2 -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json -storageNamePrefix "contoso" -storageSKU "Standard_GRS"
-```
+  ```powershell
+  New-AzureRmResourceGroupDeployment -Name ExampleDeployment2 -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json -storageNamePrefix "contoso" -storageSKU "Standard_GRS"
+  ```
 
-You now have two storage accounts in your resource group. 
+  You now have two storage accounts in your resource group. 
 
-## Azure CLI 2.0 (Preview)
+## Azure CLI
 
 1. To install Azure CLI, see [Install Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2).
 
@@ -96,7 +98,7 @@ You now have two storage accounts in your resource group.
 
   The `az account set` command is only needed if you want to use a subscription other than your default subscription. To see all your subscriptions and their IDs, use:
 
-  ```powershell
+  ```azurecli
   az account list
   ```
 
@@ -119,11 +121,12 @@ You now have two storage accounts in your resource group.
   az group deployment create --name ExampleDeployment2 --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
   ```
 
-You now have two storage accounts in your resource group. 
+  You now have two storage accounts in your resource group. 
 
 ## Next steps
 
-* For more detailed information about deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](/azure/azure-resource-manager/resource-group-template-deploy) or [Deploy resources with Resource Manager templates and Azure CLI](/azure/azure-resource-manager/resource-group-template-deploy-cli).
+* For detailed information about using PowerShell to deploy templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](/azure/azure-resource-manager/resource-group-template-deploy).
+* For detailed information about using Azure CLI to deploy templates, see [Deploy resources with Resource Manager templates and Azure CLI](/azure/azure-resource-manager/resource-group-template-deploy-cli).
 
 
 
