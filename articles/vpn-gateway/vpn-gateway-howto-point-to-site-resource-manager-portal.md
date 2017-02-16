@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/15/2017
+ms.date: 02/16/2017
 ms.author: cherylmc
 
 ---
@@ -133,8 +133,7 @@ A client certificate is required for authentication. After generating the client
 ## <a name="uploadfile"></a>Part 8 - Upload the root certificate .cer file
 After the gateway has been created, you can upload the .cer file for a trusted root certificate to Azure. You can upload files for up to 20 root certificates. You do not upload the private key for the root certificate to Azure. Once the .cer file is uploaded, Azure uses it to authenticate clients that connect to the virtual network.
 
-1. Navigate to the **Point-to-site configuration** blade. You will add the .cer files in the **Root certificate** section of this blade.
-
+1. Certificates are added on the **Point-to-site configuration** blade in the **Root certificate** section.  
 2. Make sure that you exported the root certificate as a Base-64 encoded X.509 (.cer) file. You need to export it in this format so that you can open the certificate with text editor.
 3. Open the certificate with a text editor, such as Notepad. Copy only the following section as one continuous line:
    
@@ -145,7 +144,7 @@ After the gateway has been created, you can upload the .cer file for a trusted r
 	>
 	>
 
-4. Paste the certificate data into the **Public Certificate Data** section of the portal. Put the name of the certificate in the **Name** space, and then click **Save**. You can add up to 20 trusted root certificates.
+4. Paste the certificate data into the **Public Certificate Data** field. **Name** the certificate, and then click **Save**. You can add up to 20 trusted root certificates.
    
     ![Certificate upload](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcertupload.png)
 
