@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 02/16/2017
 ms.author: bwren
 
 ---
@@ -160,54 +160,6 @@ Most solutions may perform one or more of the following functions.
 Solutions are regularly being added to OMS by Microsoft and partners allowing you to continuously increase the value of your investment.  You can browse and install Microsoft solutions through the Solutions Catalog in the OMS portal or browse and install both Microsoft and partner solutions through the Azure Marketplace in the Azure Portal.  
 
 ![Solution Gallery](media/operations-management-suite-overview/solution-gallery.png)
-
-## OMS Offerings
-In addition to the option of subscribing to each OMS service individually, you can subscribe to one or more OMS offerings that each include a combination of services and solutions.  If you purchase an annual commitment for an offering then it also includes rights to one or more System Center products.
-
-|| Offering | OMS Services | Management solutions | System Center |
-|:--|:--|:--|:--|:--|
-| ![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) | Insight and Analytics | Log Analytics | Network Performance Monitor<br>Service Map | Operations Manager |
-| ![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) | Automation & Control | Azure Automation | Change Tracking<br>Update Management | Orchestrator<br>Configuration Manager<br>Service Manager |
-| ![Protection and Recovery](media/operations-management-suite-overview/icon-protection-recovery.png) | Protection and Disaster Recovery | Azure Backup<br>Azure Site Recovery | | Data Protection Manager |
-| ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) | Security and Compliance | Log Analytics |Security & Audit<br>Malware Assessment |
-
-
-### ![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight and Analytics
-The [Insight & Analytics offering](https://www.microsoft.com/cloud-platform/insight-and-analytics) allows you to collect and analyze operations data to ensure that applications and systems are available and performing with required parameters.  The primary service in this offering is **Log Analytics** which provides collection and analysis of operations data.  You can configure any of the available data sources and leverage any [management solutions](../log-analytics/log-analytics-add-solutions.md) that aren’t included in another offering.
-
-The offering also includes the following:
-
-- [Service Map](operations-management-suite-service-map.md).  This solution automatically discovers application components on Windows and Linux systems and maps the communication between services.  This solution is based on technology acquired from Bluestripe Software.  You can interact with the included console or analyze inventory data that’s stored in the Log Analytics repository.
-- [Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).  This solution offers near real time monitoring of network performance parameters such as loss and latency, fault localization, and diagnostics/troubleshooting of any detected network problems.  It stores the data that it collects in the Log Analytics repository so that you can analyze it with other collected data.
-- [System Center 2016 Operations Manager](https://technet.microsoft.com/system-center-docs/om/welcome-to-operations-manager).  The Insight & Analytics offering includes licensing for System Center Operations Manager.  This allows you to quickly manage your existing Operations Manager agents by connecting your management group to Log Analytics and to maintain your existing investment to maintain a hybrid management environment.
-
-### ![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control
-The [Automation & Control offering](https://www.microsoft.com/cloud-platform/automation-and-control) allows you to automate operational issues and manage change across your Azure and on-premise environments.  The central component of this offering is **Azure Automation** which provides runbooks for automation and PowerShell DSC for enforcing configurations.  You can create your own runbooks to automate various processes across your environment, including automating other OMS services, or install the following solutions that are included with the offering.
-
-The offering also includes the following:
-
-- [Update Management](oms-solution-update-management.md).  This solution identifies missing system updates and orchestrates their installation across Windows and Linux servers in any public cloud or your on-premise environment. 
-- [Change Tracking](../log-analytics/log-analytics-change-tracking.md).  This solution helps you to easily identify changes to software, files, service, and daemons.  Changes are collected from Windows and Linux agents and recorded in the Log Analytics repository where you can quickly review them with an included dashboard.
-- [System Center 2016 Orchestrator](https://technet.microsoft.com/system-center-docs/orch/orchestrator).  The Automation & Control offering includes licensing for System Center 2016 Orchestrator which provides automation of manual processes and orchestration of complex workflows for on-premise resources.  There isn’t specific integration between Azure Automation and Orchestrator, but this allows you to continue to leverage your existing investment in Orchestrator runbooks.
-- [System Center 2016 Configuration Manager](https://docs.microsoft.com/sccm/index).  The Automation & Control offering includes licensing for System Center 2016 Configuration Manager which provides inventory, configuration management, software deployment for on-premise resources.  There isn’t specific integration between Azure Automation and Configuration Manager, but this allows you to continue to leverage your existing investment.
-- [System Center 2016 Service Manager](https://technet.microsoft.com/system-center-docs/sm/service-manager).  The Automation & Control offering includes licensing for System Center 2016 Service Manager which provides service delivery for incident resolution, change control, and asset lifecycle management for on-premise resources.  There isn’t specific integration between Azure Automation and Configuration Manager, but this allows you to continue to leverage your existing investment.
-
-
-### ![Protection and Recovery](media/operations-management-suite-overview/icon-protection-recovery.png) Protection and Disaster Recovery
-The [Protection & Recovery offering](https://www.microsoft.com/cloud-platform/protection-and-recovery) provides integrated cloud backup and disaster recovery to protect enterprise applications and data irrespective of its location.  The primary services for this offering are **Azure Backup** which backs up data from physical and virtual Windows servers in addition to application workloads and **Azure Site Recovery** which orchestrates replication, failover, and recovery of critical systems and applications.
-
-The offering also includes the following:
-
-- [System Center 2016 Data Protection Manager](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager).   The Protection & Recovery offering includes licensing for System Center 2016 Data Protection Manager which provides backup and restore of on-premise data.  Data Protection Manager can integrate with Azure Backup to use the cloud 
-
-
-### ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) Security and Compliance
-The [Security & Compliance offering](https://www.microsoft.com/cloud-platform/security-and-compliance) allows you to prevent, detect, and respond to threats with increased visibility.  The primary service in this offering is Log Analytics which provides collection and analysis of security data for the included solutions.
-
-The offering also includes the following:
-
-- [Security and Audit](oms-security-monitoring-resources.md).  This solution provides a comprehensive view into your organization’s security posture.  It provides search queries for identifying notable security issues and helps you perform forensic analysis, security breach pattern investigations, and audit scenarios.
-- [Antimalware Assessment](../log-analytics/log-analytics-malware.md).  This solution helps you identify servers that are infected or are at risk of infection by malware.
 
 
 ## Next steps
