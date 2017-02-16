@@ -303,16 +303,16 @@ ms.author: sedusch
 
 Azure Virtual Machines is the solution for organizations that need compute and storage resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classical applications, like SAP NetWeaver-based applications, in Azure. Extend an application's reliability and availability without additional on-premises resources. Azure Virtual Machines supports cross-premises connectivity, so you can integrate Azure Virtual Machines into your organization's on-premises domains, private clouds, and SAP system landscape.
 
-In this article, we cover the steps to deploy SAP applications on Windows virtual machines in Azure. This article builds on the information in [Azure Virtual Machines planning and implementation for SAP on Windows][planning-guide]. It also complements SAP installation documentation and SAP Notes, which are the primary resources for installing and deploying SAP software.
+In this article, we cover the steps to deploy SAP applications on Windows virtual machines (VMs) in Azure. This article builds on the information in [Azure Virtual Machines planning and implementation for SAP on Windows][planning-guide]. It also complements SAP installation documentation and SAP Notes, which are the primary resources for installing and deploying SAP software.
 
 ## Prerequisites
-Setting up an Azure virtual machine (VM) for SAP software deployment involves multiple steps and resources. Before you start, make sure that you meet the prerequisites for installing SAP software on Windows virtual machines in Azure.
+Setting up an Azure virtual machine for SAP software deployment involves multiple steps and resources. Before you start, make sure that you meet the prerequisites for installing SAP software on Windows virtual machines in Azure.
 
 ### Local computer
 To manage Windows or Linux VMs, you can use a PowerShell script and the Azure portal. For both tools, you need a local computer running Windows 7 or a later version of Windows. If you want to manage only Linux VMs and you want to use a Linux computer for this task, you can use Azure CLI.
 
 ### Internet connection
-To download and run the tools and scripts that are required for SAP software deployment, you must be connected to the Internet. The Azure VM that is running the Azure Enhanced Monitoring Extension for SAP also needs access to the Internet. If the Azure VM is part of an Azure Virtual Network or on-premises domain, make sure that the relevant proxy settings are set, as described in [Configure the proxy][deployment-guide-configure-proxy].
+To download and run the tools and scripts that are required for SAP software deployment, you must be connected to the Internet. The Azure VM that is running the Azure Enhanced Monitoring Extension for SAP also needs access to the Internet. If the Azure VM is part of an Azure virtual network or on-premises domain, make sure that the relevant proxy settings are set, as described in [Configure the proxy][deployment-guide-configure-proxy].
 
 ### Microsoft Azure subscription
 You need an active Azure account.
@@ -320,7 +320,7 @@ You need an active Azure account.
 ### Topology and networking
 You need to define the topology and architecture of the SAP deployment in Azure:
 
-* Azure Storage accounts to be used
+* Azure storage accounts to be used
 * Virtual network where you want to deploy the SAP system
 * Resource group to which you want to deploy the SAP system
 * Azure region where you want to deploy the SAP system
@@ -940,7 +940,7 @@ If the **Health status** value is not **OK**, follow the instructions in [Health
 
 1.  Connect to the Azure Virtual Machine by using SSH.
 
-2.  Check the output of the Azure Enhanced Monitoring Extension
+2.  Check the output of the Azure Enhanced Monitoring Extension.
 
   a.  Run `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
