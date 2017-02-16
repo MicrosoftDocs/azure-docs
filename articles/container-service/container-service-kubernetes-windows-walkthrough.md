@@ -74,7 +74,7 @@ After creating the cluster and connecting with `kubectl`, you can try starting a
   kubectl get nodes -o yaml
   ```
 
-2. Create a file named `simpleweb.yaml` and copy the contents below. This file sets up a web app using the Windows Server 2016 Server Core base OS image from [Docker Hub](https://hub.docker.com/r/microsoft/windowsservercore/).  
+2. Create a file named `simpleweb.yaml` and copy the following. This file sets up a web app using the Windows Server 2016 Server Core base OS image from [Docker Hub](https://hub.docker.com/r/microsoft/windowsservercore/).  
 
   ```yaml
   apiVersion: v1
@@ -157,7 +157,7 @@ There are multiple options for creating SSH tunnels on Windows. This section des
 
 2. Run the application.
 
-3. Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** looks similar to `adminuser@PublicDNSName`. Enter 22 for the **Port**.
+3. Enter a host name that is composed of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** looks similar to `adminuser@PublicDNSName`. Enter 22 for the **Port**.
 
     ![PuTTY configuration 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
 
@@ -197,5 +197,5 @@ There are multiple options for creating SSH tunnels on Windows. This section des
 Here are recommended links to learn more about Kubernetes:
 
 * [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) - shows you how to deploy, scale, update, and debug containerized applications.
-* [Kubernetes Userguide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
-* [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides a number of examples on how to run real applications with Kubernetes.
+* [Kubernetes User Guide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
+* [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides examples on how to run real applications with Kubernetes.
