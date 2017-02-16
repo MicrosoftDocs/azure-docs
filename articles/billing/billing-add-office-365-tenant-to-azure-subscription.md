@@ -30,7 +30,7 @@ If you want an Office 365 subscription for users in your Azure Active Directory 
 * The email address of the service administrator must not match that of any global administrator of the Office 365 tenant.
 * If you use an email address that is both a Microsoft account and an organizational account, temporarily change the service administrator of your Azure subscription to use another Microsoft account. You can create a Microsoft account at the [Microsoft account signup page](https://signup.live.com/).
 
-## Associate the Office 365 tenant to an Azure subscription
+## Link Office 365 tenant to Azure subscription
 To associate the Office 365 tenant to the Azure subscription, follow these steps:
 
 ### Step 1: Add Office 365 tenant to your Azure subscription
@@ -90,8 +90,6 @@ To associate the Office 365 tenant to the Azure subscription, follow these steps
 4. Select the check mark to continue. All co-administrators and [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) users with assigned access in the existing resource groups are removed. The warning you receive only mentions the removal of co-administrators.
       
     ![Screenshot that shows the co-administrator accounts to be removed.](./media/billing-add-office-365-tenant-to-azure-subscription/s322_azure-confirm-directory-mapping.png)
-   
- 
    
     ![Screenshot that shows an example user account to be removed.](./media/billing-add-office-365-tenant-to-azure-subscription/s325_assigned-users-removed-resource-groups.png)
    
