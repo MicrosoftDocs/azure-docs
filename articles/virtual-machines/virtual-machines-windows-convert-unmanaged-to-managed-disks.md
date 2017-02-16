@@ -125,7 +125,7 @@ This section will show you how to convert your existing Azure VMs on Standard un
 1.  Stop (Deallocate) the VM.
 
     ```powershell
-	Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+	Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
 	```
 
 1.  Update the size of the VM to Premium Storage capable size available in the region where VM is located.
