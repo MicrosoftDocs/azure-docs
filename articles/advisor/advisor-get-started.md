@@ -32,7 +32,7 @@ Learn how to access Advisor using the Azure portal, get recommendations, impleme
 4. To get recommendations for a particular category, click on one of the tabs - **High Availability**, **Security**, **Performance**, or **Cost**.
  
 > [!NOTE]
-> Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor**, or **Reader**.
+> In order to access Advisor recommendations, you must first **register** your subscription with Advisor. This is a **one-time operation**, and can be performed by the **Owner** of the subscription. A subscription is registered when a subscription Owner launches the Advisor dashboard and clicks on the **Get recommendations** button. Once a subscription is registered, Advisor recommendations can be accessed by **Owner**s, **Contributor**s, or **Reader**s for a subscription, resource group or a specific resource.
 
   ![Azure Advisor dashboard](./media/advisor-overview/advisor-all-tab.png)
 

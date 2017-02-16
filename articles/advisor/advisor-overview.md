@@ -56,7 +56,7 @@ You can access Advisor through the Azure portal. Sign into the portal, select **
 
 ### What permissions do I need to access Advisor?
 
-To view Advisor recommendations, you must have access to at least one subscription. Your role must be either **Owner**, **Contributor**, or **Reader** for the subscription. Subscription owners and contributors can compute/generate recommendations. However, with a **Reader** role, you can only view Advisor recommendations. 
+In order to access Advisor recommendations, you must first **register** your subscription with Advisor. This is a **one-time operation**, and can be performed by the **Owner** of the subscription. A subscription is registered when a subscription Owner launches the Advisor dashboard and clicks on the **Get recommendations** button. Once a subscription is registered, Advisor recommendations can be accessed by **Owner**s, **Contributor**s, or **Reader**s for a subscription, resource group or a specific resource.
 
 ### How often are Advisor recommendations updated?
 
@@ -64,7 +64,7 @@ Advisor recommendations are updated on an hourly basis.
 
 ### What resources does Advisor provide recommendations for?
 
-Advisor provides recommendations for virtual machines, availability sets, App Services, SQL servers, SQL databases, and Redis cache.
+Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, SQL databases, and Redis cache.
 
 ### Can I snooze or dismiss a recommendation?
 
