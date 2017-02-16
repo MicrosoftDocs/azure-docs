@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 02/16/2017
 ms.author: aelnably;wesmc
 
 ---
@@ -22,7 +22,7 @@ ms.author: aelnably;wesmc
 # Azure App Service Web Apps on Linux FAQ #
 
 With the release of Azure App Service on Linux (Currently in preview), we are working on adding features and making improvements to our platform. Here are some of the frequently asked questions that our customers have been asking over the last months.
-If you have a question, comment at the bottom of the article and we will answer it as soon as possible.
+If you have a question, add a comment at the bottom of the article. We do monitor these comments and reply as soon as possible.
 
 ## Built-in Images ##
 
@@ -34,29 +34,29 @@ If you have a question, comment at the bottom of the article and we will answer 
 
 **Q:** I press the restart button in the portal but my webapp did not restart, why is that?
 
-**A:** We are working on enabling the reset button in the near future, right now you have two options.
-1. Add or change a dummy application setting. This forces your webapp to restart. 
-2. Stop and then Start your webapp.
+**A:** We are working on enabling the reset button. Right now you have two options.
+1. Add or change a dummy application setting to force your webapp to restart. 
+2. Stop and then start your webapp.
 
 **Q:** Can I SSH to the VM?
 
-**A:** No, we will provide a way to SSH into your app container in the near future.
+**A:** No, we will provide a way to SSH into your app container soon.
 
-## Continous Integration / Deployment ##
+## Continuous Integration / Deployment ##
 
 **Q:** My webapp still uses an old Docker Container image after updating the image on DockerHub? Do you support continuous integration/deployment of custom containers?
 
-**A:** You can refresh the container either by stopping and then starting your web app. You can also refresh it by changing/adding a dummy application setting. We will have a CI/CD feature for custom containers in the near future to address this.
+**A:** You can refresh the container either by stopping and then starting your web app. You can also refresh it by changing/adding a dummy application setting. We will have a CI/CD feature for custom containers soon to address this.
 
 ## Language Support ##
 
 **Q:** Do you support uncompiled .Net core apps?
 
-**A:** No, you need to deploy a compiled .Net core app with all the dependencies. A full deploy and build experience will be coming in the near future.
+**A:** No, you need to deploy a compiled .Net core app with all the dependencies. A full deploy and build experience will be coming soon.
 
 ## Custom Containers ##
 
-**Q:** I am using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content using the SCM site or a ftp client. Where are my files?
+**Q:** I am using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content using the SCM site or an ftp client. Where are my files?
 
 **A:** We mount an SMB share to \home\ directory; thus overriding any content there.
 
@@ -66,7 +66,7 @@ If you have a question, comment at the bottom of the article and we will answer 
 
 **Q:** Can I bring my own storage?
 
-**A:** Currently that is not supported. We are planning to support this in the near future.
+**A:** Currently that is not supported. We are planning to support additional storage options soon.
 
 **Q:** I can't browse my custom container's file system or running processes from the SCM site. Why is that?
 
@@ -76,7 +76,7 @@ If you have a question, comment at the bottom of the article and we will answer 
 
 **Q:** What is the pricing while in public preview?
 
-**A:** You will be charged half the number of hours your app runs, based on the normal Azure App Service pricing. Effectively this is a 50% discount on normal Azure App Service pricing.
+**A:** You are charged for half the number of hours your app runs, based on the normal Azure App Service pricing. Effectively this pricing is a 50% discount on normal Azure App Service pricing.
 
 ## Other ##
 
@@ -86,7 +86,7 @@ If you have a question, comment at the bottom of the article and we will answer 
 
 **Q:** Where can I request new features?
 
-**A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Please add [Linux] to the title of your idea.
+**A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Make sure to add [Linux] to the title of your idea.
 
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)

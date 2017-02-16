@@ -14,16 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/16/2017
 ms.author: naziml;wesmc
 
 ---
 # Use PM2 configuration for Node.js in Web Apps on Linux
-If you set the application stack to Node.js for Web Apps on Linux, you get the option to set a Node.js startup file as shown in the following image.
+If you set the application stack to Node.js for Web Apps on Linux, you get the option to set a Node.js startup file as shown in the following image:
 
 ![Set a Node.js startup file][1]
 
-You can use this to do one of the following tasks:
+You can use this option to do one of the following tasks:
 
 * Specify the startup script for your Node.js app (for example: /bin/server.js).
 * Specify the PM2 configuration file to use for your Node.js app (for example: /foo/process.json).

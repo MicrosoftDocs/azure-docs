@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/16/2017
 ms.author: naziml;wesmc
 
 ---
@@ -31,14 +31,14 @@ Next, the **Create blade** opens as shown in the following image:
 1. Give your web app a name.
 2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](app-service-linux-intro.md).)
 3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](app-service-linux-intro.md).)
-4. Choose the application stack that you intend to use. You can choose between several versions of Node.js, PHP, .Net Core and Ruby.
+4. Choose the application stack that you intend to use. You can choose between several versions of Node.js, PHP, .Net Core, and Ruby.
 
 Once you have created the app, you can change the application stack from the application settings as shown in the following image:
 
 ![Application settings][3]
 
 ## Deploy your web app
-Choosing **deployment options** from the management portal gives you the option to use local a Git or GitHub repository to deploy your application. The rest of the instructions are similar to those for a non-Linux web app, and you can follow these instructions in either our [local Git deployment](app-service-deploy-local-git.md) or our [continuous deployment](app-service-continuous-deployment.md) article for GitHub.
+Choosing **deployment options** from the management portal gives you the option to use local a Git or GitHub repository to deploy your application. The rest of the instructions are similar to those for a non-Linux web app. You can follow the instructions in [local Git deployment](app-service-deploy-local-git.md) or [continuous deployment](app-service-continuous-deployment.md) to deploy your app.
 
 You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the following image:
 
