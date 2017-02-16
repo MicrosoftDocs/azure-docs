@@ -236,15 +236,15 @@ This step describes how to run an Azure Relay service.
     ```
 
 ### To create a base address for the service
-* After the code you added in the last step, create a `Uri` instance for the base address of the service. This URI specifies the Service Bus scheme, the namespace, and the path of the service interface.
+After the code you added in the last step, create a `Uri` instance for the base address of the service. This URI specifies the Service Bus scheme, the namespace, and the path of the service interface.
 
-    ```csharp
-    Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
-    ```
+```csharp
+Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
+```
 
-    "sb" is an abbreviation for the Service Bus scheme, and indicates that we are using TCP as the protocol. This was also previously indicated in the configuration file, when [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) was specified as the binding.
+"sb" is an abbreviation for the Service Bus scheme, and indicates that we are using TCP as the protocol. This was also previously indicated in the configuration file, when [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) was specified as the binding.
 
-    For this tutorial, the URI is `sb://putServiceNamespaceHere.windows.net/EchoService`.
+For this tutorial, the URI is `sb://putServiceNamespaceHere.windows.net/EchoService`.
 
 ### To create and configure the service host
 1. Set the connectivity mode to `AutoDetect`.
