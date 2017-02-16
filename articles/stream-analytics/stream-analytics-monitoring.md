@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/03/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -39,9 +39,9 @@ The window will appear as shown:
 | Data Conversion Errors | Number of data conversion errors incurred by a Stream Analytics job. |
 | Runtime Errors         | The total number of errors that happen during execution of a Stream Analytics job. |
 | Late Input Events      | Number of events arriving late from the source which have either been dropped or their timestamp has been adjusted, based on the Event Ordering Policy configuration of the Late Arrival Tolerance Window setting. |
-| Function Requests      | Number of calls to the user defined function (if present). |
-| Failed Function Requests | Number of failed user defined function calls (if present). |
-| Function Events        | Number of events sent to the job user defined function (if present). |
+| Function Requests      | Number of calls to the Azure Machine Learning function (if present). |
+| Failed Function Requests | Number of failed Azure Machine Learning function calls (if present). |
+| Function Events        | Number of events sent to the Azure Machine Learning function (if present). |
 | Input Event Bytes      | Amount of data received by the Stream Analytics job, in bytes. This can be used to validate that events are being sent to the input source. |
 
 

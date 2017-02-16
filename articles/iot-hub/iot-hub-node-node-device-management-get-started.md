@@ -257,7 +257,7 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/04/2016
-ms.author: vturecek
+ms.date: 01/04/2017
+ms.author: bharatn
 
 ---
 # Service Fabric Reverse Proxy

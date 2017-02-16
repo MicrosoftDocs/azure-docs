@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/09/2016
+ms.date: 02/09/2017
 ms.author: viviali
 
 ---
@@ -44,4 +44,3 @@ While a paid Azure AD subscription (Basic or Premium) is not necessary to use Az
 * [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 * [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-

@@ -14,17 +14,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.date: 02/09/2017
 ms.author: sstein
 
 ---
 # Managing Azure SQL Database using PowerShell
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-manage-portal.md)
-> * [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 This topic shows the PowerShell cmdlets that are used to perform many Azure SQL database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
 
@@ -45,7 +39,7 @@ For more information, see [Using Azure PowerShell with Azure Resource Manager](.
 For a complete tutorial, see [Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## How do I create a SQL database server?
-To create a SQL database server, use the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx) cmdlet. Replace *server1* with the name for your server. Server names must be unique across all Azure SQL database servers. If the server name is already taken, you get an error. This command may take several minutes to complete. The resource group must already exist in your subscription.
+To create a SQL database server, use the [New-AzureRmSqlServer](/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) cmdlet. Replace *server1* with the name for your server. Server names must be unique across all Azure SQL database servers. If the server name is already taken, you get an error. This command may take several minutes to complete. The resource group must already exist in your subscription.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -55,8 +49,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
@@ -124,7 +118,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
 ```
 
 For more information, see [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md). 
-For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
+For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database).
 
 ## How do I copy a SQL database to the same server?
 To copy a SQL database to the same server, use the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
@@ -169,7 +163,7 @@ Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceG
 ```
 
 ## How do I create and manage elastic pools using PowerShell?
-For details about creating elastic pools using PowerShell, see [Create a new elastic pool with PowerShell](sql-database-elastic-pool-create-powershell.md).
+For details about creating elastic pools using PowerShell, see [Create a new elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 For details about managing elastic pools using PowerShell, see [Monitor and manage an elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
 

@@ -57,8 +57,8 @@ An elastic query allows easy access to an entire collection of databases through
 
 Customer scenarios for elastic query are characterized by the following topologies:
 
-* **Vertical partitioning – Cross-database queries** (Topology 1): The data is partitioned vertically between a number of databases in a data tier. Typically, different sets of tables reside on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. Common use cases with this topology require one to query across or to compile reports across tables in several databases.
-* **Horizontal Partitioning – Sharding** (Topology 2): Data is partitioned horizontally to distribute rows across a scaled out data tier. With this approach, the schema is identical on all participating databases. This approach is also called “sharding”. Sharding can be performed and managed using (1) the elastic database tools libraries or (2) self-sharding. An elastic query is used to query or compile reports across many shards.
+* **Vertical partitioning - Cross-database queries** (Topology 1): The data is partitioned vertically between a number of databases in a data tier. Typically, different sets of tables reside on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. Common use cases with this topology require one to query across or to compile reports across tables in several databases.
+* **Horizontal Partitioning - Sharding** (Topology 2): Data is partitioned horizontally to distribute rows across a scaled out data tier. With this approach, the schema is identical on all participating databases. This approach is also called “sharding”. Sharding can be performed and managed using (1) the elastic database tools libraries or (2) self-sharding. An elastic query is used to query or compile reports across many shards.
 
 > [!NOTE]
 > Elastic database query works best for occasional reporting scenarios where most of the processing can be performed on the data tier. For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -66,7 +66,7 @@ Customer scenarios for elastic query are characterized by the following topologi
 > 
 
 ## Elastic Database query topologies
-### Topology 1: Vertical partitioning – cross-database queries
+### Topology 1: Vertical partitioning - cross-database queries
 To begin coding, see [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
 
 An elastic query can be used to make data located in a SQLDB database available to other SQLDB databases. This allows queries from one database to refer to tables in any other remote SQLDB database. The first step is to define an external data source for each remote database. The external data source is defined in the local database from which you want to gain access to tables located on the remote database. No changes are necessary on the remote database. For typical vertical partitioning scenarios where different databases have different schemas, elastic queries can be used to implement common use cases such as access to reference data and cross-database querying.
@@ -83,7 +83,7 @@ An elastic query can be used to make data located in a SQLDB database available 
 
 ![Vertical partitioning - Using elastic query to query across various databases][4]
 
-### Topology 2: Horizontal partitioning – sharding
+### Topology 2: Horizontal partitioning - sharding
 Using elastic query to perform reporting tasks over a sharded, i.e., horizontally partitioned, data tier requires an [elastic database shard map](sql-database-elastic-scale-shard-map-management.md) to represent the databases of the data tier . Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities serves as the entry point for reporting queries. Only this dedicated database needs access to the shard map. Figure 4 illustrates this topology and its configuration with the elastic query database and shard map. The databases in the data tier can be of any Azure SQL Database version or edition. For more information about the elastic database client library and creating shard maps, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
 
 **Figure 4** Horizontal partitioning - Using elastic query for reporting over sharded data tiers
@@ -152,12 +152,12 @@ Please share feedback on your experience with elastic queries with us on Disqus 
 You can find more information on the cross-database querying and vertical partitioning scenarios in the following documents:
 
 * [Cross-database querying and vertical partitioning overview](sql-database-elastic-query-vertical-partitioning.md)
-* Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
+* Try our tutorial to have a full working example running in minutes: [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
 
 More information on horizontal partitioning and sharding scenarios is available here:
 
 * [Horizontal partitioning and sharding overview](sql-database-elastic-query-horizontal-partitioning.md)
-* Try our step-by-step tutorial to have a full working example running in minutes: [Getting started with elastic database query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
+* Try our tutorial to have a full working example running in minutes: [Getting started with elastic database query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

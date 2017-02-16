@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 01/25/2017
 ms.author: shlo
 
 ---
@@ -45,10 +45,12 @@ You can use functions in data factory along with above mentioned system variable
 
 In the following sample, **sqlReaderQuery** property in a JSON file is assigned to a value returned by the **Text.Format** function. This sample also uses a system variable named **WindowStart**, which represents the start time of the activity run window.
 
-    {
-        "Type": "SqlSource",
-        "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-    }
+```JSON
+{
+    "Type": "SqlSource",
+    "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
+}
+```
 
 ### Functions
 The following tables list all the functions in Azure Data Factory:
@@ -75,12 +77,15 @@ The following tables list all the functions in Azure Data Factory:
 | Text |Format(X) |X: String variable |Formats the text. |
 
 #### Text.Format example
-    "defines": { 
-        "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
-        "Month" : "$$Text.Format('{0:MM}',WindowStart)",
-        "Day" : "$$Text.Format('{0:dd}',WindowStart)",
-        "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
-    }
+
+```JSON
+"defines": { 
+    "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
+    "Month" : "$$Text.Format('{0:MM}',WindowStart)",
+    "Day" : "$$Text.Format('{0:dd}',WindowStart)",
+    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
+}
+```
 
 See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: yy vs. yyyy). 
 

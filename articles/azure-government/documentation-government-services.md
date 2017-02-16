@@ -1,20 +1,19 @@
 ---
 title: Azure Government Services | Microsoft Docs
 description: Provides an overview of the available services in Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: zakramer
 manager: liki
-editor: ''
 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 01/29/2017
 ms.author: zakramer
 
 ---
@@ -34,22 +33,31 @@ For the most current list of services, see the [Products by Region](https://azur
 * Cloud Services
 
 ## [Networking](documentation-government-networking.md)
-* Virtual Network
-* Load Balancer
-* Application Gateway
-* VPN Gateway
-* Traffic Manager
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [BGP communities support](documentation-government-networking.md#support-for-bgp-communities)
+* Virtual Network
+* [Load Balancer](documentation-government-networking.md#support-for-load-balancer)
+* Application Gateway
+* [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
+* [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## [Storage](documentation-government-services-storage.md)
 * [Azure Storage](documentation-government-services-storage.md#azure-storage)
+* [Blob Storage](documentation-government-services-storage.md#azure-storage)
+* [Table Storage](documentation-government-services-storage.md#azure-storage)
+* [Queue Storage](documentation-government-services-storage.md#azure-storage)
+* [File Storage](documentation-government-services-storage.md#azure-storage)
+* [Hot/Cool Storage](documentation-government-services-storage.md#azure-storage)
+* [Storage Service Encryption](documentation-government-services-storage.md#azure-storage)
+* [Premium Storage](documentation-government-services-storage.md#azure-storage)
+* [Blob Import/Export](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [Backup](documentation-government-services-backup.md)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Import/Export
-* StorSimple
-* Backup
-* Site Recovery
 
-## Web + Mobile
-* Web Apps
+## [Web + Mobile](documentation-government-services-webandmobile.md)
+* [App Services](documentation-government-services-webandmobile.md#app-services)
 * Media Services
 
 ## [Databases](documentation-government-services-database.md)
@@ -63,7 +71,7 @@ For the most current list of services, see the [Products by Region](https://azur
 
 ## Enterprise Integration
 * Service Bus
-* StorSimple
+* [StorSimple](documentation-government-services-storage.md)
 * SQL Server Stretch Database
 
 ## [Security + Identity](documentation-government-services-securityandidentity.md)
@@ -73,11 +81,11 @@ For the most current list of services, see the [Products by Region](https://azur
 
 ## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
-* Backup
+* [Backup](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* Site Recovery
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Scheduler
-* Traffic Manager
+* [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
 * Monitoring and Diagnostics
 
 ## Next Steps

@@ -1,5 +1,5 @@
 ---
-title: Set up Intel NUC as Azure IoT gateway | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Lesson 1: Set up NUC | Microsoft Docs'
 description: Set up Intel NUC to work as an IoT gateway between a sensor and Azure IoT Hub to collect sensor information and send it to IoT Hub.
 services: iot-hub
 documentationcenter: ''
@@ -82,7 +82,7 @@ Here you need keyboard and monitor to get the IP address of your NUC device. If 
 
 ## Install the Azure IoT Gateway SDK package
 
-The Azure IoT Gateway SDK package contains the pre-compiled binaries of the SDK and its dependencies. These binaries are the Azure IoT Gateway SDK, the Azure IoT SDK and the corresponding tools. The package also contains a "hello_world" sample application is used to validate the gateway functionality. The SDK is the core part of the gateway. To install the package, follow these steps:
+The Azure IoT Gateway SDK package contains the pre-compiled binaries of the SDK and its dependencies. These binaries are the Azure IoT Gateway SDK, the Azure IoT SDK and the corresponding tools. The package also contains a "hello_world" sample application that is used to validate the gateway functionality. The SDK is the core part of the gateway. To install the package, follow these steps:
 
 1. Add the IoT cloud repository by running the following commands in a terminal window:
 

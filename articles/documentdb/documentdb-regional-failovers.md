@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2016
+ms.date: 02/09/2017
 ms.author: arramac
 
 ---
@@ -25,6 +25,10 @@ Azure DocumentDB supports both explicit and policy driven failovers that allow y
 * How do manual failovers work in DocumentDB?
 * How do automatic failovers work in DocumentDB?
 * How can you use manual failovers in application architectures?
+
+You can also learn about regional failovers in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configuring multi-region applications
 Before we dive into failover modes, we look at how you can configure an application to take advantage of multi-region availability and be resilient in the face of regional failovers.
@@ -75,7 +79,7 @@ Once the affected region recovers from the outage, all the affected DocumentDB a
 
 **What happens if a write region has an outage?**
 
-If the affected region is the current write region for a given Azure DocumentDB account, then the region will be automatically marked as offline. Then, an alternative region is promoted as the write region each affected DocumentDB account. You can fully control the region selection order for your DocumentDB accounts via the Azure portal or programmatically. 
+If the affected region is the current write region for a given Azure DocumentDB account, then the region will be automatically marked as offline. Then, an alternative region is promoted as the write region each affected DocumentDB account. You can fully control the region selection order for your DocumentDB accounts via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Failover priorities for Azure DocumentDB](./media/documentdb-regional-failovers/failover-priorities.png)
 
@@ -87,11 +91,11 @@ Once the affected region recovers from the outage, all the affected DocumentDB a
 
 * DocumentDB accounts with their previous write region in the affected region will stay in an offline mode with read availability even after the recovery of the region. 
 * You can query this region to compute any unreplicated writes during the outage by comparing with the data available in the current write region. Based on the needs of your application, you can perform merge and/or conflict resolution and write the final set of changes back to the current write region. 
-* Once you've completed merging changes, you can bring the affected region back online by removing and readding the region to your DocumentDB account. Once the region is added back, you can configure it back as the write region by performing a manual failover via the Azure portal or programmatically.
+* Once you've completed merging changes, you can bring the affected region back online by removing and readding the region to your DocumentDB account. Once the region is added back, you can configure it back as the write region by performing a manual failover via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 ## <a id="ManualFailovers"></a>Manual Failovers
 
-In addition to automatic failovers, the current write region of a given DocumentDB account can be manually changed dynamically to one of the existing read regions. Manual failovers can be initiated via the Azure portal or programmatically. 
+In addition to automatic failovers, the current write region of a given DocumentDB account can be manually changed dynamically to one of the existing read regions. Manual failovers can be initiated via the Azure portal or [programmatically](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 Manual failovers ensure **zero data loss** and **zero availability** loss and gracefully transfer write status from the old write region to the new one for the specified DocumentDB account. Like in automatic failovers, the Azure DocumentDB SDK automatically handles write region changes during manual failovers and ensures that calls are automatically redirected to the new write region. No code or configuration changes are required in your application to manage failovers. 
 
@@ -111,4 +115,5 @@ In this article, we reviewed how manual and automatic failovers work in Azure Do
 * Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
 * Learn about [global consistency with DocumentDB](documentdb-consistency-levels.md)
 * Develop with multiple regions using the [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
+* Learn how to build [Multi-region writer architectures](documentdb-multi-region-writers.md) with Azure DocumentDB
 

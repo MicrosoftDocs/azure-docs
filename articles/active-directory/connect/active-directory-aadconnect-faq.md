@@ -1,23 +1,22 @@
 ---
-title: 'Azure AD Connect: FAQ | Microsoft Docs'
+title: 'Azure Active Directory Connect: FAQ - | Microsoft Docs'
 description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
 manager: femila
-editor: curtand
-
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 02/07/2017
 ms.author: billmath
 
 ---
-# Azure AD Connect FAQ
+# Frequently asked questions for Azure Active Directory Connect
+
 ## General installation
 **Q: Will installation work if the Azure AD Global Admin has 2FA enabled?**  
 With the builds from February 2016, this is supported.
@@ -62,6 +61,12 @@ See these articles:
 * [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/en-us/kb/2669550)
 
 You can also configure Azure AD to allow the sync engine to update the userPrincipalName as described in [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md).
+
+**Q: Is it supported to soft match on-premises AD Group/Contact objects with existing Azure AD Group/Contact objects?**  
+No, this is currently not supported.
+
+**Q: Is it supported to manually set ImmutableId attribute on existing Azure AD Group/Contact objects to hard match it to on-premises AD Group/Contact objects?**  
+No, this is currently not supported.
 
 ## Custom configuration
 **Q: Where are the PowerShell cmdlets for Azure AD Connect documented?**  

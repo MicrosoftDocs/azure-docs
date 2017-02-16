@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Java API & SDK | Microsoft Docs
+title: Java API & SDK Resources - Azure DocumentDB | Microsoft Docs
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
 services: documentdb
 documentationcenter: java
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 01/03/2017
-ms.author: rnagpal
+ms.date: 01/31/2017
+ms.author: khdang
 
 ---
 # DocumentDB APIs and SDKs
@@ -47,6 +47,16 @@ ms.author: rnagpal
 </table></br>
 
 ## Release Notes
+### <a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
+* Added support for aggregation queries (AVG, COUNT, MIN, MAX, and SUM).
+* Added support for change feed.
+* Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
+* Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
+* Fixed a bug where query in DirectHttps mode may hang when encountering throttle failures.
+* Fixed a bug in session consistency mode.
+* Fixed a bug which may cause NullReferenceException in HttpContext when request rate is high.
+* Improved performance of DirectHttps mode.
+
 ### <a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
 * Added simple client instance-based proxy support with ConnectionPolicy.setProxy() API.
 * Added DocumentClient.close() API to properly shutdown DocumentClient instance.
@@ -138,6 +148,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.9.5](#1.9.5) |January 31, 2017 |--- |
 | [1.9.4](#1.9.4) |November 24, 2016 |--- |
 | [1.9.3](#1.9.3) |October 30, 2016 |--- |
 | [1.9.2](#1.9.2) |October 28, 2016 |--- |

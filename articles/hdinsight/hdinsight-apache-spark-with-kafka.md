@@ -1,5 +1,5 @@
 ---
-title: Use Apache Spark with Kafka on HDInsight | Microsoft Docs
+title: Use Apache Spark with Kafka on Azure HDInsight | Microsoft Docs
 description: 'Learn how to use Spark on HDInsight to read and write data to a Kafka on HDInsight cluster. This example uses Scala in a Jupyter Notebook to write random data to Kafka on HDInsight, then read it back using Spark streaming.'
 services: hdinsight
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 ---
 # Use Apache Spark with Kafka (preview) on HDInsight
@@ -128,7 +128,7 @@ From your development environment, use the following commands to retrieve the br
 
     > [!IMPORTANT]
     > When using this command from Windows PowerShell, you may receive an error about shell quoting. If so, use the following command:
-    > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'
+    > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'`
 
 * To get the __Zookeeper host__ information:
 

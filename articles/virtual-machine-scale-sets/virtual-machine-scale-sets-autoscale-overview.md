@@ -3,7 +3,7 @@ title: Automatic scaling and virtual machine scale sets | Microsoft Docs
 description: Learn about using diagnostics and autoscale resources to automatically scale virtual machines in a scale set.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: davidmu
+ms.author: adegeo
 
 ---
 # Automatic scaling and virtual machine scale sets

@@ -1,5 +1,5 @@
 ---
-title: IP addresses | Microsoft Docs
+title: IP address types in Azure | Microsoft Docs
 description: Learn about public and private IP addresses in Azure.
 services: virtual-network
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 04/27/2016
 ms.author: jdial
 
 ---
-# IP addresses in Azure
+# IP address types and allocation methods in Azure
 You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure:
 
 * **Public IP addresses**: Used for communication with the Internet, including Azure public-facing services

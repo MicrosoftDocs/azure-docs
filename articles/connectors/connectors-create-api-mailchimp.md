@@ -26,7 +26,7 @@ MailChimp is a SaaS service that allows businesses to manage and automate email 
 > 
 > 
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The MailChimp connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
@@ -589,5 +589,5 @@ There are no parameters for this call
 | _links |array |No |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

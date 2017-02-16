@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 01/07/2017
 ms.author: adhurwit
 
 ---
@@ -110,10 +110,10 @@ Now we need code to call the Key Vault API and retrieve the secret. The followin
     // I put my GetToken method in a Utils class. Change for wherever you placed your method.
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
-    var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
+    var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
     //I put a variable in a Utils class to hold the secret for general  application use.
-    Utils.EncryptSecret = sec;
+    Utils.EncryptSecret = sec.Value;
 
 
 

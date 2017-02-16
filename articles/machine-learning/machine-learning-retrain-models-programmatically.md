@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 
 ---
@@ -41,10 +41,11 @@ To create the experiment:
 5. Type Census Model.
 6. At the bottom of the experiment canvas, click **Run**.
 7. Click **Set Up web service** and select **Retraining web service**. 
+
+The following shows the initial experiment.
    
    ![Initial experiment.][2]
 
-Diagram 2: Initial experiment.
 
 ## Create a predictive experiment and publish as a web service
 Next you create a Predicative Experiment.
@@ -76,7 +77,7 @@ In either case, after experiment has completed running, the resulting workflow s
 
 ![Resulting workflow after run.][4]
 
-Diagram 3: Resulting workflow after run.
+
 
 ## Retrain the model with new data using BES
 For this example, you are using C# to create the retraining application. You can also use the Python or R sample code to accomplish this task.

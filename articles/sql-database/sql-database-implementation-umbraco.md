@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
@@ -27,7 +27,7 @@ Umbraco is a popular open-source content-management system (CMS) that can run an
 > 
 > — Morten Christensen, Technical Lead, Umbraco
 > 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
 > 
 > 
 

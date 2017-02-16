@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Subscription and Service Limits, Quotas, and Constraints
+title: Azure subscription limits and quotas | Microsoft Docs
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values.
 services: ''
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 02/13/2017
 ms.author: byvinyal
 
 ---
@@ -62,6 +62,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
 * [Key Vault](#key-vault-limits)
+* [Log Analytics / Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -69,7 +70,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
-* [Operational Insights](#operational-insights-limits)
 * [Resource Group](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
@@ -127,20 +127,23 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 ### Storage limits
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/storage-scalability-targets.md).
-
+<!--like # storage accts --> 
 #### Storage Service limits
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### Virtual Machine disk limits
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+#### Virtual machine disk limits 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 See [Virtual machine sizes](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
-**Standard storage accounts**
+#### Managed virtual machine disks
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### Unmanaged virtual machine disks
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-**Premium storage accounts**
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
@@ -231,7 +234,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### Operational Insights limits
+### Log Analytics limits
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### Backup limits

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---

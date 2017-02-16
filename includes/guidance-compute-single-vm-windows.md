@@ -5,7 +5,7 @@ This article outlines a set of proven practices for running a Windows virtual ma
 > 
 > 
 
-We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple Windows VMs on Azure][multi-vm]. 
+We don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
 
 ## Architecture diagram
 
@@ -75,7 +75,7 @@ You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out
 
 ## Availability considerations
 
-As noted above, there is no SLA for a single VM. To get the SLA, you must deploy multiple VMs into an availability set.
+For higher availabiility, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla] (SLA). 
 
 Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
@@ -157,19 +157,19 @@ For information on additional ways to deploy this reference architecture, see th
 If you need to change the deployment to match your needs, follow the instructions in the [readme][github-folder]. 
 
 ## Next steps
-In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an availability set. For more information, see [Running multiple VMs on Azure][multi-vm].
+For higher availability, deploy two or more VMs behind a load balancer. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
-[azure-cli]: ../articles/virtual-machines-command-line-tools.md
+[azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-windows.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
@@ -204,7 +204,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md#size-tables
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm

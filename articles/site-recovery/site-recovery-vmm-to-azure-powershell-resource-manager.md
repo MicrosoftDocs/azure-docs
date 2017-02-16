@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 02/02/2017
 ms.author: rajanaki
 
 ---
@@ -127,7 +127,8 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
 ## Step 3: Set the Recovery Services Vault context
-1. Set the vault context by running the below command.
+
+Set the vault context by running the below command.
    
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
@@ -160,7 +161,8 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
        $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
 
 ## Step 5: Create an Azure storage account
-1. If you don't have an Azure storage account, create a geo-replication enabled account in the same geo as the vault by running the following command:
+
+If you don't have an Azure storage account, create a geo-replication enabled account in the same geo as the vault by running the following command:
    
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     

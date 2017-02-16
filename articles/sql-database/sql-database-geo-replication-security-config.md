@@ -1,9 +1,9 @@
 ---
-title: How to manage security after restoring a database to a new server or failing over a database to a secondary database copy | Microsoft Docs
-description: This topic explains security considerations for managing security after a database restore or a failover.
+title: Configure Azure SQL Database security for disaster recovery | Microsoft Docs
+description: This topic explains security considerations for configuring and managing security after a database restore or a failover to a secondary server in the event of a data center outage or other disaster
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: anosov1960
 manager: jhubbard
 editor: monicar
 
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
-ms.author: carlrab
+ms.author: sashan
 
 ---
-# How to manage Azure SQL Database security after disaster recovery
+# Configure and manage Azure SQL Database security for geo-restore or failover 
+
 > [!NOTE]
 > [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
-> 
-> 
+>  
 
 ## Overview of authentication requirements for disaster recovery
 This topic describes the authentication requirements to configure and control [Active Geo-Replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
@@ -100,4 +100,3 @@ The last step is to go to the target server, or servers, and generate the logins
 * For information about using and configuring Active Geo-Replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
 * For informatin about using Geo-Restore, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
 
-## Additional resources

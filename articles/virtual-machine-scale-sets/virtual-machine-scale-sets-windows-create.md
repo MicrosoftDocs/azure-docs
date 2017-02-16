@@ -3,7 +3,7 @@ title: Create a Virtual Machine Scale Set using PowerShell | Microsoft Docs
 description: Create a Virtual Machine Scale Set using PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
-ms.author: davidmu
+ms.author: adegeo
 
 ---
 # Create a Windows virtual machine scale set using Azure PowerShell

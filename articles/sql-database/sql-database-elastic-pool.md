@@ -4,7 +4,7 @@ description: Manage hundreds or thousands of databases using a pool. One price f
 keywords: elastic pool,sql databases
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: ''
 
@@ -12,15 +12,15 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
-ms.author: CarlRabeler
+ms.date: 02/01/2017
+ms.author: ddove
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---
-# What is an Azure elastic pool?
-SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
+# What is an Azure SQL elastic pool?
+A SQL elastic pool is given a set number of eDTUs, for a set price, on an Azure logical server that are shared amongst a pool of databases on that server. SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
 > [!NOTE]
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
@@ -30,7 +30,7 @@ SQL DB elastic pools provide a simple cost effective solution to manage the perf
 ## How it works
 A common SaaS application pattern is the single-tenant database model: each customer is given their own database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources efficiently and cost-effectively? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic pools solve this problem by ensuring that databases get the performance resources they need and when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for databases in an elastic pool. See [Introduction to SQL Database](sql-database-technical-overview.md) to learn more about DTUs and eDTUs.
@@ -52,7 +52,7 @@ Databases that are great candidates for elastic pools typically have periods of 
 
 The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 

@@ -1,5 +1,5 @@
 ---
-title: Contact Microsoft Support | Microsoft Docs
+title: Log Support ticket for StorSimple 8000 series | Microsoft Docs
 description: Learn how to create a support request and start a support session on your StorSimple device.
 services: storsimple
 documentationcenter: ''

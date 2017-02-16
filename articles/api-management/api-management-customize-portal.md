@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apimpm
 
 ---
 # Customize the developer portal in Azure API Management
@@ -40,17 +40,17 @@ Now you should be able to see the new header on every page within the developer 
 > 
 
 ## <a name="change-headers-styling"> </a>Change the styling of the headers
-The colors, fonts, sizes, spacings, and other style-related elements of any page on the portal are defined by style rules. To edit the styles, click **Appearance** from the **Developer portal** menu in the publisher portal, and then click **Begin customization** to enable the styling editor.
+The colors, fonts, sizes, spacings, and other style-related elements of any page on the portal are defined by style rules. To edit the styles, while in the **Developer portal**, open the customization toolbar on the left by moving over the customization icon and then select "styles" from the toolbar.
 
-Your browser switches to a hidden page within the developer portal that contains samples of content, with examples for all styling rules used anywhere on the site. To open the styling editor, move your cursor over the thin gray vertical line on the left-most part of the page. The editor toolbar should appear.
+![Customization toolbar button][api-management-customization-toolbar-button]
+
+There are two main way of editing styling rules - you can look through the list of all the style rules used anywhere which is displayed by default and modify a style as needed, or you can choose **Select an element on the page** and then click anywhere on the page to see only the styles for that element.
+
+In this section, we want to change the styling of only the headers. Click the **Select an element on the page** option from the styling editor toolbar. 
 
 ![Customization toolbar][api-management-customization-toolbar]
 
-There are two main modes of editing styling rules - **Edit all rules** displays a list of all the style rules used anywhere, while **Pick element** allows you to select an element from the page you are on and displays styles only for that element.
-
-In this section, we want to change the styling of only the headers. Click the **Pick element** option from the styling editor toolbar, and then click **Select an element to customize**. Elements now become highlighted as you hover over them with the mouse to signify what element's styles you would start editing if you clicked. Move the mouse over the text that represents the company name in the header ("Fabrikam Developer Portal" if you followed the instructions in the previous section), and then click it. A set of named and categorized styling rules appears within the styling editor.
-
-Each rule represents a styling property of the selected element. For example, for the header text selected above, the size of the text is in @font-size-h1 while the name of the font with alternatives is in @headings-font-family.
+Elements now become highlighted as you hover over them with the mouse to signify what element's styles you would start editing if you clicked. Move the mouse over the text that represents the company name in the header ("Fabrikam Developer Portal" if you followed the instructions in the previous section), and then click it. A set of named and categorized styling rules appears within the styling editor. Each rule represents a styling property of the selected element. For example, for the header text selected above, the size of the text is in @font-size-h1 while the name of the font with alternatives is in @headings-font-family.
 
 > If you're familiar with [bootstrap][bootstrap], these rules are in fact [LESS variables][LESS variables] within the bootstrap theme used by the developer portal.
 > 
@@ -60,7 +60,7 @@ Let's change the color of the heading text. Select the entry in the **@headings-
 
 ![Color picker][api-management-customization-toolbar-color-picker]
 
-When you are done making changes to the styles of the selected element, click **Preview Changes** to see the results on the screen. At this time, they are visible only to administrators. To make these changes visible to everyone, click the **Publish** button in the styling editor and confirm the changes.
+Changes are previewed in real time as you make them, but are visible only to administrators. To make these changes visible to everyone, click the **Publish** button in the styling editor and confirm the changes.
 
 ![Publish menu][api-management-customization-toolbar-publish-form]
 
@@ -93,6 +93,7 @@ Click the **Welcome** page to edit what is displayed on the home page of the dev
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png

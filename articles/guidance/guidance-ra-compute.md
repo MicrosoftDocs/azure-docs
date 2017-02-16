@@ -35,18 +35,16 @@ The reference architectures in this series are designed to build on each other, 
 ## Running a single VM
 This reference architecture contains a set of baseline recommendations for running any Windows or Linux VM in Azure. 
 
-A single VM is useful as a basic development or test environment, or for non-critical workloads, but is not recommended for hosting mission-critical systems or production applications. 
-
 > [!NOTE]
 > This architecture is the basis for the other architectures in this series. It is important to understand the concepts here, even if you are not deploying a single VM by itself.
 > 
 > 
 
-[![0]][0]
+![[0]][0]
 
 Considerations:
 
-* Single VM instances do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. Instead, it is recommended to put two or more VMs in an availability set. The next architecture demonstrates this approach.
+* Not recommended for mission-critical systems. Instead, it is recommended to put two or more VMs in an availability set. The next architecture demonstrates this approach.
 
 For detailed information, see [Running a Windows VM on Azure][single-vm] and [Running a Linux VM on Azure][single-vm-linux].
 
@@ -54,11 +52,10 @@ For detailed information, see [Running a Windows VM on Azure][single-vm] and [Ru
 
 To improve availability and scalability, deploy several VMs in an availability set and use a load balancer to distribute traffic across them.  
 
-[![1]][1]
+![[1]][1]
 
 Benefits:
 
-* VMs in this configuration qualify for the SLA for Virtual Machines.
 * Provides improved availability and scalability.
 * This architecture is a building block for running N-tier applications on Azure, as shown in the next architecture.
 
@@ -69,7 +66,7 @@ This architecture shows best practices for running an N-tier application on VMs 
 
 The VMs for each tier are placed in separate availability sets.  Within a tier, load balancers distribute traffic across the VMs. At the data tier, the database is replicated for higher availability.
 
-[![2]][2]
+![[2]][2]
 
 For detailed information, see:
 
@@ -81,7 +78,7 @@ An application deployed to a single region could become unavailable if an incide
 
 This architecture show how to deploy a multi-region N-tier application in an active/passive configuration. During normal operation, Azure Traffic Manager routes traffic to the primary region. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region.  
 
-[![3]][3]
+![[3]][3]
 
 Benefits of deploying to multiple regions:
 

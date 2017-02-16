@@ -1,5 +1,5 @@
 ---
-title: Create HDInsight clusters with Azure Data Lake Store using Resource Manager Templates | Microsoft Docs
+title: Use Azure templates to create HDInsight and Data Lake Store | Microsoft Docs
 description: Use Azure Resource Manager templates to create and use HDInsight clusters with Azure Data Lake Store
 services: data-lake-store,hdinsight
 documentationcenter: ''
@@ -20,13 +20,19 @@ ms.author: nitinme
 # Create an HDInsight cluster with Data Lake Store using Azure Resource Manager template
 > [!div class="op_single_selector"]
 > * [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Using PowerShell (for default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Using PowerShell (for additional storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
+>
 
-Learn how to use an Azure Resource Manager template to configure an HDInsight cluster with access to Azure Data Lake Store. For supported cluster types, Data Lake Store be used as an default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
+Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Store, **as additional storage**. 
 
-Some important considerations:
+For supported cluster types, Data Lake Store be used as an default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
+
+## Using Data Lake Store for HDInsight cluster storage
+
+Here are some important considerations for using HDInsight with Data Lake Store:
 
 * Option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
 
