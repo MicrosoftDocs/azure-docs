@@ -104,8 +104,8 @@ Device data refers to the per-device data stored in the IoT Hub [identity regist
 ## Device explorer
 The [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry), and send and receive messages to your devices.
 
-## Device identities REST API
-The [Device identities REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
+## Device Identities REST API
+The [Device Identities REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
 
 ## Device identity
 The device identity is the unique identifier assigned to every device registered in the [identity registry](#identity-registry).
@@ -116,8 +116,8 @@ Device management encompasses the full lifecycle associated with managing the de
 ## Device management patterns
 [IoT hub](#iot-hub) enables common device management patterns including rebooting, performing factory resets, and performing firmware updates on your devices.
 
-## Device messaging REST API
-You can use the [Device messaging REST API](https://docs.microsoft.com/rest/api/iothub/httpruntime) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
+## Device Messaging REST API
+You can use the [Device Messaging REST API](https://docs.microsoft.com/rest/api/iothub/httpruntime) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
 
 ## Device provisioning
 Device provisioning is the process of adding the initial [device data](#device-data) to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub [identity registry](#identity-registry). As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
@@ -128,8 +128,8 @@ A [device twin](iot-hub-devguide-device-twins.md) is JSON document that stores d
 ## Device twin queries
 [Device twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins. You can use the same IoT Hub query language to retrieve information about [jobs](#job) running in your IoT hub.
 
-## Device twins REST API
-You can use the [Device twins REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) from the solution back end to manage your device twins. The API enables you to retrieve and update [device twin](#device-twin) properties and invoke [direct methods](#direct-method). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
+## Device Twin REST API
+You can use the [Device Twin REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) from the solution back end to manage your device twins. The API enables you to retrieve and update [device twin](#device-twin) properties and invoke [direct methods](#direct-method). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
 
 ## Device twin synchronization
 Device twin synchronization uses the [desired properties](#desired-properties) in your device twins to configure your devices and retrieve [reported properties](#reported-properties) from your devices to store in the device twin.
@@ -170,8 +170,8 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 ## IoT Hub query language
 The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [jobs](#job) and device twins.
 
-## IoT Hub resource provider REST API
-You can use the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
+## IoT Hub Resource Provider REST API
+You can use the [IoT Hub Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
 
 ## IoT Suite
 Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
@@ -182,8 +182,8 @@ The [iothub-explorer](https://github.com/azure/iothub-explorer) is a cross-platf
 ## Job
 Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses jobs to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
 
-## Job API
-The [job api](https://docs.microsoft.com/rest/api/iothub/jobapi) is a REST API that enables you manage [jobs](#job) running in your IoT hub.
+## Jobs REST API
+The [Jobs REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) enables you manage [jobs](#job) running in your IoT hub.
 
 ## Module
 In the [Azure IoT Gateway SDK](iot-hub-linux-gateway-sdk-get-started.md), a [module](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. The Azure IoT Gateway SDK includes a set of sample modules. You can also create your own custom modules.

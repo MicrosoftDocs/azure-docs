@@ -41,6 +41,8 @@
 #### [Manage jobs](storsimple-virtual-array-manage-jobs.md)
 #### [Change device password](storsimple-virtual-array-change-device-admin-password.md)
 #### [Configure MPIO on Windows Server host](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Diagnose and troubleshoot](storsimple-virtual-array-diagnose-problems.md)
+#### [Log Support request](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Manage via Azure classic portal](storsimple-ova-manager-service-administration.md)
 #### [Install latest Update](storsimple-ova-install-update-01.md)
@@ -175,6 +177,7 @@
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
+#### [Install Update 4](storsimple-install-update-4.md)
 #### [Install Update 3](storsimple-install-update-3.md)
 #### [Install Update 2.2](storsimple-install-update-21.md)
 #### [Install Update 2](storsimple-install-update-2.md)
@@ -182,6 +185,7 @@
 #### [Update your device](storsimple-update-device.md)
 
 ## Release notes
+### [Update 4 - current](storsimple-update4-release-notes.md)
 ### [Update 3 - current](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 ### [Update 2 ](storsimple-update2-release-notes.md)
@@ -205,6 +209,18 @@
 
 ## How to
 ### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md)
+
+# StorSimple for partners
+## Overview
+### [What is the solution?](storsimple-partner-csp-overview.md)
+
+## Get started
+### [Deploy virtual array for CSP](storsimple-partner-csp-deploy.md)
+
+## Release notes
+### [StorSimple release notes](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [CSP release notes](https://partner.microsoft.com/Support/whats-new)
+### [StorSimple for CSP: FAQ](storsimple-partner-csp-faq.md)
 
 # Related
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
