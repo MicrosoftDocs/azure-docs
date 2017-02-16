@@ -46,7 +46,7 @@ One of the critical configuration steps is configuring the IPsec communication p
 | Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Phase 1 Security Association (SA) Lifetime (Time) |28,800 seconds |10,800 seconds |
  
-As a user, you would be required to configure your Cisco ASA, a sample configuration can be found on [Github](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Among other configurations, you would also need to specify the hashing algorithm. Cisco ASA supports more [encryption and hashing algorithms](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) than Azure VPN Gateway. Unknowingly you configured your Cisco ASA to use SHA-512 as the hashing algorithm. As this algorithm is not a supported algorithm for policy-based connections, your VPN connection does work. 
+As a user, you would be required to configure your Cisco ASA, a sample configuration can be found on [Github](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Among other configurations, you would also need to specify the hashing algorithm. Cisco ASA supports more [encryption and hashing algorithms](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) than Azure VPN Gateway. Unknowingly you configured your Cisco ASA to use SHA-512 as the hashing algorithm. As this algorithm is not a supported algorithm for policy-based connections, your VPN connection does work.
 
 These issues are hard to troubleshoot and root causes are often non-intuitive. In this case you can open a support ticket to get help on resolving the issue. But with Azure Network Watcher troubleshoot API, you can identify these issues on your own. 
 
@@ -75,34 +75,34 @@ Azure Network Watcher troubleshoot feature enables you to diagnose and troublesh
 
 | Fault Type | Reason | Log|
 |---|---|---|
-| NoFault | When no error is detected |Yes|
-| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned |No|
-| PlannedMaintenance |  Gateway instance is under maintenance  |No|
+| NoFault | When no error is detected. |Yes|
+| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
+| PlannedMaintenance |  Gateway instance is under maintenance.  |No|
 | UserDrivenUpdate | When a user update is in progress. This could be a resize operation. | No |
-| VipUnResponsive | Cannot find the primary instance of the Gateway. It happens when the healthprobe for the GW fails | No |
-| PlatformInActive | When the instance does not have blob lease. Non primary instance | No|
-| ServiceNotRunning | The undelying service is not running | No|
-| NoConnectionsFoundForGateway | No connections exists on the gateway. This is not an error, just a warning| No|
-| ConnectionsNotConnected | None of the connections are not connected. This is not an error, just a warning| Yes|
-| GatewayCPUUsageExceeded | The current Gateway usage CPU usage is > 95% | Yes |
+| VipUnResponsive | Cannot reach the primary instance of the Gateway. This happens when the health probe fails. | No |
+| PlatformInActive | There is an issue with the platform. | No|
+| ServiceNotRunning | The underlying service is not running. | No|
+| NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
+| ConnectionsNotConnected | None of the Connections are not connected. This is only a warning.| Yes|
+| GatewayCPUUsageExceeded | The current Gateway usage CPU usage is > 95%. | Yes |
 
 ### Connection
 
 | Fault Type | Reason | Log|
 |---|---|---|
-| NoFault | When no error is detected |Yes|
-| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned |No|
-| PlannedMaintenance | Gateway instance is under maintenance  |No|
+| NoFault | When no error is detected. |Yes|
+| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
+| PlannedMaintenance | Gateway instance is under maintenance.  |No|
 | UserDrivenUpdate | When a user update is in progress. This could be a resize operation.  | No |
-| VipUnResponsive | Cannot find the primary instance of the Gateway. It happens when the healthprobe for the GW fails | No |
-| ConnectionEntityNotFound | Connection configuration is missing | No |
-| ConnectionIsMarkedDisconnected | The connection is marked "disconnected" |No|
-| ConnectionNotConfiguredOnGateway | The underlying service does not have the connection configured | Yes |
-| ConnectionMarkedStandy | In the underlying service is marked as standby| Yes|
-| Authentication | Preshared Key mismatch from WFP logs  | Yes|
+| VipUnResponsive | Cannot reach the primary instance of the Gateway. It happens when the health probe fails. | No |
+| ConnectionEntityNotFound | Connection configuration is missing. | No |
+| ConnectionIsMarkedDisconnected | The Connection is marked "disconnected". |No|
+| ConnectionNotConfiguredOnGateway | The underlying service does not have the Connection configured. | Yes |
+| ConnectionMarkedStandy | The underlying service is marked as standby.| Yes|
+| Authentication | Preshared Key mismatch. | Yes|
 | PeerReachability | The peer gateway is not reachable. | Yes|
-| IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure | Yes|
-| WfpParse Error | An error occurred parsing the WFP log |Yes|
+| IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
+| WfpParse Error | An error occurred parsing the WFP log. |Yes|
 
 ## Next steps
 
