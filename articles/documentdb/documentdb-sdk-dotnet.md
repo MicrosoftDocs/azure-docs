@@ -49,7 +49,7 @@ ms.author: rnagpal
 ## Release notes
 
 ### <a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
-* Support for lower RU/s on a partitioned collection that allows a minimum of 2500 RU/s now.
+* Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
 * Fix for an issue wherein some of the cross-partition queries were failing in the 32-bit host process.
