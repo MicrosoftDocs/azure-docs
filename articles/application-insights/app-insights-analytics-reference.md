@@ -640,32 +640,32 @@ Two modes of property-bag expansions are supported:
 * `bagexpansion=bag`: Property bags are expanded into single-entry property bags. This is the default expansion.
 * `bagexpansion=array`: Property bags are expanded into two-element `[`*key*`,`*value*`]` array structures,
   allowing uniform access to keys and values (as well as, for example, running a distinct-count aggregation
-  over property names). 
+  over property names).
 
 **Examples**
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0]
 
 Splits an exception record into rows for each item in the details field.
 
 ### parse operator
-    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    T | parse "I got 2 socks for my birthday when I was 63 years old"
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
     T | parse kind=relaxed
-          "I got no socks for my birthday when I was 63 years old" 
-    with * "got" counter:long " " present "for" * "was" year:long * 
+          "I got no socks for my birthday when I was 63 years old"
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got " present " for .*?" year:long * 
+    T |  parse kind=regex "I got socks for my 63rd birthday"
+    with "(I|She) got " present " for .*?" year:long *
 
 Extracts values from a string. Can use simple or regular expression matching.
 
 **Syntax**
 
-    T | parse [kind=regex|relaxed] SourceText 
+    T | parse [kind=regex|relaxed] SourceText
         with [Match | Column [: Type [*]] ]  ...
 
 **Arguments**
@@ -955,7 +955,7 @@ If you want to sample data rows (rather than values of a specific column), refer
 
 **Example**
 
-Sample a population and do further computation knowing the summarize won't exceed query limits. 
+Sample a population and do further computation knowing the summarize won't exceed query limits.
 
 ```AIQL
 let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
@@ -971,7 +971,7 @@ Sort the rows of the input table into order by one or more columns.
 
 **Syntax**
 
-    T  | sort by Column [ asc | desc ] [ `,` ... ]
+    T  | sort by Column [ asc | desc ] [ , ... ]
 
 **Arguments**
 
@@ -1004,9 +1004,9 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 **Syntax**
 
     T | summarize
-         [  [ Column = ] Aggregation [ `,` ... ] ]
+         [  [ Column = ] Aggregation [ , ... ] ]
          [ by
-            [ Column = ] GroupExpression [ `,` ... ] ]
+            [ Column = ] GroupExpression [ , ... ] ]
 
 **Arguments**
 
@@ -1037,7 +1037,7 @@ Returns the first *N* records sorted by the specified columns.
 
 **Syntax**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
+    T | top NumberOfRows by Sort_expression [ asc | desc ] [nulls first|nulls last] [, ... ]
 
 **Arguments**
 
@@ -1052,11 +1052,11 @@ Returns the first *N* records sorted by the specified columns.
 `top 5 by name` is superficially equivalent to `sort by name | take 5`. However, it runs faster and always returns sorted results, whereas `take` makes no such guarantee.
 
 ### top-nested operator
-    requests 
-    | top-nested 5 of name by count()  
-    , top-nested 3 of performanceBucket by count() 
+    requests
+    | top-nested 5 of name by count()
+    , top-nested 3 of performanceBucket by count()
     , top-nested 3 of client_CountryOrRegion by count()
-    | render barchart 
+    | render barchart
 
 Produces hierarchical results, where each level is a drill-down from the previous level. It's useful for answering questions that sound like "What are the top 5 requests, and for each of them, what are the top 3 performance buckets, and for each of them, which are the top 3 countries the requests come from?"
 
@@ -1319,10 +1319,10 @@ The parameter column type should be `dynamic` - an array or property bag.
 
 Result:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer": 
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -1354,11 +1354,11 @@ Assume the input column has three dynamic values:
 
 The resulting schema would be:
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
+    {
+      "x":["int", "string"],
+      "y":["double", {"w": "string"}],
+      "z":{"indexer": ["int", "string"]},
+      "t":{"indexer": "string"}
     }
 
 The schema tells us that:
@@ -1375,19 +1375,19 @@ The schema tells us that:
 The syntax of the returned schema is:
 
     Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
+    Named-type ::= (name | '"indexer"') ':' Type;
     Type ::= Primitive-type | Union-type | Container;
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
 They are equivalent to a subset of the TypeScript type annotations, encoded as a dynamic value. In Typescript, the example schema would be:
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
+    var someobject:
+    {
+      x?: (number | string),
+      y?: (number | { w?: string}),
       z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
+      t?: { [n:number]: string }
     }
 
 
@@ -2550,8 +2550,8 @@ Here's the result of a query on an Application Insights exception. The value in 
     | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
-    exceptions 
-    | summarize count() 
+    exceptions
+    | summarize count()
       by tostring(details[0].parsedStack[0].assembly)
 
 **Literals** To create an explicit array or property-bag object, write it as a JSON string and cast:
@@ -2561,7 +2561,7 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 **mvexpand:** To pull apart the properties of an object into separate rows, use mvexpand:
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0].parsedStack[0]
 
 
@@ -2569,8 +2569,8 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 **treepath:** To find all the paths in a complex object:
 
-    exceptions | take 1 | project timestamp, details 
-    | extend path = treepath(details) 
+    exceptions | take 1 | project timestamp, details
+    | extend path = treepath(details)
     | mvexpand path
 
 
@@ -2582,10 +2582,10 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 Result:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer":
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -2611,7 +2611,7 @@ Notice that `indexer` is used to mark where you should use a numeric index. For 
 To create a dynamic literal, use `parsejson` (alias `todynamic`) with a JSON string argument:
 
 * `parsejson('[43, 21, 65]')` - an array of numbers
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` - a single value of dynamic type containing a number
 * `parsejson('"21"')` - a single value of dynamic type containing a string
 

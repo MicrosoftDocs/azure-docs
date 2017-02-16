@@ -43,7 +43,7 @@ The following diagram highlights the important components in this architecture:
 > 
 > 
 
-[![0]][0] 
+![[0]][0] 
 
 * **On-premises network**. A  private local-area network implemented in an organization.
 * **Azure virtual network (VNet)**. The VNet hosts the application and other resources running in Azure.
@@ -184,8 +184,7 @@ Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier
 
 A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. The reference architecture can be deployed by following the directions below:
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet%2Fazuredeploy.json)
+1. Open [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet%2Fazuredeploy.json) in a new tab or browser window. The link takes you to the Azure Portal. 
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings:   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-private-dmz-rg` in the text box.
    * Select the region from the **Location** drop down box.

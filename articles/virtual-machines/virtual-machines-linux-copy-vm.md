@@ -144,14 +144,14 @@ az network nic create --resource-group myResourceGroup --location westeurope --n
 You can now create a VM with [az vm create](/cli/azure/vm#create). As with copying the disk, the process is a little different between managed disks and unmanaged disks. Create a VM using one of the following appropriate commands.
 
 ### Managed disks
-Create a VM with [az vm create](/cli/azure/vm#create). Specify the copied managed disk to use as the OS disk (`--managed-os-disk`) as follows:
+Create a VM with [az vm create](/cli/azure/vm#create). Specify the copied managed disk to use as the OS disk (`--attach-os-disk`) as follows:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myCopiedVM \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --nics myNic --size Standard_DS1_v2 --os-type Linux \
     --image UbuntuLTS
-    --managed-os-disk myCopiedDisk
+    --attach-os-disk myCopiedDisk
 ```
 
 ### Unmanaged disks

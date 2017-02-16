@@ -3,6 +3,7 @@
 
 # Get Started
 ## [Create a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
+## [Create a scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 
 # How To
 ## Plan and design
@@ -16,8 +17,10 @@
 ### [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
-### [Use managed disks](virtual-machine-scale-sets-attached-disks.md)
+### [Use data disks with scale sets](virtual-machine-scale-sets-attached-disks.md)
 ### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
+### [Convert a scale set template to use managed disk](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 ## Manage
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
