@@ -6,7 +6,7 @@ documentationcenter: ''
 author: MarkusVi
 manager: femila
 
-ms.assetid: 6a6d66b0-8607-4273-957b-ade4f9a494ca
+ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,11 +18,6 @@ ms.author: markvi
 ---
 # Azure Active Directory reporting FAQ
 
-**Q: Where can I see the existing reports of the Azure classic portal in Azure Portal?**
-
-**A:** See [How to find activity reports in the Azure Portal](active-directory-reporting-migration.md) for more details.
-
----
 
 **Q: What’s the data retention for Activity logs (Audit and Sign-ins) in the portal?** 
 
@@ -39,21 +34,6 @@ ms.author: markvi
 **Q: Do I nee to be a Global Admin to see the Activity logs in Azure Portal or get data through the API?**
 
 **A:** No. You can either be a **Security Reader**, a **Security Admin** or a **Global Admin** to see reporting data in Azure Portal or access it through the API.
-
----
-
-**Q: Which of the Azure AD sign-in and audit reports are free and which reports are available for Premium and Premium 2?**
-
-**A:** 
-
-
-
----
-
-**Q: Which of the security reports are free and which reports are available for Premium and Premium 2?**
-
-**A:** ((Provide link to Reporting and SKU info))
-
 
 ---
 
