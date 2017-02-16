@@ -63,7 +63,7 @@ You can also deploy an Azure Container Service cluster by using the [Azure CLI 2
 
     ![Basic settings](media/container-service-deployment/acs-portal3.png)  <br />
 
-5. Select an Orchestration type. The options include:
+5. On the **Framework configuration** bladee, select an **Orchestrator configuration**. The options include:
 
   * **DC/OS**: Deploys a DC/OS cluster.
   * **Swarm**: Deploys a Docker Swarm cluster.
@@ -74,11 +74,11 @@ You can also deploy an Azure Container Service cluster by using the [Azure CLI 2
 
     ![Choose an orchestrator](media/container-service-deployment/acs-portal4-new.png)  <br />
 
-7. If **Kubernetes** is selected in the dropdown, you will need to enter a service principal client ID (also called the appId) and service principal client secret (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+7. If **Kubernetes** is selected in the dropdown, you need to enter a service principal client ID (also called the appId) and service principal client secret (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
     ![Enter service principal for Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
 
-7. In the **Azure Container service** settings blade, enter the following information:
+7. In the **Azure Container service settings** blade, enter the following information:
 
     * **Master count**: The number of masters in the cluster.
     * **Agent count**: For Docker Swarm and Kubernetes, this value is the initial number of agents in the agent scale set. For DC/OS, it is the initial number of agents in a private scale set. Additionally, a public scale set is created for DC/OS, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster: one public agent for one master, and two public agents for three or five masters.

@@ -40,10 +40,11 @@ and run your containers. The Windows nodes can be accessed through an RDP SSH tu
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
 
 All VMs are in the same private virtual network and are fully accessible to each other. All VMs run a kubelet, Docker, and a proxy.
+
 ## Prerequisites
 
 
-* **SSH RSA public key**: When deploying through the portal or one of the Azure quickstart templates, you need to provide the public key for authentication against Azure Container Service virtual machines. To create Secure Shell (SSH) RSA keys, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
+* **SSH RSA public key**: When deploying through the portal or one of the Azure quickstart templates, you need to provide an SSH RSA public key for authentication against Azure Container Service virtual machines. To create Secure Shell (SSH) RSA keys, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
 
 * **Service principal client ID and secret**: For more information and guidance, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
@@ -52,13 +53,9 @@ All VMs are in the same private virtual network and are fully accessible to each
 
 ## Create the cluster
 
-You can use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) with Windows agent nodes. Note the following steps:
+You can use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) with Windows agent nodes. 
 
-*Steps to be added*
-
-1. In **Orchestrator configuration**, select **Kubernetes - Windows**.
-2. More steps....
-
+On the **Framework configuration** pane, in **Orchestrator configuration**, select **Kubernetes - Windows**. 
 
 ## Connect to the cluster
 
