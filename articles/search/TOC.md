@@ -50,16 +50,15 @@
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
 ##  Search experience
-### [Simple query syntax](simple-query-syntax-in-azure-search.md)
-### [Lucene query syntax ](lucene-query-syntax-in-azure-search.md)
+### [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search.md)
+### [Lucene query syntax ](/rest/api/searchservice/lucene-query-syntax-in-azure-search.md)
 ### [Lucene syntax query examples](search-query-lucene-examples.md)
-### [Filter expression syntax](odata-expression-syntax-for-azure-search.md)
+### [Filter expression syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search.md)
 ### [Scoring](search-get-started-scoring-profiles.md)
-### [Suggesters](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)
-### [Tag boosting](https://azure.microsoft.com/blog/2015/02/05/personalizing-search-results-announcing-tag-boosting-in-azure-search/)
+### [Suggestions](/rest/api/searchservice/suggestions.md)
 ### [Faceted navigation](search-faceted-navigation.md)
-### [Language analyzers](https://msdn.microsoft.com/library/azure/dn879793)
-### [Custom analyzers](https://msdn.microsoft.com/library/azure/mt605304)
+### [Language analyzers](/rest/api/searchservice/language-support.md)
+### [Custom analyzers](/rest/api/searchservice/custom-analyzers-in-azure-search.md)
 
 # Reference
 ## [.NET](/dotnet/api/microsoft.azure.search)
