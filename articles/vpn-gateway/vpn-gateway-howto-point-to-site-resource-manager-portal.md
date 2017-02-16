@@ -30,7 +30,7 @@ A Point-to-Site (P2S) configuration lets you create a secure connection from an 
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
 
-This article walks you through creating a VNet with a Point-to-Site connection in the Resource Manager deployment model using the Azure portal.
+This article walks you through creating a VNet with a Point-to-Site connection using the Azure portal. The steps apply to the Resource Manager deployment model.
 
 ### Deployment models and methods for P2S connections
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -107,11 +107,11 @@ You need to obtain the .cer file for the root certificate. You can either use a 
 5. Click **Finish** to export the certificate.
 
 ### <a name="generateclientcert"></a>Step 2 - Generate a client certificate
-You can either generate a unique certificate for each client that will connect, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find that you need to revoke the certificate for one client, you will need to generate and install new certificates for all the clients that use that certificate to authenticate.
+You can either generate a unique certificate for each client that will connect to the virtual network, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find that you need to revoke the certificate for one client, you will need to generate and install new certificates for all the clients that use that certificate to authenticate.
 
 ####Enterprise certificate
 - If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
-- Make sure the certificate you issue is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by looking at the certificate properties: **Details > Enhanced Key Usage**.
+- Make sure the certificate that you issue is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by looking at the certificate properties: **Details > Enhanced Key Usage**.
 
 ####Self-signed certificate 
 If you are using a self-signed certificate, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) to generate a client certificate.
