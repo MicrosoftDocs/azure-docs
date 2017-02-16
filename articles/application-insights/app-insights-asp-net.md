@@ -25,7 +25,7 @@ You need:
 * Visual Studio 2013 update 3 or later. Later is better.
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
 
-If you are interested in the following topics, see:
+There are alternative topics to look at if you are interested in:
 
 * [Instrumenting a web app at run time](app-insights-monitor-performance-live-website-now.md)
 * [Azure Cloud services](app-insights-cloudservices.md)
@@ -49,12 +49,12 @@ In Visual Studio, you see a count of the events that have been logged.
 
 ![Screenshot of Visual Studio. The Application Insights button shows during debugging.](./media/app-insights-asp-net/54.png)
 
-## Step 3: See your telemetry
+## Step 3: See your telemetry in Visual Studio or Application Insights
 You can see your telemetry either in Visual Studio or in the Application Insights web portal.
 
-In Visual Studio, open the Application Insights window. Either click the **Application Insights** button, or right-click your project in Solution Explorer, select **Application Insights**, and then click **Search Live Telemetry**.
+**In Visual Studio**, open the Application Insights window. Either click the **Application Insights** button, or right-click your project in Solution Explorer, select **Application Insights**, and then click **Search Live Telemetry**.
 
-In the Application Insights window, see the **Data from Debug session** view for telemetry generated in the server side of your app. Experiment with the filters, and click any event to see more detail.
+In the Visual Studio Application Insights Search window, see the **Data from Debug session** view for telemetry generated in the server side of your app. Experiment with the filters, and click any event to see more detail.
 
 ![Screenshot of the Data from debug session view in the Application Insights window.](./media/app-insights-asp-net/55.png)
 
@@ -64,8 +64,8 @@ In the Application Insights window, see the **Data from Debug session** view for
 [Learn more about Application Insights tools in Visual Studio](app-insights-visual-studio.md).
 
 <a name="monitor"></a>
-
-You can also see telemetry in the Application Insights web portal, unless you chose to install only the SDK. The portal has more charts, analytic tools, and dashboards than Visual Studio does.
+### The Application Insights web portal
+You can also see telemetry **in the Application Insights web portal**, unless you chose to install only the SDK. The portal has more charts, analytic tools, and dashboards than Visual Studio does.
 
 Open your Application Insights resource. Either sign in to the [Azure portal](https://portal.azure.com/) and find it there, or right-click the project in Visual Studio, and let it take you there.
 
@@ -161,9 +161,9 @@ Use [Search](app-insights-diagnostic-search.md) to find and correlate specific e
 ## Alerts
 Be the first to know if your app has problems.
 
-* [Create web tests](app-insights-monitor-web-app-availability.md) to make sure your site is visible on the web.
-* Make use of [proactive diagnostics](app-insights-proactive-diagnostics.md), which run automatically if your app has a certain minimum amount of traffic. You don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Set metric alerts](app-insights-alerts.md) to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Availability tests](app-insights-monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
+* [Smart diagnostics](app-insights-proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
+* [Metric alerts](app-insights-alerts.md): Set these to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 
 By default, alert notifications are sent to the owner of the Azure subscription.
 
