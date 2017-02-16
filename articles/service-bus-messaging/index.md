@@ -72,10 +72,21 @@ The messaging service provides dependable information delivery as a brokered or 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Frameworks</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Runtime</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">.NET Management</a></p>
-                        <p><a href="/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus">PowerShell</a></p>
+                        <h3>.NET</h3>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="service-bus-powershell-how-to-provision.md">PowerShell</a></p>
                         <p><a href="/rest/api/servicebus">REST</a></p>
                     </div>
                 </div>
