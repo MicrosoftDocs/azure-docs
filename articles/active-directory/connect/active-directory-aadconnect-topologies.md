@@ -74,8 +74,6 @@ You can find more details in [Understanding the default configuration](active-di
 Having more than one Azure AD Connect sync server connected to a single Azure AD tenant is not supported. The exception is the use of a [staging server](#staging-server).
 
 ### Multiple forests, separate topologies
-When you have multiple forests and separate topologies, users are represented only once across all directories.
-
 ![Option for representing users only once across all directories](./media/active-directory-aadconnect-topologies/MultiForestUsersOnce.png)
 
 ![Depiction of multiple forests and separate topologies](./media/active-directory-aadconnect-topologies/MultiForestSeperateTopologies.png)
@@ -83,13 +81,9 @@ When you have multiple forests and separate topologies, users are represented on
 In this environment, all on-premises forests are treated as separate entities. No user is present in any other forest. Each forest has its own Exchange organization, and there's no GALSync between the forests. This topology might be the situation after a merger/acquisition or in an organization where each business unit operates independently. These forests are in the same organization in Azure AD and appear with a unified GAL. In the preceding picture, each object in every forest is represented once in the metaverse and aggregated in the target Azure AD tenant.
 
 ### Multiple forests: match users
-When you have multiple forests, user identities can exist across multiple directories.
-
 Common to all these scenarios is that distribution and security groups can contain a mix of users, contacts, and Foreign Security Principals (FSPs). FSPs are used in Active Directory Domain Services (AD DS) to represent members from other forests in a security group. All FSPs are resolved to the real object in Azure AD.
 
 ### Multiple forests: full mesh with optional GALSync
-When user identities exist across multiple directories for multiple forests, you can match users by using a mail attribute.
-
 ![Option for using the mail attribute for matching when user identities exist across multiple directories](./media/active-directory-aadconnect-topologies/MultiForestUsersMail.png)
 
 ![Full mesh topology for multiple forests](./media/active-directory-aadconnect-topologies/MultiForestFullMesh.png)
@@ -101,8 +95,6 @@ If Exchange is present in more than one forest, there might be (optionally) an o
 In this scenario, identity objects are joined via the mail attribute. A user who has a mailbox in one forest is joined with the contacts in the other forests.
 
 ### Multiple forests: account-resource forest
-When user identities exist across multiple directories for multiple forests, you can match users by using the ObjectSID and msExchMasterAccountSID attributes.
-
 ![Option for using the ObjectSID and msExchMasterAccountSID attributes for matching when identities exist across multiple directories](./media/active-directory-aadconnect-topologies/MultiForestUsersObjectSID.png)
 
 ![Account-resource forest topology for multiple forests](./media/active-directory-aadconnect-topologies/MultiForestAccountResource.png)
