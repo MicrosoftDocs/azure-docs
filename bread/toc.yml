@@ -54,8 +54,8 @@
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/advisor-overview
   - name: Logic Apps
-    tocHref: /azure/app-service-logic/
-    topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
+    tocHref: /azure/logic-apps/
+    topicHref: /azure/logic-apps/logic-apps-what-are-logic-apps
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/application-gateway-introduction

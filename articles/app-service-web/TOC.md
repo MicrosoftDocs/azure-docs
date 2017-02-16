@@ -136,6 +136,7 @@
 #### [Map 3rd-party domain](web-sites-custom-domain-name.md)
 #### [Map domains with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 #### [Map GoDaddy domains](web-sites-godaddy-custom-domain-name.md)
+#### [Migrate an active custom domain](app-service-custom-domain-name-migrate.md)
 ### [Assign custom SSL](web-sites-purchase-ssl-web-site.md)
 ### Debug remotely
 ### Profile your app remotely
