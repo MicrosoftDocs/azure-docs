@@ -1,19 +1,19 @@
 ---
 title: How to find activity reports in the Azure Portal | Microsoft Docs
-description: How to get started with the Azure Active Directory audit API
+description: Learn how to find activity reports in the Azure Portal
 services: active-directory
 documentationcenter: ''
 author: dhanyahk
 manager: femila
 editor: ''
 
-ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
+ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 02/17/2017
 ms.author: dhanyahk;markvi
 
 ---
@@ -60,7 +60,7 @@ One of the key asks of many customers has been the ability to have multiple filt
 For example, if you are interested in just getting **Self-service Password Reset** related activities, you can choose the **Self-service Password Management** category. The categories you can see are in the context of the resource you are working on.  
 
 
-![Audit logs](./media/active-directory-reporting-migration/01.png "Audit logs")
+![Audit logs](./media/active-directory-reporting-migration/06.png "Audit logs")
 
  
 The various categories we have today include:
@@ -78,14 +78,21 @@ The various categories we have today include:
 You can view the Application usage for all apps or a single app through the Activities -> Sign-ins view. As shown below, this view is present for all applications or a single application. You can filter either on User Name or Application Name if you want narrow down the results.
  
 
-![Audit logs](./media/active-directory-reporting-migration/02.png "Audit logs")
+![Audit logs](./media/active-directory-reporting-migration/07.png "Audit logs")
 
 
 ### Security Reports
 
-The security reports have been consolidated to provide a view of all the risk signals that Azure Active Directory Identity Protection can detect and shown accordingly. Here are the list of security signals supported today
+The security reports have been consolidated to provide a view of all risk signals that Azure Active Directory  can detect and report on.
 
-(Include the table that provides a list of risk signals along with what free, P1 and P2 customers get)
+This consolidated view provides you with data about:
+
+- Users at Risk
+- Risky Sign-ins 
+
+
+![Audit logs](./media/active-directory-reporting-migration/04.png "Audit logs")
+
 
 
 ## Activity Reports in Azure Classic Portal versus Azure Portal
