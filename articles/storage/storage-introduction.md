@@ -10,7 +10,26 @@ editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
 ms.workload: storage
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: nace, and scale those applications as needed - both in terms of the amount of data stored and the number of requests made against it. You pay only for what you use, and only when you use it.
+
+Azure Storage uses an auto-partitioning system that automatically load-balances your data based on traffic. This means that as the demands on your application grow, Azure Storage automatically allocates the appropriate resources to meet them.
+
+Azure Storage is accessible from anywhere in the world, from any type of application, whether it’s running in the cloud, on the desktop, on an on-premises server, or on a mobile or tablet device. You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.
+
+Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, Node.js, Python, Ruby, PHP and C++ and mobile programming languages) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.
+
+Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements. Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) for more details.
+
+## Introducing the Azure Storage Services
+Azure storage provides the following four services: Blob storage, Disk storage, Table storage, Queue storage, and File storage.
+
+* Blob Storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as Object storage.
+* Disk Storage stores persistent disk data for Virtaul Machine. Azure Disks are stored in fixed VHD format backed by Azure Page Blob.
+* Table Storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
+* Queue Storage provides reliable messaging for workflow processing and for communication between components of cloud services.
+* File Storage offers shared storage for legacy applications using the standard SMB protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File service REST API.
+
+An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your storage resources. Azure recently introduced Managed Disks as a new type of Disk Storahge which abstract the storage account concept. The storage acccount namespace is not exposed for Managed Disks.
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
@@ -22,7 +41,7 @@ ms.author: marsma
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. By reading this article, developers, IT Pros, and business decision makers can learn about:
 
 * What Azure Storage is, and how you can take advantage of it in your cloud, mobile, server, and desktop applications
-* What kinds of data you can store with the Azure Storage services: blob (object) data, NoSQL table data, queue messages, and file shares.
+* What kinds of data you can store with the Azure Storage services: blob (object) data, persistent disk data for VM, NoSQL table data, queue messages, and file shares.
 * How access to your data in Azure Storage is managed
 * How your Azure Storage data is made durable via redundancy and replication
 * Where to go next to build your first Azure Storage application
@@ -36,25 +55,7 @@ Cloud computing enables new scenarios for applications requiring scalable, durab
 
 Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
 
-Azure Storage is elastic, so you can design applications for a large global audience, and scale those applications as needed - both in terms of the amount of data stored and the number of requests made against it. You pay only for what you use, and only when you use it.
-
-Azure Storage uses an auto-partitioning system that automatically load-balances your data based on traffic. This means that as the demands on your application grow, Azure Storage automatically allocates the appropriate resources to meet them.
-
-Azure Storage is accessible from anywhere in the world, from any type of application, whether it’s running in the cloud, on the desktop, on an on-premises server, or on a mobile or tablet device. You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.
-
-Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, Node.js, Python, Ruby, PHP and C++ and mobile programming languages) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.
-
-Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements. Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) for more details.
-
-## Introducing the Azure Storage Services
-Azure storage provides the following four services: Blob storage, Table storage, Queue storage, and File storage.
-
-* Blob Storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as Object storage.
-* Table Storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
-* Queue Storage provides reliable messaging for workflow processing and for communication between components of cloud services.
-* File Storage offers shared storage for legacy applications using the standard SMB protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File service REST API.
-
-An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your storage resources. The image below shows the relationships between the Azure storage resources in a storage account:
+Azure Storage is elastic, so you can design applications for a large global audienThe image below shows the relationships between the Azure storage resources in a storage account:
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
@@ -82,6 +83,16 @@ Blob storage offers three types of blobs, block blobs, append blobs, and page bl
 
 For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center. See [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](storage-import-export-service.md).
 
+## Disk Storage
+Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure Disk Storage. Virtual machines also can have one or more data disks, that are also stored as VHDs in Azure Disk Storage.
+
+There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage mentioned above as the two account type. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.
+
+* Unmanaged Disks
+Unmanaged Disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk.
+* Managed Disks
+Managed Disks handles the storage account creation/management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard/Premium), and Azure creates and manages the disk for you. We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
+
 ## Table storage
 Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly. Access to data is fast and cost-effective for all kinds of applications.  Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
 
@@ -107,18 +118,20 @@ Like the other Azure storage services, File storage exposes a REST API for acces
 
 Distributed applications can also use File storage to store and share useful application data and development and testing tools. For example, an application may store configuration files and diagnostic data such as logs, metrics, and crash dumps in a File storage share so that they are available to multiple virtual machines or roles. Developers and administrators can store utilities that they need to build or manage an application in a File storage share that is available to all components, rather than installing them on every virtual machine or role instance.
 
-## Access to Blob, Table, Queue, and File Resources
+## Access to Blob, Disk, Table, Queue, and File Resources
 By default, only the storage account owner can access resources in the storage account. For the security of your data, every request made against resources in your account must be authenticated. Authentication relies on a Shared Key model. Blobs can also be configured to support anonymous authentication.
 
 Your storage account is assigned two private access keys on creation that are used for authentication. Having two keys ensures that your application remains available when you regularly regenerate the keys as a common security key management practice.
 
 If you do need to allow users controlled access to your storage resources, then you can create a shared access signature. A shared access signature (SAS) is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid. Beginning with version 2015-04-05, Azure Storage supports two kinds of shared access signatures: service SAS and account SAS.
 
-The service SAS delegates access to a resource in just one of the storage services: the Blob, Queue, Table, or File service.
+The service SAS delegates access to a resource in just one of the storage services: the Blob, Disk, Queue, Table, or File service.
 
 An account SAS delegates access to resources in one or more of the storage services. You can delegate access to service-level operations that are not available with a service SAS. You can also delegate access to read, write, and delete operations on blob containers, tables, queues, and file shares that are not permitted with a service SAS.
 
 Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.
+
+Note: For better security, the access authentication behavior of Managed Disks(https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview) are different from unManaged Disks and other storage services described as below.
 
 See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
@@ -209,6 +222,12 @@ To learn more about Azure Storage, explore these resources:
 ### For Administrators
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 * [Using Azure CLI with Azure Storage](storage-azure-cli.md)
+
+### For Disks Users
+* [Attach a data disk to a Windows VM using PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-attach-disk-ps)
+* [Add a disk to a Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-add-disk)
+* [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk)
+* [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk)
 
 ### For .NET Developers
 * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
