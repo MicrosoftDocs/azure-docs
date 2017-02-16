@@ -228,21 +228,19 @@ Currently WAF rules are not customizable.
 
 WAF currently supports CRS 2.2.9, which provides baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
-* SQL Injection
+* SQL injection protection
 
-* Broken Authentication and Session Management
+* Cross site scripting protection
 
-* Cross-Site Scripting (XSS)
+* Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
 
-* Protocol Anomalies
+* Protection against HTTP protocol violations
 
-* Insecure Direct Object References
+* Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
 
-* Security Misconfiguration
+* Prevention against bots, crawlers, and scanners
 
-* Using Known Vulnerable Components
-
-* Unvalidated Redirects and Forwards
+* Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
 
 **Q. Does WAF also support DDos prevention?**
 

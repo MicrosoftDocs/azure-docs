@@ -19,6 +19,7 @@ ms.author: mwasson
 
 ---
 # Basic web application architecture in Azure
+
 [!INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
 This article shows a recommended architecture for a basic web application in Microsoft Azure.
@@ -241,7 +242,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-backup]: ../sql-database/sql-database-business-continuity.md
 [sql-db]: https://azure.microsoft.com/documentation/services/sql-database/
 [sql-db-overview]: ../sql-database/sql-database-technical-overview.md
-[sql-db-scale]: ../sql-database/sql-database-scale-up-powershell.md
+[sql-db-scale]: ../sql-database/sql-database-service-tiers.md
 [sql-db-service-tiers]: ../sql-database/sql-database-service-tiers.md
 [sql-db-v12]: ../sql-database/sql-database-features.md
 [sql-dtu]: ../sql-database/sql-database-service-tiers.md
