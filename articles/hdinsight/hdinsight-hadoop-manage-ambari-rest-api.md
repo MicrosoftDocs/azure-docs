@@ -39,9 +39,9 @@ The examples in this document are provided for both the Bourne shell (bash) and 
 
 If using the __Bourne shell__ (Bash), you must have the following installed:
 
-* [cURL](http://curl.haxx.se/): cURL is a utility that can be used to work with REST APIs from the command-line. In this document, it is used to communicate with the Ambari REST API.
+* [cURL](http://curl.haxx.se/): cURL is a utility that can be used to work with REST APIs from the commandline. In this document, it is used to communicate with the Ambari REST API.
 
-Whether using Bash or PowerShell, you must also have [jq](https://stedolan.github.io/jq/) installed. Jq is a command-line utility for working with JSON documents. It is used in **all** the Bash examples, and **one** of the PowerShell examples.
+Whether using Bash or PowerShell, you must also have [jq](https://stedolan.github.io/jq/) installed. Jq is a utility for working with JSON documents. It is used in **all** the Bash examples, and **one** of the PowerShell examples.
 
 ### Base URI for Ambari Rest API
 
@@ -76,8 +76,8 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/c
 > The Bash examples in this document make the following assumptions:
 >
 > * The login name for the cluster is the default value of `admin`.
-> * `$PASSWORD` contains the password for the HDInsight login command. You can set this by using `PASSWORD='mypassword'`.
-> * `$CLUSTERNAME` contains the name of the cluster. You can set this by using `set CLUSTERNAME='clustername'`
+> * `$PASSWORD` contains the password for the HDInsight login command. You can set this value by using `PASSWORD='mypassword'`.
+> * `$CLUSTERNAME` contains the name of the cluster. You can set this value by using `set CLUSTERNAME='clustername'`
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -88,8 +88,8 @@ $resp.Content
 > [!IMPORTANT]
 > The PowerShell examples in this document make the following assumptions:
 >
-> * `$creds` is a credential object that contains the admin login and password for the cluster. You can set this by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.
-> * `$clusterName` is a string that contains the name of the cluster. You can set this by using `$clusterName="clustername"`.
+> * `$creds` is a credential object that contains the admin login and password for the cluster. You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.
+> * `$clusterName` is a string that contains the name of the cluster. You can set this value by using `$clusterName="clustername"`.
 
 Both examples return a JSON document that begins with information similar to the following example:
 
@@ -370,7 +370,7 @@ The return value is similar to one of the following examples:
     }
     ```
 
-3. Open the `newconfig.json` document and modify/add values in the `properties` object. The following example changes the value of `"spark.yarn.am.memory"` from `"1g"` to `"3g"`. It also adds a new element of `"spark.kryoserializer.buffer.max"` with a value of `"256m"`.
+3. Open the `newconfig.json` document and modify/add values in the `properties` object. The following example changes the value of `"spark.yarn.am.memory"` from `"1g"` to `"3g"`. It also adds `"spark.kryoserializer.buffer.max"` with a value of `"256m"`.
    
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
