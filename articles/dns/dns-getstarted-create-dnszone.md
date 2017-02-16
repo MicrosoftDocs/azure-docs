@@ -30,6 +30,16 @@ This article walks you through the steps to create a DNS zone using Azure PowerS
 [!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)]
 
 
+## Check if a DNS Zone is available
+Before creating a DNS Zone in azure you may want to check the availability. To check DNS Zone availability use ```Test-AzureRmDnsAvailability``` command. It will return 'True' if the name is unique and available, else it will return 'False'.Below is an eample:
+
+```powershell
+$DnsLabel = "testDnsAvailability"
+$location = "eastus"
+
+Test-AzureRmDnsAvailability -DomainNameLabel $DnsLabel -Location $location
+```
+
 ## Create a DNS zone
 
 A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*. Use the example to create a DNS zone, substituting the values for your own.
