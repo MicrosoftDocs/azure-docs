@@ -107,24 +107,15 @@ To notify the IoT hub that a device supports a method, the device must add detai
 
 ```json
 "SupportedMethods": {
-  "<method signature> ": {
-    "Name": "<method name> ",
-    "Description": "<method description>",
-    "Parameters": {
-      "<parameter name> ": {
-        "Name": "<parameter name>",
-        "Type": "<parameter type>"
-      },
-      …
-    }
-  }
+  "<method signature>": "<method description>",
+  "<method signature>": "<method description>"
 }
 ```
 
-The method signature has the following format: `<method name>-<parameter #0 type>-<parameter #1 type>-...-<parameter #n type>`. For example, to specify the **InitiateFirmwareUpdate** method expects a string parameter named **fmPackageUri**, use the following method signature:
+The method signature has the following format: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. For example, to specify the **InitiateFirmwareUpdate** method expects a string parameter named **FwPackageURI**, use the following method signature:
 
 ```
-InitiateFirmwareUpate-string-FWPackgeUri: description
+InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 ```
 
 For a list of supported parameter types, see the **CommandTypes** class in the Infrastructure project.
