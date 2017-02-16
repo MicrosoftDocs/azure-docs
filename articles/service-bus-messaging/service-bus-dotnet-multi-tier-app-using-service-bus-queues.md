@@ -94,7 +94,7 @@ The following sections discuss the code that implements this architecture.
 ## Set up the development environment
 Before you can begin developing Azure applications, get the tools and set up your development environment.
 
-1. Install the Azure SDK for .NET at [Get Tools and SDK](https://azure.microsoft.com/downloads/).
+1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
 2. In the **.NET** column, click the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
