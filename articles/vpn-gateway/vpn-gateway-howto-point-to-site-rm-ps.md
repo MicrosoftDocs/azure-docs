@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/19/2017
+ms.date: 02/16/2017
 ms.author: cherylmc
 
 ---
@@ -138,8 +138,13 @@ You will need to get the public certificate data for the root certificate that y
 ### <a name="generate"></a>Step 2 - Generate the client certificate
 Next, generate the client certificates. You can either generate a unique certificate for each client that will connect, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find that you need to revoke the certificate for one client, you will need to generate and install new certificates for all of the clients that use the certificate to authenticate. The client certificates are installed on each client computer later in this exercise.
 
-* If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the NetBIOS 'DOMAIN\username' format. 
-* If you are using a self-signed certificate, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) to generate a client certificate.
+
+####Enterprise certificate
+- If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
+- Make sure the certificate that you issue is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by looking at the certificate properties: **Details > Enhanced Key Usage**.
+
+####Self-signed certificate 
+If you are using a self-signed certificate, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) to generate a client certificate.
 
 ### <a name="exportclientcert"></a>Step 3 - Export the client certificate
 A client certificate is required for authentication. After generating the client certificate, export it. The client certificate you export will be installed later on each client computer.
@@ -199,6 +204,11 @@ Each client computer must have a client certificate in order to authenticate. Wh
    
     ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
+> [!NOTE]
+> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating because a certificate cannot be found that can be used, make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
+>
+>
+
 ## <a name="verify"></a>Part 8 - Verify your connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results should be something similar to this:
@@ -227,6 +237,12 @@ You can add up to 20 trusted root certificate .cer files to Azure. Follow the st
     Copy the values, as shown in the following example:
    
     ![certificate](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png)
+
+	> [!NOTE]
+	> When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds.                                                                                                                                                                            
+	>
+
+
 2. Specify the certificate name and key information as a variable. Replace the information with your own, as shown in the following example:
    
         $P2SRootCertName2 = "ARMP2SRootCert2.cer"

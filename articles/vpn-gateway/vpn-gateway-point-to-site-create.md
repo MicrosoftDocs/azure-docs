@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 02/16/2017
 ms.author: cherylmc
 
 ---
@@ -106,8 +106,12 @@ Add a trusted certificate to Azure. When you add a Base64-encoded X.509 (.cer) f
 ### <a name="createclientcert"></a>Part 3: Generate a client certificate
 Next, generate the client certificates. You can either generate a unique certificate for each client that will connect, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find that you need to revoke the certificate for one client, you will need to generate and install new certificates for all of the clients that use the certificate to authenticate.
 
-* If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the NetBIOS 'DOMAIN\username' format. 
-* If you are using a self-signed certificate, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) to generate a client certificate.
+####Enterprise certificate
+- If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
+- Make sure the certificate that you issue is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by looking at the certificate properties: **Details > Enhanced Key Usage**.
+
+####Self-signed certificate 
+If you are using a self-signed certificate, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) to generate a client certificate.
 
 ## <a name="installclientcert"></a>Section 3 - Export and install the client certificate
 Install a client certificate on each computer that you want to connect to the virtual network. A client certificate is required for authentication. You can automate installing the client certificate, or you can install manually. The following steps walk you through exporting and installing the client certificate manually.
@@ -142,6 +146,11 @@ To connect to the virtual network, you also need to configure a VPN client. The 
 3. Your connection should now be established.
    
     ![VPN client 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
+
+> [!NOTE]
+> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating because a certificate cannot be found that can be used, make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
+>
+>
 
 ### Part 4: Verify the VPN connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
