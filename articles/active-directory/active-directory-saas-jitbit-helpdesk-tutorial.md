@@ -138,7 +138,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Jitbit Helpdesk, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Jitbit Helpdesk **application integration page, click **Assign users**.
+2. On the **Jitbit Helpdesk** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777687.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
