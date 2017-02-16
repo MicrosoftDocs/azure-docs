@@ -70,7 +70,9 @@ Use the enterprise connectors to create logic apps for B2B scenarios that includ
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Connectors can be triggers
-Several connectors provide triggers that can notify your app when specific events occur. For example, the FTP connector has the OnUpdatedFile trigger. You can build either a Logic app, PowerApp or Flow that listens to this trigger and takes an action whenever the trigger is fired.
+Several connectors provide triggers that can notify your app when specific events occur. 
+For example, the FTP connector has the OnUpdatedFile trigger. 
+You can build either a logic app, PowerApp or Flow that listens to this trigger and performs an action whenever the trigger fires.
 
 There are two types of triggers:  
 
@@ -78,7 +80,12 @@ There are two types of triggers:
 * Push Triggers: These triggers listen for data on an endpoint or for an event to occur, then, triggers a new instance of your app. The Twitter connector is one such example.
 
 ### Connectors can be actions
-Connectors can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination table. You can do this using the actions provided by the connectors. Actions map to operations that are defined in the Swagger metadata.
+You can also use connectors as actions in your apps. 
+Actions are useful for looking up data, which can then be used in running your app. 
+For example, you might need to look up customer data from a SQL database when processing an order. 
+Or, you might need to write, update, or delete data in a destination table. 
+You can perform these tasks using the actions provided by the connectors. 
+Actions map to operations that are defined in the Swagger metadata.
 
 ## Next Steps
 * [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
@@ -103,7 +110,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Connects to your business Microsoft OneDrive and uploads, deletes, lists your files, and more."
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox and access your email and more."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Connects to Microsoft Project Online."
-[rssdoc]: ./connectors-create-api-rss.md "RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed."
+[rssdoc]: ./connectors-create-api-rss.md "RSS connector allows the you to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account and manage  accounts, leads, opportunities, and more."
 [sendgriddoc]: ./connectors-create-api-sendgrid.md "Connects to Microsoft Project Online."
 [service-busdoc]: ./connectors-create-api-servicebus.md "Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions."
