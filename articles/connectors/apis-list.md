@@ -18,7 +18,7 @@ ms.date: 01/27/2017
 ms.author: mandia
 
 ---
-# List of connectors
+# Connectors list
 Select a connector to learn how to build workflows quickly.
 
 ## Standard connectors
