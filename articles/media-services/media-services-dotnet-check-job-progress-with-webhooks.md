@@ -344,6 +344,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 			  <add key="WebhookURL" value="https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>" />
 			  <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
 			</appSettings>
+			
 4. Update your Program.cs file with the following code:
 
 		using System;
