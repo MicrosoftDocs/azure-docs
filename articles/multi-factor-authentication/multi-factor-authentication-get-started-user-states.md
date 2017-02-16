@@ -20,14 +20,16 @@ ms.author: kgremban
 # User States in Azure Multi-Factor Authentication
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
-| State | Description | Non-browser apps affected | Notes |
-|:---:|:---:|:---:|:---:|
-| Disabled |The default state for a new user not enrolled in multi-factor authentication. |No |The user is not using multi-factor authentication. |
-| Enabled |The user has been enrolled in multi-factor authentication. |No.  They continue to work until the registration process is completed. |The user is enabled but has not completed the registration process. They will be prompted to complete the process at next sign-in. |
-| Enforced |The user has been enrolled and has completed the registration process for using multi-factor authentication. |Yes.  Apps require app passwords. |The user may or may not have completed registration. If they have completed the registration process, then they are using multi-factor authentication. Otherwise, the user will be prompted to complete the process at next sign-in. |
+| State | Description | Non-browser apps affected | 
+|:---:|:---:|:---:|
+| Disabled |The default state for a new user not enrolled Azure Multi-Factor Authentication (MFA). |No |
+| Enabled |The user has been enrolled in Azure MFA, but has not registered. They wioll be prompted to register the next time they sign in. |No.  They continue to work until the registration process is completed. |
+| Enforced |The user has been enrolled and has completed the registration process for Azure MFA. |Yes.  Apps require app passwords. |
 
 ## Changing a user state
-A users state changes depending on whether or not it has been setup for MFA and whether the user has completed the process.  When you turn MFA on for a user, the users state will change from disabled to enabled.  Once the user, whose state has been changed to enabled, signs in and completes the process, their state will change to enforced.  
+A user's state reflects whether an admin has enrolled them in Azure MFA, and whether they completed the registration process.
+
+All users start out *disabled*. When you enroll users in Azure MFA, their state changes *enabled*.  Once the user, whose state has been changed to enabled, signs in and completes the process, their state will change to enforced.  
 
 ### To view a user's state
 - - -
