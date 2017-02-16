@@ -39,7 +39,7 @@ Choose a VM size, and then click **Select** to continue. In this example, _DS1_\
 
 ## 3. Settings blade
 
-The Settings blade requests storage and network options. You can accept the default settings; Azure creates appropriate entries where necessary.
+The Settings blade requests storage and network options. You can accept the default settings. Azure creates appropriate entries where necessary.
 
 If you selected a virtual machine size that supports it, you can try Azure Premium Storage by selecting Premium (SSD) in Disk type.
 
@@ -54,6 +54,6 @@ The Summary blade lists the settings specified in the previous blades. Click **O
   * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For more information, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   -->
 
-After the virtual machine is created, the classic portal lists the new virtual machine under **All resources**, and displays a tile of the virtual machine on the dashboard. The corresponding cloud service and storage account also are created and listed. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
+After the virtual machine is created, the portal lists the new virtual machine under **All resources**, and displays a tile of the virtual machine on the dashboard. The corresponding cloud service and storage account also are created and listed. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
  ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
