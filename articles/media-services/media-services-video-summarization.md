@@ -27,7 +27,7 @@ This topic gives details about  **Azure Media Video Thumbnail** and shows how to
 
 ## Limitations
 
-If your vidieo is too homogenous there are sometimes less shots than expected and the MP result will be based on a single shot of the input video. For example, if a video is captured using a static camera there might not be enough changes in the video.
+If your video is too homogenous there are sometimes less shots than expected and the MP result will be based on a single shot of the input video. For example, if a video is captured using a static camera there might not be enough changes in the video.
 
 ## Video summary example
 Here are some examples of what the Azure Media Video Thumbnails media processor can do:
