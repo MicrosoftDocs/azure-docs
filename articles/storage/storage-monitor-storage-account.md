@@ -50,7 +50,7 @@ After you enable monitoring and set a retention policy, you can choose which of 
 Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics).
 
 ## How to: Customize the dashboard for monitoring
-On the dashboard, you can choose up to six metrics to plot on the metrics chart from nine available metrics. For each service (blob, table, and queue), the Availability, Success Percentage, and Total Requests metrics are available. The metrics available on the dashboard are the same for minimal or verbose monitoring.
+You can configure the metrics charts on your storage account dashboard to display metrics for your storage services.
 
 1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 2. To change the metrics that are plotted on the chart, take one of the following actions:
