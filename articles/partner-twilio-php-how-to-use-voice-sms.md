@@ -127,7 +127,7 @@ $to_number = "NNNNNNNNNNN";
 $url = "http://twimlets.com/message";
 
 // The phone message text.
-$message = "Hello world.";
+$message = "Hello World!";
 
 //Make the call.
 try
@@ -201,7 +201,7 @@ The following PHP page results in a TwiML response that says **Hello World** on 
 </Response>
 ```
 
-As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for PHP contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **Twilio\Twim** class in the Twilio library for PHP:
+As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for PHP contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **Twilio\Twiml** class in the Twilio library for PHP:
 
 ```php
 $response = new Twilio\Twiml();
@@ -211,7 +211,7 @@ print $response;
 
 For more information about TwiML, see [https://www.twilio.com/docs/api/twiml][twiml_reference]. 
 
-Once you have your PHP page set up to provide TwiML responses, use the URL of the PHP page as the URL passed into the  `Services_Twilio->account->calls->create`  method. For example, if you have a Web application named **MyTwiML** deployed to an Azure hosted service, and the name of the PHP page is **mytwiml.php**, the URL can be passed to  **Services_Twilio->account->calls->create**  as shown in the following example:
+Once you have your PHP page set up to provide TwiML responses, use the URL of the PHP page as the URL passed into the `Services_Twilio->account->calls->create` method. For example, if you have a Web application named **MyTwiML** deployed to an Azure hosted service, and the name of the PHP page is **mytwiml.php**, the URL can be passed to  **Client->calls->create** as shown in the following example:
 
 ```php
 // Required if your environment does not handle autoloading
@@ -278,8 +278,8 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api]: http://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
-[twilio_console]:  https://www.twilio.com/user/console
-[verify_phone]: https://www.twilio.com/user/console/phone-numbers/verified#
+[twilio_console]: https://www.twilio.com/console
+[verify_phone]: https://www.twilio.com/console/phone-numbers/verified#
 [twilio_api_documentation]: http://www.twilio.com/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security
 [twilio_howtos]: http://www.twilio.com/docs/howto
