@@ -18,7 +18,7 @@ ms.author: v-livech
 
 ---
 
-# Mount Azure File Storage on Linux VMs using SMB using the Azure CLI 2.0 (Preview)
+# Mount Azure File storage on Linux VMs using SMB with Azure CLI 2.0 Preview
 
 This article shows how to mount Azure File storage on a Linux VM by using the server message block (SMB) protocol. File storage offers file shares in the cloud via the standard SMB protocol. The requirements are:
 
@@ -32,7 +32,7 @@ You can complete the task using one of the following command-line interface (CLI
 * [Azure CLI 2.0 Preview](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): The next-generation CLI for the Resource Manager deployment model.
 
 
-## Quick Commands
+## Quick commands
 
 To accomplish the task quickly, follow the steps in this section. For more detailed information and context, begin at the ["Detailed walkthrough"](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) section.
 
@@ -99,7 +99,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
     When you create a Storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New Storage account keys are always created in pairs, ensuring that you always have at least one unused Storage account key ready to switch to.
 
-    View the Storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#list). The Storage account keys for the  named `mystorageaccount` are listed in the following example:
+    View the Storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#list). The Storage account keys for the named `mystorageaccount` are listed in the following example:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -127,7 +127,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 5. Create a mountpoint directory.
 
-    You must create a local directory in the Linux file system to mount the SMB share to. Anything written or read from the local mount directory is forwarded to the SMB share that's hosted on File storage. To create a local directory at /mnt/mymountdirectory, use the following example:
+    Create a local directory in the Linux file system to mount the SMB share to. Anything written or read from the local mount directory is forwarded to the SMB share that's hosted on File storage. To create a local directory at /mnt/mymountdirectory, use the following example:
 
     ```bash
     sudo mkdir -p /mnt/mymountdirectory
@@ -143,7 +143,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 7. Persist the SMB mount through reboots.
 
-    When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown. To remount the SMB share on boot, you must add a line to the Linux /etc/fstab. Linux uses the fstab file to list the file systems that it needs to mount during the boot process. Adding the SMB share ensures that the File storage share is a permanently mounted file system for the Linux VM. Adding the File storage SMB share to a new VM is possible when you use cloud-init.
+    When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown. To remount the SMB share on boot, add a line to the Linux /etc/fstab. Linux uses the fstab file to list the file systems that it needs to mount during the boot process. Adding the SMB share ensures that the File storage share is a permanently mounted file system for the Linux VM. Adding the File storage SMB share to a new VM is possible when you use cloud-init.
 
     ```bash
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -153,4 +153,4 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 - [Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Encrypt disks on a Linux VM byusing the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Encrypt disks on a Linux VM by using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
