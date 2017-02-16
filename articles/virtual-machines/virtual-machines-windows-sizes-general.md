@@ -14,20 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 02/16/2017
 ms.author: cynthn
 
 ---
 
 # General-purpose
 
-
-A-series
-Av2-series
-D-series
-Dv2-series
-DS-series*
-DSv2-series*
+<!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../includes/virtual-machines-common-sizes-memory.md)]

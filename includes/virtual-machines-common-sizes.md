@@ -31,25 +31,10 @@ The F-series introduced a new standard in VM size naming for Azure. For this ser
 * DS-series, DSv2-series, Fs-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
-
-
-
-
-
-The following considerations might help you decide on a size:
-
-
-
 * Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
 
 * Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
 
 
-## Next steps
-- Learn about [azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
-- [General-purpose](virtual-machines-windows-sizes-general.md)
-- [Memory optimized](virtual-machines-windows-sizes-memory.md)
-- [Compute optimized](virtual-machines-windows-sizes-compute.md)
-- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
-- [High performance compute](virtual-machines-windows-sizes-hpc.md)
+
 

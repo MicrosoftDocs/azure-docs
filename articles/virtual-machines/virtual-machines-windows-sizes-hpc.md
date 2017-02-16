@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/04/2017
+ms.date: 02/16/2017
 ms.author: cynthn
 
 ---
 
 # HPC
 
-A-series - compute-intensive instances
-H-series
+<!-- A-series - compute-intensive instances, H-series -->
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../includes/virtual-machines-common-sizes-hpc.md)]
 

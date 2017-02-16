@@ -15,17 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/04/2017
+ms.date: 02/16/2017
 ms.author: cynthn
 
 ---
 
 # Memory
 
-D11-15 – v2
-D11-14 – v1
-G-series
-GS-series*
+<!-- D11-15 – v2, D11-14 – v1, G-series, GS-series* -->
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../includes/virtual-machines-common-sizes-memory.md)]
 
