@@ -23,28 +23,13 @@ Active Geo-Replication enables you to configure up to four readable secondary da
 
 > [!NOTE]
 > Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
-> 
-> 
+>  
 
  You can configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md), or the [REST API - Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
-> [!div class="op_single_selector"]
-> * [Configure: Azure portal](sql-database-geo-replication-portal.md)
-> * [Configure: PowerShell](sql-database-geo-replication-powershell.md)
-> * [Configure: T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can *failover* to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
 You can failover to a secondary using the [Azure portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), the [REST API - Planned Failover](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx), or [REST API - Unplanned Failover](https://msdn.microsoft.com/library/azure/mt582027.aspx).
-
-> [!div class="op_single_selector"]
-> * [Failover: Azure portal](sql-database-geo-replication-failover-portal.md)
-> * [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 

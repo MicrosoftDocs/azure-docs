@@ -13,5 +13,5 @@
 | **Network** | |
 | Network interface card type | VMXNET3 |
 | IP address type | Static |
-| Internet access | The server should be able to access the following URLs either directly or through a proxy server: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi <br> - time.nist.gov <br> - time.windows.com |
+| Internet access | The server should be able to access the following URLs either directly or through a proxy server: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (not required for Scale-out Process Servers) <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
