@@ -101,58 +101,58 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
 	Parameters used:
 
-        `--name TestVNet`: Name of the VNet to be created. 
-        `--resource-group myVNet`: # The resource group name that controls the resource. 
-        `--location centralus`: The location into which to deploy.
-        `--address-prefix 192.168.0.0/16`: The address prefix and block.  
-        `--subnet-name FrontEnd`: The name of the subnet.
-        `--subnet-prefix 192.168.1.0/24`: The address prefix and block.
+    `--name TestVNet`: Name of the VNet to be created. 
+    `--resource-group myVNet`: # The resource group name that controls the resource. 
+    `--location centralus`: The location into which to deploy.
+    `--address-prefix 192.168.0.0/16`: The address prefix and block.  
+    `--subnet-name FrontEnd`: The name of the subnet.
+    `--subnet-prefix 192.168.1.0/24`: The address prefix and block.
 
     To list the basic information to use in the next command, you can query the VNet using a query filter:
 
-        ```azurecli
-        az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
-        ```
+    ```azurecli
+    az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
+    ```
 
     Which produces the following output:
 
-        Where      Name      Group
-        ---------  --------  -------
-        centralus  TestVNet  myVNet
+    Where      Name      Group
+    ---------  --------  -------
+    centralus  TestVNet  myVNet
 
 4. Create a subnet:
 
-        ```azurecli
-        az network vnet subnet create \
-            --address-prefix 192.168.2.0/24 \
-            --name BackEnd \
-            --resource-group myVNet \
-            --vnet-name TestVNet
-        ```
+    ```azurecli
+    az network vnet subnet create \
+        --address-prefix 192.168.2.0/24 \
+        --name BackEnd \
+        --resource-group myVNet \
+        --vnet-name TestVNet
+    ```
    
 	Expected output:
 
-        ```json
-        {
-        "addressPrefix": "192.168.2.0/24",
-        "etag": "W/\"49e8b6ff-6523-4c62-828e-c9e655ccf23a\"",
-        "id": "/subscriptions/0e220bf6-5caa-4e9f-8383-51f16b6c109f/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-        "ipConfigurations": null,
-        "name": "BackEnd",
-        "networkSecurityGroup": null,
-        "provisioningState": "Succeeded",
-        "resourceGroup": "myVNet",
-        "resourceNavigationLinks": null,
-        "routeTable": null
-        }
-        ```
+    ```json
+    {
+    "addressPrefix": "192.168.2.0/24",
+    "etag": "W/\"49e8b6ff-6523-4c62-828e-c9e655ccf23a\"",
+    "id": "/subscriptions/0e220bf6-5caa-4e9f-8383-51f16b6c109f/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+    "ipConfigurations": null,
+    "name": "BackEnd",
+    "networkSecurityGroup": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myVNet",
+    "resourceNavigationLinks": null,
+    "routeTable": null
+    }
+    ```
 
 	Parameters used:
 
-        `--address-prefix 192.168.2.0/24`: Subnet CIDR block.
-        `--name BackEnd`: Name of the new subnet.
-        `--resource-group myVNet`: The resource group.
-        `--vnet-name TestVNet`: The name of the owning VNet.
+    `--address-prefix 192.168.2.0/24`: Subnet CIDR block.
+    `--name BackEnd`: Name of the new subnet.
+    `--resource-group myVNet`: The resource group.
+    `--vnet-name TestVNet`: The name of the owning VNet.
 
 5. Query the properties of the new VNet:
 
@@ -166,9 +166,9 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
    
 	Expected output:
    
-        Name      Where      Group    Status       SubnetCount
-        --------  ---------  -------  ---------  -------------
-        TestVNet  centralus  myVNet   Succeeded              2
+    Name      Where      Group    Status       SubnetCount
+    --------  ---------  -------  ---------  -------------
+    TestVNet  centralus  myVNet   Succeeded              2
 
 6. Query the properties of the subnets:
 
@@ -182,10 +182,10 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Expected output:
 
-        Name      CIDR            Status
-        --------  --------------  ---------
-        FrontEnd  192.168.1.0/24  Succeeded
-        BackEnd   192.168.2.0/24  Succeeded
+    Name      CIDR            Status
+    --------  --------------  ---------
+    FrontEnd  192.168.1.0/24  Succeeded
+    BackEnd   192.168.2.0/24  Succeeded
 
 ## Next steps
 
