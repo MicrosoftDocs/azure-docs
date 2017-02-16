@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Storm Performance Tuning Guidelines | Microsoft Docs
-description: Azure Data Lake Store Storm Performance Tuning Guidelines
+title: Azure Data Lake Store Storm performance tuning guidelines | Microsoft Docs
+description: Azure Data Lake Store Storm performance tuning guidelines
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -19,42 +19,41 @@ ms.author: stewu
 ---
 # Performance tuning guidance for Storm on HDInsight and Azure Data Lake Store
 
-There are a few factors that need to be considered when tuning the performance of a Storm topology.  It is important to understand the characteristics of the work done by the spouts and the bolts (whether the work is I/O or memory intensive).
+Understand the factors that should be considered when you tune the performance of a Storm topology. For example, it's important to understand the characteristics of the work done by the spouts and the bolts (whether the work is I/O or memory intensive). This article covers a range of performance tuning guidelines, including troubleshooting common issues.
 
-## Prerequisites 
+## Prerequisites
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
-* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md) 
-* **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster. 
-* **Running Storm cluster on Azure Data Lake Store**.  For more information, see [Storm on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-overview) 
-* **Performance tuning guidelines on ADLS**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)  
+* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+* **Running Storm cluster on Data Lake Store**. For more information, see [Storm on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-overview).
+* **Performance tuning guidelines on Data Lake Store**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
-**Tuning the Parallelism of the topology**
+## Tune the parallelism of the topology
 
-Better performance may be attained by increasing the concurrency of the I/O to and from Azure Data Lake Store.  
-A Storm topology has a set of configurations that determine the parallelism:
-* Number of worker processes: The workers are evenly distributed across the VMs.
-* Number of spout executor instances
-* Number of bolt executor instances
-* Number of spout tasks
-* Number of bolt tasks
+You may be able to improve performance by increasing the concurrency of the I/O to and from Data Lake Store. A Storm topology has a set of configurations that determine the parallelism:
+* Number of worker processes (the workers are evenly distributed across the VMs).
+* Number of spout executor instances.
+* Number of bolt executor instances.
+* Number of spout tasks.
+* Number of bolt tasks.
 
-For example, on a cluster with 4 VMs and 4 worker processes, 32 spout executors & 32 spout tasks, 256 bolt executors and 512 bolt tasks:
+For example, on a cluster with 4 VMs and 4 worker processes, 32 spout executors and 32 spout tasks, and 256 bolt executors and 512 bolt tasks, consider the following:
 
-Each supervisor, which is a worker node, will have a single worker JVM process that will manage 4 spout threads and 64 bolt threads. Within each thread, tasks are executed sequentially. With the above configuration, each spout thread will have one task and each bolt thread will have 2 tasks.
+Each supervisor, which is a worker node, has a single worker Java virtual machine (JVM) process. This JVM process manages 4 spout threads and 64 bolt threads. Within each thread, tasks are run sequentially. With the above configuration, each spout thread has 1 task, and each bolt thread has 2 tasks.
 
 In Storm, here are the various components involved, and how they impact the level of parallelism you have:
 * The head node (called Nimbus in Storm) is used to submit and manage jobs. These nodes have no impact on the degree of parallelism.
-* The supervisor nodes – In Azure HDInsight this corresponds to a worker node Azure VM.
-* The worker tasks are Storm processes running in the VMs. Each worker task corresponds to a java JVM instance. Storm distributes the number of worker processes you specify to the worker nodes as evenly as possible.
-* Spout and bolt executor instances: Each executor instance corresponds to a thread running within the workers (JVMs)
+* The supervisor nodes. In HDInsight, this corresponds to a worker node Azure VM.
+* The worker tasks are Storm processes running in the VMs. Each worker task corresponds to a JVM instance. Storm distributes the number of worker processes you specify to the worker nodes as evenly as possible.
+* Spout and bolt executor instances. Each executor instance corresponds to a thread running within the workers (JVMs).
 * Storm tasks: These are logical tasks that each of these threads run. This does not change the level of parallelism, so you should evaluate if you need multiple tasks per executor or not.
 
-## Guidance
+## Get the best performance from Azure Data Lake
 
-When working with Azure Data Lake, you get best performance if you do the following:
-* Coalesce your small appends into larger sizes (ideally 4MB in size)
-* Do as many concurrent requests as you can. Since each bolt thread is doing blocking reads, you want to have somewhere in the range of 8-12 threads per core, so you can keep the NIC and the CPU well utilized.  A larger VM will enable more concurrent requests.  
+When working with Azure Data Lake, you get the best performance if you do the following:
+* Coalesce your small appends into larger sizes (ideally 4 MB).
+* Do as many concurrent requests as you can. Since each bolt thread is doing blocking reads, you want to have somewhere in the range of 8-12 threads per core. This keeps the NIC and the CPU well utilized. A larger VM enables more concurrent requests.  
 
 ## Example
 
