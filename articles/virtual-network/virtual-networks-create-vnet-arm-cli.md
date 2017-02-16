@@ -27,7 +27,7 @@ Azure has two deployment models: Azure Resource Manager and classic. Microsoft r
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](virtual-networks-create-vnet-arm-cli.md) – our CLI for the classic and resource management deployment models
+- [Azure CLI 1.0](virtual-networks-create-vnet-arm-cli-nodejs.md) – our CLI for the classic and resource management deployment models
 - [Azure CLI 2.0 (Preview)](#create-a-virtual-network) - our next generation CLI for the resource management deployment model (this article)`
  
     You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
@@ -58,8 +58,8 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
 3. Create a VNet and a subnet:
 
-	```azurecli
-	az network vnet create \
+    ```azurecli
+    az network vnet create \
         --name TestVNet \
         --resource-group myVNet \
         --location centralus \
@@ -101,12 +101,12 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
 	Parameters used:
 
-    `--name TestVNet`: Name of the VNet to be created. 
-    `--resource-group myVNet`: # The resource group name that controls the resource. 
-    `--location centralus`: The location into which to deploy.
-    `--address-prefix 192.168.0.0/16`: The address prefix and block.  
-    `--subnet-name FrontEnd`: The name of the subnet.
-    `--subnet-prefix 192.168.1.0/24`: The address prefix and block.
+    - `--name TestVNet`: Name of the VNet to be created.
+    - `--resource-group myVNet`: # The resource group name that controls the resource. 
+    - `--location centralus`: The location into which to deploy.
+    - `--address-prefix 192.168.0.0/16`: The address prefix and block.  
+    - `--subnet-name FrontEnd`: The name of the subnet.
+    - `--subnet-prefix 192.168.1.0/24`: The address prefix and block.
 
     To list the basic information to use in the next command, you can query the VNet using a query filter:
 
@@ -116,9 +116,11 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Which produces the following output:
 
-    Where      Name      Group
-    ---------  --------  -------
-    centralus  TestVNet  myVNet
+>>>
+Where      Name      Group
+---------  --------  -------
+centralus  TestVNet  myVNet
+>>>
 
 4. Create a subnet:
 
@@ -149,10 +151,12 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
 	Parameters used:
 
-    `--address-prefix 192.168.2.0/24`: Subnet CIDR block.
-    `--name BackEnd`: Name of the new subnet.
-    `--resource-group myVNet`: The resource group.
-    `--vnet-name TestVNet`: The name of the owning VNet.
+>>>
+`--address-prefix 192.168.2.0/24`: Subnet CIDR block.
+`--name BackEnd`: Name of the new subnet.
+`--resource-group myVNet`: The resource group.
+`--vnet-name TestVNet`: The name of the owning VNet.
+>>>
 
 5. Query the properties of the new VNet:
 
@@ -166,9 +170,11 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
    
 	Expected output:
    
+   >>>
     Name      Where      Group    Status       SubnetCount
     --------  ---------  -------  ---------  -------------
     TestVNet  centralus  myVNet   Succeeded              2
+    >>>
 
 6. Query the properties of the subnets:
 
@@ -182,11 +188,13 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Expected output:
 
+    >>>
     Name      CIDR            Status
     --------  --------------  ---------
     FrontEnd  192.168.1.0/24  Succeeded
     BackEnd   192.168.2.0/24  Succeeded
-
+    >>>
+    
 ## Next steps
 
 Learn how to connect:
