@@ -50,7 +50,7 @@ To create a virtual network using the Azure CLI, complete the following steps:
 
 1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article.
 
-2. Run the following command to create a VNet and a subnet:
+2. Create a VNet and a subnet:
 
 	```azurecli
 	azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
@@ -72,8 +72,9 @@ To create a virtual network using the Azure CLI, complete the following steps:
    * **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
    * **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
    * **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
-   * **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
-3. Run the following command to create a subnet:
+   * **-l (or --location)**. Azure region where the VNet is created. For our scenario, *Central US*.
+
+3. Create a subnet:
 
 	```azurecli
 	azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
@@ -96,7 +97,7 @@ To create a virtual network using the Azure CLI, complete the following steps:
    * **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
    * **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
    * **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
-4. Run the following command to view the properties of the new VNet:
+4. View the properties of the new VNet:
 
 	```azurecli
 	azure network vnet show
@@ -126,4 +127,4 @@ Learn how to connect:
 
 - A virtual machine (VM) to a virtual network by reading the [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) article. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
 - The virtual network to other virtual networks by reading the [Connect VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article.
-- The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) articles.
+- The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
