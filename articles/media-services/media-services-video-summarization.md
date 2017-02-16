@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/16/2017
 ms.author: milanga;juliako;
 
 ---
@@ -23,7 +23,11 @@ The **Azure Media Video Thumbnails** media processor (MP) enables you to create 
 
 The **Azure Media Video Thumbnail** MP is currently in Preview.
 
-This topic gives details about  **Azure Media Video Thumbnail** and shows how to use it with Media Services SDK for .NET
+This topic gives details about  **Azure Media Video Thumbnail** and shows how to use it with Media Services SDK for .NET.
+
+## Limitations
+
+If your vidieo is too homogenous there are sometimes less shots than expected and the MP result will be based on a single shot of the input video. For example, if a video is captured using a static camera there might not be enough changes in the video.
 
 ## Video summary example
 Here are some examples of what the Azure Media Video Thumbnails media processor can do:
