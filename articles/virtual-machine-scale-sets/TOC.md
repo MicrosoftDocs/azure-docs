@@ -3,6 +3,7 @@
 
 # Get Started
 ## [Create a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
+## [Create a scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 
 # How To
 ## Plan and design
