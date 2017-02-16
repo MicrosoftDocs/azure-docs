@@ -165,7 +165,7 @@ $client = new Client($sid, $token);
 
 $from_number = "NNNNNNNNNNN"; // With trial account, texts can only be sent from your Twilio number.
 $to_number = "NNNNNNNNNNN";
-$message = "Hello world.";
+$message = "Hello World!";
 
 // Send the SMS message.
 try
