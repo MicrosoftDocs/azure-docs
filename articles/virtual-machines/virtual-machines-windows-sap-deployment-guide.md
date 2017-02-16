@@ -373,7 +373,6 @@ These Microsoft articles cover SAP deployments in Azure:
 * [Azure Virtual Machines planning and implementation for SAP on Windows][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Windows (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Windows][dbms-guide]
-* [Azure Virtual Machines high availability for SAP on Windows][ha-guide]
 * [Azure portal][azure-portal]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Deployment scenarios for SAP software on Azure VMs
@@ -851,8 +850,8 @@ The script output includes the following information:
 * One line of output gives the status of the actual update of the monitoring configuration.
 * Another line of output confirms that the configuration has been deployed or updated.
 * The last line of output is informational. It shows your options for testing the monitoring configuration.
-* To check that all steps of Azure Enhanced Monitoring have been executed successfully, and that the Azure Infrastructure provides the necessary data, proceed with the readiness check for the Azure Enhanced Monitoring Extension for SAP, as described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1].
-* Wait 15-30 minutes for Azure Diagnostics to collect the relevant data.
+
+To check that all steps of Azure Enhanced Monitoring have been executed successfully, and that the Azure Infrastructure provides the necessary data, proceed with the readiness check for the Azure Enhanced Monitoring Extension for SAP, as described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1]. Wait 15-30 minutes for Azure Diagnostics to collect the relevant data.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
 To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
