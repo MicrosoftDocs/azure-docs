@@ -149,11 +149,10 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
 	Parameters used:
 
-
-- `--address-prefix 192.168.2.0/24`: Subnet CIDR block.
-- `--name BackEnd`: Name of the new subnet.
-- `--resource-group myVNet`: The resource group.
-- `--vnet-name TestVNet`: The name of the owning VNet.
+    - `--address-prefix 192.168.2.0/24`: Subnet CIDR block.
+    - `--name BackEnd`: Name of the new subnet.
+    - `--resource-group myVNet`: The resource group.
+    - `--vnet-name TestVNet`: The name of the owning VNet.
 
 5. Query the properties of the new VNet:
 
