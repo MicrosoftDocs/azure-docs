@@ -92,49 +92,49 @@ The security reports have been consolidated to provide a view of all the risk si
 
 This section lists the existing reports in the Azure classic portal and how you can get this information in the Azure portal.
 
-**Audit Logs**
+**Audit Logs:**
 
-- In the left navigation pane, click **Activities**, and then click **Audit Logs**
-- As **Activity Category**, select **Core Directory** 
+1. In the left navigation pane, click **Activities**, and then click **Audit Logs**
+2. As **Activity Category**, select **Core Directory** 
 
-**Password reset activity**
+**Password reset activity:**
 
-- In the left navigation pane, click **Activities**, and then click **Audit Logs**
-- As the **Activity Category**, select **Self service Password Management** 
+1. In the left navigation pane, click **Activities**, and then click **Audit Logs**
+2. As the **Activity Category**, select **Self service Password Management** 
 
-**Password reset registration activity**	
+**Password reset registration activity:**	
 
-- In the left navigation pane, click **Activities**, and then click **Audit Logs**
-- As **Activity Category**, select **Self Service Password Management**.
+1. In the left navigation pane, click **Activities**, and then click **Audit Logs**
+2. As **Activity Category**, select **Self Service Password Management**.
 
-**Self service groups activity**	
+**Self service groups activity:**	
 
-- In the left navigation pane, click **Activities**, and then click **Audit Logs**
-- As **Activity Category**, select **Self service Group Management**
+1. In the left navigation pane, click **Activities**, and then click **Audit Logs**
+2. As **Activity Category**, select **Self service Group Management**
 
-**Office365 Group Name Changes**
+**Office365 Group Name Changes:**
 
-- In the left navigation pane, click **Activities**, and then click **Audit Logs**
-- As **Activity Category**, select **Self service Password Management**
-- As **Activity Resource Type**, select **Group** 
-- As **Activity Source**, select **O365 groups** 
+1. In the left navigation pane, click **Activities**, and then click **Audit Logs**
+2. As **Activity Category**, select **Self service Password Management**
+3. As **Activity Resource Type**, select **Group** 
+4. As **Activity Source**, select **O365 groups** 
 
-**Account provisioning activity**	
+**Account provisioning activity:**	
 
-- In the left navigation pane, click **Activities**, and then click **Audit Logs**
-- As as **Activity Category**, select **Account User Provisioning**
+1. In the left navigation pane, click **Activities**, and then click **Audit Logs**
+2. As as **Activity Category**, select **Account User Provisioning**
 
-**Password rollover status**	
+**Password rollover status:**	
 
-- In the left navigation pane, click **Activities**, and then click **Audit Logs**
-- As **Activity Category**, select **Automatic App Password Rollover**
+1. In the left navigation pane, click **Activities**, and then click **Audit Logs**
+2. As **Activity Category**, select **Automatic App Password Rollover**
 
-**Account provisioning errors**
+**Account provisioning errors:**
 
-- In the left navigation pane, click **Activities**, and then click **Audit Logs**
-- As the **Activity Category**, select **Account User Provisioning**
+1. In the left navigation pane, click **Activities**, and then click **Audit Logs**
+2. As the **Activity Category**, select **Account User Provisioning**
 
-**Application Usage**
+**Application Usage:**
 
 - In the left navigation pane,	click **Enterprise Applications**, and then click **Sign-ins**
 
