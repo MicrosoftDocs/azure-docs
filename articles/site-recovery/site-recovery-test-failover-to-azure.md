@@ -37,6 +37,9 @@ Test failover is supported in all deployment scenarios other than [legacy VMware
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. Alternatively you can also run test failover for a single machine by using the appropriate option on it. 
 
+![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+
+
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Test Failover**.
 1. Select a **Recovery Point** to failover to. You can use one of the following options:
 	1.  **Latest processed**: This options fails over all virtual machines of the recovery plan to the latest recovery point that has already been processed by site recovery service. When you are doing test failover of a virtual machine, time stamp of the latest processed recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get the this information. As no time is spent to process the unprocessed data, this option provides a low RTO (Recovery Time Objective) failover option. 

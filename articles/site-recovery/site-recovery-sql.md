@@ -90,7 +90,7 @@ The instructions in this document presume that a domain controller is available 
 Site Recovery natively supports SQL AlwaysOn. If you've created a SQL Availability Group with an Azure virtual machine set up as ‘Secondary’ then you can use Site Recovery to manage the failover of the Availability Groups.
 
 > [!NOTE]
-> This capability is currently in preview and available when Hyper-V host servers in the primary datacenter are managed in VMM clouds and when VMware setup is managed by a [Configuration Server](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Right now this capability is not available in the new Azure portal. Follow the steps in [this section](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal) if you are using new Azure portal.
+> This capability is currently in preview and available when Hyper-V host servers in the primary datacenter are managed in VMM clouds and when VMware setup is managed by a [Configuration Server](site-recovery-vmware-to-azure.md). Right now this capability is not available in the new Azure portal. Follow the steps in [this section](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal) if you are using new Azure portal.
 >
 >
 

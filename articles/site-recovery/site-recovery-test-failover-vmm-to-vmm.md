@@ -68,6 +68,8 @@ Prepare a DNS server for the test failover as follows:
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
 
+![Test Failover](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
+
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
 1. On the **Test Failover** blade, specify how virtual machines should be connected to networks after the test failover. Look at [network options](#network-options-in-site-recovery) for more details.
 1. Track failover progress on the **Jobs** tab. 
