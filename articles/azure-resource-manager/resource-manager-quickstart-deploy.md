@@ -25,7 +25,7 @@ For an introduction to concepts of Resource Manager, see [Azure Resource Manager
 
 ## Steps for deployment
 
-This topic assumes you are deploying the template from the [Create your first Azure Resource Manager template](/azure/templates/) topic. You can use a different template, but the parameters you pass will be different than what is shown in this topic.
+This topic assumes you are deploying the template from the [Create your first Azure Resource Manager template](/azure/templates/) topic. You can use a different template, but the parameters you pass are different than what is shown in this topic.
 
 After creating your template, you are ready to deploy it. Whether using PowerShell or Azure CLI, you perform the following steps:
 
@@ -78,7 +78,7 @@ After creating your template, you are ready to deploy it. Whether using PowerShe
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment2 -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json -storageNamePrefix "contoso" -storageSKU "Standard_GRS"
 ```
 
-You now have 2 storage accounts in your resource group. 
+You now have two storage accounts in your resource group. 
 
 ## Azure CLI 2.0 (Preview)
 
@@ -119,7 +119,7 @@ You now have 2 storage accounts in your resource group.
   az group deployment create --name ExampleDeployment2 --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
   ```
 
-You now have 2 storage accounts in your resource group. 
+You now have two storage accounts in your resource group. 
 
 ## Next steps
 
