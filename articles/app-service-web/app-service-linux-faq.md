@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: aelnably
+ms.author: aelnably;wesmc
 
 ---
 

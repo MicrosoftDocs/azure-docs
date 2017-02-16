@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: naziml
+ms.author: naziml;wesmc
 
 ---
 # Use PM2 configuration for Node.js in Web Apps on Linux

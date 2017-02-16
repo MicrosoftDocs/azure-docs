@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: naziml
+ms.author: naziml;wesmc
 
 ---
 # Create an Azure web app running on Linux
