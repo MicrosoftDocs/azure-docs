@@ -27,7 +27,6 @@
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
 
-
 ## Develop
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
@@ -50,15 +49,17 @@
 ### [Index JSON blobs](search-howto-index-json-blobs.md)
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
-##  Design search experience
+##  Search experience
+### [Simple query syntax](simple-query-syntax-in-azure-search.md)
+### [Lucene query syntax ](lucene-query-syntax-in-azure-search.md)
 ### [Lucene syntax query examples](search-query-lucene-examples.md)
-### [Scoring profiles](search-get-started-scoring-profiles.md)
+### [Filter expression syntax](odata-expression-syntax-for-azure-search.md)
+### [Scoring](search-get-started-scoring-profiles.md)
 ### [Suggesters](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)
 ### [Tag boosting](https://azure.microsoft.com/blog/2015/02/05/personalizing-search-results-announcing-tag-boosting-in-azure-search/)
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Language analyzers](https://msdn.microsoft.com/library/azure/dn879793)
 ### [Custom analyzers](https://msdn.microsoft.com/library/azure/mt605304)
-### [Multi-lingual search](search-language-support.md)
 
 # Reference
 ## [.NET](/dotnet/api/microsoft.azure.search)
