@@ -28,14 +28,14 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 ## Step 2: Configure Development Environment
 ### **Mac OS**
-Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew**, **FreeTDS** and **pyodbc**. pyodbc uses FreeTDS on MacOS to connect to SQL Databases.
+Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and **pyodbc**. pyodbc uses the Microsoft ODBC Driver on Linux to connect to SQL Databases.
 
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew uninstall FreeTDS #if you have an existing installed FreeTDS
+brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql
 brew update
-brew doctor
-brew install freetds --with-unixodbc
+brew install msodbcsql 
+#for silent install ACCEPT_EULA=y brew install msodbcsql
 sudo pip install pyodbc==3.1.1
 ```
 
@@ -79,9 +79,6 @@ server = 'yourserver.database.windows.net'
 database = 'yourdatabase'
 username = 'yourusername'
 password = 'yourpassword'
-#for mac
-#driver = '{/usr/local/lib/libtdsodbc.so}'
-#for linux of windows
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -100,9 +97,6 @@ server = 'yourserver.database.windows.net'
 database = 'yourdatabase'
 username = 'yourusername'
 password = 'yourpassword'
-#for mac
-driver = '{/usr/local/lib/libtdsodbc.so}'
-#for linux or windows
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -122,9 +116,6 @@ server = 'yourserver.database.windows.net'
 database = 'yourdatabase'
 username = 'yourusername'
 password = 'yourpassword'
-#for mac
-#driver = '{/usr/local/lib/libtdsodbc.so}'
-#for linux or windows
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -150,9 +141,6 @@ server = 'yourserver.database.windows.net'
 database = 'yourdatabase'
 username = 'yourusername'
 password = 'yourpassword'
-#for mac
-#driver = '{/usr/local/lib/libtdsodbc.so}'
-#for linux or windows
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()

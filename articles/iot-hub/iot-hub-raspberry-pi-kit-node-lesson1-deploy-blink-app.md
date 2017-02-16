@@ -1,4 +1,6 @@
 ---
+featureFlags: 
+- usabilla
 title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Deploy app | Microsoft Docs'
 description: Clone the sample Node.js application from GitHub, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
 services: iot-hub

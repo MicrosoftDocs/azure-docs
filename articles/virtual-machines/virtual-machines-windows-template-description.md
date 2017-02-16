@@ -304,7 +304,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 
 ## Disks and images
    
-In Azure, vhd files can represent [disks or images](virtual-machines-windows-about-disks-vhds.md). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
+In Azure, vhd files can represent [disks or images](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
     
 ### Create new virtual machines and new disks from a platform image
 

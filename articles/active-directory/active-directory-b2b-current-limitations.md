@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 
 ---
@@ -22,6 +22,7 @@ ms.author: sasubram
 # Limitations of Azure AD B2B collaboration
 Azure Active Directory (Azure AD) B2B collaboration is currently subject to the limitations described in this article.
 
+<<<<<<< HEAD
 ## Invitation APIs are in preview
 The API surface is our anticipated direction forward. However, like all prerelease versions, the API is subject to the preview namespace contract. We will move the API to a numbered version with our general availability (GA) release.
 
@@ -35,17 +36,17 @@ In a future release, we will introduce a policy where you can avoid the double a
 ## Instant-On
 In the B2B collaboration flows, we add users to the directory and dynamically update them during invitation redemption, app assignment, and so on. The updates and writes ordinarily happen in one directory instance and must be replicated across all instances. We have observed that, because of the finite amount of time it can take to complete replication, authorization issues can sometimes arise. We are working hard to minimize or eliminate these issues before our GA release. You're unlikely to experience them in the meantime, but if you do, refreshing or retrying should help resolve them.
 
-  ## Next steps
+## Next steps
 
-  Browse our other articles on Azure AD B2B collaboration:
+Browse our other articles on Azure AD B2B collaboration:
 
-  * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-  * [B2B collaboration user properties](active-directory-b2b-user-properties.md)
-  * [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
-  * [Delegate B2bB collaboration invitations](active-directory-b2b-delegate-invitations.md)
-  * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
-  * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
-  * [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)
-  * [B2B collaboration user tokens](active-directory-b2b-user-token.md)
-  * [B2B collaboration user claims mapping](active-directory-b2b-claims-mapping.md)
-  * [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
+* [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [B2B collaboration user properties](active-directory-b2b-user-properties.md)
+* [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
+* [Delegate B2bB collaboration invitations](active-directory-b2b-delegate-invitations.md)
+* [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
+* [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
+* [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)
+* [B2B collaboration user tokens](active-directory-b2b-user-token.md)
+* [B2B collaboration user claims mapping](active-directory-b2b-claims-mapping.md)
+* [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
