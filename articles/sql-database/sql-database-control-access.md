@@ -59,8 +59,8 @@ You should familiarize yourself with the following features that can be used to 
 ## Next steps
 
 - For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).
-- To learn more about firewall rules, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
+- To learn more about firewall rules, see [Firewall rules](sql-database-firewall-configure.md).
 - To learn about users and logins, see [Manage logins](sql-database-manage-logins.md). 
-- For a discussion of proactive monitoring, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
+- For a discussion of proactive monitoring, see [Database Auditing](sql-database-auditing.md) and [SQL Database Threat Detection](sql-database-threat-detection.md).
 - For a tutorial using SQL Server authentication, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md).
 - For a tutorial using Azure Active Directory authentication, see [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md).
