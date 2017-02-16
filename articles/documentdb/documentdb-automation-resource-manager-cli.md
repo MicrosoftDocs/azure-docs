@@ -2,7 +2,7 @@
 title: DocumentDB Automation - Azure CLI | Microsoft Docs
 description: Use Azure CLI to manage DocumentDB database accounts. DocumentDB is a cloud-based NoSQL database for JSON data.
 services: documentdb
-author: dimakwan
+author: dmakwana
 manager: jhubbard
 editor: ''
 tags: azure-resource-manager
