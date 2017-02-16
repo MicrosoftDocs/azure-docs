@@ -53,7 +53,7 @@ az network nic create \
 ```
 
 ### Deploy a VM and connect the vNic
-The `--nics` flag connects the vNic to the VM during the deployment to Azure. Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a new VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
+The `--nics` flag connects the vNic to the VM during the deployment to Azure. Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
 
 ```azurecli
 az vm create \
@@ -80,7 +80,7 @@ First, create the resource group with [az group create](/cli/azure/group#create)
 az group create --name myResourceGroup --location westus
 ```
 
-## Create the virtual netwotk
+## Create the virtual network
 
 The next step is to build a virtual network to launch the VMs into. The virtual network contains one subnet for this walkthrough. For more information on Azure virtual networks, see [Create a virtual network by using the Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -137,7 +137,7 @@ az network vnet subnet update \
 
 
 ## Create the virtual network interface card and static DNS names
-Azure is very flexible, but to use DNS names for VM name resolution, you need to create virtual network interface cards (vNics) that include a DNS label. vNics are important as you can reuse them by connecting them to different VMs over the infrastrure lifecycle. This approach keeps the vNic as a static resource while the VMs can be temporary. By using DNS labeling on the vNic, we are able to enable simple name resolution from other VMs in the VNet. Using resolvable names enables other VMs to access the automation server by the DNS name `Jenkins` or the Git server as `gitrepo`.  
+Azure is very flexible, but to use DNS names for VM name resolution, you need to create virtual network interface cards (vNics) that include a DNS label. vNics are important as you can reuse them by connecting them to different VMs over the infrastructure lifecycle. This approach keeps the vNic as a static resource while the VMs can be temporary. By using DNS labeling on the vNic, we are able to enable simple name resolution from other VMs in the VNet. Using resolvable names enables other VMs to access the automation server by the DNS name `Jenkins` or the Git server as `gitrepo`.  
 
 Create the vNic with [az network nic create](/cli/azure/network/nic#create). The following example creates a vNic named `myNic`, connects it to the `myVnet` virtual network named `myVnet`, and creates an internal DNS name record called `jenkins`:
 
@@ -151,9 +151,9 @@ az network nic create \
 ```
 
 ## Deploy the VM into the virtual network infrastructure
-We now have a a virtual network and subnet, a Network Security Group acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH, and a vNic. You can now deploy a VM inside this existing network infrastructure.
+We now have a virtual network and subnet, a Network Security Group acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH, and a vNic. You can now deploy a VM inside this existing network infrastructure.
 
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a new VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
+Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
 
 ```azurecli
 az vm create \
