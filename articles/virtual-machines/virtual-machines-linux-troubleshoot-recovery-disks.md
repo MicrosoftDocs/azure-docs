@@ -58,7 +58,7 @@ Review the serial output to determine why the VM is failing to boot. If the seri
 ## View existing virtual hard disk details
 Before you can attach your virtual hard disk (VHD) to another VM, you need to identify the URI of the OS disk. 
 
-View information about your VM with [az vm show](/cli/azure/vm#show). Use the `--query` flag to extract the URI to the OS disk. The following example disk gets information for the VM named `myVM` in the resource group named `myResourceGroup`:
+View information about your VM with [az vm show](/cli/azure/vm#show). Use the `--query` flag to extract the URI to the OS disk. The following example get disk information for the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM \
@@ -72,7 +72,7 @@ Virtual hard disks and VMs are two distinct resources in Azure. A virtual hard d
 
 The first step to recover your VM is to delete the VM resource itself. Deleting the VM leaves the virtual hard disks in your storage account. After the VM is deleted, you attach the virtual hard disk to another VM to troubleshoot and resolve the errors.
 
-The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
+Delete the VM with [az vm delete](/cli/azure/vm#delete). The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 
@@ -84,7 +84,7 @@ Wait until the VM has finished deleting before you attach the virtual hard disk 
 ## Attach existing virtual hard disk to another VM
 For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to browse and edit the disk's content. This process allows you to correct any configuration errors or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
 
-Attach the existing virtual hard disk with [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#attach). When you attach the existing virtual hard disk, specify the URL to the disk obtained in the preceding `az vm show` command. The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
+Attach the existing virtual hard disk with [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#attach). When you attach the existing virtual hard disk, specify the URI to the disk obtained in the preceding `az vm show` command. The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -154,7 +154,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 
     ```azurecli
     azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
-        --query '[].{Disk:vhd.uri,LUN:lun}'
+        --query '[].{Disk:vhd.uri}' --output table
     ```
 
     Note the name for your existing virtual hard disk. For example, the name of a disk with the the URI of **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** is **myVHD**. 
