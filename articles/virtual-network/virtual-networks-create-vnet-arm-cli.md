@@ -50,7 +50,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
 1. Install and configure the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
 
-2. Create a resource group for your VNet using the `az group create` command with the `--name` and `--location` arguments:
+2. Create a resource group for your VNet using the [az group create](/cli/azure/group#create) command with the `--name` and `--location` arguments:
 
     ```azurecli
     az group create --name myVNet --location centralus
@@ -108,7 +108,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
     - `--subnet-name FrontEnd`: The name of the subnet.
     - `--subnet-prefix 192.168.1.0/24`: The address prefix and block.
 
-    To list the basic information to use in the next command, you can query the VNet using a query filter:
+    To list the basic information to use in the next command, you can query the VNet using a [query filter](/cli/azure/query-az-cli2):
 
     ```azurecli
     az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
@@ -116,11 +116,9 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Which produces the following output:
 
->>>
-Where      Name      Group
----------  --------  -------
-centralus  TestVNet  myVNet
->>>
+        Where      Name      Group
+        ---------  --------  -------
+        centralus  TestVNet  myVNet
 
 4. Create a subnet:
 
@@ -137,7 +135,7 @@ centralus  TestVNet  myVNet
     ```json
     {
     "addressPrefix": "192.168.2.0/24",
-    "etag": "W/\"<guid>\"",
+    "etag": "W/\"<guid> \"",
     "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
     "ipConfigurations": null,
     "name": "BackEnd",
@@ -151,12 +149,11 @@ centralus  TestVNet  myVNet
 
 	Parameters used:
 
->>>
-`--address-prefix 192.168.2.0/24`: Subnet CIDR block.
-`--name BackEnd`: Name of the new subnet.
-`--resource-group myVNet`: The resource group.
-`--vnet-name TestVNet`: The name of the owning VNet.
->>>
+
+- `--address-prefix 192.168.2.0/24`: Subnet CIDR block.
+- `--name BackEnd`: Name of the new subnet.
+- `--resource-group myVNet`: The resource group.
+- `--vnet-name TestVNet`: The name of the owning VNet.
 
 5. Query the properties of the new VNet:
 
@@ -170,11 +167,9 @@ centralus  TestVNet  myVNet
    
 	Expected output:
    
-   >>>
-    Name      Where      Group    Status       SubnetCount
-    --------  ---------  -------  ---------  -------------
-    TestVNet  centralus  myVNet   Succeeded              2
-    >>>
+        Name      Where      Group    Status       SubnetCount
+        --------  ---------  -------  ---------  -------------
+        TestVNet  centralus  myVNet   Succeeded              2
 
 6. Query the properties of the subnets:
 
@@ -188,12 +183,10 @@ centralus  TestVNet  myVNet
 
     Expected output:
 
-    >>>
-    Name      CIDR            Status
-    --------  --------------  ---------
-    FrontEnd  192.168.1.0/24  Succeeded
-    BackEnd   192.168.2.0/24  Succeeded
-    >>>
+        Name      CIDR            Status
+        --------  --------------  ---------
+        FrontEnd  192.168.1.0/24  Succeeded
+        BackEnd   192.168.2.0/24  Succeeded
 
 ## Next steps
 
