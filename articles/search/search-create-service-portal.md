@@ -31,7 +31,7 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 2. Click the plus sign ("+") in the top left corner.
 3. Select **Web + Mobile** > **Azure Search**.
 
-![](./media/search-create-service-portal/find-search.png)
+![](./media/search-create-service-portal/find-search2.png)
 
 ## Name the service and URL endpoint
 
@@ -64,7 +64,7 @@ In this walkthrough, we have chosen the Standard tier for our service.
 
 Remember to pin your service to the dashboard for easy access whenever you sign in.
 
-![](./media/search-create-service-portal/new-service.png)
+![](./media/search-create-service-portal/new-service2.png)
 
 ## Scale your service
 It can take a few minutes to create a service (15 minutes or more depending on the tier). After your service is provisioned, you can scale it to meet your needs. Because you chose the Standard tier for your Azure Search service, you can scale your service in two dimensions: replicas and partitions. Had you chosen the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available.
@@ -83,7 +83,7 @@ It can take a few minutes to create a service (15 minutes or more depending on t
 > [!Note] 
 > Each tier has different [limits](search-limits-quotas-capacity.md) on the total number of Search Units allowed in a single service (Replicas * Partitions = Total Search Units).
 
-![](./media/search-create-service-portal/settings-scale.png)
+![](./media/search-create-service-portal/settings-scale2.png)
 
 ## Next steps
 After provisioning an Azure Search service, you are ready to [define an index](search-what-is-an-index.md) so you can upload and search your data.
