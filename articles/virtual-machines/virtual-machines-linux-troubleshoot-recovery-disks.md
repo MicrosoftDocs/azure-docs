@@ -58,7 +58,7 @@ Review the serial output to determine why the VM is failing to boot. If the seri
 ## View existing virtual hard disk details
 Before you can attach your virtual hard disk (VHD) to another VM, you need to identify the URI of the OS disk. 
 
-View information about your VM with [az vm show](/cli/azure/vm#show). Use the `--query` flag to extract the URI to the OS disk. The following example get disk information for the VM named `myVM` in the resource group named `myResourceGroup`:
+View information about your VM with [az vm show](/cli/azure/vm#show). Use the `--query` flag to extract the URI to the OS disk. The following example gets disk information for the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM \
@@ -157,7 +157,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
         --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    Note the name for your existing virtual hard disk. For example, the name of a disk with the the URI of **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** is **myVHD**. 
+    Note the name for your existing virtual hard disk. For example, the name of a disk with the URI of **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** is **myVHD**. 
 
     Detach the data disk from your VM [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#detach). The following example detaches the disk named `myVHD` from the VM named `myVMRecovery` in the `myResourceGroup` resource group:
 
