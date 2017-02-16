@@ -60,7 +60,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 >
 >
 
-| Component | HDInsight version 3.5 | HDInsight version 3.4 (Default) | HDInsight Version 3.3 | HDInsight Version 3.2 | HDInsight Version 3.1 | HDInsight Version 3.0 |
+| Component | HDInsight version 3.5 (Default) | HDInsight version 3.4  | HDInsight Version 3.3 | HDInsight Version 3.2 | HDInsight Version 3.1 | HDInsight Version 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Hortonworks Data Platform |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop & YARN |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
