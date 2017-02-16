@@ -69,7 +69,40 @@ You can get detailed information from the Scrubbed-wfpdiag.txt about the error, 
 
 Another common misconfiguration is the specifying incorrect shared keys. If in the preceding example you had specified different shared keys, the IKEErrors.txt shows the following error: `Error: Authentication failed. Check shared key`.
 
-Azure Network Watcher troubleshoot feature enables you to diagnose and troubleshoot your VPN Gateway and Connection with the ease of a simple PowerShell cmdlet. Currently we support the diagnosing the following conditions and are working towards adding more condition. 
+Azure Network Watcher troubleshoot feature enables you to diagnose and troubleshoot your VPN Gateway and Connection with the ease of a simple PowerShell cmdlet. Currently we support diagnosing the following conditions and are working towards adding more condition. 
+
+### Gateway
+
+| Fault Type | Reason | Log|
+|---|---|---|
+| NoFault | When no error is detected |Yes|
+| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned |No|
+| PlannedMaintenance |  Gateway instance is under maintenance  |No|
+| UserDrivenUpdate | When a user update is in progress. This could be a resize operation. | No |
+| VipUnResponsive | Cannot find the primary instance of the Gateway. It happens when the healthprobe for the GW fails | No |
+| PlatformInActive | When the instance does not have blob lease. Non primary instance | No|
+| ServiceNotRunning | The undelying service is not running | No|
+| NoConnectionsFoundForGateway | No connections exists on the gateway. This is not an error, just a warning| No|
+| ConnectionsNotConnected | None of the connections are not connected. This is not an error, just a warning| Yes|
+| GatewayCPUUsageExceeded | The current Gateway usage CPU usage is > 95% | Yes |
+
+### Connection
+
+| Fault Type | Reason | Log|
+|---|---|---|
+| NoFault | When no error is detected |Yes|
+| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned |No|
+| PlannedMaintenance | Gateway instance is under maintenance  |No|
+| UserDrivenUpdate | When a user update is in progress. This could be a resize operation.  | No |
+| VipUnResponsive | Cannot find the primary instance of the Gateway. It happens when the healthprobe for the GW fails | No |
+| ConnectionEntityNotFound | Connection configuration is missing | No |
+| ConnectionIsMarkedDisconnected | The connection is marked "disconnected" |No|
+| ConnectionNotConfiguredOnGateway | The underlying service does not have the connection configured | Yes |
+| ConnectionMarkedStandy | In the underlying service is marked as standby| Yes|
+| Authentication | Preshared Key mismatch from WFP logs  | Yes|
+| PeerReachability | The peer gateway is not reachable. | Yes|
+| IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure | Yes|
+| WfpParse Error | An error occurred parsing the WFP log |Yes|
 
 ## Next steps
 
