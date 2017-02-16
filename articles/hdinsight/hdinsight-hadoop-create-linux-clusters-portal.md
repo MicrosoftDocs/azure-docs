@@ -50,17 +50,17 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	* Click **Cluster type**, and then select:
    
-   		* **Cluster Type**: If you don't know what to choose, select **Hadoop**. It is the most popular cluster type.
+		* **Cluster Type**: If you don't know what to choose, select **Hadoop**. It is the most popular cluster type.
      
-     		> [!IMPORTANT]
+ 			> [!IMPORTANT]
      		> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
      		> 
      		> 
-   		* **Operating System**: Select **Linux**.
-   		* **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-   		* **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+		* **Operating System**: Select **Linux**.
+		* **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+		* **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
      
-     		![HDInsight premium tier configuration](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-cluster-type-configuration.png)
+ 			![HDInsight premium tier configuration](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-cluster-type-configuration.png)
 
 
 	* For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
@@ -80,46 +80,16 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 4. On the **Storage** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage.
 
-	![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "Creating a new cluster in the Azure portal")  
+	![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "Creating a new cluster in the Azure portal")
 
-	* **Azure Storage Blobs as default storage**
+	| Storage                                      | Description |
+	|----------------------------------------------|-------------|
+	| **Azure Storage Blobs as default storage**   | <ul><li>For **Primary Storage type**, select **Azure Storage**. After that, for **Selection method**, you can choose **My subscriptions** if you want to specify a storage account that is part of your Azure subscription and then select the storage account. Otherwise, click **Access key** and provide the information for the storage account that you want to choose from outside your Azure subscription.</li>For **Default container**, you can choose to go with the default container name suggested by the portal or specify your own.</li><li>If you are using WASB as default storage, you can (optionally) click **Additional Storage Accounts** to specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then you can provide a storage account from your Azure subscriptions or from other subscriptions (by providing the storage account access key).</li><li>If you are using WASB as default storage, you can (optionally) click **Data Lake Store access** to specify Azure Data Lake Store as additional storage. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
+	| **Azure Data Lake Store as default storage** | For **Primary storage type**, select **Data Lake Store** and then refer to the article [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) for instructions. |
+	| **External metastores**                      | Optionally, you can specify a SQL database to save Hive and Oozie metadata associated with the cluster. For **Select a SQL database for Hive** select a SQL database, and then provide the username/password for the database. Repeat these steps for Oozie metadata.<br><br>> [!NOTE]<br>> The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.<br>><br> ><br><br>>[!IMPORTANT]<br>> When creating a metastore, do not use a database name that contains dashes or hyphens, as this can cause the cluster creation process to fail.<br>><br>>                                                                                                                                                                       |
+	  
 
-		For **Primary Storage Type**, click **Azure Storage**. Specify the details for the storage account and storage container.
-
-		
-	  >[!NOTE]
-	  > Cluster AAD Identity is used to make the cluster accessible to the Azure Data Lake stores based on the AAD configuration. You will use this option if you want to use a Data Lake Store account as an additional storage associated with the cluster.
-	  > 
-	  >
-
-		If you are using WASB as default storage, you can (optionally) Click **Additional Storage Accounts** to specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
-      
-             
-        You can also add additional storage accounts after a cluster has been created.  See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
-
-	* **Azure Data Lake Store as default storage**
-
-		For instructions on how to create an HDInsight cluster with Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
-
-		Click **Select** to save the data source configuration.
-
-	* **External metastores** (not available for HBase cluster types)
-
-		Optionally, if you want to specify SQL database that you want to use to save Hive and Oozie metadata associated with the cluster. For **Select a SQL database for Hive** select a SQL database, and then provide the username/password for the database. Repeat these steps for Oozie metadata.
-
-		> [!NOTE]
-      	> The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
-      	> 
-      	> 
-      
-    	&nbsp;
-      
-      	> [!IMPORTANT]
-      	> When creating a metastore, do not use a database name that contains dashes or hyphens, as this can cause the cluster creation process to fail.
-      	> 
-      	>
-
-	* Click **Next**. 
+	Click **Next**. 
 
 5. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
@@ -141,13 +111,12 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	![Node pricing tiers blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.advanced.png "Specify number of cluster nodes")
 
-	* **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). On the Script Actions blade provide the details as shown in the screen capture.
-    
-	* **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
-      
-		For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+	| Option | Description |
+	|--------|-------------|
+	| **Script Actions** | Use this option if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). |
+	| **Virtual Network** | Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). |
 
-	* Click **Next**.
+	Click **Next**.
 
 8. On the **Summary** blade, verify the information you entered earlier and then click **Create**.
 
