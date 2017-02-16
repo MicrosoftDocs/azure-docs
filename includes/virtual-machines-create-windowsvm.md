@@ -30,7 +30,7 @@ The Basics blade requests administrative information for the virtual machine.
 
 ## 2. Size blade
 
-The size blade identifies the configuration details of the VM, and lists various choices that include OS, number of processors, disk storage type, and estimated monthly usage costs.  
+The Size blade identifies the configuration details of the VM, and lists various choices that include OS, number of processors, disk storage type, and estimated monthly usage costs.  
 
 Choose a VM size, and then click **Select** to continue. In this example, _DS1_\__V2 Standard_ is the VM size.
 
