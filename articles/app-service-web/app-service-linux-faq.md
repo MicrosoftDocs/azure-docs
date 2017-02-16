@@ -21,8 +21,8 @@ ms.author: aelnably;wesmc
 
 # Azure App Service Web Apps on Linux FAQ #
 
-With the release of Azure App Service on Linux (Currently in preview), we are working on adding features and making improvements to our platform. Here are number of frequently asked question that our customer have been asking us over the last months.
-If you have a question, please comment on the article and we will answer it as soon as possible.
+With the release of Azure App Service on Linux (Currently in preview), we are working on adding features and making improvements to our platform. Here are some of the frequently asked questions that our customers have been asking over the last months.
+If you have a question, comment at the bottom of the article and we will answer it as soon as possible.
 
 ## Built-in Images ##
 
@@ -35,7 +35,7 @@ If you have a question, please comment on the article and we will answer it as s
 **Q:** I press the restart button in the portal but my webapp did not restart, why is that?
 
 **A:** We are working on enabling the reset button in the near future, right now you have two options.
-1. Add or change a dummy application setting, this will force your webapp to restart. 
+1. Add or change a dummy application setting. This forces your webapp to restart. 
 2. Stop and then Start your webapp.
 
 **Q:** Can I SSH to the VM?
@@ -46,13 +46,13 @@ If you have a question, please comment on the article and we will answer it as s
 
 **Q:** My webapp still uses an old Docker Container image after updating the image on DockerHub? Do you support continuous integration/deployment of custom containers?
 
-**A:** you can refresh the container either by stopping and then starting your web app or changing/adding a dummy application setting to force a refresh of your container, we will be having a CI/CD feature for custom containers in the near future.
+**A:** You can refresh the container either by stopping and then starting your web app. You can also refresh it by changing/adding a dummy application setting. We will have a CI/CD feature for custom containers in the near future to address this.
 
 ## Language Support ##
 
-**Q:** Do you support uncompiled .net core apps?
+**Q:** Do you support uncompiled .Net core apps?
 
-**A:** No, you need to deploy the compiled .net core app with all the dependencies, a full deploy and build experience will be coming in the near future.
+**A:** No, you need to deploy a compiled .Net core app with all the dependencies. A full deploy and build experience will be coming in the near future.
 
 ## Custom Containers ##
 
@@ -66,7 +66,7 @@ If you have a question, please comment on the article and we will answer it as s
 
 **Q:** Can I bring my own storage?
 
-**A:** Currently that is not supported, planning to support that in the near future.
+**A:** Currently that is not supported. We are planning to support this in the near future.
 
 **Q:** I can't browse my custom container's file system or running processes from the SCM site. Why is that?
 
@@ -76,7 +76,7 @@ If you have a question, please comment on the article and we will answer it as s
 
 **Q:** What is the pricing while in public preview?
 
-**A:** You will be charged half the number of hours your app runs, with the normal Azure App Service pricing; effectively meaning a 50% discount on normal Azure App Service pricing.
+**A:** You will be charged half the number of hours your app runs, based on the normal Azure App Service pricing. Effectively this is a 50% discount on normal Azure App Service pricing.
 
 ## Other ##
 
