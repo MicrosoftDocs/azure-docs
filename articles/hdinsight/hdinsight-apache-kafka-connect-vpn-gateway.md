@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 01/30/2017
+ms.date: 02/16/2017
 ms.author: larryfr
 
 ---
@@ -64,13 +64,17 @@ While it is possible to create an Azure Virtual Machine to act as a custom DNS s
 
 The information in this document is based on using only IP addresses to access HDInsight over the VPN gateway.
 
-## Create through PowerShell
+## Create: Using PowerShell
 
 Use the following steps to create an Azure Virtual Network, VPN gateway, storage account, and Kafka on HDInsight cluster:
 
-1. Using a text editor, create a new file named `Create-HDInsightWithVPN.ps1` and use the following as the file contents:
+1. Follow the steps in the [Working with self-signed certificates for Point-to-site connections](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document to create the certificates needed for the gateway.
 
-    ```PowerShell
+    This generates the certificates used to authenticate clients to the VPN gateway.
+
+2. Using a text editor, create a new file named `Create-HDInsightWithVPN.ps1` and use the following as the file contents:
+
+    ```powershell
     param(
         [Parameter(Mandatory=$true)]
         [String]$resourceGroupName,
@@ -214,14 +218,11 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
         -ProcessorArchitecture Amd64
     ```
 
-2. Follow the steps in the [Working with self-signed certificates for Point-to-site connections](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document to create the certificates needed for the gateway.
-
-    This generates the certificates used to authenticate clients to the VPN gateway.
-
 3. To run the script, use the following command from a PowerShell prompt:
 
-    ```PowerShell
+    ```powershell
     .\Create-HDInsightWithVPN.ps1 -resourceGroupName <groupname> -location <location> -baseName <basename> -rootCert <rootcertificate>
+    ```
 
     * Replace __&lt;groupname>__ with the name of the Azure resource group to be created by the script. This resource group contains the services created by this script.
 
@@ -254,7 +255,7 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
 
     You are prompted to enter the HTTPS login credentials and SSH user credentials for the cluster. These are used to secure HTTPS and SSH access to HDInsight. You may also be prompted to authenticate to your Azure subscription.
 
-## Create through the Azure Portal
+## Create: Using the Azure portal
 
 ### Create the virtual network and VPN gateway
 
@@ -262,7 +263,45 @@ Follow the steps in the [Configure a Point-to-Site connection using the Azure po
 
 ### Create the Kafka cluster
 
-1. Follow the steps in [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md#create-a-kafka-cluster), but stop on the __Cluster summary__ blade. Do not use the __Create__ button to create the cluster. Once you are at the __Cluster summary__, continue with step 2 below.
+Use the following steps to create a Kafka cluster in the Azure Virtual Network created in the previous secction:
+
+1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
+   
+    ![Create a HDInsight cluster](./media/hdinsight-apache-kafka-connect-vpn-gateway/create-hdinsight.png)
+
+2. From the **Basics** blade, enter the following information:
+
+    * **Cluster Name**: The name of the HDInsight cluster.
+    * **Subscription**: Select the subscription to use.
+    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
+    * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
+    * **Resource Group**: The resource group to create the cluster in.
+    * **Location**: The Azure region to create the cluster in.
+   
+    ![Select subscription](./media/hdinsight-apache-kafka-connect-vpn-gateway/hdinsight-basic-configuration.png)
+
+3. Select **Cluster type**, and then set the following values on the **Cluster configuration** blade:
+   
+    * **Cluster Type**: Kafka
+
+    * **Version**: Kafka 0.10.0 (HDI 3.5)
+
+    * **Cluster Tier**: Standard
+     
+    Finally, use the **Select** button to save settings.
+     
+    ![Select cluster type](./media/hdinsight-apache-kafka-connect-vpn-gateway/set-hdinsight-cluster-type.png)
+
+    > [!NOTE]
+    > If your Azure subscription does not have access to the Kafka preview, instructions on how to gain access to the preview are displayed. The instructions displayed are similar to the following image:
+    >
+    > ![preview message: if you would like to deploy a managed Apache Kafka cluster on HDInsight, email us to request preview access](./media/hdinsight-apache-kafka-connect-vpn-gateway/no-kafka-preview.png)
+
+4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
+
+5. From the **Storage** blade, select or create a Storage account. For the steps in this document, leave the other fields on this blade at the default values. Use the __Next__ button to save storage configuration.
+
+    ![Set the storage account settings for HDInsight](./media/hdinsight-apache-kafka-connect-vpn-gateway/set-hdinsight-storage-account.png)
 
 2. From the __Cluster summary__ blade, select the __Edit__ link for the __Advanced settings__ section.
 
@@ -274,24 +313,88 @@ Follow the steps in the [Configure a Point-to-Site connection using the Azure po
 
 4. From the __Cluster summary__ blade, use the __Create__ button to create the cluster.
 
-## Configure Kafka
+    > [!NOTE]
+    > It can take up to 20 minutes to create the cluster.
+
+## Configure Kafka for IP operations
 
 By default, Zookeeper returns the domain name of the Kafka brokers to clients. Since there is no DNS server to resolve the domain names, use the following steps to configure the cluster to return IP addresses instead.
 
-1. From a web browser, navigate to https://CLUSTERNAME.azurehdinsight.net/. Replace __CLUSTERNAME__ with the name of your HDInsight cluster. This opens the Ambari Web UI for the cluster.
+```powershell
+$baseUri="https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName"
+# Get the current configuration identifier (tag)
+$resp=Invoke-WebRequest -Uri "$baseUri`?fields=Clusters/desired_configs" `
+    -Credential $creds
+$respObj=ConvertFrom-Json $resp.Content
+$tag=$respObj.Clusters.desired_configs.'kafka-env'.tag
 
-2. From the Ambari Web UI, select 
+# Get the configuration using the tag
+$resp = Invoke-WebRequest -Uri "$baseUri/configurations?type=kafka-env&tag=$tag" `
+    -Credential $creds
+$respObj=ConvertFrom-Json $resp.Content
+
+# Get the items from JSON and remove unneeded entries
+$config=$respObj.items
+$config.PsObject.Members.Remove('href')
+$config.PsObject.Members.Remove('version')
+$config.PsObject.Members.Remove('Config')
+
+# Update the configuration to return IP addresses rather than FQDN
+$config.properties.content += "`n`n# Return IP address instead of FQDN`nIP_ADDRESS=`$(hostname -i)`necho advertised.listeners=`$IP_ADDRESS`nsed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties`necho `"advertised.listeners=PLAINTEXT://`$IP_ADDRESS:9092`" >> /usr/hdp/current/kafka-broker/conf/server.properties"
+
+# Update the tag for the configuration
+$epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
+$now = Get-Date
+$unixTimeStamp = [math]::truncate($now.ToUniversalTime().Subtract($epoch).TotalMilliSeconds)
+$config.tag="version$unixTimeStamp"
+
+# Create the desired config JSON document
+$desiredConfig= @{"Clusters"= @{"desired_config" = $config[0]}} | ConvertTo-Json -Depth 6
+
+# PUT the new configuration to the cluster
+$resp = Invoke-WebRequest -Uri "$baseUri" `
+    -Credential $creds `
+    -Method PUT `
+    -Headers @{"X-Requested-By" = "ambari"} `
+    -Body $desiredConfig
+
+# Put Kafka into maintenance mode to prevent errors when we restart the service
+$resp = Invoke-WebRequest -Uri "$baseUri/services/KAFKA" `
+    -Credential $creds `
+    -Method PUT `
+    -Headers @{"X-Requested-By" = "ambari"} `
+    -Body '{"RequestInfo": {"context": "turning on maintenance mode for KAFKA"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}'
+
+# Turn off Kafka
+$resp = Invoke-WebRequest -Uri "$baseUri/services/KAFKA" `
+    -Credential $creds `
+    -Method PUT `
+    -Headers @{"X-Requested-By" = "ambari"} `
+    -Body "{'RequestInfo':{'context':'_PARSE_.STOP.KAFKA','operation_level':{'level':'SERVICE','cluster_name':'$clusterName','service_name':'KAFKA'}},'Body':{'ServiceInfo':{'state':'INSTALLED'}}}"
+$respObj=$resp.Content | ConvertFrom-Json
+$reqId=$respObj.Requests.id
+
+# Wait a bit for the service to shut down, then verify that the service has stopped
+$reqStatus = ""
+$count=0
+Do {
+    Start-Sleep -Seconds 30
+    $resp = Invoke-WebRequest -Uri "$baseUri/requests/$reqId" `
+        -Credential $creds
+    $respObj = ConvertFrom-Json $resp.Content
+    $reqStatus=$respObj.Requests.request_status
+    $count++
+    if($count -gt 6) {
+        Throw "It's taking too long for the service to stop. Check in the Ambari web UI."
+    }
+} Until($reqStatus -eq "COMPLETED")
+
+# Turn the service back on
 
 
-1. You need to append the kafka-env template in the Ambari Web UI with the following value. It essentially tells Kafka to use the ip address to register with Zookeeper. One has to switch to using advertised.listeners instead of advertised.host.name.
-One can push data into Kafka brokers over vnet peering by using ip addresses
-One can also push data into local brokers from the headnode using both ip-address and host name after making this change.
-IP_ADDRESS=$(hostname -i)
-echo advertised.listeners=$IP_ADDRESS
-sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+```
 
-Changing the value of *listeners* from PLAINTEXT://localhost:9092 to PLAINTEXT://0.0.0.0:9092 in Kafka Broker is OPTIONAL. It just tells Kafka to bind on all network interfaces.
+## Connect 
 
 ## Additional information
 
