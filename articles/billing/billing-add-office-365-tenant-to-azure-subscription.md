@@ -42,9 +42,6 @@ To associate the Office 365 tenant to the Azure subscription, follow these steps
 2. In the left pane, select **ACTIVE DIRECTORY**. You shouldn't see the Office 365 tenant. If you see it, skip to [Step 2: Change the directory associated with the Azure subscription](#Step2).
    
    ![Screenshot of Active Directory entry](./media/billing-add-office-365-tenant-to-azure-subscription/s35-classic-portal-active-directory-entry.png)
-   
-    
-   ![Screenshot of the default directory of Azure Active Directory](./media/billing-add-office-365-tenant-to-azure-subscription/s36-aad-tenant-default.png)
 
 3. Select **NEW** > **DIRECTORY** > **CUSTOM CREATE**.
    
@@ -81,19 +78,20 @@ To associate the Office 365 tenant to the Azure subscription, follow these steps
     ![Screenshot of Azure classic portal settings icon](./media/billing-add-office-365-tenant-to-azure-subscription/s315_azure-classic-portal-settings-icon.png)
    
 2. Select your Azure subscription, and then select **EDIT DIRECTORY**.
+
     ![Screenshot of Azure subscription edit directory](./media/billing-add-office-365-tenant-to-azure-subscription/s316_azure-subscription-edit-directory.png)
    
 3. Select **Next** ![Next icon](./media/billing-add-office-365-tenant-to-azure-subscription/s317_next-icon.png).
    
     ![Screenshot of "Change the associated directory"](./media/billing-add-office-365-tenant-to-azure-subscription/s318_azure-change-associated-directory.png)
    
-4. Select the check mark to continue. All co-administrators and [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) users with assigned access in the existing resource groups are removed. The warning you receive only mentions the removal of co-administrators.
+4. Review the affected accounts. All co-administrators and [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) users with assigned access in the existing resource groups are removed. The warning you receive only mentions the removal of co-administrators.
       
     ![Screenshot that shows the co-administrator accounts to be removed.](./media/billing-add-office-365-tenant-to-azure-subscription/s322_azure-confirm-directory-mapping.png)
    
     ![Screenshot that shows an example user account to be removed.](./media/billing-add-office-365-tenant-to-azure-subscription/s325_assigned-users-removed-resource-groups.png)
    
-4. Select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
+5. Select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
 ### Step 3: Add your Office 365 organizational accounts as co-administrators to the Azure Active Directory tenant
    
