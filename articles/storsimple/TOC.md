@@ -186,7 +186,7 @@
 
 ## Release notes
 ### [Update 4 - current](storsimple-update4-release-notes.md)
-### [Update 3 - current](storsimple-update3-release-notes.md)
+### [Update 3](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 ### [Update 2 ](storsimple-update2-release-notes.md)
 ### [Update 1 ](storsimple-update1-release-notes.md)
