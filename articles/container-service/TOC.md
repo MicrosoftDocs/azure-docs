@@ -23,6 +23,7 @@
 #### [Monitor with Dynatrace](container-service-monitoring-dynatrace.md)
 ## Manage with Kubernetes
 ### [Get started with Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Get started with Kubernetes and Windows](container-service-kubernetes-windows-walkthrough.md)
 ### [Configure a service principal](container-service-kubernetes-service-principal.md)
 ### [Container management - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Load balance Kubernetes containers](container-service-kubernetes-load-balancing.md)
