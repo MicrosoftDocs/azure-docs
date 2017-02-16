@@ -32,33 +32,33 @@ You'll need to do the following to use the code in this topic:
 The following HTML code shows how to build a web page (**callform.html**) that retrieves user data for making a call:
 
 ```html
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Automated call form</title>
+  <title>Automated call form</title>
 </head>
 <body>
-<h1>Automated Call Form</h1>
- <p>Fill in all fields and click <b>Make this call</b>.</p>
+  <h1>Automated Call Form</h1>
+  <p>Fill in all fields and click <b>Make this call</b>.</p>
   <form action="makecall.php" method="post">
-   <table>
-     <tr>
-           <td>To:</td>
-           <td><input type="text" size=50 name="callTo" value=""></td>
-     </tr>
-     <tr>
-           <td>From:</td>
-           <td><input type="text" size=50 name="callFrom" value=""></td>
-     </tr>
-     <tr>
-           <td>Call message:</td>
-           <td><input type="text" size=100 name="callText" value="Hello. This is the call text. Good bye." /></td>
-     </tr>
-     <tr>
-           <td colspan=2><input type="submit" value="Make this call"></td>
-     </tr>
-   </table>
- </form>
- <br/>
+    <table>
+      <tr>
+        <td>To:</td>
+        <td><input name="callTo" size="50" type="text" value=""></td>
+      </tr>
+      <tr>
+        <td>From:</td>
+        <td><input name="callFrom" size="50" type="text" value=""></td>
+      </tr>
+      <tr>
+        <td>Call message:</td>
+        <td><input name="callText" size="100" type="text" value="Hello. This is the call text. Good bye."></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="Make this call"></td>
+      </tr>
+    </table>
+  </form><br>
 </body>
 </html>
 ```
@@ -73,25 +73,25 @@ The following code shows how to build **makecall.php**, which is called when the
 <p>Your call is being made.</p>
 
 <?php
-require_once 'Services/Twilio.php';
+require_once 'path/to/vendor/autoload.php';
 
-$sid = "your_account_sid";
+$sid   = "your_account_sid";
 $token = "your_authentication_token";
 
 $from_number = $_POST['callFrom']; // Calls must be made from a registered Twilio number.
-$to_number = $_POST['callTo'];
-$message = $_POST['callText'];
+$to_number   = $_POST['callTo'];
+$message     = $_POST['callText'];
 
-$client = new Services_Twilio($sid, $token, "2010-04-01");
+$client = new Twilio\Rest\Client($sid, $token);
 
 $call = $client->account->calls->create(
-    $from_number,
-    $to_number,
-      'http://twimlets.com/message?Message='.urlencode($message)
-);
+            $from_number,
+            $to_number,
+            'http://twimlets.com/message?Message=' . urlencode($message)
+        );
 
-echo "Call status: ".$call->status."<br />";
-echo "URI resource: ".$call->uri."<br />";
+echo "Call status: " . $call->status . "<br />";
+echo "URI resource: " . $call->uri . "<br />";
 ?>
 </body>
 </html>
