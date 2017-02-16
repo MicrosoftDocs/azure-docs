@@ -137,8 +137,8 @@ centralus  TestVNet  myVNet
     ```json
     {
     "addressPrefix": "192.168.2.0/24",
-    "etag": "W/\"49e8b6ff-6523-4c62-828e-c9e655ccf23a\"",
-    "id": "/subscriptions/0e220bf6-5caa-4e9f-8383-51f16b6c109f/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
     "ipConfigurations": null,
     "name": "BackEnd",
     "networkSecurityGroup": null,
@@ -194,7 +194,7 @@ centralus  TestVNet  myVNet
     FrontEnd  192.168.1.0/24  Succeeded
     BackEnd   192.168.2.0/24  Succeeded
     >>>
-    
+
 ## Next steps
 
 Learn how to connect:
