@@ -7,13 +7,12 @@ author: sharonlo101
 manager: jhubbard
 editor: monicar
 
-ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 02/16/2017
 ms.author: shlo
 
 ---
