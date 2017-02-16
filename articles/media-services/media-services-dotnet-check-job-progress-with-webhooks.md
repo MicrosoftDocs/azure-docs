@@ -351,7 +351,6 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 		using System.Linq;
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
-
 		namespace NotificationWebHook
 		{
 		    class Program
