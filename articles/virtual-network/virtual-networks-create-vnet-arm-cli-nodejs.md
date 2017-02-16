@@ -97,7 +97,8 @@ To create a virtual network using the Azure CLI, complete the following steps:
    * **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
    * **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
    * **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
-4. View the properties of the new VNet:
+   
+4. To view the properties of the new VNet:
 
 	```azurecli
 	azure network vnet show
