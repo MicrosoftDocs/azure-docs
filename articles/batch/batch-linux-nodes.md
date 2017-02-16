@@ -21,7 +21,7 @@ ms.author: tamram
 You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python][py_batch_package] and [Batch .NET][api_net] client libraries.
 
 > [!NOTE]
-> For Batch pools created after XXX February 2017, application packages are now supported for Azure Virtual Machine configurations. Both Linux and Windows VMs are supported. For more information about using application packages to deploy your applications to your Batch nodes, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
+> Application packages are supported on all Batch pools created after XXX March 2017. For more information about using application packages to deploy your applications to your Batch nodes, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
 >
 >
 
