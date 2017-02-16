@@ -28,7 +28,7 @@ If you want an Office 365 subscription for users in your Azure Active Directory 
 * You must have the credentials of a global administrator of the Office 365 tenant.
 * The email address of the service administrator must not be in the Office 365 tenant.
 * The email address of the service administrator must not match that of any global administrator of the Office 365 tenant.
-* If you are currently using an email address that is both a Microsoft account and an organizational account, temporarily change the service administrator of your Azure subscription to use another Microsoft account. You can create a Microsoft account at the [Microsoft account signup page](https://signup.live.com/).
+* If you use an email address that is both a Microsoft account and an organizational account, temporarily change the service administrator of your Azure subscription to use another Microsoft account. You can create a Microsoft account at the [Microsoft account signup page](https://signup.live.com/).
 
 ## Associate the Office 365 tenant to an Azure subscription
 To associate the Office 365 tenant to the Azure subscription, follow these steps:
