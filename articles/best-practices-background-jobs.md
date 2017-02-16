@@ -88,7 +88,25 @@ You can host background tasks by using a range of different Azure platform servi
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
 ## Azure Functions
-Much like WebJobs, you can use Azure Functions to execute jobs as background tasks. The difference, is that you don't need to worry about being tied to a specific Web App nor scalability, as it can grow/shrinkg automatically and independently. They're serverless in nature, but you can assign an App Service Plan, for predictable costs, or run them freely in the wild, by choosing a conveniently built Consumption Plan. They can be triggered by a plethora of events and direct calls (Queues, Blobs, WebSockets, REST, etc.). If you're into WebJobs, you should definitely have a look at this independent Serverless Architecture for background processing.
+Much like WebJobs, you can use Azure Functions to execute jobs as background tasks. The difference, is that you don't need to worry about being tied to a specific Web App nor scalability, as it can grow/shrinkg automatically and independently. They're serverless in nature, but you can assign an App Service Plan, for predictable costs, or run them freely in the wild, by choosing a convenient pay-as-you-go Consumption Plan. They can be triggered by a plethora of events, timers and direct calls (Queues, Blobs, WebSockets, REST, etc.). If you're into WebJobs, you should definitely have a look at this independent Serverless Architecture for background processing.
+
+How to write an Azure Funtion
+
+* You'll need to create an App Function Service, or you may try it for free if you don't have an Azure account yet. Then, you have these options:
+ * Code functions directly from the portal
+ * Use Visual Studio with tools for Azure Functions
+ * Use Visual Studio Code and a Git repo for Continuous Delivery
+ 
+Azure Functions can be coded in different languages (including as of today: JavaScript, C#, F#, as well as scripting options such as Python, PHP, Bash, Batch, and PowerShell). Azure Funtctions run within the context of the container Azure Function App. This means that they can access environment variables and share information, such as connection strings, with the Azure Function App. The job has access to the unique identifier of the machine that is running the job. The connection string named **AzureWebJobsStorage** provides access to Azure storage queues, blobs, and tables for application data, and access to Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
+
+Azure Functions have the following characteristics:
+
+* **Security**: anonumous access or Authentication/Authorization thru various providers can be setup. Also, CORS settings are ready to be configured at App Settings
+* **Monitoring**: Azure Functions activity can be monitored onva per-function basis
+* **Deployment**: Git can be used as CD source origin, right after playground phase is completed and robust source control is required for better maintenance.
+
+### Considerations
+[to-be-defined]
 
 ## Azure Web Apps and WebJobs
 You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process. WebJobs also run in response to a trigger event from Azure Scheduler or external factors, such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it is automatically restarted. Retry and error actions are configurable.
