@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 
 ---
@@ -71,7 +71,7 @@ You can block access to the [Azure portal](https://portal.azure.com) by guest us
   ![](media/active-directory-b2b-faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user]
+  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
   If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
 
