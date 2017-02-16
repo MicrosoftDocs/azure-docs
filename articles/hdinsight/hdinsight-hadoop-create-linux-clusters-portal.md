@@ -68,8 +68,8 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
    
 		For more information on using SSH with HDInsight, see one of the following articles:
    
-   		* [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   		* [Use SSH with Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+		* [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+		* [Use SSH with Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 	* For **Resource group**, specify whether you want to create a new resource group or use an existing one.
 
