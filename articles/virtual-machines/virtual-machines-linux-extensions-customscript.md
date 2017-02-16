@@ -182,7 +182,7 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
-        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh
+        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
       ]              
     },
     "protectedSettings": {
