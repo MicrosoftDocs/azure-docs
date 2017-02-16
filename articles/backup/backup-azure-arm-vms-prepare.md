@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/7/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.author: markgal;trinadhk;
 
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
