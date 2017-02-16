@@ -20,7 +20,7 @@ ms.author: markvi
 
 **Q: Where can I see the existing reports of the Azure classic portal in Azure Portal?**
 
-**A:**  ((Add link to the migration topic))
+**A:** See [How to find activity reports in the Azure Portal](active-directory-reporting-migration.md) for more details.
 
 ---
 
@@ -32,7 +32,7 @@ ms.author: markvi
 
 **Q: How long does it take for me to see the Activity data after I have completed my task?**
 
-**A:** ((Link to latency information))
+**A:** See [Azure Active Directory report latencies](active-directory-reporting-latencies.md) for more details.
 
 ---
 
@@ -44,7 +44,7 @@ ms.author: markvi
 
 **Q: Which of the Azure AD sign-in and audit reports are free and which reports are available for Premium and Premium 2?**
 
-**A:** ((Provide link to Reporting and SKU info))
+**A:** 
 
 
 
@@ -84,7 +84,7 @@ ms.author: markvi
 
 **Q: How do I get premium license?**
 
-**A:** (add link to related topic))
+**A:** See [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md) for more details.
 
 ---
 
