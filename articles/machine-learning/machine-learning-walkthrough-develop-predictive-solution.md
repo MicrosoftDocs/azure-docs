@@ -22,14 +22,13 @@ ms.author: garye
 
 In this walkthrough, we'll take an extended look at the process of developing a solution in Machine Learning Studio. We'll develop a simple predictive analytics model in Machine Learning Studio, and then deploy it as an Azure Machine Learning web service where the model can make predictions using new data. 
 
-> [!TIP]
-> This walkthrough assumes that you've used Machine Learning Studio at least once before, and that you have some understanding of machine learning concepts, though it doesn't assume you're an expert in either.
-> 
->If you've never used **Azure Machine Learning Studio** before, you might want to start with the tutorial, [Create your first data science experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). That tutorial takes you through Machine Learning Studio for the first time, showing you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
-> 
->If you're new to the field of machine learning, the video series [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) might be a good place to start. This video series is a great introduction to machine learning using everyday language and concepts.
-> 
-> 
+This walkthrough assumes that you've used Machine Learning Studio at least once before, and that you have some understanding of machine learning concepts, though it doesn't assume you're an expert in either.
+
+If you've never used **Azure Machine Learning Studio** before, you might want to start with the tutorial, [Create your first data science experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). That tutorial takes you through Machine Learning Studio for the first time, showing you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+ 
+If you're new to the field of machine learning, the video series [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) might be a good place to start. This video series is a great introduction to machine learning using everyday language and concepts.
+
+ 
 
 ## The problem
 
