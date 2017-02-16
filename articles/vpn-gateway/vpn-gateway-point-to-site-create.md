@@ -29,9 +29,9 @@ ms.author: cherylmc
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
 
-This article walks you through creating a VNet with a Point-to-Site connection in the **classic deployment model** using the **classic portal**.
+Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
 
-Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [Planning and Design](vpn-gateway-plan-design.md).
+This article walks you through creating a VNet with a Point-to-Site connection in the classic deployment model using the classic portal.
 
 ### Deployment models and methods for P2S connections
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -168,6 +168,10 @@ Example:
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
+
+## <a name="faq"></a>Point-to-Site FAQ
+
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
 ## Next steps
 

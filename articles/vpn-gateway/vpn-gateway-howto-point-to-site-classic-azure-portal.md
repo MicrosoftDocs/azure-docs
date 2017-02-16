@@ -26,9 +26,11 @@ ms.author: cherylmc
 >
 >
 
-This article walks you through creating a VNet with a Point-to-Site connection in the classic deployment model using the Azure portal. A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference. Or, when you only have a few clients that need to connect to a virtual network.
+A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
 
-Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About VPN Gateway](vpn-gateway-about-vpngateways.md#P2S).
+Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
+
+This article walks you through creating a VNet with a Point-to-Site connection in the classic deployment model using the Azure Portal.
 
 ### Deployment models and methods for P2S connections
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -61,7 +63,7 @@ You can use the following example settings:
 * **Location: East US**
 * **Connection type: Point-to-site**
 * **Client Address Space: 172.16.201.0/24**. VPN clients that connect to the VNet using this Point-to-Site connection receive an IP address from the specified pool.
-* **GatewaySubnet: 192.168.200.0/24**. The Gateway subnet must use the name "GatewaySubnet".
+* **GatewaySubnet: 192.168.200.0/24**. The Gateway subnet must use the name 'GatewaySubnet'.
 * **Size:** Select the gateway SKU that you want to use.
 * **Routing Type: Dynamic**
 
@@ -70,7 +72,7 @@ You can use the following example settings:
 If you don't already have a virtual network, create one. Screenshots are provided as examples. Be sure to replace the values with your own. To create a VNet by using the Azure portal, use the following steps:
 
 1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. Click **New**. In the **Search the marketplace** field, type "Virtual Network". Locate **Virtual Network** from the returned list and click to open the **Virtual Network** blade.
+2. Click **New**. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** blade.
 
     ![Search for virtual network blade](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
 3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Classic**, and then click **Create**.
@@ -236,6 +238,10 @@ Example:
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
+
+## <a name="faq"></a>Point-to-Site FAQ
+
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
