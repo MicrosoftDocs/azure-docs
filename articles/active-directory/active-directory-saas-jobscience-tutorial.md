@@ -168,7 +168,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Jobscience, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Jobscience **application integration page, click **Assign users**.
+2. On the **Jobscience** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
