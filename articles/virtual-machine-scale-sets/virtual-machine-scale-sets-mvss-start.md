@@ -19,11 +19,11 @@ ms.author: negat
 
 ---
 
-# About This Tutorial
+# About this tutorial
 
 [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series will walk through how to create a minimum viable scale set template as well as how to modify this template to suit a variety of scenarios. All of the examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
 
-## A Minimum Viable Scale Set
+## A minimum viable scale set
 
 Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). Those already familiar with templates can safely skip to the "Next Steps" section to see how to modify this template for other scenarios. However, those less familiar with templates might find this piece by piece description helpful. To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
 
@@ -48,7 +48,7 @@ Next, we define two parameters, `adminUsername` and `adminPassword`. Parameters 
 +  },
 ```
 
-ARM templates also allow you to define variables to be used later on in the template. In this example we don't use any variables, so we have left the JSON object empty.
+Resource Manager templates also allow you to define variables to be used later on in the template. In this example we don't use any variables, so we have left the JSON object empty.
 
 ```diff
 +  "variables": {},
