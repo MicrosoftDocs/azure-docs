@@ -27,7 +27,7 @@ You can also [upload and create a virtual machine from a custom disk image](virt
 ## CLI versions to use
 You can complete the task by using either of the following command-line interface (CLI) versions:
 
-* [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): The CLI for the classic and Azure Resource Manager deployment models
+* [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): The CLI for the classic and Azure Resource Manager deployment models.
 * Azure CLI 2.0 Preview: The next-generation CLI for the Resource Manager deployment model, which this article discusses.
 
 ## Prerequisites
@@ -52,7 +52,7 @@ Depending on the storage type of your source virtual machine, follow the instruc
 
 ### Managed disks
 
-1. List each virtual machine and the name of its OS managed disk with [az vm list](/cli/azure/vm#list). The following example lists all virtual machines in the resource group `myResourceGroup`:
+1. List each virtual machine and the name of its OS-managed disk with [az vm list](/cli/azure/vm#list). The following example lists all virtual machines in the resource group `myResourceGroup`:
 
     ```azurecli
     az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
