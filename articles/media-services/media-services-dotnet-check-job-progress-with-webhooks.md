@@ -421,7 +421,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 			    task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
 			    // Add the WebHook notification to this Task and request all notification state changes.
-			    // Note that you can also add a job level notifications 
+			    // Note that you can also add a job level notification
 			    // which would be more useful for a job with chained tasks.  
 			    if (endpoint != null)
 			    {
