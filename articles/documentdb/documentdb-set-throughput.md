@@ -78,6 +78,7 @@ await client.ReplaceOfferAsync(offer);
 ## Throughput FAQ
 
 **Can I set my throughput to less than 400 RU/s?**
+
 400 RU/s is the minimum throughput available on DocumentDB single partition collections (2500 RU/s is the minimum for partitioned collections). Request units are set in 100 RU/s intervals, but througput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test DocumentDB, you can use the free [DocumentDB Emulator](documentdb-nosql-local-emulator.md), which you can deploy locally at no cost. 
 
 ## Next steps
