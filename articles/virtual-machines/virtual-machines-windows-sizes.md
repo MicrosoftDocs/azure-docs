@@ -37,7 +37,7 @@ This article describes the available sizes and options for the Azure virtual mac
 
 
 ## Next steps
-- Learn about [azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
+- Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 - [General-purpose](virtual-machines-windows-sizes-general.md)
 - [Memory optimized](virtual-machines-windows-sizes-memory.md)
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
