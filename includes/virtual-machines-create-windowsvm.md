@@ -1,6 +1,6 @@
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Starting in the upper-left, click **New > Compute > Windows Server 2016 Datacenter**.
+2. Starting in the upper left, click **New > Compute > Windows Server 2016 Datacenter**.
 
     ![Navigate to the Azure VM images in the portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
@@ -14,7 +14,7 @@ The Basics blade requests administrative information for the virtual machine.
 
 1. Enter a **Name** for the virtual machine. In the example, _HeroVM_ is the name of the virtual machine. The name must be 1-15 characters long and it cannot contain special characters.
 
-2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to sign in to and manage the VM. In the example, _azureuser_ is the user name.
+2. Enter a **User name** and a strong **Password** that are used to create a local account on the VM. The local account is used to sign in to and manage the VM. In the example, _azureuser_ is the user name.
 
  The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../articles/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
 
@@ -26,11 +26,11 @@ The Basics blade requests administrative information for the virtual machine.
 
 6. When you are done, click **Next** to continue to the next blade.
 
-    ![Screenshot that shows the settings on the **Basics** blade for configuring an Azure VM](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
+    ![Screenshot that shows the settings on the Basics blade for configuring an Azure VM](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
 
 ## 2. Size blade
 
-The size blade identifies the basic configuration details of the VM, and lists a variety of choices that include OS, number of processors, type of disk storage, and estimated monthly usage costs.  
+The size blade identifies the configuration details of the VM, and lists various choices that include OS, number of processors, disk storage type, and estimated monthly usage costs.  
 
 Choose a VM size, and then click **Select** to continue. In this example, _DS1_\__V2 Standard_ is the VM size.
 
@@ -39,7 +39,7 @@ Choose a VM size, and then click **Select** to continue. In this example, _DS1_\
 
 ## 3. Settings blade
 
-The Settings blade requests storage and network options. You can accept the default settings; Azure will create appropriate entries where necessary.
+The Settings blade requests storage and network options. You can accept the default settings; Azure creates appropriate entries where necessary.
 
 If you selected a virtual machine size that supports it, you can try Azure Premium Storage by selecting Premium (SSD) in Disk type.
 
