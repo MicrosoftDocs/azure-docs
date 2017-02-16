@@ -1,5 +1,5 @@
 ---
-title: 'DocumentDB Query Explorer: A SQL query editor | Microsoft Docs'
+title: 'Azure DocumentDB portal tool: Query Explorer | Microsoft Docs'
 description: Learn about the DocumentDB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a NoSQL DocumentDB collection.
 keywords: writing sql queries, sql query editor
 services: documentdb
@@ -14,14 +14,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 
 ---
-# Write, edit, and run SQL queries for DocumentDB using Query Explorer
+# Write, edit, and run SQL queries for DocumentDB using Query Explorer in the Azure portal
 This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Query Explorer, an Azure portal tool that enables you to write, edit, and run SQL queries against a [DocumentDB collection](documentdb-create-collection.md).
 
-1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    If **NoSQL (DocumentDB)** is not visible, click **More Services** at the bottom, and then click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. In the resource menu, click **Query Explorer**. 
    
     ![Screenshot of the Azure portal with Query Explorer highlighted](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
