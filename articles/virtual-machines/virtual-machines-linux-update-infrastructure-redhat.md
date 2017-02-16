@@ -23,7 +23,7 @@ Virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) imag
 The yum repository list, which is managed by RHUI, is configured in your RHEL instance during provisioning. You don't need to do any additional configuration - run `yum update` after your RHEL instance is ready to get the latest updates.
 
 > [!NOTE]
-> In September 2016 we deployed an updated Azure RHUI and in January 2017 we started phased shutdown of the older Azure RHUI. If you have been using the RHEL images (or their snapshots) from September 2016 or later - likely no action is required. If, however, you have older snapshots/VMs their configuration needs to be updated for uninterrupted access to the Azure RHUI.
+> In September 2016 we deployed an updated Azure RHUI and in January 2017 we started phased shutdown of the older Azure RHUI. If you have been using the RHEL images (or their snapshots) from September 2016 or later - likely no action is required. If, however, you have older snapshots/VMs, their configuration needs to be updated for uninterrupted access to the Azure RHUI.
 > 
 
 ## RHUI Azure Infrastructure Update
@@ -39,9 +39,9 @@ If you are experiencing problems connecting to Azure RHUI from your Azure RHEL P
 
     If you are using the new configuration and still cannot connect to Azure RHUI - file a support case with Microsoft or Red Hat.
 
-> [!NOTE]
-> Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
-> 
+    > [!NOTE]
+    > Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+    > 
 
 2. If the old Azure RHUI is still available when you do this check and you would like to automatically update the configuration, execute the following command:
 
