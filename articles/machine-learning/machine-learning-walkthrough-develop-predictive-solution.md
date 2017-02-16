@@ -20,11 +20,11 @@ ms.author: garye
 ---
 # Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning
 
-In this walkthrough, we'll take an extended look at the process of developing a predictive analytics solution in Machine Learning Studio. We'll develop a simple model in Machine Learning Studio, and then deploy it as an Azure Machine Learning web service where the model can make predictions using new data. 
+In this walkthrough, we take an extended look at the process of developing a predictive analytics solution in Machine Learning Studio. We develop a simple model in Machine Learning Studio, and then deploy it as an Azure Machine Learning web service where the model can make predictions using new data. 
 
-This walkthrough assumes that you've used Machine Learning Studio at least once before, and that you have some understanding of machine learning concepts, but it doesn't assume you're an expert in either.
+This walkthrough assumes that you've used Machine Learning Studio at least once before, and that you have some understanding of machine learning concepts. But it doesn't assume you're an expert in either.
 
-If you've never used **Azure Machine Learning Studio** before, you might want to start with the tutorial, [Create your first data science experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). That tutorial takes you through Machine Learning Studio for the first time, showing you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. Another tool that may be helpful for getting started is a diagram that gives an overview of the capabilities of Machine Learning Studio. You can download and print it from here: [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+If you've never used **Azure Machine Learning Studio** before, you might want to start with the tutorial, [Create your first data science experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). That tutorial takes you through Machine Learning Studio for the first time. It shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. Another tool that may be helpful for getting started is a diagram that gives an overview of the capabilities of Machine Learning Studio. You can download and print it from here: [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
  
 If you're new to the field of machine learning in general, there's a video series that might be helpful to you. It's called [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) and it will give you a great introduction to machine learning using everyday language and concepts.
 
@@ -34,19 +34,19 @@ If you're new to the field of machine learning in general, there's a video serie
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, of course. But we'll simplify the problem a bit, and then use it as an example of how you can solve that problem using Microsoft Azure Machine Learning. We'll use Azure Machine Learning Studio and a Machine Learning web service.  
+Credit risk assessment is a complex problem, but we can simplify it a bit for this walkthrough. We'll use it as an example of how you can solve a problem like this using Microsoft Azure Machine Learning. We'll use Azure Machine Learning Studio and a Machine Learning web service.  
 
 ## The solution
 
-In this detailed walkthrough, we'll start with publicly available credit risk data, develop and train a predictive model based on that data, and then deploy the model as a web service that it can be used by others for credit risk assessment.
+In this detailed walkthrough, we start with publicly available credit risk data and develop and train a predictive model based on that data. Then we deploy the model as a web service that it can be used by others for credit risk assessment.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-To create a credit risk assessment solution, we'll follow these steps:  
+To create a credit risk assessment solution, we follow these steps:  
 
 1. [Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
-3. [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
+3. [Create an experiment](machine-learning-walkthrough-3-create-new-experiment.md)
 4. [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 5. [Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
 6. [Access the web service](machine-learning-walkthrough-6-access-web-service.md)
@@ -55,4 +55,4 @@ To create a credit risk assessment solution, we'll follow these steps:
 > You can find a working copy of the experiment that we develop in this walkthrough in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Go to **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 > 
 > This walkthrough is based on a simplified version of the sample experiment,
-[Binary Classfication: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270), also available in the [Gallery](http://gallery.cortanaintelligence.com/).
+[Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270), also available in the [Gallery](http://gallery.cortanaintelligence.com/).
