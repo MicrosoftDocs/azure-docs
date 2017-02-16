@@ -62,7 +62,7 @@ You can use the Azure portal to [create a Kubernetes cluster](container-service-
 
 ## Connect to the cluster
 
-Use the `kubectl` command-line tool to connect from your local computer to the master node of the Kubernetes cluster. For steps, see [Connect to an Azure Container Service cluster](container-service-connect#connect-to-a-kubernetes-cluster). You can use `kubectl` commands to access the Kubernetes web UI and to create and manage Windows container workloads.
+Use the `kubectl` command-line tool to connect from your local computer to the master node of the Kubernetes cluster. For steps, see [Connect to an Azure Container Service cluster](container-service-connect.md#connect-to-a-kubernetes-cluster). You can use `kubectl` commands to access the Kubernetes web UI and to create and manage Windows container workloads.
 
 ## Create your first Kubernetes service
 
@@ -149,7 +149,7 @@ After creating the cluster and connecting with `kubectl`, you can try starting a
 
 
 ## Access the Windows nodes
-Windows nodes can be accessed through an RDP SSH tunnel via the master node. 
+Windows nodes can be accessed from a local Windows computer through Remote Desktop Connection. We recommend using an RDP SSH tunnel via the master node. 
 
 There are multiple options for creating SSH tunnels on Windows. This section describes how to use PuTTY to create the tunnel.
 
@@ -157,36 +157,34 @@ There are multiple options for creating SSH tunnels on Windows. This section des
 
 2. Run the application.
 
-3. Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** looks similar to `adminuser@PublicDNSName`. Enter 2200 for the **Port**.
+3. Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** looks similar to `adminuser@PublicDNSName`. Enter 22 for the **Port**.
 
-    ![PuTTY configuration 1](media/putty1.png)
+    ![PuTTY configuration 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
 
 4. Select **SSH > Auth**. Add a path to your private key file (.ppk format) for authentication. You can use a tool such as [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to generate this file from the SSH key used to create the cluster.
 
-    ![PuTTY configuration 2](media/putty2.png)
+    ![PuTTY configuration 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
 
-5. Select **SSH > Tunnels** and configure the following forwarded ports:
+5. Select **SSH > Tunnels** and configure the  forwarded ports. Since your local Windows machine is already using port 3389, it is recommended to use the following settings to reach Windows node 0 and Windows node 1. (Continue this pattern for additional Windows nodes.)
 
-    * **Source Port:** Use 80 for DC/OS or 2375 for Swarm.
-    * **Destination:** Use localhost:80 for DC/OS or localhost:2375 for Swarm.
+  **Windows Node 0**
 
-    The following example is configured for DC/OS, but will look similar for Docker Swarm.
+  * **Source Port:** 3390
+  * **Destination:** 10.240.245.5:3389
 
-    > [!NOTE]
-    > Port 80 must not be in use when you create this tunnel.
-    > 
+  **Windows Node 1**
 
-    ![PuTTY configuration 3](media/putty3.png)
+  * **Source Port:** 3391
+  * **Destination:** 10.240.245.6:3389
+
+  ![Image of Windows RDP tunnels](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
 
 6. When you're finished, click **Session > Save** to save the connection configuration.
 
-7. To connect to the PuTTY session, click **Open**. When you connect, you can see the port configuration in the PuTTY event log.
+7. To connect to the PuTTY session, click **Open**. Complete the connection to the master node.
 
-    ![PuTTY event log](media/putty4.png)
+8. Start Remote Desktop Connection. To connect to the first Windows node, for **Computer**, specify `localhost:3390`, and click **Connect**. (To connect to the second, specify `localhost:3390`, and so on.) To complete your connection, provide the local Windows administrator password you configured during deployment.
 
-To do this, follow these [instructions](ssh.md#create-port-80-tunnel-to-the-master), replacing port 80 with 3389. Since your windows machine is already using port 3389, it is recommended to use 3390 to Windows Node 0, 10.240.245.5, 3391 to Windows Node 1, 10.240.245.6, and so on as shown in the following image:
-
-![Image of Windows RDP tunnels](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
 
 
 
