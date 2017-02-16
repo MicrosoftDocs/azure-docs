@@ -37,11 +37,11 @@ Network Watcher currently has the following capabilities:
 * **[Topology](network-watcher-topology-overview.md)** - This feature provides a network level view showing the various interconnections and associations between network resources in a resource group.
 * **[Variable Packet capture](network-watcher-packet-capture-overview.md)** - This feature captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuned controls provide versatility. In addition, packet capture can be done for a fixed duration time or for a fixed size data. The packet data can be stored in a blob store or on the local disk in .cap format.
 * **[IP flow verify](network-watcher-ip-flow-verify-overview.md)** - This feature checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
-* **[Next hop](network-watcher-next-hop-overview.md)** - This feature determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
+* **Next hop** - This feature determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
 * **Security group view** - This feature gets the effective and applied security rules that are applied on a VM.
 * **[NSG Flow logging](network-watcher-nsg-flow-logging-overview.md)** - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port and Protocol.
 * **[Virtual Network Gateway and Connection troubleshooting](network-watcher-troubleshoot-manage-rest.md)** - This feature provides the ability to troubleshoot Virtual Network Gateways and Connections.
-* **[Network Subscription Limits](network-watcher-network-subscription-limit.md)** - This feature enables you to view network resource usage against limits.
+* **Network Subscription Limits** - This feature enables you to view network resource usage against limits.
 * **Configuring Diagnostics Log** – This feature provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
 
 ## Network resource level monitoring

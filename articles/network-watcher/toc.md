@@ -4,7 +4,6 @@
 ## [Variable Packet capture](network-watcher-packet-capture-overview.md)
 ## [Network Security Group Flow logging](network-watcher-nsg-flow-logging-overview.md)
 ## [IP flow verify](network-watcher-ip-flow-verify-overview.md)
-## [Next hop](network-watcher-next-hop-overview.md)
 # Get Started
 ## [Configure Network Watcher](network-watcher-create.md)
 ## Manage packet capture
