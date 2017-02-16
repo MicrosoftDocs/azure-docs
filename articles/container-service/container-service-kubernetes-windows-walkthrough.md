@@ -39,7 +39,7 @@ and run your containers. The Windows nodes can be accessed through an RDP SSH tu
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
 
-All VMs are in the same private virtual network and are fully accessible to each other. All VMs run a kubelet, Docker, and a Proxy.
+All VMs are in the same private virtual network and are fully accessible to each other. All VMs run a kubelet, Docker, and a proxy.
 ## Prerequisites
 
 
@@ -62,7 +62,7 @@ You can use the Azure portal to [create a Kubernetes cluster](container-service-
 
 ## Connect to the cluster
 
-Use the `kubectl` command-line tool to connect from your local computer to the master node of the Kubernetes cluster. For steps, see [Connect to an Azure Container Service cluster](container-service-connect.md#connect-to-a-kubernetes-cluster). You can use `kubectl` commands to access the Kubernetes web UI and to create and manage Windows container workloads.
+Use the `kubectl` command-line tool to connect from your local computer to the master node of the Kubernetes cluster. For steps to install and set up `kubectl`, see [Connect to an Azure Container Service cluster](container-service-connect.md#connect-to-a-kubernetes-cluster). You can use `kubectl` commands to access the Kubernetes web UI and to create and manage Windows container workloads.
 
 ## Create your first Kubernetes service
 
@@ -138,14 +138,14 @@ After creating the cluster and connecting with `kubectl`, you can try starting a
   kubectl get svc
   ``` 
 
-  ![IP addresses of Windows service](media/container-service-kubernetes-windows-walkthrough/externalip.png)
+  ![IP addresses of Windows service](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
 
   The addition of the external IP address takes several minutes. Before the load balancer configures the external address, it appears as `<pending>`.
 
 
 6. After the external IP address is available, you can reach the service in your web browser.
 
-  ![Windows server app in browser](media/container-service-kubernetes-windows-walkthrough/containerwebserver.png)
+  ![Windows server app in browser](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
 
 
 ## Access the Windows nodes
