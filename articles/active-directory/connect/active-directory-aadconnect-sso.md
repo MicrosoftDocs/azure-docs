@@ -74,13 +74,7 @@ If you are enabling ‘Single Sign On’ with ‘Password Sync’, and if there 
 
 |Protocol|Port Number|Description
 | --- | --- | ---
-|HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
-|HTTPS|443|	Enable user authentication against Azure AD
-|HTTPS|10100–10120|	Enable responses from the connector back to the Azure AD 
-|Azure service bus|9352, 5671|	Enable communication between the Connector toward the Azure service for incoming requests.
-|HTTPS|9350|	Optional, to enables better performance for incoming requests
-|HTTPS|8080/443|	Enable the Connector bootstrap sequence and Connector automatic update
-|HTTPS|9090|	Enable Connector registration (required only for the Connector registration process)
+|HTTPS|9090|	Enable SSO registration (required only for the SSO registration process).
 
 ## Enabling SSO with Pass-through Authentication or Password Sync
 Azure AD Connect provides a simple process to enable single sign-on with Pass-through authentication or Password sync. Ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account. The username and password is not stored in Azure AD Connect or Azure AD and are used only for this operation.

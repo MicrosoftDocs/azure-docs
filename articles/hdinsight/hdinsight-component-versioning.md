@@ -3,8 +3,8 @@ title: Hadoop components & versions - Azure HDInsight | Microsoft Docs
 description: Learn the Hadoop components and versions in HDInsight and the service levels available in this cloud distribution of HortonWorks Data Platform.
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
-author: saurinsh
+manager: asadk
+author: bprakash
 tags: azure-portal
 documentationcenter: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2016
-ms.author: saurinsh
+ms.author: bprakash
 
 ---
 # What are the different Hadoop components and versions available with HDInsight?
