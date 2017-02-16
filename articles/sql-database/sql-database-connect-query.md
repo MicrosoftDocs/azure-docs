@@ -20,12 +20,6 @@ ms.author: sstein
 
 ---
 # Connect to a SQL Database with Visual Studio
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
 
 Learn how to connect to an Azure SQL database in Visual Studio. 
 

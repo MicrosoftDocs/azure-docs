@@ -175,8 +175,8 @@
 ## [PowerShell module (New)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
-## [REST error codes](machine-learning-web-service-error-codes.md)
+## [REST API reference](/rest/api/machinelearning)
+## [Web service error codes](machine-learning-web-service-error-codes.md)
 
 # Related
 
@@ -214,7 +214,6 @@
 
 # Resources
 
-## [Machine Learning REST Error Codes](/machine-learning/machine-learning-web-service-error-codes)
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
