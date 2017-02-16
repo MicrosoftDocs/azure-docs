@@ -21,7 +21,7 @@ ms.author: v-livech
 # Manage users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0 (Preview)
 The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
-This article shows you how to use the Azure VMAcesss Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux. To perform these steps, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+This article shows you how to use the Azure VMAcesss Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux.
 
 
 ## CLI versions to complete the task
@@ -37,7 +37,7 @@ There are two ways that you can use the VMAccess Extension on your Linux VMs:
 * Use the Azure CLI 2.0 (Preview) and the required parameters.
 * [Use raw JSON files that the VMAccess Extension process](#use-json-files-and-the-vmaccess-extension) and then act on.
 
-The following examples use [az vm access](/cli/azure/vm/access) along with the appropriate parameters.
+The following examples use [az vm access](/cli/azure/vm/access) along with the appropriate parameters. To perform these steps, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 ## Reset SSH key
 The following example resets the SSH key for the user `azureuser` on the the VM named `myVM`:
