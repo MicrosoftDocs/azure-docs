@@ -18,7 +18,7 @@ ms.author: heidist
 ---
 # Create an Azure Search service in the portal
 
-This article explains how to create or provision an Azure Search service in the portal. For PowerShell instructions, see [Manage Azure Search with Powershell](search-manage-powershell.md).
+This article explains how to create or provision an Azure Search service in the portal. For PowerShell instructions, see [Manage Azure Search with PowerShell](search-manage-powershell.md).
 
 ## Subscribe (free or paid)
 
@@ -44,13 +44,13 @@ Service name requirements:
    * no consecutive dashes ("--")
 
 ## Select a subscription
-If you have more than one subscription, choose one for your service. If applicable, choose a subscription having data or file storage services. Azure Search can auto-detect Azure Table and Blob storage, SQL Database, and DocumentDB for indexing, but only if the services are in the same subscription.
+If you have more than one subscription, choose one that also has data or file storage services. Azure Search can auto-detect Azure Table and Blob storage, SQL Database, and DocumentDB for indexing via *indexers*, but only for services in the same subscription.
 
 ## Select a resource group
-A resource group is a collection of Azure services and resources that are used together. For example, if you are using Azure Search to index a SQL database, then both services should be part of the same resource group.
+A resource group is a collection of Azure services and resources used together. For example, if you are using Azure Search to index a SQL database, then both services should be part of the same resource group.
 
 > [!TIP]
-> Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all services in the same resource group makes cleanup easier after the project is over. 
+> Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over. 
 
 ## Select a hosting location 
 As an Azure service, Azure Search can be hosted in datacenters around the world. Note that [prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
@@ -80,15 +80,15 @@ It can take a few minutes to create a service (15 minutes or more depending on t
 2. In the left-navigation pane, select **Settings** > **Scale**.
 3. Use the slidebar to add Replicas or Partitions.
 
+![](./media/search-create-service-portal/settings-scale.png)
+
 > [!Note] 
 > Each tier has different [limits](search-limits-quotas-capacity.md) on the total number of Search Units allowed in a single service (Replicas * Partitions = Total Search Units).
-
-![](./media/search-create-service-portal/settings-scale2.png)
 
 ## Next steps
 After provisioning an Azure Search service, you are ready to [define an index](search-what-is-an-index.md) so you can upload and search your data.
 
-To access the service from code or script, provide the URL (*service-name*.search.windows.net) and a key. Admin keys grant full access; query keys grant read-only access.
+To access the service from code or script, provide the URL (*service-name*.search.windows.net) and a key. Admin keys grant full access; query keys grant read-only access. See [How to use Azure Search in .NET](search-howto-dotnet-sdk.md) to get started.
 
 See [Build and query your first index](search-get-started-portal.md) for a quick portal-based tutorial.
 
