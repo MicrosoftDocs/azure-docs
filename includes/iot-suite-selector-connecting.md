@@ -15,7 +15,7 @@ In this scenario, you create a device that sends the following telemetry to the 
 
 For simplicity, the code on the device generates sample values, but we encourage you to extend the sample by connecting real sensors to your device and sending real telemetry.
 
-The device is also able to respond to methods invoked from the solution dashboard.
+The device is also able to respond to methods invoked from the solution dashboard and desired property values set in the solution dashboard.
 
 To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 
