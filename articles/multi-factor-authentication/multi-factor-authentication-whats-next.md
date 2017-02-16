@@ -1,11 +1,11 @@
 ---
-title: Azure Multi-Factor Authentication - What's Next
+title: Configure Azure MFA | Microsoft Docs
 description: This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords.
 services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
@@ -13,53 +13,60 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 02/15/2017
 ms.author: kgremban
 
 ---
-# Configuring Azure Multi-Factor Authentication
+# Configure Azure Multi-Factor Authentication settings
 This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers a variety of topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all of these features are available in every version of Azure Multi-Factor Authentication.
 
-The configuration for some of the features below is found in the Azure Multi-Factor Authentication Management Portal. There are two different ways that you can access the MFA management portal, which are both done via the Azure portal. The first is by managing a Multi-Factor Auth Provider if using consumption-based MFA. The second is via the MFA service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
+| Feature | Description | 
+|:--- |:--- ||
+| [Fraud alert](#fraud-alert) |Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources. |
+| [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. |
+| [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |
+| [Caching](#caching-in-azure-multi-factor-authentication) |Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |
+| [Trusted IPs](#trusted-ips) |Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. |
+| [App Passwords](#app-passwords) |An app password allows an application that is not MFA-aware to bypass multi-factor authentication and continue working. |
+| [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
+| [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |
 
-To access the MFA Management Portal via an Azure Multi-Factor Auth Provider, sign into the Azure portal as an administrator and select the Active Directory option. Click the **Multi-Factor Auth Providers** tab, then select your directory and click the **Manage** button at the bottom.
+## Access the Azure MFA Management Portal
 
-To access the MFA Management Portal via the MFA Service Settings page, sign into the Azure portal as an administrator and select the Active Directory option. Click on your directory and then click the **Configure** tab. Under the multi-factor authentication section, select **Manage service settings**. At the bottom of the MFA Service Settings page, click the **Go to the portal** link.
+The configuration for some of the features below is found in the Azure Multi-Factor Authentication Management Portal. There are two different ways that you can access the MFA management portal, which are both done via the Azure portal. The first is by managing a Multi-Factor Auth Provider if you use consumption-based MFA. The second is via the MFA service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
 
-| Feature | Description | What is covered |
-|:--- |:--- |:--- |
-| [Fraud alert](#fraud-alert) |Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources. |How to set up, configure and report fraud |
-| [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. |How to set up and configure a one-time bypass |
-| [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |How to set up and configure custom greetings and messages |
-| [Caching](#caching-in-azure-multi-factor-authentication) |Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |How to set up and configure authentication caching. |
-| [Trusted IPs](#trusted-ips) |Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. |Configure and set up IP addresses that are exempt for multi-factor authentication |
-| [App Passwords](#app-passwords) |An app password allows an application that is not MFA-aware to bypass multi-factor authentication and continue working. |Information about app passwords. |
-| [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |Information about enabling this feature and setting up the number of days. |
-| [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |Information about enabling or disabling specific authentication methods such as call or text messages. |
+### Use an Auth Provider
+
+To access the MFA Management Portal via an Azure Multi-Factor Auth Provider, sign into the Azure classic portal as an administrator and select the Active Directory option. Click the **Multi-Factor Auth Providers** tab, then select your directory and click the **Manage** button at the bottom.
+
+### Use the MFA Service Settings page 
+
+To access the MFA Management Portal via the MFA Service Settings page, sign into the Azure classic portal as an administrator and select the Active Directory option. Click on your directory and then click the **Configure** tab. Under the multi-factor authentication section, select **Manage service settings**. At the bottom of the MFA Service Settings page, click the **Go to the portal** link.
+
 
 ## Fraud Alert
 Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources.  Users can report fraud either with the mobile app or through their phone.
 
-### To set up and configure fraud alert
-1. Log on to http://azure.microsoft.com
-2. Navigate to the MFA Management Portal per the instructions at the top of this page.
-3. In the Azure Multi-Factor Authentication Management Portal, click Settings under the Configure section.
-4. Under the Fraud Alert section of the Settings page, check the Allow users to submit Fraud Alerts checkbox.
-5. If you want users to be blocked when fraud is reported, place a check in Block user when fraud is reported.
-6. In the **Code To Report Fraud During Initial Greeting** textbox, enter a number code that can be used during call verification. If a user enters this code plus # instead of just the # sign, then a fraud alert will be reported.
-7. At the bottom, click Save.
+### Set up fraud alert
+1. Navigate to the MFA Management Portal per the instructions at the top of this page.
+2. In the Azure Multi-Factor Authentication Management Portal, click **Settings** under the Configure section.
+3. Under the Fraud Alert section of the Settings page, check the **Allow users to submit Fraud Alerts** checkbox.
+4. Select **Save** to apply your changes. 
+
+### Configuration options
+
+- **Block user when fraud is reported** - If a user reports fraud, their account is blocked.
+- **Code To Report Fraud During Initial Greeting** - Users normally press # to confirm two-step verification. If they want to report fraud, they enter a code before pressing #. This code is **0** by default, but you can customize it.
 
 > [!NOTE]
 > Microsoft’s default voice greetings instruct users to press 0# to submit a fraud alert. If you want to use a code other than 0, you should record and upload your own custom voice greetings with appropriate instructions.
-> 
-> 
 
-![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)
+![Fraud alert options - screenshot](./media/multi-factor-authentication-whats-next/fraud.png)
 
-### To report fraud alert
+### How users report fraud 
 Fraud alert can be reported two ways.  Either through the mobile app or through the phone.  
 
-### To report fraud alert with the mobile app
+#### Report fraud with the mobile app
 1. When a verification is sent to your phone, select it to start the Microsoft Authenticator app.
 2. To report fraud, click the Cancel and Report Fraud. This brings up a box that says your organization's IT Support staff will be notified.
 3. Click report fraud.
@@ -69,12 +76,12 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 
 ![Cloud](./media/multi-factor-authentication-whats-next/fraud2.png)
 
-### To report fraud alert with the phone
+#### Report fraud with a phone
 1. When a verification call comes in to your phone, answer it.  
 2. To report fraud, enter the code that has been configured to correspond with reporting fraud via the phone and then the # sign. You will be notified that a fraud alert has been submitted.
 3. End the call.
 
-### To view the fraud report
+### View fraud reports
 1. Log on to [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. On the left, select Active Directory.
 3. At the top select Multi-Factor Auth Providers. This brings up a list of your Multi-Factor Auth Providers.
