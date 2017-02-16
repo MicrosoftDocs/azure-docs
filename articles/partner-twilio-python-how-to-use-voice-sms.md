@@ -28,7 +28,7 @@ Twilio is powering the future of business communications, enabling developers to
 **Twilio Client** allows you to make VoIP calls from any phone, tablet, or browser and supports WebRTC.
 
 ## <a id="Pricing"></a>Twilio Pricing and Special Offers
-Azure customers receive a [special offer][special_offer] $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at: [http://ahoy.twilio.com/azure][special_offer].
+Azure customers receive a [special offer][special_offer] $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this [Twilio credit][special_offer] and get started.
 
 Twilio is a pay-as-you-go service. There are no set-up fees and you can close your account at any time. You can find more details at [Twilio Pricing][twilio_pricing].
 
@@ -40,7 +40,7 @@ Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML
 ### <a id="Verbs"></a>Twilio Verbs
 The API makes use of Twilio verbs; for example, the **&lt;Say&gt;** verb instructs Twilio to audibly deliver a message on a call.
 
-The following is a list of Twilio verbs. Learn about the other verbs and capabilities via [Twilio Markup Language documentation](http://www.twilio.com/docs/api/twiml).
+The following is a list of Twilio verbs. Learn about the other verbs and capabilities via [Twilio Markup Language documentation][twiml].
 
 * **&lt;Dial&gt;**: Connects the caller to another phone.
 * **&lt;Gather&gt;**: Collects numeric digits entered on the telephone keypad.
@@ -64,14 +64,14 @@ As an example, the following TwiML would convert the text **Hello World** to spe
       <Say>Hello World</Say>
     </Response>
 
-When your application calls the Twilio API, one of the API parameters is the URL that returns the TwiML response. For development purposes, you can use Twilio-provided URLs to provide the TwiML responses used by your applications. You could also host your own URLs to produce the TwiML responses, and another option is to use the **TwiMLResponse** object.
+When your application calls the Twilio API, one of the API parameters is the URL that returns the TwiML response. For development purposes, you can use Twilio-provided URLs to provide the TwiML responses used by your applications. You could also host your own URLs to produce the TwiML responses, and another option is to use the `TwiMLResponse` object.
 
 For more information about Twilio verbs, their attributes, and TwiML, see [TwiML][twiml]. For additional information about the Twilio API, see [Twilio API][twilio_api].
 
 ## <a id="CreateAccount"></a>Create a Twilio Account
 When you are ready to get a Twilio account, sign up at [Try Twilio][try_twilio]. You can start with a free account, and upgrade your account later.
 
-When you sign up for a Twilio account, you receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable in the [Twilio Console][twilio_console], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
+When you sign up for a Twilio account, you receive an account SID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account SID and authentication token are viewable in the [Twilio Console][twilio_console], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
 ## <a id="create_app"></a>Create a Python Application
 A Python application that uses the Twilio service and is running in Azure is no different than any other Python application that uses the Twilio service. While Twilio services are REST-based and can be called from Python in several ways, this article will focus on how to use Twilio services with [Twilio library for Python from GitHub][twilio_python]. For more information about using the Twilio library for Python, see [http://readthedocs.org/docs/twilio-python/en/latest/index.html][twilio_lib_docs].
@@ -148,7 +148,7 @@ The following shows how to make an outgoing call. This code also uses a Twilio-p
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
 ## <a id="howto_send_sms"></a>How to: Send an SMS message
-The following shows how to send an SMS message using the **TwilioRestClient** class. The **from_number** number is provided by Twilio for trial accounts to send SMS messages. The **to_number** number must be verified for your Twilio account before running the code.
+The following shows how to send an SMS message using the `TwilioRestClient` class. The **from_number** number is provided by Twilio for trial accounts to send SMS messages. The **to_number** number must be verified for your Twilio account before running the code.
 
     # Import the Twilio Python Client.
     from twilio.rest import TwilioRestClient
@@ -191,7 +191,7 @@ With Django:
         xml = '<Response><Say>Hello world.</Say></Response>'
         return HttpResponse(xml, content_type='text/xml')
 
-As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for Python contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **twiml** module in the Twilio library for Python:
+As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for Python contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the `twiml` module in the Twilio library for Python:
 
     from twilio import twiml
 
@@ -201,7 +201,7 @@ As you can see from the example above, the TwiML response is simply an XML docum
 
 For more information about TwiML, see [https://www.twilio.com/docs/api/twiml][twiml_reference].
 
-Once you have your Python application set up to provide TwiML responses, use the URL of the application as the URL passed into the  `client.calls.create`  method. For example, if you have a Web application named **MyTwiML** deployed to an Azure hosted service, you can use its url as webhook as shown in the following example:
+Once you have your Python application set up to provide TwiML responses, use the URL of the application as the URL passed into the `client.calls.create`  method. For example, if you have a Web application named **MyTwiML** deployed to an Azure hosted service, you can use its url as webhook as shown in the following example:
 
     from twilio.rest import TwilioRestClient
 
