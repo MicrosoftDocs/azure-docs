@@ -44,7 +44,7 @@ You are viewing an offline list of images, use --all to retrieve an up-to-date l
 <list shortened for the example>
 ```
 
-If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from above you know that `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in **westeurope**:
+If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from the preceding example you know that `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in **westeurope**:
 
 ```azurecli 
 az vm image show -l westeurope -f debian -p credativ --skus 8 --version 8.0.201701180
@@ -72,7 +72,7 @@ and the output is:
 > This article describes how to navigate and select virtual machine images, using an installation of either the Azure CLI 1.0 or Azure PowerShell that supports the Azure resource manager deployment model. As a prerequisite, change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. 
 > 
 
-The easiest and quickest way to locate an image is to call the `azure vm image list` command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer. For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.
+The quickest way to locate an image is to call the `azure vm image list` command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer. For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.
 
 ```azurecli
 azure vm image list westus canonical ubuntuserver
@@ -94,7 +94,7 @@ data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607240  wes
 
 The **Urn** column will be the form you pass to `azure vm quick-create`.
 
-Often, however, you don't yet know what is available. In this case, you can navigate images by discovering publishers first by using `azure vm image list-publishers` and responding to the location prompt with a data center location you expect to use for your resource group. For example, the following lists all image publishers in the West US location (pass the location argument by lowercasing and removing spaces from the standard locations)
+Often, however, you don't yet know what is available. In this case, you can navigate images by using the `azure vm image list-publishers` command and specifying a data center location at the prompt. For example, the following lists all image publishers in the West US location (pass the location argument by lowercasing and removing spaces from the standard locations)
 
 ```azurecli
 azure vm image list-publishers
@@ -109,7 +109,7 @@ data:    alertlogic                                      westus
 data:    AlertLogic.Extension                            westus  
 ```
 
-These lists can be quite long, so the example list above is just a snippet. Let's say that I noticed that Canonical is, indeed, an image publisher in the West US location. You can now find their offers by calling `azure vm image list-offers` and pass the location and the publisher at the prompts, like the following example:
+These lists can be quite long, so the example list preceding is just a snippet. Let's say that I noticed that Canonical is, indeed, an image publisher in the West US location. You can now find their offers by calling `azure vm image list-offers` and pass the location and the publisher at the prompts, like the following example:
 
 ```azurecli
 azure vm image list-offers
@@ -128,7 +128,7 @@ data:    canonical  Ubuntu_Snappy_Core_Docker  westus
 info:    vm image list-offers command OK
 ```
 
-Now we know that in the West US region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those, you call `azure vm image list-skus` and respond to the prompt with the location, publisher, and offer that you have discovered.
+Now we know that in the West US region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those values, you call `azure vm image list-skus` and respond to the prompt with the location, publisher, and offer that you have discovered.
 
 ```azurecli
 azure vm image list-skus
