@@ -40,7 +40,7 @@ This topic shows how to
 	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
 	>
 	
-* Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. You could have this code defined as part of another Azure function, but in this case, the code is part of a console app.
+* Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. In the example shown here, the code that creates the encoding task is a console app.
 
 ## Getting Webhook notifications
 
@@ -48,7 +48,7 @@ The code in this section shows an implementation of an Azure function that is a 
 
 The webhook expects a signing key (credential) to match the one you pass when you configure the notification endpoint. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
 
-In the following code, the **VerifyWebHookRequestSignature** method does the verification on the notification message. The purpose of this validation is to ensure that the message was sent by Azure Media Services and hasn’t been tampered with. The signature is optional for Azure functions as it has the **Code** value as a query parameter over Transport Layer Security (TLS), as in this example: https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>. 
+In the following code, the **VerifyWebHookRequestSignature** method does the verification on the notification message. The purpose of this validation is to ensure that the message was sent by Azure Media Services and hasn’t been tampered with. The signature is optional for Azure functions as it has the **Code** value as a query parameter over Transport Layer Security (TLS). 
 
 You can find the definition of the following Media Services .NET Azure function [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
@@ -115,9 +115,6 @@ The following C# code shows a definition of an Azure function that is a webhook.
 	using Microsoft.Azure;
 	using System.Net;
 	using System.Security.Cryptography;
-	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Blob;
-	using Microsoft.WindowsAzure.Storage.Auth;
 
 	internal const string SignatureHeaderKey = "sha256";
 	internal const string SignatureHeaderValueTemplate = SignatureHeaderKey + "={0}";
@@ -400,7 +397,6 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 
 			    // Declare a new encoding job with the Standard encoder
 			    IJob job = _context.Jobs.Create("MES Job");
-
 
 			    // Get a media processor reference, and pass to it the name of the 
 			    // processor to use for the specific task.
