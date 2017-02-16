@@ -78,8 +78,8 @@
 ### [Billing plans](logic-apps-pricing.md)
 
 # Reference
-## [Workflow Definition Language](/rest/api/logic/definition-language)
-## [Workflow Actions and Triggers](/rest/api/logic/actions-and-triggers)
+## [Workflow Definition Language](/rest/api/logic/definition-language.md)
+## [Workflow Actions and Triggers](/rest/api/logic/actions-and-triggers.md)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schema History
