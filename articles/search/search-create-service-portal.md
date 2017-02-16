@@ -18,7 +18,7 @@ ms.author: heidist
 ---
 # Create an Azure Search service in the portal
 
-This article explains how to create or provision an Azure Search service in the portal. For instructions on how to do this in PowerShell, see [Manage Azure Search with Powershell](search-manage-powershell.md).
+This article explains how to create or provision an Azure Search service in the portal. For PowerShell instructions, see [Manage Azure Search with Powershell](search-manage-powershell.md).
 
 ## Subscribe (free or paid)
 
@@ -28,17 +28,18 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 
 ## Find Azure Search
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click on the plus sign ("+") in the top left corner.
-3. Select **Web + Mobile**.
-4. Select **Azure Search**.
+2. Click the plus sign ("+") in the top left corner.
+3. Select **Web + Mobile** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search.png)
 
 ## Name the service and URL endpoint
-1. Your service name will be part of your Azure Search service's endpoint URL against which you will make your API calls to manage and use the search service.
-2. Type your service name in the **URL** field. The service name:
+
+A service name is part of the URL endpoint against which API calls are issued. Type your service name in the **URL** field. 
+
+Service name requirements:
    * 2 and 60 characters in length
-   * lowercase letters, digits or dashes ("-")
+   * lowercase letters, digits, or dashes ("-")
    * no dash ("-") as the first 2 characters or last single character
    * no consecutive dashes ("--")
 
@@ -51,8 +52,8 @@ A resource group is a collection of Azure services and resources that are used t
 > [!TIP]
 > Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all services in the same resource group makes cleanup easier after the project is over. 
 
-## Select ta hosting location 
-As an Azure service, Azure Search can be hosted in datacenters around the world. Please note that [prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
+## Select a hosting location 
+As an Azure service, Azure Search can be hosted in datacenters around the world. Note that [prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
 
 ## Select a pricing tier (SKU)
 [Azure Search is currently offered in multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, or Standard. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). See [Choose a pricing tier or SKU](search-sku-tier.md) for guidance.
@@ -76,8 +77,8 @@ It can take a few minutes to create a service (15 minutes or more depending on t
 > A service must have [2 replicas for read-only SLA and 3 replicas for read/write SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Go to your search service blade in the Azure portal.
-2. In the left-navigation pane, select **Scale** or 
-3. Adjust capacity by adding Replicas or Partitions.
+2. In the left-navigation pane, select **Settings** > **Scale**.
+3. Use the slidebar to add Replicas or Partitions.
 
 > [!Note] 
 > Each tier has different [limits](search-limits-quotas-capacity.md) on the total number of Search Units allowed in a single service (Replicas * Partitions = Total Search Units).
@@ -85,7 +86,9 @@ It can take a few minutes to create a service (15 minutes or more depending on t
 ![](./media/search-create-service-portal/settings-scale.png)
 
 ## Next steps
-After provisioning an Azure Search service, you are ready to [define an Azure Search index](search-what-is-an-index.md) so you can upload and search your data.
+After provisioning an Azure Search service, you are ready to [define an index](search-what-is-an-index.md) so you can upload and search your data.
 
-See [Build and query your first index](search-get-started-portal.md) for a quick tutorial.
+To access the service from code or script, provide the URL (*service-name*.search.windows.net) and a key. Admin keys grant full access; query keys grant read-only access.
+
+See [Build and query your first index](search-get-started-portal.md) for a quick portal-based tutorial.
 
