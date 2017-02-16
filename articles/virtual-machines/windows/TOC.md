@@ -190,6 +190,7 @@
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
 ## [Compute REST](/rest/api/compute)
+## [Managed Disks REST](/rest/api/manageddisks)
 
 # Resources
 ## [Author Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
