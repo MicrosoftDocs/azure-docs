@@ -21,11 +21,11 @@ ms.author: raynew
 This article describes how to failover virtual machines and physical servers protected by Site Recovery. 
 
 ## Prerequisites
-Before you do a failover, you should do a [test failover](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected. 
+Before you do a failover, you should do a [test failover](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected. [Prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
 
 
 ## Run a failover
-This procedure describes how to run a failover for a [recovery plan](site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated Items** page
+This procedure describes how to run a failover for a [recovery plan](site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page
 
 
 ![Failover](./media/site-recovery-failover/Failover.png)
@@ -64,15 +64,7 @@ Apart from, Failover, Hyper-V virtual machines protected using Site Recovery als
 You might want to automate certain actions while doing a failover. You can use scripts or [Azure automation runbooks](site-recovery-runbook-automation.md) in [recovery plans](site-recovery-create-recovery-plans.md) to do that.
 
 ## Other considerations
-* **IP address after failover**— By default a failed over machine will have a different IP address than the source machine. If you want to retain the same IP address see:
-  * **Secondary site**—If you're failing over to a secondary site and you want to retain an IP address [read](http://blogs.technet.com/b/scvmm/archive/2014/04/04/retaining-ip-address-after-failover-using-hyper-v-recovery-manager.aspx) this article. Note that you can retain a public IP address if your ISP supports it.
-  * **Azure**—If you're failing over to Azure you can specify the IP address you want to assign in the **Configure** tab of the virtual machine properties. You can't retain a public IP address after failover to Azure. You can retain non-RFC 1918 address spaces that are used as internal addresses.
-* **Partial failover**—If you want to fail over part of a site rather than an entire site note that:
-
-  * **Secondary site**—If you fail over part of a primary site to a secondary site and you want to connect back to the primary site, use a site-to-site VPN connection to connect failed over applications on the secondary site to infrastructure components running on the primary site. If an entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
-  * **Azure**—If you fail over a partial site to Azure and want to connect back to the primary site, you can use a site-to-site VPN to connect a failed over application in Azure to infrastructure components running on the primary site. Note that if the entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
-* **Drive letter**—If you want to retain the drive letter on virtual machines after failover you can set the SAN policy for the virtual machine to **On**. Virtual machine disks come online automatically. [Read more](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
-* **Route client requests**—Site Recovery works with Azure Traffic Manager to route client requests to your application after failover.
+* **Drive letter** — To retain the drive letter on virtual machines after failover you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
 
