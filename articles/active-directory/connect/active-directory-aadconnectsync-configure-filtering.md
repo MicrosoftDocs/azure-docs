@@ -33,7 +33,7 @@ This article covers how to configure the different filtering methods.
 > Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
 
 ## Basics and important notes
-In Azure AD Connect sync, you can enable filtering at any time. If you start with a default configuration of directory synchronization and then configure filtering, the objects that are filtered out are no longer synchronized to Azure AD. As a result of this change, any objects in Azure AD that were previously synchronized but were then filtered are deleted in Azure AD.
+In Azure AD Connect sync, you can enable filtering at any time. If you start with a default configuration of directory synchronization and then configure filtering, the objects that are filtered out are no longer synchronized to Azure AD. Because of this change, any objects in Azure AD that were previously synchronized but were then filtered are deleted in Azure AD.
 
 Before you start making changes to filtering, make sure that you [disable the scheduled task](#disable-scheduled-task) so you don't accidentally export changes that you haven't yet verified to be correct.
 
@@ -73,7 +73,7 @@ After you've completed all your filtering changes, don't forget to come back and
 You can apply the following filtering configuration types to the Directory Synchronization tool:
 
 * [**Group-based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial installation by using the installation wizard. It isn't covered further in this article.
-* [**Domain-based**](#domain-based-filtering): By using this option,  you can select which domains synchronize to Azure AD. You can also add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you install Azure AD Connect sync.
+* [**Domain-based**](#domain-based-filtering): By using this option, you can select which domains synchronize to Azure AD. You can also add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you install Azure AD Connect sync.
 * [**Organizational unit (OU)–based**](#organizational-unitbased-filtering): By using this option, you can select which OUs synchronize to Azure AD. This option is for all object types in selected OUs.
 * [**Attribute-based**](#attribute-based-filtering): By using this option, you can filter objects based on attribute values on the objects. You can also have different filters for different object types.
 
@@ -111,7 +111,7 @@ To set the domain filter, do the following steps:
 If you've updated your domain filter, you also need to update the run profiles.
 
 1. In the **Connectors** list, make sure that the connector that you changed in the previous step is selected. In **Actions**, select **Configure Run Profiles**.  
-   ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)  
+   ![Connector run profiles 1](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)  
 2. Find and identify the following profiles:
     * Full Import
     * Full Synchronization
@@ -122,14 +122,14 @@ If you've updated your domain filter, you also need to update the run profiles.
     1. For each of the five profiles, do the following steps for each **added** domain:
         1. Select the run profile and click **New Step**.
         2. On the **Configure Step** page, in the **Type** drop-down menu, select the step type with the same name as the profile that you're configuring. Then click **Next**.  
-        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
+        ![Connector run profiles 2](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
         3. On the **Connector Configuration** page, in the **Partition** drop-down menu, select the name of the domain that you've added to your domain filter.  
-        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep2.png)  
+        ![Connector run profiles 3](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep2.png)  
         4. To close the **Configure Run Profile** dialog, click **Finish**.
     2. For each of the five profiles, do the following steps for each **removed** domain:
         1. Select the run profile.
         2. If the **Value** of the **Partition** attribute is a GUID, select the run step and click **Delete Step**.  
-        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
+        ![Connector run profiles 4](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
     3. Verify your change. Each domain that you want to synchronize should be listed as a step in each run profile.
 4. To close the **Configure Run Profiles** dialog, click **OK**.
 5.  To complete the configuration, you need to run a **Full import** and a **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
@@ -183,7 +183,7 @@ Make sure that you're using the November 2015 ([1.0.9125](active-directory-aadco
 
 Attribute-based filtering is the most flexible way to filter objects. You can use the power of [declarative provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md) to control almost every aspect of when an object is synchronized to Azure AD.
 
-You can apply filtering on the [inbound](#inbound-filtering) from Active Directory to the metaverse, and also on the [outbound](#outbound-filtering) from the metaverse to Azure AD. We recommend that you apply inbound filtering because that is the easiest to maintain. You should only use outbound filtering if it's required to join objects from more than one forest before the evaluation can take place.
+You can apply filtering on the [inbound](#inbound-filtering) from Active Directory to the metaverse, and on the [outbound](#outbound-filtering) from the metaverse to Azure AD. We recommend that you apply inbound filtering because that is the easiest to maintain. You should only use outbound filtering if it's required to join objects from more than one forest before the evaluation can take place.
 
 ### Inbound filtering
 Inbound filtering uses the default configuration, where objects going to Azure AD must have the metaverse attribute cloudFiltered not set to a value to be synchronized. If this attribute's value is set to **True**, then the object isn't synchronized. It shouldn't be set to **False**, by design. To make sure other rules have the ability to contribute a value, this attribute is only supposed to have the values **True** or **NULL** (absent).
@@ -214,7 +214,7 @@ In the following example, you filter out (not synchronize) all users where **ext
 8. To complete the configuration, you need to run a **Full sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
 #### Positive filtering, "only sync these"
-Expressing positive filtering can be more challenging because you have to also consider objects that aren't obvious to be synchronized, such as conference rooms.
+Expressing positive filtering can be more challenging because you also have to consider objects that aren't obvious to be synchronized, such as conference rooms.
 
 The positive filtering option requires two sync rules. You need one rule (or several) with the correct scope of objects to synchronize and a second catch-all sync rule that filters out all objects that haven't yet been identified as an object that should be synchronized.
 
@@ -244,7 +244,7 @@ If you need to, you can create more rules of the first type where you include mo
 ### Outbound filtering
 In some cases, it's necessary to do the filtering only after the objects have joined in the metaverse. For example, it might be necessary to look at the mail attribute from the resource forest, and the userPrincipalName attribute from the account forest, to determine if an object should be synchronized. In these cases, you create the filtering on the outbound rule.
 
-In this example, you change the filtering so that only users where both mail and userPrincipalName end with @contoso.com are synchronized:
+In this example, you change the filtering so that only users that have both mail and userPrincipalName ending with @contoso.com are synchronized:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Rules Editor** from the **Start** menu.
