@@ -177,15 +177,16 @@ Each client computer must have a client certificate to authenticate. When instal
    
     ![VPN client connecting to Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 
-	>
-	>[NOTE!]
-	>If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating because a certificate cannot be found that can be used, make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
-	>
-	>
-
+	
 3. Your connection should now be established.
    
     ![VPN client connected to Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+                                                                                                                                                                           
+
+> [!NOTE]
+> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating because a certificate cannot be found that can be used, make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
+>
+>
 
 ## <a name="verify"></a>Part 12 - Verify your connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
