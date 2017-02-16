@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: bwren
 
 
@@ -48,6 +48,7 @@ Specify different characters.
 | [*a*-*z*] | Match a single character in the range.  Can include multiple ranges. | Computer=RegEx("srv0[1-3].contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
 | [^*abc*] | None of the characters in the brackets | Computer=RegEx("srv0[^123].contoso.com") | srv05.contoso.com<br>srv06.contoso.com<br>srv07.contoso.com |
 | [^*a*-*z*] | None of the characters in the range. | Computer=RegEx("srv0[^1-3].contoso.com") | srv05.contoso.com<br>srv06.contoso.com<br>srv07.contoso.com |
+| [*n*-*m*] | Match a range of numeric characters. | Computer=RegEx("srv[01-03].contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
 | @ | Any string of characters. | Computer=RegEx("srv@.contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
 
 
@@ -64,10 +65,10 @@ Specify multiple occurrences of a particular characters.
 ## Logical expressions
 Select from multiple values.
 
-| Character | Description | Example |
+| Character | Description | Example | Sample Matches |
 |:--|:--|:--|
-| &#124; | Logical OR.  Returns result if match on either expression. | Type=Alert AlertSeverity=RegEx("Warning&#124;Error") |
-| & | Logical AND.  Returns result if match on both expressions |  |
+| &#124; | Logical OR.  Returns result if match on either expression. | Type=Alert AlertSeverity=RegEx("Warning&#124;Error") | Warning<br>Error |
+| & | Logical AND.  Returns result if match on both expressions | EventData=regex(“(Security.*&.*success.*)”) | Security auditing successful |
 
 
 ## Literals
@@ -77,14 +78,6 @@ Convert special characters.
 |:--|:--|:--|:--|
 | \\ | Converts a special character to a literal. | Status_CF=\\[Error\\]@ | [Error]File not found. |
 
-
-## Unknown
-
-| Character | Description | Example | Sample Matches |
-|:--|:--|:--|:--|
-| # | The empty language. | | |
-| ( ) | Empty string. | | |
-| <n-m> | Numeric interval. | | |
 
 ## Next Steps
 
