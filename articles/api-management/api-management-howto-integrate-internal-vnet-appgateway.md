@@ -60,7 +60,7 @@ In the first setup example all your APIs are managed only from within your virtu
 4. Setup the custom domain name in the API Management service.
 5. Create an Application Gateway configuration object.
 6. Create an Application Gateway resource.
-7. Create a CNAME from the public DNS of the Application Gateway to the API Management proxy hostname.
+7. Create a CNAME from the public DNS name of the Application Gateway to the API Management proxy hostname.
 
 ## Create a resource group for Resource Manager
 
@@ -102,7 +102,7 @@ The following example shows how to create a virtual network using the resource m
 Assign the address range 10.0.0.0/24 to the subnet variable to be used for Application Gateway while creating a virtual network.
 
 ```powershell
-$appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name appgateway01 -AddressPrefix 10.0.0.0/24
+$appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressPrefix 10.0.0.0/24
 ```
 
 ### Step 2
@@ -110,7 +110,7 @@ $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name appgateway01 -Ad
 Assign the address range 10.0.1.0/24 to the subnet variable to be used for API Management while creating a virtual network.
 
 ```powershell
-$apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name appgateway01 -AddressPrefix 10.0.1.0/24
+$apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressPrefix 10.0.1.0/24
 ```
 
 ### Step 3
@@ -129,12 +129,12 @@ Assign a subnet variable for the next steps
 $appgatewaysubnetdata=$vnet.Subnets[0]
 $apimsubnetdata=$vnet.Subnets[1]
 ```
-## Create an API Management service a VNET in internal mode
+## Create an API Management service inside a VNET configured in internal mode
 
-The following example shows how to create an API Management service in an VNET configured for internal access only.
+The following example shows how to create an API Management service in a VNET configured for internal access only.
 
 ### Step 1
-Create an virtual network object in API Management using the subnet $apimsubnetdata created above.
+Create an API Management virtual network object using the subnet $apimsubnetdata created above.
 
 ```powershell
 $apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location "West US" -SubnetResourceId $apimsubnetdata.Id
@@ -145,7 +145,7 @@ Create an API Management service inside the virtual network.
 ```powershell
 $apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization Contoso -AdminEmail admin@contoso.com -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Premium"
 ```
-After the above command succeeds refer to [DNS Configuration required to access Internal VNET API Management service][api-management-using-with-internal-vnet.md#apim-dns-configuration] to access it.
+After the above command succeeds refer to [DNS Configuration required to access Internal VNET API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it.
 
 ## Set-up a custom domain name in API Management
 
@@ -272,7 +272,7 @@ $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleTyp
 
 ### Step 12
 
-Configure the number of instances and size for the Application Gateway. Here we are using the [WAF Sku][../application-gateway/application-gateway-webapplicationfirewall-overview.md] for increased security of the API Management resource.
+Configure the number of instances and size for the Application Gateway. Here we are using the [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) for increased security of the API Management resource.
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
