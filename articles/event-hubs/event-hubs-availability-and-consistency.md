@@ -18,10 +18,8 @@ ms.author: sethm
 ---
 
 # Availability and consistency in Event Hubs
-This article discusses the tradeoff between availability and consistency as it pertains to managing Event Hubs events and messages. A common usage pattern in Event Hubs is to have event publishers take a strong dependency on specific [partitions](event-hubs-what-is-event-hubs.md#partitions). While this is possible and in some cases desirable, it’s important to understand the trade-offs inherent in a tightly coupled partition dependency, and to discuss alternatives.
-
 ## Overview
-Azure Event Hubs uses a partitioning model that allows for greater uptime within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions has failed, or been taken offline for updates, you can still send and receive from three other partitions. However, Event Hubs can only guarantee the ordering of messages on a single partition. For this reason, it can be benefical to use either partition keys, or partition senders to ensure the proper ordering of events.
+Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#partitions) that allows for greater uptime within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions has failed, or been taken offline for updates, you can still send and receive from three other partitions. However, Event Hubs can only guarantee the ordering of messages on a single partition. For this reason, it can be benefical in certain use cases to send and receive from a particular partition.
 
 In order to help explain the tradeoff between ordering and availability, we can look to the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer’s theorem. The theorem states that, in the presence of a network partition, one must choose between consistency and availability. Since Event Hubs is built on top of a partitioned model, users must make a choice between availability and consistency (or ordering).
 
