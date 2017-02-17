@@ -24,7 +24,7 @@ This article discusses the tradeoff between availability and consistency as it p
 ## Overview
 In today’s computing world, to scale out and achieve completion in a given time frame, systems might need infinite resources, such as compute, storage, etc. In a distributed computing world, scale comes along with complexity, and Brewer’s theorem explains this.
 
-Brewer’s theorem, also known as the CAP theorem, states that, in the presence of a network partition, one must choose between consistency and availability. In describing this theory, network partitioning refers to a collection of interconnected nodes that share data.
+[Brewer’s theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as the CAP theorem, states that, in the presence of a network partition, one must choose between consistency and availability. In describing this theory, network partitioning refers to a collection of interconnected nodes that share data.
 
 In discussing the choice between availability and consistency, consider these in the context of a network partition.
 * Consistency –a read is guaranteed to return the most recent write for a given client.
