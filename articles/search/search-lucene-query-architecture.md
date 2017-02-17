@@ -20,7 +20,7 @@ ms.author: heidist
 
 Azure Search uses Lucene for full text search. A working knowledge of the basic architecture makes design and debugging more productive. Moreover, customizations to the query processing pipeline will be easier to identify and apply when you know how the pieces fit together.
 
-You will learn how Azure Search does:
+This article explains how Azure Search performs the following stages of query execution:
 
 + Query parsing
 + Lexical analysis 
@@ -60,7 +60,7 @@ Developers familiar with Lucene query architecture will recognize these key comp
 
 The diagram below illustrates the core components involved in processing and executing a search query. 
 
-ARCHITECTURE-DIAGRAM-ART-PLACEHOLDER
+ ![Lucene query architecture diagram in Azure Search][1]
 
 ## Anatomy of a search request
 
@@ -110,7 +110,7 @@ Operators associated with a subquery determine whether the query "must be" or "s
 
 The query parser restructures the subqueries into a *query tree* (an internal structure representing the query) that is passed on to the search engine. In the first stage of query parsing, the query tree looks like this.  
 
-TREE-1-DIAGRAM-ART-PLACEHOLDER
+ ![Boolean query searchmode any][2]
 
 > [!Note]
 > A search query is executed independently against all searchable fields in the Azure Search index unless you limit the fields set with the `searchFields` parameter, as illustrated in the example search request, per the title and description fields.  
@@ -137,7 +137,7 @@ Suppose that we now set `searchMode= all`. In this case, the space is interprete
 
 A modified query tree for this query would look like this, where a matching document must be the intersection of all three subqueries: 
 
-TREE-2-DIAGRAM-ART-PLACEHOLDER
+ ![Boolean query searchmode all][3]
 
 ## Stage 2: Lexical analysis 
 
@@ -162,7 +162,7 @@ In our example, prior to analysis, the initial query tree has the term “Spacio
 
 When the default analyzer processes the term, it will lowercase “ocean view” and “spacious”, and the comma character (removes it). The modified query tree will look as follows: 
 
-TREE-3-DIAGRAM-ART-PLACEHOLDER
+ ![Boolean query with analyzed terms][4]
 
 ### Exceptions to lexical analysis 
 
@@ -275,7 +275,7 @@ For the description field, the index is as follows:
 
 Given the inverted index above, let’s return to the sample query and see how matching documents are found. Recall that the final query tree looks something like this: 
 
-TREE-4-DIAGRAM-ART-PLACEHOLDER
+ ![Boolean query with analyzed terms][4]
 
 During query execution, individual queries are executed against the searchable fields independently. 
 
@@ -329,3 +329,8 @@ In Azure Search, you can’t change the scoring logic, but you can apply term bo
 
 ## See also
 
+<!--Image references-->
+[1]: ./media/search-query-architecture/architecture-diagram.png
+[2]: ./media/search-query-architecture/azSearch-queryparsing-should-must.png
+[3]: ./media/search-query-architecture/azSearch-queryparsing-must.png
+[4]: ./media/search-query-architecture/azSearch-queryparsing-spacious-oceanview.png
