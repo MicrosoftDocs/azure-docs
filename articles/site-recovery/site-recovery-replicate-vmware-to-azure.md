@@ -1,5 +1,5 @@
 ---
-title: Replicate applications
+title: 'Replicate applications (VMware to Azure) | Microsoft Docs'
 description: This article describes how to set up replication of virtual machines running on VMware into Azure.
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 
+ms.date: 2/17/2017
 ms.author: asgang
 
 ---
@@ -28,7 +28,7 @@ This article describes how to set up replication of virtual machines running on 
 The article assumes that you have already 
 
 1.  [Setup on-premise source environment](site-recovery-set-up-vmware-to-azure.md)
-2. Setup target environment in Azure 
+2.  [Setup target environment in Azure](site-recovery-prepare-target-vmware-to-azure.md) 
 
 
 ## Enable replication
@@ -41,7 +41,6 @@ If you're replicating VMware virtual machines, note that:
 * To add machines for replication without waiting for the scheduled discovery, highlight the configuration server (don’t click it), and click the **Refresh** button.
 * When you enable replication, if the machine is prepared, the process server automatically installs the Mobility service on it.
 
-*Note* Placeholder Exclude Disk
 
 **Now enable replication as follows**:
 
@@ -116,4 +115,4 @@ We recommend that you verify the properties of the source machine. Remember that
 
 ## Next steps
  
-what are the next steps for the customer. 
+Once the protection is completed, you can try test failover to check whether your application comes up in Azure or not.
