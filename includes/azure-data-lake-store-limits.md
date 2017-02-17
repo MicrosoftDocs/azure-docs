@@ -2,5 +2,5 @@ Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data 
 
 | **Resource** | **Default Limit** | **Comments** |
 | --- | --- | --- |
-| Max number of Data Lake Store account, per subscription, per region |10 | Contact Support to request an increase for this limit |
+| Max number of Data Lake Store accounts, per subscription, per region |10 | Contact Support to request an increase for this limit |
 
