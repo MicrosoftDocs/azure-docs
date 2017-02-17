@@ -46,7 +46,8 @@ In this tutorial, you learn how to create, connect to, and query Azure SQL datab
 * **SQL Server Management Studio**. You can download and install the latest version of SQL Server Management Studio (SSMS) at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Always use the latest version of SSMS when connecting to Azure SQL Database as new capabilities are continually being released.
 
 ### Sign in to the Azure portal with your Azure account
-with your [Aure account](https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
+
+The steps in this procedure show you how to connect to the Azure portal using  your [Azure account](https://account.windowsazure.com/Home/Index).
 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
 2. Sign in to the [Azure portal](https://portal.azure.com/).
