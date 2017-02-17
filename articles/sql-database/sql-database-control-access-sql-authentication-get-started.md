@@ -15,25 +15,27 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/17/2017
+ms.date: 02/17/2017
 ms.author: carlrab
 
 ---
 # SQL Server authentication, access, and database-level firewall rules
-In this tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
 
-- View user permissions in the master database and in user databases
-- Create logins and users based on SQL Server authentication
-- Grant server-wide and database-specific permissions to users
-- Log in to a user database as a non-admin user
-- Create database-level firewall rules for database users
-- Create server-level firewall rules for server admins
+In this tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. After you complete this tutorial, you will:
+
+- Have created logins and users
+- Added users to roles
+- Grant permsissions to roles
+- Created a database-level and a server-level firewall rule using SQL Server Management Studio 
+- Know how to use SQL Server Management Studio to connect as a user to a specific database
+- Know how to view user permissions in the master database and in user databases
+- Know how to create logins and users based on SQL Server authentication
 
 **Time estimate**: This tutorial takes approximately 45 minutes to complete (assuming you have already met the prerequisites).
 
 ## Prerequisites
 
-* You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* You need an Azure account. You can [open a free Azure account](https://azure.microsoft.com/free/) or [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
@@ -44,7 +46,7 @@ In this tutorial, you learn how to use SQL Server Management Studio to work with
 >  
 
 ## Sign in to the Azure portal using your Azure account
-Using your [existing subscription](https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
+The steps in this procedure show you how to connect to the Azure portal using your Azure account](https://account.windowsazure.com/Home/Index).
 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
 2. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -55,7 +57,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
 
 <a name="create-logical-server-bk"></a>
 
-## View information about the security configuration for your logical server
+## View logical server security information in the Azure portal
 
 In this section of the tutorial, you view information about the security configuration for your logical server in the Azure portal.
 
@@ -69,7 +71,7 @@ In this section of the tutorial, you view information about the security configu
 > To review connection information for this server, go to [Manage servers](sql-database-manage-servers-portal.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
 >
 
-## Connect to SQL server using SQL Server Management Studio (SSMS)
+## Connect to server using the server principal login
 
 1. If you have not already done so, download and install the latest version of SSMS at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). To stay up-to-date, the latest version of SSMS prompts you when there is a new version available to download.
 
@@ -85,7 +87,7 @@ In this section of the tutorial, you view information about the security configu
 
    ![connected to server](./media/sql-database-get-started/connected-to-server.png)
 
-## View the Server admin account and its permissions 
+## View the principal login account and its permissions 
 In this section of the tutorial, you view information about the server admin account and its permissions in the master database and in user databases.
 
 1. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your Azure SQL Database server. Notice that a login appears for the Server admin account specified during provisioning - the sqladmin login for this tutorial series.
@@ -169,7 +171,7 @@ In this section of the tutorial, you view information about the server admin acc
 
 10. Optionally, repeat the previous three steps for the AdventureWorksLT user database.
 
-## Create a new user in the AdventureWorksLT database with SELECT permissions
+## Create a new user with SELECT permissions
 
 In this section of the tutorial, you create a user account in the AdventureWorksLT database, test this user's permissions as member of the public role, grant this user SELECT permissions, and then test this user's permissions again.
 
@@ -236,7 +238,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
 
    ![select permissions](./media/sql-database-control-access-sql-authentication-get-started/select_permissions.png)
 
-## Create a database-level firewall rule for an AdventureWorksLT database user
+## Create a database-level firewall rule using T-SQL
 
 In this section of the tutorial, you log attempt to log in from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then log in using this new database-level firewall rule. 
 
@@ -294,7 +296,7 @@ In this section of the tutorial, you log attempt to log in from a computer with 
 
    ![user1 query1 results](./media/sql-database-control-access-sql-authentication-get-started/user1_query1_results.png)
 
-## Create a new user in the blankdb database with db_owner database role permissions and a database-level firewall rule
+## Create a new user as db_owner and a database-level firewall rule
 
 In this section of the tutorial, you create a user in the blankdb database with db_owner database role permissions and create a database-level firewall for this database using the Server admin account. 
 
@@ -329,7 +331,7 @@ In this section of the tutorial, you create a user in the blankdb database with 
  
 7. As necessary for your learning environment, create an additional database-level firewall rule for this user. 
 
-## Create a new login and user in the master database with dbmanager permissions, and create a server-level firewall rule
+## Create a login and user with dbmanager permissions and a server-level firewall rule
 
 In this section of the tutorial, you create a login and user in the master database with permissions to create and manage new user databases. You also create an additional server-level firewall rule using Transact-SQL using [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx).
 
