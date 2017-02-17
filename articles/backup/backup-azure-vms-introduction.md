@@ -30,6 +30,11 @@ After the snapshot is taken, the data is transferred by the Azure Backup service
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
+> [!NOTE]
+> Azure Backup doesn't include temporary disk attached to virtual machine when taking backup. Learn more on [temporary disk](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+>
+>
+
 ### Data consistency
 Backing up and restoring business critical data is complicated by the fact that business critical data must be backed up while the applications that produce the data are running. To address this, Azure Backup provides application-consistent backups for Microsoft workloads by using VSS to ensure that data is written correctly to storage.
 
@@ -63,13 +68,13 @@ Pay attention to the following Azure Storage limits when planning backup perform
 * Total request rate per storage account
 
 ### Storage account limits
-Whenever backup data is copied from a storage account, it counts towards the input/output operations per second (IOPS) and egress (or throughput) metrics of the storage account. At the same time, the virtual machines are running and consuming IOPS and throughput. The goal is to ensure the total traffic -backup and virtual machine- does not exceed the storage account limits.
+Whenever backup data is copied from a storage account, it counts towards the input/output operations per second (IOPS) and egress (or throughput) metrics of the storage account. At the same time, the virtual machines are running and consuming IOPS and throughput. The goal is to ensure the total traffic - backup and virtual machine - does not exceed the storage account limits.
 
 ### Number of disks
 The backup process tries to complete a backup job as quickly as possible. In doing so, it consumes as many resources as it can. However, all I/O operations are limited by the *Target Throughput for Single Blob*, which has a limit of 60 MB per second. In an attempt to maximize its speed, the backup process tries to back up each of the VM's disks *in parallel*. So, if a VM has four disks, then Azure Backup attempts to back up all four disks in parallel. Because of this, the most important factor determining backup traffic exiting a customer storage account is the **number of disks** being backed up from the storage account.
 
 ### Backup schedule
-An additional factor that impacts performance is the **backup schedule**. If you configure the policies so all VMs are backed up at the same time, you have scheduled a traffic jam. The backup process will attempt to back up all disks in parallel. One way to reduce the backup traffic from a storage account is- ensure different VMs are backed up at different times of the day, with no overlap.
+An additional factor that impacts performance is the **backup schedule**. If you configure the policies so all VMs are backed up at the same time, you have scheduled a traffic jam. The backup process will attempt to back up all disks in parallel. One way to reduce the backup traffic from a storage account is - ensure different VMs are backed up at different times of the day, with no overlap.
 
 ## Capacity planning
 Putting all these factors together means that storage account usage needs to be planned properly. Download the [VM backup capacity planning Excel spreadsheet](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) to see the impact of your disk and backup schedule choices.
@@ -88,6 +93,10 @@ While a majority of the backup time is spent in reading and copying data, there 
 * Time needed to [install or update the backup extension](backup-azure-vms.md).
 * Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
 * Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
+* Data transfer time, time needed for backup service to compute the incremental changes from previous backup and transfer those changes to vault storage.
+
+### Why am I observing longer(>15 hours) backup time?
+Backup consists of two phases: taking snapshot and transferring snapshot to vault. In the second phase, transferring data to vault, to optimize on the storage used for backup, we only transfer incremental changes from previous snapshot. To achieve this, we compute checksum of the blocks and if a block is changed, we will identify it to send this block to vault. Again, here we drill down further into the block to see if we can minimize the amount of data transfer and will coalesce all changed blocks and send to vault. In case of some legacy applications, we observed that writes by applications are not optimal with respect to storage because of small and fragmented writes. and hence we need to spend additional time processing data written by these applications. Recommended application write block from Azure for applications running inside VM is minimum 8KB. If your application is using a block of less than 8KB, then backup performance will be effected as this goes beyond what is recommended by Azure. We request you to take a look at [tuning applications for optimal performance with Azure storage](../storage/storage-premium-storage-performance.md) and see if you can tune your application to write in an optimal manner to improve backup performance. While the article talks with Premium storage in point, it is applicable even for disks running on Standard storage.
 
 ## Total restore time
 A restore operation consists of two main sub tasks: Copying data back from vault to chosen customer storage account and creating the virtual machine. Copying data back from vault depends upon where backups are stored internally in Azure and where customer storage account is stored. Time taken to copy data depends upon:
