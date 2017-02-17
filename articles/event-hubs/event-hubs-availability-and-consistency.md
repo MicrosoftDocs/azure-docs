@@ -21,7 +21,7 @@ ms.author: sethm;jotaub
 ## Overview
 Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#partitions) that allows for greater uptime within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions has failed, or been taken offline for updates, you can still send and receive from three other partitions. However, Event Hubs can only guarantee the ordering of messages on a single partition. For this reason, it can be beneficial to send and receive events from a specific partition.
 
-To help explain the tradeoff between ordering and availability, we can look to the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer’s theorem. The theorem states that, in the presence of a network partition, one must choose between consistency and availability. Since Event Hubs is built on top of a partitioned model, users must make a choice between availability and consistency (or ordering).
+To help explain the tradeoff between ordering and availability, we can look to the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer’s theorem. The theorem states that, in the presence of a network partition, one must choose between consistency and availability. Since Event Hubs is built on top of a partitioned model, you must make a choice between availability and consistency (or ordering).
 
 The theorem defines consistency and availability as the following:
 * Consistency – a read is guaranteed to return the most recent write for a given client.
@@ -50,7 +50,7 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-The preceding example would send your event to one of the available partitions in your Event Hub, and set the corresponding sequence number from your application. This solution requires some sort of state to be kept by your processing application, but would give your senders an endpoint that is more likely to be available.
+The preceding example would send your event to one of the available partitions in your Event Hub, and set the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but would give your senders an endpoint that is more likely to be available.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
