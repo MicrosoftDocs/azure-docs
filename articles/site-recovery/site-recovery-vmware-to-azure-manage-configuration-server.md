@@ -94,6 +94,7 @@ You need to pass a proxy settings configuration file to the installer when you a
   net stop obengine
   net start obengine
   ```
+
   >[!WARNING]
   If you have Scale-out Process servers attached to this configuration server you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) in your deployment.
 
@@ -111,6 +112,7 @@ Ensure the following before you start decommissioning your configuration server.
 
   ![delete-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-cs.png)
 4. Click **Yes** to confirm the deletion of the server.
+
   >[!WARNING]
   If you have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration serer, you will not be allowed to delete the server. You need to delete these entities before you try to delete the vault.
 
