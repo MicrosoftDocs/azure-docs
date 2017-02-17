@@ -145,5 +145,4 @@ This section lists the existing reports in the Azure classic portal and how you 
 
 - In the left navigation pane,	click **Enterprise Applications**, and then click **Sign-ins**
 
-## Next Steps
 
