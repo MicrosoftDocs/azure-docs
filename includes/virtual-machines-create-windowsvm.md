@@ -49,6 +49,7 @@ When you're done making changes, click **OK**.
 
 The Summary blade lists the settings specified in the previous blades. Click **OK** when you're ready to make the image.
 
+ ![Summary blade report giving specified settings of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
 <!--  deleted 2/16/2017 - RABixby
   * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For more information, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
