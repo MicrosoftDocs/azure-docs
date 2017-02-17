@@ -66,7 +66,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Abintegro** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Abintegro** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single SignOn](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configure Single SignOn")
 2. On the **How would you like users to sign on to Abintegro** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -100,7 +100,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Abintegro, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Abintegro **application integration page, click **Assign users**.
+2. On the **Abintegro** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
