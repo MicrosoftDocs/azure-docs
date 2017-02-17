@@ -88,7 +88,7 @@ ProxyPassword="Password"
 3. Click the **Vault Registration** tab.
 4. Download a new Vault Registration file from the portal and provide it as input to the tool.
 
-  ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-cs.PNG)
+  ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-cs.png)
 5. Provide the new Proxy Server details and click the **Register** button.
 6. Open an Admin PowerShell command window.
 7. Run the following command
@@ -113,7 +113,7 @@ net stop dra
 4. Click the **Vault Registration** tab.
 5. Download a new  Registration file from the portal and provide it as input to the tool.
 
-    ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-configuration-server.PNG)
+    ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-configuration-server.png)
 6. Provide the Proxy Server details and click the **Register** button.
 7. Open an Admin PowerShell command window.
 8. Run the following command
