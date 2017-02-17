@@ -48,7 +48,7 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure SQL Always Encryption](https://msdn.microsoft.com/library/mt163865.aspx)
 * [Azure SQL Column Level Encryption](https://msdn.microsoft.com/library/ms179331.aspx)
 * [Azure SQL Transparent Data Encryption](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Azure SQL Database Auditing](../sql-database/sql-database-auditing-get-started.md)
+* [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
 
 ## Azure Identity and Access Management
 * [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md)
