@@ -5,6 +5,7 @@
 ## [Web apps in App Service](app-service-web-overview.md)
 ## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service on Linux](app-service-linux-intro.md)
+## [App Service on Linux FAQ](app-service-linux-faq.md)
 
 # Quickstart	
 ## [ASP.NET](app-service-web-get-started-dotnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		
@@ -74,8 +75,6 @@
 ### API
 ### Site extensions
 
-
-
 # How-To guides
 ## Develop your app	
 ### ASP.NET
@@ -136,6 +135,7 @@
 #### [Map 3rd-party domain](web-sites-custom-domain-name.md)
 #### [Map domains with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 #### [Map GoDaddy domains](web-sites-godaddy-custom-domain-name.md)
+
 #### [Migrate an active custom domain](app-service-custom-domain-name-migrate.md)
 ### [Assign custom SSL](web-sites-purchase-ssl-web-site.md)
 ### Debug remotely
