@@ -17,7 +17,7 @@ ms.date: 01/16/2017
 ms.author: sasolank
 
 ---
-# Integrate API Management in an Internal VNET with Application Gateway 
+# Integrate API Management in an internal VNET with Application Gateway 
 
 ##<a name="overview"> </a> Overview
  
@@ -145,7 +145,7 @@ Create an API Management service inside the Virtual Network.
 ```powershell
 $apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization Contoso -AdminEmail admin@contoso.com -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Premium"
 ```
-After the above command succeeds refer to [DNS Configuration required to access Internal VNET API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it.
+After the above command succeeds refer to [DNS Configuration required to access internal VNET API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it.
 
 ## Set-up a custom domain name in API Management
 
