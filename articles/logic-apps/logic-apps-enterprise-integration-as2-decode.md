@@ -1,6 +1,6 @@
 ---
-title: Decode AS2 messages in Azure logic apps | Microsoft Docs
-description: How to use the AS2 decoder included with the Enterprise Integration Pack and Logic apps
+title: Decode AS2 messages - Azure Logic Apps | Microsoft Docs
+description: How to use the AS2 decoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -17,8 +17,10 @@ ms.date: 01/27/2016
 ms.author: padmavc
 
 ---
-# Get started with decoding AS2 message in your logic apps
-Connect to Decode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing, decryption, and acknowledgements via Message Disposition Notifications (MDN).
+# Decode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack 
+
+To establish security and reliability while transmitting messages, use the Decode AS2 message connector. 
+This connector provides digital signing, decryption, and acknowledgements through Message Disposition Notifications (MDN).
 
 ## Prereqs
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
@@ -29,7 +31,7 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list, and then enter “AS2” in the search box.  Select AS2 – Decode AS2 Message:
    
     ![Search AS2](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
-3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details:
+3. If you haven't previously created any connections to Integration Account, you are prompted for the connection details:
    
     ![Create integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
 4. Enter the Integration Account details.  Properties with an asterisk are required:

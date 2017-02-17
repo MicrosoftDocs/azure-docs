@@ -1,6 +1,6 @@
 ---
-title: Decode X12 messages in Azure logic apps | Microsoft Docs
-description: How to use the X12 decoder in the Enterprise Integration Pack in your logic apps
+title: Decode X12 messages - Azure Logic Apps | Microsoft Docs
+description: How to use the X12 decoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -17,8 +17,10 @@ ms.date: 01/27/2017
 ms.author: padmavc
 
 ---
-# Get started with Decode X12 messages
-Validates EDI and partner-specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
+# Decode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
+
+The Decode X12 message connector validates EDI and partner-specific properties, 
+generates XML document for each transaction set, and generates acknowledgment for processed transaction.
 
 ## Prereqs
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)

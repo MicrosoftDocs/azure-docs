@@ -1,6 +1,6 @@
 ---
-title: Encode X12 messages in Azure logic apps | Microsoft Docs
-description: How to use the X12 encoder in the Enterprise Integration Pack in your logic apps
+title: Encode X12 messages - Azure Logic Apps | Microsoft Docs
+description: How to use the X12 encoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -17,8 +17,10 @@ ms.date: 01/27/2017
 ms.author: padmavc
 
 ---
-# Get started with Encode X12 Message
-Validates EDI and partner-specific properties, converts XML-encoded messages into EDI transaction sets in the interchange and requests a Technical and/or Functional acknowledgment
+# Encode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
+
+The Encode X12 message connector validates EDI and partner-specific properties, 
+converts XML-encoded messages into EDI transaction sets in the interchange, and requests a Technical and/or Functional acknowledgment.
 
 ## Prereqs
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)

@@ -1,6 +1,6 @@
 ---
-title: Logic Apps on-premises data gateway connection | Microsoft Docs
-description: Information on how to create a connection to the on-premises data gateway from a logic app.
+title: Access on-premises data - Azure Logic Apps | Microsoft Docs
+description: How your logic apps can access on-premises data by connecting to an on-premises data gateway.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -17,12 +17,14 @@ ms.date: 07/05/2016
 ms.author: jehollan
 
 ---
-# Connect to the on-premises data gateway for Logic Apps
-Supported logic apps connectors allow you to configure your connection to access on-premises data via the on-premises data gateway.  The following steps will walk you through how to install and configure the on-premises data gateway to work with a logic app.
+# Connect to on-premises data from your logic apps
+
+To access on-premises data, you can set up a connection through the on-premises data gateway for supported Azure Logic Apps connectors. 
+The following steps walk you through how to install and set up the on-premises data gateway to work with your logic app.
 
 ## Prerequisites
   * Must be using a work or school email address in Azure to associate the on-premises data gateway with your account (Azure Active Directory based account)
-  * If you are using a Microsoft Account (e.g. @outlook.com, @live.com) you can use your Azure account to create a work or school email address by [following the steps here](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 
+  * If you are using a Microsoft Account (e.g. @outlook.com, @live.com), you can use your Azure account to create a work or school email address by [following the steps here](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 
   * Must have the on-premises data gateway [installed on a local machine](logic-apps-gateway-install.md).
   * Gateway must not have been claimed by another Azure on-premises data gateway ([claim happens with creation of step 2 below](#2-create-an-azure-on-premises-data-gateway-resource)) - an installation can only be associated to one gateway resource.
 

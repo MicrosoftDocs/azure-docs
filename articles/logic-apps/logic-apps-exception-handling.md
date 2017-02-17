@@ -1,5 +1,5 @@
 ---
-title: Logic Apps Exception Handling | Microsoft Docs
+title: Error & exception handling - Azure Logic Apps | Microsoft Docs
 description: Learn patterns for error and exception handling with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -17,7 +17,7 @@ ms.date: 10/18/2016
 ms.author: jehollan
 
 ---
-# Logic Apps Error and Exception Handling
+# Handle errors and exceptions in Azure Logic Apps
 Logic Apps provides a rich set of tools and patterns to help ensure your integrations are robust and resilient against failures.  One of the challenges with any integration architecture is ensuring that downtime or issues of dependent systems are handled appropriately.  Logic Apps makes handling errors a first class experience, giving you the tools you need to act on exceptions and errors within your workflows.
 
 ## Retry policies
@@ -178,7 +178,7 @@ For reference, here is an example of a single `@result()` item.  You can see the
         },
         "body": {
             "code": "ResourceNotFound",
-            "message": "/docs/foo/bar does not exist"
+            "message": "/docs/folder-name/resource-name does not exist"
         }
     },
     "startTime": "2016-08-11T03:18:19.7755341Z",

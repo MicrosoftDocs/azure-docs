@@ -1,6 +1,6 @@
 ---
-title: Encode EDIFACT messages in Azure logic apps | Microsoft Docs
-description: How to use the EDIFACT encoder in the Enterprise Integration Pack with your logic apps 
+title: Encode EDIFACT messages - Azure Logic Apps | Microsoft Docs
+description: How to use the EDIFACT encoder in the Enterprise Integration Pack for Azure Logic Apps 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -17,8 +17,10 @@ ms.date: 01/27/2017
 ms.author: padmavc
 
 ---
-# Get started with Encode EDIFACT Message
-Validates EDI and partner-specific properties 
+# Encode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
+
+The Encode EDIFACT message connector validates EDI and partner-specific properties, generates an XML document for each transaction set, 
+and requests a Technical and/or Functional acknowledgment.
 
 ## Prereqs
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)

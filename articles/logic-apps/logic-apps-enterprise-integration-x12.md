@@ -1,6 +1,6 @@
 ---
-title: Create an X12 agreement in Azure logic apps | Microsoft Docs
-description: Learn to create an X12 agreement for the Enterprise Integration Pack| Azure logic apps
+title: Create X12 agreements - Azure Logic Apps | Microsoft Docs
+description: How to create X12 agreements for Azure Logic Apps by using the Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -251,7 +251,7 @@ Other than the character set, you can enter a different set of delimiters to be 
 | EDI Validation |Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction set data elements, validating data types, length restrictions, and empty data elements and trailing separators |
 | Extended Validation |Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
 | Allow leading/ trailing zeroes |Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed. |
-| Trailing separator |Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select Not Allowed if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the received interchange must contain trailing delimiters and separators. |
+| Trailing separator |Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select Not Allowed if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the received interchange must contain trailing delimiters and separators. |
 
 After you have set the send settings properties, select the **OK** button.  Your agreement is ready to handle outgoing messages that confirm to the schema you selected.
 

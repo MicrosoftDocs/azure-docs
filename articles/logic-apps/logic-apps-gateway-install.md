@@ -1,6 +1,6 @@
 ---
-title: Logic Apps install on-premises data gateway  | Microsoft Docs
-description: Information on how to install the on-premises data gateway for use in a logic app.
+title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
+description: How your logic apps can access on-premises data by installing an on-premises data gateway.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -17,7 +17,7 @@ ms.date: 07/05/2016
 ms.author: jehollan
 
 ---
-# Install the on-premises data gateway for Logic Apps
+# Install the on-premises data gateway for Azure Logic Apps
 ## Installation and Configuration
 ### Prerequisites
 Minimum:
@@ -36,7 +36,7 @@ Related considerations:
 * You can't install a gateway on a domain controller.
 * You shouldn't install a gateway on a computer, such a laptop, that may be turned off, asleep, or not connected to the Internet because the gateway can't run under any of those circumstances. In addition, gateway performance might suffer over a wireless network.
 
-### Install a gateway
+### Install the gateway
 You can get the [installer for the on-premises data gateway here](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 Specify **On-premises data gateway** as the mode, sign in with your work or school account, and then either configure a new gateway or migrate, restore, or take over an existing gateway.
@@ -78,7 +78,9 @@ TcpTestSucceeded       : True
 
 If you want to be exhaustive, substitute the **ComputerName** and **Port** values with those listed under [Configure ports](#configure-ports) later in this topic.
 
-The firewall may also be blocking the connections that the Azure Service Bus makes to the Azure data centers. If that is the case, you'll want to whitelist (unblock) all of the IP addresses for your region for those data centers. You can get a list of [Azure IP addresses here](https://www.microsoft.com/download/details.aspx?id=41653).
+The firewall might also block connections that the Azure Service Bus makes to the Azure data centers. 
+If so, approve (unblock) all the IP addresses for those data centers in your region.
+You can get a list of [Azure IP addresses here](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Configure ports
 The gateway creates an outbound connection to Azure Service Bus. It communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 thru 9354. The gateway doesn't require inbound ports.
@@ -96,7 +98,9 @@ Learn more about [hybrid solutions](../service-bus-messaging/service-bus-fundame
 | login.microsoftonline.com |443 |HTTPS |
 | *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
 
-If you need to white list IP addresses instead of the domains, you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). In some cases, the Azure Service Bus connections will be made with IP Address instead of the fully qualified domain names.
+If you have to approve IP addresses instead of the domains, 
+you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
+In some cases, the Azure Service Bus connections are made with IP Address rather than fully-qualified domain names.
 
 ### Sign-in account
 Users will sign in with either a work or school account. This is your organization account. If you signed up for an Office 365 offering and didn’t supply your actual work email, it may look like jeff@contoso.onmicrosoft.com. Your account, within a cloud service, is stored within a tenant in Azure Active Directory (AAD). In most cases, your AAD account’s UPN will match the email address.

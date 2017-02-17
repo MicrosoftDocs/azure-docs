@@ -1,6 +1,6 @@
 ---
-title: Decode EDIFACT messages in Azure Logic Apps | Microsoft Docs
-description: How to use the EDIFACT decoder in the Enterprise Integration Pack with your logic apps 
+title: Decode EDIFACT messages - Azure Logic Apps | Microsoft Docs
+description: How to use the EDIFACT decoder in the Enterprise Integration Pack for Azure Logic Apps 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -18,8 +18,10 @@ ms.author: padmavc
 
 ---
 
-# Get started with Decode EDIFACT message
-The Decode EDIFACT connector Validates EDI and partner-specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
+# Decode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
+
+The Decode EDIFACT message connector validates EDI and partner-specific properties, 
+generates XML document for each transaction set, and generates acknowledgment for processed transaction.
 
 ## Prereqs
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)

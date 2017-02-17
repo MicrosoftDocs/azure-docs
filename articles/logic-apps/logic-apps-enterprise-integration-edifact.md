@@ -1,6 +1,6 @@
 ---
-title: Enterprise integration with EDIFACT | Microsoft Docs
-description: Learn how to use EDIFACT agreements to create Logic apps
+title: Create EDIFACT agreements - Azure Logic Apps | Microsoft Docs
+description: How to create EDIFACT agreements for Azure Logic Apps by using the Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -18,13 +18,13 @@ ms.author: jonfan
 
 ---
 # Enterprise integration with EDIFACT
+
 > [!NOTE]
-> This page covers the EDIFACT features of Logic Apps. See [X12](logic-apps-enterprise-integration-x12.md) for more information.
-> 
-> 
+> This page covers the EDIFACT features of Azure Logic Apps. For more information, see [X12](logic-apps-enterprise-integration-x12.md).
 
 ## Create an EDIFACT agreement
-Before you can exchange EDIFACT messages, you need to create an EDIFACT agreement and store it in your integration account. The following steps will walk you through the process of creating an EDIFACT agreement.
+Before you can exchange EDIFACT messages, you must create an EDIFACT agreement and store the agreement in your integration account. 
+The following steps walk you through how to create an EDIFACT agreement.
 
 ### Here's what you need before you get started
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
@@ -104,7 +104,7 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 | Extended Validation |Select this check box to enable extended (XSD) validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. |
 | Allow Leading/Trailing Zeroes |Select **Allow** to allow leading/trailing zeros; **NotAllowed** to not allow leading/trailing zeros, or **Trim** to trim the leading and trailing zeroes. |
 | Trim Leading/Trailing Zeroes |Select this check box to trim any leading or trailing zeroes |
-| Trailing Separator Policy |Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid. Select **Optional** to accept interchanges with or without trailing delimiters and separators. Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
+| Trailing Separator Policy |Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid. Select **Optional** to accept interchanges with or without trailing delimiters and separators. Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
 
 ### Internal Settings
 | Property | Description |
@@ -182,7 +182,7 @@ Other than the character set, you can enter a different set of delimiters to be 
 | Extended Validation |Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
 | Allow leading/trailing zeroes |Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed. |
 | Trim Leading/Trailing Zeroes |Selecting this option will trim the leading and trailing zeroes. |
-| Trailing separator |Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid.</br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
+| Trailing separator |Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid.</br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
 
 After you select **OK** on the open blade:  
 
