@@ -40,7 +40,7 @@ The following were used in developing and testing this document:
 
 * Application Insights telemetry data was generated using a [Node.js web app configured to use Application Insights](../application-insights/app-insights-nodejs.md).
 
-* A Linux-based Spark on HDInsight cluster version 3.4 was used to analyze the data.
+* A Linux-based Spark on HDInsight cluster version 3.5 was used to analyze the data.
 
 ## Architecture and planning
 The following diagram illustrates the service architecture of this example:

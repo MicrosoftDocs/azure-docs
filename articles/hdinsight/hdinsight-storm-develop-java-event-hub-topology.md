@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 02/17/2017
 ms.author: larryfr
 
 ---
@@ -246,11 +246,24 @@ The following environment variables may be set when you install Java and the JDK
   * **JAVA_HOME\bin** (or the equivalent path)
   * The directory where Maven is installed
 
+## Download and register the EventHub components
+
+1. Download the `storm-eventhubs-1.0.2-jar-with-dependencies.jar` from [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar). This file contains a spout and bolt component for reading and writing from EventHubs.
+
+2. Use the following command to register the components in your local maven repository:
+    
+        mvn install:install-file -Dfile=storm-eventhubs-1.0.2-jar-with-dependencies.jar -DgroupId=com.microsoft -DartifactId=eventhubs -Dversion=1.0.2 -Dpackaging=jar
+    
+    Modify the `-Dfile=` parameter to point to the downloaded file location.
+
+    This command installs the file in the local Maven repository, where it can be found at compile time by Maven.
+
 ## Configure Event Hub
 
 Event Hubs is the data source for this example. Use the following steps to create a new Event Hub.
 
 1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
+
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
    
     ![wizard page 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
@@ -319,9 +332,7 @@ The jar created by this project contains two topologies; **com.microsoft.example
    > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the following steps to select the key:
    > 
    > 1. In **Category**, expand **Connection**, expand **SSH**, and select **Auth**.
-
    > 2. Click **Browse** and select the .ppk file that contains your private key.
-
    > 3. Click **Open** to connect.
 
 3. Use the following command to start the topologies:

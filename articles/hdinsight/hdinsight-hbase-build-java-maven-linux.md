@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/17/2017
 ms.author: larryfr
 
 ---
@@ -27,14 +27,17 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 ## Requirements
 
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later
+* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 or later.
+
+    > [!NOTE]
+    > HDInsight 3.5 requires Java 8. Earlier versions of HDInsight require Java 7.
 
 * [Maven](http://maven.apache.org/)
 
 * [A Linux-based Azure HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
   
   > [!NOTE]
-  > The steps in this document have been tested with HDInsight cluster versions 3.2, 3.3, 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.4 cluster.
+  > The steps in this document have been tested with HDInsight cluster versions 3.2, 3.3, 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.5 cluster.
 
 * **Familiarity with SSH and SCP** or **Azure PowerShell**. This document provides steps for using both SSH/SCP and Azure PowerShell when running this example.
 
@@ -42,9 +45,9 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     For more information on using SSH and SCP with HDInsight, see the following:
   
-    * **Linux, Unix, or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Create the project
 
@@ -113,8 +116,8 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
               <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.3</version>
               <configuration>
-                  <source>1.7</source>
-                  <target>1.7</target>
+                  <source>1.8</source>
+                  <target>1.8</target>
               </configuration>
               </plugin>
             <plugin>
