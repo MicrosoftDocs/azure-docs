@@ -62,7 +62,7 @@ You can migrate AWS instances to Azure VMs. In this scenario only migration is s
 ## Next steps
 
 - [Migrate VMware VMs to Azure](site-recovery-vmware-to-azure.md)
-- [Migrate physical servers to Azure](site-recovery-vmware-to-azure.md)
+- [Migrate physical servers to Azure](site-recovery-physical-to-azure.md)
 - [Migrate Hyper-V VMs in VMM clouds to Azure](site-recovery-vmm-to-azure.md)
 - [Migrate Hyper-V VMs without VMM to Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrate Azure VMs between Azure regions](site-recovery-migrate-azure-to-azure.md)

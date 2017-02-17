@@ -63,9 +63,9 @@ Here's what you need for this deployment
 
 5. After you've deployed the configuration server, validate that it can communicate with the VMs that you want to migrate.
 
-6. [Set up replication settings](site-recovery-setup-replication-settings-vmware)
+6. [Set up replication settings](site-recovery-setup-replication-settings-vmware.md)
 
-7. Enable replication: Enable replication for the VMs you want to migrate. You can discover the EC2 instances using the private IP addresses, which you can get from the EC2 console. 
+7. Enable replication: Enable replication for the VMs you want to migrate. You can discover the EC2 instances using the private IP addresses, which you can get from the EC2 console.
 ![SelectVM](./media/site-recovery-migrate-aws-to-azure/migration_pic4.png)
 8. Once the EC2 instances have been protected and the replication to Azure is complete, [run a Test Failover](site-recovery-test-failover-to-azure.md) to validate your application's performance in Azure ![TFI](./media/site-recovery-migrate-aws-to-azure/migration_pic5.png)
 
