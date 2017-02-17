@@ -21,15 +21,13 @@ ms.author: carlrab
 ---
 # SQL Server authentication, access, and database-level firewall rules
 
-In this tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. After you complete this tutorial, you will:
+In this tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. After you complete this tutorial, you will know how to:
 
-- Have created logins and users
-- Added users to roles
-- Grant permissions to roles
-- Created a database-level and a server-level firewall rule using SQL Server Management Studio 
-- Know how to use SQL Server Management Studio to connect as a user to a specific database
-- Know how to view user permissions in the master database and in user databases
-- Know how to create logins and users based on SQL Server authentication
+- Create logins and users based on SQL Server authentication
+- Add users to roles and grant permissions to roles
+- Use T-SQL to create a database-level and a server-level firewall rule 
+- Connect as a user to a specific database using SSMS
+- View user permissions in the master database and in user databases
 
 **Time estimate**: This tutorial takes approximately 45 minutes to complete (assuming you have already met the prerequisites).
 
@@ -335,7 +333,7 @@ In this section of the tutorial, you create a user in the blankdb database with 
  
 7. As necessary for your learning environment, create an additional database-level firewall rule for this user. 
 
-## Create a login and user with dbmanager permissions and a server-level firewall rule
+## Grant dbmanager permissions and create a server-level firewall rule
 
 In this section of the tutorial, you create a login and user in the master database with permissions to create and manage new user databases. You also create an additional server-level firewall rule using Transact-SQL using [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx).
 
