@@ -46,7 +46,7 @@ If you fail back to the original VM the following conditions required:
 * If your VM is on an ESX host and doesn't use vCenter, then you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
 * You can failback to a vSAN or RDM based disks if the disks already exist and are connected to the on-premises VM.
 
-#### Alternat location recovery
+#### Alternate location recovery
 If the on-premises VM does not exist before reprotecting the VM, then it is called alternate location recovery. Here the reprotect workflow re-creates the on-premises VM. This will also cause a full data download.
 
 * When you failback to an alternate location the VM will be recovered to the same ESX host as on which the master target server is deployed. The datastore used to create the disk will be the same datastore selected when reprotecting the VM.
