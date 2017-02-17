@@ -132,6 +132,34 @@ Ensure the following before you start decommissioning your configuration server.
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
 
+## Renew Configuration Server Secure Socket Layer(SSL) Certificates
+The Configuration server has an inbuilt webserver which orchestrates the activities of the Mobility Service, Process Servers and Master Target servers connected to the Configuration server. The Configuration server's webserver uses a SSL certificate to authenticate its clients. This certificate has an expiry of three years and can be renewed at any time using the below method.
+
+> [!WARNING]
+Certificate expiry can be performed only on version 9.4.XXXX.X or higher. Please upgrade all the Azure Site Recovery components (Configuration Server, Process Server, Master Target Server, Mobility Service) before you start the Renew Certificates workflow.
+
+1. On the Azure portal browse to your Vault > Site Recovery Infrastructure > Configuration Server.
+2. Click on the Configuration server for which you need to renew the SSL Certificate for.
+3. Under the Configuration server health, you can see the expiry date for the SSL Certificate.
+4. You can renew the certificate by clicking on the **Renew Certificates** action as shown in the below image.
+
+  ![delete-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/renew-cert-page.png)
+
+### SSL Certificate expiry warning
+
+> [!NOTE]
+The SSL Certificate's validity for all installations that happened before May 2016 was set to one year. These users will have started seeing certificate expiry notifications showing up in the Azure portal.
+
+1. If the Configuration server's SSL certificate is going to expire in the next two months, the service will start notifying users via the Azure portal & email (users needs to be subscribed to Azure Site Recovery notifications). You will start seeing a notification banner on the Vault's resource page.
+
+  ![ssl-notification](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-renew-notification.png)
+2. Click on the banner to get additional details on the Certificate expiry.
+
+  ![ssl-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
+
+  >[!TIP]
+  If instead of a **Renew Now** button you see a **Upgrade Now** button. This means that there are some components in your environment that have not yet been upgraded to 9.4.xxxx.x or higher versions.
+
 ## Sizing requirements for a Configuration server
 
 | **CPU** | **Memory** | **Cache disk size** | **Data change rate** | **Protected machines** |
