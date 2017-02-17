@@ -96,7 +96,6 @@ If you want to connect to Azure VMs using RDP after failover, make sure you do t
 **Failover** | **Location** | **Actions**
 --- | --- | ---
 **Azure VM running Windows** | On on-premises machine before failover | To access the Azure VM over the internet, enable RDP, make sure TCP and UDP rules are added for the **Public**, and that RDP is allowed in **Windows Firewall** > **Allowed Apps**, for all profiles.<br/><br/> To access over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks.<br/><br/>  Make sure the operating system's SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).<br/><br/> 
-
 **Azure VM running Windows** | On Azure VM after failover | For a classic virutal machine [add a public endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints) for the RDP protocol (port 3389)<br/><br/>  
 For a Resource manager virutal machine [add a public IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine.md) on it.<br/><br/>
 The network security group rules on the failed over VM, and the Azure subnet to which it is connected, need to allow incoming connections to the RDP port.<br/><br/>
