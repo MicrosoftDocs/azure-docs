@@ -1,4 +1,4 @@
-﻿title: Azure Data Catalog supported data sources | Microsoft Docs
+title: Azure Data Catalog supported data sources | Microsoft Docs
 description: Specification of the currently supported data sources.
 services: data-catalog
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/28/2016
+ms.date: 02/17/2016
 ms.author: maroche
 
 # Azure Data Catalog supported data sources
