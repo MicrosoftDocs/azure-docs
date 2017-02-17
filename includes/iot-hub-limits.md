@@ -3,10 +3,10 @@ The following table lists the limits associated with the different service tiers
 | Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
 | --- | --- | --- | --- | --- |
 | Messages/day |400,000 |6,000,000 |300,000,000 |8,000 |
-| Maximum units |200 |200 |200 |1 |
+| Maximum units |200 |200 |10 |1 |
 
 > [!NOTE]
-> If you anticipate using more than 200 units with an S1 or S2 or S3 tier hub, please contact Microsoft support.
+> If you anticipate using more than 200 units with an S1 or S2 or 10 units with an S3 tier hub, please contact Microsoft support.
 > 
 > 
 
