@@ -251,7 +251,7 @@ After failover the VM from VMware/Hyper-V to Azure, disks on Azure VM:
 
 **Disk name**| **Guest OS disk#**| **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0  |C:\ 	OS disk
+DB-Disk0-OS | DISK0  |C:\ |OS disk
 DB-Disk1 | Disk1 | D:\ | Temporary storage –> pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
