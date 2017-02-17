@@ -60,6 +60,23 @@ This procedure describes how to run a failover for a [recovery plan](site-recove
 Apart from, Failover, Hyper-V virtual machines protected using Site Recovery also support **Planned failover**. This is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shutdown, the the data yet to be synchronized is synchronized and then a failover is triggered. 
 
 
+## Failover job
+
+![Failover](./media/site-recovery-failover/FailoverJob.png)
+
+When a  failover is triggered, it involves following steps:
+
+1. Prerequisites check: This step ensures that all conditions required for for failover are met
+1. Failover: This step processes the data and makes it ready so that an Azure virtual machine can be created out of it. If you have chosen **Latest** recovery point, this step will create a recovery point from the data that has been sent to the service.
+1. Start: This step creates an Azure virtual machine using the data processed in the previous step.
+
+> [!WARNING]
+> **Don't Cancel an in progress failover**: Before failover is started, replication for the virtual machine is stopped. If you **Cancel** an in progress job, failover will stop but the virtual machine will not start to replicate. Replication cannot be started again if the failover is canceled. 
+>
+> 
+
+
+
 ## Using scripts in Failover
 You might want to automate certain actions while doing a failover. You can use scripts or [Azure automation runbooks](site-recovery-runbook-automation.md) in [recovery plans](site-recovery-create-recovery-plans.md) to do that.
 

@@ -58,6 +58,16 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 >
 >
 
+## Test failover job
+
+![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+
+When a test failover is triggered, it involves following steps:
+
+1. Prerequisites check: This step ensures that all conditions required for for failover are met
+1. Failover: This step processes the data and makes it ready so that an Azure virtual machine can be created out of it. If you have chosen **Latest** recovery point, this step will create a recovery point from the data that has been sent to the service.
+1. Start: This step creates an Azure virtual machine using the data processed in the previous step.
+
 
 ## Creating a network for test failover
 It is recommended that when you are doing a test failover you choose a network that is isolated from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. By default when you create an Azure virtual network, it is isolated from other networks. This network should mimic your production network:
