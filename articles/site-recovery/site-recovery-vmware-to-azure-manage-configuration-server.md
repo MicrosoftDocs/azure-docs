@@ -51,24 +51,15 @@ The minimum hardware, software and network configuration required to setup a con
   ```
     UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
     ```
-### Configuration server installer command-line arguments.
+### Sample Usage
+ ```
+  UnifiedSetup.exe /ServerMode CS /InstallDrive D:\ /MySQLCredsFilePath C:\Temp\MySQLCredentialsfile.txt /VaultCredsFilePath C:\Temp\MyVault.vaultcredentials /EnvType VMWare /PSIP 10.101.24.126 /CSIP 10.101.24.126 /PassphraseFilePath C:\Temp\connection.passphrase
+  ```
 
-|Parameter Name| Type | Description| Possible Values|
-|-|-|-|-|
-| /ServerMode|Mandatory|Specifies whether both the configuration and process servers should be installed, or the process server only|CS<br>PS|
-|/InstallLocation|Mandatory|The folder in which the components are installed| Any folder on the computer|
-|/MySQLCredsFilePath|Mandatory|The file path in which the MySQL server credentials are stored|The file should be the format specified below|
-|/VaultCredsFilePath|Mandatory|The path of the vault credentials file|Valid file path|
-|/EnvType|Mandatory|Type of envrionment that you want to protect |VMware<br>NonVMware|
-|/PSIP|Mandatory|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
-|/CSIP|Mandatory|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
-|/PassphraseFilePath|Mandatory|The full path to location of the passphrase file|Valid file path|
-|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy|To do get this value from Venu|
-|/ProxySettingsFilePath|Optional|Proxy settings (The default proxy requires authentication, or a custom proxy)|The file should be in the format specified below|
-|DataTransferSecurePort|Optional|Port number on the PSIP to be used for replication data| Valid Port Number (default value is 9433)|
-|/SkipSpaceCheck|Optional|Skip space check for cache disk| |
-|/AcceptThirdpartyEULA|Mandatory|Flag implies acceptance of third-party EULA| |
-|/ShowThirdpartyEULA|Optional|Displays third-party EULA. If provided as input all other parameters are ignored| |
+
+### Configuration server installer command-line arguments.
+[!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
+
 
 ### Create a MySql credentials file
 You need to pass a MySQLCredsFilePath  file to the installer when you are executing it in command line mode. The file should have the following format
@@ -105,7 +96,8 @@ Ensure the following before you start decommissioning your configuration server.
 1. Disable protection for all virtual machines under this Configuration server.
 2. Disassociate all Replication policies from the Configuration server.
 3. Delete all vCenters servers/vSphere hosts that are associated to the configruation server.
-### Delete a Configuration Server
+
+### Delete the Configuration Server from Azure Portal
 1. In Azure browse to **Site Recovery Infrastructure** > **Configuration Servers**  from the Vault menu.
 2. Click on the Configuration server that you want to decommission.
 3. On the Configuration server's details page click on the Delete button.
@@ -115,7 +107,7 @@ Ensure the following before you start decommissioning your configuration server.
   >[!WARNING]
   If you still have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration serer, you will not be allowed to delete the server. You need to delete these entities before you try to delete the vault.
 
-### On-premises clean up
+### Uninstall the Configuration server software and its dependencies 
   > [!TIP]
   If you plan to re-use the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
 

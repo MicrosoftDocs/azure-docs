@@ -1,6 +1,6 @@
 ---
-title: ' Manage a Configuration server | Microsoft Docs'
-description: This article describes how to set and manage a Configuration Server.
+title: ' Manage a Scale-out Process server | Microsoft Docs'
+description: This article describes how to setup and manage a Scale-out process server.
 services: site-recovery
 documentationcenter: ''
 author: AnoopVasudavan
@@ -19,55 +19,46 @@ ms.author: anoopkv
 
 # Manage a Scale-out Process server
 
-Configuration server acts as a coordinator between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage the Configuration server.
+Scale-out Process server acts as a coordinator for data transfer between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage a Scale-out Process server.
 
 ## Prerequisites
-The minimum hardware, software and network configuration required to setup a configuration is as listed below.
+The minimum hardware, software and network configuration required to setup a Scale-out process server is as listed below.
 
 > [!NOTE]
-> [Capacity planning](site-recovery-plan-capacity-vmare.md) is an important step to ensure that you deploy the Configuration server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration server](#sizing-requirements-for-a-configuration-server).
+> [Capacity planning](site-recovery-plan-capacity-vmare.md) is an important step to ensure that you deploy the Scale-out Process server with a configuration that suites your load requirements. Read more about [Scaling characteristics for a Scale-out Process server](#sizing-requirements-for-a-configuration-server).
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
 
 ## Downloading the Scale-out Process server software
 1. Log on to the Azure Portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).
+3. Select your configuration server to drill down into the configuration server's details page.
+4. Click on the **+ Process Server** button.
+5. In the add Process server page select **Deploy a scale out Process server on-premises** option from the **Choose where you want to deploy your process server** drop down.
 
-  ![Add Servers Page](./media/site-recovery-vmware-to-azure-manage-configuration-server/AddServers.png)
-3. Click on the **+Servers** button.
-4. On the **Add Server** page click on the Download button to download the Registration key. You will need this key during the Configuration server installation to register it with Azure Site Recovery service.
-5. Click the **Download the Microsoft Azure Site Recovery Unified Setup** link to download the latest version of the Configuration server.
+  ![Add Servers Page](./media/site-recovery-vmware-to-azure-manage-scaleout-process-server/add-process-server.png)
+6. Click the **Download the Microsoft Azure Site Recovery Unified Setup** link to download the latest version of the Scale-out process server nstallation.
 
-  ![Download Page](./media/site-recovery-vmware-to-azure-manage-configuration-server/downloadcs.png)
-
-  > [!TIP]
-  Latest version of the Configuration server can be downloaded directly from [Microsoft Download Center download page](http://aka.ms/unifiedsetup)
+  > [!WARNING]
+  The version of your Scale-out process server should be the same as that of the Configuration Server running in your environment. A simple way to ensure version compatibility is to use the same installer bits that you recently used to install/update your Configuration Server.
 
 ## Installing and Registering a Scale-out Process Server from GUI
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 ## Installing and Registering a Configuration Server using Command-line
 
-    UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+```
+UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+```
+
+### Sample Usage
+```
+UnifiedSetup.exe /ServerMode PS /InstallDrive D:\  /VaultCredsFilePath C:\Temp\MyVault.vaultcredentials /EnvType VMWare /PSIP 10.101.23.145  /CSIP 10.101.24.126 /PassphraseFilePath C:\Temp\connection.passphrase
+```
 
 ### Scale-out Process server installer command-line arguments.
+[!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-|Parameter Name| Type | Description| Possible Values|
-|-|-|-|-|
-| /ServerMode|Mandatory|Specifies whether both the configuration and process servers should be installed, or the process server only|CS<br>PS|
-|/InstallLocation|Mandatory|The folder in which the components are installed| Any folder on the computer|
-|/MySQLCredsFilePath|Mandatory|The file path in which the MySQL server credentials are stored|The file should be the format specified below|
-|/VaultCredsFilePath|Mandatory|The path of the vault credentials file|Valid file path|
-|/EnvType|Mandatory|Type of envrionment that you want to protect |VMware<br>NonVMware|
-|/PSIP|Mandatory|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
-|/CSIP|Mandatory|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
-|/PassphraseFilePath|Mandatory|The full path to location of the passphrase file|Valid file path|
-|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy|To do get this value from Venu|
-|/ProxySettingsFilePath|Optional|Proxy settings (The default proxy requires authentication, or a custom proxy)|The file should be in the format specified below|
-|DataTransferSecurePort|Optional|Port number on the PSIP to be used for replication data| Valid Port Number (default value is 9433)|
-|/SkipSpaceCheck|Optional|Skip space check for cache disk| |
-|/AcceptThirdpartyEULA|Mandatory|Flag implies acceptance of third-party EULA| |
-|/ShowThirdpartyEULA|Optional|Displays third-party EULA. If provided as input all other parameters are ignored| |
 
 ### Create a Proxy settings configuration file
 You need to pass a proxy settings configuration file to the installer when you are executing it in command line mode. The file should have the following format
@@ -81,10 +72,10 @@ You need to pass a proxy settings configuration file to the installer when you a
 ```
 ## Modifying Proxy Settings for Scale-out Process server
 1. Log-in into your Scale-out Process Server.
-2. Open a Admin Powershell command window.
+2. Open a Admin PowerShell command window.
 3. Run the following command
   ```
-  $pwd = ConvertTo-SecureString -String ProxyUserPassword
+  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
   net start obengine
@@ -95,20 +86,31 @@ You need to pass a proxy settings configuration file to the installer when you a
   cdpcli.exe --registermt
   exit
   ```
-
-## Decommissioning a  Scale-out Process  server
-
-### Delete a Scale-out Process  Server
+## Re-registering a Scale-out Process Server
+[!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
 
-### On-premises clean up
-1. Log on to the Scale-out Process server as an Administrator.
-2. Open up Control Panel > Program > Uninstall Programs
-3. Uninstall the programs in the sequence given below.
-  * Microsoft Azure Site Recovery Mobility Service/Master Target server
+## Decommissioning a Scale-out Process server
+1. Ensure that the
+  - Configuration Server's connection state shows as **Connected** in the Azure Portal
+  - Process Server's is still able to communicate with the Configuration server.
+2. Log-in to the process server as an administrator
+3. Open up Control Panel > Program > Uninstall Programs
+4. Uninstall the programs in the sequence given below.
   * Microsoft Azure Site Recovery Configuration Server/Process Server
   * Microsoft Azure Site Recovery Configuration Server Dependencies
   * Microsoft Azure Recovery Services Agent
+
+The service follows a lazy clean up and can takes up-to 15 minutes for the Process Server entry to be deleted from the Service.
+
+  > [!NOTE]
+  If the Process server is unable to communicate with the Configuration Server (Connection State in portal is Disconnected) then you need to follow the below steps to purge it from the Configuration Server.
+
+## Unregistering a disconnected process server from a Configuration Server
+
+  [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
+
+
 
 ## Sizing requirements for a Scale-out Process server
 

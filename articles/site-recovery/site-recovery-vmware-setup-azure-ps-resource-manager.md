@@ -1,4 +1,4 @@
----
+  ---
 title: ' Manage a process server running in Azure (Resource Manager) | Microsoft Docs'
 description: This article describes how to set up a failback process server (Resource Manager) In Azure.
 services: site-recovery
