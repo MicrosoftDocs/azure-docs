@@ -3,7 +3,7 @@ title: Availability and consistency in Azure Event Hubs | Microsoft Docs
 description: Availability and consistency in Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim;jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
