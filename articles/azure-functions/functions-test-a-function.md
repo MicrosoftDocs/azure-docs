@@ -27,7 +27,7 @@ This topic demonstrates the various ways to test functions, including using the 
 + Azure Storage Explorer, to test Azure Storage-based triggers
 + Test tab in the Azure Functions portal
 + Timer-triggered function
-+ Testing application or framework 
++ Testing application or framework
 
 All these testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You create this function in the first section.
 
@@ -251,11 +251,7 @@ To demonstrate this approach, we first create a queue trigger function that we w
 4. Leave this portal browser window open, so you can monitor the log entries for the default queue function template code.
 
 #### Create a timer trigger to drop a message in the queue
-<<<<<<< HEAD
 1. Open the [Azure portal] in a new browser window, and navigate to your function app.
-=======
-1. Open the [Azure portal] in a new browser window, and browse to your Function App.
->>>>>>> 8de6d76c7fd6953ced724cc6b80f89c0bad4c931
 2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code tests your queue function. Then click **Create**. If you want the test to run every 30 seconds, you can use the following [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression):
 
         */30 * * * * *
