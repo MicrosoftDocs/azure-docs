@@ -121,6 +121,8 @@ Click on the following links to reads the steps on How to install a Master Targe
 
 * Master Target server cannot have any snapshots on the disks. If there are snapshots, Reprotect/Failback will fail.
 
+* MT cannot have a Paravirtual SCSI controller. It can only be an LSI Logic controller. Without an LSI Logic controller, the reprotect will fail.
+
 <!--
 ### Failback policy
 To replicate back to on-premises, you will need a failback policy. This policy get automatically created when you create a forward direction policy. Note that
