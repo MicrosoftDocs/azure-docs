@@ -20,9 +20,9 @@ ms.author: ronitr; giladm
 ---
 # Configure and manage SQL database auditing using PowerShell
 
-The following section describes how to configure and manage auditing using PowerShell. To configure and manage auditing using the Azure portal, see [Configuring auditing using the Azure portal](sql-database-auditing-portal.md). To configure and manage auditing using the REST API, see [Configuring auditing using the REST API](sql-database-auditing-rest.md).
+The following section describes how to configure and manage auditing using PowerShell. To configure and manage auditing using the Azure portal, see [Configure auditing in the Azure portal](sql-database-auditing-portal.md). To configure and manage auditing using the REST API, see [Configure auditing with the REST API](sql-database-auditing-rest.md).
 
-For an overview of auditing, see [SQL Database auditing](sql-database-auditing-get-started.md).
+For an overview of auditing, see [SQL Database auditing](sql-database-auditing.md).
 
 ## PowerShell cmdlets
 
@@ -36,9 +36,9 @@ For an overview of auditing, see [SQL Database auditing](sql-database-auditing-g
 
 ## Next steps
 
-* To configure and manage auditing using the Azure portal, see [Configuring auditing using the Azure portal](sql-database-auditing-portal.md). 
-* To configure and manage auditing using PowerShell, see [Configuring auditing using the REST API](sql-database-auditing-rest.md).
-* For an overview of auditing, see [SQL Database auditing](sql-database-auditing-get-started.md).
+* To configure and manage auditing using the Azure portal, see [Configure database auditing in the Azure portal](sql-database-auditing-portal.md). 
+* To configure and manage auditing using PowerShell, see [Configure database auditing with the REST API](sql-database-auditing-rest.md).
+* For an overview of auditing, see [Database auditing](sql-database-auditing.md).
 
 
 [101]: https://msdn.microsoft.com/en-us/library/azure/mt603731(v=azure.200).aspx
