@@ -1,5 +1,5 @@
 ---
-title: Exclude disk from protection | Microsoft Docs
+title: Exclude disk from protection using Azure Site Recovery | Microsoft Docs
 description: Describes why and how to exclude a VM disk(s) from replication for VMware to Azure and Hyper-V Azure scenarios.
 services: site-recovery
 documentationcenter: ''
@@ -51,18 +51,18 @@ Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replicat
 ![Enable replication](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 	
 	
-> [!NOTE:]
+[!NOTE:]
 > 
 > * You can only exclude disks that already have the Mobility service installed. You need to manually install the Mobility service, because the Mobility service is only installed using the push mechanism after replication is enabled.
 > * Only basic disks can be excluded from replication. You can't exclude OS or dynamic disks.
 > * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the machine and then re-enable it.
 > * If you exclude a disk that's needed for an application to operate, after failover to Azure, you’ll need to create it manually in Azure so that the replicated application can run. Alternatively, you could integrate Azure automation into a recovery plan to create the disk during failover of the machine.
-> * Window VM: Disks you create manually in Azure are not failed back. For example, if you fail over three disks and create two directly in Azure VM, only three disks that were failed over are failed back. You can't include disks created manually itn failback or in reprotect from On-premises to Azure.
+> * Window VM: Disks you create manually in Azure are not failed back. For example, if you fail over three disks and create two directly in Azure VM, only three disks that were failed over are failed back. You can't include disks created manually itn failback or in reprotect from on-premises to Azure.
 > * Linux VM: Disks you create manually in Azure are failed back. For example, if you fail over three disks and create two directly in Azure, all five will be failed back. You can't exclude disks created manually from failback.
 > 
 
 ###Hyper-V to Azure
-Follow the [Enable replication]((site-recovery-hyper-v-site-to-azure.md#step-6:-enable-replication) workflow to protect a VM from Azure Site Recovery portal. In the 4th step of Enable replication, there is a column - **DISK TO REPLICATE** which can be used to exclude disks from the replication. By default all the disks are selected for the replication. Unselect the disk that you want to exclude from replication and complete the steps to enable the replication. 
+Follow the [Enable replication](site-recovery-hyper-v-site-to-azure.md#step-6:-enable-replication) workflow to protect a VM from Azure Site Recovery portal. In the 4th step of Enable replication, there is a column - **DISK TO REPLICATE** which can be used to exclude disks from the replication. By default all the disks are selected for the replication. Unselect the disk that you want to exclude from replication and complete the steps to enable the replication. 
 
 ![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 	
@@ -133,7 +133,7 @@ There are two ways in which you can create this path.
 		Net start MSSQLSERVER /f / T3608
 
 3. Run the following sqlcmd to change the tempdb path to new path
-4. 
+
 		sqlcmd -A -S SalesDB		**Use your SQL DBname**
 		USE master;		
 		GO		
@@ -149,7 +149,7 @@ There are two ways in which you can create this path.
 
 		Net stop MSSQLSERVER
 5. Start Microsoft SQL server service.
-6
+
 		Net start MSSQLSERVER
 
 Refer to the following Azure guideline for temporary storage disk
