@@ -1,5 +1,5 @@
 ---
-title: Add or change Azure administrator roles | Microsoft Docs
+title: Add or change Azure admin subscription roles | Microsoft Docs
 description: Describes how to add or change Azure Co-Administrator, Service Administrator and Account Administrator
 services: ''
 documentationcenter: ''
