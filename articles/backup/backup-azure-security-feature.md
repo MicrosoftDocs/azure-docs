@@ -111,3 +111,4 @@ The Security features mentioned in this article, provide defense mechanisms agai
 * [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features
 * [Download latest Azure Recovery Services agent](http://aka.ms/azurebackup_agent) to protect Windows machines and guard your backup data against attacks
 * [Download latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to protect workloads and guard your backup data against attacks
+* [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to protect workloads and guard your backup data against attacks
