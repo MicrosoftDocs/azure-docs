@@ -71,7 +71,7 @@ When a  failover is triggered, it involves following steps:
 1. Start: This step creates an Azure virtual machine using the data processed in the previous step.
 
 > [!WARNING]
-> **Don't Cancel an in progress failover**: Before failover is started, replication for the virtual machine is stopped. If you **Cancel** an in progress job, failover will stop but the virtual machine will not start to replicate. Replication cannot be started again if the failover is canceled. 
+> **Don't Cancel an in progress failover**: Before failover is started, replication for the virtual machine is stopped. If you **Cancel** an in progress job, failover will stop but the virtual machine will not start to replicate. Replication cannot be started again. 
 >
 > 
 
