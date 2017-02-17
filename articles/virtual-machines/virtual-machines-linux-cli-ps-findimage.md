@@ -50,21 +50,22 @@ You can specify one of several options to restrict your search to a specific loc
 
 ### Find specific images
 
-Use `az vm image list` with a [JMESPATH query filter](https://docs.microsoft.com/cli/azure/query-az-cli2) to find specific information. For example, the following displays the **sku**s that are available for **Debian** (remember that without the `--all` switch, it only searches the local cache of common images):
+Use `az vm image list` with a filter to find specific information. For example, the following displays the **offer**s that are available for **Debian** (remember that without the `--all` switch, it only searches the local cache of common images):
 
 ```azurecli
-az vm image list --query '[?contains(offer,`Debian`)]' -o table --all
+az vm image list --offer Debian -o table --all
 ```
 
 The output is something like: 
 ```
-You are viewing an offline list of images, use --all to retrieve an up-to-date list
-  Sku  Publisher    Offer    Urn                       Version    UrnAlias
------  -----------  -------  ------------------------  ---------  ----------
-    8  credativ     Debian   credativ:Debian:8:latest  latest     Debian
+Offer   Publisher   Sku   Urn                              Version
+------  ---------   ---   -------------------------------  -------------
+Debian  credativ    8     credativ:Debian:8:8.0.201701180  8.0.201701180
 
 <list shortened for the example>
 ```
+
+You can perform similar filters on the **--publisher** and **--sku** option. You can even perform partial matches on a filter, such as searching for **--offer Deb** to find all Debian images or **--publisher Micr** to find all Microsoft-published images.
 
 If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from the preceding example you know that `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in **westeurope**:
 
