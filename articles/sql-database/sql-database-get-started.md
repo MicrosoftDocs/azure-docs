@@ -255,10 +255,6 @@ The steps in this procedure show you how to create a new database using SQL Serv
 
     ![new blank database with ssms](./media/sql-database-get-started/new-blank-database-ssms.png)
 
-    > [!NOTE]
-    > You can also have SSMS create a create database script for you to create a new database with Transact-SQL.
-    >
-
 2. In the** New Database** dialog box, provide a database name in the Database name text box. 
 
     ![new blank database name with ssms](./media/sql-database-get-started/new-blank-database-name-ssms.png)
