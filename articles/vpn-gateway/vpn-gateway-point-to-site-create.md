@@ -148,7 +148,7 @@ To connect to the virtual network, you also need to configure a VPN client. The 
     ![VPN client 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
 
 > [!NOTE]
-> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating because a certificate cannot be found that can be used, make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
+> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, verify the authentication list order of the certificate. Make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
 >
 >
 

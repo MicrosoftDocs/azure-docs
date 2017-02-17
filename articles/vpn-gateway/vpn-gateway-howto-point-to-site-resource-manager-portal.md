@@ -184,7 +184,7 @@ Each client computer must have a client certificate to authenticate. When instal
                                                                                                                                                                            
 
 > [!NOTE]
-> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating because a certificate cannot be found that can be used, make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
+> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, verify the authentication list order of the certificate. Make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
 >
 >
 
@@ -213,7 +213,7 @@ You can revoke client certificates. The certificate revocation list allows you t
 
 The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 
-You can manage the list of revoked client certificates on the **Point-to-site configuration** blade. This is the blade that you used to [upload a trusted root certificate](#uploadfile).
+You can manage the list of revoked client certificates on the **Point-to-site configuration** blade. This is the blade that you used to [upload a trusted root certificate](#uploadfile). Add the certificate name and thumbprint, then save.
 
 ## <a name="faq"></a>Point-to-Site FAQ
 

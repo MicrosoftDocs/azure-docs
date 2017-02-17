@@ -207,7 +207,7 @@ Each client computer must have a client certificate in order to authenticate. Wh
     ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
 > [!NOTE]
-> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating because a certificate cannot be found that can be used, make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
+> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, verify the authentication list order of the certificate. Make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
 >
 >
 
