@@ -275,12 +275,12 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_pricing]: http://www.twilio.com/pricing
 [special_offer]: http://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/docs/api/rest
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_console]: https://www.twilio.com/console
-[verify_phone]: https://www.twilio.com/console/phone-numbers/verified#
-[twilio_api_documentation]: http://www.twilio.com/api
+[verify_phone]: https://www.twilio.com/console/phone-numbers/verified
+[twilio_api_documentation]: http://www.twilio.com/docs/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security
 [twilio_howtos]: http://www.twilio.com/docs/howto
 [twilio_on_github]: https://github.com/twilio
