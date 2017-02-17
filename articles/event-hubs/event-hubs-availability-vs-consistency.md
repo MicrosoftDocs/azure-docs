@@ -45,9 +45,9 @@ As such, it’s important to choose consistency over availability when your busi
 ```
 
 ## Availability
-Availability implies always returning the most recently available version of your event, message, or data. If you identify your events with sequence numbers, rather than use partitions, you may not receive events in the order in which they were sent. In other words, you need to have some sort of aggregation process on the backend. Note that Event Hubs will never send an acknowledgement without persisting the data to disk.
+Availability implies always returning the most recently available version of your event, message, or data. For example, if you send messages to Event Hubs in a particular sequence, you might not always read the messages in the same order in which they were sent. Note that Event Hubs will never send an acknowledgement without persisting the data to disk.
 
-If your business allows flexibility around the timeframe in which the data synchronizes within the system, and you can manage the synchronization without compromising on availability, you might be able to rely on consistency along with partition tolerance. Or, you might need an always-on (always available) system to continue functioning even with external errors.
+Availability ensures that an always-on (always available) system continues to function even in the presence of external errors. If your business allows flexibility around the timeframe in which the data synchronizes in the system, and you can manage consistency without dependency on partitions, availability will be the choice over consistency.
 
 ## Summary
 Knowing that the tradeoff between availability and consistency is inherent in a distributed system, and that 100% network reliability is not achievable in today’s world, you should make that choice based on your business requirements. 
