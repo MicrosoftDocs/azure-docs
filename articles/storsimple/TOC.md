@@ -177,6 +177,7 @@
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
+#### [Install Update 4](storsimple-install-update-4.md)
 #### [Install Update 3](storsimple-install-update-3.md)
 #### [Install Update 2.2](storsimple-install-update-21.md)
 #### [Install Update 2](storsimple-install-update-2.md)
@@ -184,7 +185,8 @@
 #### [Update your device](storsimple-update-device.md)
 
 ## Release notes
-### [Update 3 - current](storsimple-update3-release-notes.md)
+### [Update 4 - current](storsimple-update4-release-notes.md)
+### [Update 3](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 ### [Update 2 ](storsimple-update2-release-notes.md)
 ### [Update 1 ](storsimple-update1-release-notes.md)

@@ -71,17 +71,17 @@
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
-### [Disks and VHDs for Azure VMs](storage-about-disks-and-vhds-windows.md)
+### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
+### [Disks and VHDs for Linux VMs](storage-about-disks-and-vhds-linux.md)
 ### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
 ### [Migrate Azure VMs to Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-### [Migrate AWS and on-premises VMs to Azure Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Migrate from AWS and other platforms to Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
-<!--### Standard Storage-->
-<!--
-#### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md) -->
+### Standard Storage
+#### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
 ### Using unmanaged disks
 #### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
 #### [Back up unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md)

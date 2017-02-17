@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/15/2017
 ms.author: markvi
 
 ---
-# Troubleshooting the auto-registration of Azure AD domain joined computers for Windows down-level clients 
+# Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients 
 
 This topic is applicable only to the following clients: 
 
@@ -27,7 +27,7 @@ This topic is applicable only to the following clients:
 - Windows Server 2012 R2 
  
 
-For Windows 10 or Windows Server 2016, see [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
+For Windows 10 or Windows Server 2016, see [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
 
 This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md).
  
@@ -90,7 +90,7 @@ You can also find the status information in the event log under **Applications a
 
   - There is no Service Connection Point object that points to your verified domain name in Azure AD in the AD forest where the computer belongs to.
 
-  - A user has reached the limit of devices. Please see Get Started with Azure Active Device Registration.
+  - A user has reached the limit of devices. Please see Get Started with Azure Active Directory Device Registration.
 
 ## Next steps
 
