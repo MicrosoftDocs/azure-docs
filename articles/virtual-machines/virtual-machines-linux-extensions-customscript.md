@@ -136,8 +136,8 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
 
 ```json
 {
-    "name": "scriptextensiondemo",
-    "type": "extensions",
+    "name": "[concat(parameters('scriptextensiondemoName'), 'scriptextensiondemo')]",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
     "location": "[resourceGroup().location]",
     "apiVersion": "2015-06-15",
     "dependsOn": [
@@ -165,8 +165,8 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
 
 ```json
 {
-  "name": "config-app",
-  "type": "extensions",
+  "name": "[concat(variables('vmName'),copyindex(),'/config-app')]",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
