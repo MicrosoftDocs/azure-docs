@@ -116,9 +116,7 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
 ## Next steps
 
-You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
-
-You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ). 
+You can now [copy blobs from a storage account into an AMS account ](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
