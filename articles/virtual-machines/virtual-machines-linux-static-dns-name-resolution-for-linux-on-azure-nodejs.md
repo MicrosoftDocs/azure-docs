@@ -38,7 +38,7 @@ You can complete the task using one of the following CLI versions:
 
 ## Quick commands
 
-If you need to quickly accomplish the task, the following section details the commands to needed. More detailed information and context for each step can be found the rest of the document, [starting here](#detailed-walkthrough).  
+If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](#detailed-walkthrough).  
 
 Pre-Requirements: Resource Group, VNet, NSG with SSH inbound, Subnet.
 

@@ -36,12 +36,12 @@ You can complete the task using one of the following CLI versions:
 
 
 ## Quick commands
-If you need to quickly accomplish the task, the following section details the commands to needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 Pre-Requirements: Resource Group, virtual network and subnet, Network Security Group with SSH inbound.
 
 ### Create a virtual network interface card with a static internal DNS name
-The `--internal-dns-name` CLI flag is for setting the DNS label, which provides the static DNS name for the virtual network interface card (vNic). Create the vNic with [az network nic create](/cli/azure/network/nic#create). The following example creates a vNic named `myNic`, connects it to the `myVnet` virtual network, and creates an internal DNS name record called `jenkins`:
+Create the vNic with [az network nic create](/cli/azure/network/nic#create). The `--internal-dns-name` CLI flag is for setting the DNS label, which provides the static DNS name for the virtual network interface card (vNic). The following example creates a vNic named `myNic`, connects it to the `myVnet` virtual network, and creates an internal DNS name record called `jenkins`:
 
 ```azurecli
 az network nic create \
@@ -53,7 +53,7 @@ az network nic create \
 ```
 
 ### Deploy a VM and connect the vNic
-The `--nics` flag connects the vNic to the VM during the deployment to Azure. Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
+Create a VM with [az vm create](/cli/azure/vm#create). The `--nics` flag connects the vNic to the VM during the deployment to Azure. The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
 
 ```azurecli
 az vm create \
