@@ -1,5 +1,5 @@
 ---
-title: Network Watcher Agent virtual machine extension for Linux | Microsoft Docs
+title: Azure Network Watcher Agent virtual machine extension for Linux | Microsoft Docs
 description: Deploy the Network Watcher Agent on Linux virtual machine using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
