@@ -66,29 +66,9 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="/azure/azure-government/documentation-government-image-gallery">Images</a></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3><a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3><a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace for partners</a></h3>
+                        <p><a href="/azure/azure-government/documentation-government-image-gallery">Images</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace for partners</a></p>
                     </div>
                 </div>
             </div>
