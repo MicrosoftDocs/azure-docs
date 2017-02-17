@@ -39,13 +39,13 @@ When you are ready, follow the procedures in the next four sections.
 ## Step 1: Set up your Xamarin development environment
 Because this tutorial includes projects for iOS, Android, and Windows, you need both Visual Studio and Xamarin. To create the necessary environment, complete the process in [Set up and install Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN. The instructions include material that you can review to learn more about Xamarin while you're waiting for the installations to be completed.
 
-After you've completed the setup, open the solution in Visual Studio, where you will find six projects: five platform-specific projects and one portable class library, DirectorySearcher.cs, which will be shared across all platforms.
+After you've completed the setup, open the solution in Visual Studio. There, you will find six projects: five platform-specific projects and one PCL, DirectorySearcher.cs, which will be shared across all platforms.
 
 ## Step 2: Register the DirectorySearcher app
 To enable the app to get tokens, you first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API. Here's how:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click your account and then, under the **Directory** list, select the Active Directory tenant where you want to register the app.
+2. On the top bar, click your account. Then, under the **Directory** list, select the Active Directory tenant where you want to register the app.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. To create a new **Native Client Application**, follow the prompts.
@@ -53,7 +53,7 @@ To enable the app to get tokens, you first need to register it in your Azure AD 
   * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value (for example, http://DirectorySearcher).
 6. After you’ve completed registration, Azure AD assigns the app a unique application ID. Copy the value from the **Application** tab, because you'll need it later.
 7. On the **Settings** page, select **Required Permissions**, and then select **Add**.
-8. Select **Microsoft Graph** as the API and, under **Delegated Permissions**, add the **Read Directory Data** permission.  
+8. Select **Microsoft Graph** as the API. Under **Delegated Permissions**, add the **Read Directory Data** permission.  
 This action enables the app to query the Graph API for users.
 
 ## Step 3: Install and configure ADAL
@@ -90,7 +90,7 @@ Now that you have an app in Azure AD, you can install ADAL and write your identi
   * The *returnUri* is the redirect URI that you entered in the portal (for example, http://DirectorySearcher).
 
 ## Step 4: Use ADAL to get tokens from Azure AD
-Almost all of the app's authentication logic lies in `DirectorySearcher.SearchByAlias(...)`. All that's necessary in the platform-specific projects is to pass a contextual parameter to the `DirectorySearcher` portable class library (PCL).
+Almost all of the app's authentication logic lies in `DirectorySearcher.SearchByAlias(...)`. All that's necessary in the platform-specific projects is to pass a contextual parameter to the `DirectorySearcher` PCL.
 
 1. Open DirectorySearcher.cs, and then add a new parameter to the `SearchByAlias(...)` method. `IPlatformParameters` is the contextual parameter that encapsulates the platform-specific objects that ADAL needs to perform the authentication.
 
@@ -167,7 +167,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ```
 
 ### Windows Universal
-In Windows Universal, open MainPage.xaml.cs, and then implement the `Search` method, which uses a helper method in a shared project to update UI as necessary.
+In Windows Universal, open MainPage.xaml.cs, and then implement the `Search` method. This method uses a helper method in a shared project to update UI as necessary.
 
 ```C#
 ...
@@ -176,7 +176,7 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 ```
 
 ## What's next
-You now have a working Xamarin app that can authenticate users and securely call web APIs using OAuth 2.0 across five different platforms.
+You now have a working Xamarin app that can authenticate users and securely call web APIs by using OAuth 2.0 across five different platforms.
 
 If you haven’t already populated your tenant with users, now is the time to do so.
 
