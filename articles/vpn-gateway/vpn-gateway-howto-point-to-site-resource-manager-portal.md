@@ -184,7 +184,7 @@ Each client computer must have a client certificate to authenticate. When instal
                                                                                                                                                                            
 
 > [!NOTE]
-> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, verify the authentication list order of the certificate. Make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
+> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, check the authentication order on the client certificate. You can check the authentication list order by double-clicking the client certificate, and going to **Details > Enhanced Key Usage**. Make sure the list shows 'Client Authentication' as the first item. If not, you need to issue a client certificate based on the User template that has Client Authentication as the first item in the list. 
 >
 >
 
