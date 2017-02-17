@@ -68,13 +68,15 @@ Site Recovery needs access to VMware for the process server to automatically dis
 5. In the Configuration server's drill down page click on the **Refresh Server** button.
 6. Once the refresh server job completes, select the vCenter Server to open the vCenter Summary page.
 7. Select the newly added account in the **vCenter server/vSphere host account** field and click the **Save** button.
-  ![modify-account](./media/site-recovery-vmware-to-azure-manage-vcenter/modify-vcenter-creds.png)
+
+  ![modify-account](./media/site-recovery-vmware-to-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## Delete a vCenter in Azure Site Recovery
 1. On the Azure portal, browse to *YourRecoveryServicesVault* > **Site Recovery Infrastructure** > **Configuration Severs** > *ConfigurationServer*
 2. In the Configuration server's drill down page select the vCenter Server to open the vCenter Summary page.
 3. Click on the **Delete** button to delete the vCenter
-![modify-account](./media/site-recovery-vmware-to-azure-manage-vcenter/modify-vcenter-creds.png)
+
+  ![delete-account](./media/site-recovery-vmware-to-azure-manage-vcenter/delete-vcenter.png)
 
 > [!NOTE]
 If you need to modify the vCenters IP Address/FQDN, Port details then you need to delete the vCenter Server and add it back again.
