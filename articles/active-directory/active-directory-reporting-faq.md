@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/16/2017
 ms.author: markvi
 
 ---
 # Azure Active Directory reporting FAQ
 
 
-**Q: What’s the data retention for Activity logs (Audit and Sign-ins) in the portal?** 
+**Q: What is the data retention for Activity logs (Audit and Sign-ins) in the portal?** 
 
 **A:** We provide 7 days of data for our free customers and by switching to an Azure AD Premium 1 or Premium 2 licenses, you can access data for up to 30 day . For more detailed information on retention, click [here](active-directory-reporting-retention.md)
 
@@ -31,7 +31,7 @@ ms.author: markvi
 
 ---
 
-**Q: Do I nee to be a Global Admin to see the Activity logs in Azure Portal or get data through the API?**
+**Q: Do I need to be a Global Admin to see the Activity logs in Azure Portal or get data through the API?**
 
 **A:** No. You can either be a **Security Reader**, a **Security Admin** or a **Global Admin** to see reporting data in Azure Portal or access it through the API.
 
@@ -74,9 +74,9 @@ ms.author: markvi
 
 ---
 
-**Q: Do I see last one month data after getting premium license?**
+**Q: Do I see the data of the last month data after getting an Azure AD premium license?**
 
-**A:** : If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you will see up to 30 days
+**A:**: If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you will see up to 30 days
 
  
 ---
