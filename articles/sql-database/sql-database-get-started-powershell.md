@@ -39,7 +39,7 @@ In this tutorial, you also:
 * Connect to the sample database
 * View user database properties
 
-When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
+When you finish this tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have a server-level firewall rule configured to enable the server-level principal to login to the server from a specified IP address (or IP address range). 
 
 **Time estimate:** This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
 
@@ -61,7 +61,9 @@ When you finish this tutorial, you will have a sample database and a blank datab
 ## Create a new logical SQL server using Azure PowerShell
 
 You need a resource group to contain the server, so the first step is to either create a new resource group and server ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), or get references to existing ones ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
-The following snippets will create a resource group and Azure SQL server if they don't already exist:
+
+
+The following snippets create a resource group and Azure SQL server if they don't already exist:
 
 For a list of valid Azure locations and string format, see [Helper snippets](#helper-snippets) section below.
 ```
