@@ -73,4 +73,4 @@ During failback, it is recommended to deploy process server in Azure if there is
 
 ## Unregistering the process server (running in Azure) from a Configuration Server (running on-premises)
 
-[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
+[!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
