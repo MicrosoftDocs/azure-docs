@@ -22,7 +22,7 @@ ms.author: anoopkv
 Configuration server acts as a coordinator between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage the Configuration server.
 
 ## Prerequisites
-The minimum hardware, software and network configuration required to setup a configuration is as listed below.
+The following are the minimum hardware, software, and network configuration required to set up a Configuration server.
 
 > [!NOTE]
 > [Capacity planning](site-recovery-capacity-planner.md) is an important step to ensure that you deploy the Configuration server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration server](#sizing-requirements-for-a-configuration-server).
