@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/31/2017
-ms.author: vakarand
+ms.date: 02/06/2017
+ms.author: billmath
 
 ---
 # Using Azure AD Connect Health for sync
@@ -103,7 +103,7 @@ Following data is available in the detailed view for each error
 ![Sync Error Report Details](./media/active-directory-aadconnect-health-sync/errorreport04.png)
 
 ### Download the error report as CSV
-By selecting the "Export" button you can download a CSV file with all the details about all the errors.
+This capability is coming soon. Stay tuned for more updates.
 
 ## Related links
 * [Troubleshooting Errors during synchronization](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)
