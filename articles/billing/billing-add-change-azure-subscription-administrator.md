@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/17/2017
 ms.author: genli
 
 ---
@@ -26,7 +26,7 @@ You can add an Azure administrator in the Azure portal or in the Azure classic p
 
 **Azure portal**
 
-To add someone as an admin for a subscription in the Azure portal, you give them the owner role. The owner role can only manage the resources in the subscription that you assigned. This role does not have access privilege to other subscriptions. The owners you add through the [Azure portal](https://portal.azure.com) cannot manage resource in the [Azure classic portal](https://manage.windowsazure.com).
+To add someone as an admin for a subscription in the Azure portal, you give them the owner role. The owner role can only manage the resources in the subscription that you assigned. It doesn't have access privilege to other subscriptions. The owners you add through the [Azure portal](https://portal.azure.com) can't manage resource in the [Azure classic portal](https://manage.windowsazure.com).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **Subscription** > *the subscription that you want the admin to access*.
@@ -80,7 +80,7 @@ Only the Account Administrator can change the Service Administrator for a subscr
 ## Change the Account Administrator
 To transfer ownership of the Azure account to another account, see [Transferring Ownership of an Azure subscription](billing-subscription-transfer.md).
 
-We strongly recommend that you don't delete or rename the Account Administrator's email address. You may see unexpected and undesirable behavior with the Azure account. You may not be able sign in to Azure with that account, make changes to the account, or manage resources with that account. 
+We strongly recommend that you don't delete or rename the Account Administrator's email address. You may see unexpected and undesirable behavior with the Azure account. You may not be able sign-in to Azure with that account, make changes to the account, or manage resources with that account. 
 
 ## Check the Account Administrator of the subscription
 If you're not sure who the account administrator is for your subscription, use the following steps to find out.
@@ -104,7 +104,7 @@ Azure Active Directory Role-based Access Control (RBAC) allows users to be added
 ## Limitations and restrictions for admin accounts
 * Each subscription is associated with an Azure AD directory (also known as the Default Directory). To find the Default Directory the subscription is associated with, go to the [Azure classic portal](https://manage.windowsazure.com/), select **Settings** > **Subscriptions**. Check the subscription ID to find the Default Directory.
 * If you are signed in with a Microsoft Account, you can only add other Microsoft Accounts or users within the Default Directory as Co-Administrator.
-* If you are signed in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but cannot add john@notcontoso.com unless john@noncontoso.com is the user in Default Directory. Users signed in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
+* If you are signed in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but can't add john@notcontoso.com unless john@noncontoso.com is in Default Directory. Users signed in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
 * Now that it is possible to sign in to Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
 
   | Sign in Method | Add Microsoft Account or users within Default Directory as CA or SA? | Add organizational account in the same organization as CA or SA? | Add organizational account in different organization as CA or SA? |
@@ -114,7 +114,7 @@ Azure Active Directory Role-based Access Control (RBAC) allows users to be added
 
 ## Learn more about resource access control and Active Directory
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../active-directory/active-directory-understanding-resource-access.md).
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
+* For more information about Azure Active Directory, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
