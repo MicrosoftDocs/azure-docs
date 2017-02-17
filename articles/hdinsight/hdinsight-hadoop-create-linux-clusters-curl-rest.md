@@ -22,7 +22,9 @@ ms.author: larryfr
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters. In this document, you will learn how to create Azure Resource Manager templates to configure an HDInsight cluster and associated storage, then use cURL to deploy the template to the Azure REST API to create a new HDInsight cluster.
+Learn how to create an HDInsight cluster using an Azure Resource Manager template and the Azure REST API.
+
+The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
@@ -38,9 +40,9 @@ The Azure REST API allows you to perform management operations on services hoste
 * **cURL**. This utility is available through your package management system, or can be downloaded from [http://curl.haxx.se/](http://curl.haxx.se/).
 
   > [!NOTE]
-  > If you are using PowerShell to run the commands in this document, you must first remove the `curl` alias that it creates by default. This alias uses Invoke-WebRequest, a PowerShell cmdlet, instead of cURL when you use the `curl` command from a PowerShell prompt, and will return errors for many of the commands used in this document.
+  > If you are using PowerShell to run the commands in this document, you must first remove the `curl` alias that it creates by default. This alias uses Invoke-WebRequest instead of cURL. If you do not remove this alias, you may receive errors with some of the commands used in this document.
   >
-  > To remove this alias, use the following from the PowerShell prompt:
+  > To remove this alias, use the following command from the PowerShell prompt:
   >
   > `Remove-item alias:curl`
   >
@@ -52,25 +54,9 @@ The Azure REST API allows you to perform management operations on services hoste
 
 ## Create a template
 
-Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template based approach allows you to define all the resources that you need for HDInsight in one template, and to manage changes to the group as a whole through **deployments** that apply changes to the group.
+Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define the resources that you need for HDInsight in one template.
 
-Templates are usually provided in two parts; the template itself, and a parameters file that you populate with values specific to your configuration. For exmaple, the cluster name, admin name and password. When directly using the REST API, you must combine these into one file. The format of this JSON document is:
-
-   ```json
-   {
-       "properties": {
-           "template": {
-               contents of template file
-           },
-           "mode": "deploymentmode",
-           "Parameters": {
-               contents of the parameters element from parameters file
-           }
-       }
-   }
-   ```
-
-For example, the following is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
+The following is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
 
    ```json
    {
@@ -92,7 +78,7 @@ For example, the following is a merger of the template and parameters files from
                        "West Europe",
                        "West US"],
                        "metadata": {
-                           "description": "The location where all azure resources will be deployed."
+                           "description": "The location where all azure resources are deployed."
                        }
                    },
                    "clusterType": {
@@ -264,21 +250,21 @@ For example, the following is a merger of the template and parameters files from
    }
    ```
 
-This example will be used in the steps in this document. You must replace the placeholder *values* in the **Parameters** section at the end of the document with the values you wish to use for your cluster.
+This example is used in the steps in this document. Replace the example *values* in the **Parameters** section with the values for your cluster.
 
 > [!IMPORTANT]
-> The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
+> The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14 GB ram.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Login to your Azure subscription
+## Log in to your Azure subscription
 
 Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 
 > [!NOTE]
-> These steps are an abridged version of the information provided in the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) document. These steps create a new service principal that can be used to authenticate the REST API requests used to create Azure resources such as an HDInsight cluster.
+> These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) document. These steps create a service principal that is used to authenticate to the Azure REST API.
 
 1. From a command line, use the following command to list your Azure subscriptions.
 
@@ -288,7 +274,7 @@ Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.mic
 
     In the list, select the subscription that you want to use and note the **Subscription_ID** and __Tenant_ID__ columns. Save these values.
 
-2. Use the following command to create a new application in Azure Active Directory.
+2. Use the following command to create an application in Azure Active Directory.
 
    ```bash
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
@@ -297,7 +283,7 @@ Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.mic
     Replace the values for the `--display-name`, `--homepage`, and `--identifier-uris` with your own values. Provide a password for the new Active Directory entry.
 
    > [!NOTE]
-   > Since you are creating this application for authentication through a service principal, the `--home-page` and `--identifier-uris` values don't need to reference an actual web page hosted on the internet; they just need to be unique URIs.
+   > The `--home-page` and `--identifier-uris` values don't need to reference an actual web page hosted on the internet. They must be unique URIs.
 
    The value returned from this command is the __App ID__ for the new application. Save this value.
 
@@ -309,7 +295,7 @@ Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.mic
 
      The value returned from this command is the __Object ID__. Save this value.
 
-4. Assign the **Owner** role to the service principal using the **Object ID** value. You must also use the **subscription ID** you obtained earlier.
+4. Assign the **Owner** role to the service principal using the **Object ID** value. Use the **subscription ID** you obtained earlier.
 
    ```bash
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -329,9 +315,9 @@ Use the following command to retrieve an authentication token:
 
     Replace **TenantID**, **AppID**, and **password** with the values obtained or used previously.
 
-    If this request is successful, you will receive a 200 series response and the response body will contain a JSON document.
+    If this request is successful, you receive a 200 series response and the response body contains a JSON document.
 
-    The JSON document returned by this request will contain an element named **access_token**; the value of this element is the access token you must use to authentication the requests used in the next sections of this document.
+    The JSON document returned by this request contains an element named **access_token**. The value of **access_token** is used to authentication requests to the REST API.
 
    ```json
    {
@@ -345,7 +331,7 @@ Use the following command to retrieve an authentication token:
 
 ## Create a resource group
 
-Use the following to create a new resource group. You must create the group first before you can create the resources such as the HDInsight cluster.
+Use the following to create a resource group.
 
 * Replace **SubscriptionID** with the subscription ID received while creating the service principal.
 * Replace **AccessToken** with the access token received in the previous step.
@@ -361,11 +347,11 @@ curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 }'
 ```
 
-If this request is successful, you will receive a 200 series response and the response body will contain a JSON document containing information about the group. The `"provisioningState"` element will contain a value of `"Succeeded"`.
+If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the group. The `"provisioningState"` element contains a value of `"Succeeded"`.
 
 ## Create a deployment
 
-Use the following to deploy the cluster configuration (template and parameter values,) to the resource group.
+Use the following command to deploy the template to the resource group.
 
 * Replace **SubscriptionID** and **AccessToken** with the values used previously.
 * Replace **ResourceGroupName** with the resource group name you created in the previous section.
@@ -379,18 +365,18 @@ curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 ```
 
 > [!NOTE]
-> If you have saved the JSON document containing the template and parameters to a file, you can use the following instead of `-d "{ template and parameters}"`:
+> If you saved the teplate to a file, you can use the following command instead of `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
-If this request is successful, you will receive a 200 series response and the response body will contain a JSON document containing information about the deployment operation.
+If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the deployment operation.
 
 > [!IMPORTANT]
-> Note that the deployment has been submitted, but has not completed at this time. It can take several minutes, usually around 15, for the deployment to complete.
+> The deployment has been submitted, but has not completed at this time. It can take several minutes, usually around 15, for the deployment to complete.
 
 ## Check the status of a deployment
 
-To check the status of the deployment, use the following:
+To check the status of the deployment, use the following command:
 
 * Replace **SubscriptionID** and **AccessToken** with the values used previously.
 * Replace **ResourceGroupName** with the resource group name you created in the previous section.
@@ -401,7 +387,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 -H "Content-Type: application/json"
 ```
 
-This will return information a JSON document containing information about the deployment operation. The `"provisioningState"` element will contain the status of the deployment; if this contains a value of `"Succeeded"`, then the deployment has completed successfully. At this point, your cluster should be available for use.
+This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this contains a value of `"Succeeded"`, then the deployment has completed successfully.
 
 ## Next steps
 

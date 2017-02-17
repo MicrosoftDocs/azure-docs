@@ -39,9 +39,9 @@ For more information about the version of Mahout in HDInsight, see [HDInsight ve
 
 ## <a name="recommendations"></a>Understanding recommendations
 
-One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the users preference for the item). Mahout can then perform co-occurance analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
+One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the preference for the item). Mahout can then perform co-occurance analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
 
-The following workflow is an extremely simple example that uses movie data:
+The following workflow is a simplified example that uses movie data:
 
 * **Co-occurance**: Joe, Alice, and Bob all liked *Star Wars*, *The Empire Strikes Back*, and *Return of the Jedi*. Mahout determines that users who like any one of these movies also like the other two.
 
@@ -53,7 +53,7 @@ The following workflow is an extremely simple example that uses movie data:
 
 Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-There are two files, `moviedb.txt` (information about the movies,) and `user-ratings.txt`. The user-ratings.txt file is used during analysis, while moviedb.txt is used to provide user-friendly text information when displaying the results of the analysis.
+There are two files, `moviedb.txt` and `user-ratings.txt`. The user-ratings.txt file is used during analysis, while moviedb.txt is used to provide user-friendly text information when displaying the results of the analysis.
 
 The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
 
@@ -91,16 +91,16 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    
     The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
 
-2. You can use the output, along with the moviedb.txt, to display more user-friendly information. First, we need to copy the files locally using the following commands:
+2. You can use the output, along with the moviedb.txt, to provide more information on the recommendations. First, we need to copy the files locally using the following commands:
 
    ```bash
    hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
    hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
    ```
 
-    This copies the output data to a file named **recommendations.txt** in the current directory, along with the movie data files.
+    This command copies the output data to a file named **recommendations.txt** in the current directory, along with the movie data files.
 
-3. Use the following command to create a new Python script that looks up movie names for the data in the recommendations output:
+3. Use the following command to create a Python script that looks up movie names for the data in the recommendations output:
 
    ```bash
    nano show_recommendations.py
@@ -114,8 +114,8 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    import sys
 
    if len(sys.argv) != 5:
-           print "Arguments: userId userDataFilename movieFilename recommendationFilename"
-           sys.exit(1)
+        print "Arguments: userId userDataFilename movieFilename recommendationFilename"
+        sys.exit(1)
 
    userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
 
@@ -123,40 +123,40 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    movieFile = open(movieFilename)
    movieById = {}
    for line in movieFile:
-           tokens = line.split("|")
-           movieById[tokens[0]] = tokens[1:]
+       tokens = line.split("|")
+       movieById[tokens[0]] = tokens[1:]
    movieFile.close()
 
    print "Reading Rated Movies"
    userDataFile = open(userDataFilename)
    ratedMovieIds = []
    for line in userDataFile:
-           tokens = line.split("\t")
-           if tokens[0] == userId:
-                   ratedMovieIds.append((tokens[1],tokens[2]))
+       tokens = line.split("\t")
+       if tokens[0] == userId:
+           ratedMovieIds.append((tokens[1],tokens[2]))
    userDataFile.close()
 
    print "Reading Recommendations"
    recommendationFile = open(recommendationFilename)
    recommendations = []
    for line in recommendationFile:
-           tokens = line.split("\t")
-           if tokens[0] == userId:
-                   movieIdAndScores = tokens[1].strip("[]\n").split(",")
-                   recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
-                   break
+       tokens = line.split("\t")
+       if tokens[0] == userId:
+           movieIdAndScores = tokens[1].strip("[]\n").split(",")
+           recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
+           break
    recommendationFile.close()
 
    print "Rated Movies"
    print "------------------------"
    for movieId, rating in ratedMovieIds:
-           print "%s, rating=%s" % (movieById[movieId][0], rating)
+       print "%s, rating=%s" % (movieById[movieId][0], rating)
    print "------------------------"
 
    print "Recommended Movies"
    print "------------------------"
    for movieId, score in recommendations:
-           print "%s, score=%s" % (movieById[movieId][0], score)
+       print "%s, score=%s" % (movieById[movieId][0], score)
    print "------------------------"
    ```
    
@@ -176,7 +176,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     
     This command looks at the recommendations generated for user ID 4.
    
-   * The **user-ratings.txt** file is used to retrieve movies that the user has rated.
+   * The **user-ratings.txt** file is used to retrieve movies that have been rated.
 
    * The **moviedb.txt** file is used to retrieve the names of the movies.
 

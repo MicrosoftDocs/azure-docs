@@ -19,10 +19,10 @@ ms.author: larryfr
 
 ---
 # Develop Java MapReduce programs for Hadoop on HDInsight Linux
-This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
+
+Learn how to use Apache Maven to create a Java-based MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
 
 ## <a name="prerequisites"></a>Prerequisites
-Before you begin this tutorial, you must have the following:
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)...
     
@@ -40,7 +40,7 @@ Before you begin this tutorial, you must have the following:
 ## Configure environment variables
 The following environment variables may be set when you install Java and the JDK. However, you should check that they exist and that they contain the correct values for your system.
 
-* `JAVA_HOME` - should point to the directory where the Java runtime environment (JRE) is installed. For example, in a OS X, Unix or Linux system, it should have a value similar to `/usr/lib/jvm/java-7-oracle`. In Windows, it would have a value similar to `c:\Program Files (x86)\Java\jre1.7`
+* `JAVA_HOME` - should point to the directory where the Java runtime environment (JRE) is installed. For example, on an OS X, Unix or Linux system, it should have a value similar to `/usr/lib/jvm/java-7-oracle`. In Windows, it would have a value similar to `c:\Program Files (x86)\Java\jre1.7`
 
 * `PATH` - should contain the following paths:
   
@@ -50,7 +50,7 @@ The following environment variables may be set when you install Java and the JDK
 
   * The directory where Maven is installed
 
-## Create a new Maven project
+## Create a Maven project
 
 1. From a terminal session, or command line in your development environment, change directories to the location you want to store this project.
 
@@ -60,7 +60,7 @@ The following environment variables may be set when you install Java and the JDK
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    This creates a new directory in the current directory, with the name specified by the **artifactID** parameter (**wordcountjava** in this example.) This directory contains the following items:
+    This command creates a directory with the name specified by the **artifactID** parameter (**wordcountjava** in this example.) This directory contains the following items:
 
    * `pom.xml` - The [Project Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) that contains information and configuration details used to build the project.
 
@@ -70,7 +70,7 @@ The following environment variables may be set when you install Java and the JDK
 
 ## Add dependencies
 
-1. Edit the `pom.xml` file and add the following inside the `<dependencies>` section:
+1. Edit the `pom.xml` file and add the following text inside the `<dependencies>` section:
    
    ```xml
     <dependency>
@@ -93,11 +93,11 @@ The following environment variables may be set when you install Java and the JDK
     </dependency>
    ```
 
-    This tells Maven that the project requires the libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, this is downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
+    This defines required libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, these dependencies are downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
    
     The `<scope>provided</scope>` tells Maven that these dependencies should not be packaged with the application, as they are provided by the HDInsight cluster at run-time.
 
-2. Add the following to the `pom.xml` file. This must be inside the `<project>...</project>` tags in the file; for example, between `</dependencies>` and `</project>`.
+2. Add the following to the `pom.xml` file. This text must be inside the `<project>...</project>` tags in the file; for example, between `</dependencies>` and `</project>`.
 
    ```xml
     <build>
@@ -135,7 +135,10 @@ The following environment variables may be set when you install Java and the JDK
 
     The first plugin configures the [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/), which is used to build an uberjar (sometimes called a fatjar), which contains dependencies required by the application. It also prevents duplication of licenses within the jar package, which can cause problems on some systems.
 
-    The second plugin configures the Maven compiler, which is used to set the version of Java required by this application to the version used on the HDInsight cluster.
+    The second plugin configures the target Java version.
+
+    > [!NOTE]
+    > HDInsight 3.4 and earlier use Java 7. HDInsight 3.5 uses Java 8.
 
 3. Save the `pom.xml` file.
 
@@ -143,7 +146,7 @@ The following environment variables may be set when you install Java and the JDK
 
 1. Go to the `wordcountjava/src/main/java/org/apache/hadoop/examples` directory and rename the `App.java` file to `WordCount.java`.
 
-2. Open the `WordCount.java` file in a text editor and replace the contents with the following:
+2. Open the `WordCount.java` file in a text editor and replace the contents with the following text:
    
    ```java
    package org.apache.hadoop.examples;
@@ -230,7 +233,7 @@ The following environment variables may be set when you install Java and the JDK
    mvn clean package
    ```
 
-    This cleans any previous build artifacts, downloads any dependencies that have not already been installed, and then builds and package the application.
+    This command cleans any previous build artifacts, downloads any dependencies that have not already been installed, and then builds and package the application.
 
 3. Once the command finishes, the `wordcountjava/target` directory contains a file named `wordcountjava-1.0-SNAPSHOT.jar`.
    
@@ -247,7 +250,7 @@ Use the following command to upload the jar file to the HDInsight headnode:
 
     Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
-This copies the files from the local system to the head node.
+This command copies the files from the local system to the head node.
 
 > [!NOTE]
 > If you used a password to secure your SSH account, you are prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key. For example, `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
@@ -266,15 +269,15 @@ This copies the files from the local system to the head node.
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    This uses the WordCount MapReduce application to count the words in the davinci.txt file. The results are stored to  to **/example/data/wordcountout**. Both the input file and output are stored to the default storage for the cluster.
+    This command starts the WordCount MapReduce application. The input file is **/example/data/gutenberg/davinci.txt**, and the output is stored in **/example/data/wordcountout**. Both the input file and output are stored to the default storage for the cluster.
 
-3. Once the job completes, use the following to view the results:
+3. Once the job completes, use the following command to view the results:
    
    ```bash
    hdfs dfs -cat /example/data/wordcountout/*
    ```
 
-    You should receive a list of words and counts, with values similar to the following:
+    You should receive a list of words and counts, with values similar to the following text:
    
         zeal    1
         zelus   1
