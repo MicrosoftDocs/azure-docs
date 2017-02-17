@@ -319,13 +319,19 @@ In Azure Search, you can’t change the scoring logic, but you can apply term bo
 
 ## Next steps
 
-+ Opt in for the full query parser to use additional operators and query types (fuzzy search, proximity search, wildcard search, regular expressions, and so on)
++ Opt in for the full query parser to use additional operators and query types (fuzzy search, proximity search, wildcard search, regular expressions, and so on). For small indexes with lean documents, you can use the **Search explorer** tool in the portal to evaluate query behaviors. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
 
-+ Choose a different language analyzer for non-English linguistic analysis.
++ [Choose a different language analyzer](search-language-support.md) for non-English linguistic analysis.
 
-+ Configure custom analyzers for either minimal processing or specialized processing on specific fields.
++ [Configure custom analyzers]() for either minimal processing or specialized processing on specific fields.
 
 ## See also
+
+[Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
+
+[Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+
+[Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
 <!--Image references-->
 [1]: ./media/search-query-architecture/architecture-diagram.png
