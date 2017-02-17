@@ -1,6 +1,6 @@
 ---
-title: How to use Azure API Management in Virtual network with Application Gateway | Microsoft Docs
-description: Learn how to setup and configure Azure API Management in Internal virtual network with Application Gateway (WAF) as FrontEnd
+title: How to use Azure API Management in Virtual Network with Application Gateway | Microsoft Docs
+description: Learn how to setup and configure Azure API Management in Internal Virtual Network with Application Gateway (WAF) as FrontEnd
 services: api-management
 documentationcenter: ''
 author: solankisamir
@@ -21,7 +21,7 @@ ms.author: sasolank
 
 ##<a name="overview"> </a> Overview
  
-The API Management service can be configured in a virtual network in internal mode which makes it accessible only from within the virtual network. Azure Application Gateway is a PAAS Service which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
+The API Management service can be configured in a Virtual Network in internal mode which makes it accessible only from within the Virtual Network. Azure Application Gateway is a PAAS Service which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
 
 Combining API Management provisioned in an internal VNET with the Application Gateway frontend enables the following scenarios:
 
@@ -30,17 +30,17 @@ Combining API Management provisioned in an internal VNET with the Application Ga
 * Provide a turn-key way to switch access to API Management from the public Internet on and off. 
 
 ##<a name="scenario"> </a> Scenario
-This post will cover how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using the PathBasedRouting functionality available in Application Gateway.
+This article will cover how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for External Consumption using the PathBasedRouting functionality available in Application Gateway.
 
-In the first setup example all your APIs are managed only from within your virtual network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to Internet a high performance is delivered via Express Route circuits.
+In the first setup example all your APIs are managed only from within your Virtual Network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to Internet a high performance is delivered via Express Route circuits.
 
 ![url route](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"> </a> Before you begin
 
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
-2. Create a virtual network and create separate subnets for API Management and Application Gateway. 
-3. If you intend to create a custom DNS server for the virtual network, do so before starting the deployment. Double check it works by ensuring a virtual machine created in a new subnet in the virtual network can resolve and access all Azure service endpoints.
+2. Create a Virtual Network and create separate subnets for API Management and Application Gateway. 
+3. If you intend to create a custom DNS server for the Virtual Network, do so before starting the deployment. Double check it works by ensuring a virtual machine created in a new subnet in the Virtual Network can resolve and access all Azure service endpoints.
 
 ## What is required to create an integration between API Management and Application Gateway?
 
@@ -55,7 +55,7 @@ In the first setup example all your APIs are managed only from within your virtu
 ## <a name="overview-steps"> </a> Steps required for integrating API Management and Application Gateway 
 
 1. Create a resource group for Resource Manager.
-2. Create a virtual network, subnet, and public IP for the Application Gateway. Create another subnet for API Management.
+2. Create a Virtual Network, subnet, and public IP for the Application Gateway. Create another subnet for API Management.
 3. Create an API Management service inside the VNET subnet created above and ensure you use the Internal mode.
 4. Setup the custom domain name in the API Management service.
 5. Create an Application Gateway configuration object.
@@ -93,13 +93,13 @@ New-AzureRmResourceGroup -Name apim-appGw-RG -Location "West US"
 ```
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
-## Create a virtual network and a subnet for the application gateway
+## Create a Virtual Network and a subnet for the application gateway
 
-The following example shows how to create a virtual network using the resource manager.
+The following example shows how to create a Virtual Network using the resource manager.
 
 ### Step 1
 
-Assign the address range 10.0.0.0/24 to the subnet variable to be used for Application Gateway while creating a virtual network.
+Assign the address range 10.0.0.0/24 to the subnet variable to be used for Application Gateway while creating a Virtual Network.
 
 ```powershell
 $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressPrefix 10.0.0.0/24
@@ -107,7 +107,7 @@ $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressP
 
 ### Step 2
 
-Assign the address range 10.0.1.0/24 to the subnet variable to be used for API Management while creating a virtual network.
+Assign the address range 10.0.1.0/24 to the subnet variable to be used for API Management while creating a Virtual Network.
 
 ```powershell
 $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressPrefix 10.0.1.0/24
@@ -115,7 +115,7 @@ $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name apim01 -AddressPrefix 
 
 ### Step 3
 
-Create a virtual network named **appgwvnet** in resource group **apim-appGw-RG** for the West US region using the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
+Create a Virtual Network named **appgwvnet** in resource group **apim-appGw-RG** for the West US region using the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName apim-appGw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $appgatewaysubnet,$apimsubnet
@@ -134,13 +134,13 @@ $apimsubnetdata=$vnet.Subnets[1]
 The following example shows how to create an API Management service in a VNET configured for internal access only.
 
 ### Step 1
-Create an API Management virtual network object using the subnet $apimsubnetdata created above.
+Create an API Management Virtual Network object using the subnet $apimsubnetdata created above.
 
 ```powershell
 $apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location "West US" -SubnetResourceId $apimsubnetdata.Id
 ```
 ### Step 2
-Create an API Management service inside the virtual network.
+Create an API Management service inside the Virtual Network.
 
 ```powershell
 $apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization Contoso -AdminEmail admin@contoso.com -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Premium"
@@ -293,7 +293,7 @@ Create an Application Gateway with all the configuration objects from the preced
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName apim-appGw-RG -Location "West US" -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
 ```
 
-## Cname the api management proxy hostname to public dns name of application gateway resource
+## CNAME the API Management proxy hostname to the public DNS name of the Application Gateway resource
 
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name, which may not be easy to use. 
 
