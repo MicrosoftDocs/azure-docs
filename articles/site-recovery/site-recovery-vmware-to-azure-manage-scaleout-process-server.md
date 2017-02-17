@@ -25,7 +25,7 @@ Scale-out Process server acts as a coordinator for data transfer between the Sit
 The minimum hardware, software and network configuration required to setup a Scale-out process server is as listed below.
 
 > [!NOTE]
-> [Capacity planning](site-recovery-plan-capacity-vmare.md) is an important step to ensure that you deploy the Scale-out Process server with a configuration that suites your load requirements. Read more about [Scaling characteristics for a Scale-out Process server](#sizing-requirements-for-a-configuration-server).
+> [Capacity planning](site-recovery-plan-capacity-vmware.md) is an important step to ensure that you deploy the Scale-out Process server with a configuration that suites your load requirements. Read more about [Scaling characteristics for a Scale-out Process server](#sizing-requirements-for-a-configuration-server).
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
