@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: bwren
 
-
+---
 # Using regular expressions to filter log searches in Log Analytics
 
 [Log searches](log-analytics-log-searches.md) allow you to extract information from the Log Analytics repository.  [Filter expressions](log-analytics-search-reference.md#filter-expression) allow you to filter the results of the search according to specific criteria.  The **RegEx** keyword allows you to specify a regular expression for this filter.  
@@ -66,7 +66,7 @@ Specify multiple occurrences of a particular characters.
 Select from multiple values.
 
 | Character | Description | Example | Sample Matches |
-|:--|:--|:--|
+|:--|:--|:--|:--|
 | &#124; | Logical OR.  Returns result if match on either expression. | Type=Alert AlertSeverity=RegEx("Warning&#124;Error") | Warning<br>Error |
 | & | Logical AND.  Returns result if match on both expressions | EventData=regex(“(Security.*&.*success.*)”) | Security auditing successful |
 
