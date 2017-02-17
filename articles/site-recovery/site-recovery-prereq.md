@@ -1,4 +1,5 @@
 ---
+=======
 title: Prerequisites for replication to Azure by using Azure Site Recovery | Microsoft Docs
 description: This article summarizes prerequisites for replicating VMs and physical machines to Azure by using the Azure Site Recovery service.
 services: site-recovery
@@ -17,7 +18,9 @@ ms.date: 12/11/2016
 ms.author: rajanaki
 ---
 
+
 #  Prerequisites for replication to Azure by using Azure Site Recovery
+
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
 
@@ -62,7 +65,8 @@ Following are the required components for disaster recovery of VMware virtual ma
 | --- | --- |
 | **On-premises** (VMware VMs) | Replicated VMs should have VMware tools installed and running.<br/><br/> VMs should conform with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements) for creating Azure VMs.<br/><br/>Individual disk capacity on protected machines shouldn’t be more than 1,023 GB. <br/><br/>A minimum 2 GB of available space on the installation drive is required for component installation.<br/><br/>Port 20004 should be opened on the VM local firewall if you want to enable multi-VM consistency.<br/><br/>Machine names should contain between 1 and 63 characters (letters, numbers, and hyphens). The name must start with a letter or number and end with a letter or number. After you've enabled replication for a machine, you can modify the Azure name.<br/><br/> |
 | **Windows machines** (physical or VMware) | The machine should be running a supported 64-bit operating system: Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.<br/><br/> The operating system should be installed on drive C. The OS disk should be a Windows basic disk and not dynamic. The data disk can be dynamic.<br/><br/>|
-| **Linux machines** (physical or VMware) | You need a supported 64-bit operating system: Red Hat Enterprise Linux 6.7, 7.1, or 7.2; Centos 6.5, 6.6, 6.7, 7.0, 7.1, or 7.2; Oracle Enterprise Linux 6.4 or 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>Your /etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all network adapters.<br/><br/>If you want to connect to an Azure virtual machine running Linux after failover by using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot and that firewall rules allow an ssh connection to it.<br/><br/>The host name, mount points, device names, and Linux system paths and file names (for example, /etc/; /usr) should be in English only.<br/><br/>
+| **Linux machines** (physical or VMware) | You need a supported 64-bit operating system: Red Hat Enterprise Linux 6.7, 6.8, 7.1, or 7.2; Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, or 7.2; Oracle Enterprise Linux 6.4 or 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>Your /etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all network adapters.<br/><br/>If you want to connect to an Azure virtual machine running Linux after failover by using a Secure Shell client (ssh), ensure that the Secure Shell service on the protected machine is set to start automatically on system boot and that firewall rules allow an ssh connection to it.<br/><br/>The host name, mount points, device names, and Linux system paths and file names (for example, /etc/; /usr) should be in English only.<br/><br/>
+
 
 ## Disaster recovery of Hyper-V virtual machines to Azure (no Virtual Machine Manager)
 

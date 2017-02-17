@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: giridham;jimpark;trinadhk;markgal
+ms.author: adigan;giridham;trinadhk;markgal
 
 ---
 # Recovering data from another Azure Backup Server in the backup vault
