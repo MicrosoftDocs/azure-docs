@@ -1,9 +1,9 @@
 ---
-title: Availability vs. Consistency in Azure Event Hubs | Microsoft Docs
-description: Availability vs. Consistency in Azure Event Hubs.
+title: Availability and consistency in Azure Event Hubs | Microsoft Docs
+description: Availability and consistency in Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: sethmanheim;jtaubensee
 manager: timlt
 editor: ''
 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
-ms.author: sethm
+ms.author: sethm;jotaub
 ---
 
 # Availability and consistency in Event Hubs
 ## Overview
-Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#partitions) that allows for greater uptime within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions has failed, or been taken offline for updates, you can still send and receive from three other partitions. However, Event Hubs can only guarantee the ordering of messages on a single partition. For this reason, it can be benefical in certain use cases to send and receive from a particular partition.
+Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#partitions) that allows for greater uptime within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions has failed, or been taken offline for updates, you can still send and receive from three other partitions. However, Event Hubs can only guarantee the ordering of messages on a single partition. For this reason, it can be benefical to send and receive events from a specific partition.
 
 In order to help explain the tradeoff between ordering and availability, we can look to the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer’s theorem. The theorem states that, in the presence of a network partition, one must choose between consistency and availability. Since Event Hubs is built on top of a partitioned model, users must make a choice between availability and consistency (or ordering).
 
@@ -27,24 +27,30 @@ The theorem defines consistency and availability as the following:
 * Consistency – a read is guaranteed to return the most recent write for a given client.
 * Availability – a non-failing node returns a reasonable response within a reasonable amount of time (with no errors or timeouts).
 
-## Consistency
-Waiting for a response from a partitioned node can result in a timeout error. For example, in the Event Hubs scenario, you can use a sender pattern that takes a dependency on a partition by specifying the partition key or partition ID. The reason for this is the need for tightly coupled ordering, with no other workaround for ordering the events other than taking this dependency on partitions. Again, partition dependency requires a single node to be present all the time. However, network failures and updates are inevitable, requiring reboots and node patching. You can always maintain such order on events or messages in an Event Hub by assigning an ID to the message.
-
-As such, it’s important to choose consistency over availability when your business requires atomic reads and/or writes.
-
-```
-  // Code sample here
-```
-
 ## Availability
-Availability implies always returning the most recently available version of your event, message, or data. For example, if you send messages to Event Hubs in a particular sequence, you might not always read the messages in the same order in which they were sent. Note that Event Hubs will never send an acknowledgement without persisting the data to disk.
+The simplest way to get started with Event Hubs is the default behavior. If you create an new `EventHubClient` and use the send function, your events will automatically be distributed between partitions in your Event Hub. This behavior allows for the greatest amount of uptime. 
 
-Availability ensures that an always-on (always available) system continues to function even in the presence of external errors. If your business allows flexibility around the timeframe in which the data synchronizes in the system, and you can manage consistency without dependency on partitions, availability will be the choice over consistency.
+For use cases that require maximum uptime, this is the preferred model.
 
-## Summary
-Knowing that the tradeoff between availability and consistency is inherent in a distributed system, and that 100% network reliability is not achievable in today’s world, you should make that choice based on your business requirements. 
+## Event ordering
+In particular scenarios the ordering of events can be important. For example, you may want your back end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` to only send events to a certain partition. This will ensure that when these events are read from the partition, they will be read in order.
 
-Distributed systems can take advantage of the many benefits it offers, but also adds complexity. Accepting the trade-offs that the networking world offers, it’s important to choose the right path to build more robust and successful applications. 
+With this type of configuration, users must keep in mind that if the particular partition that you are sending to is unavailable, you will receive an error response. As a point of comparison, if you did not have an affinity to a single partition, the Event Hubs service would send your event to the next available partition.
+
+One possible solution to ensure ordering, while also maximizing uptime would be to aggregate events as a part of your event processing applicaton. The easiest way to accomplish this would be to stamp your event with a custom sequence number property. The following is an example of such:
+
+```csharp
+// Get the latest sequence number from your application
+var sequenceNumber = GetNextSequenceNumber();
+// Create a new EventData object by encoding a string as a byte array
+var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
+// Set a custom sequence number property
+data.Properties.Add("SequenceNumber", sequenceNumber);
+// Send single message async
+await eventHubClient.SendAsync(data);
+```
+
+The above example would send your event to one of the available partitions in your Event Hub, and set the corresponding sequence number from your application. This solution will require some sort of state to be kept by your processing application, but would give your senders an endpoint that is more likely to be available.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
