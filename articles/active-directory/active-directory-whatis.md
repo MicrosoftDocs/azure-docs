@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 02/14/2017
 ms.author: curtand
 
 ---
@@ -143,7 +143,7 @@ Via ACLs, can be applied individually or through groups, supports: Admin managed
 
 **If you are an IT admin:**
 
-* [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
+* [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 day trial today and deploy your first cloud solution in under 5 minutes using this link
 
 * Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
 

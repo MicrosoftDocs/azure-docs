@@ -1,5 +1,5 @@
 ---
-title: SQL Database Authentication and Authorization | Microsoft Docs
+title: Azure SQL logins and users | Microsoft Docs
 description: Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
@@ -13,10 +13,10 @@ ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
 
 ---
@@ -26,6 +26,12 @@ When firewall rules have been configured, people can connect to a SQL Database a
 
 >  [!NOTE]  
 >  This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
+>
+
+> [!TIP]
+> For a tutorial using SQL Server authentication, see [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md). For a tutorial using Azure Active Directory authentication, see [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md).
+>
+
 
 ## Unrestricted administrative accounts
 There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the properties of your SQL server.
@@ -70,7 +76,7 @@ For a walk-through of creating a server, a database, server-level firewall rules
 In addition to the server-level administrative roles discussed previously, SQL Database provides two restricted administrative roles in the master database to which user accounts can be added that grant permissions to either create databases or manage logins.
 
 ### Database creators
-One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. The user can be a contained database user, or a user based on a SQL Server login in the master database.
+One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. To create a database, the user must be a user based on a SQL Server login in the master database or contained database user based on an Azure Active Directory user.
 
 1. Using an administrator account, connect to the master database.
 2. Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
@@ -129,7 +135,6 @@ To give additional users full control of the database, make them a member of the
 
 > [!NOTE]
 > The most common reason to create database users based on logins, is when you have SQL Server authentication users that need access to multiple databases. Users based on logins are tied to the login, and only one password that is maintained for that login. Contained database users in individual databases are each individual entities and each maintains its own password. This can confuse contained database users if they do not maintain their passwords as identical.
- 
 
 ### Configuring the database-level firewall
 As a best practice, non-administrator users should only have access through the firewall to the databases that they use. Instead of authorizing their IP addresses through the server-level firewall and giving them access to all databases, use the [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) statement to configure the database-level firewall. The database-level firewall cannot be configured by using the portal.
@@ -155,9 +160,10 @@ There are over 100 permissions that can be individually granted or denied in SQL
 ### Considerations and restrictions
 When managing logins and users in SQL Database, consider the following:
 
-* You must be connected to the **master** database when executing the `CREATE/ALTER/DROP DATABASE` statements. The database user in the master database corresponding to the **Server admin** login cannot be altered or dropped. 
+* You must be connected to the **master** database when executing the `CREATE/ALTER/DROP DATABASE` statements.   
+* The database user corresponding to the **Server admin** login cannot be altered or dropped. 
 * US-English is the default language of the **Server admin** login.
-* Only the administrators (s**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
+* Only the administrators (**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
 * You must be connected to the master database when executing the `CREATE/ALTER/DROP LOGIN` statements. However using logins is discouraged. Use contained database users instead.
 * To connect to a user database, you must provide the name of the database in the connection string.
 * Only the server-level principal login and the members of the **loginmanager** database role in the **master** database have permission to execute the `CREATE LOGIN`, `ALTER LOGIN`, and `DROP LOGIN` statements.
@@ -182,7 +188,8 @@ When managing logins and users in SQL Database, consider the following:
 
 - To learn more about firewall rules, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
 - For an overview of all the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).
-- For a tutorial, see [Get started with SQL security](sql-database-get-started-security.md)
+- For a tutorial, see [Get started with SQL security](sql-database-control-access-sql-authentication-get-started.md)
 - For information about views and stored procedures, see [Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
 - For information about granting access to a database object, see [Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
-
+- For a tutorial using SQL Server authentication, see [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md).
+- For a tutorial using Azure Active Directory authentication, see [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md).

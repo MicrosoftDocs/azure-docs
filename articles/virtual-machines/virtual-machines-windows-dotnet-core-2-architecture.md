@@ -1,5 +1,5 @@
 ---
-title: Deploying Compute Resources with Azure Resource Manager Templates | Microsoft Docs
+title: Deploying Windows Compute Resources with Azure Resource Manager Templates | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-windows
 documentationcenter: virtual-machines

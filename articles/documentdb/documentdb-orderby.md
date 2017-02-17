@@ -1,20 +1,6 @@
 ---
-title: Sorting DocumentDB data using Order By | Microsoft Docs
-description: Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries.
-services: documentdb
-author: arramac
-manager: jhubbard
-editor: cgronlun
-documentationcenter: ''
-
-ms.assetid: e55c1e42-a3be-45c1-8a3a-232ed847d925
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/03/2016
-ms.author: arramac
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Sorting DocumentDB data using Order By

@@ -1,5 +1,5 @@
 ---
-title: Create a container registry in the portal | Microsoft Docs
+title: Create Azure container registry - portal | Microsoft Docs
 description: Get started creating and managing Azure container registries with the Azure portal
 services: container-registry
 documentationcenter: ''
@@ -49,7 +49,7 @@ For background and concepts, see [What is Azure Container Registry?](container-r
    > [!IMPORTANT]
    > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md).
    
-    e. **Storage account** - Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location.
+    e. **Storage account** - Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location. Please note that Premium and Classic storage accounts are not supported.
 
 ## Manage registry settings
 After creating the registry, find the registry settings by starting at the **Container Registries** blade in the portal. For example, you might need the settings to log in to your registry, or you might want to enable or disable the admin user.

@@ -230,7 +230,7 @@ This step is optional but recommended so that you can validate the following:
 
 To validate the downloaded package:
 
-1. Run the verifykeypackage.py script by tying one of the following, depending on your geographic region or instance of Azure:
+1. Run the verifykeypackage.py script by typing one of the following, depending on your geographic region or instance of Azure:
    
    * For North America:
      

@@ -1,5 +1,5 @@
 ---
-title: Create a container registry with the Azure CLI | Microsoft Docs
+title: Create Azure container registry - CLI | Microsoft Docs
 description: Get started creating and managing Azure container registries with the Azure CLI 2.0 Preview
 services: container-registry
 documentationcenter: ''

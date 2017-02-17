@@ -1,5 +1,5 @@
 ---
-title: Manage virtual machine extensions | Microsoft Docs
+title: Manage Windows-based virtual machine extensions | Microsoft Docs
 description: Describes how to add, find, update, and remove extensions for Azure virtual machines, in the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''

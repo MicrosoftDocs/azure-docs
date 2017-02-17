@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure DPM backup | Microsoft Docs
+title: Back up DPM workloads to Azure classic portal | Microsoft Docs
 description: An introduction to backing up DPM servers using the Azure Backup service
 services: backup
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2016
-ms.author: trinadhk;giridham;jimpark;markgal
+ms.author: nkolli;giridham;markgal
 
 ---
 # Preparing to back up workloads to Azure with DPM
@@ -24,8 +24,8 @@ ms.author: trinadhk;giridham;jimpark;markgal
 > * [SCDPM](backup-azure-dpm-introduction.md)
 > * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
-> 
-> 
+>
+>
 
 This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you’ll understand:
 
@@ -52,8 +52,8 @@ After the snapshot has been taken, the data is transferred by the Azure Backup s
 
 > [!NOTE]
 > For Linux virtual machines, only file-consistent backup is possible.
-> 
-> 
+>
+>
 
 ## Prerequisites
 Prepare Azure Backup to back up DPM data as follows:
@@ -97,6 +97,5 @@ And these are unsupported:
 
 > [!NOTE]
 > From in System Center 2012 DPM with SP1 onwards, you can backup up workloads protected by DPM to Azure using Microsoft Azure Backup.
-> 
-> 
-
+>
+>

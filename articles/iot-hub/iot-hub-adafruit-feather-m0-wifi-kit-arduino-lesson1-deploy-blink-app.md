@@ -1,5 +1,5 @@
 ---
-title: Deploy the blink application to your Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Arduino to Azure IoT - Lesson 1: Deploy app | Microsoft Docs'
 description: Clone the sample Arduino application from GitHub, and run gulp to deploy this application to your Adafruit Feather M0 WiFi. This sample application blinks the GPIO #13 on-board LED every two seconds.
 services: iot-hub
 documentationcenter: ''

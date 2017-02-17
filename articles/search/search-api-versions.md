@@ -18,7 +18,7 @@ ms.author: brjohnst
 ---
 
 # API versions in Azure Search
-Azure Search rolls out feature updates on a regular basis. Sometimes, but not always, these updates require us to publish a new version of our API in order to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
+Azure Search rolls out feature updates regularly. Sometimes, but not always, these updates require us to publish a new version of our API to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
 
 As a rule, we try to publish new versions only when necessary, since it can involve some effort to upgrade your code to use a new API version. We will only publish a new version if we need to change some aspect of the API in a way that breaks backward compatibility. This can happen because of fixes to existing features, or because of new features that change existing API surface area.
 

@@ -34,6 +34,7 @@ Prerequisites
 
 - Python 2.7.x
 - An Azure subscription
+- An active [Event Hubs namespace and Event Hub.](event-hubs-create.md)
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -45,8 +46,6 @@ Prerequisites
    ![][1]
 4. After you see the **Deployments Succeeded** message, click the name of the new storage account and in the **Essentials** blade, click **Blobs**. When the **Blob service** blade opens, click **+ Container** at the top. Name the container **archive**, then close the **Blob service** blade.
 5. Click **Access keys** in the left blade and copy the name of the storage account and the value of **key1**. Save these values to Notepad or some other temporary location.
-
-[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 ## Create a Python script to send events to your Event Hub
 1. Open your favorite Python editor, such as [Visual Studio Code][Visual Studio Code].
