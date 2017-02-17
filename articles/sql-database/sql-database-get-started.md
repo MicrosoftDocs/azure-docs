@@ -45,7 +45,7 @@ In this tutorial, you learn how to create, connect to, and query Azure SQL datab
 
 * **SQL Server Management Studio**. You can download and install the latest version of SQL Server Management Studio (SSMS) at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Always use the latest version of SSMS when connecting to Azure SQL Database as new capabilities are continually being released.
 
-### Sign in to the Azure portal with your Azure account
+### Sign in to the Azure portal
 
 The steps in this procedure show you how to connect to the Azure portal using  your [Azure account](https://account.windowsazure.com/Home/Index).
 
@@ -227,7 +227,7 @@ The steps in this procedure show you how to query the database directly in the A
 
     ![query editor results](./media/sql-database-get-started/query-editor-results.png)
 
-## Connect and query the database with SSMS
+## Query the database with SSMS
 
 The steps in this procedure show you how to connect to the database using SQL Server Management Studio and then query the sample data to view the objects in the database.
 
@@ -277,7 +277,7 @@ The steps in this procedure show you how to create a new database using SQL Serv
 
 You receive error messages when the connection to Azure SQL Database fails. The connection problems can be caused by SQL Azure database reconfiguration, firewall settings, connection time-out, or incorrect login information. For a connectivity troubleshooter tool, see [Troubleshooting connectivity issues with Microsoft Azure SQL Database](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database).
 
-## Delete a single database
+## Delete a single database in the Azure portal
 
 The steps in this procedure show you how to delete a single database with the Azure portal.
 
