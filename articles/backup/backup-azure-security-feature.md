@@ -30,10 +30,10 @@ More and more customers are hit with security issues like malware, ransomware, i
 > * **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server update 1. <br/>
 > * **DPM** - minimum MAB agent version 2.0.9052 with DPM 2012 R2 UR12 or DPM 2016 UR2. <br/>
 > * **IaaS VM Backup** - Do not enable these features for IaaS VM Backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact on IaaS VM backup.
-> * Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines and Azure Backup Servers registered with the vault. <br/>
+> * These features are available only for Recovery Services vault.
+> * All the newly created Recovery Services vaults have these features enabled by default. For existing recovery services vaults, users need to enable these features using the steps mentioned in the section below.
+> * Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines, Azure Backup Servers and DPM servers registered with the vault. <br/>
 > * Enabling this setting is a one-time action and you cannot disable these features after enabling them. <br/>
-> * This feature is available only for Recovery Services vault.
-> * All the new Recovery Services vaults created have this setting enabled by default.
 >
 >
 
@@ -76,7 +76,7 @@ For **Azure Backup Server** users:
 1. If the server where backups were happening is still available, re-protect the deleted data sources and use Recover Data feature to recover from all the old recovery points.
 2. If the machine mentioned above is not available, use [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Azure Backup Server to get this data.
 
-For **DPM** users:
+For **Data Protection Manager (DPM)** users:
 
 1. If the server where backups were happening is still available, re-protect the deleted data sources and use Recover Data feature to recover from all the old recovery points.
 2. If the machine mentioned above is not available, use [Add External DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another DPM Server to get this data.
