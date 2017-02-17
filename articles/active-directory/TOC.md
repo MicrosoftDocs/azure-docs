@@ -230,9 +230,9 @@
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Resource access in Azure](active-directory-understanding-resource-access.md)
 ### [Role-Based Access Control](role-based-access-control-what-is.md)
-#### Manage access
-##### [Azure portal](role-based-access-control-manage-assignments.md)
-##### [Classic portal](role-based-access-control-configure.md)
+#### Manage access assignments
+##### [By user](role-based-access-control-manage-assignments.md)
+##### [By resource](role-based-access-control-configure.md)
 #### [Built-in roles](role-based-access-built-in-roles.md)
 #### [Custom roles](role-based-access-control-custom-roles.md)
 #### [Reporting](role-based-access-control-access-change-history-report.md)
