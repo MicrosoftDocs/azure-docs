@@ -20,7 +20,7 @@ ms.author: mahender
 # Working with Azure Functions Proxies (preview)
 
 > [!Note] 
-> Azure Functions Proxies is currently in preview. It is free while in preview, but standard Functions billing applies to proxy executions. See [Azure Functions pricing] for more information.
+> Azure Functions Proxies is currently in preview. It is free while in preview, but standard Functions billing applies to proxy executions. See [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/) for more information.
 
 This article explains how to configure and work with Azure Functions Proxies. This feature allows you to specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
@@ -77,7 +77,7 @@ For example, a backend URL of `https://%ORDER_PROCESSING_HOST%/api/orders` will 
 
 ## Deployment methods
 
-The proxies that you configure are stored in a proxies.json file, located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when using any of the deployment methods that Functions supports.
+The proxies that you configure are stored in a proxies.json file, located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when using any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports.
 
 The feature must be enabled in order for the file to be processed. You can do this by following the instructions in [Enabling Azure Functions Proxies](#enable).
 
