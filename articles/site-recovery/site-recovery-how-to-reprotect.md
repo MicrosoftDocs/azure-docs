@@ -52,7 +52,7 @@ Following are the few pre-requisite steps you need to take or consider when prep
 Where replication from on-premises to Azure can happen over internet or an ExpressRoute with public peering, reprotect and failback requires a S2S VPN set up to replicate data. **The network should be provided such that the failed over VMs in Azure can reach(ping) the on-premises configuration server** . You may be also deploying a process server in the Azure network of the failed over VM - this process server should also be able to communicate with the on-premises configuration server.
 
 ### When should I install a Process server in Azure?
-<!-- Read more about a process server here.!todo -->
+
 
 The Azure VMs that you want to reprotect, send the replication data to a Process server. Your network should be set up such that the process server is reachable from the Azure VM.
 
@@ -60,7 +60,7 @@ You can deploy a process server in Azure or use the existing process server that
 
 * If you have an express route set up, an on-premises PS can be used to send the data. This is because the latency between the VM and the PS would be low.
     
-    ![Architecture Diagram for Expressroute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+    ![Architecture Diagram for ExpressRoute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
 
 
@@ -70,6 +70,8 @@ You can deploy a process server in Azure or use the existing process server that
 
 
 Remember, that the replication will only happen over S2S VPN, or the private peering of your Express route network. Ensure that enough bandwidth is available over that network channel.
+
+Read more on how to install an [Azure Process Server here](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
 ### What are the different ports to be open on different components so that reprotect can work?
 
@@ -115,7 +117,7 @@ Click on the following links to reads the steps on How to install a Master Targe
 
 * Enable the disk.EnableUUID = True parameter on the MT VM via the vCenter properties. <!-- !todo Needs link. -->
 
-* The Master Target should have atleast one VMFS datastore attached. If there are none, the Datastore input on the reprotect page will be empty and you will no tbe able to proceed.
+* The Master Target should have atleast one VMFS datastore attached. If there are none, the Datastore input on the reprotect page will be empty and you will not be able to proceed.
 
 * Master Target server cannot have any snapshots on the disks. If there are snapshots, Reprotect/Failback will fail.
 
