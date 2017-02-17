@@ -39,28 +39,41 @@ The following list is the values returned with the troubleshoot API:
       * **actionUri** - This value provides the URI to documentation on how to act.
       * **actionUriText** - This value is a short description of the action text.
 
-The following table shows the different fault types (id under results from the preceding list) that are available and if the fault creates logs.
+The following tables shows the different fault types (id under results from the preceding list) that are available and if the fault creates logs.
 
-| Fault Type | Gateway | Connection | Log|
-|---|---|---|---|
-| NoFault | Yes | Yes|Yes|
-| GatewayNotFound | Yes | Yes |No|
-| PlannedMaitenance | Yes | Yes |No|
-| UserDrivenUpdate | Yes | Yes | No |
-| VipUnResponsive | Yes | Yes | No |
-| PlatformInActive |Yes | No | No|
-| ServiceNotRunning | Yes | No | No|
-| NoConnectionsFoundForGateway | Yes | No| No|
-| ConnectionsNotConnected | Yes | No | Yes|
-| GatewayCPUUsageExceeded | Yes | No | Yes |
-| ConnectionEntityNotFound | No | Yes | No |
-| ConnectionIsMarkedDisconnected | No | Yes |No|
-| ConnectionNotConfiguredOnGateway | No | Yes | Yes |
-| ConnectionMarkedStandy | No | Yes | Yes|
-| Authentication | No | Yes | Yes|
-| PeerReachability | No | Yes | Yes|
-| IkePolicyMismatch | No | Yes | Yes|
-| WfpParse Error | No | Yes |Yes|
+### Gateway
+
+| Fault Type | Reason | Log|
+|---|---|---|
+| NoFault | When no error is detected. |Yes|
+| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
+| PlannedMaintenance |  Gateway instance is under maintenance.  |No|
+| UserDrivenUpdate | When a user update is in progress. This could be a resize operation. | No |
+| VipUnResponsive | Cannot reach the primary instance of the Gateway. This happens when the health probe fails. | No |
+| PlatformInActive | There is an issue with the platform. | No|
+| ServiceNotRunning | The underlying service is not running. | No|
+| NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
+| ConnectionsNotConnected | None of the Connections are not connected. This is only a warning.| Yes|
+| GatewayCPUUsageExceeded | The current Gateway usage CPU usage is > 95%. | Yes |
+
+### Connection
+
+| Fault Type | Reason | Log|
+|---|---|---|
+| NoFault | When no error is detected. |Yes|
+| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
+| PlannedMaintenance | Gateway instance is under maintenance.  |No|
+| UserDrivenUpdate | When a user update is in progress. This could be a resize operation.  | No |
+| VipUnResponsive | Cannot reach the primary instance of the Gateway. It happens when the health probe fails. | No |
+| ConnectionEntityNotFound | Connection configuration is missing. | No |
+| ConnectionIsMarkedDisconnected | The Connection is marked "disconnected". |No|
+| ConnectionNotConfiguredOnGateway | The underlying service does not have the Connection configured. | Yes |
+| ConnectionMarkedStandy | The underlying service is marked as standby.| Yes|
+| Authentication | Preshared Key mismatch. | Yes|
+| PeerReachability | The peer gateway is not reachable. | Yes|
+| IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
+| WfpParse Error | An error occurred parsing the WFP log. |Yes|
+
 
 ## Log files
 

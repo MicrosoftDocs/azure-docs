@@ -4,6 +4,7 @@
 ## [Variable Packet capture](network-watcher-packet-capture-overview.md)
 ## [Network Security Group Flow logging](network-watcher-nsg-flow-logging-overview.md)
 ## [IP flow verify](network-watcher-ip-flow-verify-overview.md)
+## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
 # Get Started
 ## [Configure Network Watcher](network-watcher-create.md)
 ## Manage packet capture
