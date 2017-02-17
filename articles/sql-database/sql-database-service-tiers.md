@@ -19,8 +19,7 @@ ms.date: 02/09/2017
 ms.author: janeng
 
 ---
-# SQL Database options and performance: Understand what's available in each service tier
-[Azure SQL Database](sql-database-technical-overview.md) offers three service tiers, **Basic**, **Standard**, and **Premium**, with multiple performance levels to handle different workloads. Higher performance levels provide increasings resources designed to deliver increasingly higher throughput. You can change [service tiers and performance levels dynamically](sql-database-service-tiers.md) without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
+# SQL Database options and performance: Understand what's available in each service tier[Azure SQL Database](sql-database-technical-overview.md) offers three service tiers, **Basic**, **Standard**, and **Premium**, with multiple performance levels to handle different workloads. Higher performance levels provide increasings resources designed to deliver increasingly higher throughput. You can change [service tiers and performance levels dynamically](sql-database-service-tiers.md) without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
 
 You can create single databases with dedicated resource on the [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) selected. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across the databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
 
@@ -38,8 +37,8 @@ The following table provides examples of the tiers best suited for different app
 First decide if you want to run a single database or if you want to group databases that shares resources. Review the [elastic pool considerations](sql-database-elastic-pool-guidance.md). To decide on a service tier, start by determining the minimum database features that you need:
 
 * Max database size for individual databases (2 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium in the high end performance levels)
-* Maximum total storage in an elastic pool (117 GB for Basic, 1200 GB for Standard, and 750 GB for Premium)
-* Maximum number of databases per pool (400 for Basic, 400 for Standard, and 50 for Premium)
+* Maximum total storage in an elastic pool (156 GB for Basic, 2900 GB for Standard, and 750 GB for Premium)
+* Maximum number of databases per pool (500 for Basic, 500 for Standard, and 500 for Premium)
 * Database backup retention period (7 days for Basic, 35 days for Standard and Premium)
 
 Once you have determined the minimum service tier, you are ready to determine the performance level for the database (the number of DTUs). The standard S2 and S3 performance levels are often a good starting point. For databases with high CPU or IO requirements, the Premium performance levels are the right starting point. Premium offers more CPU and starts at 10x more IO compared to the highest Standard performance level.
