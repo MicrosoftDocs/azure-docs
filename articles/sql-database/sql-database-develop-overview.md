@@ -13,7 +13,7 @@ ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 

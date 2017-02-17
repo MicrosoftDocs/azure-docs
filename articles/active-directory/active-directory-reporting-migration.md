@@ -29,7 +29,7 @@ The reports in the Azure classic portal are split into various categories:
 2.	Activity Reports
 3.	Integrated App Reports
 
-### Activity and Integrated App Reports
+### Activity and integrated app reports
 
 Moving to context based reporting in Azure portal, we have merged the existing reports into one single view with a single underlying API providing the data to the view. You can find this view under “*Activities*” > Audit Logs in the Azure Portal (left navigation). The following are the reports that have been consolidated into this view.
 
@@ -53,7 +53,7 @@ The Application Usage report has been enhanced and included in a view called the
 
 ## How can I access a specific report in this single view?
 
-### Audit Logs
+### Audit logs
 
 One of the key asks of many customers has been the ability to have multiple filter options to access Activity logs within Azure AD. In lieu of this, we have provided advanced filtering mechanism for you to filter the data you want. One of the filters we have provided is called “*Activity Category*”, which lists the different types of Activity Logs that Azure AD provides. By choosing the category you want, you can narrow down the results of the Activity logs to the ones you are interested in seeing. 
 
@@ -73,7 +73,7 @@ The various categories we have today include:
 
 - Account Provisioning
 
-### Application Usage
+### Application usage
 
 You can view the Application usage for all apps or a single app through the Activities -> Sign-ins view. As shown below, this view is present for all applications or a single application. You can filter either on User Name or Application Name if you want narrow down the results.
  
@@ -81,7 +81,7 @@ You can view the Application usage for all apps or a single app through the Acti
 ![Audit logs](./media/active-directory-reporting-migration/07.png "Audit logs")
 
 
-### Security Reports
+### Security reports
 
 The security reports have been consolidated to provide a view of all risk signals that Azure Active Directory  can detect and report on.
 
