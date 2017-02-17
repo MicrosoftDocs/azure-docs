@@ -1,6 +1,6 @@
 ---
-title: Azure MFA versions, licensing, and billing | Microsoft Docs
-description: Information about the Multi-factor Authentication client and the different methods and versions available. Details about pricing and billing."
+title: Azure MFA versions and consumption plans | Microsoft Docs
+description: Information about the Multi-factor Authentication client and the different methods and versions available. Details about each consumption plan
 keywords: 
 services: multi-factor-authentication
 documentationcenter: ''
@@ -14,14 +14,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/16/2017
 ms.author: kgremban
 ---
-# Versions and billing methods for Azure Multi-Factor Authentication
+# How to get Azure Multi-Factor Authentication
 
 When it comes to protecting your accounts, two-step verification should be standard across your organization. This feature is especially important for administrative accounts that have privileged access to resources. For this reason, Microsoft offers basic two-step verification features to Office 365 and Azure administrators. If you want to upgrade the features for your admins, or extend two-step verification to the rest of your users, you can purchase Azure Multi-Factor Authentication. 
 
-This article explains the difference between the versions offered to administrators and the full Azure MFA version, and specifies which features are available in each. If you're ready to deploy the complete Azure MFA offering, the later sections covers implementation options and billing structure. 
+This article covers explains the difference between the versions offered to administrators and the full Azure MFA version, and specifies which features are available in each. If you're ready to deploy the complete Azure MFA offering, the later sections covers implementation options and how Microsoft calculates consumption.
+
+>[!IMPORTANT]
+>This article is meant to be a guide to help you understand the different ways to buy Azure Multi-Factor Authentication. For specific details about pricing and billing, you should always refer to the [Multi-Factor Authentication pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
 ## Available versions of Azure Multi-Factor Authentication
 
@@ -74,7 +77,7 @@ Purchase licenses that include Azure Multi-Factor Authentication, like Azure Act
 
 If you use this option, you should create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses. Otherwise, you might be billed twice. 
 
-### Option 3 - MFA consumption-based billing
+### Option 3 - MFA consumption-based model
 
 Create an Azure Multi-Factor Authentication Provider within an Azure subscription. Azure MFA Providers are Azure resources that are billed against your Enterprise Agreement, Azure monetary commitment, or credit card like all other Azure resources. These providers can only be created in full Azure subscriptions, not limited Azure subscriptions that have a $0 spending limit. Limited subscriptions are created when you activate licenses, like in options 1 and 2. 
 
