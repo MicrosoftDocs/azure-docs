@@ -1,5 +1,5 @@
 1. Connect to the process server virtual machine using Remote Desktop Connection.
-2. Once the login in complete, you see the process server Configuration tool is automatically launched and requires you to input the following
+2. you can launch the cspsconfigtool.exe by clicking on the shortcut available on the desktop. (The tool will be automatically launched if this the first time you are logging into the process sever).
   * Configuration Server's fully qualified name (FQDN) or IP Address
   * Port on which the Configuration server is listening on. The value should be 443
   * Connection Passphrase to connect to the configuration server.
