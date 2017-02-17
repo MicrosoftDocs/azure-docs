@@ -36,14 +36,14 @@ When you are ready, follow the procedures in the next four sections.
 To set up the app to authenticate users, first register it in your tenant by doing the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click your account name and, under the **Directory** list, select the Active Directory tenant where you want to register the app.
+2. On the top bar, click your account name. Under the **Directory** list, select the Active Directory tenant where you want to register the app.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts to create a new **Web Application and/or WebAPI**.
   * **Name** describes the app to users.
   * **Sign-On URL** is the base URL of the app. The skeleton's default URL is https://localhost:44320/.
   * **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `https://contoso.onmicrosoft.com/my-first-aad-app`).
-6. After you've completed the registration, Azure AD assigns the app a unique Application ID. Copy the value from the app page to use in the next sections.
+6. After you've completed the registration, Azure AD assigns the app a unique application ID. Copy the value from the app page to use in the next sections.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
 In this step, you configure the OWIN middleware to use the OpenID Connect authentication protocol. You use OWIN to issue sign-in and sign-out requests, manage user sessions, get user information, and so forth.
@@ -105,7 +105,7 @@ The app is now properly configured to communicate with Azure AD by using the Ope
        ...
      ```
 
-2. You can also use OWIN to directly issue authentication requests from within your code. To do so, open Controllers\AccountController.cs and then, in the SignIn() and SignOut() actions, issue OpenID Connect challenge and sign-out requests.
+2. You can also use OWIN to directly issue authentication requests from within your code. To do so, open Controllers\AccountController.cs. Then, in the SignIn() and SignOut() actions, issue OpenID Connect challenge and sign-out requests.
 
      ```C#
      public void SignIn()
@@ -168,12 +168,13 @@ When it authenticates users with OpenID Connect, Azure AD returns an id_token to
 
 2. Build and run the app. If you haven't already created a new user in your tenant with an onmicrosoft.com domain, now is the time to do so. Here's how:
 
-  a. Sign in with that user, and note how the user's identity is reflected in the top navigation bar.
+  a. Sign in with that user, and note how the user's identity is reflected on the top bar.
 
   b. Sign out, and then sign back in as another user in your tenant.
 
   c. If you're feeling particularly ambitious, register and run another instance of this app (with its own clientId), and watch single sign-in in action.
 
+## Next steps
 For reference, see [the completed sample](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (without your configuration values).
 
 You can now move on to more advanced topics. For example, try [Secure a Web API with Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
