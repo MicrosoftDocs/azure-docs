@@ -22,7 +22,7 @@ ms.author: anoopkv
 Scale-out Process server acts as a coordinator for data transfer between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage a Scale-out Process server.
 
 ## Prerequisites
-The following are the  recommended hardware, software, and network configuration required to set up a scale-out process server.
+The following are the recommended hardware, software, and network configuration required to set up a scale-out process server.
 
 > [!NOTE]
 > [Capacity planning](site-recovery-capacity-planner.md) is an important step to ensure that you deploy the Scale-out Process server with a configuration that suites your load requirements. Read more about [Scaling characteristics for a scale-out process server](#sizing-requirements-for-a-configuration-server).
@@ -33,14 +33,14 @@ The following are the  recommended hardware, software, and network configuration
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).
 3. Select your configuration server to drill down into the configuration server's details page.
-4. Click on the **+ Process Server** button.
-5. In the add Process server page select **Deploy a scale out Process server on-premises** option from the **Choose where you want to deploy your process server** drop-down.
+4. Click the **+ Process Server** button.
+5. In the **Add Process server** page, select **Deploy a scale-out Process server on-premises** option from the **Choose where you want to deploy your process server** drop-down.
 
   ![Add Servers Page](./media/site-recovery-vmware-to-azure-manage-scaleout-process-server/add-process-server.png)
 6. Click the **Download the Microsoft Azure Site Recovery Unified Setup** link to download the latest version of the Scale-out process server installation.
 
   > [!WARNING]
-  The version of your Scale-out process server should be the same as that of the Configuration Server running in your environment. A simple way to ensure version compatibility is to use the same installer bits that you recently used to install/update your Configuration Server.
+  The version of your Scale-out process server should be equal to or lesser than  the Configuration Server version running in your environment. A simple way to ensure version compatibility is to use the same installer bits that you recently used to install/update your Configuration Server.
 
 ## Installing and Registering a Scale-out Process Server from GUI
 If you have to scale out your deployment beyond 200 source machines, or a total daily churn rate of more than 2 TB, you’ll need additional process servers to handle the traffic volume.
@@ -63,7 +63,7 @@ cd C:\Temp\Extracted
 UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```
 
-### Scale-out Process server installer command line arguments.
+### Scale-out Process server installer Command line arguments.
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
 
@@ -78,7 +78,7 @@ You need to pass a proxy settings configuration file to the installer when you a
 * ProxyPassword="Password"
 ```
 ## Modifying Proxy Settings for Scale-out Process server
-1. Log in into your Scale-out Process Server.
+1. Login to your Scale-out Process Server.
 2. Open an Admin PowerShell command window.
 3. Run the following command
   ```
@@ -101,7 +101,7 @@ You need to pass a proxy settings configuration file to the installer when you a
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 ## Decommissioning a Scale-out Process server
-1. Ensure that :
+1. Ensure that:
   - Configuration Server's connection state shows as **Connected** in the Azure portal
   - Process Server's is still able to communicate with the Configuration server.
 2. Log in to the process server as an administrator
@@ -111,7 +111,7 @@ You need to pass a proxy settings configuration file to the installer when you a
   * Microsoft Azure Site Recovery Configuration Server Dependencies
   * Microsoft Azure Recovery Services Agent
 
-It can takes up-to 15 minutes for the Process Server deletion to reflect in the Azure portal.
+It can take up-to 15 minutes for the Process Server deletion to reflect in the Azure portal.
 
   > [!NOTE]
   If the Process server is unable to communicate with the Configuration Server (Connection State in portal is Disconnected) then you need to follow the below steps to purge it from the Configuration Server.
