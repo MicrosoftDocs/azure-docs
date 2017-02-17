@@ -27,7 +27,7 @@ The minimum hardware, software and network configuration required to setup a Sca
 > [!NOTE]
 > [Capacity planning](site-recovery-plan-capacity-vmare.md) is an important step to ensure that you deploy the Scale-out Process server with a configuration that suites your load requirements. Read more about [Scaling characteristics for a Scale-out Process server](#sizing-requirements-for-a-configuration-server).
 
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## Downloading the Scale-out Process server software
 1. Log on to the Azure Portal and browse to your Recovery Services Vault.

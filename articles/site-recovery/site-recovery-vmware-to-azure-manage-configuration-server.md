@@ -27,7 +27,7 @@ The minimum hardware, software and network configuration required to setup a con
 > [!NOTE]
 > [Capacity planning](site-recovery-plan-capacity-vmare.md) is an important step to ensure that you deploy the Configuration server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration server](#sizing-requirements-for-a-configuration-server).
 
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## Downloading the Configuration server software
 1. Log on to the Azure Portal and browse to your Recovery Services Vault.
@@ -86,7 +86,14 @@ You need to pass a proxy settings configuration file to the installer when you a
 
   ![register-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 5. Provide the new Proxy Server details and click on the **Register** button.
-
+6. Open a Admin PowerShell command window.
+7. Run the following command
+  ```
+  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+  net stop obengine
+  net start obengine
+  ```
   >[!WARNING]
   If you have Scale-out Process servers attached to this configuration server you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) in your deployment.
 
@@ -95,7 +102,7 @@ You need to pass a proxy settings configuration file to the installer when you a
 Ensure the following before you start decommissioning your configuration server.
 1. Disable protection for all virtual machines under this Configuration server.
 2. Disassociate all Replication policies from the Configuration server.
-3. Delete all vCenters servers/vSphere hosts that are associated to the configruation server.
+3. Delete all vCenters servers/vSphere hosts that are associated to the Configuration server.
 
 ### Delete the Configuration Server from Azure Portal
 1. In Azure browse to **Site Recovery Infrastructure** > **Configuration Servers**  from the Vault menu.
@@ -105,9 +112,9 @@ Ensure the following before you start decommissioning your configuration server.
   ![delete-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-cs.png)
 4. Click **Yes** to confirm the deletion of the server.
   >[!WARNING]
-  If you still have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration serer, you will not be allowed to delete the server. You need to delete these entities before you try to delete the vault.
+  If you have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration serer, you will not be allowed to delete the server. You need to delete these entities before you try to delete the vault.
 
-### Uninstall the Configuration server software and its dependencies 
+### Uninstall the Configuration server software and its dependencies
   > [!TIP]
   If you plan to re-use the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
 
@@ -124,7 +131,6 @@ Ensure the following before you start decommissioning your configuration server.
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
-
 
 ## Sizing requirements for a Configuration server
 
