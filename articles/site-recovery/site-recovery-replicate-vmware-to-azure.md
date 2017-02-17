@@ -89,8 +89,6 @@ We recommend that you verify the properties of the source machine. Remember that
 
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
-
-    ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover2.png)
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
    You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
 
@@ -103,7 +101,6 @@ We recommend that you verify the properties of the source machine. Remember that
    * If the virtual machine has multiple network adapters they will all connect to the same network.
    * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
-     ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover4.png)
 4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
 
 
@@ -115,4 +112,4 @@ We recommend that you verify the properties of the source machine. Remember that
 
 ## Next steps
  
-Once the protection is completed, you can try test failover to check whether your application comes up in Azure or not.
+Once the protection is completed, you can try test failover to check whether your application comes up in Azure or not.	
