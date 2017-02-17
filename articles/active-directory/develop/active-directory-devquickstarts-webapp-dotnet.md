@@ -88,7 +88,7 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
      }
      ```
 
-5. Open the web.config file in the root of the project, and then enter the configuration values in the **`<`appSettings`>`** section.
+5. Open the web.config file in the root of the project, and then enter the configuration values in the `<appSettings>` section.
   * `ida:ClientId`: The GUID you copied from the Azure portal in "Step 1: Register the new app with Azure AD."
   * `ida:Tenant`: The name of your Azure AD tenant (for example, contoso.onmicrosoft.com).
   * `ida:PostLogoutRedirectUri`: The indicator that tells Azure AD where a user should be redirected after a sign-out request is successfully completed.
