@@ -19,8 +19,8 @@ ms.date: 01/17/2017
 ms.author: carlrab
 
 ---
-# SQL Database tutorial: SQL Server authentication, access, and database-level firewall rules
-In this getting-started tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
+# SQL Server authentication, access, and database-level firewall rules
+In this tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
 
 - View user permissions in the master database and in user databases
 - Create logins and users based on SQL Server authentication
@@ -66,7 +66,7 @@ In this section of the tutorial, you view information about the security configu
 2. Make note of the name of the Server admin account for the logical server. If you do not remember the password, click **Reset password** to set a new password.
 
 > [!NOTE]
-> To review connection information for this server, go to [View or update server settings](sql-database-view-update-server-settings.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
+> To review connection information for this server, go to [Manage servers](sql-database-manage-servers-portal.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
 >
 
 ## Connect to SQL server using SQL Server Management Studio (SSMS)
@@ -421,5 +421,5 @@ CREATE USER blankdbuser1
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).
-- For a tutorial using Azure Active Directory authentication, see [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
+- For a tutorial using Azure Active Directory authentication, see [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md).
 

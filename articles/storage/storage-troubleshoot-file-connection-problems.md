@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/15/2017
 ms.author: genli
 
 ---
@@ -25,11 +25,13 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 * [Quota error when trying to open a file](#quotaerror)
 * [Slow performance when you access Azure File storage from Windows or from Linux](#slowboth)
+* [How to trace the read and write operations in Azure File Storage](#traceop)
 
 **Windows client problems**
 
 * [Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
 * [Error 53 attempting to mount an Azure File Share](#error53)
+* [Error 87 The parameter is incorrect while attempting to mount an Azure File Share](#error87)
 * [Net use was successful but I don’t see the Azure file share mounted in Windows Explorer](#netuse)
 * [My storage account contains "/" and the net use command fails](#slashfails)
 * [My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
@@ -38,12 +40,13 @@ This article lists common problems that are related to Microsoft Azure File stor
 **Linux client problems**
 
 * [Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure Files](#encryption)
-* ["Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
+* [Intermittent IO Error - "Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 * [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 * [Linux VM experiencing random delays in commands like "ls"](#delayproblem)
 * [Error 112 - timeout error](#error112)
 
 **Accessing from other applications**
+
 * [Can I reference the azure file share for my application through a webjob?](#webjobs)
 
 <a id="quotaerror"></a>
@@ -51,19 +54,15 @@ This article lists common problems that are related to Microsoft Azure File stor
 ## Quota error when trying to open a file
 In Windows, you receive error messages that resemble the following:
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Not enough quota is available to process this command**
-
-**Invalid handle value GetLastError: 53**
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 On Linux, you receive error messages that resemble the following:
 
-**<filename> [permission denied]**
-
-**Disk quota exceeded**
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### Cause
 The problem occurs because you have reached the upper limit of concurrent open handles that are allowed for a file.
@@ -90,14 +89,21 @@ You can run the following script to check whether the hotfix has been installed 
 
 If hotfix is installed, the following output is displayed:
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
 >
 >
+
+<a id="traceop"></a>
+
+### How to trace the read and write operations in Azure File Storage
+
+[Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) is able to show you a client’s request in clear text and there’s a pretty good relation between wire requests and transactions (assuming SMB here not REST).  The downside is that you have to run this on each client which is time-consuming if you have many IaaS VM workers.
+
+If you use the Message Analyze with ProcMon, you can get a pretty good idea which App code is responsible for the transactions.
 
 <a id="additional"></a>
 
@@ -131,8 +137,9 @@ For more information on using Portqry, see [Description of the Portqry.exe comma
 ### Solution for Cause 2
 Work with your IT organization to open Port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
+<a id="error87"></a>
 ### Cause 3
-"System Error 53" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
+"System Error 53 or System error 87" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -235,8 +242,8 @@ This can occur when the mount command does not include the **serverino** option.
 ### Solution
 Check the **serverino** in your "/etc/fstab" entry:
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,
-file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,
+file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)`
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.+
 
@@ -251,7 +258,7 @@ This error can be caused by a Linux reconnect issue or other problems that preve
 
 ### Workaround
 
-The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
+The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds or less. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
 
 <a id="webjobs"></a>
 

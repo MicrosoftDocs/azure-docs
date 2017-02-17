@@ -41,7 +41,7 @@ The account information section shows information about your usage and profile.
 | Billing cycle |Date range that this invoice covers |
 | Invoice date |Date that the invoice was generated |
 | Payment method |Type of payment used on the account (invoice or credit card). If you need to update your credit card, see [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md). If you represent a business, you can pay for your Azure subscription with invoice payment methods like checks, overnight checks, or wire transfers. See [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/). |
-| Bill to |Microsoft Azure payments address. You can update the billing address associated with your credit card by going to the subscription page in the [Azure Account Center](https://account.windowsazure.com/subscriptions). |
+| Bill to |Microsoft Azure payments address. Learn how to update your billing information by seeing [Change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md). |
 | Subscription offer |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). If you want to change Pay-As-You-Go to another subscription offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). |
 | Account owner email |The account email address that the Microsoft Azure account is registered under. To change the email address, see [How to change profile information of your Azure account such as contact email, address and phone number](billing-how-to-change-azure-account-profile.md). |
 
