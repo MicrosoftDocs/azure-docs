@@ -20,7 +20,10 @@
 ### [PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [REST](network-watcher-check-next-hop-rest.md)
 ## View your network topology
+### [PowerShell](network-watcher-topology-powershell.md)
+### [REST](network-watcher-topology-rest.md)
 ## Troubleshoot VPN Gateway and connections
+### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [REST](network-watcher-troubleshoot-manage-rest.md)
 ## Analyze Network Security Group View
 ### [PowerShell](network-watcher-security-group-view-powershell.md)
