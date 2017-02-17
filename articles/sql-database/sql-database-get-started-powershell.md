@@ -332,8 +332,8 @@ $myDatabaseServiceLevel = "Basic"
 
 
 # Storage account details for locating
-# and accessing the database .bacpac 
-# Do Not Edit for for this tutorial
+# and accessing the sample .bacpac 
+# Do Not Edit for this tutorial
 $myStorageKeyType = "SharedAccessKey"
 $myStorageUri = "https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
 $myStorageKey = "?"
