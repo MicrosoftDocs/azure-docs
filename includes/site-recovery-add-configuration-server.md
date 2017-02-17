@@ -3,7 +3,7 @@
 	![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 
-    ![Third=party software](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
+    ![Third=party software](./media/site-recovery-add-configuration-server/cs-page-2.png)
 4. In **Registration**, select the registration key you downloaded from the vault.
 
     ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
