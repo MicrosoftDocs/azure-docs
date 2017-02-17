@@ -22,7 +22,7 @@ ms.author: rasquill
 This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. 
 
 
-## Azure CLI 2.0 (Preview)
+## Use Azure CLI 2.0 (Preview)
 
 Once you have [installed the Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), use the `az vm image list` command to see a cached list of popular VM images. For example, the following example of the command `az vm image list -o table` displays:
 
@@ -88,7 +88,7 @@ and the output is:
 }
 ```
 
-## Azure CLI 1.0 
+## Use Azure CLI 1.0 
 
 > [!NOTE]
 > This article describes how to navigate and select virtual machine images, using an installation of either the Azure CLI 1.0 or Azure PowerShell that supports the Azure Resource Manager deployment model. As a prerequisite, change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. 
@@ -212,4 +212,4 @@ info:    vm image list command OK
 ```
 
 ## Next steps
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Create a Linux VM using the Azure CLI](virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Create a Linux VM using the Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
