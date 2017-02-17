@@ -21,12 +21,10 @@ ms.author: jlembicz
 Azure Search uses an embedded Lucene search engine for full text search. A working knowledge of 
 basic Lucene architecture makes design and debugging more productive. Customizations to the query processing pipeline will be easier to identify and apply when you know how the pieces fit together.
 
-This article explains how the following stages of query execution are performed in Azure Search:
+This article explains how the four stages of Lucene query execution (parsing, analysis, matching, scoring) are performed in Azure Search.
 
-+ Query parsing
-+ Lexical analysis 
-+ Document retrieval: matching
-+ Scoring and ranking
+> [!Note] 
+> In Azure Search, Lucene integration is not exhaustive. Azure Search selectively exposes and extends Lucene functionality to enable the scenarios important to Azure Search. As a developer, using the Azure Search APIs, and not Lucene APIs, is required for any custom work related to full text search. 
 
 ## Architecture overview and diagram
 
@@ -35,29 +33,23 @@ Full text search is parsing a textual query into one or more terms, and then pro
 There are four stages in query execution: 
 
 1. Query parsing 
-
 2. Lexical analysis 
-
 3. Document retrieval 
-
 4. Scoring 
 
-> [!Note] 
-> Lucene integration is not exhaustive. Azure Search selectively exposes and extends Lucene functionality to enable the scenarios important to Azure Search. As a developer, using the Azure Search APIs, and not Lucene APIs, is required for any custom work related to full text search. 
+The diagram below illustrates processing and execution of a search request. 
 
-Key components of the query processing pipeline include the following: 
+ ![Lucene query architecture diagram in Azure Search][1]
 
-* **Query parsers** separate query terms from query operators, and create the query structure (a query tree) to be sent to the search engine. 
+Key components used in the query processing pipeline include the following: 
 
-* **Analyzers** process the query terms. This process is referred to as lexical analysis; it can involve transforming, removing, or expanding of query terms. 
+* **Query parsers** separate query terms from query operators, and create the query structure (a query tree) to be sent to the search engine. Azure Search supports two.
+
+* **Analyzers** process the query terms. This process is referred to as lexical analysis; it can involve transforming, removing, or expanding of query terms. Azure Search supports predefined, language, and custom analyzers.
 
 * **Inverted index**, an efficient data structure used to store and organize searchable terms extracted from indexed documents. 
 
-* **Search engine**,  component for retrieving and scoring documents based on the contents of the inverted index. 
-
-The diagram below illustrates how these components are used in processing and executing a search request. 
-
- ![Lucene query architecture diagram in Azure Search][1]
+* **Search engine**,  a component for retrieving and scoring documents based on the contents of the inverted index. 
 
 ## Anatomy of a search request
 
@@ -321,9 +313,9 @@ In Azure Search, you can’t change the scoring logic, but you can apply term bo
 
 + Opt in for the full query parser to use additional operators and query types (fuzzy search, proximity search, wildcard search, regular expressions, and so on). For small indexes with lean documents, you can use the **Search explorer** tool in the portal to evaluate query behaviors. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
 
-+ [Choose a different language analyzer](search-language-support.md) for non-English linguistic analysis.
++ [Choose a different language analyzer](https://docs.microsoft.com/rest/api/searchservice/language-support) for non-English linguistic analysis.
 
-+ [Configure custom analyzers]() for either minimal processing or specialized processing on specific fields.
++ [Configure custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) for either minimal processing or specialized processing on specific fields.
 
 ## See also
 
