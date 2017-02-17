@@ -25,7 +25,7 @@ In this tutorial, you learn how to use SQL Server Management Studio to work with
 
 - Have created logins and users
 - Added users to roles
-- Grant permsissions to roles
+- Grant permissions to roles
 - Created a database-level and a server-level firewall rule using SQL Server Management Studio 
 - Know how to use SQL Server Management Studio to connect as a user to a specific database
 - Know how to view user permissions in the master database and in user databases
