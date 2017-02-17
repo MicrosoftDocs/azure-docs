@@ -108,11 +108,9 @@ After commit completes your VM will be back on the on-premises site, but won’t
 
 [!NOTE]
 After a VM boots up on-premises, it takes some time for the agent to register back to the configuration server (upto 15 mins). During this time you will find reprotect to fail and the error message stating that the agent is not installed. Wait for a few minutes and then try Reprotect again.
- 
-
 
 Once the reprotect job completes, the VM is replicating back to Azure and you can do a failover.
 
 ## Common issues
-
+* Make sure that the vCenter is in a connected state before you do a failback, else the disconnecting the disks and attaching it back to the VM will fail.
 
