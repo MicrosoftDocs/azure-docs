@@ -204,7 +204,7 @@ When the Custom Script Extension runs, the script is created or downloaded into 
 The Azure Script Extension produces a log, which can be found here.
 
 ```bash
-/var/log/azure/customscript/handler.log
+/var/log/azure/custom-script/handler.log
 ```
 
 The execution state of the Custom Script Extension can also be retrieved with the Azure CLI.
