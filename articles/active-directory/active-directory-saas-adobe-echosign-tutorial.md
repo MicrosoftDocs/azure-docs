@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Adobe EchoSign
 The objective of this tutorial is to show the integration of Azure and Adobe EchoSign.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* An Adobe EchoSign single sign on enabled subscription
+* An Adobe EchoSign single sign on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Adobe EchoSign will be able to single sign into the application at your Adobe EchoSign company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Adobe EchoSign
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-adobe-echosign-tutorial/IC789511.png "Scenario")
 
-## Enabling the application integration for Adobe EchoSign
+## Enable the application integration for Adobe EchoSign
 The objective of this section is to outline how to enable the application integration for Adobe EchoSign.
 
-### To enable the application integration for Adobe EchoSign, perform the following steps:
+**To enable the application integration for Adobe EchoSign, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-adobe-echosign-tutorial/IC700993.png "Active Directory")
@@ -58,14 +60,14 @@ The objective of this section is to outline how to enable the application integr
    
    ![Adobe EchoSign](./media/active-directory-saas-adobe-echosign-tutorial/IC789515.png "Adobe EchoSign")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
-The objective of this section is to outline how to enable users to authenticate to Adobe EchoSign with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Adobe EchoSign with their account in Azure AD using federation based on the SAML protocol.
+
+As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Adobe EchoSign** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Adobe EchoSign** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/IC789516.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Adobe EchoSign** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -97,22 +99,23 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    3. In the Azure classic portal, on the **Configure single sign-on at Adobe EchoSign** dialog page, copy the **Remote Logout URL** value, and then paste it into the **IdP Logout URL** textbox.
    4. Create a **base-64 encoded** file from your downloaded certificate.  
       
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      > 
-      > 
+      >[!TIP]
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+      >  
    5. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Certificate** textbox
    6. Click **Save Changes**.
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/IC789523.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+   ## Configure user provisioning
 
 In order to enable Azure AD users to log into Adobe EchoSign, they must be provisioned into Adobe EchoSign.  
-In the case of Adobe EchoSign, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+* In the case of Adobe EchoSign, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **Adobe EchoSign** company site as administrator.
 2. In the menu on the top, click **Account**, and then, in the navigation pane on the left die, click **Users & Groups**, and then, click **Create a new user**.
    
@@ -124,22 +127,21 @@ In the case of Adobe EchoSign, provisioning is a manual task.
    1. Type the **Email Address**, **First Name** and **Last Name** of a valid AAD account you want to provision into the related textboxes.
    2. Click **Create User**.
       
-      > [!NOTE]
-      > The Azure Active Directory account holder will receive an email that includes a link to confirm the account before it becomes active.
-      > 
+      >[!NOTE]
+      >The Azure Active Directory account holder will receive an email that includes a link to confirm the account before it becomes active. 
       > 
 
-> [!NOTE]
-> You can use any other Adobe EchoSign user account creation tools or APIs provided by Adobe EchoSign to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Adobe EchoSign user account creation tools or APIs provided by Adobe EchoSign to provision AAD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Adobe EchoSign, perform the following steps:
+**To assign users to Adobe EchoSign, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Adobe EchoSign **application integration page, click **Assign users**.
+2. On the **Adobe EchoSign** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-adobe-echosign-tutorial/IC789526.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

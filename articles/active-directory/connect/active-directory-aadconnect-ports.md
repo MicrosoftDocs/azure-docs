@@ -68,7 +68,7 @@ This table describes the ports and protocols that are required for communication
 | TCP |49443 (TCP) |Used for certificate authentication. |
 
 ## Table 6a & 6b - Pass-through Authentication with Single Sign On (SSO) and Password Hash Sync with Single Sign On (SSO)
-The following tables describes the ports and protocols that are required for communication between the connector and Azure AD.
+The following tables describes the ports and protocols that are required for communication between the Azure AD Connect and Azure AD.
 
 ### Table 6a - Pass-through Authentication with SSO
 |Protocol|Port Number|Description
@@ -83,13 +83,10 @@ The following tables describes the ports and protocols that are required for com
 |HTTPS|9091|	Enable Connector trust certificate automatic renewal
 
 ### Table 6b - Password Hash Sync with SSO
-If you are enabling 'Single Sign On with 'Password Sync' and there is a firewall between Azure AD Connect and Azure AD make sure that:
-- The Azure AD Connect server can communicate with *.msappproxy.net
-- Azure AD Connect can make HTTPS requests to Azure AD on the ports below:
 
 |Protocol|Port Number|Description
 | --- | --- | ---
-|HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
+|HTTPS|9090|	Enable SSO registration (required only for the SSO registration process).
 
 ## Table 7a & 7b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 The following tables describe the endpoints, ports, and protocols that are required for communication between Azure AD Connect Health agents and Azure AD
