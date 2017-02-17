@@ -49,11 +49,14 @@ The following are the minimum hardware, software, and network configuration requ
 ## Installing and Registering a Configuration Server using Command-line
 
   ```
-    UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
-    ```
+  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+  ```
+
 ### Sample Usage
- ```
-  UnifiedSetup.exe /ServerMode CS /InstallDrive D:\ /MySQLCredsFilePath C:\Temp\MySQLCredentialsfile.txt /VaultCredsFilePath C:\Temp\MyVault.vaultcredentials /EnvType VMWare /PSIP 10.101.24.126 /CSIP 10.101.24.126 /PassphraseFilePath C:\Temp\connection.passphrase
+  ```
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  cd C:\Temp\Extracted
+  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```
 
 
@@ -70,13 +73,14 @@ MySQLUserPassword = "Password"
 ```
 ### Create a Proxy settings configuration file
 You need to pass a proxy settings configuration file to the installer when you are executing it in command line mode. The file should have the following format
+
 ```
-* [ProxySettings]
-* ProxyAuthentication = "Yes/No"
-* Proxy IP = "IP Address"
-* ProxyPort = "Port"
-* ProxyUserName="UserName"
-* ProxyPassword="Password"
+[ProxySettings]
+ProxyAuthentication = "Yes/No"
+Proxy IP = "IP Address"
+ProxyPort = "Port"
+ProxyUserName="UserName"
+ProxyPassword="Password"
 ```
 ## Modifying Proxy Settings for Configuration server
 1. Log-in into your Configuration Server.
@@ -84,7 +88,7 @@ You need to pass a proxy settings configuration file to the installer when you a
 3. Click on the **Vault Registration** tab.
 4. Download a new Vault Registration file from the portal and provide it as input to the tool.
 
-  ![register-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
+  ![register-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-cs.PNG)
 5. Provide the new Proxy Server details and click on the **Register** button.
 6. Open a Admin PowerShell command window.
 7. Run the following command
@@ -98,6 +102,27 @@ You need to pass a proxy settings configuration file to the installer when you a
   >[!WARNING]
   If you have Scale-out Process servers attached to this configuration server you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) in your deployment.
 
+## Registering a Configuration server with a different Recovery Services Vault.
+1. Log-in into your Configuration Server.
+2. From an admin command prompt run the command
+```
+reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+net stop dra
+```
+3. Launch the cspsconfigtool.exe using the shortcut on your.
+4. Click on the **Vault Registration** tab.
+5. Download a new  Registration file from the portal and provide it as input to the tool.
+
+    ![register-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-cs.PNG)
+6. Provide the Proxy Server details and click on the **Register** button.
+7. Open a Admin PowerShell command window.
+8. Run the following command
+    ```
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    net stop obengine
+    net start obengine
+    ```
 
 ## Decommissioning a  Configuration server
 Ensure the following before you start decommissioning your configuration server.
@@ -110,7 +135,7 @@ Ensure the following before you start decommissioning your configuration server.
 2. Click on the Configuration server that you want to decommission.
 3. On the Configuration server's details page click on the Delete button.
 
-  ![delete-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-cs.png)
+  ![delete-cs](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Click **Yes** to confirm the deletion of the server.
 
   >[!WARNING]

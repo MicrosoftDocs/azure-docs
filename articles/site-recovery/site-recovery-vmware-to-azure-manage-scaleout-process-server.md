@@ -58,7 +58,9 @@ UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCred
 
 ### Sample Usage
 ```
-UnifiedSetup.exe /ServerMode PS /InstallDrive D:\  /VaultCredsFilePath C:\Temp\MyVault.vaultcredentials /EnvType VMWare /PSIP 10.101.23.145  /CSIP 10.101.24.126 /PassphraseFilePath C:\Temp\connection.passphrase
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+cd C:\Temp\Extracted
+UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```
 
 ### Scale-out Process server installer command line arguments.
@@ -125,5 +127,3 @@ It can takes up-to 15 minutes for the Process Server deletion to reflect in the 
 |4 vCPUs (2 sockets * 2 cores @ 2.5GHz), 8 GB memory |300 GB |250 GB or less |Replicate 85 or less machines. |
 |8 vCPUs (2 sockets * 4 cores @ 2.5GHz), 12 GB memory |600 GB |250 GB to 1 TB |Replicate between 85-150 machines. |
 |12 vCPUs (2 sockets * 6 cores @ 2.5GHz) 24 GB memory |1 TB |1 TB to 2 TB |Replicate between 150-225 machines. |
-
-## Common issues
