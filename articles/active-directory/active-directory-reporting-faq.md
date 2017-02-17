@@ -18,6 +18,8 @@ ms.author: markvi
 ---
 # Azure Active Directory reporting FAQ
 
+This article includes answers to frequently asked questions (FAQs) about Azure Active Directory reporting.
+For more details, see [Azure Active Directory reporting](active-directory-reporting-azure-portal.md). 
 
 **Q: What is the data retention for Activity logs (Audit and Sign-ins) in the portal?** 
 
