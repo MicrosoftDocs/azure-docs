@@ -24,7 +24,17 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 ![flow logs overview][1]
 
-The following list is a listing of the properties that are returned within the NSG flow log:
+While flow logs target Network Security Groups they are not displayed the same as the other logs. Flow logs are stored only within a storage account and following the logging path as shown in the following example.
+
+```
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
+```
+
+The same retention policies as seen on other logs apply to flow logs. Logs have a retention policy that can be set from 1 day to 365 days. If a retention policy is not set the logs are maintained forever.
+
+## Log Properties
+
+Flow logs have multiple properties. The following list is a listing of the properties that are returned within the NSG flow log:
 
 * **time** - Time when the event was logged
 * **systemId** - Network Security Group resource Id.
@@ -48,8 +58,13 @@ The following list is a listing of the properties that are returned within the N
 					* **Traffic** - Whether traffic was allowed or denied. Valid values are **A** for allowed and **D** for denied.
 
 
-The following snippet is an example of the results in the NSG flow event log.
+## Example log
 
+The following is an example of a Flow log. As you can see there are multiple records that follow the property list described in the preceding section. 
+
+> [!NOTE]
+> Values in the flowTuples property are a comma separated list.
+ 
 ```json
 {
 	"records": 

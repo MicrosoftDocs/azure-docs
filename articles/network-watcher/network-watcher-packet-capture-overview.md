@@ -27,7 +27,7 @@ Packet capture is a virtual machine extension that is remotely started through N
 ![packet capture overview][1]
 
 > [!IMPORTANT]
-> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension, visit [Virtual Machine extensions and features](../virtual-machines/virtual-machines-windows-extensions-features.md).
+> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
 
 To reduce the information you capture to only the information you want, the following options are available for a packet capture session:
 
@@ -37,7 +37,7 @@ To reduce the information you capture to only the information you want, the foll
 |---|---|
 |**Maximum bytes per packet (bytes)** | The number of bytes from each packet that are captured, all bytes are captured if left blank. The number of bytes from each packet that are captured, all bytes are captured if left blank. If you need only the IPv4 header – indicate 60 here |
 |**Maximum bytes per session (bytes)** | Total number of bytes in that are captured, once the value is reached the session ends.|
-|**Time limit (seconds)** | Sets a time constraint on the packet capture session.|
+|**Time limit (seconds)** | Sets a time constraint on the packet capture session. The default value is 18000 seconds or 5 hours.|
 
 **Filtering (optional)**
 

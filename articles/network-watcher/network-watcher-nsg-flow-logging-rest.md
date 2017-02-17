@@ -37,14 +37,6 @@ This scenario assumes you have already followed the steps in [Create a Network W
 > [!Important]
 > For Network Watcher REST API calls the resource group name in the request URI is the resource group that contains the Network Watcher, not the resources you are performing the diagnostic actions on.
 
-## Scenario
-
-The scenario covered in this article uses Next Hop, a feature of Network Watcher that finds out the next hop type and IP address for a resource. To learn more about Next Hop, visit [Next Hop Overview](network-watcher-next-hop-overview.md).
-
-In this scenario, you will:
-
-* Retrieve the next hop for a virtual machine.
-
 ## Log in with ARMClient
 
 Log in to armclient with your Azure credentials.
@@ -182,6 +174,8 @@ If a storage account is specified, packet capture files are saved to a storage a
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
 ```
+
+For information about the structure of the log visit [Network Security Group Flow log Overview](network-watcher-nsg-flow-logging-overview.md)
 
 ## Next Steps
 

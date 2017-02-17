@@ -51,6 +51,8 @@ Select a Network Security Group from the list by clicking it.
 
 On the **Flow logs settings** blade, set the status to **On** and configure a storage account.  When complete click **OK** and **Save**
 
+![flow logs overview][3]
+
 ## Download Flow logs
 
 Flow logs are saved in a storage account. To view your flow logs you need to download them.
