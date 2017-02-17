@@ -54,22 +54,4 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
         </div>
         </a>
     </li>
-    <li>
-        <a href="https://youtu.be/Id7ZlT-ZKKY">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/video.png" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>2-Minute product overview video</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
