@@ -21,7 +21,7 @@ ms.author: maroche
 
 # Azure Data Catalog supported data sources
 
-You can publish meta data using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The following grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. The second grid  has a more technical specification of each data sources connection properties.
+You can publish meta data using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The following grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. The second grid has a more technical specification of each data sources connection properties.
 
 
 ## List of supported data sources
@@ -427,12 +427,12 @@ If you need support for additional sources, submit a feature request using the [
 <br>
 <br>
 ## Data source reference specification
-> [AZURE.NOTE] "DSL Structure" column in the following table only lists connection properties for "address" property bag that are used by Azure Data Catalog (i.e. "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.)
+> [AZURE.NOTE] "DSL Structure" column in the following table only lists connection properties for "address" property bag that are used by Azure Data Catalog. That is, "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.
 <table>
     <tr>
        <td><b>Source Type</b></td>
        <td><b>Asset Type</b></td>
-       <td><b>Object Type(s)</b></td>
+       <td><b>Object Types</b></td>
        <td><b>DSL Structure<b></td>
     </tr>
     <tr>
