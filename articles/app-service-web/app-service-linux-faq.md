@@ -21,7 +21,7 @@ ms.author: aelnably
 
 # Azure App Service Web Apps on Linux FAQ #
 
-With the release of Azure App Service on Linux (Currently in preview), we are working on adding features and making improvements to our platform. Here are number of frequently asked question that our customer have been asking us over the last months.
+With the release of Azure App Service on Linux (Currently in preview), we are working on adding features and making improvements to our platform. Here are a number of frequently asked question that our customer have been asking us over the last months.
 If you have a question, please comment on the article and we will answer it as soon as possible.
 
 ## Built-in Images ##
@@ -42,7 +42,7 @@ If you have a question, please comment on the article and we will answer it as s
 
 **A:** No, we will be providing a way to SSH into your app container in a future release.
 
-## Continous Integration / Deployment ##
+## Continuous Integration / Deployment ##
 
 **Q:** My webapp still uses an old Docker Container image after updating the image on DockerHub? Do you support continuous integration/deployment of custom containers?
 
