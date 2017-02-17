@@ -45,7 +45,7 @@ Deploying a template enables you to quickly and consistently create Azure resour
 
 |Name|Description|
 |---|---|
-|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).|
+|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/virtual-machines-windows-faq.md).|
 |adminPassword|Admin password The password must comply with [Azure password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS name for PublicIPAddressName1. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
 |dnsLabelPrefix1|DNS name for PublicIPAddressName2. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
@@ -64,9 +64,26 @@ You can use the Azure portal, PowerShell, or the Azure command-line interface (C
 
 To deploy the template using the Azure portal, complete the following steps:
 
-1. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
-	- Until you receive an e-mail notifying you that you've been accepted into the preview
-	- Without following the instructions in the email you receive 
+1. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
+	```
+	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network	
+	```
+	Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+		
+	```powershell
+	FeatureName                            ProviderName      RegistrationState
+	-----------                            ------------      -----------------      
+	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+	```
+		
+	>[!NOTE] 
+	>This may take a few minutes.
+
 2. Modify the template, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates ](../azure-resource-manager/resource-group-authoring-templates.md)article.
 3. Deploy the template with one of the following methods:
 	- **Select the template in the portal:** Complete the steps in the [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) article. Choose the pre-existing template named *101-vm-multiple-ipconfig*.

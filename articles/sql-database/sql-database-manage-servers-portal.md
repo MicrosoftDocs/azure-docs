@@ -50,7 +50,7 @@ You can create and manage Azure SQL Database server with the [Azure portal](http
 > For a getting started tutorial that creates a server using the Azure portal, see [Create a database - Azure portal](sql-database-get-started.md).
 >
 
-## Additional resources
+## Next steps
 * For an overview of management tools, see [Overview of management tools](sql-database-manage-overview.md)
 * To see how to perform management tasks using the Azure portal, see [Manage Azure SQL Databases using the Azure portal](sql-database-manage-portal.md)
 * To see how to perform management tasks using PowerShell, see [Manage Azure SQL Databases using PowerShell](sql-database-manage-powershell.md)

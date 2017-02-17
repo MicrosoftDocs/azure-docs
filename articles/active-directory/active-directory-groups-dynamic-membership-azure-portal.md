@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/14/2017
 ms.author: curtand
 
 ---
@@ -23,16 +23,16 @@ The Azure portal provides you with the ability to create advanced rules to enabl
 ## To create the advanced rule
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
-   
+
    ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
 3. On the **Users and groups** blade, select **All groups**.
-   
+
    ![Opening the groups blade](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
 4. On the **Users and groups - All groups** blade, select the **Add** command.
-   
+
    ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
-   
+
    ![Add dynamic membership rule](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 6. On the **Dynamic membership rules** blade, enter your rule into the **Add dynamic membership advanced rule** box, press Enter, and then select **Create** at the bottom of the blade.
 7. Select **Create** on the **Group** blade to create the group.
@@ -58,8 +58,8 @@ The total length of the body of your advanced rule cannot exceed 2048 characters
 > [!NOTE]
 > String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
-> 
-> 
+>
+>
 
 ## Supported expression rule operators
 The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
@@ -116,6 +116,7 @@ Allowed operators
 | --- | --- | --- |
 | city |Any string value or $null |(user.city -eq "value") |
 | country |Any string value or $null |(user.country -eq "value") |
+| CompanyName | Any string value or $null | (user.CompanyName -eq "value") |
 | department |Any string value or $null |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Any string value or $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -171,11 +172,11 @@ You can now populate members in a group based on the manager attribute of a user
 
 1. Follow steps 1-5 in [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
 2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
-   
+
     Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
 3. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
 
@@ -191,7 +192,7 @@ You can also create a rule that selects device objects for membership in a group
 | isManaged |true false null |(device.isManaged -eq "false") |
 | isCompliant |true false null |(device.isCompliant -eq "true") |
 
-## Additional information
+## Next steps
 These articles provide additional information on groups in Azure Active Directory.
 
 * [See existing groups](active-directory-groups-view-azure-portal.md)
@@ -199,4 +200,3 @@ These articles provide additional information on groups in Azure Active Director
 * [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
 * [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
-
