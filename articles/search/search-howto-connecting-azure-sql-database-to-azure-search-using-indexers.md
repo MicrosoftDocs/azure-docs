@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 02/15/2017
 ms.author: eugenesh
 ---
 
@@ -200,11 +200,13 @@ While the SQL Integrated Change Tracking policy is recommended, it can only be u
 
 * All inserts specify a value for the column.
 * All updates to an item also change the value of the column.
-* The value of this column increases with each change.
+* The value of this column increases with each insert or update.
 * Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-For example, an indexed **rowversion** column is an ideal candidate for the high water mark column.
-To use this policy, create or update your data source like this:
+> [!IMPORTANT] 
+> We strongly recommend using a **rowversion** column for change tracking. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query.
+
+To use a high water mark policy, create or update your data source like this:
 
     {
         "name" : "myazuresqldatasource",
@@ -213,7 +215,7 @@ To use this policy, create or update your data source like this:
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]"
+           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
 
