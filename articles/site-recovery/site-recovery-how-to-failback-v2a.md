@@ -72,10 +72,23 @@ Before you proceed further, complete the Reprotect steps so that the virtual mac
 
 Before initiating failback, **ensure that you have completed the reprotection of the virtual machines**. The virtual machines should be in protected state with their health as OK. To Reprotect the virtual machines, read more on [how to reprotect](site-recovery-how-to-reprotect.md).
 
-
 1. In the replicated items page select the virtual machine and right click to select **Unplanned Failover**.
 2. In **Confirm Failover** verify the failover direction (from Azure) and select the recovery point you want to use for the failover (latest, or the latest app consistent). App consistent point would be behind the latest point in time and causes some data loss.
 3. During failover Site Recovery will shut down the Azure VMs. After you check that failback has completed as expected, you can check that the Azure VMs have been shut down.
+
+### To what recovery point can I failback the VMs to?
+
+During failback, you have two options to failback the VM/Recovery plan.
+
+If you select the the latest processed point in time, all virtual machines will be failed over to their latest available point in time. In case there is a replication group within the recovery plan, then each VM of the replication group will fail over to its independent latest point in time.
+
+You cannot failback a VM untill it has atleast one recovery point. You cannot failback a recovery plan untill all its VMs have atleast one recovery point.
+
+[!NOTE]
+A latest recovery point is a crash consistent recovery point.
+
+If you select the application consistent recovery point, a single VM failback will recover to its latest available application consistent recovery point. In case of a recovery plan with a replication group, each replication group will recover to ts common available recovery point.
+Note that application consistent recovery points can be behind in time and there might be loss in data.
 
 ## Next steps
 

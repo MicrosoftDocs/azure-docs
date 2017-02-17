@@ -81,7 +81,7 @@ Read more on how to install an [Azure Process Server here](site-recovery-vmware-
 A master target server is required on-premises to receive the data from the process server and then write to the on-premises VM's VMDK. If you are protecting Windows VMs, you need a Windows master target server, and here you can reuse the on-premises PS+MT <!-- !todo component -->. For Linux VMs, you will need to setup an additional Linux master target on-premises.
 
 
-Click on the following links to reads the steps on How to install a Master Target server.
+Click on the below links to read the steps on how to install a Master Target server.
 
 * [How to install Windows Master Target server](site-recovery-vmware-to-azure.md#run-site-recovery-unified-setup)
 * [How to install Linux Master Target server](site-recovery-how-to-install-linux-master-target.md)
@@ -117,7 +117,7 @@ Click on the following links to reads the steps on How to install a Master Targe
 
 * Enable the disk.EnableUUID = True parameter on the MT VM via the vCenter properties. <!-- !todo Needs link. -->
 
-* The Master Target should have atleast one VMFS datastore attached. If there are none, the Datastore input on the reprotect page will be empty and you will not be able to proceed.
+* The Master Target should have atleast one VMFS datastore attached. If there is none, the Datastore input on the reprotect page will be empty and you will not be able to proceed.
 
 * Master Target server cannot have any snapshots on the disks. If there are snapshots, Reprotect/Failback will fail.
 
@@ -146,9 +146,9 @@ After a VM boots up in Azure, it takes some time for the agent to register back 
 1. In the Vault > replicated items > select the VM that's been failed over and right click to **Re-Protect**. You can also click the machine and select the reprotect from the command buttons.
 2. In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
 3. In **Master Target Server** and **Process Server** select the on-premises master target server, and the process server.
-4. Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exists, but you still need to specify a value.
+4. Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exist, but you still need to specify a value.
 5. Choose the retention drive. 
-6. The failback policy will be auto selected.
+6. The failback policy will be auto-selected.
 7. After you click **OK** to begin reprotection a job begins to replicate the VM from Azure to the on-premises site. You can track the progress on the **Jobs** tab.
 
 If you want to recover to an alternate location (when the on-premises VM is deleted), select the retention drive and datastore configured for the master target server. When you fail back to the on-premises site the VMware VMs in the failback protection plan will use the same datastore as the master target server and a new VM will be created in vCenter. 
