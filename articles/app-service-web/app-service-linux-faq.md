@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
-ms.author: aelnably;wesmc
+ms.date: 02/14/2017
+ms.author: aelnably
 
 ---
 
 # Azure App Service Web Apps on Linux FAQ #
 
-With the release of Azure App Service on Linux (Currently in preview), we are working on adding features and making improvements to our platform. Here are some of the frequently asked questions that our customers have been asking over the last months.
-If you have a question, add a comment at the bottom of the article. We do monitor these comments and reply as soon as possible.
+With the release of Azure App Service on Linux (Currently in preview), we are working on adding features and making improvements to our platform. Here are number of frequently asked question that our customer have been asking us over the last months.
+If you have a question, please comment on the article and we will answer it as soon as possible.
 
 ## Built-in Images ##
 
@@ -34,16 +34,15 @@ If you have a question, add a comment at the bottom of the article. We do monito
 
 **Q:** I press the restart button in the portal but my webapp did not restart, why is that?
 
-**A:** We are working on enabling the reset button. Right now you have two options.
-1. Add or change a dummy application setting to force your webapp to restart. 
-2. Stop and then start your webapp.
+**A:** We are working on enabling the reset button in the near future, right now you have two options.
+1. Add or change a dummy application setting, this will force your webapp to restart. 
+2. Stop and then Start your webapp.
 
 **Q:** Can I SSH to the VM?
 
 **A:** No, we will be providing a way to SSH into your app container in a future release.
 
-
-## Continuous Integration / Deployment ##
+## Continous Integration / Deployment ##
 
 **Q:** My webapp still uses an old Docker Container image after updating the image on DockerHub? Do you support continuous integration/deployment of custom containers?
 
@@ -51,7 +50,7 @@ If you have a question, add a comment at the bottom of the article. We do monito
 
 ## Language Support ##
 
-**Q:** Do you support uncompiled .Net core apps?
+**Q:** Do you support uncompiled .net core apps?
 
 **A:** No, you need to deploy the compiled .net core app with all the dependencies, a full deploy and build experience will be coming in a future release.
 
@@ -63,7 +62,7 @@ If you have a question, add a comment at the bottom of the article. We do monito
 
 ## Custom Containers ##
 
-**Q:** I am using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content using the SCM site or an ftp client. Where are my files?
+**Q:** I am using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content using the SCM site or a ftp client. Where are my files?
 
 **A:** We mount an SMB share to \home\ directory; thus overriding any content there.
 
@@ -87,7 +86,7 @@ If you have a question, add a comment at the bottom of the article. We do monito
 
 **Q:** What is the pricing while in public preview?
 
-**A:** You are charged for half the number of hours your app runs, based on the normal Azure App Service pricing. Effectively this pricing is a 50% discount on normal Azure App Service pricing.
+**A:** You will be charged half the number of hours your app runs, with the normal Azure App Service pricing; effectively meaning a 50% discount on normal Azure App Service pricing.
 
 ## Other ##
 
@@ -97,9 +96,8 @@ If you have a question, add a comment at the bottom of the article. We do monito
 
 **Q:** Where can I request new features?
 
-**A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Make sure to add [Linux] to the title of your idea.
+**A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Please add [Linux] to the title of your idea.
 
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
 * [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
-
