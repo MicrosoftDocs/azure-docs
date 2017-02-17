@@ -70,7 +70,7 @@ To disable the scheduled task that triggers a synchronization cycle every three 
 After you've completed all your filtering changes, don't forget to come back and **Enable** the task again.
 
 ## Filtering options
-You can apply the following filtering configuration types to the DirSync tool:
+You can apply the following filtering configuration types to the directory synchronization tool:
 
 * [**Group-based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial installation by using the installation wizard. It isn't covered further in this article.
 * [**Domain-based**](#domain-based-filtering): By using this option, you can select which domains synchronize to Azure AD. You can also add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you install Azure AD Connect sync.
@@ -97,7 +97,7 @@ To set the domain filter, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Service** from the **Start** menu.
-3. Select **Connectors**, and in the **Connectors** list, select the connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
+3. Select **Connectors**, and in the **Connectors** list, select the Connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
    ![Connector properties](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**.
 5. In the **Select directory partitions** list, select and unselect domains as needed. Verify that only the partitions that you want to synchronize are selected.  
@@ -110,7 +110,7 @@ To set the domain filter, do the following steps:
 ### Update the run profiles
 If you've updated your domain filter, you also need to update the run profiles.
 
-1. In the **Connectors** list, make sure that the connector that you changed in the previous step is selected. In **Actions**, select **Configure Run Profiles**.  
+1. In the **Connectors** list, make sure that the Connector that you changed in the previous step is selected. In **Actions**, select **Configure Run Profiles**.  
    ![Connector run profiles 1](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)  
 2. Find and identify the following profiles:
     * Full Import
@@ -143,10 +143,10 @@ To configure organizational unit–based filtering, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Service** from the **Start** menu.
-3. Select **Connectors**, and in the **Connectors** list, select the connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
+3. Select **Connectors**, and in the **Connectors** list, select the Connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
    ![Connector properties](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**, select the domain that you want to configure, and then click **Containers**.
-5. When you're prompted, provide any credentials with read access to Windows Server Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.
+5. When you're prompted, provide any credentials with read access to your on-premises Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.
 6. In the **Select Containers** dialog box, clear the OUs that you don’t want to synchronize with the cloud directory, and then click **OK**.  
    ![OUs in the Select Containers dialog box](./media/active-directory-aadconnectsync-configure-filtering/ou.png)  
    * The **Computers** container should be selected for your Windows 10 computers to be successfully synchronized to Azure AD. If your domain-joined computers are located in other OUs, make sure those are selected.
@@ -274,7 +274,7 @@ After the synchronization, all changes are staged to be exported. Before you act
 
 1. Start a command prompt, and go to `%Program Files%\Microsoft Azure AD Sync\bin`.
 2. Run `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   The name of the connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
+   The name of the Connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
 3. Run `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. You now have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all the changes that are about to be exported.
 5. Make the necessary changes to the data or configuration, and run these steps again (Import, Synchronize, and Verify) until the changes that are about to be exported are what you expect.
