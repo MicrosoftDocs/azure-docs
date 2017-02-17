@@ -181,7 +181,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 ### Test a blob trigger by using Storage Explorer
 You can test a blob trigger function by using [Azure Storage Explorer](http://storageexplorer.com/).
 
-1. In the [Azure portal] for your Functions app, create a C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
+1. In the [Azure portal] for your function app, create a C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
 
         files
 2. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
@@ -243,7 +243,7 @@ To demonstrate this approach, we first create a queue trigger function that we w
 >
 >
 
-1. In the [Azure portal] for your Functions app, click **New Function** > **QueueTrigger - C#**.
+1. In the [Azure portal] for your function app, click **New Function** > **QueueTrigger - C#**.
 2. Enter the queue name to be monitored by the queue function:
 
         queue-newusers
@@ -251,7 +251,7 @@ To demonstrate this approach, we first create a queue trigger function that we w
 4. Leave this portal browser window open, so you can monitor the log entries for the default queue function template code.
 
 #### Create a timer trigger to drop a message in the queue
-1. Open the [Azure portal] in a new browser window, and navigate to your Function App.
+1. Open the [Azure portal] in a new browser window, and navigate to your function app.
 2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code tests your queue function. Then click **Create**. If you want the test to run every 30 seconds, you can use the following [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression):
 
         */30 * * * * *
@@ -304,7 +304,7 @@ You may need to create an external application or framework to test your functio
 You can use a Node.js app to execute an HTTP request to test your function.
 Make sure to set:
 
-* The `host` in the request options to your Function App host.
+* The `host` in the request options to your function app host.
 * Your function name in the `path`.
 * Your access code (`<your code>`) in the `path`.
 
