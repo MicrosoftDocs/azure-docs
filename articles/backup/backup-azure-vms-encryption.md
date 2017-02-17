@@ -71,7 +71,7 @@ Use the following steps to set backup goal, define policy, configure items and t
    
       ![Encrypted VMs message](./media/backup-azure-vms-encryption/encrypted-vm-message.png)
    
-      Now that you have defined all settings for the vault, in the Backup blade click Enable Backup at the bottom of the page. Enable Backup deploys the policy to the vault and the VMs.
+      Now that you have defined all settings for the vault, in the Backup blade click Enable Backup at the bottom of the page. Enable  Backup deploys the policy to the vault and the VMs.
 8. The next phase in preparation is installing the VM Agent or making sure the VM Agent is installed. To do the same, use the steps mentioned in the article [Prepare your environment for backup](backup-azure-arm-vms-prepare.md). 
 
 ### Triggering backup job
