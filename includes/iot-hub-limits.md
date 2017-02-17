@@ -3,10 +3,10 @@ The following table lists the limits associated with the different service tiers
 | Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
 | --- | --- | --- | --- | --- |
 | Messages/day |400,000 |6,000,000 |300,000,000 |8,000 |
-| Maximum units |200 |200 |200 |1 |
+| Maximum units |200 |200 |10 |1 |
 
 > [!NOTE]
-> If you anticipate using more than 200 units with an S1 or S2 or S3 tier hub, please contact Microsoft support.
+> If you anticipate using more than 200 units with an S1 or S2 or 10 units with an S3 tier hub, contact Microsoft support.
 > 
 > 
 
@@ -16,7 +16,7 @@ The following table lists the limits that apply to IoT Hub resources:
 | --- | --- |
 | Maximum paid IoT hubs per Azure subscription |10 |
 | Maximum free IoT hubs per Azure subscription |1 |
-| Maximum number of device identities<br/>  returned in a single call |1000 |
+| Maximum number of device identities<br/> returned in a single call |1000 |
 | IoT Hub message maximum retention for device-to-cloud messages |7 days |
 | Maximum size of device-to-cloud message |256 KB |
 | Maximum size of device-to-cloud batch |256 KB |
@@ -31,13 +31,13 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum depth of object in device twin | 5 |
 | Maximum size of direct method payload | 8 KB |
 | Job history maximum retention | 30 days |
-| Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 ( for S1) |
+| Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 (for S1) |
 | Maximum additional endpoints | 10 (for S1, S2, S3) |
 | Maximum message routing rules | 100 (for S1, S2, S3) |
 
 
 > [!NOTE]
-> If you need more than 10 paid IoT hubs in an Azure subscription, please contact Microsoft support.
+> If you need more than 10 paid IoT hubs in an Azure subscription, contact Microsoft support.
 > 
 > 
 
