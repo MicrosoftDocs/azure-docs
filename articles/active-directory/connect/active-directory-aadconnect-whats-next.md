@@ -36,7 +36,7 @@ Now that your users have been synchronized to the cloud, you need to assign them
 6. In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.
 
 ## Verify the scheduled synchronization task
-If you want to check on the status of a synchronization, you can do this by checking in the Azure portal.
+Use the Azure portal to check the status of a synchronization.
 
 ### To verify the scheduled synchronization task
 1. Sign in to the Azure portal as an admin.
