@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2016
+ms.date: 02/17/2017
 ms.author: pajosh
 
 ---
@@ -26,13 +26,14 @@ More and more customers are hit with security issues like malware, ransomware, i
 
 > [!NOTE]
 > Security Features should be enabled only if you are using: <br/>
-> * **MAB agent** - minimum agent version 2.0.9052. Once you have enabled these features, you should upgrade to this agent version to perform critical operations like Change Passphrase, Stop backup with Delete data <br/>
-> * **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server update 1 <br/>
-> * **DPM** - Do not enable these features for DPM. These features are coming soon in future URs, so enabling them will not have any impact on existing functioanlity. <br/>
+> * **MAB agent** - minimum agent version 2.0.9052. Once you have enabled these features, you should upgrade to this agent version to perform critical operations like Change Passphrase, Stop backup with Delete data. <br/>
+> * **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server update 1. <br/>
+> * **DPM** - minimum MAB agent version 2.0.9052 with DPM 2012 R2 UR12 or DPM 2016 UR2. <br/>
 > * **IaaS VM Backup** - Do not enable these features for IaaS VM Backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact on IaaS VM backup.
 > * Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines and Azure Backup Servers registered with the vault. <br/>
 > * Enabling this setting is a one-time action and you cannot disable these features after enabling them. <br/>
 > * This feature is available only for Recovery Services vault.
+> * All the new Recovery Services vaults created have this setting enabled by default.
 >
 >
 
@@ -74,6 +75,11 @@ For **Azure Backup Server** users:
 
 1. If the server where backups were happening is still available, re-protect the deleted data sources and use Recover Data feature to recover from all the old recovery points.
 2. If the machine mentioned above is not available, use [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Azure Backup Server to get this data.
+
+For **DPM** users:
+
+1. If the server where backups were happening is still available, re-protect the deleted data sources and use Recover Data feature to recover from all the old recovery points.
+2. If the machine mentioned above is not available, use [Add External DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another DPM Server to get this data.
 
 ## Preventing attacks
 As part of this feature, checks have been added to make sure only valid users can perform various operations.
