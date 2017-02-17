@@ -20,7 +20,7 @@ ms.author: carlrab
 
 ---
 # Azure AD authentication, access, and database-level firewall rules
-In this getting-started tutorial, you learn how to use SQL Server Management Studio to work with Azure Active Directory authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
+In this tutorial, you learn how to use SQL Server Management Studio to work with Azure Active Directory authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
 
 - View user permissions in the master database and in user databases
 - Create logins and users based on Azure Active Directory authentication

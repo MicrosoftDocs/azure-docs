@@ -18,7 +18,7 @@ ms.date: 07/10/2016
 ms.author: ronmat; ronitr
 
 ---
-# Configure and manage Azure SQL Database threat detection
+# Configure and manage Azure SQL Database threat detection in the Azure portal
 
 This topic shows you how to set up threat detection and explore anomalous database activities. For an overview of Azure SQL Database threat detection, see [Threat detection overview](sql-database-threat-detection.md).
 
@@ -61,8 +61,8 @@ This topic shows you how to set up threat detection and explore anomalous databa
 
 ## Next steps
 
-* For an overview of Azure SQL Database threat detection, see [Threat detection overview](sql-database-threat-detection.md).
-* For an overview of auditing, see [SQL Database auditing](sql-database-auditing-get-started.md).
+* For an overview of SQL Database threat detection, see [Threat detection](sql-database-threat-detection.md).
+* For an overview of SQL Database auditing, see [Database auditing](sql-database-auditing.md).
 
 
 <!--Image references-->
