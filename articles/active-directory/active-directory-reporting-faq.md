@@ -1,5 +1,5 @@
 ---
-title: Reporting FAQ | Microsoft Docs
+title: Azure Active Directory Reporting FAQ | Microsoft Docs
 description: Azure Active Directory reporting FAQ.
 services: active-directory
 documentationcenter: ''
