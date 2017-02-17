@@ -1,12 +1,12 @@
 ---
-title: Security considerations when accessing apps remotely using Azure AD Application Proxy | Microsoft Docs
-description: Covers security considerations when using Azure AD Application Proxy.
+title: Security considerations for accessing apps remotely by using Azure AD Application Proxy | Microsoft Docs
+description: Covers security considerations for using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
 
-ms.assetid: 
+ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -17,13 +17,13 @@ ms.author: kgremban
 
 ---
 
-# Security considerations when accessing apps remotely using Azure AD Application Proxy
+# Security considerations for accessing apps remotely by using Azure AD Application Proxy
 
 >[!NOTE]
 >Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 >  
 
-This article explains how Azure AD Application Proxy provides a secure service for publishing and accessing your applications remotely. 
+This article explains how Azure AD Application Proxy provides a secure service for publishing and accessing your applications remotely.
 
 Azure AD Application Proxy offers the following security benefits:
 
@@ -43,7 +43,7 @@ Azure AD Application Proxy offers the following security benefits:
 
 **All access is outbound:** No inbound connections need be opened to the corporate network
 
-* Azure AD connectors maintain outbound connections to the Azure AD App proxy service. This means there is no need to open firewall ports for incoming connections. 
+* Azure AD connectors maintain outbound connections to the Azure AD App proxy service. This means there is no need to open firewall ports for incoming connections.
 * Traditional approaches required a DMZ and opening access to unauthenticated connections at the network edge. This resulted in the need for lot of additional investment in WAF products to analyze traffic and offer addition protections to the environment. With App Proxy, you can avoid this scenario. You can even consider going without your DMZ, as all connections are outbound and over a secure channel.
 
 **Security analytics and machine language-based intelligence:** Cutting-edge security protection
@@ -55,15 +55,15 @@ Azure AD Application Proxy offers the following security benefits:
 **Remote access as a service:** You don’t have to worry about maintaining and patching on-prem servers
 
 * The Azure AD App Proxy is an internet scale service that we own, so you can be assured you always get the latest security patches and upgrades. Thererfore, we take care of your network's security.
-* Unpatched software still accounts for a large number of attacks. With our service model, you don’t have to carry the burden of managing edge servers any longer. 
+* Unpatched software still accounts for a large number of attacks. With our service model, you don’t have to carry the burden of managing edge servers any longer.
 
-The remote access services provided with Azure AD operate in accordance with the guidelines and standards outlined at the [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center). 
+The remote access services provided with Azure AD operate in accordance with the guidelines and standards outlined at the [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center).
 
 The diagram below shows how Azure AD enables secure remote access to your on-prem applications.
 
  ![AzureAD Application Proxy Connectors](./media/application-proxy-security-considerations/secure-remote-access.png)
 
->[!NOTE] 
+>[!NOTE]
 >To improve the security of applications published by Azure AD Appl Proxy, we block Web crawler robots from indexing and archiving your applications. Each time a Web crawler robot tries to retrieve the robots settings for a published app, App Proxy replies with a robots.txt file that includes the following: <br>
 >   _User-agent: *_<br>
 >   _Disallow: /_
@@ -77,7 +77,7 @@ Azure AD Application Proxy consists of two parts:
 * An on-premises component called the AAD App Proxy Connector.  The connector listens for requests from the AAD AP service and handles connections to the internal applications, including taking care of items such as KCD (Kerberos Constrained Delegation) for SSO.
 
 ### Traffic flows—and how they are secured
-This section includes details about how the flows are secured. A flow between the connector and the App Proxy service is established when: 
+This section includes details about how the flows are secured. A flow between the connector and the App Proxy service is established when:
 
 * The Connector is first set up.
 * The Connector pulls configuration information from the App Proxy service, including the connector group that each connector is a member of.
@@ -95,7 +95,7 @@ The following flow happens when the connector is first set up.
 
 1. The Connector registration to the service happens as part of the installation of the Connector. At this time, the user is prompted to enter their Azure AD admin credentials. The token acquired is then presented to the Azure AD App Proxy service.
 2. App Proxy evaluates the token to ensure that the user is a member of the company admin role within the tenant the token was issued for. If not, the process is terminated.
-3. The connector generates a client certificate request and passes this with the token to the App Proxy service, which in turn verifies the token and signs the client certificate request. 
+3. The connector generates a client certificate request and passes this with the token to the App Proxy service, which in turn verifies the token and signs the client certificate request.
 4. The connector uses this client certificate for future communication with the App Proxy service.
 4. The connector performs an initial pull of the system configuration data from the srvice using its client certificate and is ready to take requests.
 
@@ -117,7 +117,7 @@ The following flow happens when users access a published application.
  * App Proxy then validates the token to ensure that it was issued to the application that the user was requesting access to. It does this along with other checks, such as ensuring that the token was signed by Azure AD, and is still within the valid window, etc.
  * App Proxy sets an encrypted authentication cookie (such as a non-persisted cookie) to indicate that authentication to the application has occurred.  This cookie includes an expiration timestamp based on the token from Azure AD and other data, such as the user name that the authentication is based on.  This cookie is encrypted using a private key known only to the App Proxy service.
  * App Proxy redirects the user back to the originally requested URL.
- >[!NOTE] 
+ >[!NOTE]
  >If any part of the pre-authentication steps fails, the user’s request is denied, and the user is shown a message indicating the source of the problem.
  >
 
@@ -136,8 +136,7 @@ The following flow happens when users access a published application.
 5. Once a response is received, the connector makes an outbound connection to the App Proxy service, to return the header details and begin streaming the return data.
 6. App Proxy "streams" the data to the user.  Some processing of the headers may occur here, as needed and defined by the application.
 
-If you need assistance communicating from an Azure web application by way of a client browser to an on-premise Windows-authenticated Simple Object Access Protocal (SOAP) endpoint, see this [Azure Field Notes Blog](http://www.azurefieldnotes.com/2016/12/02/claims-to-windows-identity-translation-solutions-and-its-flaws-when-using-azure-ad-application-proxy). 
+If you need assistance communicating from an Azure web application by way of a client browser to an on-premise Windows-authenticated Simple Object Access Protocal (SOAP) endpoint, see this [Azure Field Notes Blog](http://www.azurefieldnotes.com/2016/12/02/claims-to-windows-identity-translation-solutions-and-its-flaws-when-using-azure-ad-application-proxy).
 
 ##Next steps
 [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
-
