@@ -148,18 +148,11 @@ The following administrator roles are available:
 ## Details about the global administrator role
 The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
-
 ## Assign or remove administrator roles
-1. In the [Azure classic portal](https://manage.windowsazure.com), click **Active Directory**, and then click the name of your organization’s directory.
-2. On the **Users** page, click the display name of the user you want to edit.
-3. In the **Organizational Role** list, select the administrator role that you want to assign to this user, or select **User** if you want to remove an existing administrator role.
-4. In the **Alternate Email Address** box, type an email address. This email address is used for important notifications, including password self-reset, so the user must be able to access the email account whether or not the user can access Azure.
-5. Select **Allow** or **Block** to specify whether to allow the user to sign in and access services.
-6. Specify a location from the **Usage Location** drop-down list.
-7. When you have finished, click **Save**.
+To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory preview](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal)
 
 ## Next steps
-* To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory preview](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal)
+
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
