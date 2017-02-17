@@ -67,8 +67,8 @@ Here are the base commands:
                 resources.
     appservice: Commands to manage your Azure web apps and App Service plans.
     cloud     : Manage the Azure clouds registered.
-    component : Commands to manage and update Azure CLI 2.0 (Preview) components.
-    configure : Configure Azure CLI 2.0 Preview or view your configuration. The command is
+    component : Commands to manage and update Azure CLI 2.0 components.
+    configure : Configure Azure CLI 2.0 or view your configuration. The command is
                 interactive, so just type `az configure` and respond to the prompts.
     container : Set up automated builds and deployments for multi-container Docker applications.
     disk      : Commands to manage 'Managed Disks'.
