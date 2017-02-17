@@ -37,7 +37,7 @@ The simplest way to get started with Event Hubs is the default behavior. If you 
 
 For use cases that require maximum uptime, this is the preferred model.
 
-## Event ordering
+## Consistency
 In particular scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` to only send events to a certain partition. This ensures that when these events are read from the partition, they are read in order.
 
 With this type of configuration, you must keep in mind that if the particular partition that you are sending to is unavailable, you will receive an error response. As a point of comparison, if you did not have an affinity to a single partition, the Event Hubs service would send your event to the next available partition.
