@@ -240,11 +240,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ## Importing node configurations
 
 You can also import node configuratons (MOFs) that you have compiled outside of Azure. One advantage of this is that node confiturations can be signed.
-A signed node configuration is verified locally on a managed node by the DSC agent, ensuring that the configuration being applied to the node comds from an
+A signed node configuration is verified locally on a managed node by the DSC agent, ensuring that the configuration being applied to the node comes from an
 authorized source.
 
 > [!NOTE]
-> You can use import signed configurations into your Azure Automation account, but Azure Automation doesn not currently support compiling signed configurations.
+> You can use import signed configurations into your Azure Automation account, but Azure Automation does not currently support compiling signed configurations.
 
 > [!NOTE]
 > A node configuration file must be no larger than 1 MB to allow it to be imported into Azure Automation.
@@ -260,7 +260,7 @@ You can learn how to sign node configurations at https://msdn.microsoft.com/en-u
 3. In the **Import** blade, click the folder icon next to the **Node Configuration File** textbox to browse for a node configuration file (MOF) on your local computer.
 
     ![Browse for local file](./media/automation-dsc-compile/import-browse.png)
-4. Enter a name in the **Configuration Name** textbox. This name must match the name of the confuguration from which the node configuration was compiled.
+4. Enter a name in the **Configuration Name** textbox. This name must match the name of the configuration from which the node configuration was compiled.
 5. Click **OK**.
 
 ### Importing a node configuration with PowerShell
