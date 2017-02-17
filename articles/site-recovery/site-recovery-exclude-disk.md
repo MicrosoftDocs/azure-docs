@@ -51,7 +51,7 @@ Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replicat
 ![Enable replication](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 	
 	
-[!NOTE:]
+>[!NOTE]
 > 
 > * You can only exclude disks that already have the Mobility service installed. You need to manually install the Mobility service, because the Mobility service is only installed using the push mechanism after replication is enabled.
 > * Only basic disks can be excluded from replication. You can't exclude OS or dynamic disks.
