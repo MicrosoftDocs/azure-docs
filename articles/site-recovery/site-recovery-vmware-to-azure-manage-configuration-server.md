@@ -1,5 +1,5 @@
 ---
-title: ' Manage a Configuration server | Microsoft Docs'
+title: ' Manage a Configuration server in Azure Site Recovery | Microsoft Docs'
 description: This article describes how to set and manage a Configuration Server.
 services: site-recovery
 documentationcenter: ''
