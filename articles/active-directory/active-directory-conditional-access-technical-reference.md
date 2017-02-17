@@ -50,7 +50,7 @@ Conditional access rules that use an “At work” network, rely on trusted IP a
 Options for specifiying “at work” networks
 
 1. Configure trusted IP address ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. 
-2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. [Learn more about the inside coronet claims](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. To learn more about the inside corpnet claims, see [Tusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 
 
 ## Rules based on application sensitivity
