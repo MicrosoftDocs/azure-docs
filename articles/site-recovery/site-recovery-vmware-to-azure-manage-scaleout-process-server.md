@@ -86,8 +86,10 @@ You need to pass a proxy settings configuration file to the installer when you a
   cdpcli.exe --registermt
   exit
   ```
+
 ## Re-registering a Scale-out Process Server
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+
 
 ## Upgrading a Scale-out Process Server
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
