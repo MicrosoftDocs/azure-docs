@@ -4,7 +4,7 @@ description: Important considerations when planning to back up virtual machines 
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: ''
 keywords: backup vms, backup virtual machines
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.author: markgal;trinadhk
 
 ---
 # Plan your VM backup infrastructure in Azure
@@ -92,7 +92,7 @@ While a majority of the backup time is spent in reading and copying data, there 
 ## Total restore time
 A restore operation consists of two main sub tasks: Copying data back from vault to chosen customer storage account and creating the virtual machine. Copying data back from vault depends upon where backups are stored internally in Azure and where customer storage account is stored. Time taken to copy data depends upon:
 * Queue wait time - Since service is processing restores from multiple customers at the same time, restore requests are put in queue.
-* Data copy time - Data is copied similar to a first backup process from vault to customer storage account. If the customer storage account to which backup service needs to write data from vault is loaded, copying time can increase. So, make sure to select a storage account which is not loaded with other application writes and reads during restore to optimize on the copy time. 
+* Data copy time - Data is copied similar to a first backup process from vault to customer storage account. If the customer storage account to which backup service needs to write data from vault is loaded, copying time can increase. So, make sure to select a storage account which is not loaded with other application writes and reads during restore to optimize on the copy time.
 
 ## Best practices
 We suggest following these practices while configuring backups for virtual machines:

@@ -66,7 +66,7 @@ To update the service tier or performance level of a SQL database, click **Prici
 ![pricing tiers](./media/sql-database-manage-portal/pricing-tier.png)
 
 ## How do I configure auditing and threat detection for a SQL database?
-To configure auditing and threat detection for a SQL database, click **Auditing and Threat detection** on the **SQL database** blade. For details, see [Get started with SQL database auditing](sql-database-auditing-get-started.md), and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
+To configure auditing and threat detection for a SQL database, click **Auditing and Threat detection** on the **SQL database** blade. For details, see [Database auditing](sql-database-auditing.md), and [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
 
 ## How do I configure dynamic data masking for a SQL database?
 To configure dynamic data masking for a SQL database, click **Dynamic data masking** on the **SQL database** blade. For details, see [Get started with SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md).
