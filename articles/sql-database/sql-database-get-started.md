@@ -75,7 +75,7 @@ The steps in this procedure show you how to create a logical server in the Azure
     ![new server name](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > The fully qualified name for your new server is in the form of: **<your_server_name>.database.windows.net**. You will use this fully qualified server name later in this tutorial to connect to your server and your databases.
+    > The fully qualified name for your new server must be globally unique and is in the form of: **<your_server_name>.database.windows.net**. You will use this fully qualified server name later in this tutorial to connect to your server and your databases.
     >
     
 4. In the **Server admin login** text box, provide a user name for the SQL authentication login for this server. This login is referred to as the server principal login. A green check mark indicates that you have provided a valid name.
