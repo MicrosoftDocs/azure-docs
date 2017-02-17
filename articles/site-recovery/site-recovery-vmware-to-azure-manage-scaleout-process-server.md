@@ -50,7 +50,7 @@ Check the [size recommendations for process servers](#size-recommendations-for-t
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
 
 
-## Installing and Registering a Scale-out process server using Command-line
+## Installing and Registering a Scale-out process server using command-line
 
 ```
 UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
@@ -63,12 +63,12 @@ cd C:\Temp\Extracted
 UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```
 
-### Scale-out Process server installer Command line arguments.
+### Scale-out Process server installer command-line arguments.
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
 
 ### Create a Proxy settings configuration file
-ProxySettingsFilePath parameter takes a file as input. Create  file using the below format and pass it as input ProxySettingsFilePath parameter.
+ProxySettingsFilePath parameter takes a file as input. Create file using the following format and pass it as input ProxySettingsFilePath parameter.
 ```
 * [ProxySettings]
 * ProxyAuthentication = "Yes/No"
@@ -78,7 +78,7 @@ ProxySettingsFilePath parameter takes a file as input. Create  file using the be
 * ProxyPassword="Password"
 ```
 ## Modifying Proxy Settings for Scale-out Process server
-1. Login into your Scale-out Process Server.
+1. Login  into your Scale-out Process Server.
 2. Open an Admin PowerShell command window.
 3. Run the following command
   ```
@@ -106,7 +106,7 @@ ProxySettingsFilePath parameter takes a file as input. Create  file using the be
   - Process Server's is still able to communicate with the Configuration server.
 2. Log in to the process server as an administrator
 3. Open up Control Panel > Program > Uninstall Programs
-4. Uninstall the programs in the sequence given below.
+4. Uninstall the programs in the sequence given following:
   * Microsoft Azure Site Recovery Configuration Server/Process Server
   * Microsoft Azure Site Recovery Configuration Server Dependencies
   * Microsoft Azure Recovery Services Agent
@@ -114,7 +114,7 @@ ProxySettingsFilePath parameter takes a file as input. Create  file using the be
 It can take up-to 15 minutes for the Process Server deletion to reflect in the Azure portal.
 
   > [!NOTE]
-  If the Process server is unable to communicate with the Configuration Server (Connection State in portal is Disconnected),  then you need to follow the following steps to purge it from the Configuration Server.
+  If the Process server is unable to communicate with the Configuration Server (Connection State in portal is Disconnected), then you need to follow the following steps to purge it from the Configuration Server.
 
 ## Unregistering a disconnected process server from a Configuration Server
 
@@ -124,6 +124,6 @@ It can take up-to 15 minutes for the Process Server deletion to reflect in the A
 
 | **Additional process server** | **Cache disk size** | **Data change rate** | **Protected machines** |
 | --- | --- | --- | --- |
-|4 vCPUs (2 sockets * 2 cores @ 2.5GHz), 8 GB memory |300 GB |250 GB or less |Replicate 85 or less machines. |
-|8 vCPUs (2 sockets * 4 cores @ 2.5GHz), 12 GB memory |600 GB |250 GB to 1 TB |Replicate between 85-150 machines. |
-|12 vCPUs (2 sockets * 6 cores @ 2.5GHz) 24 GB memory |1 TB |1 TB to 2 TB |Replicate between 150-225 machines. |
+|4 vCPUs (2 sockets * 2 cores @ 2.5 GHz), 8-GB memory |300 GB |250 GB or less |Replicate 85 or less machines. |
+|8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 12-GB memory |600 GB |250 GB to 1 TB |Replicate between 85-150 machines. |
+|12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) 24-GB memory |1 TB |1 TB to 2 TB |Replicate between 150-225 machines. |
