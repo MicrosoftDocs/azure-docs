@@ -281,33 +281,68 @@ On the whole, for the query in question, the documents that match are 1, 2.
 
 ## Stage 4: Scoring  
 
-Every item in a search result set is assigned a relevance score, then ranked highest to lowest. The score is computed based on statistical properties of the data and the query.  
+(warning: random links, notes, thoughts -- including them as triggers for things to cover. I think its fine to drop the 3 document example, which is not realistic for scoring, and go with abstract or hypothetical descriptions.)
 
-The basis for this approach to computing relevance is known as TF-IDF (term frequency-inverse document frequency). More specifically, the Lucene scoring formula is used: https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html 
++ What is scoring
++ How is the score generated
++ When is scoring not supported (and what is the alternative)
++ How to boost a search score
++ How to return matches with higher scores
+
+Every item in a search result set is assigned a relevance score, then ranked highest to lowest. Assuming no custom sort, results are ranked by search score. If `$top` is not specified, 50 items having the highest search score are returned to the calling application.
+
+Scoring is part of full text search that includes analysis. In Azure Search, wildcard search queries like prefix, regex, and fuzzy search queries are routed through an internal query rewriting process and thus return constant scores of 1.0.   http://stackoverflow.com/questions/41379079/lucene-documents-scoring-ranking-with-regex-query  
+
+Although scoring is not supported for full-syntax query types (like fuzzy, prefix, regex), you can use field or tag boosting. (http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service)
+
+Given full text search, you cannot actually turn off scoring. For example if you have scenarios (like this one... http://stackoverflow.com/questions/41094873/can-i-ignore-term-frequency-and-its-affect-on-relevance-in-azure-search   ... which I don't understand)
+
+### Search score computation
+
+The score is computed based on statistical properties of the data and the query. Base relevance is computed using term frequencies, but proximity of terms (within the same document, or across different documents) are also factors. For example, identical term combinations in two different documents could have different scores due to variations in the documents themselves (http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service). 
+
+Also known as TF-IDF (term frequency-inverse document frequency). More specifically, the Lucene scoring formula is used: https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html 
 
 * Find documents containing terms in the query string (some or all, depending on `searchMode`). 
-
 * Increase the score any documents containing multiple instances of the search term.  
-
 * Further increase the score if the term is rare across the data corpus, but common within the document. 
 
-Assuming there is no custom sorting, results are then ranked by search score before they are returned to the calling application. If $top is not specified, 50 items having the highest search score are returned. 
+http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service
+
+### Ranking
 
 Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first. 
 
 Also, the score value is not normalized, the score values represent relative relevance of documents and can't be compared between different queries. 
 
 How are scores aggregated, run _explain on the example from above 
-
 You can get more differentiation in scores if …. 
-
-<The example we’re using fails us here in this section because there is no search corpus – thus no search scores -- to explore. I don’t know if it’s possible to come up with an equivalent query for the real estate database, but if we can, this section could write itself> 
-
 (Explain that scoring is not performed when orderBy is used for performance reasons )
 
-### Tune search ranking scores 
+### Boosting
 
-In Azure Search, you can’t change the scoring logic, but you can apply term boosting within a field (Lucene syntax only), create scoring profiles, and control the number of items that are returned. For more information, see: * Lucene query syntax * Add a scoring profiles in Azure Search * Page search results Next steps: customizing the query pipeline
+In Azure Search, you can’t change the scoring logic, but you can apply logic to increase the score for documents that meet additional criteria.
+
+The boosting factor in a scoring profile is multiplied to the base relevance scores.(http://stackoverflow.com/questions/41427940/how-do-scoring-profiles-generate-scores-in-azure-search )
+
+For example, suppose that the base scores, given in @search.score in the response payload, of the two documents were 0.5 and 0.2 and the values in the weight column were 0.5465 and 0.5419 respectively. With the scoring profile configuration given above, with starting value of 0, ending value of 1, linear interpolation, and the boost factor of 1000. The final score you get for each document is computed as the following :
+
+~~~~
+document 1 : base search_score(0.5) * boost_factor (1000) * (weight (0.5465) - min(0)) / max - min (1) = final_search_score(273.25)
+
+document 2 : base_search_score(0.2) * boost_factor (1000) * (weight (0.5419) - min(0)) / max - min (1) = final_search_score(108.38)
+~~~~
+
+For field weights in a scoring profile, field weight is already factored in in the base score, before additional boosting is applied.
+
+### Options for custom rankings
+
+The following list summarizes the approaches you can use to modulate search scores:
+
++ Apply term boosting within a field ([Lucene full syntax only]((https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)). 
+
++ Create [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)to redefine the relative importance of fields in the index, for example to boost a match found in a name field over a description field.
+
 
 ## Next steps
 
@@ -324,6 +359,8 @@ In Azure Search, you can’t change the scoring logic, but you can apply term bo
 [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 
 [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+
+[Handle search results](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 
 <!--Image references-->
 [1]: ./media/search-query-architecture/architecture-diagram2.png
