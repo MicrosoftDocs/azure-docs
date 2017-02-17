@@ -10,6 +10,6 @@
 
 >[!WARNING]
 >
-> Use the above command with utmost caution since if you delete any vault by mistake, you will lose all the data. This is a permanent action and there is no way to reverse it.
+> Use the above command with utmost caution since if you delete any vault by mistake, you will lose all the data. This is a permanent action and there is no way to reverse it.  
 
 
