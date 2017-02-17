@@ -25,7 +25,7 @@ Configuration server acts as a coordinator between the Site Recovery services an
 The minimum hardware, software and network configuration required to setup a configuration is as listed below.
 
 > [!NOTE]
-> [Capacity planning](site-recovery-plan-capacity-vmware.md) is an important step to ensure that you deploy the Configuration server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration server](#sizing-requirements-for-a-configuration-server).
+> [Capacity planning](site-recovery-capacity-planner.md) is an important step to ensure that you deploy the Configuration server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration server](#sizing-requirements-for-a-configuration-server).
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
