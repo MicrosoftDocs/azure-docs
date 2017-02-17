@@ -32,7 +32,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 The same retention policies as seen on other logs apply to flow logs. Logs have a retention policy that can be set from 1 day to 365 days. If a retention policy is not set the logs are maintained forever.
 
-## Log Properties
+## Log file
 
 Flow logs have multiple properties. The following list is a listing of the properties that are returned within the NSG flow log:
 
@@ -57,8 +57,6 @@ Flow logs have multiple properties. The following list is a listing of the prope
 					* **Traffic Flow** - The direction of the traffic flow. Valid values are **I** for inbound and **O** for outbound.
 					* **Traffic** - Whether traffic was allowed or denied. Valid values are **A** for allowed and **D** for denied.
 
-
-## Example log
 
 The following is an example of a Flow log. As you can see there are multiple records that follow the property list described in the preceding section. 
 

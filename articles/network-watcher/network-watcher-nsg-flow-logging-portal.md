@@ -75,6 +75,8 @@ Drill down to the location of the flow log, select the flow log and click **Down
 
 ![flow logs settings][6]
 
+For information about the structure of the log visit [Network Security Group Flow log Overview](network-watcher-nsg-flow-logging-overview.md)
+
 ## Next steps
 
 Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
