@@ -17,7 +17,7 @@ ms.date: 02/13/2017
 ms.author: ruturajd
 
 ---
-# Reprotect from Azure to On-premises
+# Reprotect from Azure to on-premises
 
 ## Overview
 This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
@@ -27,7 +27,7 @@ After reprotect completes and the protected virtual machines are replicating, yo
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 For a quick video overview, you can also go through the video here.
-[!Video https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises]
+[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises]
 
 read about the complete process of failback here.
 
@@ -75,7 +75,7 @@ Remember, that the replication will only happen over S2S VPN, or the private pee
 
 ![Failover-Failback all ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
 
-### Which Master target server to use for reprotect?
+### Which Master Target server to use for reprotect?
 A master target server is required on-premises to receive the data from the process server and then write to the on-premises VM's VMDK. If you are protecting Windows VMs, you need a Windows master target server, and here you can reuse the on-premises PS+MT <!-- !todo component -->. For Linux VMs, you will need to setup an additional Linux master target on-premises.
 
 
@@ -95,19 +95,19 @@ Click on the following links to reads the steps on How to install a Master Targe
 
 * You need a new drive added onto your existing Windows Master target server. This drive is called a retention drive. Add a new disk and format the drive. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
    
-   a. Volume shouldn't be in use for any other purpose (target of replication etc.)
+   * Volume shouldn't be in use for any other purpose (target of replication etc.)
 
-   b. Volume shouldn't be in lock mode.
+   * Volume shouldn't be in lock mode.
 
-   c. Volume shouldn't be cache volume. (MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT.)
+   * Volume shouldn't be cache volume. (MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT.)
 
-   d. The Volume File system type shouldn't be FAT and FAT32.
+   * The Volume File system type shouldn't be FAT and FAT32.
 
-   e. The volume capacity should be non-zero.
+   * The volume capacity should be non-zero.
 
-   e. Default retention volume for Windows is R volume.
+   * Default retention volume for Windows is R volume.
 
-   f. Default retention volume for Linux is /mnt/retention.
+   * Default retention volume for Linux is /mnt/retention.
 
 * A linux failed over VM, needs a Linux Master target server. A Windows failed over VM, requires a Windows master target server.
 
@@ -134,10 +134,10 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 
 Before re-protection, make sure you have installed the [Process server](site-recovery-vmware-setup-azure-ps-resource-manager.md) in Azure and the on-premises Windows or [Linux Master Target](site-recovery-how-to-install-linux-master-target.md).
 
-> [!NOTE]
-> After a VM boots up in Azure, it takes some time for the agent to register back to the configuration server (upto 15 mins). During this time you will find reprotect to fail and the error message stating that the agent is not installed. Wait for a few minutes and then try Reprotect again.
-> 
-> 
+[!NOTE]
+After a VM boots up in Azure, it takes some time for the agent to register back to the configuration server (upto 15 mins). During this time you will find reprotect to fail and the error message stating that the agent is not installed. Wait for a few minutes and then try Reprotect again.
+ 
+ 
 
 1. In the Vault > replicated items > select the VM that's been failed over and right click to **Re-Protect**. You can also click the machine and select the reprotect from the command buttons.
 2. In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
@@ -153,10 +153,9 @@ If you want to recover the Azure VM to an existing on-premises VM then the on-pr
 
 You can also reprotect at a recovery plan level. If you have a replication group, it can only be reprotected using a recovery plan. While reprotecting via a recovery plan, you will need to give the above values for every protected machine.
 
-> [!NOTE]
-> A replication group should be protected back using the same Master target. If they are protected back using different Master target server, a common point in time cannot be taken for it.
-> 
-> 
+[!NOTE]
+A replication group should be protected back using the same Master target. If they are protected back using different Master target server, a common point in time cannot be taken for it.
+ 
 
 After the reprotect succeed, the VM will enter into a protected state.
 

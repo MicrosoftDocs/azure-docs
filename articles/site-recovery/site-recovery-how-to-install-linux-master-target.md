@@ -1,5 +1,5 @@
 ---
-title: How to install Linux Master Target server | Microsoft Docs
+title: How to install Linux Master Target server for failover from Azure to on-premises| Microsoft Docs
 description: Before reprotecting a Linux VM, you need a linux Master target server. Learn how to install one.
 services: site-recovery
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 02/13/2017
 ms.author: ruturajd
 
 ---
-# How to install Linux master target server
+# How to install Linux Master Target server
 Once you have failed over your virtual machines, you can failback the VM's, back to on-premises. To failback, first you need to get the virtual machine into protected state, by reprotecting the virtual machine from Azure to on-premises. For this, you need a master target server to receive the traffic on-premises. If your protected virtual machine is a windows VM, then you need a Windows Master Target. For a Linux VM, you need a Linux Master Target to reprotect. Read the steps below on how to create and install a Linux Master Target.
 
 ## Overview
@@ -144,7 +144,7 @@ appears for formatting. Click **Format** to format the hard drive with latest pa
 	![](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
 
 
-### Post Installation Steps
+### Post installation steps
 Next, we will prepare the machine to be configured as a Master Target server.
 
 To get SCSI ID’s for each of SCSI hard disk in a Linux virtual machine,
@@ -179,7 +179,7 @@ i. Add disk.EnableUUID in the Name column and Set its value as TRUE
 
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
-#### Download and Install the Additional Packages
+#### Download and install the additional packages
 
 [!NOTE]
 Make sure system has Internet connectivity before download and installing additional packages or else you will need to manually find out these package RPM and install them.
@@ -224,10 +224,9 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 #### Install additional packages for specific operating systems
 
-> [!NOTE]
-> If source protected machines use Reiser or XFS filesystem for the root or boot device, then following additional packages should be 
-download and installed on Linux Master Target prior to the protection.
-> 
+[!NOTE]
+If source protected machines use Reiser or XFS filesystem for the root or boot device, then following additional packages should be download and installed on Linux Master Target prior to the protection.
+ 
 
 ***ReiserFS (If used in Suse11SP3. However, ReiserFS is not the default filesystem in Suse11SP3)***
 
@@ -307,7 +306,7 @@ To apply custom configuration changes, follow the below mentioned steps:
 [!NOTE]
 Execute the script only once on the server. Shut down the server. Reboot the server after adding a disk as given in the next steps.
 
-### Add Retention Disk to Linux MT VM 
+### Add retention disk to Linux MT VM 
 
 Follow the steps as mentioned below to create a retention disk.
 
@@ -404,7 +403,7 @@ Before installing the master target server, check that the /etc/hosts file on th
 
 8. Let the installation and registration complete.
 
-### Install VMware tools on the master target server
+### Install VMware tools on the Master Target server
 
 VMware tools need to be installed on the MT so that it can discover the datastores. If the tools are not installed, the reprotect screen will not list the datastores.
 
@@ -414,3 +413,5 @@ Once the Master target has completed installation and registration, you can see 
 You can now proceed with [Reprotection](site-recovery-how-to-reprotect.md), followed by Failback.
 
 ## Common issues
+* Make sure you do not turn on Storage vMotion on any Management components such as MT. If the MT moves post a successfult reprotect, the VMDK's cannot be detached and the failback will fail.
+* The MT machine should not have any snapshots on the virtual machine. If there are snapshots, the failback will fail.
