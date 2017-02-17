@@ -37,11 +37,15 @@ Learn how to use Apache Hive on an HDInsight cluster to process the Twitter data
 * **Python** and [pip](https://pypi.python.org/pypi/pip)
 
 ## Get a Twitter feed
-Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com/docs/platform-objects/tweets) as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API. You must also create a *Twitter Application* that contains the settings used to access the API.
+
+Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com/docs/platform-objects/tweets) as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API.
 
 ### Create a Twitter application
+
 1. From a web browser, sign in to [https://apps.twitter.com/](https://apps.twitter.com/). Click the **Sign-up now** link if you don't have a Twitter account.
+
 2. Click **Create New App**.
+
 3. Enter **Name**, **Description**, **Website**. You can make up a URL for the **Website** field. The following table shows some sample values to use:
    
    | Field | Value |
@@ -51,10 +55,15 @@ Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com
    | Website |http://www.myhdinsightapp.com |
 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
-5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial.
+
+5. Click the **Permissions** tab. The default permission is **Read only**.
+
 6. Click the **Keys and Access Tokens** tab.
+
 7. Click **Create my access token**.
+
 8. Click **Test OAuth** in the upper-right corner of the page.
+
 9. Write down **consumer key**, **Consumer secret**, **Access token**, and **Access token secret**.
 
 > [!NOTE]
@@ -174,7 +183,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
     A progress indicator should appear, and count up to 100% as the tweets are downloaded and saved to file.
    
    > [!NOTE]
-   > If it is taking a long time for the progress bar to advance, you should change the filter to track trending topics. When there are a lot of tweets about the topic you are filtering on, you can quickly get the 10000 tweets needed.
+   > If it is taking a long time for the progress bar to advance, you should change the filter to track trending topics. When there are many tweets about the topic in your filter, you can quickly get the 10000 tweets needed.
 
 ### Upload the data
 
@@ -185,9 +194,10 @@ To upload the data to HDInsight storage, use the following commands:
    hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
-This stores the data in a location that all nodes in the cluster can access.
+These commands store the data in a location that all nodes in the cluster can access.
 
 ## Run the HiveQL job
+
 1. Use the following command to create a file containing HiveQL statements:
    
    ```bash
@@ -309,7 +319,7 @@ This stores the data in a location that all nodes in the cluster can access.
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
    ```
 
-    This loads the Hive shell, run the HiveQL in the **twitter.hql** file, and finally return a `jdbc:hive2//localhost:10001/>` prompt.
+    This command runs the the **twitter.hql** file. Once the query completes, you see a `jdbc:hive2//localhost:10001/>` prompt.
 
 4. From the beeline prompt, use the following to verify that you can select data from the **tweets** table created by the HiveQL in the **twitter.hql** file:
    
@@ -325,7 +335,7 @@ This stores the data in a location that all nodes in the cluster can access.
 
 ## Next steps
 
-In this tutorial we have seen how to transform an unstructured JSON dataset into a structured Hive table to query, explore, and analyze data from Twitter by using HDInsight on Azure. To learn more, see:
+You have learned how to transform an unstructured JSON dataset into a structured Hive table. To learn more about Hive on HDInsight, see the following documents:
 
 * [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
