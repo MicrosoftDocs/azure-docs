@@ -3,7 +3,7 @@ title: Full text Lucene engine in Azure Search | Microsoft Docs
 description: Lucene query architecture and concepts for text search, implemented and adapted for Azure Search workloads.
 services: search
 manager: jhubbard
-author: HeidiSteen
+author: yahnoosh
 documentationcenter: ''
 
 ms.assetid: 
@@ -13,23 +13,22 @@ ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/16/2017
-ms.author: heidist
+ms.author: jlembicz
 ---
 
 # How full text search works in Azure Search
 
-Azure Search uses Lucene for full text search. A working knowledge of the basic architecture makes design and debugging more productive. Moreover, customizations to the query processing pipeline will be easier to identify and apply when you know how the pieces fit together.
+Azure Search uses an embedded Lucene search engine for full text search. A working knowledge of 
+basic Lucene architecture makes design and debugging more productive. Customizations to the query processing pipeline will be easier to identify and apply when you know how the pieces fit together.
 
-This article explains how Azure Search performs the following stages of query execution:
+This article explains how the following stages of query execution are performed in Azure Search:
 
 + Query parsing
 + Lexical analysis 
 + Document retrieval: matching
 + Scoring and ranking
 
-This article also explains how certain search parameters affect query parsing.
-
-## How full text search works
+## Architecture overview and diagram
 
 Full text search is parsing a textual query into one or more terms, and then processing those terms before trying to find documents with matching terms in the index. Individual terms are sometimes broken down and reconstituted into new forms to cast a broader net over what could be considered as a potential match. A result set is then sorted by a relevance score assigned to each individual matching document.
 
@@ -43,28 +42,26 @@ There are four stages in query execution:
 
 4. Scoring 
 
-Internally, Azure Search integrates the Lucene search engine for all four stages.  
-
 > [!Note] 
-> Lucene integration is not exhaustive. Azure Search selectively exposes and extends the core functionality of Lucene to enable the scenarios important to Azure Search. As a developer, you need to use Azure Search APIs and not Lucene APIs for any custom work related to full text search. 
+> Lucene integration is not exhaustive. Azure Search selectively exposes and extends Lucene functionality to enable the scenarios important to Azure Search. As a developer, using the Azure Search APIs, and not Lucene APIs, is required for any custom work related to full text search. 
 
-Developers familiar with Lucene query architecture will recognize these key components of the query processing pipeline: 
+Key components of the query processing pipeline include the following: 
 
-* Query parsers separate query terms from query operators, and create the query structure (a query tree) that will be sent to the search engine. 
+* **Query parsers** separate query terms from query operators, and create the query structure (a query tree) to be sent to the search engine. 
 
-* Analyzers process the query terms. This process is referred to as lexical analysis; it may involve transforming, removing, or expanding of query terms. 
+* **Analyzers** process the query terms. This process is referred to as lexical analysis; it can involve transforming, removing, or expanding of query terms. 
 
-* Inverted index, an efficient data structure for organizing searchable terms extracted from indexed documents. 
+* **Inverted index**, an efficient data structure used to store and organize searchable terms extracted from indexed documents. 
 
-* Search engine for retrieving and scoring documents based on the contents of the inverted index. 
+* **Search engine**,  component for retrieving and scoring documents based on the contents of the inverted index. 
 
-The diagram below illustrates the core components involved in processing and executing a search query. 
+The diagram below illustrates how these components are used in processing and executing a search request. 
 
  ![Lucene query architecture diagram in Azure Search][1]
 
 ## Anatomy of a search request
 
-A search request is a complete specification of what should be returned in a result set. In simplest form, it is an empty query with no criteria of any kind. A more realistic example includes several query terms, perhaps scoped to certain fields, with possibly a filter expression and ordering rules.  
+A search request is a complete specification of what should be returned in a result set. In simplest form, it is an empty query with no criteria of any kind. A more realistic example includes parameters, several query terms, perhaps scoped to certain fields, with possibly a filter expression and ordering rules.  
 
 The following example is a search request you might send to Azure Search using the REST API.  
 
@@ -81,14 +78,11 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01
 
 The entire statement is the *search request*. The first line of the request body is the *search query*. 
 
-In the example, the search query consists of phrases and terms (`"search": "Spacious, Comfort* +\"Ocean view\""`). The remaining instructions (for searchFields, filter, orderby) are for scoping and ordering the results.  
+In the example, the search query consists of phrases and terms (`"search": "Spacious, Comfort* +\"Ocean view\""`). The remaining instructions (for `searchFields`, `filter`, `orderby`) are parameters for scoping and ordering the results.  
 
-In this example, the search request goes against an index of hotel listings, scanning the description and title fields for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "comfort".  
+In this example, the search query goes against an index of hotel listings, scanning the description and title fields for documents that contain "Ocean view", and additionally on the term "spacious", or on terms that start with the prefix "comfort".  
 
 From the list of matching documents, the search engine filters out documents where the price is less than $60 and more than $300. The resulting set of hotels are ordered by proximity to a given geography location, and then returned to the calling application. 
-
-> [!Note]
-> Terminology: *search request* vs. *search query*. A search query is a subset of the overall request. It retrieves the initial set of documents subsequently reduced by the filter expression and reordered. 
 
 This article uses the example request to highlight behaviors of default query processing for full text search, starting with query parsing. Filtering and ordering are out of scope for this article. 
 
@@ -115,11 +109,13 @@ The query parser restructures the subqueries into a *query tree* (an internal st
 > [!Note]
 > A search query is executed independently against all searchable fields in the Azure Search index unless you limit the fields set with the `searchFields` parameter, as illustrated in the example search request, per the title and description fields.  
 
-Supported parsers: Simple and Full Lucene Azure Search exposes two different query languages, simple (default) and full. By setting the queryType parameter with your search request, you’re telling the query parser which query language you chose so that it knows how to interpret the operators and syntax of the query text. The Full Lucene query language, which you get by setting queryType=Full, extends the default Simple query language by adding support for more query types like: fuzzy, regex, field-scoped queries and more.  
+### Supported parsers: Simple and Full Lucene 
+
+ Azure Search exposes two different query languages, simple (default) and full. By setting the `queryType` parameter with your search request, you tell the query parser which query language you chose so that it knows how to interpret the operators and syntax of the query text. The Full Lucene query language, which you get by setting `queryType=Full`, extends the default Simple query language by adding support for more query types like: wildcard, fuzzy, regex, field-scoped queries and more. For example, a regular expression sent in simple query syntax would be interpreted as a query string and not an expression.
 
 ### Impact of searchMode on the parser 
 
-Another search request parameter that affects parsing is the `searchMode`parameter. It controls the default operator for Boolean queries: any (default) or all.  
+Another search request parameter that affects parsing is the `searchMode` parameter. It controls the default operator for Boolean queries: any (default) or all.  
 
 When `searchMode=any`, which is the default, the sample query text is equivalent to: 
 
@@ -127,33 +123,35 @@ When `searchMode=any`, which is the default, the sample query text is equivalent
 Spacious,|Comfort*+“Ocean view” 
 ~~~~
 
-There is no change on the +“Ocean view” interpretation, but the space between Spacious, and Comfort is interpreted as an “or” operation. The initial query tree illustrated previously, with the two “should” operations, reflects the semantics of the default operator “or”. 
+One term is specifically marked as required, but "any" of the remaining terms could be used to find a match.
 
-Suppose that we now set `searchMode= all`. In this case, the space is interpreted as an “and” operation. The resulting sample query would be interpreted as follows: 
+Drilling further, there is no change on the +“Ocean view” interpretation, but the space between Spacious, and Comfort is interpreted as an “or” operation. The initial query tree illustrated previously, with the two “should” operations, reflects the semantics of the default operator “or”. 
+
+Suppose that we now set `searchMode= all`. In this case, the space is interpreted as an “and” operation. All (or both) of the remaining terms must be present in the document to qualify as a match. The resulting sample query would be interpreted as follows: 
 
 ~~~~
 +Spacious,+Comfort*+”Ocean view”  
 ~~~~
 
-A modified query tree for this query would look like this, where a matching document must be the intersection of all three subqueries: 
+A modified query tree for this query would look like this, where a matching document is the intersection of all three subqueries: 
 
  ![Boolean query searchmode all][3]
 
+> [!Note] 
+> Favoring the default `searchMode=any` over `searchMode=all` is a decision best arrived by running representative queries. If users are likely to include operators (common when searching document stores), you might find that search results are more intuitively consistent with the non-default `searchMode=all`. For more about the interplay between `searchMode` and operators, see [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
+
 ## Stage 2: Lexical analysis 
 
-Lexical analyzers process term queries and phrase queries after the query tree is structured. An analyzer accepts the text inputs given to it by the parser, analyzes the text, and then sends back analyzed terms to be incorporated into the query tree. 
+Lexical analyzers process *term queries* and *phrase queries* after the query tree is structured. An analyzer accepts the text inputs given to it by the parser, analyzes the text, and then sends back analyzed terms to be incorporated into the query tree. 
 
 The most common form of lexical analysis is *linguistic analysis* which transforms query terms based on rules specific to a given language: 
 
 * Reducing a query term to the root form of a word 
-
 * Removing non-essential words (stopwords, such as “the” or “and” in English) 
-
 * Breaking a composite word into component parts 
-
 * Lower casing an upper case word 
 
-All of these operations are intended to erase the differences between the text input provided by the user and the terms stored in the index. Such operations go beyond text processing and require in-depth knowledge of the language itself. 
+All of these operations tend to erase differences between the text input provided by the user and the terms stored in the index. Such operations go beyond text processing and require in-depth knowledge of the language itself. 
 
 > [!Note]
 > Azure Search supports a long list of language analyzers from both Lucene and Microsoft natural language processing. For the full list, see [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support). Analyzers are scoped to searchable fields and are specified as part of a field definition. This allows you to vary lexical analysis on a per field basis. Unspecified, the default analyzer is standard Lucene. If you want a different analyzer, include it as an attribute of the field when the index is created. 
@@ -213,14 +211,14 @@ Further assume that this index contains the following three documents:
 ] 
 ~~~~
 
-### Constructing an inverted index 
+**Constructing an inverted index from the sample documents**
 
 During indexing, the search engine creates an inverted index for each searchable field independently. An inverted index is a sorted list of terms mapped to the list of documents. 
 
 As with query parsing, indexing extracts terms, only during indexing the terms are extracted from documents instead of a query string. Text inputs are passed to an analyzer and normalized, and punctuation is stripped out. Often the same analyzers used during indexing are also used for queries. 
 
 > [!Note]
-> Lucene requires the same analyzer for both indexing and querying, but Azure Search lets you specify an alternate analyzer for indexing via the indexAnalyzer property. If it’s not specified, the analyzer specified via the analyzer property used for both indexing and searching.  
+> Lucene requires the same analyzer for both indexing and querying, but Azure Search lets you specify an alternate analyzer for indexing via an additional `indexAnalyzer` parameter. Unspecified, just the `analyzer` property is used for both indexing and searching.  
 
 Similarities between indexing and querying are intentional, especially with regards to lexical analysis, so that a query input can be processed to look like the terms stored inside the index.  
 
@@ -271,7 +269,7 @@ For the description field, the index is as follows:
 | with | 3 | 
 
 
-### Matching query terms against indexed terms 
+**Matching query terms against indexed terms**
 
 Given the inverted index above, let’s return to the sample query and see how matching documents are found. Recall that the final query tree looks something like this: 
 
@@ -279,19 +277,19 @@ Given the inverted index above, let’s return to the sample query and see how m
 
 During query execution, individual queries are executed against the searchable fields independently. 
 
-a. The TermQuery, “spacious”, matches document 1 (Hotel Atman). 
++ The TermQuery, “spacious”, matches document 1 (Hotel Atman). 
 
-b. The PrefixQuery, “Comfort”, doesn't match any documents. This is a behavior that sometimes confuses developers. Although the term comfortable exists in the inverted index, it is lowercased 
++ The PrefixQuery, “Comfort”, doesn't match any documents. 
 
-while the prefix Comfort is not (this is because partial terms are not analyzed). Had the query term been entered as “comfort*” in lower-case, document 3 (Hotel Nagi) would have been a match. 
+  This is a behavior that sometimes confuses developers. Although the term comfortable exists in the inverted index, it is lowercased and therefore not a match. Recall that prefix queries, which contain partial terms, are not analyzed. Had the query term been entered as “comfort*” in lower-case, document 3 (Hotel Nagi) would have been a match. 
 
-c. The PhraseQuery, “ocean view”, looks up the terms “ocean” and “view” and checks that these terms are next to each other in the original document. Documents 1 and 2 match this query in the description field. Notice document 3 has the term ocean in the title but isn’t considered a match, as we're looking for the "ocean view" phrase rather than individual words. 
++ The PhraseQuery, “ocean view”, looks up the terms “ocean” and “view” and checks the proximity of terms in the original document. Documents 1 and 2 match this query in the description field. Notice document 3 has the term ocean in the title but isn’t considered a match, as we're looking for the "ocean view" phrase rather than individual words. 
 
 On the whole, for the query in question, the documents that match are 1, 2. 
 
 ## Stage 4: Scoring  
 
- Every item in a search result set is assigned a relevance score, then ranked highest to lowest. The score is computed based on statistical properties of the data and the query.  
+Every item in a search result set is assigned a relevance score, then ranked highest to lowest. The score is computed based on statistical properties of the data and the query.  
 
 The basis for this approach to computing relevance is known as TF-IDF (term frequency-inverse document frequency). More specifically, the Lucene scoring formula is used: https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html 
 
@@ -323,7 +321,7 @@ In Azure Search, you can’t change the scoring logic, but you can apply term bo
 
 + Opt in for the full query parser to use additional operators and query types (fuzzy search, proximity search, wildcard search, regular expressions, and so on)
 
-+ Choose a different language analyzer for non-English linguistic anlaysis.
++ Choose a different language analyzer for non-English linguistic analysis.
 
 + Configure custom analyzers for either minimal processing or specialized processing on specific fields.
 
@@ -331,6 +329,6 @@ In Azure Search, you can’t change the scoring logic, but you can apply term bo
 
 <!--Image references-->
 [1]: ./media/search-query-architecture/architecture-diagram.png
-[2]: ./media/search-query-architecture/azSearch-queryparsing-should-must.png
-[3]: ./media/search-query-architecture/azSearch-queryparsing-must.png
-[4]: ./media/search-query-architecture/azSearch-queryparsing-spacious-oceanview.png
+[2]: ./media/search-query-architecture/azSearch-queryparsing-should2.png
+[3]: ./media/search-query-architecture/azSearch-queryparsing-must2.png
+[4]: ./media/search-query-architecture/azSearch-queryparsing-spacious2.png
