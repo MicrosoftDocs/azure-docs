@@ -3,7 +3,7 @@ title: Initiate a planned or unplanned failover for Azure SQL Database with the 
 description: Initiate a planned or unplanned failover for Azure SQL Database using the Azure portal
 services: sql-database
 documentationcenter: ''
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -15,16 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 
 ---
 # Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 This article shows you how to initiate failover to a secondary SQL Database with the [Azure portal](http://portal.azure.com). To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-portal.md).
 

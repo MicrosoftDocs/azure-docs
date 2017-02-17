@@ -1,6 +1,6 @@
 ---
-title: Azure ExpressRoute Troubleshooting Guide - Verifying Connectivity | Microsoft Docs
-description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit
+title: 'Verifying Connectivity: Azure ExpressRoute Troubleshooting Guide| Microsoft Docs'
+description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit.
 documentationcenter: na
 services: expressroute
 author: rambk
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/3/2017
+ms.date: 1/5/2017
 ms.author: rambala
 
 ---
-# Verifying ExpressRoute Connectivity
+# Verifying ExpressRoute connectivity
 ExpressRoute, which extends an on-premises network into the Microsoft cloud over a dedicated private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
 
 - 	Customer Network
@@ -289,7 +289,7 @@ To get the Microsoft peering configuration details, use the following commands:
 >
 
 ## Validate ARP between Microsoft and the service provider
-This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [OldPortal][Azure classic portal]
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]
 
 >[!NOTE]
 >To get ARP, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as Classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
@@ -322,7 +322,7 @@ The following example shows the response of the command for a peering does not e
 >
 
 ##Validate BGP and routes on the MSEE
-This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [OldPortal][Azure classic portal]
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]
 
 >[!NOTE]
 >To get BGP information, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
@@ -411,6 +411,8 @@ For more information or help, check out the following links:
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
+
+
 
 
 

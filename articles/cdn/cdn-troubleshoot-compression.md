@@ -3,7 +3,7 @@ title: Troubleshooting file compression in Azure CDN | Microsoft Docs
 description: Troubleshoot issues with Azure CDN file compression.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Troubleshooting CDN file compression

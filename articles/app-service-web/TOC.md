@@ -3,16 +3,18 @@
 ## [What is App Service](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service on Linux](app-service-linux-intro.md)
+## [App Service on Linux FAQ](app-service-linux-faq.md)
 
 # Get started
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Marketplace app](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)	
+### [PHP](app-service-web-get-started-php.md)	
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -59,12 +61,16 @@
 ### [Azure portal](app-service-web-app-azure-portal.md)
 ### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### ASP.NET apps
-#### [Deploy your first .NET web app to Azure in five minutes](app-service-web-get-started-dotnet.md)
+#### [Create an ASP.NET app in Azure with Visual Studio](web-sites-dotnet-get-started.md)
 #### [Create a REST service using ASP.NET Web API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Create an ASP.NET 5 web app in Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Using .NET Core in Web Apps on Linux](app-service-linux-using-dotnetcore.md)
+
 
 ### Node.js apps
+#### [Develop Node.js for App Service](app-service-web-nodejs-get-started.md)
 #### [Create a Node.js web app](web-sites-nodejs-develop-deploy-mac.md)
 #### [Create a Node.js chat application with Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [How to use io.js with Web Apps](web-sites-nodejs-iojs.md)
@@ -72,14 +78,13 @@
 #### [Build and deploy using WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP apps
-#### [Deploy your first PHP web app to Azure in five minutes](app-service-web-get-started-php.md)
+#### [Develop PHP apps for App Service](app-service-web-php-get-started.md)	
 #### [Create a PHP-SQL web app and deploy using Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Create a WordPress web app in Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Create and connect to a MySQL database in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Enterprise-class WordPress on Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Java apps
-#### [Deploy your first Java web app to Azure in five minutes](web-sites-java-get-started.md)
 #### Create a Hello World app
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -97,6 +102,9 @@
 #### [Flask and Table Storage with Python Tools 2.2 for Visual Studio ](web-sites-python-ptvs-flask-table-storage.md)
 #### [Django and MySQL on Azure with Python Tools 2.2 for Visual Studio ](web-sites-python-ptvs-django-mysql.md)
 #### [Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio ](web-sites-python-ptvs-django-sql.md)
+
+### Ruby apps
+#### [Using Ruby in Web Apps on Linux](app-service-linux-using-ruby.md)
 
 ### [Deploy your first basic web app to Azure in five minutes](app-service-web-get-started-html.md)
 ### [Get started with test in production for Web Apps](app-service-web-test-in-production-get-start.md)
@@ -143,9 +151,11 @@
 #### [Configure Python](web-sites-python-configure.md)
 #### [Configure Node.js startup on Linux](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Custom domains
 #### [Buy and configure custom domains](custom-dns-web-site-buydomains-web-app.md)
 #### [Map your own custom domain](web-sites-custom-domain-name.md)
+#### [Migrate an active custom domain](app-service-custom-domain-name-migrate.md)
 #### [Configure GoDaddy domains](web-sites-godaddy-custom-domain-name.md)
 #### [Custom domains with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 

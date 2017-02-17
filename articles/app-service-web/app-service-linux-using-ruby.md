@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
-ms.author: aelnably
+ms.date: 02/16/2017
+ms.author: aelnably;wesmc
 
 ---
 
@@ -23,9 +23,9 @@ ms.author: aelnably
 
 With the latest update to our backend, we introduced support for Ruby v.2.3. By setting the configuration of your Linux web app, you can change the application stack.
 
-## Using Azure Portal ##
+## Using the Azure portal ##
 
-From the new menu in the [Azure Portal](https://portal.azure.com), you can choose to create a Web App on Linux from the Web + Mobile option as shown in the following image:
+From the new menu in the [Azure portal](https://portal.azure.com), you can choose to create a Web App on Linux from the Web + Mobile option as shown in the following image:
 
 ![Start creating a web app on the Azure portal][1]
 

@@ -1,6 +1,6 @@
 ---
-title: SQL Database downlevel clients support and IP endpoint changes for Auditing| Microsoft Docs
-description: Learn about SQL Database downlevel clients support and IP endpoint changes for Auditing.
+title: Auditing, TDS redirection, and IP endpoints for Azure SQL Database | Microsoft Docs
+description: Learn about auditing, TDS redirctioni and IP endpoint changes when implementing table auditing in Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: ronitr
@@ -19,7 +19,7 @@ ms.author: ronitr
 
 ---
 # SQL Database -  Downlevel clients support and IP endpoint changes for Auditing
-[SQL Database Table Auditing](sql-database-auditing-get-started.md) works automatically with SQL clients that support TDS redirection. Note that redirection does not apply when using the Blob Auditing method.
+[Database Auditing](sql-database-auditing.md) works automatically with SQL clients that support TDS redirection. Note that redirection does not apply when using the Blob Auditing method.
 
 ## <a id="subheading-1"></a>Downlevel clients support
 Any client which implements TDS 7.4 should also support redirection. Exceptions to this include JDBC 4.0 in which the redirection feature is not fully supported and Tedious for Node.JS in which redirection was not implemented.

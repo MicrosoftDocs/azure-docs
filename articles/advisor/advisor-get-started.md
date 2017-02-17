@@ -3,7 +3,7 @@ title: Get started with Azure Advisor | Microsoft Docs
 description: Get started with Azure Advisor.
 services: advisor
 documentationcenter: NA
-author: kumudd
+author: manbeenkohli
 manager: carmonm
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
-ms.author: kumud
+ms.date: 02/10/2017
+ms.author: makohli
 ---
 
 # Get started with Azure Advisor

@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/30/2016
+ms.date: 01/11/2017
 ms.author: brjohnst
 
 ---
@@ -27,7 +27,7 @@ Version 3 of the Azure Search .NET SDK contains some changes from earlier versio
 > [!NOTE]
 > If you're using version 1.0.2-preview or older, you should upgrade to version 1.1 first, and then upgrade to version 3. See [Appendix: Steps to upgrade to version 1.1](#UpgradeStepsV1) for instructions.
 >
->
+> Your Azure Search service instance supports several REST API versions, including the latest one. You can continue to use a version when it is no longer the latest one, but we recommend that you migrate your code to use the newest version. When using the REST API, you must specify the API version in every request via the api-version parameter. When using the .NET SDK, the version of the SDK you’re using determines the corresponding version of the REST API. If you are using an older SDK, you can continue to run that code with no changes even if the service is upgraded to support a newer API version.
 
 <a name="WhatsNew"></a>
 

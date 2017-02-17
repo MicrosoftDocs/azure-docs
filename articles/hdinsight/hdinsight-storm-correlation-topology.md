@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 
 ---
@@ -22,7 +22,7 @@ ms.author: larryfr
 
 By using a persistent data store with Apache Storm, you can correlate data entries that arrive at different times. For example, linking login and logout events for a user session to calculate how long the session lasted.
 
-In this document, you will learn how to create a basic C# Storm topology that tracks login and logout events for user sessions, and calculates the duration of the session. The topology uses HBase as a persistent data store. HBase also allows you to perform batch queries on the historical data to produce additional insights, such as how many user sessions were started or ended during a specific time period.
+In this document, you learn how to create a basic C# Storm topology that tracks login and logout events for user sessions, and calculates the duration of the session. The topology uses HBase as a persistent data store. HBase also allows you to perform batch queries on the historical data to produce additional insights, such as how many user sessions were started or ended during a specific time period.
 
 ## Prerequisites
 
@@ -34,6 +34,9 @@ In this document, you will learn how to create a basic C# Storm topology that tr
   > While SCP.NET topologies are supported on Linux-based Storm clusters created after 10/28/2016, the HBase SDK for .NET package available as of 10/28/2016 does not work correctly on Linux.
 
 * Apache HBase on HDInsight cluster (Linux or Windows-based). This is the data store for this example.
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * [Java](https://java.com) 1.7 or greater on your development environment. Java is used to package the topology when it is submitted to the HDInsight cluster.
 
@@ -72,7 +75,7 @@ When a session starts, a **START** event is received by the topology and logged 
 
 The sample topology is composed of the following components:
 
-* Session.cs: simulates a user session by creating a random session ID, start time, and how long the session will last.
+* Session.cs: simulates a user session by creating a random session ID, start time, and how long the session lasts.
 
 * Spout.cs: creates 100 sessions, emits a START event, waits the random timeout for each session and then emits an END event. Then recycles ended sessions to generate new ones.
 
@@ -162,16 +165,16 @@ This download contains the following C# projects:
    
    ![Image of the submit to storm menu item](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
-6. In the **Submit Topology** dialog, select the Storm cluster that will run this topology.
+6. In the **Submit Topology** dialog, select the Storm cluster you want to deploy this topology to.
    
    > [!NOTE]
    > The first time you submit a topology, it may take a few seconds to retrieve the name of your HDInsight clusters.
 
-7. Once the topology has been uploaded and submitted to the cluster, the **Storm Topology View** will open and display the running topology. Select the **CorrelationTopology** and use the refresh button at the top right of the page to refresh the topology information.
+7. Once the topology has been uploaded and submitted to the cluster, the **Storm Topology View** opens and displays the running topology. Select the **CorrelationTopology** and use the refresh button at the top right of the page to refresh the topology information.
    
    ![Image of the topology view](./media/hdinsight-storm-correlation-topology/topologyview.png)
    
-   When the topology begins generating data, the value in the **Emitted** column will increment.
+   When the topology begins generating data, the value in the **Emitted** column increments.
    
    > [!NOTE]
    > If the **Storm Topology View** does not open automatically, use the following steps to open it:
@@ -185,7 +188,7 @@ Once data has been emitted, use the following steps to query the data.
 
 1. Return to the **SessionInfo** project. If not running, start a new instance of it.
 
-2. When prompted, select **s** to search for START event. You will be prompted to enter a start and end time to define a time range - only events between these two times will be returned.
+2. When prompted, select **s** to search for START event. You are prompted to enter a start and end time to define a time range - only events between these two times are returned.
    
     Use the following format when entering the start and end times: HH:MM and 'am' or 'pm'. For example, 11:20pm.
    
@@ -193,12 +196,12 @@ Once data has been emitted, use the following steps to query the data.
    
         Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
 
-Searching for END events works the same as START events. However, END events are generated randomly between 1 and 5 minutes after the START event. So you may have to try a few time ranges in order to find the END events. END events will also contain the duration of the session - the difference between the START event time and END event time. Here is an example of data for END events:
+Searching for END events works the same as START events. However, END events are generated randomly between 1 and 5 minutes after the START event. So you may have to try a few time ranges in order to find the END events. END events also contain the duration of the session - the difference between the START event time and END event time. Here is an example of data for END events:
 
     Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
 > [!NOTE]
-> While the time values you enter are in local time, the time returned from the query will be UTC.
+> While the time values you enter are in local time, the time returned from the query is in UTC.
 
 ## Stop the topology
 

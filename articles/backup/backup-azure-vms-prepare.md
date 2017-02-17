@@ -4,7 +4,7 @@ description: Make sure your environment is prepared for backing up virtual machi
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonn
 editor: ''
 keywords: backups; backing up;
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.author: markgal;trinadhk; 
 
 ---
 # Prepare your environment to back up Azure virtual machines

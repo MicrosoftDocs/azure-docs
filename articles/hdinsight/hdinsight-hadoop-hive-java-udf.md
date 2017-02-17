@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
@@ -21,21 +21,20 @@ ms.author: larryfr
 Hive is great for working with data in HDInsight, but sometimes you need a more general purpose language. Hive allows you to create user-defined functions (UDF) using a variety of programming languages. In this document, you will learn how to use a Java UDF from Hive.
 
 ## Requirements
-* An Azure subscription
+
 * An HDInsight cluster (Windows or Linux-based)
   
-  > [!NOTE]
-  > Most steps in this document will work on both cluster types; however, the steps used to upload the compiled UDF to the cluster and run it are specific to Linux-based clusters. Links are provided to information that can be used with Windows-based clusters.
-  > 
-  > 
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  
+  Most steps in this document will work on both cluster types; however, the steps used to upload the compiled UDF to the cluster and run it are specific to Linux-based clusters. Links are provided to information that can be used with Windows-based clusters.
+
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 or later (or an equivalent, such as OpenJDK)
 * [Apache Maven](http://maven.apache.org/)
 * A text editor or Java IDE
   
   > [!IMPORTANT]
   > If you are using a Linux-based HDInsight server, but creating the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the [Troubleshooting](#troubleshooting) section for steps on removing the CR character using utilities on the HDInsight cluster.
-  > 
-  > 
 
 ## Create an example UDF
 1. From a command line, use the following to create a new Maven project:

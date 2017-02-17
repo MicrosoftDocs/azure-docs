@@ -1,5 +1,5 @@
 ---
-title: High availability features of Linux-based HDInsight (Hadoop) | Microsoft Docs
+title: High availability features of HDInsight (Hadoop) | Microsoft Docs
 description: Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH.
 services: hdinsight
 editor: cgronlun
@@ -14,19 +14,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
 # Availability and reliability of Hadoop clusters in HDInsight
+
 Hadoop achieves high availability and reliability by distributing redundant copies of services and data across the nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working.
 
-To address this potential problem, Linux-based HDInsight clusters on Azure provide two head nodes to increase the availability and reliability of Hadoop services and jobs running.
+To address this potential problem, HDInsight clusters on Azure provide two head nodes to increase the availability and reliability of Hadoop services and jobs running.
 
-> [!NOTE]
-> The steps used in this document are specific to Linux-based HDInsight clusters. If you are using a Windows-based cluster, see [Availability and reliability of Windows-based Hadoop clusters in HDInsight](hdinsight-high-availability.md) for Windows-specific information.
-> 
-> 
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Understanding the nodes
 Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. In the event that a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type will be used until the new node is brought online.
@@ -184,14 +183,10 @@ For a list of available commands, enter `help` at the `sftp>` prompt.
 
 > [!NOTE]
 > There are also graphical interfaces that allow you to visualize the file system when connected using SFTP. For example, [MobaXTerm](http://mobaxterm.mobatek.net/) allows you to browse the file system using an interface similar to Windows Explorer.
-> 
-> 
 
 ### Ambari
 > [!NOTE]
 > Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
-> 
-> 
 
 From the Ambari Web UI, select the service you wish to view logs for (for example, YARN,) and then use **Quick Links** to select which head node to view the logs for.
 

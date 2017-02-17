@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -36,7 +36,7 @@ If you plan to have multiple content keys or want to specify a **Key/License Del
 [Configure Content Key Authorization Policy using Media Services REST API](media-services-rest-configure-content-key-auth-policy.md)
 
 ### Some considerations apply:
-* To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one streaming reserved unit. For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
+* When your AMS account is created a **default** streaming endpoint is added  to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, your streaming endpoint has to be in the **Running** state. 
 * Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).
 * The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
 
@@ -74,7 +74,7 @@ When protecting your content with **PlayReady**, one of the things you need to s
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](https://msdn.microsoft.com/library/azure/dn783459.aspx).
+You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](media-services-playready-license-template-overview.md).
 
 ## Next step
 Review Media Services learning paths.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2016
+ms.date: 02/07/2017
 ms.author: billmath
 
 ---
@@ -96,4 +96,3 @@ Here is a list of the most common messages you find. It does not list all, but t
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-

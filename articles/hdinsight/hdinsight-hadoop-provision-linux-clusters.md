@@ -1,5 +1,5 @@
 ---
-title: Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight | Microsoft Docs
+title: Create Hadoop, HBase, Kafka, Storm or Spark on Azure HDInsight | Microsoft Docs
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight by using a browser, the Azure CLI, Azure PowerShell, REST, or an SDK.
 services: hdinsight
 documentationcenter: ''
@@ -18,8 +18,8 @@ ms.date: 12/07/2016
 ms.author: jgao
 
 ---
-# Create Linux-based Hadoop clusters in HDInsight
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# Create Hadoop clusters in HDInsight
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you learn about these configuration settings.
 

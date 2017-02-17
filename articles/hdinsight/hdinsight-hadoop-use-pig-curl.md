@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/09/2017
 ms.author: larryfr
 
 ---
@@ -22,7 +22,7 @@ ms.author: larryfr
 
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-In this document, you will learn how to use Curl to run Pig Latin jobs on an Azure HDInsight cluster. The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
+In this document, you learn how to use Curl to run Pig Latin jobs on an Azure HDInsight cluster. The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
 
 Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run, monitor, and retrieve the results of Pig jobs. This works by using the WebHCat REST API (formerly known as Templeton) that is provided by your HDInsight cluster.
 
@@ -31,9 +31,13 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 
 ## <a id="prereq"></a>Prerequisites
 
-To complete the steps in this article, you will need the following:
+To complete the steps in this article, you need the following:
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -63,7 +67,7 @@ To complete the steps in this article, you will need the following:
 
 2. Use the following code to submit a Pig Latin job to the cluster:
    
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasbs:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasbs:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
    
     The parameters used in this command are as follows:
    
@@ -91,18 +95,9 @@ To complete the steps in this article, you will need the following:
 
 ## <a id="results"></a>View results
 
-When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasbs:///example/pigcurl**. This address stores the output of the job in the **example/pigcurl** directory in the default storage container used by your HDInsight cluster.
+When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from the default storage used by the cluster. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/pigcurl**. 
 
-You can list and download these files by using the [Azure CLI](../xplat-cli-install.md). For example, to list files in **example/pigcurl**, use the following command:
-
-    azure storage blob list <container-name> example/pigcurl
-
-To download a file, use the following:
-
-    azure storage blob download <container-name> <blob-name> <destination-file>
-
-> [!NOTE]
-> You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables.
+The backing store for HDInsight can be either Azure Storage or Azure Data Lake Store, and there are a variety of ways to get at the data depending on which one you use. For more information on how to work with Azure Storage and Azure Data Lake Store, see the [HDFS, Blob storage, and Data Lake Store](hdinsight-hadoop-linux-information.md##hdfs-blob-storage-and-data-lake-store) section of the HDInsight on Linux document.
 
 ## <a id="summary"></a>Summary
 

@@ -1,5 +1,5 @@
 ---
-title: .NET multi-tier application | Microsoft Docs
+title: .NET multi-tier application using Azure Service Bus | Microsoft Docs
 description: A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers.
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 
 ---
@@ -32,7 +32,7 @@ You will learn the following:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project that is deployed to an Azure website instead of a cloud service. For instructions about what to do differently on an Azure website front end, see the [Next steps](#nextsteps) section. You can also try out the [.NET on-premises/cloud hybrid application](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
+In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. For instructions about what to do differently on an Azure website front end, see the [Next steps](#nextsteps) section. You can also try out the [.NET on-premises/cloud hybrid application](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
 
 The following screen shot shows the completed application.
 
@@ -94,8 +94,8 @@ The following sections discuss the code that implements this architecture.
 ## Set up the development environment
 Before you can begin developing Azure applications, get the tools and set up your development environment.
 
-1. Install the Azure SDK for .NET at [Get Tools and SDK][Get Tools and SDK].
-2. Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
+1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
+2. In the **.NET** column, click the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
@@ -165,7 +165,7 @@ In this section, you create the various pages that your application displays.
 1. In the OnlineOrder.cs file in Visual Studio, replace the
    existing namespace definition with the following code:
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -180,7 +180,7 @@ In this section, you create the various pages that your application displays.
    statements at the top of the file to include the namespaces for the
    model you just created, as well as Service Bus.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
@@ -189,7 +189,7 @@ In this section, you create the various pages that your application displays.
    existing namespace definition with the following code. This code
    contains methods for handling the submission of items to the queue.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -263,7 +263,7 @@ In this section, you create the various pages that your application displays.
     editor. Add the following line after `<h2>Submit</h2>`. For now,
     the `ViewBag.MessageCount` is empty. You will populate it later.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. You now have implemented your UI. You can press **F5** to run your
@@ -283,7 +283,7 @@ Service Bus queue.
 2. Name the class **QueueConnector.cs**. Click **Add** to create the class.
 3. Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. Replace the entire contents of QueueConnector.cs with the following code, and enter values for `your Service Bus namespace` (your namespace name) and `yourKey`, which is the **primary key** you previously obtained from the Azure portal.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -345,7 +345,7 @@ Service Bus queue.
 4. Now, ensure that your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
 5. Add the following line of code at the end of the **Application_Start** method.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Finally, update the web code you created earlier, to
@@ -354,7 +354,7 @@ Service Bus queue.
 7. Update the `Submit()` method (the overload that takes no parameters) as follows to get the message count
    for the queue.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -371,7 +371,7 @@ Service Bus queue.
 8. Update the `Submit(OnlineOrder order)` method (the overload that takes one parameter) as follows to submit
    order information to the queue.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -417,18 +417,18 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 10. Browse to the subfolder for **FrontendWebRole\Models**, and then double-click **OnlineOrder.cs** to add it to this project.
 11. In **WorkerRole.cs**, change the value of the **QueueName** variable from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. Add the following using statement at the top of the WorkerRole.cs file.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. In the `Run()` function, inside the `OnMessage()` call, replace the contents of the `try` clause with the following code.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -452,8 +452,8 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 To learn more about Service Bus, see the following resources:  
 
 * [Azure Service Bus][sbmsdn]  
-* [Service Bus service page][sbwacom]  
-* [How to Use Service Bus Queues][sbwacomqhowto]  
+* [Service Bus service page][sbacom]  
+* [How to Use Service Bus Queues][sbacomqhowto]  
 
 To learn more about multi-tier scenarios, see:  
 
@@ -462,19 +462,6 @@ To learn more about multi-tier scenarios, see:
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -494,6 +481,6 @@ To learn more about multi-tier scenarios, see:
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

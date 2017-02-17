@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/10/2017
 ms.author: mimig
 
 ---
@@ -35,9 +35,9 @@ You can create a DocumentDB account using either the Azure portal, Azure Resourc
 Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four-minute video by Scott Hanselman to see how to complete the most common tasks in the online portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the Jumpbar, click **New**, click **Databases**, and then click **DocumentDB (NoSQL)**.
+2. On the left navigation, click **New**, click **Databases**, and then click **NoSQL (DocumentDB)**.
 
-   ![Screen shot of the Azure portal, highlighting More Services, and DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
+   ![Screen shot of the Azure portal, highlighting More Services, and NoSQL (DocumentDB))](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. In the **New account** blade, specify the desired configuration for the DocumentDB account.
 
     ![Screen shot of the New DocumentDB blade](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
@@ -63,7 +63,6 @@ Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentatio
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
 ## Next steps

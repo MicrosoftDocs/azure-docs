@@ -1,5 +1,5 @@
 ---
-title: Create your first Service Fabric application in Visual Studio | Microsoft Docs
+title: Create your first Azure microservices application | Microsoft Docs
 description: Create, deploy, and debug a Service Fabric application using Visual Studio
 services: service-fabric
 documentationcenter: .net
@@ -33,7 +33,7 @@ Before you get started, make sure that you have [set up your development environ
 ## Video walkthrough
 The following video walks through the steps in this tutorial:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -119,6 +119,19 @@ By default, the local development cluster is configured to run as a five-node cl
 
 The development cluster resets when you change cluster mode and all applications provisioned or running on the cluster are removed.
 
+You can also change the cluster mode using PowerShell:
+
+1. Launch a new PowerShell window as an administrator.
+2. Run the cluster setup script from the SDK folder:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Cluster setup takes a few moments. After setup is finished, you should see output similar to:
+   
+    ![Cluster setup output][cluster-setup-success-1-node]
+
 ## Cleaning up
 Before wrapping up, it's important to remember that the local cluster is real. Stopping the debugger removes your application instance and unregisters the application type. The cluster continues to run in the background, however. You have several options to manage the cluster:
 
@@ -128,6 +141,7 @@ Before wrapping up, it's important to remember that the local cluster is real. S
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
+* Try deploying a [Windows container](service-fabric-deploy-container.md) or an existing app as a [guest executable](service-fabric-deploy-existing-app.md).
 * Learn how to expose your services to the Internet with a [web service front end](service-fabric-add-a-web-frontend.md).
 * Walk through a [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) and create a stateless service, configure monitoring and health reports, and perform an application upgrade.
 * Learn about [Service Fabric support options](service-fabric-support.md)
@@ -146,3 +160,4 @@ Before wrapping up, it's important to remember that the local cluster is real. S
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png

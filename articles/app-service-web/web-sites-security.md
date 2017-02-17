@@ -67,8 +67,8 @@ Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against M
 App Service highly integrates with SQL Database, such that all the connection strings are encrypted across the board and are only decrypted on the VM that the app runs on *and* only when the app runs. 
 In addition, Azure SQL Database includes many security features to help you secure your application data from cyber threats, including 
 [at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx),
-[Dynamic Data Masking](../sql-database/sql-database-dynamic-data-masking-get-started.md), and [Threat Detection](../sql-database/sql-database-threat-detection-get-started.md). 
-If you have sensitive data or compliance requirements, see [Securing your SQL Database](../sql-database/sql-database-security.md) for more information on how to secure 
+[Dynamic Data Masking](../sql-database/sql-database-dynamic-data-masking-get-started.md), and [Threat Detection](../sql-database/sql-database-threat-detection.md). 
+If you have sensitive data or compliance requirements, see [Securing your SQL Database](../sql-database/sql-database-security-overview.md) for more information on how to secure 
 your data.
 
 If you use a third-party database provider, such as ClearDB, you should consult with the provider's documentation directly on security best practices.  
@@ -128,7 +128,7 @@ For more information on **web.config** or **applicationhost.config** files in Ap
 For information on logging information for App Service apps, which may be useful in detecting attacks, see [Enable diagnostic logging](web-sites-enable-diagnostic-log.md).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.
 > 
 > 
 

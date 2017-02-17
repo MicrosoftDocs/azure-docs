@@ -13,34 +13,33 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/22/2017
 ms.author: jingwang
 
 ---
 # Move data to/from on-premises Oracle using Azure Data Factory
 This article outlines how you can use data factory copy activity to move data to/from Oracle to from/to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
-## Supported versions
-With Oracle Data Provider .NET 12.1 installed on the Data Management Gateway machine, you can use this Oracle connector to copy data from/to below versions of Oracle instance. See [Installation](#installation) section for details about how to set it up.
+Data Factory supports connecting to on-premises Oracle sources using the Data Management Gateway. See [Data Management Gateway](data-factory-data-management-gateway.md) article to learn about Data Management Gateway and [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
-* Oracle 12c
-* Oracle 11g
-* Oracle 10g Release 2
+> [!NOTE]
+> Gateway is required even if the Oracle is hosted in an Azure IaaS VM. You can install the gateway on the same IaaS VM as the data store or on a different VM as long as the gateway can connect to the database.
+>
 
-## Installation
-For the Azure Data Factory service to be able to connect to your on-premises Oracle database, you must install the following components:
+## Supported versions and installation
+Oracle connector support two versions of drivers:
 
-* Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a client agent that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.
-* Oracle Data Provider for .NET. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the host machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
+- **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. You are **recommended** to use this driver. With that, you don't need to install anything else besides the gateway to connect to Oracle, and you can also experience better copy performance. Oracle Database version 10g Release 2 or later are supported.
+
+    > [!NOTE]
+    > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
+    >
+
+- **Oracle Data Provider for .NET:** you can also choose to use Oracle Data Provider to copy data from/to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
 
     If you choose “XCopy Installation”, follow steps in the readme.htm. We recommend you choose the installer with UI (non-XCopy one).
 
-    After installing the provider, Restart the Data Management Gateway Host service on your machine using Services applet (or) Data Management Gateway Configuration Manager.  
-
-> [!NOTE]
-> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
->
->
+    After installing the provider, **restart** the Data Management Gateway host service on your machine using Services applet (or) Data Management Gateway Configuration Manager.  
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from/to an Oracle database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
@@ -62,28 +61,33 @@ The sample copies data from a table in an on-premises Oracle database to a blob 
 
 **Oracle linked service:**
 
-    {
-      "name": "OnPremisesOracleLinkedService",
-      "properties": {
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-          "ConnectionString": "data source=<data source>;User Id=<User Id>;Password=<Password>;",
-          "gatewayName": "<gateway name>"
+            "driverType": "Microsoft",
+            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
         }
-      }
     }
+}
+```
 
 **Azure Blob storage linked service:**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
+```json
+{
+    "name": "StorageLinkedService",
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
         }
-      }
     }
+}
+```
 
 **Oracle input dataset:**
 
@@ -91,148 +95,143 @@ The sample assumes you have created a table “MyTable” in Oracle and it conta
 
 Setting “external”: ”true” informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
-    {
-        "name": "OracleInput",
-        "properties": {
-            "type": "OracleTable",
-            "linkedServiceName": "OnPremisesOracleLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-               "external": true,
-            "availability": {
-                "offset": "01:00:00",
-                "interval": "1",
-                "anchorDateTime": "2014-02-27T12:00:00",
-                "frequency": "Hour"
-            },
-          "policy": {     
-               "externalData": {        
-                    "retryInterval": "00:01:00",    
-                    "retryTimeout": "00:10:00",       
-                    "maximumRetry": 3       
-                }     
-              }
+```json
+{
+    "name": "OracleInput",
+    "properties": {
+        "type": "OracleTable",
+        "linkedServiceName": "OnPremisesOracleLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+            "offset": "01:00:00",
+            "interval": "1",
+            "anchorDateTime": "2014-02-27T12:00:00",
+            "frequency": "Hour"
+        },
+        "policy": {     
+            "externalData": {        
+                "retryInterval": "00:01:00",    
+                "retryTimeout": "00:10:00",       
+                "maximumRetry": 3       
+            }     
         }
     }
-
+}
+```
 
 **Azure Blob output dataset:**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
+```json
+{
+    "name": "AzureBlobOutput",
+    "properties": {
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
+            "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ],
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": "\t",
+                "rowDelimiter": "\n"
             }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "\t",
-            "rowDelimiter": "\n"
-          }
         },
         "availability": {
-          "frequency": "Hour",
-          "interval": 1
+            "frequency": "Hour",
+            "interval": 1
         }
-      }
     }
-
+}
+```
 
 **Pipeline with Copy activity:**
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run hourly. In the pipeline JSON definition, the **source** type is set to **OracleSource** and **sink** type is set to **BlobSink**.  The SQL query specified with **oracleReaderQuery** property selects the data in the past hour to copy.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for copy activity",
         "activities":[  
-          {
-            "name": "OracletoBlob",
-            "description": "copy activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": " OracleInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "OracleSource",
-                "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-              },
-              "sink": {
-                "type": "BlobSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
+            {
+                "name": "OracletoBlob",
+                "description": "copy activity",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "name": " OracleInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "OracleSource",
+                        "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
             }
-          }
-         ]
-       }
+        ]
     }
-
-
-You need to adjust the query string based on how dates are configured in your Oracle database. If you see the following error message:
-
-    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
-
-you may need to change the query as shown in the following sample (using the to_date function):
-
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+}
+```
 
 ## Sample: Copy data from Azure Blob to Oracle
 This sample shows how to copy data from an Azure Blob Storage to an on-premises Oracle database. However, data can be copied **directly** from any of the sources stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
@@ -248,165 +247,163 @@ The sample has the following data factory entities:
 The sample copies data from a blob to a table in an on-premises Oracle database every hour. For more information on various properties used in the sample, see documentation in sections following the samples.
 
 **Oracle linked service:**
-
-    {
-      "name": "OnPremisesOracleLinkedService",
-      "properties": {
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-          "ConnectionString": "data source=<data source>;User Id=<User Id>;Password=<Password>;",
-          "gatewayName": "<gateway name>"
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<hostname>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<SID>)));
+            User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
         }
-      }
     }
+}
+```
 
 **Azure Blob storage linked service:**
-
-    {
-      "name": "StorageLinkedService",
-      "properties": {
+```json
+{
+    "name": "StorageLinkedService",
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
         }
-      }
     }
+}
+```
 
 **Azure Blob input dataset**
 
 Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and is not produced by an activity in the data factory.
 
-    {
-      "name": "AzureBlobInput",
-      "properties": {
+```json
+{
+    "name": "AzureBlobInput",
+    "properties": {
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-          "fileName": "{Hour}.csv",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
+            "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                }
+            ],
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n"
             }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": "\n"
-          }
         },
         "external": true,
         "availability": {
-          "frequency": "Hour",
-          "interval": 1
+            "frequency": "Day",
+            "interval": 1
         },
         "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
-      }
     }
+}
+```
 
 **Oracle output dataset:**
 
 The sample assumes you have created a table “MyTable” in Oracle. Create the table in Oracle with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
-    {
-        "name": "OracleOutput",
-        "properties": {
-            "type": "OracleTable",
-            "linkedServiceName": "OnPremisesOracleLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": "1"
-            }
+```json
+{
+    "name": "OracleOutput",
+    "properties": {
+        "type": "OracleTable",
+        "linkedServiceName": "OnPremisesOracleLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "availability": {
+            "frequency": "Day",
+            "interval": "1"
         }
     }
-
+}
+```
 
 **Pipeline with Copy activity:**
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and the **sink** type is set to **OracleSink**.  
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
         "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "end":"2014-06-05T19:00:00",
         "description":"pipeline with copy activity",
         "activities":[  
-          {
-            "name": "AzureBlobtoOracle",
-            "description": "Copy Activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureBlobInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OracleOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "OracleSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
+            {
+                "name": "AzureBlobtoOracle",
+                "description": "Copy Activity",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OracleOutput"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "OracleSink"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
             }
-          }
-          ]
-       }
+        ]
     }
-
+}
+```
 
 ## Oracle linked service properties
 The following table provides description for JSON elements specific to Oracle linked service.
@@ -414,10 +411,43 @@ The following table provides description for JSON elements specific to Oracle li
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **OnPremisesOracle** |Yes |
-| connectionString |Specify information needed to connect to the Oracle Database instance for the connectionString property. |Yes |
-| gatewayName |Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
+| driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
+| connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. See below examples. | Yes |
+| gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises Oracle data source.
+
+**Example: using Microsoft driver**
+```JSON
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "driverType": "Microsoft",
+            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+
+**Example: using ODP driver**
+
+You can refer to [this site](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/) for more allowed format.
+```JSON
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<hostname>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<SID>)));
+User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
 
 ## Oracle dataset type properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Oracle, Azure blob, Azure table, etc.).
@@ -455,6 +485,41 @@ In Copy activity, when the source is of type **OracleSource** the following prop
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. |A query statement. |No |
 | sliceIdentifierColumnName |Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. |Column name of a column with data type of binary(32). |No |
 
+## Troubleshooting tips
+### Problem 1: .NET Framework Data Provider
+
+You see the following **error message**:
+
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed”.  
+
+**Possible causes:**
+
+1. The .NET Framework Data Provider for Oracle was not installed.
+2. The .NET Framework Data Provider for Oracle was installed to .NET Framework 2.0 and is not found in the .NET Framework 4.0 folders.
+
+**Resolution/Workaround:**
+
+1. If you haven't installed the .NET Provider for Oracle, [install it](http://www.oracle.com/technetwork/topics/dotnet/downloads/) and retry the scenario.
+2. If you get the error message even after installing the provider, do the following steps:
+   1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+   2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry as shown in the following sample under **system.data** -> **DbProviderFactories**:
+           “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+3. Copy this entry to the machine.config file in the following v4.0 folder: <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, and change the version to 4.xxx.x.x.
+4. Install “<ODP.NET Installed Path>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running `gacutil /i [provider path]`.## Troubleshooting tips
+
+### Problem 2: datetime formatting
+
+You see the following **error message**:
+
+    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+**Resolution/Workaround:**
+
+You may need to adjust the query string in your copy activity based on how dates are configured in your Oracle database, as shown in the following sample (using the to_date function):
+
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
+
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Type mapping for Oracle
@@ -491,24 +556,9 @@ When moving data from Oracle, the following mappings are used from Oracle data t
 | VARCHAR2 |String |
 | XML |String |
 
-## Troubleshooting tips
-**Problem:**
-You see the following **error message**: Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed”.  
-
-**Possible causes:**
-
-1. The .NET Framework Data Provider for Oracle was not installed.
-2. The .NET Framework Data Provider for Oracle was installed to .NET Framework 2.0 and is not found in the .NET Framework 4.0 folders.
-
-**Resolution/Workaround:**
-
-1. If you haven't installed the .NET Provider for Oracle, [install it](http://www.oracle.com/technetwork/topics/dotnet/downloads/) and retry the scenario.
-2. If you get the error message even after installing the provider, do the following steps:
-   1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry as shown in the following sample under **system.data** -> **DbProviderFactories**:
-           “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
-3. Copy this entry to the machine.config file in the following v4.0 folder: <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, and change the version to 4.xxx.x.x.
-4. Install “<ODP.NET Installed Path>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running `gacutil /i [provider path]`.
+> [!NOTE]
+> Data type **INTERVAL YEAR TO MONTH** and **INTERVAL DAY TO SECOND** are not supported when using Microsoft driver.
+>
 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
