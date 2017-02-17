@@ -47,15 +47,16 @@ Dedicated services run 24-7 at scale with [99.9% service level agreements](https
 Several cloud service providers offer custom search engines with features that power a search bar in custom apps. 
 Some offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
-For points of comparison with other search solutions, Azure Search is strongest for full text search workloads over content stores and databases, with an additional layer of functionality necessary for apps that rely primarily on search for content navigation. 
+As points of comparison with other search solutions, Azure Search is strongest for full text search workloads over content stores and databases on Azure, with an additional layer of functionality necessary for apps that rely primarily on search for content navigation. 
 
-+ Azure data integration at the indexing layer
++ Azure data integration (crawlers) at the indexing layer
 + Azure portal for central management
 + Azure scale, reliability, and world-class availability
-+ Linguistic and custom analysis, with language analyzers for a solid full text search experience in 56 languages
-+ Core features common to search-centric apps (relevance, faceting, suggestions, synonyms, geo-search, to name a few)
++ Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
++ Core features common to search-centric apps, including relevance, faceting, suggestions, synonyms, geo-search, and more (listed next).
 
-If your data source is Azure, you can configure a crawler to import and refresh data used in search operations. You can also import from any non-Azure data source by providing JSON documents.
+> [!Note]
+> Non-Azure data sources are fully supported. You can pipe any JSON document collection to an Azure Search index.
 
 ### <a name="feature-drilldown"></a>Feature drilldown
 
