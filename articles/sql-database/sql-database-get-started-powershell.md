@@ -168,11 +168,11 @@ $serverFirewallRuleName2 = "allowAzureServices"
 $serverFirewallStartIp2 = "0.0.0.0"
 $serverFirewallEndIp2 = "0.0.0.0"
 
-$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 
 if(!$myFirewallRule2)
 {
-   Write-host "Creating server firewall rule: $serverFirewallRuleName"
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
    $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
 }
 else
@@ -422,7 +422,6 @@ Write-Host "Server location: " $myServer.Location
 Write-Host "Server version: " $myServer.ServerVersion
 Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 
-
 # Create or update server firewall rules
 ########################################
 
@@ -448,11 +447,11 @@ $serverFirewallRuleName2 = "allowAzureServices"
 $serverFirewallStartIp2 = "0.0.0.0"
 $serverFirewallEndIp2 = "0.0.0.0"
 
-$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 
 if(!$myFirewallRule2)
 {
-   Write-host "Creating server firewall rule: $serverFirewallRuleName"
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
    $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
 }
 else
@@ -460,9 +459,6 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
 }
 $myFirewallRule2
-
-
-
 
 
 # Connect to the server and master database
