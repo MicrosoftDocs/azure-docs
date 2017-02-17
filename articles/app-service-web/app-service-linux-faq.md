@@ -40,19 +40,19 @@ If you have a question, please comment on the article and we will answer it as s
 
 **Q:** Can I SSH to the VM?
 
-**A:** No, we will provide a way to SSH into your app container.
+**A:** No, we will be providing a way to SSH into your app container in a future release.
 
 ## Continous Integration / Deployment ##
 
 **Q:** My webapp still uses an old Docker Container image after updating the image on DockerHub? Do you support continuous integration/deployment of custom containers?
 
-**A:** you can refresh the container either by stopping and then starting your web app or changing/adding a dummy application setting to force a refresh of your container, we will be having a CI/CD feature for custom containers.
+**A:** you can refresh the container either by stopping and then starting your web app or changing/adding a dummy application setting to force a refresh of your container, we will be having a CI/CD feature for custom containers in a future release.
 
 ## Language Support ##
 
 **Q:** Do you support uncompiled .net core apps?
 
-**A:** No, you need to deploy the compiled .net core app with all the dependencies, a full deploy and build experience will be coming soon.
+**A:** No, you need to deploy the compiled .net core app with all the dependencies, a full deploy and build experience will be coming in a future release.
 
 ## Built-in Images ##
 
