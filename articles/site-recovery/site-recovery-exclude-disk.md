@@ -62,7 +62,7 @@ Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replicat
 > 
 
 ###Hyper-V to Azure
-Follow the [Enable replication](site-recovery-hyper-v-site-to-azure.md#step-6:-enable-replication) workflow to protect a VM from Azure Site Recovery portal. In the 4th step of Enable replication, there is a column - **DISK TO REPLICATE** which can be used to exclude disks from the replication. By default all the disks are selected for the replication. Unselect the disk that you want to exclude from replication and complete the steps to enable the replication. 
+Follow the [Enable replication](site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication) workflow to protect a VM from Azure Site Recovery portal. In the 4th step of Enable replication, there is a column - **DISK TO REPLICATE** which can be used to exclude disks from the replication. By default all the disks are selected for the replication. Unselect the disk that you want to exclude from replication and complete the steps to enable the replication. 
 
 ![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 	
