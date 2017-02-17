@@ -50,8 +50,10 @@
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
-## [View access and usage reports](active-directory-view-access-usage-reports.md)
+## [View activity and security reports](active-directory-view-access-usage-reports.md)
 ### [Azure AD reporting](active-directory-reporting-getting-started.md)
+### [FAQ](active-directory-reporting-faq.md)
+
 ### [Known networks](active-directory-known-networks.md)
 
 ### [Reporting guide](active-directory-reporting-guide.md)
