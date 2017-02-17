@@ -427,7 +427,8 @@ If you need support for additional sources, submit a feature request using the [
 <br>
 <br>
 ## Data source reference specification
-> [AZURE.NOTE] "DSL Structure" column in the following table only lists connection properties for "address" property bag that are used by Azure Data Catalog. That is, "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.
+> [!NOTE]
+> "DSL Structure" column in the following table only lists connection properties for "address" property bag that are used by Azure Data Catalog. That is, "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.
 <table>
     <tr>
        <td><b>Source Type</b></td>
