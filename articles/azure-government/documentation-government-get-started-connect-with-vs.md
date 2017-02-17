@@ -1,5 +1,5 @@
 ---
-title: Connect with Visual Studio | Microsoft Docs
+title: Connect to Azure Government with Visual Studio | Microsoft Docs
 description: Information on managing your subscription in Azure Government by connecting with Visual Studio
 services: azure-government
 cloud: gov

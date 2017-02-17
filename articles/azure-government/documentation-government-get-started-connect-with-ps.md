@@ -20,7 +20,7 @@ ms.author: zakramer
 
 
 
-# Connecting to Azure Government with PowerShell
+# Connect to Azure Government with PowerShell
 To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Government are:
 
 * Connecting your account

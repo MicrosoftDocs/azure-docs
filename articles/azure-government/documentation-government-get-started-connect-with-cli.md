@@ -1,5 +1,5 @@
 ---
-title: Connect with Azure CLI | Microsoft Docs
+title: Connect to Azure Government with Azure CLI | Microsoft Docs
 description: Information on managing your subscription in Azure Government by connecting with the Azure CLI
 services: azure-government
 cloud: gov
@@ -19,7 +19,7 @@ ms.author: zakramer
 ---
 
 
-# Connecting to Azure Government with Azure CLI
+# Connect to Azure Government with Azure CLI
 
 To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in Azure Public, it is mostly the same.  The differences in Azure Government are:
 

@@ -1,5 +1,5 @@
 ---
-title: Connect with the portal | Microsoft Docs
+title: Connect with the Azure Government portal | Microsoft Docs
 description: Information on managing your subscription in Azure Government by connecting via the portal
 services: azure-government
 cloud: gov
