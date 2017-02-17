@@ -43,6 +43,6 @@ Azure Multi-Factor Authentication provides selectable verification methods for b
 
 ## Next steps
 
-- Read about the different [versions and billing methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-billing.md)
+- Read about the different [versions and consumption methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
 
 - Choose whether to deploy Azure MFA [in the cloud or on-premises](multi-factor-authentication-get-started.md)

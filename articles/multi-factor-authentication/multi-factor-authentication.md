@@ -54,4 +54,4 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 
 - Learn about [how Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md)
 
-- Read about the different [versions and billing methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-billing.md)
+- Read about the different [versions and consumption methods for Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
