@@ -88,7 +88,7 @@ Proxies.json is defined by a proxies object, composed of named proxies and their
     "proxies": {
         "proxy1": {
             "matchCondition": {
-                "methods": [ "get" ],
+                "methods": [ "GET" ],
                 "route": "/api/{test}"
             },
             "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
