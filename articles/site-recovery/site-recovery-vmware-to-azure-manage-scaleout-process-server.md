@@ -40,17 +40,17 @@ The following are the recommended hardware, software, and network configuration 
 6. Click the **Download the Microsoft Azure Site Recovery Unified Setup** link to download the latest version of the Scale-out process server installation.
 
   > [!WARNING]
-  The version of your Scale-out process server should be equal to or lesser than  the Configuration Server version running in your environment. A simple way to ensure version compatibility is to use the same installer bits that you recently used to install/update your Configuration Server.
+  The version of your Scale-out process server should be equal to or lesser than the Configuration Server version running in your environment. A simple way to ensure version compatibility is to use the same installer bits that you recently used to install/update your Configuration Server.
 
 ## Installing and Registering a Scale-out Process Server from GUI
-If you have to scale out your deployment beyond 200 source machines, or a total daily churn rate of more than 2 TB, you’ll need additional process servers to handle the traffic volume.
+If you have to scale out your deployment beyond 200 source machines, or a total daily churn rate of more than 2 TB, you need additional process servers to handle the traffic volume.
 
 Check the [size recommendations for process servers](#size-recommendations-for-the-process-server), and then follow these instructions to set up the process server. After setting up the server, you migrate source machines to use it.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
 
 
-## Installing and Registering a Scale-out process server using Command line
+## Installing and Registering a Scale-out process server using Command-line
 
 ```
 UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
@@ -68,7 +68,7 @@ UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /
 
 
 ### Create a Proxy settings configuration file
-You need to pass a proxy settings configuration file to the installer when you are executing it in Windows command prompt. The file should have the following format
+ProxySettingsFilePath parameter takes a file as input. Create  file using the below format and pass it as input ProxySettingsFilePath parameter.
 ```
 * [ProxySettings]
 * ProxyAuthentication = "Yes/No"
@@ -78,7 +78,7 @@ You need to pass a proxy settings configuration file to the installer when you a
 * ProxyPassword="Password"
 ```
 ## Modifying Proxy Settings for Scale-out Process server
-1. Login to your Scale-out Process Server.
+1. Login into your Scale-out Process Server.
 2. Open an Admin PowerShell command window.
 3. Run the following command
   ```
@@ -114,7 +114,7 @@ You need to pass a proxy settings configuration file to the installer when you a
 It can take up-to 15 minutes for the Process Server deletion to reflect in the Azure portal.
 
   > [!NOTE]
-  If the Process server is unable to communicate with the Configuration Server (Connection State in portal is Disconnected) then you need to follow the below steps to purge it from the Configuration Server.
+  If the Process server is unable to communicate with the Configuration Server (Connection State in portal is Disconnected),  then you need to follow the following steps to purge it from the Configuration Server.
 
 ## Unregistering a disconnected process server from a Configuration Server
 
