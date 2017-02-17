@@ -1,5 +1,6 @@
 # Overview
 ## [What is Application Gateway?](application-gateway-introduction.md)
+## [Application Gateway FAQ](application-gateway-faq.md)
 ## [Web application firewall](application-gateway-webapplicationfirewall-overview.md)
 ## [Health monitoring](application-gateway-probe-overview.md)
 ## [URL routing](application-gateway-url-route-overview.md)
@@ -49,7 +50,7 @@
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
-## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt299393)
 # Related
 ## [ExpressRoute](/azure/expressroute/)

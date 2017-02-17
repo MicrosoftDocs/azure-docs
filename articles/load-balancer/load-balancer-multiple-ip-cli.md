@@ -35,12 +35,14 @@ For this scenario we have two VMs running Windows, each with a single NIC. Each 
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Register for the preview by running both the following commands in PowerShell after you login and select the appropriate subscription:
+Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 
 ```
 Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
 Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:

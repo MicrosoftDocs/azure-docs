@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 
 ---
 
@@ -24,8 +24,8 @@ ms.author: naziml
 App Service provides pre-defined application stacks on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service on Linux uses Docker containers to host these pre-built application stacks. You can also use a custom Docker image to deploy your web app to an application stack that is not already defined in Azure. Custom Docker images can be hosted on either a public or private Docker repository.
 
 
-## How to: set a custom Docker image for a new web app
-You can set the custom Docker image for both new and existing webs apps. When you create a new web app on Linux in the [Azure portal](https://portal.azure.com), click **Configure container** to set a custom Docker image:
+## How to: set a custom Docker image for a web app
+You can set the custom Docker image for both new and existing webs apps. When you create a web app on Linux in the [Azure portal](https://portal.azure.com), click **Configure container** to set a custom Docker image:
 
 ![Custom Docker Image for a new web app on Linux][1]
 
@@ -50,7 +50,7 @@ To use a custom Docker image from a private image registry:
 
 1. In the [Azure portal](https://portal.azure.com), locate your web app on Linux, then in **Settings** click **Docker Container**.
 
-2.  Select **Private registry** as the **Image source**, then type the **Image and optional tag name**, the **Server URL** for the private registry, along with the credentials as (**Login username** and **Password**), then click **Save**.
+2.  Click **Private registry** as the **Image source**. Enter the **Image and optional tag name**, **Server URL** for the private registry, along with the credentials (**Login username** and **Password**). Click **Save**.
 
 	![Configure Docker image from private registry][4]
 
@@ -68,9 +68,7 @@ When you use a custom Docker image for your web app, you can use the `PORT` envi
 
 On last line of the command, you can see that the PORT environment variable is passed at runtime. Remember that casing matters in commands.
 
-When you use an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. 
-
-To do this, add an application setting named `PORT` with the value expected by the image:
+When you use an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. To configure the port, add an application setting named `PORT` with the value as shown below:
 
 ![Configure PORT app setting for custom Docker image][6]
 
@@ -101,6 +99,7 @@ Follow the following links to get started with App Service on Linux.
 * [Introduction to App Service on Linux](./app-service-linux-intro.md)
 * [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
 
 Post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
