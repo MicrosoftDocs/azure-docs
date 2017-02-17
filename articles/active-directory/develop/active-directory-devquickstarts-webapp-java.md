@@ -39,14 +39,14 @@ When you are ready, follow the procedures in the next nine sections.
 To set up the app to authenticate users, first register it in your tenant by doing the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click your account name and, under the **Directory** list, select the Active Directory tenant where you want to register the app.
+2. On the top bar, click your account name. Under the **Directory** list, select the Active Directory tenant where you want to register the app.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts to create a **Web Application and/or WebAPI**.
   * **Name** describes the app to users.
   * **Sign-On URL** is the base URL of the app. The skeleton's default URL is http://localhost:8080/adal4jsample/.
   * **App ID URI** a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `http://localhost:8080/adal4jsample/`).
-6. After you've completed the registration, Azure AD assigns the app a unique Application ID. Copy the value from the app page to use in the next sections.
+6. After you've completed the registration, Azure AD assigns the app a unique application ID. Copy the value from the app page to use in the next sections.
 
 When you are in the portal for the app, create and copy a key for the app on the **Settings** page. You'll need the key shortly.
 
