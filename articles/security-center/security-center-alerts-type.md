@@ -179,7 +179,7 @@ This is an example of this type of alert:
 ![Outgoing DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## Resource analysis
-Security Center resource analysis focuses in PaaS services, such as the integration with [Azure SQL Db Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) feature. Based on the analysis’s results from these areas, Security Center triggers a resource related alert.
+Security Center resource analysis focuses in PaaS services, such as the integration with [Azure SQL Database Threat Detection](../sql-database/sql-database-threat-detection.md) feature. Based on the analysis’s results from these areas, Security Center triggers a resource related alert.
 
 ### Potential SQL injection
 SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server executes all syntactically valid queries that it receives. SQL Threat Detection uses machine learning, behavioral analysis and anomaly detection to determine suspicious events that might be taking place in your Azure SQL Databases. For example:
