@@ -55,10 +55,12 @@ TwiML is a set of XML-based instructions based on the Twilio verbs that inform T
 
 As an example, the following TwiML would convert the text **Hello World!** to speech.
 
+```xml
     <?xml version="1.0" encoding="UTF-8" ?>
     <Response>
        <Say>Hello World!</Say>
     </Response>
+```
 
 When your application calls the Twilio API, one of the API parameters is the URL that returns the TwiML response. For development purposes, you can use Twilio-provided URLs to provide the TwiML responses used by your applications. You could also host your own URLs to produce the TwiML responses, and another option is to use the **TwiMLResponse** object.
 
@@ -80,22 +82,28 @@ Within your code, you can add **import** statements at the top of your source fi
 
 For Java source files:
 
+```java
     import com.twilio.*;
     import com.twilio.rest.api.*;
     import com.twilio.type.*;
     import com.twilio.twiml.*;
+```
 
 For Java Server Page (JSP) source files:
 
+```java
     import="com.twilio.*"
     import="com.twilio.rest.api.*"
     import="com.twilio.type.*"
     import="com.twilio.twiml.*"
+ ```
+ 
 Depending on which Twilio packages or classes you want to use, your **import** statements may be different.
 
 ## <a id="howto_make_call"></a>How to: Make an outgoing call
 The following shows how to make an outgoing call using the **Call** class. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **from** and **to** phone numbers, and ensure that you verify the **from** phone number for your Twilio account prior to running the code.
 
+```java
     // Use your account SID and authentication token instead
     // of the placeholders shown here.
     String accountSID = "your_twilio_account_SID";
@@ -115,6 +123,7 @@ The following shows how to make an outgoing call using the **Call** class. This 
     // Create a Call creator passing From, To and URL values
     // then make the call by executing the create() method
     Call.creator(to, from, uri).create();
+```
 
 For more information about the parameters passed in to the **Call.creator** method, see [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
@@ -123,6 +132,7 @@ As mentioned, this code uses a Twilio-provided site to return the TwiML response
 ## <a id="howto_send_sms"></a>How to: Send an SMS message
 The following shows how to send an SMS message using the **Message** class. The **from** number, **4155992671**, is provided by Twilio for trial accounts to send SMS messages. The **to** number must be verified for your Twilio account prior to running the code.
 
+```java
     // Use your account SID and authentication token instead
     // of the placeholders shown here.
     String accountSID = "your_twilio_account_SID";
@@ -139,6 +149,7 @@ The following shows how to send an SMS message using the **Message** class. The 
     // Create a Message creator passing From, To and Body values
     // then send the SMS message by calling the create() method
     Message sms = Message.creator(to, from, body).create();
+```
 
 For more information about the parameters passed in to the **Message.creator** method, see [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
@@ -149,13 +160,16 @@ Instead of relying on the Twilio-provided URL, you can create your own URL site 
 
 The following JSP page results in a TwiML response that says **Hello World!** on the call.
 
+```xml
     <%@ page contentType="text/xml" %>
     <Response>
         <Say>Hello World!</Say>
     </Response>
+```
 
 The following JSP page results in a TwiML response that says some text, has several pauses, and says information about the Twilio API version and the Azure role name.
 
+```xml
     <%@ page contentType="text/xml" %>
     <Response>
         <Say>Hello from Azure!</Say>
@@ -165,11 +179,13 @@ The following JSP page results in a TwiML response that says some text, has seve
         <Pause></Pause>
         <Say>Good bye.</Say>
     </Response>
+```
 
 The **ApiVersion** parameter is available in Twilio voice requests (not SMS requests). To see the available request parameters for Twilio voice and SMS requests, see <https://www.twilio.com/docs/api/twiml/twilio_request> and <https://www.twilio.com/docs/api/twiml/sms/twilio_request>, respectively. The **RoleName** environment variable is available as part of an Azure deployment. (If you want to add custom environment variables so they could be picked up from **System.getenv**, see the environment variables section at [Miscellaneous Role Configuration Settings][misc_role_config_settings].)
 
 Once you have your JSP page set up to provide TwiML responses, use the URL of the JSP page as the URL passed into the **Call.creator** method. For example, if you have a Web application named MyTwiML deployed to an Azure hosted service, and the name of the JSP page is mytwiml.jsp, the URL can be passed to **Call.creator** as shown in the following:
 
+```java
     // Declare To and From numbers and the URL of your JSP page
     PhoneNumber to = new PhoneNumber("NNNNNNNNNN");
     PhoneNumber from = new PhoneNumber("NNNNNNNNNN");
@@ -178,6 +194,7 @@ Once you have your JSP page set up to provide TwiML responses, use the URL of th
     // Create a Call creator passing From, To and URL values
     // then make the call by executing the create() method
     Call.creator(to, from, uri).create();
+```
 
 Another option for responding with TwiML is via the **VoiceResponse** class, which is available in the **com.twilio.twiml** package.
 
