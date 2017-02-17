@@ -164,7 +164,7 @@ The steps in this procedure show you how to connect to your SQL logical server u
     ![query master database system objects](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > To get started with SQL security, see [Get Started with SQL authentication](sql-database-control-access-sql-authentication-get-startedd.md)
+    > To get started with SQL security, see [Get Started with SQL authentication](sql-database-control-access-sql-authentication-get-started.md)
     >
 
 ## Create a database with sample data
