@@ -326,7 +326,7 @@ In Azure Search, you can’t change the scoring logic, but you can apply term bo
 [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
 <!--Image references-->
-[1]: ./media/search-query-architecture/architecture-diagram.png
+[1]: ./media/search-query-architecture/architecture-diagram2.png
 [2]: ./media/search-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-query-architecture/azSearch-queryparsing-spacious2.png
