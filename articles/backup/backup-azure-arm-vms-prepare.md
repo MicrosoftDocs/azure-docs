@@ -54,6 +54,7 @@ Before you prepare your environment, please understand the limitations.
 
 * Backing up virtual machines with more than 16 data disks is not supported.
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
+* Backup of VMs encrypted using just BEK is not supported. 
 * Backup of Linux virtual machines with Docker extension is not supported.
 * Backup data doesn't include network mounted drives attached to VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
