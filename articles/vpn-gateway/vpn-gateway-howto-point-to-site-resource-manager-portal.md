@@ -18,7 +18,7 @@ ms.date: 02/16/2017
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site connection to a VNet using the Azure Portal
+# Configure a Point-to-Site connection to a VNet using the Azure portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)

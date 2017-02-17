@@ -30,7 +30,7 @@ A Point-to-Site (P2S) configuration lets you create a secure connection from an 
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
 
-This article walks you through creating a VNet with a Point-to-Site connection in the classic deployment model using the Azure Portal.
+This article walks you through creating a VNet with a Point-to-Site connection in the classic deployment model using the Azure portal.
 
 ### Deployment models and methods for P2S connections
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -100,7 +100,7 @@ In this step, you will create a gateway subnet and a Dynamic routing gateway. In
 1. In the portal, navigate to the virtual network for which you want to create a gateway.
 2. On the blade for your virtual network, on the **Overview** blade, in the VPN connections section, click **Gateway**.
 
-    ![Click here to create a gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
+    ![Click to create a gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
 3. On the **New VPN Connection** blade, select **Point-to-site**.
 
     ![Point-to-Site connection type](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
