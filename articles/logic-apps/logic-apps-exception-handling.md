@@ -75,7 +75,7 @@ see the [retry-policy section in Workflow Actions and Triggers][retryPolicyMSDN]
 ## Catch failures with the RunAfter property
 
 Each logic app action declares which actions must finish before the action starts, 
-like the the ordering of steps in your workflow. In the action definition, 
+like ordering the steps in your workflow. In the action definition, 
 this ordering is known as the `runAfter` property. 
 This property is an object that describes which actions and action statuses execute the action. 
 By default, all actions added through the Logic App Designer are set to `runAfter` 
@@ -137,8 +137,8 @@ The scope itself receives a status after all actions in a scope have finished.
 The scope status is determined with the same criteria as a run. 
 If the final action in an execution branch is `Failed` or `Aborted`, the status is `Failed`.
 
-You can `runAfter` a scope has been marked `Failed` to fire specific 
-actions for any failures that occurred within the scope. 
+To fire specific actions for any failures that happened within the scope, 
+you can `runAfter` a scope that is marked `Failed`. 
 If *any* actions in the scope fail, running after a scope fails lets you 
 create a single action to catch failures.
 
@@ -225,8 +225,8 @@ The `@result()` item shape is the same as the `@actions()` shape, and can be par
 and the failed run client tracking ID `@item()['clientTrackingId']`.
 
 For reference, here's an example of a single `@result()` item, 
-showing the `name`, `body`, and `clientTrackingId` properties that are parsed in the example above. 
-Note that outside of a `foreach`, `@result()` returns an array of these objects.
+showing the `name`, `body`, and `clientTrackingId` properties that are parsed in the previous example. 
+Outside of a `foreach`, `@result()` returns an array of these objects.
 
 ```json
 {
@@ -273,7 +273,7 @@ to an Azure Storage account or an Azure Event Hub. To evaluate run statuses,
 you can monitor the logs and metrics, or publish them into any monitoring tool you prefer. 
 One potential option is to stream all the events through Azure Event Hub into 
 [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
-In Stream Analytics, you can write live queries off of any anomalies, averages, or failures from the diagnostic logs. 
+In Stream Analytics, you can write live queries off any anomalies, averages, or failures from the diagnostic logs. 
 Stream Analytics can easily output to other data sources like queues, topics, SQL, DocumentDB, and Power BI.
 
 ## Next Steps
