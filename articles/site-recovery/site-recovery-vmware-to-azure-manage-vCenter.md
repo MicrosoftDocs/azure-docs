@@ -52,8 +52,9 @@ Site Recovery needs access to VMware for the process server to automatically dis
 
 
 ## Associate a VMware vCenter/ VMware vSphere ESX host (Add vCenter)
-1. On the Azure portal, browse to *YourRecoveryServicesVault* > **Site Recovery Infrastructure** > **Configuration Severs** > *ConfigurationServer*
-2. In the Configuration server's details page click the +vCenter button.
+* On the Azure portal, browse to *YourRecoveryServicesVault* > **Site Recovery Infrastructure** > **Configuration Severs** > *ConfigurationServer*
+* In the Configuration server's details page click the +vCenter button.
+
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
 ## Modify credentials used to connect to the vCenter
