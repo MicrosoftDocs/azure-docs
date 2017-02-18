@@ -161,7 +161,7 @@ The following table lists IPsec SA Encryption and Authentication Offers. Offers 
 
 ###Feb. 16, 2017
 
-**Palo Alto Networks devices with version prior to 7.1.4** for Azure route-based VPN: If you are using VPN defvices from Palo Alto Networks with PAN-OS version prior to 7.1.4, and are experiencing connectivity issues to Azure route-based VPN gateways, please perform the following steps:
+**Palo Alto Networks devices with version prior to 7.1.4** for Azure route-based VPN: If you are using VPN devices from Palo Alto Networks with PAN-OS version prior to 7.1.4, and are experiencing connectivity issues to Azure route-based VPN gateways, please perform the following steps:
 
 1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, please upgrade to 7.1.4
 2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to Azure VPN gateway
