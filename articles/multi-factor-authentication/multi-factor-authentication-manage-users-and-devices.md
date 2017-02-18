@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/17/2017
 ms.author: kgremban
 
 ---
@@ -59,7 +59,11 @@ This deletes all of the app passwords that a user has created. Non-browser apps 
 10. Click close.
 
 ## Restore MFA on all remembered devices for a user
-Administrators have the ability to restore Multi-Factor Authentication on users devices and browsers. When doing this, this will remove the remember MFA from all of the user’s devices and browsers and the user will be required to use MFA when signing in the next time.
+One of the configurable features of Azure Multi-Factor Authentication is giving your users the option to mark devices as trusted. For more information, see [Configure Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md#remember-multi-factor-authentication-for-devices-users-trust)
+
+Users can choose to opt out of two-step verification for a configurable number of days on their regular devices. If an account is compromised or a trusted device is lost, you need to be able to remove the trusted status and require two-step verification again.
+
+The **Restore multi-factor authentication on all remembered devices** setting means that the user will be challenged to perform two-step verification the next time they sign in, regardless of whether they chose to mark their device as trusted. 
 
 ### How to restore MFA on all suspended devices for a user
 1. Sign-in to the Azure classic portal.
