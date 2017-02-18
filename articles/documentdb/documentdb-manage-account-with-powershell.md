@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 02/17/2017
 ms.author: dimakwan
 
 ---
@@ -22,7 +22,7 @@ ms.author: dimakwan
 > [!div class="op_single_selector"]
 > * [Azure portal](documentdb-create-account.md)
 > * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
-> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure CLI 2.0 (Preview)](documentdb-automation-resource-manager-cli.md)
 > * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
 The following guide describes commands to automate management of your DocumentDB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure CLI](documentdb-automation-resource-manager-cli.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).

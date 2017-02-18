@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/17/2017
 ms.author: mimig
 
 ---
@@ -22,7 +22,7 @@ ms.author: mimig
 > [!div class="op_single_selector"]
 > * [Azure portal](documentdb-create-account.md)
 > * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
-> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure CLI 2.0 (Preview)](documentdb-automation-resource-manager-cli.md)
 > * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
 To build a database with Microsoft Azure DocumentDB, you must:

@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Automation - Resource Manager - CLI | Microsoft Docs
+title: DocumentDB Automation - Resource Manager - Azure CLI 1.0 | Microsoft Docs
 description: Use Azure Resource Manager templates or CLI to deploy a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data.
 services: documentdb
 author: mimig1
@@ -14,31 +14,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
+ms.date: 02/17/2017
 ms.author: mimig
 
 ---
-# Automate DocumentDB account creation using Azure CLI and Azure Resource Manager templates
+# Automate DocumentDB account creation using Azure CLI 1.0 and Azure Resource Manager templates
 > [!div class="op_single_selector"]
 > * [Azure portal](documentdb-create-account.md)
 > * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
-> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure CLI 2.0 (Preview)](documentdb-automation-resource-manager-cli.md)
 > * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
-This article shows you how to create an Azure DocumentDB account by using Azure Resource Manager templates or directly with the Azure Command-Line Interface (CLI). To create a DocumentDB account using the Azure portal, see [Create a DocumentDB database account using the Azure portal](documentdb-create-account.md).
+This article shows you how to create an Azure DocumentDB account by using Azure Resource Manager templates or directly with Azure Command-Line Interface (CLI) 1.0. To create a DocumentDB account using the Azure portal, see [Create a DocumentDB database account using the Azure portal](documentdb-create-account.md).
 
-DocumentDB database accounts are currently the only DocumentDB resource that can be created using Resource Manager templates and the Azure CLI.
+DocumentDB database accounts are currently the only DocumentDB resource that can be created using Resource Manager templates and Azure CLI 1.0.
 
 ## Getting ready
-Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](../xplat-cli-install.md).
+Before you can use Azure CLI 1.0 with Azure resource groups, you need to have the right  version and an Azure account. If you don't have Azure CLI 1.0, [install it](../xplat-cli-install.md).
 
-### Update your Azure CLI version
+### Update your Azure CLI 1.0 version
 At the command prompt, type `azure --version` to see whether you have already installed version 0.10.4 or later. You may be prompted to participate in Microsoft Azure CLI data collection at this step, and can select y or n to opt-in or opt-out.
 
     azure --version
     0.10.4 (node: 4.2.4)
 
-If your version is not 0.10.4 or later, you need to either [install the Azure CLI](../xplat-cli-install.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
+If your version is not 0.10.4 or later, you need to either [install Azure CLI 1.0](../xplat-cli-install.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
 
 ### Set your Azure account and subscription
 If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -60,7 +60,7 @@ Which produces the following output:
 
 Open [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in a browser and enter the code provided in the command output.
 
-![Screenshot showing the device login screen for Microsoft Azure CLI](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
+![Screenshot showing the device login screen for Microsoft Azure CLI 1.0](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
 
 Once you've entered the code, select the identity you want to use in the browser and provide your user name and password if needed.
 
@@ -77,10 +77,10 @@ The command shell also provides the following output:
     +
     info:    login command OK
 
-In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
+In addition to the interactive login method described here, there are additional Azure CLI 1.0 login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI 1.0)](../xplat-cli-connect.md).
 
-### Switch to the Azure CLI resource group mode
-By default, the Azure CLI starts in the service management mode (**asm** mode). Type the following to switch to resource group mode.
+### Switch to Azure CLI 1.0 resource group mode
+By default, Azure CLI 1.0 starts in the service management mode (**asm** mode). Type the following to switch to resource group mode.
 
     azure config mode arm
 
@@ -134,9 +134,9 @@ Most applications are built from a combination of different resource types (such
 You can learn lots more about Azure resource groups and what they can do for you in the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a id="quick-create-documentdb-account"></a>Task: Create a Single Region DocumentDB account
-Use the instructions in this section to create a Single Region DocumentDB account. This can be accomplished using Azure CLI with or without Resource Manager templates.
+Use the instructions in this section to create a Single Region DocumentDB account. This can be accomplished using Azure CLI 1.0 with or without Resource Manager templates.
 
-### <a id="create-single-documentdb-account-cli-arm"></a> Create a Single Region DocumentDB account using Azure CLI without Resource Manager templates
+### <a id="create-single-documentdb-account-cli-arm"></a> Create a Single Region DocumentDB account using Azure CLI 1.0 without Resource Manager templates
 Create a DocumentDB account in the new or existing resource group by entering the following command at the command prompt:
 
 > [!TIP]
@@ -176,7 +176,7 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-### <a id="create-single-documentdb-account-cli-arm"></a> Create a Single Region DocumentDB account using Azure CLI with Resource Manager templates
+### <a id="create-single-documentdb-account-cli-arm"></a> Create a Single Region DocumentDB account using Azure CLI 1.0 with Resource Manager templates
 The instructions in this section describe how to create a DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
 Create a local template file with the following content. Name the file azuredeploy.json.
@@ -289,9 +289,9 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
 ## <a id="quick-create-documentdb-with-mongodb-api-account"></a>Task: Create a Single Region DocumentDB with support for MongoDB account
-Use the instructions in this section to create a Single Region DocumentDB with support for MongoDB account. This can be accomplished using Azure CLI with Resource Manager templates.
+Use the instructions in this section to create a Single Region DocumentDB with support for MongoDB account. This can be accomplished using Azure CLI 1.0 with Resource Manager templates.
 
-### <a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Create a Single Region DocumentDB with support for MongoDB account using Azure CLI with Resource Manager templates
+### <a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Create a Single Region DocumentDB with support for MongoDB account using Azure CLI 1.0 with Resource Manager templates
 The instructions in this section describe how to create a DocumentDB with support for MongoDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
 Create a local template file with the following content. Name the file azuredeploy.json.
@@ -407,9 +407,9 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
 ## <a id="create-multi-documentdb-account"></a>Task: Create a multi-region DocumentDB account
-DocumentDB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). When creating a DocumentDB account, the regions in which you would like the service to exist can be specified. Use the instructions in this section to create a multi-region DocumentDB account. This can be accomplished using Azure CLI with or without Resource Manager templates.
+DocumentDB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). When creating a DocumentDB account, the regions in which you would like the service to exist can be specified. Use the instructions in this section to create a multi-region DocumentDB account. This can be accomplished using Azure CLI 1.0 with or without Resource Manager templates.
 
-### <a id="create-multi-documentdb-account-cli"></a> Create a multi-region DocumentDB account using Azure CLI without Resource Manager templates
+### <a id="create-multi-documentdb-account-cli"></a> Create a multi-region DocumentDB account using Azure CLI 1.0 without Resource Manager templates
 Create a DocumentDB account in the new or existing resource group by entering the following command at the command prompt:
 
 > [!TIP]
@@ -449,7 +449,7 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-### <a id="create-multi-documentdb-account-cli-arm"></a> Create a multi-region DocumentDB account using Azure CLI with Resource Manager templates
+### <a id="create-multi-documentdb-account-cli-arm"></a> Create a multi-region DocumentDB account using Azure CLI 1.0 with Resource Manager templates
 The instructions in this section describe how to create a DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
 Create a local template file with the following content. Name the file azuredeploy.json.
