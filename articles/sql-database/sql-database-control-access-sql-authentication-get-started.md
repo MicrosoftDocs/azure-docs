@@ -32,7 +32,7 @@ In this tutorial, you learn how to use SQL Server Management Studio to work with
 **Time estimate**: This tutorial takes approximately 45 minutes to complete (assuming you have already met the prerequisites).
 
 > [!NOTE]
-> This tutorial helps you to learn the content of these topics: [SQL Database access and control](sql-database-control-access.md), [Logins, users, and database roles](sql-database-manage-logins.md), [Principals](https://msdn.microsoft.com/library/ms181127.aspx), [Database roles](https://msdn.microsoft.com/library/ms189121.aspx), and [SQL Database firewall rules](sql-database-firewall-configure.md). For a tutorial about Azure Active Directory authentication, see [Getting started with Azure AD Authention](sql-database-control-access-aad-authentication-get-started.md).
+> This tutorial helps you to learn the content of these topics: [SQL Database access and control](sql-database-control-access.md), [Logins, users, and database roles](sql-database-manage-logins.md), [Principals](https://msdn.microsoft.com/library/ms181127.aspx), [Database roles](https://msdn.microsoft.com/library/ms189121.aspx), and [SQL Database firewall rules](sql-database-firewall-configure.md). For a tutorial about Azure Active Directory authentication, see [Getting started with Azure AD Authentication](sql-database-control-access-aad-authentication-get-started.md).
 >  
 
 ## Prerequisites
@@ -67,7 +67,7 @@ The steps in this procedure show you how to view information about the security 
 
    ![Server admin account in the Azure portal](./media/sql-database-control-access-sql-authentication-get-started/sql_admin_portal.png)
 
-2. Make note of the nae for server admin on your logical server. 
+2. Make note of the name for server admin on your logical server. 
 
 3. If you do not remember the password, click **Reset password** to set a new password.
 
@@ -237,7 +237,7 @@ The steps in this procedure show you how to create a database-level user, test t
 
    ![grant select permissions](./media/sql-database-control-access-sql-authentication-get-started/grant_select_permissions.png)
 
-6. Execute the following queries to successfully to query the SalesLT.ProductCategory table in the sqldbtutorialdb database as **user1**.
+6. Execute the following queries to successfully query the SalesLT.ProductCategory table in the sqldbtutorialdb database as **user1**.
 
    ```
    EXECUTE AS USER = 'user1';  
