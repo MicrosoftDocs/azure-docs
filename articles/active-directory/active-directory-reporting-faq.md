@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 02/18/2017
 ms.author: markvi
 
 ---
@@ -29,7 +29,7 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 **Q: How long does it take until I can see the Activity data after I have completed my task?**
 
-**A:** You can find the answer to this question in the [Azure Active Directory report latencies](active-directory-reporting-latencies.md).
+**A:** Audit activity logs have a latency ranging from 15 mins to an hour. Sign-in activity logs have a latency ranging from 15 mins for most records and up to 2 hours for a few records.
 
 ---
 
