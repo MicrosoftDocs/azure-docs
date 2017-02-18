@@ -69,7 +69,8 @@ you would use the following definition:
 }
 ```
 
-For more details on supported syntax, view the [retry-policy section on MSDN][retryPolicyMSDN].
+For more details on supported syntax, 
+see the [retry-policy section in Workflow Actions and Triggers][retryPolicyMSDN].
 
 ## Catch failures with the RunAfter property
 
