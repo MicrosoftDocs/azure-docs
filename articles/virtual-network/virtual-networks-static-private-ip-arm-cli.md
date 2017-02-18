@@ -199,59 +199,78 @@ The output is something like:
 
 ## How to remove a static private IP address from a VM
 
-You cannot remove a static private IP address from a NIC in Azure CLI for Resource Manager. You must:
+You cannot remove a static private IP address from a NIC in Azure CLI for resource manager deployments. You must:
 - Create a new NIC that uses a dynamic IP
-- Remove the previous NIC from the VM, and 
-- Add the new NIC to the VM. 
+- Set the NIC on the VM do the newly created NIC. 
 
 To change the NIC for the VM used in the commands above, follow the steps below.
 
-1. Run the **azure network nic create** command to create a new NIC using dynamic IP allocation. Notice how you do not need to specify the IP address this time.
-   
-        azure network nic create -g TestRG -n TestNIC2 -l centralus -m TestVNet -k FrontEnd
+1. Run the **azure network nic create** command to create a new NIC using dynamic IP allocation with a new IP address. Note that because no IP address is specified, the allocation method is **Dynamic**.
+
+    ```azurecli
+    az network nic create     \
+    --resource-group TestRG     \
+    --name TestNIC2     \
+    --location centralus     \
+    --subnet FrontEnd    \
+    --vnet-name TestVNet
+    ```        
    
     Expected output:
-   
-        info:    Executing command network nic create
-        + Looking up the network interface "TestNIC2"
-        + Looking up the subnet "FrontEnd"
-        + Creating network interface "TestNIC2"
-        + Looking up the network interface "TestNIC2"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC2
-        data:    Name                            : TestNIC2
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : centralus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.1.6
-        data:      Private IP Allocation Method  : Dynamic
-        data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-        data:
-        info:    network nic create command OK
+
+    ```json
+    {
+        "newNIC": {
+            "dnsSettings": {
+            "appliedDnsServers": [],
+            "dnsServers": []
+            },
+            "enableIPForwarding": false,
+            "ipConfigurations": [
+            {
+                "etag": "W/\"<guid>\"",
+                "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC2/ipConfigurations/ipconfig1",
+                "name": "ipconfig1",
+                "properties": {
+                "primary": true,
+                "privateIPAddress": "192.168.1.4",
+                "privateIPAllocationMethod": "Dynamic",
+                "provisioningState": "Succeeded",
+                "subnet": {
+                    "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                    "resourceGroup": "TestRG"
+                }
+                },
+                "resourceGroup": "TestRG"
+            }
+            ],
+            "provisioningState": "Succeeded",
+            "resourceGuid": "0808a61c-476f-4d08-98ee-0fa83671b010"
+        }
+    }
+    ```
+
 2. Run the **azure vm set** command to change the NIC used by the VM.
    
-        azure vm set -g TestRG -n DNS01 -N TestNIC2
-   
+    ```azurecli
+    azure vm set -g TestRG -n DNS01 -N TestNIC2
+    ```
+
     Expected output:
    
-        info:    Executing command vm set
-        + Looking up the VM "DNS01"
-        + Looking up the NIC "TestNIC2"
-        + Updating VM "DNS01"
-        info:    vm set command OK
-3. If wanted, run the **azure network nic delete** command to delete the old NIC.
+    ```json
+    [
+        {
+            "id": "/subscriptions/0e220bf6-5caa-4e9f-8383-51f16b6c109f/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC3",
+            "primary": true,
+            "resourceGroup": "TestRG"
+        }
+    ]
+    ```
+
+    > [!NOTE]
+    > If the VM is large enough to have more than one NIC, run the **azure network nic delete** command to delete the old NIC.
    
-        azure network nic delete -g TestRG -n TestNIC --quiet
-   
-    Expected output:
-   
-        info:    Executing command network nic delete
-        + Looking up the network interface "TestNIC"
-        + Deleting network interface "TestNIC"
-        info:    network nic delete command OK
 
 ## How to add a static private IP address to an existing VM
 To add a static private IP address to the NIC used by the VM created using the script above, run the following command:
