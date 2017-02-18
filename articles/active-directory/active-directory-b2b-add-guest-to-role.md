@@ -25,15 +25,15 @@ While Azure Active Directory (Azure AD) B2B collaboration users are added as gue
 
 ## Default Role
 
-![default role](media/active-directory-b2b-add-guest-to-role/default-role.png)
+![default role](./media/active-directory-b2b-add-guest-to-role/default-role.png)
 
 ## Global Administrator Role
 
-![global admin role](media/active-directory-b2b-add-guest-to-role/global-admin-role.png)
+![global admin role](./media/active-directory-b2b-add-guest-to-role/global-admin-role.png)
 
 ## Limited Administrator Role
 
-![limited admin role](media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
+![limited admin role](./media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
 
 ## Next steps
 
