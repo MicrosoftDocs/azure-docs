@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 
 ---
@@ -42,6 +42,14 @@ Add B2B collaboration users to a group as an Azure AD administrator, as shown in
 Add B2B collaboration users to an application as an Azure AD administrator, as shown in the following video:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
+
+## Admins resending invitations to guest users
+You can go to a B2B collaboration user's profile page and resend invitations to not-yet-redeemed guest users:
+
+![resend invitation](media/active-directory-b2b-admin-add-users/resend-invitation.png)
+
+> ![NOTE]
+> This will resend an invitation from the signed-in user and invite the user to the directory, even if the original invitation was to a specific app or group.
 
 
 ## Related articles
