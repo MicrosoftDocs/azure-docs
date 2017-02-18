@@ -44,7 +44,7 @@ Site Recovery needs access to VMware for the process server to automatically dis
 1. Login into the Configuration server and launch the cspsconfigtool.exe using the shortcut placed on the Desktop.
 2. Click **Add Account** on the **Manage Account** tab.
 
-![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
+  ![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
 3. Provide the account details and click OK to add the account. The account should have the privileges listed in the [Prepare an account for automatic discovery](#prepare-an-account-for-automatic-discovery) section.
 
   >[!NOTE]
@@ -54,7 +54,6 @@ Site Recovery needs access to VMware for the process server to automatically dis
 ## Associate a VMware vCenter/ VMware vSphere ESX host (Add vCenter)
 1. On the Azure portal, browse to *YourRecoveryServicesVault* > **Site Recovery Infrastructure** > **Configuration Severs** > *ConfigurationServer*
 2. In the Configuration server's details page click the +vCenter button.
-
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
 ## Modify credentials used to connect to the vCenter

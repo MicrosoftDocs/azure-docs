@@ -1,6 +1,6 @@
 ---
-title: ' Manage a Scale-out Process server | Microsoft Docs'
-description: This article describes how to set up and manage a Scale-out process server.
+title: ' Manage a Scale-out Process server in Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up and manage a Scale-out process server in Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: AnoopVasudavan
@@ -118,7 +118,7 @@ It can take up-to 15 minutes for the Process Server deletion to reflect in the A
 
 ## Unregistering a disconnected process server from a Configuration Server
 
-  [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
+[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
 ## Sizing requirements for a Scale-out Process server
 
