@@ -14,12 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 02/16/2017
 ms.author: jdial
 
 ---
 # How to set a static private IP address in Azure CLI
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
+
+
+## CLI versions to complete the task 
+
+You can complete the task using one of the following CLI versions: 
+
+- [Azure CLI 1.0](virtual-networks-static-private-ip-arm-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
+- [Azure CLI 2.0](azure-arm-classic-important-include.md) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
@@ -29,103 +37,136 @@ This article covers the Resource Manager deployment model. You can also [manage 
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-The sample Azure CLI commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-cli.md).
+> [!NOTE]
+> The sample Azure CLI 2.0 commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-cli.md).
 
 ## How to specify a static private IP address when creating a VM
+
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
+
+2. Create a public IP for the VM with the [az network public-ip create](/cli/azure/network/public-ip#create) command. The list shown after the output explains the parameters used.
+
+    > [!NOTE]
+    > You may want or need to use different values for your arguments in this and subsequent steps, depending upon your environment.
    
-        azure config mode arm
-   
+    ```azurecli
+    az network public-ip create \
+    --name TestPIP \
+    --resource-group TestRG \
+    --location centralus \
+    --allocation-method Static
+    ```
+
     Expected output:
    
-        info:    New mode is arm
-3. Run the **azure network public-ip create** to create a public IP for the VM. The list shown after the output explains the parameters used.
+   ```json
+   {
+        "publicIp": {
+            "idleTimeoutInMinutes": 4,
+            "ipAddress": "52.176.43.167",
+            "provisioningState": "Succeeded",
+            "publicIPAllocationMethod": "Static",
+            "resourceGuid": "79e8baa3-33ce-466a-846c-37af3c721ce1"
+        }
+    }
+    ```
+
+   * `--resource-group`: Name of the resource group in which to create the public IP.
+   * `--name`: Name of the public IP.
+   * `--location`: Azure region in which to create the public IP.
+
+3. Run the [az network nic create](/cli/azure/network/nic#create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
    
-        azure network public-ip create -g TestRG -n TestPIP -l centralus
-   
+    ```azurecli
+    az network nic create \
+    --resource-group TestRG \
+    --name TestNIC \
+    --location centralus \
+    --subnet FrontEnd \
+    --private-ip-address 192.168.1.101 \
+    --vnet-name TestVNet
+    ```
+
     Expected output:
    
-        info:    Executing command network public-ip create
-        + Looking up the public ip "TestPIP"
-        + Creating public ip address "TestPIP"
-        + Looking up the public ip "TestPIP"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP
-        data:    Name                            : TestPIP
-        data:    Type                            : Microsoft.Network/publicIPAddresses
-        data:    Location                        : centralus
-        data:    Provisioning state              : Succeeded
-        data:    Allocation method               : Dynamic
-        data:    Idle timeout                    : 4
-        info:    network public-ip create command OK
+    ```json
+    {
+        "newNIC": {
+            "dnsSettings": {
+            "appliedDnsServers": [],
+            "dnsServers": []
+            },
+            "enableIPForwarding": false,
+            "ipConfigurations": [
+            {
+                "etag": "W/\"<guid>\"",
+                "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
+                "name": "ipconfig1",
+                "properties": {
+                "primary": true,
+                "privateIPAddress": "192.168.1.101",
+                "privateIPAllocationMethod": "Static",
+                "provisioningState": "Succeeded",
+                "subnet": {
+                    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                    "resourceGroup": "myVNet"
+                }
+                },
+                "resourceGroup": "myVNet"
+            }
+            ],
+            "provisioningState": "Succeeded",
+            "resourceGuid": "<guid>"
+        }
+    }
+        ```
+    
+    Parameters:
+
+    * `--private-ip-address`: Static private IP address for the NIC.
+    * `--vnet-name`: Name of the VNet in wihch to create the NIC.
+    * `--subnet`: Name of the subnet in which to create the NIC.
+
+4. Run the [azure vm create](/cli/azure/vm/nic#create) command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
    
-   * **-g (or --resource-group)**. Name of the resource group the public IP will be created in.
-   * **-n (or --name)**. Name of the public IP.
-   * **-l (or --location)**. Azure region where the public IP will be created. For our scenario, *centralus*.
-4. Run the **azure network nic create** command to create a NIC with a static private IP. The list shown after the output explains the parameters used.
-   
-        azure network nic create -g TestRG -n TestNIC -l centralus -a 192.168.1.101 -m TestVNet -k FrontEnd
-   
+    ```azurecli
+    az vm create \
+    --resource-group TestRG \
+    --name DNS01 \
+    --location centralus \
+    --image Debian \
+    --admin-username adminuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --nics TestNIC
+    ```
+
     Expected output:
    
-        + Looking up the network interface "TestNIC"
-        + Looking up the subnet "FrontEnd"
-        + Creating network interface "TestNIC"
-        + Looking up the network interface "TestNIC"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
-        data:    Name                            : TestNIC
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : centralus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.1.101
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-        data:
-        info:    network nic create command OK
+    ```json
+    {
+    "fqdns": "",
+    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Compute/virtualMachines/DNS01",
+    "location": "centralus",
+    "macAddress": "00-0D-3A-93-0A-64",
+    "powerState": "VM running",
+    "privateIpAddress": "192.168.1.101",
+    "publicIpAddress": "",
+    "resourceGroup": "myVNet"
+    }
+    ```
    
-   * **-a (or --private-ip-address)**. Static private IP address for the NIC.
-   * **-m (or --subnet-vnet-name)**. Name of the VNet where the NIC will be created.
-   * **-k (or --subnet-name)**. Name of the subnet where the NIC will be created.
-5. Run the **azure vm create** command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
+   Parameters other than the basic [az vm create](/cli/azure/vm#create) parameters.
+
+   * `--nics`: Name of the NIC the VM uses.
    
-        azure vm create -g TestRG -n DNS01 -l centralus -y Windows -f TestNIC -i TestPIP -F TestVNet -j FrontEnd -o vnetstorage -q bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 -u adminuser -p AdminP@ssw0rd
-   
-    Expected output:
-   
-        info:    Executing command vm create
-        + Looking up the VM "DNS01"
-        info:    Using the VM Size "Standard_A1"
-        warn:    The image "bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2" will be used for VM
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        + Looking up the storage account vnetstorage
-        + Looking up the NIC "TestNIC"
-        info:    Found an existing NIC "TestNIC"
-        info:    Found an IP configuration with virtual network subnet id "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd" in the NIC "TestNIC"
-        info:    Found public ip parameters, trying to setup PublicIP profile
-        + Looking up the public ip "TestPIP"
-        info:    Found an existing PublicIP "TestPIP"
-        info:    Configuring identified NIC IP configuration with PublicIP "TestPIP"
-        + Updating NIC "TestNIC"
-        + Looking up the NIC "TestNIC"
-        + Creating VM "DNS01"
-        info:    vm create command OK
-   
-   * **-y (or --os-type)**. Type of operating system for the VM, either *Windows* or *Linux*.
-   * **-f (or --nic-name)**. Name of the NIC the VM will use.
-   * **-i (or --public-ip-name)**. Name of the public IP the VM will use.
-   * **-F (or --vnet-name)**. Name of the VNet where the VM will be created.
-   * **-j (or --vnet-subnet-name)**. Name of the subnet where the VM will be created.
 
 ## How to retrieve static private IP address information for a VM
-To view the static private IP address information for the VM created with the script above, run the following Azure CLI command and observe the values for *Private IP alloc-method* and *Private IP address*:
 
-    azure vm show -g TestRG -n DNS01
+To view the static private IP address that you created, run the following Azure CLI command and observe the values for *Private IP alloc-method* and *Private IP address*:
+
+    az vm show -g TestRG -n DNS01
 
 Expected output:
 
@@ -176,7 +217,13 @@ Expected output:
     info:    vm show command OK
 
 ## How to remove a static private IP address from a VM
-You cannot remove a static private IP address from a NIC in Azure CLI for Resource Manager. You must create a new NIC that uses a dynamic IP, remove the previous NIC from the VM, and then add the new NIC to the VM. To change the NIC for the VM used int eh commands above, follow the steps below.
+
+You cannot remove a static private IP address from a NIC in Azure CLI for Resource Manager. You must:
+- Create a new NIC that uses a dynamic IP
+- Remove the previous NIC from the VM, and 
+- Add the new NIC to the VM. 
+
+To change the NIC for the VM used in the commands above, follow the steps below.
 
 1. Run the **azure network nic create** command to create a new NIC using dynamic IP allocation. Notice how you do not need to specify the IP address this time.
    
@@ -226,7 +273,7 @@ You cannot remove a static private IP address from a NIC in Azure CLI for Resour
         info:    network nic delete command OK
 
 ## How to add a static private IP address to an existing VM
-To add a static private IP address to the NIC used by teh VM created using the script above, run the following command:
+To add a static private IP address to the NIC used by the VM created using the script above, run the following command:
 
     azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
