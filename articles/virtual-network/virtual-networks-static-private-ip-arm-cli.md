@@ -271,7 +271,7 @@ To change the NIC for the VM used in the commands above, follow the steps below.
     > [!NOTE]
     > If the VM is large enough to have more than one NIC, run the **azure network nic delete** command to delete the old NIC.
    
-
+<!--
 ## How to add a static private IP address to an existing VM
 To add a static private IP address to the NIC used by the VM created using the script above, run the following command:
 
@@ -299,7 +299,7 @@ Expected output:
     data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
     data:
     info:    network nic set command OK
-
+-->
 ## Next steps
 * Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
 * Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
