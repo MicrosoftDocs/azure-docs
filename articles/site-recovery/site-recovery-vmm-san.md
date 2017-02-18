@@ -138,7 +138,7 @@ Create a replication group that includes all the LUNs that will need to replicat
 
 If you want to configure network mapping, do the following:
 
-1. See [Site Recovery network mapping](site-recovery-network-mapping.md).
+1. See Site Recovery network mapping.
 2. Prepare VM networks in VMM:
 
    * [Set up logical networks](https://technet.microsoft.com/en-us/system-center-docs/vmm/manage/manage-network-logical-networks).
