@@ -102,7 +102,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
             "ipConfigurations": [
             {
                 "etag": "W/\"<guid>\"",
-                "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
+                "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
                 "name": "ipconfig1",
                 "properties": {
                 "primary": true,
@@ -110,11 +110,11 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
                 "privateIPAllocationMethod": "Static",
                 "provisioningState": "Succeeded",
                 "subnet": {
-                    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                    "resourceGroup": "myVNet"
+                    "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                    "resourceGroup": "TestRG"
                 }
                 },
-                "resourceGroup": "myVNet"
+                "resourceGroup": "TestRG"
             }
             ],
             "provisioningState": "Succeeded",
@@ -146,75 +146,56 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
    
     ```json
     {
-    "fqdns": "",
-    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Compute/virtualMachines/DNS01",
-    "location": "centralus",
-    "macAddress": "00-0D-3A-93-0A-64",
-    "powerState": "VM running",
-    "privateIpAddress": "192.168.1.101",
-    "publicIpAddress": "",
-    "resourceGroup": "myVNet"
+        "fqdns": "",
+        "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01",
+        "location": "centralus",
+        "macAddress": "00-0D-3A-92-C1-66",
+        "powerState": "VM running",
+        "privateIpAddress": "192.168.1.101",
+        "publicIpAddress": "",
+        "resourceGroup": "TestRG"
     }
     ```
    
    Parameters other than the basic [az vm create](/cli/azure/vm#create) parameters.
 
-   * `--nics`: Name of the NIC the VM uses.
+   * `--nics`: Name of the NIC to which the VM is attached.
    
 
 ## How to retrieve static private IP address information for a VM
 
 To view the static private IP address that you created, run the following Azure CLI command and observe the values for *Private IP alloc-method* and *Private IP address*:
 
-    az vm show -g TestRG -n DNS01
+```azurecli
+az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
+```
 
 Expected output:
 
-    info:    Executing command vm show
-    + Looking up the VM "DNS01"
-    + Looking up the NIC "TestNIC"
-    + Looking up the public ip "TestPIP
-    data:    Id                              :/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01
-    data:    ProvisioningState               :Succeeded
-    data:    Name                            :DNS01
-    data:    Location                        :centralus
-    data:    Type                            :Microsoft.Compute/virtualMachines
-    data:
-    data:    Hardware Profile:
-    data:      Size                          :Standard_A1
-    data:
-    data:    Storage Profile:
-    data:      Source image:
-    data:        Id                          :/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/services/images/bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2
-    data:
-    data:      OS Disk:
-    data:        OSType                      :Windows
-    data:        Name                        :cli08d7bd987a0112a8-os-1441774961355
-    data:        Caching                     :ReadWrite
-    data:        CreateOption                :FromImage
-    data:        Vhd:
-    data:          Uri                       :https://vnetstorage2.blob.core.windows.net/vhds/cli08d7bd987a0112a8-os-1441774961355vhd
-    data:
-    data:    OS Profile:
-    data:      Computer Name                 :DNS01
-    data:      User Name                     :adminuser
-    data:      Windows Configuration:
-    data:        Provision VM Agent          :true
-    data:        Enable automatic updates    :true
-    data:
-    data:    Network Profile:
-    data:      Network Interfaces:
-    data:        Network Interface #1:
-    data:          Id                        :/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
-    data:          Primary                   :true
-    data:          MAC Address               :00-0D-3A-90-1A-A8
-    data:          Provisioning State        :Succeeded
-    data:          Name                      :TestNIC
-    data:          Location                  :centralus
-    data:            Private IP alloc-method :Static
-    data:            Private IP address      :192.168.1.101
-    data:            Public IP address       :40.122.213.159
-    info:    vm show command OK
+```json
+"192.168.1.101"
+```
+
+To display the specific IP information of the NIC for that VM, query the NIC specifically:
+
+```azurecli
+az network nic show \
+-g testrg \
+-n testnic \
+--query 'ipConfigurations[0].{PrivateAddress:privateIpAddress,IPVer:privateIpAddressVersion,IpAllocMethod:p
+rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
+```
+
+The output is something like:
+
+```json
+{
+    "IPVer": "IPv4",
+    "IpAllocMethod": "Static",
+    "PrivateAddress": "192.168.1.101",
+    "PublicAddress": null
+}
+```
 
 ## How to remove a static private IP address from a VM
 
