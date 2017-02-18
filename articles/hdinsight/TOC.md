@@ -54,6 +54,7 @@
 ### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Use Spark for in-memory processing
+### [Use Caffe for deep learning](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [With BI tools](hdinsight-apache-spark-use-bi-tools.md)
 ### [Standalone app](hdinsight-apache-spark-create-standalone-application.md)
