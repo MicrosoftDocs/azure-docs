@@ -26,7 +26,7 @@ ms.author: raynew
 
 This article describes how to replicate on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
- If your intend is to migrate VMware VMs to Azure, read [this article](site-recovery-migrate-to-azure.md) to learn more before you proceed.
+ If your intent is to migrate VMware VMs to Azure, read [this article](site-recovery-migrate-to-azure.md) to learn more before you proceed.
 
 Post comments and questions at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 

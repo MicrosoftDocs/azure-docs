@@ -55,7 +55,6 @@ Here's what you need for this deployment
 ![DeployCS](./media/site-recovery-migrate-aws-to-azure/migration_pic2.png)
 
 4.	Once your configuration server is deployed in AWS and registered with your Recovery Services vault, you should see the configuration server and process server under Site Recovery infrastructure as shown below:
-
 ![CSinVault](./media/site-recovery-migrate-aws-to-azure/migration_pic3.png)
   >[!NOTE]
   >It may take up to 15 minutes for the configuration server and process server to show up

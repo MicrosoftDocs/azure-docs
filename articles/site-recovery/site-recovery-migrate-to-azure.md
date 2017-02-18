@@ -17,7 +17,7 @@ ms.date: 01/04/2017
 ms.author: raynew
 
 ---
-# Migrate to Azure with Site Recovery?
+# Migrate to Azure with Site Recovery
 
 Read this article for an overview of using the Azure Site Recovery service for migration of virtual machines and physical servers.
 

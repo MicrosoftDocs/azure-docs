@@ -17,7 +17,7 @@ ms.date: 02/17/2017
 ms.author: raynew
 
 ---
-# Replicate Physical machines to Azure with Azure Site Recovery using the Azure portal
+# Replicate physical machines to Azure with Azure Site Recovery using the Azure portal
 
 
 Welcome to the Azure Site Recovery service!
