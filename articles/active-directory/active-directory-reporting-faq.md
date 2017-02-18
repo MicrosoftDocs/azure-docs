@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 02/17/2017
 ms.author: markvi
 
 ---
@@ -60,7 +60,7 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 **Q: How many records can I query through the activities API?**
 
-**A:** You can get up to 1 million records through programmatic access of the reporting APIs. You can find sample queries about how to access all records using a single script [here](active-directory-reporting-api-getting-started.md).
+**A:** You can query up to 1 million records (if you don’t use the top operator, which sorts the record by most recent). If you do use the “top” operator, you can query up to 500K records. You can find sample queries on how to use the API here [here](active-directory-reporting-api-getting-started.md).
 
 ---
 
