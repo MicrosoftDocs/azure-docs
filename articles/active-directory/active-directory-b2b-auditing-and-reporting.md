@@ -23,7 +23,7 @@ ms.author: sasubram
 # Auditing and reporting a B2B collaboration user
 With guest users, in this preview you have auditing capabilities on par with member users. Here's an example below of the invitation and redemption history of the just invited Sam Oogle:
 
-![audit log](media/active-directory-b2b-add-guest-to-role/audit-log.png)
+![audit log](media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 
 You can dive into each of these events to get the details. For example, let's look at the acceptance details.
 
