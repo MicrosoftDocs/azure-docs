@@ -26,7 +26,7 @@ This code-free introduction gets you started with predefined data so that you ca
 
 + Hands on learning with minimal ramp-up
 + Prototype an index before you write code in **Import data**
-+ Test queries and compare parser behaviors in **Search explorer**
++ Test queries and parser syntax in **Search explorer**
 + View an existing index published to your service and look up its attributes
 
 **Time Estimate:** About 15 minutes, but longer if account or service sign-up is also required. 
@@ -67,7 +67,7 @@ To keep this task portal-based, we use a built-in sample dataset that can be cra
 
     ![Select sample dataset][9]
 
-3. Click **OK** to create the data source.
+3. Click **OK** to use it.
 
 #### Step 2: Define the index
 Creating an index is typically manual and code-based, but the wizard can generate an index for any data source it can crawl. Minimally, an index requires a name, and a fields collection, with one field marked as the document key to uniquely identify each document.
@@ -78,7 +78,7 @@ Fields have data types and attributes. The check boxes across the top are *index
 * **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
 * **Searchable** means that a field is included in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable. 
 
-By default, the wizard chooses the first field in the collection as the key. Strings are attributed as retrievable and searchable. Integers are attributed as retrievable, filterable, sortable, and facetable.
+By default, the wizard scans the data source for unique identifiers as the basis for the key field. Strings are attributed as retrievable and searchable. Integers are attributed as retrievable, filterable, sortable, and facetable.
 
   ![Generated realestate index][3]
 
