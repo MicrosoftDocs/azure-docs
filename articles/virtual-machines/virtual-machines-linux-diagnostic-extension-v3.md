@@ -71,7 +71,7 @@ This set of configuration information contains sensitive information which shoul
 {
 	"storageAccountName" : "the storage account to receive data",
 	"storageAccountEndPoint": "the URL prefix for the cloud for this account",
-	"sasTableKey": "SAS access token",
+	"storageAccountSasToken": "SAS access token",
 	"mdsdHttpProxy": "HTTP proxy settings",
 }
 ```
@@ -86,27 +86,33 @@ mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension
 This structure contains various blocks of settings which control the various information collected by the extension.
 ```json
 {
-    "eventVolume": "",
     "enableSyslog": "",
     "mdsdHttpProxy" : "",
     "ladCfg":  { ... },
     "perfCfg": { ... },
     "syslogCfg": { ... },
-    "fileCfg": { ... },
-    "mdsdCfg": { ... },
+    "fileLogs": { ... }
 }
 ```
-Each of these sections is described in detail, below.
+Element | Value
+------- | -----
+enableSyslog | If false, the extension will ignore all configuration elements related to syslog and will make no changes to the syslog configuration on the VM.
+mdsdHttpProxy | Same as in the Private Settings (see above). The public value is overridden by the private value, if set. 
+
+The remaining elements are described in detail, below.
 ### ladCfg
 ```json
 "ladCfg": {
-    "sinksConfig": {
-        "Sink": [
-            { ... },
-        ]
-    },
     "eventVolume": "Medium",
     "useProxyServer": false,
+    "sinksConfig": {
+        "Sink": [
+            {
+                "name": "sinkname",
+                "type": "sinktype"
+            },
+        ]
+    },
     "sinks": "",
     "metrics": {
         "resourceId": "/subscriptions/...",
@@ -130,36 +136,82 @@ Each of these sections is described in detail, below.
                         "locale" : "en-us"
                     }
                 ],
-                "sinks": ""
             },
         ]
     },
-    "fileLogs": {
-        "fileLogConfiguration": [
-            {
-                "file": "/var/log/mydaemonlog",
-                "table": "MyDaemonEvents"
-            }
-        ]
-    },
-    "syslogCfg": {
-        "facilityname": "minSeverity",
-    },
-    "syslogEvents": [
-            {
-                 "facility": "auth",
-                 "minSeverity": "info",
-                 "table": "SyslogAuthEvents"
-            }
-     ]
+    "syslogEvents": {
+        "facilityName": "minSeverity",
+    }
 }
+```
+Controls the gathering of metrics and logs for delivery to the Azure Metrics services and to other data destinations ("sinks").
+
+The Azure Metrics service requires metrics to be stored in a very particular Azure storage table. Similarly, log events must be stored in a different, but also very particular, table. All instances of the diagnostic extension configured (via Private Config) to use the same storage account name and endpoint will add their metrics and logs to the same table. 
+
+
+
+The syslogEvents element has one entry for each syslog facility of interest. Setting a minSeverity of "NONE" for a particular facility behaves exactly as if that facility did not appear in the element at all; no events from that facility are captured. 
+
+Element | Value
+------- | -----
+eventVolume | Controls the number of partitions created within the storage table. Must be one of "Large", "Medium", or "Small".
+facilityName | A syslog facility name (e.g. "LOG_USER" or "LOG_LOCAL0"). See the "facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
+minSeverity | A syslog severity level (e.g. "LOG_ERR") or the value "NONE". See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list. The extension will capture events sent to the facility at or above the specified level. If set to NONE, no log messages from the facility will be captured.
+
+### perfCfg
+Controls execution of arbitrary [OMI](https://github.com/Microsoft/omi) queries.
 
 ```
+"perfCfg": [
+    {
+        "namespace": "root/scx",
+        "query": "SELECT PercentAvailableMemory, PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+        "table": "LinuxOldMemory",
+        "frequency": 300
+    }
+]
+```
+Element | Value
+------- | -----
+namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).  
+query | The OMI query to be executed.
+table | The Azure storage table into which the results of the query will be placed.
+frequency | (optional) The number of seconds between execution of the query. Default value is 300 (5 minutes); a value less than 15 will be treated as 15 seconds.
 
+### syslogCfg
+Controls the delivery of syslog events to the specified Azure storage table within the account identified by the Private Config. Log entries captured to these tables are not processed by any other component of Azure; you would use this feature only if you had tools of your own which expected to see this data in this manner.
+ 
+```json
+"syslogCfg": [
+    {
+        "facility": "LOG_USER",
+        "minSeverity": "LOG_ERR",
+        "table": "SyslogAuthEvents"
+    },
+]
+```
+Element | Value
+------- | -----
+facility | A syslog facility name. See the "facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
+minSeverity | A syslog severity level. See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
+### fileLogs
+Controls the capture of log files by rsyslogd. As new text lines are written to the file, rsyslogd captures them and passes them to the diagnostic extension, which in turn writes them as table rows.
+```json
+"fileLogs": {
+    "fileLogConfiguration": [
+        {
+            "file": "/var/log/mydaemonlog",
+            "table": "MyDaemonEvents"
+        }
+    ]
+}
+```
+Element | Value
+------- | -----
+file | The full pathname of the log file to be watched and captured.
+table | The Azure storage table into which the results of the query will be placed.
 
-
-
-### Scenario 2. Customize the performance monitor metrics
+## Scenario - Customize the performance monitor metrics
 This section describes how to customize the performance and diagnostic data table.
 
 Step 1. Create a file named PrivateConfig.json with the content that was described in Scenario 1. Also create a file named PublicConfig.json. Specify the particular data you want to collect.
@@ -182,7 +234,7 @@ By default, the Rsyslog data is always collected.
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'
 --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
-### Scenario 3. Upload your own log files
+## Scenario - Upload your own log files
 This section describes how to collect and upload specific log files to your storage account. You need to specify both the path to your log file and the name of the table where you want to store your log. You can create multiple log files by adding multiple file/table entries to the script.
 
 Step 1. Create a file named PrivateConfig.json with the content that was described in Scenario 1. Then create another file named PublicConfig.json with the following content:
@@ -203,7 +255,7 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 
 Note that with this setting on the extension versions prior to 2.3, all logs written to `/var/log/mysql.err` might be duplicated to `/var/log/syslog` (or `/var/log/messages` depending on the Linux distro) as well. If you'd like to avoid this duplicate logging, you can exclude logging of `local6` facility logs in your rsyslog configuration. It depends on the Linux distro, but on an Ubuntu 14.04 system, the file to modify is `/etc/rsyslog.d/50-default.conf` and you can replace the line `*.*;auth,authpriv.none -/var/log/syslog` to `*.*;auth,authpriv,local6.none -/var/log/syslog`. This issue is fixed in the latest hotfix release of 2.3 (2.3.9007), so if you have the extension version 2.3, this issue should not happen. If it still does even after restarting your VM, please contact us and help us troubleshoot why the latest hotfix version is not installed automatically.
 
-### Scenario 4. Stop the extension from collecting any logs
+## Scenario - Stop the extension from collecting any logs
 This section describes how to stop the extension from collecting logs. Note that the monitoring agent process will be still up and running even with this reconfiguration. If you'd like to stop the monitoring agent process completely, you can do so by disabling the extension. The command to disable the extension is **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
 Step 1. Create a file named PrivateConfig.json with the content that was described in Scenario 1. Create another file named PublicConfig.json with the following content:
