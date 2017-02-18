@@ -16,7 +16,7 @@
 ## [Containers](../virtual-machines-linux-containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [FAQ](../virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-# [Common Examples](virtual-machines-linux-cli-samples.md)
+# [Common Examples](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Quick Create a VM with the Azure CLI](/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md)
 ## [Create a VM with the Azure CLI](/scripts/virtual-machines-linux-cli-sample-create-vm.md)
 ## [Load balance traffic between highly avaliable VMs](/scripts/virtual-machines-linux-cli-sample-nlb.md)
