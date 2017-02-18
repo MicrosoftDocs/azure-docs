@@ -14,7 +14,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
+#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (classic)](application-gateway-create-gateway.md)
 ### Internal facing
 #### [PowerShell](application-gateway-ilb-arm.md)
