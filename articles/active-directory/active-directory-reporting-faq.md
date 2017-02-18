@@ -72,11 +72,7 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 **Q: How soon should I see activities data after getting a premium license?**
 
-**A:** 
-
-- If you already have activities data as a free license, then you can see the same data.
-
-- If you don’t have any data, then it will take one or two days.
+**A:** If you already have activities data as a free license, then you can see the same data. If you don’t have any data, then it will take one or two days.
 
 ---
 
