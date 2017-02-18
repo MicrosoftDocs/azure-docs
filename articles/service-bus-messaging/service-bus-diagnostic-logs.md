@@ -3,7 +3,7 @@ title: Azure Service Bus diagnostic logs | Microsoft Docs
 description: Learn how to analyze diagnostic logs from Service Bus in Microsoft Azure.
 keywords:
 documentationcenter: ''
-services: event-hubs
+services: service-bus-messaging
 author: banisadr
 manager: 
 editor:
