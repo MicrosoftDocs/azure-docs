@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Virtual Network Gateway and Connections - Azure CLI | Microsoft Docs
+title: Troubleshoot Azure Virtual Network Gateway and Connections - Azure CLI | Microsoft Docs
 description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI
 services: network-watcher
 documentationcenter: na

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Virtual Network Gateway and Connections - PowerShell | Microsoft Docs
+title: Troubleshoot Azure Virtual Network Gateway and Connections - PowerShell | Microsoft Docs
 description: This page explains how to use the Azure Network Watcher troubleshoot PowerShell cmdlet
 services: network-watcher
 documentationcenter: na
