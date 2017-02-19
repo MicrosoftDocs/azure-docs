@@ -251,7 +251,7 @@ To create an NSG named named *NSG-BackEnd* based on the scenario above, follow t
     --protocol Tcp \
     --direction Inbound \
     --priority 100 \
-    --source-address-prefix Internet \
+    --source-address-prefix 192.168.1.0/24 \
     --source-port-range "*" \
     --destination-address-prefix "*" \
     --destination-port-range 1433
@@ -273,58 +273,86 @@ To create an NSG named named *NSG-BackEnd* based on the scenario above, follow t
     "protocol": "Tcp",
     "provisioningState": "Succeeded",
     "resourceGroup": "testrg",
-    "sourceAddressPrefix": "Internet",
+    "sourceAddressPrefix": "192.168.1.0/24",
     "sourcePortRange": "*"
     }
     ```
 
-3. Run the **azure network nsg rule create** command to create a rule that denies access to the Internet from.
+3. Create a rule that denies access to the Internet using the **azure network nsg rule create** command.
    
-        azure network nsg rule create -g TestRG -a NSG-BackEnd -n web-rule -c Deny -p * -r Outbound -y 200 -f * -o * -e Internet -u *
+    ```azurecli
+    az network nsg rule create \
+    --resource-group testrg \
+    --nsg-name NSG-BackEnd \
+    --name web-rule \
+    --access Deny \
+    --protocol Tcp  \
+    --direction Outbound  \
+    --priority 200 \
+    --source-address-prefix "*" \
+    --source-port-range "*" \
+    --destination-address-prefix "*" \
+    --destination-port-range "*"
+    ```
    
     Expected putput:
    
-        info:    Executing command network nsg rule create
-        info:    Looking up the network security rule "web-rule"
-        info:    Creating a network security rule "web-rule"
-        info:    Looking up the network security group "NSG-BackEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
-        networkSecurityGroups/NSG-BackEnd/securityRules/web-rule
-        data:    Name                            : web-rule
-        data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
-        data:    Provisioning state              : Succeeded
-        data:    Source IP                       : *
-        data:    Source Port                     : *
-        data:    Destination IP                  : Internet
-        data:    Destination Port                : *
-        data:    Protocol                        : *
-        data:    Direction                       : Outbound
-        data:    Access                          : Deny
-        data:    Priority                        : 200
-        info:    network nsg rule create command OK
+    ```json
+    {
+    "access": "Deny",
+    "description": null,
+    "destinationAddressPrefix": "*",
+    "destinationPortRange": "*",
+    "direction": "Outbound",
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/web-rule",
+    "name": "web-rule",
+    "priority": 200,
+    "protocol": "Tcp",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "testrg",
+    "sourceAddressPrefix": "*",
+    "sourcePortRange": "*"
+    }
+    ```
+
 4. Run the **azure network vnet subnet set** command to link the NSG to the back end subnet.
    
-        azure network vnet subnet set -g TestRG -e TestVNet -n BackEnd -o NSG-BackEnd
+    ```azurecli
+    az network vnet subnet update \
+    --vnet-name TestVNET \
+    --name BackEnd \
+    --resource-group testrg \
+    --network-security-group NSG-BackEnd
+    ```
    
     Expected output:
    
-        info:    Executing command network vnet subnet set
-        info:    Looking up the subnet "BackEnd"
-        info:    Looking up the network security group "NSG-BackEnd"
-        info:    Setting subnet "BackEnd"
-        info:    Looking up the subnet "BackEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
-        virtualNetworks/TestVNet/subnets/BackEnd
-        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-        data:    ProvisioningState               : Succeeded
-        data:    Name                            : BackEnd
-        data:    Address prefix                  : 192.168.2.0/24
-        data:    Network security group          : [object Object]
-        data:    IP configurations:
-        data:      /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICSQL1/ip
-        Configurations/ipconfig1
-        data:      /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICSQL2/ip
-        Configurations/ipconfig1
-        data:    
-        info:    network vnet subnet set command OK
-
+    ```json
+    {
+    "addressPrefix": "192.168.2.0/24",
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/TestVNET/subnets/BackEnd",
+    "ipConfigurations": null,
+    "name": "BackEnd",
+    "networkSecurityGroup": {
+        "defaultSecurityRules": null,
+        "etag": null,
+        "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
+        "location": null,
+        "name": null,
+        "networkInterfaces": null,
+        "provisioningState": null,
+        "resourceGroup": "testrg",
+        "resourceGuid": null,
+        "securityRules": null,
+        "subnets": null,
+        "tags": null,
+        "type": null
+    },
+    "provisioningState": "Succeeded",
+    "resourceGroup": "testrg",
+    "resourceNavigationLinks": null,
+    "routeTable": null
+    }
+    ```
