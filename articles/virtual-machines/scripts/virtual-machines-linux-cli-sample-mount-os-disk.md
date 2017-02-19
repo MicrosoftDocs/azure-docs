@@ -22,7 +22,9 @@ ms.author: nepeters
 
 This script mounts the operating system disk of a failed or problematic virtual machine as a data disk to a second virtual machine. This can be useful when troubleshooting disk issues or recovering data. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, an existing virtual machine will be needed, and the name and Resource Group of this VM updated in the script sample.
+Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. 
+
+To run this script an existing virtual machine will be needed, and the name and Resource Group of this VM updated in the script sample (highlighted in yellow in the script).
 
 
 ## Mount disk sample
@@ -42,6 +44,6 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
