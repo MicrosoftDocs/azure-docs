@@ -121,18 +121,18 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
 
     Parameters:
 
-    * `--resource-group testrg`: The resource group to use. Note that it is case-insensitive.
-    * `--nsg-name NSG-FrontEnd`: Name of the NSG in which the rule is created.
-    * `--name rdp-rule`: Name for the new rule.
-    * `--access Allow`: Access level for the rule (Deny or Allow).
-    * `--protocol Tcp`: Protocol (Tcp, Udp, or *).
-    * `--direction Inbound`: Direction of the connection (Inbound or Outbound).
-    * `--priority 100`: Priority for the rule.
-    * `--source-address-prefix Internet`: Source address prefix in CIDR or using default tags.
-    * `--source-port-range "*"`: Source port or port range. Port that opened the connection.
-    * `--destination-address-prefix "*"`: Destination address prefix in CIDR or using default tags.
-    * `--destination-port-range 3389`: Destination port or port range. Port that receives the connection request.
-   
+* `--resource-group testrg`: The resource group to use. Note that it is case-insensitive.
+* `--nsg-name NSG-FrontEnd`: Name of the NSG in which the rule is created.
+* `--name rdp-rule`: Name for the new rule.
+* `--access Allow`: Access level for the rule (Deny or Allow).
+* `--protocol Tcp`: Protocol (Tcp, Udp, or *).
+* `--direction Inbound`: Direction of the connection (Inbound or Outbound).
+* `--priority 100`: Priority for the rule.
+* `--source-address-prefix Internet`: Source address prefix in CIDR or using default tags.
+* `--source-port-range "*"`: Source port or port range. Port that opened the connection.
+* `--destination-address-prefix "*"`: Destination address prefix in CIDR or using default tags.
+* `--destination-port-range 3389`: Destination port or port range. Port that receives the connection request.
+
 
 
 4. Create a rule that allows access to port 80 (HTTP) from the Internet **az network nsg rule create** command.
