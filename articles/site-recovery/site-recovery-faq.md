@@ -134,7 +134,7 @@ Extended or chained replication isn't supported. Request this feature in [feedba
 This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude specific disks from replication?
-This is supported when you're [replicating VMware VMs and physical servers](site-recovery-exclude-disks.md) to Azure, using the Azure portal.
+This is supported when you're [replicating VMware VMs and physical servers](site-recovery-exclude-disk.md) to Azure, using the Azure portal.
 
 ### Can I replicate virtual machines with dynamic disks?
 Dynamic disks are supported when replicating Hyper-V virtual machines. They are also supported when replicating VMware VMs and physical machines to Azure. The operating system disk must be a basic disk.
