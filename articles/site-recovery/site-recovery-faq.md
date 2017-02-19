@@ -72,11 +72,11 @@ Yes. When you use Site Recovery to orchestrate replication and failover in your 
 ## Pricing
 
 ### What charges do I incur while using Azure Site Recovery?
-While using Azure Site recovery you incur charges for the Azure Site Recovery license, Azure storage, storage transactions, and outbound data transfer. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery).
+When you use Site Recovery, you incur charges for the Site Recovery license, Azure storage, storage transactions, and outbound data transfer. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery).
 
 The Site Recovery license is per protected instance, where an instance is a VM, or a physical server.
 
-- If a VM disk replicates to a standard storage account, the Azure storage charge is for the storage consumption. For example, if the source disk size  is 1 TB, and 400 GB is used, Site Recovery creates a 1 TB VHD in Azure, but the storage charged is 400 GB (plus the amount of storage space used for replication logs).
+- If a VM disk replicates to a standard storage account, the Azure storage charge is for the storage consumption. For example, if the source disk size is 1 TB, and 400 GB is used, Site Recovery creates a 1 TB VHD in Azure, but the storage charged is 400 GB (plus the amount of storage space used for replication logs).
 - If a VM disk replicates to a premium storage account, the Azure storage charge is for the provisioned storage size, rounded out for the nearest premium storage disk option. For example, if the source disk size is 50 GB, Site Recovery creates a 50 GB disk in Azure, and Azure maps this to the nearest premium storage disk (P10).  Costs are calculated on P10, and not on the 50 GB disk size.  [Learn more](https://aka.ms/premium-storage-pricing).  If you're using premium storage, a standard storage account for replication logging is also required, and the amount of standard storage space used for these logs is also billed.
 
 Costs are also incurred during test failover, where the VM, storage, egress, and storage transactions costs will be applied.
@@ -99,7 +99,7 @@ For virtual machines and physical servers, replicating between on-premises sites
 ## Replication
 
 ### Can I replicate over a site-to-site VPN to Azure?
-Azure Site Recovery replicates data to an Azure storage account over a public endpoint. Therefore, replication will not go over a site-to-site VPN. You can create a site-to-site VPN with an Azure virtual network and that won't interfere with ASR replication.
+Azure Site Recovery replicates data to an Azure storage account, over a public endpoint. Replication isn't over a site-to-site VPN. You can create a site-to-site VPN, with an Azure virtual network. This doesn't interfere with Site Recovery replication.
 
 ### Can I use ExpressRoute to replicate virtual machines to Azure?
 Yes, ExpressRoute can be used to replicate virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering) to use ExpressRoute for Site Recovery replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#private-peering) setup with the Azure virtual network.
@@ -113,7 +113,7 @@ Yes. Site Recovery converts from generation 2 to generation 1 during failover. A
 ### If I replicate to Azure how do I pay for Azure VMs?
 During regular replication, data is replicated to geo-redundant Azure storage and you don’t need to pay any Azure IaaS virtual machine charges, providing a significant advantage. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines, and after that you'll be billed for the compute resources that you consume in Azure.
 
-### Is there an SDK I can use to automate the ASR workflow?
+### Can I automate Site Recovery scenarios with an SDK?
 Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Currently supported scenarios for deploying Site Recovery using PowerShell:
 
 * [Replicate Hyper-V VMs in VMMs clouds to Azure PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
