@@ -30,19 +30,49 @@ This article covers scenario and resource level monitoring. Network monitoring i
 
 ## Network Watcher
 
-Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure.
+Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure.
 
 Network Watcher currently has the following capabilities:
 
-* **[Topology](network-watcher-topology-overview.md)** - This feature provides a network level view showing the various interconnections and associations between network resources in a resource group.
-* **[Variable Packet capture](network-watcher-packet-capture-overview.md)** - This feature captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuned controls provide versatility. In addition, packet capture can be done for a fixed duration time or for a fixed size data. The packet data can be stored in a blob store or on the local disk in .cap format.
-* **[IP flow verify](network-watcher-ip-flow-verify-overview.md)** - This feature checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
-* **Next hop** - This feature determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
-* **Security group view** - This feature gets the effective and applied security rules that are applied on a VM.
+* **[Topology](network-watcher-topology-overview.md)** - Provides a network level view showing the various interconnections and associations between network resources in a resource group.
+* **[Variable Packet capture](network-watcher-packet-capture-overview.md)** - Captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuned controls such as being able to set time and size limitations provide versatility. The packet data can be stored in a blob store or on the local disk in .cap format.
+* **[IP flow verify](network-watcher-ip-flow-verify-overview.md)** - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
+* **[Next hop](network-watcher-next-hop-overview.md)** - Determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
+* **[Security group view](network-watcher-security-group-view-overview.md)** - Gets the effective and applied security rules that are applied on a VM.
 * **[NSG Flow logging](network-watcher-nsg-flow-logging-overview.md)** - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port and Protocol.
-* **[Virtual Network Gateway and Connection troubleshooting](network-watcher-troubleshoot-manage-rest.md)** - This feature provides the ability to troubleshoot Virtual Network Gateways and Connections.
-* **Network Subscription Limits** - This feature enables you to view network resource usage against limits.
-* **Configuring Diagnostics Log** – This feature provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
+* **[Virtual Network Gateway and Connection troubleshooting](network-watcher-troubleshoot-manage-rest.md)** - Provides the ability to troubleshoot Virtual Network Gateways and Connections.
+* **[Network subscription limits](#network-subscription-limits)** - Enables you to view network resource usage against limits.
+* **[Configuring Diagnostics Log](#diagnostic-logs)** – Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
+
+### Role-based Access Contral (RBAC) in Network Watcher
+
+Nework watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permission are required by the Network Watcher in Preview. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
+
+|Resource| Permission|
+|---|---|
+|Microsoft.Storage/ |Read|
+|Microsoft.Authorization/| Read|
+|Microsoft.Resources/subscriptions/resourceGroups/| Read|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | Action|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |Action|
+|Microsoft.Storage/storageAccounts/listKeys/ | Action|
+|Microsoft.Compute/virtualMachines/ |Read|
+|Microsoft.Compute/virtualMachines/ |Write|
+|Microsoft.Compute/virtualMachineScaleSets/ |Read|
+|Microsoft.Compute/virtualMachineScaleSets/ |Write|
+|Microsoft.Network/networkWatchers/packetCaptures/| Read|
+|Microsoft.Network/networkWatchers/packetCaptures/| Write|
+|Microsoft.Network/networkWatchers/packetCaptures/| Delete|
+|Microsoft.Network/networkWatchers/ |Write|
+|Microsoft.Network/networkWatchers/| Read|
+|Microsoft.Insights/alertRules/ |*|
+|Microsoft.Support/| *|
+
+### Network Subscription Limits
+
+Network subscription limits provides you with details of the usage of each of the network resource in a subscription in a region against the maximum number of resources available.
+
+![network subscription limit][nsl]
 
 ## Network resource level monitoring
 
@@ -62,13 +92,17 @@ Metrics are performance measurements and counters collected over a period of tim
 
 ### Diagnostic logs
 
-Periodic and spontaneous events are created by network resources and logged in storage accounts to provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostic logs, visit [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub, or Log Analytics. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostic logs, visit [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
 
 Diagnostic logs are available for Load Balancer, Network Security Groups, Routes, and Application Gateway.
 
+Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view you can enable and disable networking resources convieniently and quickly.
+
+![logs][logs]
+
 ### Troubleshooting
 
-The troubleshooting blade, an experience in the portal, is provided on network resources today to diagnose common problems associated with an individual resource. This experience is available for the following network resources - ExpressRoute, VPN Gateway, Application Gateway, Network Security Logs, Routes, DNS, Load Balancer  and Traffic Manager. To learn more about resource level troubleshooting, visit [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
+The troubleshooting blade, an experience in the portal, is provided on network resources today to diagnose common problems associated with an individual resource. This experience is available for the following network resources - ExpressRoute, VPN Gateway, Application Gateway, Network Security Logs, Routes, DNS, Load Balancer and Traffic Manager. To learn more about resource level troubleshooting, visit [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
 
 ![troubleshooting info][TS]
 
@@ -90,6 +124,7 @@ Detect security vulnerabilities with [Analyzing packet capture with Wireshark](n
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png
 [logs]: ./media/network-watcher-monitoring-overview/logs.png
 [metrics]: ./media/network-watcher-monitoring-overview/metrics.png
+[nsl]: ./media/network-watcher-monitoring-overview/nsl.png
 
 
 
