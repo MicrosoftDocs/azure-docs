@@ -126,7 +126,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
     * `--name rdp-rule`: Name for the new rule.
     * `--access Allow`: Access level for the rule (Deny or Allow).
     * `--protocol Tcp`: Protocol (Tcp, Udp, or *).
-    * `--direction Inbound`: Direction of connection (Inbound or Outbound).
+    * `--direction Inbound`: Direction of the connection (Inbound or Outbound).
     * `--priority 100`: Priority for the rule.
     * `--source-address-prefix Internet`: Source address prefix in CIDR or using default tags.
     * `--source-port-range "*"`: Source port or port range. Port that opened the connection.

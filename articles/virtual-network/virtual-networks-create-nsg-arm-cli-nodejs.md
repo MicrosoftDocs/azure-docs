@@ -18,7 +18,7 @@ ms.date: 02/17/2017
 ms.author: jdial
 
 ---
-# How to create NSGs in the Azure CLI
+# How to create NSGs in the Azure CLI 1.0
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 ## CLI versions to complete the task 
