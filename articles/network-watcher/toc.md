@@ -7,8 +7,6 @@
 ## [Security group view](network-watcher-security-group-view-overview.md)
 ## [Next hop](network-watcher-next-hop-overview.md)
 ## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
-## [Network subscription limit](network-watcher-network-subscription-limit.md)
-## [Partners](network-watcher-partners.md)
 # Get Started
 ## [Configure Network Watcher](network-watcher-create.md)
 ## Manage packet capture
