@@ -71,13 +71,6 @@ If you want to deploy network mapping you'll need the following:
 * The virtual machines you want to protect on the source VMM server should be connected to a VM network. That network should be linked to a logical network that is associated with the cloud.
 * An Azure network to which replicated virtual machines can connect after failover. You'll select this network at the time of failover. The network should be in the same region as your Azure Site Recovery subscription.
 
-Prepare for network mapping as follows:
-
-1. [Read about](site-recovery-network-mapping.md) network mapping requirements.
-2. Prepare VM networks in VMM:
-
-   * [Set up logical networks](https://technet.microsoft.com/library/jj721568.aspx).
-   * [Set up VM networks](https://technet.microsoft.com/library/jj721575.aspx).
 
 ## Step 1: Create a Site Recovery vault
 1. Sign in to the [Management Portal](https://portal.azure.com) from the VMM server you want to register.

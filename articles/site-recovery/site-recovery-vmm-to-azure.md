@@ -134,7 +134,6 @@ You need to set up network mapping during Site Recovery deployment. Network mapp
 
   * Make sure that VMs on the source Hyper-V host server are connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.
   * An Azure network as described [above](#set-up-an-azure-network)
-* [Learn more](site-recovery-network-mapping.md) about how network mapping works.
 
 ## Create a Recovery Services vault
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -288,7 +287,7 @@ Specify the Azure storage account to be used for replication, and the Azure netw
    If you want to create a network using the classic model, do that in the Azure portal. [Learn more](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### Configure network mapping
-* [Read](#prepare-for-network-mapping) a quick overview of what network mapping does. [Read this](site-recovery-network-mapping.md) for a more in-depth explanation.
+* [Read](#prepare-for-network-mapping) a quick overview of what network mapping does.
 * Verify that virtual machines on the VMM server are connected to a VM network, and that you've created at least one Azure virtual network. Multiple VM networks can be mapped to a single Azure network.
 
 Configure mapping as follows:
@@ -470,7 +469,7 @@ To test the deployment you can run a test failover for a single virtual machine 
 1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in **Settings** > **Site Recovery jobs**.
 1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and is running.
 1. If you [prepared for connections after failover](#prepare-to-connect-to-Azure-VMs-after-failover), you should be able to connect to the Azure VM.
-1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
+1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover.
 
 For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 

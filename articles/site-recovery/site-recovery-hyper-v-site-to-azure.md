@@ -1,6 +1,6 @@
 ---
 title: Replicate Hyper-V VMs to Azure  | Microsoft Docs
-description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises Hyper-V VMs that aren't managed by VMM to Azure using the Azure portal
+description: Describes how to orchestrate replication, failover and recovery of on-premises Hyper-V VMs to Azure
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/23/2017
+ms.date: 02/19/2017
 ms.author: raynew
 ---
 
 # Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
-> * [Azure Classic](site-recovery-hyper-v-site-to-azure-classic.md)
+> * [Azure portal](site-recovery-hyper-v-site-to-azure.md)
+> * [Azure classic](site-recovery-hyper-v-site-to-azure-classic.md)
 > * [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 >
 >
 
-Welcome to Azure Site Recovery service!
+This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using [Azure Site Recovery[](site-recovery-overview.md) in the Azure portal.
 
-Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy. Site Recovery orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Site Recovery?](site-recovery-overview.md)
-
-This article describes how to replicate, or migrate, on-premises Hyper-V virtual machines to Azure, using Azure Site Recovery in the Azure portal. In this scenario, Hyper-V servers are not managed in VMM clouds. Deploy replication to fail VMs over to Azure when your primary site isn't available, and fail them back to on-premises from Azure when the primary site returns to normal operations. To migrate VMs to Azure (without failing back), you complete the steps in this article. Then, after running a successful test failover, you can perform a planned failover to complete the migration.
-
+You replicate Hyper-V VMs to Azure storage, and fail VMs over to Azure if your primary site becomes unavailable. You can access workloads in Azure, and fail back to the on-premises when it returns to normal operations. You can also use the instructions in this article to migrate VMs to Azure. In a migration scenario, you replicate and fail over VMs, but you don't fail them back again.
 
 After reading this article, post any comments at the bottom, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -370,7 +367,7 @@ We recommend that you verify the properties of the source machine.
 
 
 ### Prepare to connect to Azure VMs after failover
-If you want to connect to Azure VMs using RDP after failover, make sure you do the following: 
+If you want to connect to Azure VMs using RDP after failover, make sure you do the following:
 
 **On the on-premises machine before failover**:
 
@@ -403,14 +400,12 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
 
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
-
-    ![Test failover](./media/site-recovery-vmware-to-azure/test-failover1.png)
-1. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
-1. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
-1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
-1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
-1. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
-1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
+2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
+3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
+4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+5. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+6. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
+7. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover.
 
 For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 
@@ -428,7 +423,7 @@ This should be chosen to meet compliance requirements or during planned maintena
 
 1. Select **Recovery Plans > recoveryplan_name**.
 2. On the Recovery plan blade, Click **Planned Failover**.
-3. On the **Confirm Planned Failover **page, choose the source and target locations. 
+3. On the **Confirm Planned Failover **page, choose the source and target locations.
 4. When a planned failover begins the first step is to shut down the virtual machines to ensure no data loss. You can follow the failover progress on the **Jobs** tab. If an error occurs in the failover (either on a virtual machine or in a script that is included in the recovery plan), the planned failover of a recovery plan stops. You can initiate the failover again.
 6. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover.
 7. After replication is complete, the virtual machines start up at the secondary location.
