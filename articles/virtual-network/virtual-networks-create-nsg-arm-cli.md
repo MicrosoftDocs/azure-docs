@@ -34,9 +34,9 @@ You can complete the task using one of the following CLI versions:
 
 The sample Azure CLI 2.0 commands below expect a simple environment already created based on the scenario above. 
 
-## How to create the NSG for the front end subnet
+## How to create the NSG for the `FrontEnd` subnet
 
-To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below.
+To create an NSG named *NSG-FrontEnd* based on the scenario above, follow the steps below.
 
 1. If you haven't yet, install and configure the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
 
@@ -51,11 +51,11 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
     Parameters:
    
-   * `--resource-group`: Name of the resource group where the NSG will be created. For our scenario, *TestRG*.
-   * `--location`: Azure region where the new NSG will be created. For our scenario, *westus*.
+   * `--resource-group`: Name of the resource group where the NSG is created. For our scenario, *TestRG*.
+   * `--location`: Azure region where the new NSG is created. For our scenario, *westus*.
    * `--name`: Name for the new NSG. For our scenario, *NSG-FrontEnd*.
 
-    Because the output is quite a bit of information including a list of all the default rules, you can display the default rules more easily by using a JMESPATH query filter with the `table` output format, like the following example:
+    The expected output is quite a bit of information including a list of all the default rules. The following example shows the default rules using a JMESPATH query filter with the `table` output format:
 
     ```azurecli
     az network nsg show \
@@ -121,8 +121,8 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
     Parameters:
 
-    `--resource-group testrg`: The resource group to use; note that it is case-insensitive.
-    `--nsg-name NSG-FrontEnd`: Name of the NSG in which the rule will be created.
+    `--resource-group testrg`: The resource group to use. Note that it is case-insensitive.
+    `--nsg-name NSG-FrontEnd`: Name of the NSG in which the rule is created.
     `--name rdp-rule`: Name for the new rule.
     `--access Allow`: Access level for the rule (Deny or Allow).
     `--protocol Tcp`: Protocol (Tcp, Udp, or *).
@@ -226,8 +226,8 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
     }
     ```
 
-## How to create the NSG for the back end subnet
-To create an NSG named named *NSG-BackEnd* based on the scenario above, follow the steps below.
+## How to create the NSG for the `BackEnd` subnet
+To create an NSG named *NSG-BackEnd* based on the scenario above, follow the steps below.
 
 1. Create the `NSG-BackEnd` NSG with **azure network nsg create**.
    
@@ -316,7 +316,7 @@ To create an NSG named named *NSG-BackEnd* based on the scenario above, follow t
     }
     ```
 
-4. Run the **azure network vnet subnet set** command to link the NSG to the back end subnet.
+4. Run the **azure network vnet subnet set** command to link the NSG to the `BackEnd` subnet.
    
     ```azurecli
     az network vnet subnet update \
