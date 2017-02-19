@@ -386,16 +386,16 @@ Now enable replication as follows:
 6. In **Virtual Machines** > **Select virtual machines**, click and select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
 
     ![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. In **Properties** > **Configure properties**,  select the operating system for the selected VMs, and the OS disk. By default all the disks of the VM are selected for replication. You might want to exclude disk(s) from replication to reduce the bandwidth consumption of replicating unnecessary data to Azure. For example you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or Microsoft SQL Server tempdb). You can exclude the disk from replication by unselecting the disk. Verify that the Azure VM name (Target Name) complies with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) and modify it if you need to. Then click **OK**. You can set additional properties later..
+7. In **Properties** > **Configure properties**,  select the operating system for the selected VMs, and the OS disk. By default all the disks of the VM are selected for replication. You might want to exclude disk(s) from replication to reduce the bandwidth consumption of replicating unnecessary data to Azure. For example you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or Microsoft SQL Server tempdb). You can exclude the disk from replication by unselecting the disk. Verify that the Azure VM name (Target Name) complies with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) and modify it if you need to. Then click **OK**. You can set additional properties later.
 
 	![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 	>[!NOTE]
 	>
-	> * Only basic disks can be excluded from replication. You can't exclude OS disk and it is not recommend to exclude dynamic disks. ASR cannot identify which VHD disk is basic or dynamic disk inside the guest VM.  If all the dependent dynamic volume disks are not excluded, protected dynamic disk will come as a failed disk on failover VM and the data on that disk cannot be accessible.
+	> * Only basic disks can be excluded from replication. You can't exclude OS disks, and we don't recommend that you exclude dynamic disks. Site Recovery can't identify whether a VHD disk is basic or dynamic, inside the guest VM.  If all the dependent dynamic volume disks aren't excluded, protected dynamic disk will be failed disks on VM failover, and the data on that disk won't be accessible.
 	> * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you'll need to disable protection for the VM and then reenable it.
 	> * If you exclude a disk that's needed for an application to operate, after failover to Azure you’ll need to create it manually in Azure so that the replicated application can run. Alternatively, you could integrate Azure automation into a recovery plan to create the disk during failover of the machine.
-	> * Disks you create manually in Azure will be not be  failed back. For example, if you failover three disks and create two directly in Azure VM, only three disks which were failed over will be failed back from Azure to Hyper-V. You can't include disks created manually in failback or in reverse replication from Hyper-V to Azure.
+	> * Disks you create manually in Azure are not failed back. For example, if you fail over three disks, and create two directly in Azure VM, only the three disks which were failed over will be failed back from Azure to Hyper-V. You can't include disks created manually in failback, or in reverse replication from Hyper-V to Azure.
 	>
 	>
 
@@ -479,7 +479,7 @@ Here's how you can monitor the configuration settings, status, and health for yo
 1. Click on the vault name to access the **Essentials** dashboard. In this dashboard you can Site Recovery jobs, replication status, recovery plans, server health, and events.  You can customize **Essentials** to show the tiles and layouts that are most useful to you, including the status of other Site Recovery and Backup vaults.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. In the **Health** tile, you can monitor issues on site servers (VMM or configuration servers), and the events raised by Site Recovery in the last 24 hours.
+2. In *Health**, you can monitor issues on on-premises servers (VMM or configuration servers), and the events raised by Site Recovery in the last 24 hours.
 3. In the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles you can manage and monitor replication. You can drill into jobs in **Settings** > **Jobs** > **Site Recovery Jobs**.
 
 ## Next steps
