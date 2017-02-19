@@ -46,8 +46,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
     az network nsg create \
     --resource-group testrg \
     --name NSG-FrontEnd \
-    --location centralus \
-    -o table
+    --location centralus 
     ```
 
     Parameters:
@@ -230,56 +229,55 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 ## How to create the NSG for the back end subnet
 To create an NSG named named *NSG-BackEnd* based on the scenario above, follow the steps below.
 
-1. Run the **azure network nsg create** command to create an NSG.
+1. Create the `NSG-BackEnd` NSG with **azure network nsg create**.
    
-        azure network nsg create -g TestRG -l westus -n NSG-BackEnd
+    ```azurecli
+    az network nsg create \
+    --resource-group testrg \
+    --name NSG-BackEnd \
+    --location centralus
+    ```
    
-    Expected output:
+    As in step 2, above, the expected output is quite large, including default rules.
    
-        info:    Executing command network nsg create
-        info:    Looking up the network security group "NSG-BackEnd"
-        info:    Creating a network security group "NSG-BackEnd"
-        info:    Looking up the network security group "NSG-BackEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
-        networkSecurityGroups/NSG-BackEnd
-        data:    Name                            : NSG-BackEnd
-        data:    Type                            : Microsoft.Network/networkSecurityGroups
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Security group rules:
-        data:    Name                           Source IP          Source Port  Destination IP  Destination Port  Protocol  Direction  Access  Priority
-        data:    -----------------------------  -----------------  -----------  --------------  ----------------  --------  ---------  ------  --------
-        data:    AllowVnetInBound               VirtualNetwork     *            VirtualNetwork  *                 *         Inbound    Allow   65000   
-        data:    AllowAzureLoadBalancerInBound  AzureLoadBalancer  *            *               *                 *         Inbound    Allow   65001   
-        data:    DenyAllInBound                 *                  *            *               *                 *         Inbound    Deny    65500   
-        data:    AllowVnetOutBound              VirtualNetwork     *            VirtualNetwork  *                 *         Outbound   Allow   65000   
-        data:    AllowInternetOutBound          *                  *            Internet        *                 *         Outbound   Allow   65001   
-        data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
-        info:    network nsg create command OK
-2. Run the **azure network nsg rule create** command to create a rule that allows access to port 1433 (SQL) from the front end subnet.
+2. Create a rule that allows access to port 1433 (SQL) from the `FrontEnd` subnet with the **azure network nsg rule create** command.
    
-        azure network nsg rule create -g TestRG -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
+    ```azurecli
+    az network nsg rule create \
+    --resource-group testrg \
+    --nsg-name NSG-BackEnd \
+    --name sql-rule \
+    --access Allow \
+    --protocol Tcp \
+    --direction Inbound \
+    --priority 100 \
+    --source-address-prefix Internet \
+    --source-port-range "*" \
+    --destination-address-prefix "*" \
+    --destination-port-range 1433
+    ```
    
     Expected output:
-   
-        info:    Executing command network nsg rule create
-        info:    Looking up the network security rule "sql-rule"
-        info:    Creating a network security rule "sql-rule"
-        info:    Looking up the network security group "NSG-BackEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
-        networkSecurityGroups/NSG-BackEnd/securityRules/sql-rule
-        data:    Name                            : sql-rule
-        data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
-        data:    Provisioning state              : Succeeded
-        data:    Source IP                       : 192.168.1.0/24
-        data:    Source Port                     : *
-        data:    Destination IP                  : *
-        data:    Destination Port                : 1433
-        data:    Protocol                        : Tcp
-        data:    Direction                       : Inbound
-        data:    Access                          : Allow
-        data:    Priority                        : 100
-        info:    network nsg rule create command OK
+
+    ```json  
+    {
+    "access": "Allow",
+    "description": null,
+    "destinationAddressPrefix": "*",
+    "destinationPortRange": "1433",
+    "direction": "Inbound",
+    "etag": "W/\"<guid>\"",
+    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/sql-rule",
+    "name": "sql-rule",
+    "priority": 100,
+    "protocol": "Tcp",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "testrg",
+    "sourceAddressPrefix": "Internet",
+    "sourcePortRange": "*"
+    }
+    ```
+
 3. Run the **azure network nsg rule create** command to create a rule that denies access to the Internet from.
    
         azure network nsg rule create -g TestRG -a NSG-BackEnd -n web-rule -c Deny -p * -r Outbound -y 200 -f * -o * -e Internet -u *
