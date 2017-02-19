@@ -18,7 +18,7 @@ ms.date: 02/17/2017
 ms.author: jdial
 
 ---
-# How to create NSGs in the Azure CLI
+# How to create NSGs in the Azure CLI 2.0 (Preview)
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 ## CLI versions to complete the task 
@@ -229,7 +229,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
 ## How to create the NSG for the `BackEnd` subnet
 To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the steps following.
 
-1. Create the `NSG-BackEnd` NSG with **azure network nsg create**.
+1. Create the `NSG-BackEnd` NSG with **az network nsg create**.
    
     ```azurecli
     az network nsg create \
@@ -240,7 +240,7 @@ To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the
    
     As in step 2, preceding, the expected output is quite large, including default rules.
    
-2. Create a rule that allows access to port 1433 (SQL) from the `FrontEnd` subnet with the **azure network nsg rule create** command.
+2. Create a rule that allows access to port 1433 (SQL) from the `FrontEnd` subnet with the **az network nsg rule create** command.
    
     ```azurecli
     az network nsg rule create \
@@ -278,7 +278,7 @@ To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the
     }
     ```
 
-3. Create a rule that denies access to the Internet using the **azure network nsg rule create** command.
+3. Create a rule that denies access to the Internet using the **az network nsg rule create** command.
    
     ```azurecli
     az network nsg rule create \
@@ -316,7 +316,7 @@ To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the
     }
     ```
 
-4. Run the **azure network vnet subnet set** command to link the NSG to the `BackEnd` subnet.
+4. Bind the NSG to the `BackEnd` subnet using the **az network vnet subnet set** command.
    
     ```azurecli
     az network vnet subnet update \
