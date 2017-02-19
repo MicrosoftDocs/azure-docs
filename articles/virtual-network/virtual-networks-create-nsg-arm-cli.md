@@ -108,8 +108,8 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
         "destinationAddressPrefix": "*",
         "destinationPortRange": "3389",
         "direction": "Inbound",
-        "etag": "W/\"d892d711-9654-4db9-883a-74d9e596cb5b\"",
-        "id": "/subscriptions/0e220bf6-5caa-4e9f-8383-51f16b6c109f/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule",
+        "etag": "W/\"<guid>\"",
+        "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule",
         "name": "rdp-rule",
         "priority": 100,
         "protocol": "Tcp",
@@ -121,67 +121,112 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
     ```
 
     Parameters:
+
+    `--resource-group testrg`: The resource group to use; note that it is case-insensitive.
+    `--nsg-name NSG-FrontEnd`: Name of the NSG in which the rule will be created.
+    `--name rdp-rule`: Name for the new rule.
+    `--access Allow`: Access level for the rule (Deny or Allow).
+    `--protocol Tcp`: Protocol (Tcp, Udp, or *).
+    `--direction Inbound`: Direction of connection (Inbound or Outbound).
+    `--priority 100`: Priority for the rule.
+    `--source-address-prefix Internet`: Source address prefix in CIDR or using default tags.
+    `--source-port-range "*"`: Source port or port range. Port that opened the connection.
+    `--destination-address-prefix "*"`: Destination address prefix in CIDR or using default tags.
+    `--destination-port-range 3389`: Destination port or port range. Port that receives the connection request.
    
-   * **-a (or --nsg-name)**. Name of the NSG in which the rule will be created. For our scenario, *NSG-FrontEnd*.
-   * **-n (or --name)**. Name for the new rule. For our scenario, *rdp-rule*.
-   * **-c (or --access)**. Access level for the rule (Deny or Allow).
-   * **-p (or --protocol)**. Protocol (Tcp, Udp, or *) for the rule.
-   * **-r (or --direction)**. Direction of connection (Inbound or Outbound).
-   * **-y (or --priority)**. Priority for the rule.
-   * **-f (or --source-address-prefix)**. Source address prefix in CIDR or using default tags.
-   * **-o (or --source-port-range)**. Source port, or port range.
-   * **-e (or --destination-address-prefix)**. Destination address prefix in CIDR or using default tags.
-   * **-u (or --destination-port-range)**. Destination port, or port range.    
+
 
 4. Run the **azure network nsg rule create** command to create a rule that allows access to port 80 (HTTP) from the Internet.
    
-        azure network nsg rule create -g TestRG -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
+    ```azurecli
+    az network nsg rule create \
+    --resource-group testrg \
+    --nsg-name NSG-FrontEnd \
+    --name web-rule \
+    --access Allow \
+    --protocol Tcp \
+    --direction Inbound \
+    --priority 200 \
+    --source-address-prefix Internet \
+    --source-port-range "*" \
+    --destination-address-prefix "*" \
+    --destination-port-range 80
+    ```
    
     Expected putput:
    
-        info:    Executing command network nsg rule create
-        info:    Looking up the network security rule "web-rule"
-        info:    Creating a network security rule "web-rule"
-        info:    Looking up the network security group "NSG-FrontEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
-        networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule
-        data:    Name                            : web-rule
-        data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
-        data:    Provisioning state              : Succeeded
-        data:    Source IP                       : Internet
-        data:    Source Port                     : *
-        data:    Destination IP                  : *
-        data:    Destination Port                : 80
-        data:    Protocol                        : Tcp
-        data:    Direction                       : Inbound
-        data:    Access                          : Allow
-        data:    Priority                        : 200
-        info:    network nsg rule create command OK
+    ```json
+    {
+        "access": "Allow",
+        "description": null,
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "80",
+        "direction": "Inbound",
+        "etag": "W/\"<guid>\"",
+        "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule",
+        "name": "web-rule",
+        "priority": 200,
+        "protocol": "Tcp",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "testrg",
+        "sourceAddressPrefix": "Internet",
+        "sourcePortRange": "*"
+    }
+    ```
+
 5. Run the **azure network vnet subnet set** command to link the NSG to the front end subnet.
    
-        azure network vnet subnet set -g TestRG -e TestVNet -n FrontEnd -o NSG-FrontEnd
+        
+    ```azurecli
+    az network vnet subnet update \
+    > --vnet-name TestVNET \
+    > --name FrontEnd \
+    > --resource-group testrg \
+    > --network-security-group NSG-FrontEnd
+    ```
    
     Expected output:
    
-        info:    Executing command network vnet subnet set
-        info:    Looking up the subnet "FrontEnd"
-        info:    Looking up the network security group "NSG-FrontEnd"
-        info:    Setting subnet "FrontEnd"
-        info:    Looking up the subnet "FrontEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
-        virtualNetworks/TestVNet/subnets/FrontEnd
-        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-        data:    ProvisioningState               : Succeeded
-        data:    Name                            : FrontEnd
-        data:    Address prefix                  : 192.168.1.0/24
-        data:    Network security group          : [object Object]
-        data:    IP configurations:
-        data:      /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ip
-        Configurations/ipconfig1
-        data:      /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ip
-        Configurations/ipconfig1
-        data:    
-        info:    network vnet subnet set command OK
+    ```json
+    {
+        "addressPrefix": "192.168.1.0/24",
+        "etag": "W/\"<guid>\"",
+        "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/TestVNET/subnets/FrontEnd",
+        "ipConfigurations": [
+            {
+            "etag": null,
+            "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
+            "name": null,
+            "privateIpAddress": null,
+            "privateIpAllocationMethod": null,
+            "provisioningState": null,
+            "publicIpAddress": null,
+            "resourceGroup": "TestRG",
+            "subnet": null
+            }
+        ],
+        "name": "FrontEnd",
+        "networkSecurityGroup": {
+            "defaultSecurityRules": null,
+            "etag": null,
+            "id": "/subscriptions/<guid>f/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd",
+            "location": null,
+            "name": null,
+            "networkInterfaces": null,
+            "provisioningState": null,
+            "resourceGroup": "testrg",
+            "resourceGuid": null,
+            "securityRules": null,
+            "subnets": null,
+            "tags": null,
+            "type": null
+        },
+        "provisioningState": "Succeeded",
+        "resourceGroup": "testrg",
+        "resourceNavigationLinks": null,
+        "routeTable": null
+    }
+    ```
 
 ## How to create the NSG for the back end subnet
 To create an NSG named named *NSG-BackEnd* based on the scenario above, follow the steps below.
