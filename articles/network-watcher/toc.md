@@ -34,7 +34,7 @@
 ### [REST](network-watcher-troubleshoot-manage-rest.md)
 ## Analyze Network Security Group View
 ### [PowerShell](network-watcher-security-group-view-powershell.md)
-### [REST](network-watcher-security-group-view-cli.md)
+### [CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Configure NSG flow logs
 ### [Portal](network-watcher-nsg-flow-logging-portal.md)
