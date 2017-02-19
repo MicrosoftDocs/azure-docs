@@ -1,6 +1,6 @@
 ---
-title: Control routing and virtual appliances using the Azure CLI 2.0 (Preview) | Microsoft Docs
-description: Learn how to control routing and virtual appliances using the Azure CLI 2.0 (Preview).
+title: Control routing and virtual appliances using the Azure CLI 1.0 | Microsoft Docs
+description: Learn how to control routing and virtual appliances using the Azure CLI 1.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -18,7 +18,7 @@ ms.date: 02/18/2017
 ms.author: jdial
 
 ---
-# Create User-Defined Routes (UDR) using the Azure CLI 2.0 (Preview)
+# Create User-Defined Routes (UDR) using the Azure CLI 1.0
 
 > [!div class="op_single_selector"]
 - [PowerShell](virtual-network-create-udr-arm-ps.md)
@@ -31,14 +31,17 @@ ms.author: jdial
 
 You can complete the task using one of the following CLI versions: 
 
-- [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0 (Preview)](#Create-the-UDR-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
+- [Azure CLI 1.0](#Create-the-UDR-for-the-front-end-subnet) – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0 (Preview)](virtual-network-create-udr-arm-cli.md) - our next generation CLI for the resource management deployment model 
 
-[!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
-
-[!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
+
+> [!IMPORTANT]
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
+>
+
+This article covers the Resource Manager deployment model. You can also create UDRs in the [classic deployment model](virtual-network-create-udr-classic-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -49,33 +52,32 @@ The sample Azure CLI commands below expect a simple environment already created 
 ## Create the UDR for the front-end subnet
 To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
 
-1. Create a route table for the front-end subnet with the [az network route-table create](/cli/azure/network/route-table#create) command:
+1. Run the following command to create a route table for the front-end subnet:
 
 	```azurecli
-    az network route-table create \
-    --resource-group testrg \
-    --location westus \
-    --name UDR-FrontEnd
-    ```
+	azure network route-table create -g TestRG -n UDR-FrontEnd -l uswest
+	```
    
     Output:
    
-    ```json
-    {
-    "etag": "W/\"<guid>\"",
-    "id": "/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/routeTables/UDR-FrontEnd",
-    "location": "westus",
-    "name": "UDR-FrontEnd",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "testrg",
-    "routes": [],
-    "subnets": null,
-    "tags": null,
-    "type": "Microsoft.Network/routeTables"
-    }
-    ```
-
-2. Create a route that sends all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4) using the [az network route-table route create](/cli/azure/network/route-table/route#create) command:
+        info:    Executing command network route-table create
+        info:    Looking up route table "UDR-FrontEnd"
+        info:    Creating route table "UDR-FrontEnd"
+        info:    Looking up route table "UDR-FrontEnd"
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        routeTables/UDR-FrontEnd
+        data:    Name                            : UDR-FrontEnd
+        data:    Type                            : Microsoft.Network/routeTables
+        data:    Location                        : westus
+        data:    Provisioning state              : Succeeded
+        info:    network route-table create command OK
+   
+    Parameters:
+   
+   * **-g (or --resource-group)**. Name of the resource group where the UDR will be created. For our scenario, *TestRG*.
+   * **-l (or --location)**. Azure region where the new UDR will be created. For our scenario, *westus*.
+   * **-n (or --name)**. Name for the new UDR. For our scenario, *UDR-FrontEnd*.
+2. Run the following command to create a route in the route table to send all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4):
 
 	```azurecli
 	azure network route-table route create -g TestRG -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -y VirtualAppliance -p 192.168.0.4
