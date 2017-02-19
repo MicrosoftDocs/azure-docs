@@ -71,7 +71,7 @@ Learn more about configuring VMM networks in the below articles
 * [How to configure logical networks in VMM](http://go.microsoft.com/fwlink/p/?LinkId=386307)
 * [How to configure VM networks and gateways in VMM](http://go.microsoft.com/fwlink/p/?LinkId=386308)
 
-[Learn more](site-recovery-network-mapping.md) about how network mapping works.
+[Learn more](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) about how network mapping works.
 
 ### PowerShell prerequisites
 Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/library/dn850420.aspx).
