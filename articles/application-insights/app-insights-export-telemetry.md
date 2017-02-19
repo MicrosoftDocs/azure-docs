@@ -17,17 +17,18 @@ ms.author: awills
 
 ---
 # Export telemetry from Application Insights
-Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
+Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.
 
-Continuous Export is available in the [Enterprise pricing model](http://azure.microsoft.com/pricing/details/application-insights/).
+Continuous Export is available both in the standard and enterprise [pricing models](http://azure.microsoft.com/pricing/details/application-insights/),
+however standard pricing extra occurs are incurred.
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 
-* [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
+* [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet.
 
 * [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry, and also can export results.
 * If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
-* The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically. 
+* The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md). 
 
@@ -44,7 +45,7 @@ If you don't already have a "classic" storage account, create one now.
 If you create the storage in a region that is different from your Application Insights resource, there may be [charges for data transfer](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="setup"></a> Set up Continuous Export
-On your application's Overview blade in the Application Insights portal, open Continuous Export: 
+On your application's Overview blade in the Application Insights portal, open Continuous Export:
 
 ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
@@ -143,10 +144,10 @@ On a small scale, you can write some code to pull apart your data, read it into 
 For a larger code sample, see [using a worker role][exportasa].
 
 ## <a name="delete"></a>Delete your old data
-Please note that you are responsible for managing your storage capacity and deleting the old data if necessary. 
+Please note that you are responsible for managing your storage capacity and deleting the old data if necessary.
 
 ## If you regenerate your storage key...
-If you change the key to your storage, continuous export will stop working. You'll see a notification in your Azure account. 
+If you change the key to your storage, continuous export will stop working. You'll see a notification in your Azure account.
 
 Open the Continuous Export blade and edit your export. Edit the Export Destination, but just leave the same storage selected. Click OK to confirm.
 
@@ -162,7 +163,7 @@ The continuous export will restart.
 On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data, and you could use it to process data that has been exported from Application Insights.
 
 ## Q & A
-* *But all I want is a one-time download of a chart.*  
+* *But all I want is a one-time download of a chart.*
   
     Yes, you can do that. At the top of the blade, click [Export Data](app-insights-metrics-explorer.md#export-to-excel).
 * *I set up an export, but there's no data in my store.*
@@ -171,15 +172,15 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 * *I tried to set up an export, but was denied access*
   
     If the account is owned by your organization, you have to be a member of the owners or contributors groups.
-* *Can I export straight to my own on-premises store?* 
+* *Can I export straight to my own on-premises store?*
   
-    No, sorry. Our export engine currently only works with Azure storage at this time.  
+    No, sorry. Our export engine currently only works with Azure storage at this time.
 * *Is there any limit to the amount of data you put in my store?* 
   
     No. We'll keep pushing data in until you delete the export. We'll stop if we hit the outer limits for blob storage, but that's pretty huge. It's up to you to control how much storage you use.  
 * *How many blobs should I see in the storage?*
   
-  * For every data type you selected to export, a new blob is created every minute (if data is available). 
+  * For every data type you selected to export, a new blob is created every minute (if data is available).
   * In addition, for applications with high traffic, additional partition units are allocated. In this case each unit creates a blob every minute.
 * *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
   
