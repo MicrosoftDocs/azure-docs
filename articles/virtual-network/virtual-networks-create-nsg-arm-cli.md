@@ -32,11 +32,11 @@ You can complete the task using one of the following CLI versions:
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-The sample Azure CLI 2.0 commands below expect a simple environment already created based on the scenario above. 
+The sample Azure CLI 2.0 commands following expect a simple environment already created based on the scenario preceding. 
 
 ## How to create the NSG for the `FrontEnd` subnet
 
-To create an NSG named *NSG-FrontEnd* based on the scenario above, follow the steps below.
+To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow the steps following.
 
 1. If you haven't yet, install and configure the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
 
@@ -81,7 +81,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario above, follow the st
 3. Create a rule that allows access to port 3389 (RDP) from the Internet with the [az network nsg rule create](/cli/azure/network/nsg/rule#create) command.
 
     > [!NOTE]
-    > Depending on the shell you are using, you might need to modify the `*` character in the arguments below so as not to expand the argument before execution.
+    > Depending on the shell you are using, you might need to modify the `*` character in the arguments following so as not to expand the argument before execution.
    
     ```azurecli
     az network nsg rule create \
@@ -227,7 +227,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario above, follow the st
     ```
 
 ## How to create the NSG for the `BackEnd` subnet
-To create an NSG named *NSG-BackEnd* based on the scenario above, follow the steps below.
+To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the steps following.
 
 1. Create the `NSG-BackEnd` NSG with **azure network nsg create**.
    
@@ -238,7 +238,7 @@ To create an NSG named *NSG-BackEnd* based on the scenario above, follow the ste
     --location centralus
     ```
    
-    As in step 2, above, the expected output is quite large, including default rules.
+    As in step 2, preceding, the expected output is quite large, including default rules.
    
 2. Create a rule that allows access to port 1433 (SQL) from the `FrontEnd` subnet with the **azure network nsg rule create** command.
    
