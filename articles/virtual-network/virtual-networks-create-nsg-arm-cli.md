@@ -80,31 +80,46 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
 
 3. Run the **azure network nsg rule create** command to create a rule that allows access to port 3389 (RDP) from the Internet.
+
+    > [!NOTE]
+    > Depending on the shell you are using, you might need to modify the `*` character in the arguments below so as not to expand the argument before execution.
    
-        azure network nsg rule create -g TestRG -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
+    ```azurecli
+    az network nsg rule create \
+    --resource-group testrg \
+    --nsg-name NSG-FrontEnd \
+    --name rdp-rule \
+    --access Allow \
+    --protocol Tcp \
+    --direction Inbound \
+    --priority 100 \
+    --source-address-prefix Internet \
+    --source-port-range "*" \
+    --destination-address-prefix "*" \
+    --destination-port-range 3389
+    ```
    
     Expected output:
    
-        info:    Executing command network nsg rule create
-        warn:    Using default direction: Inbound
-        info:    Looking up the network security rule "rdp-rule"
-        info:    Creating a network security rule "rdp-rule"
-        info:    Looking up the network security group "NSG-FrontEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp
-        -rule
-        data:    Name                            : rdp-rule
-        data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
-        data:    Provisioning state              : Succeeded
-        data:    Source IP                       : Internet
-        data:    Source Port                     : *
-        data:    Destination IP                  : *
-        data:    Destination Port                : 3389
-        data:    Protocol                        : Tcp
-        data:    Direction                       : Inbound
-        data:    Access                          : Allow
-        data:    Priority                        : 100
-        info:    network nsg rule create command OK
-   
+    ```json
+    {
+        "access": "Allow",
+        "description": null,
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "3389",
+        "direction": "Inbound",
+        "etag": "W/\"d892d711-9654-4db9-883a-74d9e596cb5b\"",
+        "id": "/subscriptions/0e220bf6-5caa-4e9f-8383-51f16b6c109f/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule",
+        "name": "rdp-rule",
+        "priority": 100,
+        "protocol": "Tcp",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "testrg",
+        "sourceAddressPrefix": "Internet",
+        "sourcePortRange": "*"
+    }
+    ```
+
     Parameters:
    
    * **-a (or --nsg-name)**. Name of the NSG in which the rule will be created. For our scenario, *NSG-FrontEnd*.
