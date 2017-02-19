@@ -175,7 +175,6 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
     ```
 
 5. Bind the NSG to the **FrontEnd** subnet with the [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) command.
-   
         
     ```azurecli
     az network vnet subnet update \
