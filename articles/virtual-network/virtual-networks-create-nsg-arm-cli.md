@@ -26,7 +26,7 @@ ms.author: jdial
 You can complete the task using one of the following CLI versions: 
 
 - [Azure CLI 1.0](virtual-networks-create-nsg-arm-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#how-to-create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
+- [Azure CLI 2.0 (Preview)](#how-to-create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
@@ -40,7 +40,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
 1. If you haven't yet, install and configure the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
 
-2. Run the **azure network nsg create** command to create an NSG. Because the response output consists of default rule detail in JSON, it's easier to specify the `-o table` output format to see the results.
+2. Run the **azure network nsg create** command to create an NSG. 
 
     ```azurecli
     az network nsg create \
@@ -56,7 +56,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
    * `--location`: Azure region where the new NSG will be created. For our scenario, *westus*.
    * `--name`: Name for the new NSG. For our scenario, *NSG-FrontEnd*.
 
-    Because the output is quite a bit of information including a list of all the default rules, you can display them more easily by using a JMESPATH query filter with the `table` output format, like the following example:
+    Because the output is quite a bit of information including a list of all the default rules, you can display the default rules more easily by using a JMESPATH query filter with the `table` output format, like the following example:
 
     ```azurecli
     az network nsg show \
