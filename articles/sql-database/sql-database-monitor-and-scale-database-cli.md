@@ -20,7 +20,7 @@ ms.author: janeng
 
 # Monitor and scale a SQL database uisng the Azure CLI
 
-The sample script provided here illustrates how to scale an Azure SQL database to a different performance level after querying the size information of the database. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+The sample script provided here illustrates how to scale an Azure SQL database to a different performance level after querying the size information of the database. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines/virtual-machines-windows-cli-options.md).
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
