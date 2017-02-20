@@ -41,7 +41,7 @@ The recovery time to restore a database using automated database backups is impa
 * The network bandwidth if the restore is to a different region 
 * The number of concurrent restore requests being processed in the target region. 
   
-  For a very large, and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of Geo-Restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. The majority of database restores complete within 12 hours.
+  For a very large, and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of Geo-Restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
   
   There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
@@ -57,15 +57,15 @@ You can restore an existing database to an earlier point in time as a new databa
 > You cannot overwrite the existing database during restore.
 >
 
-The database can be restored to any service tier or performance level, and as a single database or into an elastic pool. Ensure you have a sufficient resources on the logical server or in elastic pool. Once complete, the restored database is a normal, fully accessible, online database charged at normal rates based on its service tier and performance level. You do not incur charges until the database restore is complete.
+The database can be restored to any service tier or performance level, and as a single database or into an elastic pool. Ensure you have sufficient resources on the logical server or in the elastic pool to which you are restoring the database. Once complete, the restored database is a normal, fully accessible, online database. The restored database is charged at normal rates based on its service tier and performance level. You do not incur charges until the database restore is complete.
 
 You generally restore a database to an earlier point for recovery purposes. When doing so, you can treat the restored database as a replacement for the original database or use it to retrieve data from and then update the original database. 
 
 * ***Database replacement:*** If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. 
-* ***Data recovery:*** If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database will be visible in the database list throughout. If you delete the database during the restore, it will cancel the operation and you will not be charged for the database that did not complete the restore. 
+* ***Data recovery:*** If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation is cancelled and you are not charged for the database that did not complete the restore. 
 
 ## Deleted database restore
-You can restore a deleted database to the deletion time for a deleted database on the same logical server using the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can restore a deleted database to the deletion time for a deleted database on the same logical server using the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is no support for restoring a deleted server at this time.
@@ -74,7 +74,7 @@ You can restore a deleted database to the deletion time for a deleted database o
 ## Geo-Restore
 You can restore a SQL database on any server in any Azure region from the most recent geo-replicated full and differential backups. Geo-Restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. You can use the [Azure portal](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md), or the [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
 
-Geo-Restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a differential backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, in the event of a disaster, there can be up to one hour data loss. The following illustration shows restore of the database from the last avilalbe backup in another region.
+Geo-Restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a differential backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, in the event of a disaster, there can be up to one hour data loss. The following illustration shows restore of the database from the last available backup in another region.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -85,7 +85,7 @@ For detailed information about using Geo-Restore to recover from an outage, see 
 > 
 
 ## Programmatically performing recovery using automated backups
-As previously discussed, in addition to the Azure portal, database recovery can be performed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available.
+As previously discussed, in addition to the Azure portal, database recovery can be performed programmatically using Azure PowerShell or the REST API. The following tables describe the set of commands available.
 
 ### PowerShell
 | Cmdlet | Description |
@@ -110,7 +110,7 @@ Automatic backups protect your databases from user and application errors, accid
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md)
-* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). 
-* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention using the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). 
+* To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 * To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
 * To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
