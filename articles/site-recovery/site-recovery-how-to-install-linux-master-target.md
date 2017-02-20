@@ -35,7 +35,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 * MT can only be a VMware VM, and not a physical VM.
 
 
-## Steps to deploy the master target server
+## Steps to deploy the Master Target server
 
 ### Install CentOS 6.6 Minimal
 
@@ -175,11 +175,11 @@ g. If the value exists and is set to true, click on Cancel.
 h. If the value does not exist click **Add Row.**
 
 i. Add disk.EnableUUID in the Name column and Set its value as TRUE
-=======
-  If exists and if the value is set to False over write the value with
+
+   * If exists and if the value is set to False over write the value with
 True (True and False values are case in-sensitive).
 
-  If exists and is set to true, click on cancel and test the SCSI
+   * If exists and is set to true, click on cancel and test the SCSI
 command inside guest operating system after it is boot-up.
 
 f. If does not exist click **Add Row.**
