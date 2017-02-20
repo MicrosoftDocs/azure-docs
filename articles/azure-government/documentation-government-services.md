@@ -1,5 +1,5 @@
 ---
-title: Azure Government Services | Microsoft Docs
+title: Azure Government available services | Microsoft Docs
 description: Provides an overview of the available services in Azure Government
 services: azure-government
 cloud: gov
