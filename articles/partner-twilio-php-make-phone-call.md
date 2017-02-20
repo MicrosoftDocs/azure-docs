@@ -24,7 +24,7 @@ The following example shows you how you can use Twilio to make a call from a PHP
 
 You'll need to do the following to use the code in this topic:
 
-1. Acquire a Twilio account and authentication token from your [Twilio Console][twilio_console]. To get started with Twilio, evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. You can sign up for a trial account at [https://www.twilio.com/try-twilio][try_twilio]. For information about the API provided by Twilio, see [http://www.twilio.com/api][twilio_api].
+1. Acquire a Twilio account and authentication token from your [Twilio Console][twilio_console]. To get started with Twilio, evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. You can sign up for a trial account at [https://www.twilio.com/try-twilio][try_twilio].
 2. Obtain the [Twilio library for PHP](https://github.com/twilio/twilio-php) or install it as a PEAR package. For more information, see the [readme file](https://github.com/twilio/twilio-php/blob/master/README.md).
 3. Install the Azure SDK for PHP. For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md)
 
@@ -66,7 +66,7 @@ The following HTML code shows how to build a web page (**callform.html**) that r
 ## Create the code to make the call
 The following code shows how to build **makecall.php**, which is called when the user submits the form displayed by **callform.html**. The code shown below creates the call message and generates the call. Also, be sure to use your Twilio account and authentication token from the [Twilio Console][twilio_console] instead of the placeholder values assigned to **$sid** and **$token** in the code below.
 
-```php
+```html
 <html>
 <head><title>Making call...</title></head>
 <body>
@@ -84,10 +84,10 @@ $message     = $_POST['callText'];
 
 $client = new Twilio\Rest\Client($sid, $token);
 
-$call = $client->account->calls->create(
+$call = $client->calls->create(
             $from_number,
             $to_number,
-            'http://twimlets.com/message?Message=' . urlencode($message)
+            array('url' => http://twimlets.com/message?Message=' . urlencode($message))
         );
 
 echo "Call status: " . $call->status . "<br />";
@@ -122,7 +122,7 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_console]: https://www.twilio.com/console
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio
-[twilio_api]: http://www.twilio.com/api
+[twilio_api]: http://www.twilio.com/docs/api
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified
 [twimlet_message_url]: http://twimlets.com/message
 [twiml]: http://www.twilio.com/docs/api/twiml
