@@ -110,7 +110,9 @@ Azure Functions have the following characteristics:
 *	Type of tasks: short lived, specialized, low complexity and few/simple dependencies.
 *	Not designed for long running workflow
 *	On Consuption Plan there's a max timeout of 5 minutes to avoid errors to become costly. [Check this disussion](https://github.com/Azure/azure-webjobs-sdk-script/issues/18) and [this other one as well](https://github.com/Azure/Azure-Functions/issues/75).
-*	Fault isolation will vary depending if runs on Consumption or App Service Plan. The first one auto scales while the latter is bounded by environment constraints, so performance issues may arise.
+*	Fault isolation will vary depending if runs on Consumption or App Service Plan. The first one auto scales in terms of assigned resources while the latter is constrained. This means that on Consumption Plan, a Function that eats resources intensively, can become a wallet drainer if gets out of control (*), but won't affect performance for others as resources are facilitated on demand. Opposedly, if running on App Service Plan, given that all Functions on a single App are bounded by predetermined hardware constraints, a resource intensive Function will affect others running in parallel.
+
+(*) A Fuction running on Consuption Plan is topped at 5 minutes before forced expiration.
 
 
 ### More information
