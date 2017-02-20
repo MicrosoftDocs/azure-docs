@@ -62,19 +62,19 @@ The database can be restored to any service tier or performance level, and as a 
 You generally restore a database to an earlier point for recovery purposes. When doing so, you can treat the restored database as a replacement for the original database or use it to retrieve data from and then update the original database. 
 
 * ***Database replacement:*** If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. 
-* ***Data recovery:*** If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation is cancelled and you are not charged for the database that did not complete the restore. 
+* ***Data recovery:*** If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation is canceled and you are not charged for the database that did not complete the restore. 
 
 ## Deleted database restore
 You can restore a deleted database to the deletion time for a deleted database on the same logical server using the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
-> If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is no support for restoring a deleted server at this time.
+> If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server.
 > 
 
 ## Geo-Restore
 You can restore a SQL database on any server in any Azure region from the most recent geo-replicated full and differential backups. Geo-Restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. You can use the [Azure portal](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md), or the [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
 
-Geo-Restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a differential backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, in the event of a disaster, there can be up to one hour data loss. The following illustration shows restore of the database from the last available backup in another region.
+Geo-Restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a differential backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. The following illustration shows restore of the database from the last available backup in another region.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -104,7 +104,7 @@ As previously discussed, in addition to the Azure portal, database recovery can 
 |  | |
 
 ## Summary
-Automatic backups protect your databases from user and application errors, accidental database deletion, and prolonged outages. This zero-cost zero-admin solution is available with all SQL databases. 
+Automatic backups protect your databases from user and application errors, accidental database deletion, and prolonged outages. This built-in capability is available for all service tiers and performance levels. 
 
 ## Next steps
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
