@@ -198,6 +198,13 @@ Now add code that implements the behavior defined in the model.
             }
             else
             {
+      #ifdef MBED_BUILD_TIMESTAMP
+              // For mbed add the certificate information
+              if (IoTHubClient_SetOption(iotHubClientHandle, "TrustedCerts", certificates) != IOTHUB_CLIENT_OK)
+              {
+                  printf("Failed to set option \"TrustedCerts\"\n");
+              }
+      #endif // MBED_BUILD_TIMESTAMP
               Thermostat* thermostat = IoTHubDeviceTwin_CreateThermostat(iotHubClientHandle);
               if (thermostat == NULL)
               {
