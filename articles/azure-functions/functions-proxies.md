@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 02/19/2017
 ms.author: mahender
 
 ---
@@ -29,7 +29,7 @@ This article explains how to configure and work with Azure Functions Proxies. Th
 
 ## <a name="enable"></a>Enabling Azure Functions Proxies
 
-Proxies are not enabled by default. You can create proxies while disabled, but they will not execute. The following steps will show you how to enable proxies:
+Proxies are not enabled by default. You can create proxies while the feature is disabled, but they will not execute. The following steps will show you how to enable proxies:
 
 1. Open the [Azure portal] and navigate to your function app.
 2. Select **Function app settings**.
@@ -61,7 +61,7 @@ The backend URL parameter does not need to be static. You can condition it on in
 
 Parameters used in the route template may be used as inputs to the backend URL property. Values are referenced by name, enclosed in curly braces "{}".
 
-For example, if a proxy has a route template like `/pets/{petId}`, the backend URL can include the value of `{petId}`, as in `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`.
+For example, if a proxy has a route template like `/pets/{petId}`, the backend URL can include the value of `{petId}`, as in `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`. If the route template terminates in a wildcard, such as `/api/{*restOfPath}`, the value `{restOfPath}` will be a string representation of the remaining path segments from the incoming request.
 
 
 ### Using application settings
@@ -101,7 +101,7 @@ Each proxy has a friendly name, such as "proxy1" in the example above. The corre
 
 * **matchCondition** : Required - an object defining the requests that will trigger the execution of this proxy. It contains two properties shared with [HTTP triggers]:
     * _methods_ : This is an array of the HTTP methods to which the proxy will respond. If not specified, the proxy will respond to all HTTP methods on the route.
-    * _route_ : This defines the route template, controlling to which request URLs your proxy will respond. The default value if none is provided is <proxyname>
+    * _route_ : Required - This defines the route template, controlling to which request URLs your proxy will respond. Unlike in HTTP triggers, there is no default value.
 * **backendUri** : The URL of the backend resource to which the request should be proxied. This value may be templated, as described in [Modifying backend requests](#modify-requests). If this property is not included, Azure Functions will respond with an HTTP 200 OK.
 
 > [!Note] 
