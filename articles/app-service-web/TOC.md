@@ -192,9 +192,9 @@
 ### Site extensions
 
 # Reference	
-## [CLI 2.0](../../cli/azure/appservice)
-## [PowerShell](../../powershell)
-## [REST API](../../rest/api/appservice/) 
+## [CLI 2.0](/cli/azure/appservice)
+## [PowerShell](/powershell)
+## [REST API](/rest/api/appservice/) 
 		
 # Resources	
 ## [Pricing](https://azure.microsoft.com/pricing/details/app-service/) 	
