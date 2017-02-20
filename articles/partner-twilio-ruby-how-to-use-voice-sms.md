@@ -202,10 +202,10 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [special_offer]: http://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
 [twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twilio_api]: http://www.twilio.com/docs/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_console]: https://www.twilio.com/console
-[verify_phone]: https://www.twilio.com/console/phone-numbers/verified#
+[verify_phone]: https://www.twilio.com/console/phone-numbers/verified
 [twilio_api_documentation]: http://www.twilio.com/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security
 [twilio_howtos]: http://www.twilio.com/docs/howto
