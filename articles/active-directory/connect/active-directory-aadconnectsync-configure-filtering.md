@@ -97,7 +97,7 @@ To set the domain filter, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Service** from the **Start** menu.
-3. Select **Connectors**, and in the **Connectors** list, select the connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
+3. Select **Connectors**, and in the **Connectors** list, select the Connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
    ![Connector properties](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**.
 5. In the **Select directory partitions** list, select and unselect domains as needed. Verify that only the partitions that you want to synchronize are selected.  
@@ -110,7 +110,7 @@ To set the domain filter, do the following steps:
 ### Update the run profiles
 If you've updated your domain filter, you also need to update the run profiles.
 
-1. In the **Connectors** list, make sure that the connector that you changed in the previous step is selected. In **Actions**, select **Configure Run Profiles**.  
+1. In the **Connectors** list, make sure that the Connector that you changed in the previous step is selected. In **Actions**, select **Configure Run Profiles**.  
    ![Connector run profiles 1](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)  
 2. Find and identify the following profiles:
     * Full Import
@@ -143,7 +143,7 @@ To configure organizational unit–based filtering, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Service** from the **Start** menu.
-3. Select **Connectors**, and in the **Connectors** list, select the connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
+3. Select **Connectors**, and in the **Connectors** list, select the Connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
    ![Connector properties](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**, select the domain that you want to configure, and then click **Containers**.
 5. When you're prompted, provide any credentials with read access to your on-premises Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.
@@ -266,7 +266,7 @@ If you changed the configuration by using **attribute** filtering, then you need
 Do the following steps:
 
 1. Start **Synchronization Service** from the **Start** menu.
-2. Select **Connectors**. In the **Connectors** list, select the connector where you made a configuration change earlier. In **Actions**, select **Run**.  
+2. Select **Connectors**. In the **Connectors** list, select the Connector where you made a configuration change earlier. In **Actions**, select **Run**.  
    ![Connector run](./media/active-directory-aadconnectsync-configure-filtering/connectorrun.png)  
 3. In **Run profiles**, select the operation that was mentioned in the previous section. If you need to run two actions, run the second after the first one has finished. (The **State** column is **Idle** for the selected connector.)
 
@@ -274,14 +274,14 @@ After the synchronization, all changes are staged to be exported. Before you act
 
 1. Start a command prompt, and go to `%Program Files%\Microsoft Azure AD Sync\bin`.
 2. Run `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   The name of the connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
+   The name of the Connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
 3. Run `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. You now have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all the changes that are about to be exported.
 5. Make the necessary changes to the data or configuration, and run these steps again (Import, Synchronize, and Verify) until the changes that are about to be exported are what you expect.
 
 When you're satisfied, export the changes to Azure AD.
 
-1. Select **Connectors**. In the **Connectors** list, select the Azure AD connector. In **Actions**, select **Run**.
+1. Select **Connectors**. In the **Connectors** list, select the Azure AD Connector. In **Actions**, select **Run**.
 2. In **Run profiles**, select **Export**.
 3. If your configuration changes delete many objects, then you see an error in the export when the number is more than the configured threshold (by default 500). If you see this error, then you need to temporarily disable the "[prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)" feature.
 
