@@ -100,7 +100,7 @@ Here's what you do:
     - For Windows, if you're not using a domain account, you need to disable Remote User Access control on the local machine. To do this, in the register under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
     - If you want to add the registry entry for Windows from a CLI, type:
         ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
-    - For Linux, the account should be a root user on the source Linux server.
+    - For Linux, the account should be root on the source Linux server.
 
 
 
