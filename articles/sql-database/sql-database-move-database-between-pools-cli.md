@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 02/18/2017
+ms.date: 02/20/2017
 ms.author: janeng
 ---
 
 # Create elastic pools and move databases between pools and out of a pool using the Azure CLI
 
-The sample script provided here illustrates how a database can be moved from one elastic pool into another elastic pool and finally to a standalone performance level.
+The sample script provided here illustrates how a database can be moved from one elastic pool into another elastic pool and finally to a standalone performance level. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines/virtual-machines-windows-cli-options.md).
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command.
+Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
 ## Run CLI script
 
