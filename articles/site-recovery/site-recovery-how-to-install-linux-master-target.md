@@ -175,6 +175,19 @@ g. If the value exists and is set to true, click on Cancel.
 h. If the value does not exist click **Add Row.**
 
 i. Add disk.EnableUUID in the Name column and Set its value as TRUE
+=======
+  If exists and if the value is set to False over write the value with
+True (True and False values are case in-sensitive).
+
+  If exists and is set to true, click on cancel and test the SCSI
+command inside guest operating system after it is boot-up.
+
+f. If does not exist click **Add Row.**
+
+  Add disk.EnableUUID in the Name column.
+
+  Set its value as TRUE
+
 
 
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
@@ -413,9 +426,11 @@ Once the Master target has completed installation and registration, you can see 
 You can now proceed with [Reprotection](site-recovery-how-to-reprotect.md), followed by Failback.
 
 ## Common issues
+
 * Make sure you do not turn on Storage vMotion on any Management components such as MT. If the MT moves post a successfult reprotect, the VMDK's cannot be detached and the failback will fail.
 * The MT machine should not have any snapshots on the virtual machine. If there are snapshots, the failback will fail.
 * Due to some custom NIC configurations at some customers, the network interface is disabled during boot up, then the MT agent cannot initialize. make sure the following properties are correctly set.
 	* Check the two properties in the ethernet card files /etc/sysconfig/network-scripts/ifcfg-eth*
 		* BOOTPROTO=dhcp 
 		* ONBOOT=yes
+

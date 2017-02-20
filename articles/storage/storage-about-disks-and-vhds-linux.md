@@ -6,7 +6,6 @@ documentationcenter: ''
 author: robinsh
 manager: timlt
 editor: tysonn
-tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 7be8dd52-98f7-4187-9b78-55197915bc9b
 ms.service: storage
@@ -14,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/14/2017
 ms.author: robinsh
 
 ---

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 ---
 
@@ -64,6 +64,17 @@ First the user attempts to access a resource that trusts tokens issued from Azur
 5.	Azure AD decrypts the Kerberos ticket using the previously shared key. Then it either returns a token to the user or asks the user to provide additional proofs such as multi-factor authentication as required by the resource.
 
 Single sign-on is an opportunistic feature, which means that if it fails for some reason, the user only needs to enter their password on the sign-in page as usual.
+
+## Single Sign On (SSO) prerequisites
+If you are enabling ‘Single Sign On’ with ‘Pass-through authentication’, there are no additional pre-requisites beyond what is required for ‘Pass-through authentication’.
+
+If you are enabling ‘Single Sign On’ with ‘Password Sync’, and if there is a firewall between Azure AD Connect and Azure AD, make sure that:
+- The Azure AD Connect server can communicate with *.msappproxy.net
+- Azure AD Connect can make HTTPS requests to Azure AD on the ports below:
+
+|Protocol|Port Number|Description
+| --- | --- | ---
+|HTTPS|9090|	Enable SSO registration (required only for the SSO registration process).
 
 ## Enabling SSO with Pass-through Authentication or Password Sync
 Azure AD Connect provides a simple process to enable single sign-on with Pass-through authentication or Password sync. Ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account. The username and password is not stored in Azure AD Connect or Azure AD and are used only for this operation.

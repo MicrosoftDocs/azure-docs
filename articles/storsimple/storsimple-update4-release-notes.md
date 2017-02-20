@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: alkohli
 
 ---
@@ -28,7 +28,7 @@ Update 4 can be applied to any StorSimple device running Release (GA) or Update 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
-> * Update 4 has device software, USM firmware, LSI driver and firmware, disk firmware, Storport and Spaceport, security, and other OS updates. It takes approximately 1.5-2 hours to install this update. We recommend that you apply this update to keep your device up-to-date. 
+> * Update 4 has device software, USM firmware, LSI driver and firmware, disk firmware, Storport and Spaceport, security, and other OS updates. It takes approximately 4 hours to install this update. We recommend that you apply this update to keep your device up-to-date. 
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 ## What's new in Update 4

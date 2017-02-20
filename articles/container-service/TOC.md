@@ -1,5 +1,6 @@
 # Overview
-## [What is the Azure Container Service?](container-service-intro.md)
+## [What is Azure Container Service?](container-service-intro.md)
+## [FAQ](container-service-faq.md)
 # Get Started
 ## [Deploy an ACS cluster](container-service-deployment.md)
 ## [Deploy to ACS using Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md)
@@ -22,6 +23,7 @@
 #### [Monitor with Dynatrace](container-service-monitoring-dynatrace.md)
 ## Manage with Kubernetes
 ### [Get started with Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Get started with Kubernetes and Windows](container-service-kubernetes-windows-walkthrough.md)
 ### [Configure a service principal](container-service-kubernetes-service-principal.md)
 ### [Container management - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Load balance Kubernetes containers](container-service-kubernetes-load-balancing.md)
