@@ -32,7 +32,7 @@ Azure AD Privileged Identity Management helps you:
 * Get reports about administrator access history and changes in administrator assignments
 * Get alerts about access to a privileged role
 
-Azure AD Privileged Identity Management can manage the built-in Azure AD organizational roles, including:  
+Azure AD Privileged Identity Management can manage the built-in Azure AD organizational roles, including (but not limited to):  
 
 * Global Administrator
 * Billing Administrator
