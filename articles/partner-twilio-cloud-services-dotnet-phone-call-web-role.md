@@ -42,107 +42,107 @@ You should be familiar with creating a basic [Web Role on Azure][azure_webroles_
 
 The following code shows how to create a web form to retrieve user data for making a call. In this example, an ASP.NET Web Role named **TwilioCloud** is created.
 
-```csharp
-    <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master"
-        AutoEventWireup="true" CodeBehind="Default.aspx.cs"
-        Inherits="WebRole1._Default" %>
+```aspx
+<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master"
+    AutoEventWireup="true" CodeBehind="Default.aspx.cs"
+    Inherits="WebRole1._Default" %>
 
-    <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    </asp:Content>
-    <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <div>
+        <asp:BulletedList ID="varDisplay" runat="server" BulletStyle="NotSet">
+        </asp:BulletedList>
+    </div>
+    <div>
+        <p>Fill in all fields and click <b>Make this call</b>.</p>
         <div>
-            <asp:BulletedList ID="varDisplay" runat="server" BulletStyle="NotSet">
-            </asp:BulletedList>
+            To:<br /><asp:TextBox ID="toNumber" runat="server" /><br /><br />
+            Message:<br /><asp:TextBox ID="message" runat="server" /><br /><br />
+            <asp:Button ID="callpage" runat="server" Text="Make this call"
+                onclick="callpage_Click" />
         </div>
-        <div>
-            <p>Fill in all fields and click <b>Make this call</b>.</p>
-            <div>
-                To:<br /><asp:TextBox ID="toNumber" runat="server" /><br /><br />
-                Message:<br /><asp:TextBox ID="message" runat="server" /><br /><br />
-                <asp:Button ID="callpage" runat="server" Text="Make this call"
-                    onclick="callpage_Click" />
-            </div>
-        </div>
-    </asp:Content>
+    </div>
+</asp:Content>
 ```
 
 ## <a id="howtocreatecode"></a>How to: Create the code to make the call
 The following code, which is called when the user completes the form, creates the call message and generates the call. In this example, the code is run in the onclick event handler of the button on the form. (Use your Twilio account and authentication token instead of the placeholder values assigned to `accountSID` and `authToken` in the code below.)
 
 ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.UI;
-    using System.Web.UI.WebControls;
-    using Twilio;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Twilio;
 
-    namespace WebRole1
+namespace WebRole1
+{
+    public partial class _Default : System.Web.UI.Page
     {
-        public partial class _Default : System.Web.UI.Page
+        protected void Page_Load(object sender, EventArgs e)
         {
-            protected void Page_Load(object sender, EventArgs e)
-            {
 
+        }
+
+        protected void callpage_Click(object sender, EventArgs e)
+        {
+            // Call porcessing happens here.
+
+            // Use your account SID and authentication token instead of
+            // the placeholders shown here.
+            var accountSID = "ACNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";
+            var authToken =  "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";
+
+            // Instantiate an instance of the Twilio client.
+            var client = new TwilioRestClient(accountSID, authToken);
+
+            // Retrieve the account, used later to retrieve the
+            var account = client.GetAccount();
+            var apiVersion = client.ApiVersion;
+            var twilioBaseURL = client.BaseUrl;
+
+            this.varDisplay.Items.Clear();
+
+            if (this.toNumber.Text == "" || this.message.Text == "")
+            {
+                this.varDisplay.Items.Add(
+                        "You must enter a phone number and a message.");
             }
-
-            protected void callpage_Click(object sender, EventArgs e)
+            else
             {
-                // Call porcessing happens here.
+                // Retrieve the values entered by the user.
+                var to = this.toNumber.Text;
+                var myMessage = this.message.Text;
 
-                // Use your account SID and authentication token instead of
-                // the placeholders shown here.
-                var accountSID = "ACNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";
-                var authToken =  "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";
+                // Create a URL using the Twilio message and the user-entered
+                // text. You must replace spaces in the user's text with '%20'
+                // to make the text suitable for a URL.
+                var url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
 
-                // Instantiate an instance of the Twilio client.
-                var client = new TwilioRestClient(accountSID, authToken);
+                // Display the endpoint, API version, and the URL for the message.
+                this.varDisplay.Items.Add($"Using Twilio endpoint {twilioBaseURL}");
+                this.varDisplay.Items.Add($"Twilioclient API Version is {apiVersion}");
+                this.varDisplay.Items.Add($"The URL is {url}");
 
-                // Retrieve the account, used later to retrieve the
-                var account = client.GetAccount();
-                var APIversion = client.ApiVersion;
-                var TwilioBaseURL = client.BaseUrl;
+                // Instantiate the call options that are passed
+                // to the outbound call.
+                var options = new CallOptions();
 
-                this.varDisplay.Items.Clear();
+                // Set the call From, To, and URL values.
+                options.From = "+14155992671";
+                options.To = to;
+                options.Url = url;
 
-                if (this.toNumber.Text == "" || this.message.Text == "")
-                {
-                    this.varDisplay.Items.Add(
-                            "You must enter a phone number and a message.");
-                }
-                else
-                {
-                    // Retrieve the values entered by the user.
-                    var to = this.toNumber.Text;
-                    var myMessage = this.message.Text;
-
-                    // Create a URL using the Twilio message and the user-entered
-                    // text. You must replace spaces in the user's text with '%20'
-                    // to make the text suitable for a URL.
-                    var Url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
-
-                    // Display the endpoint, API version, and the URL for the message.
-                    this.varDisplay.Items.Add($"Using Twilio endpoint {TwilioBaseURL}");
-                    this.varDisplay.Items.Add($"Twilioclient API Version is {APIversion}");
-                    this.varDisplay.Items.Add($"The URL is {Url}");
-
-                    // Instantiate the call options that are passed
-                    // to the outbound call.
-                    var options = new CallOptions();
-
-                    // Set the call From, To, and URL values.
-                    options.From = "+14155992671";
-                    options.To = to;
-                    options.Url = Url;
-
-                    // Place the call.
-                    var call = client.InitiateOutboundCall(options);
-                    this.varDisplay.Items.Add("Call status: " + call.Status);
-                }
+                // Place the call.
+                var call = client.InitiateOutboundCall(options);
+                this.varDisplay.Items.Add("Call status: " + call.Status);
             }
         }
     }
+}
 ```
 
 The call is made, and the Twilio endpoint, API version, and the call status are displayed. The following screenshot shows output from a sample run.
