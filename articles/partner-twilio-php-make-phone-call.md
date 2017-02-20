@@ -85,8 +85,8 @@ $message     = $_POST['callText'];
 $client = new Twilio\Rest\Client($sid, $token);
 
 $call = $client->calls->create(
-            $from_number,
             $to_number,
+            $from_number,
             array('url' => http://twimlets.com/message?Message=' . urlencode($message))
         );
 
