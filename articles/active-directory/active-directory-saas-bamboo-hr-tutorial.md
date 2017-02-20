@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 01/10/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory Integration with Bamboo HR
 The objective of this tutorial is to show the integration of Azure and BambooHR.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A BambooHR single sign-on enabled subscription
+* A BambooHR single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to BambooHR will be able to single sign into the application at your BambooHR company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for BambooHR
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for BambooHR
+* Configuring single sign-on
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Scenario")
 
-## Enabling the application integration for BambooHR
+## Enable the application integration for BambooHR
 The objective of this section is to outline how to enable the application integration for BambooHR.
 
-### To enable the application integration for BambooHR, perform the following steps:
+**To enable the application integration for BambooHR, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-bamboo-hr-tutorial/IC700993.png "Active Directory")
@@ -58,14 +60,15 @@ The objective of this section is to outline how to enable the application integr
    
    ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to BambooHR with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **BambooHR** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **BambooHR** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Scenario](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Scenario")
 2. On the **How would you like users to sign on to BambooHR** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -80,8 +83,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 5. In a different web browser window, log into your BambooHR company site as an administrator.
 6. On the homepage, perform the following steps:
    
-   ![Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796691.png "Single Sign-On")
-   
+   ![Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796691.png "Single Sign-On")   
    1. Click **Apps**.
    2. In the apps menu on the left, click **Single Sign-On**.
    3. Click **SAML Single Sign-On**.
@@ -91,10 +93,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
    1. In the Azure classic portal, on the **Configure single sign-on at BambooHR** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **SSO Login URL ** textbox.
    2. Create a **base-64 encoded** file from your downloaded certificate.  
-      
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      > 
+   
+      >[!TIP]
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
       > 
    3. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
    4. Click **Save**.
@@ -102,12 +103,14 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
    ![Configure single sign-on](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configure single sign-on")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into BambooHR, they must be provisioned into BambooHR.  
-In the case of BambooHR, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+* In the case of BambooHR, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **BambooHR** site as administrator.
 2. In the toolbar on the top, click **Settings**.
    
@@ -117,17 +120,17 @@ In the case of BambooHR, provisioning is a manual task.
 5. Type the user name, password and email address of a valid AAD account you want to provision into the related textboxes.
 6. Click **Save**.
 
-> [!NOTE]
-> You can use any other BambooHR user account creation tools or APIs provided by BambooHR to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other BambooHR user account creation tools or APIs provided by BambooHR to provision AAD user accounts. 
 > 
 
-## Assigning users
+## Assig users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to BambooHR, perform the following steps:
+**To assign users to BambooHR, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **BambooHR **application integration page, click **Assign users**.
+2. On the **BambooHR** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
