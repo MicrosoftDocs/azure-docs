@@ -1,6 +1,6 @@
 ---
 title: Manage workspaces | Microsoft Docs
-description: Manage workspaces in Log Analytics using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
+description: Manage workspaces in Azure Log Analytics using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 
 ---
@@ -94,10 +94,13 @@ Some points to keep in mind about the Azure portal:
   The URL looks like:
   `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+For example, in order to add or remove management solutions, the user must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, the user must be a member of the OMS workspace contributor or administrator role in the OMS portal.
+
 ### Managing users in the OMS portal
 You manage users and group on the **Manage Users** tab under the **Accounts** tab in the Settings page.   
 
 ![manage users](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### Add a user to an existing workspace
 Use the following steps to add a user or group to a workspace.
