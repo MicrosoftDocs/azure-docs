@@ -78,7 +78,7 @@ It is, however, possible to assign the same SKU license directly to the user in 
 
 Directly assigned licenses can be removed, but that won’t affect the inherited license. Let’s consider the following user who inherits an *Office 365 Enterprise E3* license from a group, which enables a handful of services.
 
-1. Initially, the user inherits the license only from the *E3 – basic services* group. This enables the 4 service plans listed below\
+1. Initially, the user inherits the license only from the *E3 – basic services* group. This enables the 4 service plans listed below:
 
   ![E3 group enabled services](media/active-directory-licensing-group-advanced/e3-group-enabled-services.png)
 
