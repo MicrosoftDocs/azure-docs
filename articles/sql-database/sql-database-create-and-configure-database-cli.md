@@ -20,9 +20,9 @@ ms.author: janeng
 
 # Create a SQL database and configure a firewall rule with the Azure CLI
 
-The sample script provided here creates a Azure SQL database in the North Central US region. Once the script has been successfully run, the SQL Database can be access from all Azure services and the configured IP address.
+The sample script provided here creates a Azure SQL database in the North Central US region. Once the script has been successfully run, the SQL Database can be access from all Azure services and the configured IP address.This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command.
+Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
 ## Run CLI script
 
