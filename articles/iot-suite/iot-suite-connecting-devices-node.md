@@ -92,7 +92,7 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
         }
     };
 
-1. Add the following defintion for the device twin reported values. This includes definitions of the direct methods the device supports:
+1. Add the following definition for the device twin reported values. This definition includes descriptions of the direct methods the device supports:
 
     ```nodejs
     var reportedProperties = {
@@ -174,7 +174,7 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
     * Set up a handler for desired properties.
     * Send reported properties.
     * Register handlers for the direct methods.
-    * Start sending telemtry.
+    * Start sending telemetry.
 
     ```nodejs
     client.open(function (err) {

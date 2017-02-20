@@ -61,7 +61,7 @@ To add a device to your remote monitoring solution, complete the following steps
 4. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key). Your client application needs these values to connect to the remote monitoring solution. Then click **Done**.
    
     ![][4]
-5. Select your device in the device list in the solution dashboard. Then, in the **Device Details** panel, click **Enable Device**. The status of your device is now **Running**. The remote montoring solution can now receive telemetry from your device and invoke methods on the device.
+5. Select your device in the device list in the solution dashboard. Then, in the **Device Details** panel, click **Enable Device**. The status of your device is now **Running**. The remote monitoring solution can now receive telemetry from your device and invoke methods on the device.
 
 [img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png
 [1]: ./media/iot-suite-selector-connecting/suite0.png

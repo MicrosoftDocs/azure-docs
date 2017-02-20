@@ -70,7 +70,7 @@ The IoT Hub serializer client library uses a model to specify the format of the 
     ```
 
     > [!NOTE]
-    > Now you can verify that your project has the correct dependencies setup by building it.
+    > Now you can verify that your project has the correct dependencies set up by building it.
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 

@@ -36,7 +36,7 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
 
 ### Create an mbed project and import the sample code
 
-Follow these steps to add some sample code to an mbed project. You import the remote monitoring starter project and then change the project to use the MQTT protocol instead of the AMQP protocol. Currently, you need to do this to be able to use the device management features of IoT Hub.
+Follow these steps to add some sample code to an mbed project. You import the remote monitoring starter project and then change the project to use the MQTT protocol instead of the AMQP protocol. Currently, you need to use the MQTT protocol to use the device management features of IoT Hub.
 
 1. In your web browser, go to the mbed.org [developer site](https://developer.mbed.org/). If you haven't signed up, you see an option to create an account (it's free). Otherwise, log in with your account credentials. Then click **Compiler** in the upper right-hand corner of the page. This action brings you to the *Workspace* interface.
 
@@ -54,9 +54,9 @@ Follow these steps to add some sample code to an mbed project. You import the re
    
     ![][8]
 
-1. In the **Program Workspace**, right-click the **iothub\_amqp\_transport** library, click **Delete**, and then click **OK** to confirm**.
+1. In the **Program Workspace**, right-click the **iothub\_amqp\_transport** library, click **Delete**, and then click **OK** to confirm.
 
-1. In the **Program Workspace**, right-click the **azure\_amqp\_c** library, click **Delete**, and then click **OK** to confirm**.
+1. In the **Program Workspace**, right-click the **azure\_amqp\_c** library, click **Delete**, and then click **OK** to confirm.
 
 1. Right-click the **remote_monitoring** project in the **Program Workspace**, select **Import Library**, then select **From URL**.
    
@@ -71,8 +71,6 @@ Follow these steps to add some sample code to an mbed project. You import the re
 1. Your workspace now looks like the following:
 
     ![][13]
-
-TODOTODOTODO Add mqtt library instead of amqp
 
 1. Open the remote\_monitoring\remote_monitoring.c file and replace the existing `#include` statements with the following code:
 

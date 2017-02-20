@@ -58,7 +58,7 @@ On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **
 - Create the four files **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, and **CMakeLists.txt**.
 - Create folder called **parson**.
 
-Copy the files **parson.c** and **parson.h** from your local copy of the Parson respository into the **remote\_monitoring/parson** folder.
+Copy the files **parson.c** and **parson.h** from your local copy of the Parson repository into the **remote\_monitoring/parson** folder.
 
 The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.
 
