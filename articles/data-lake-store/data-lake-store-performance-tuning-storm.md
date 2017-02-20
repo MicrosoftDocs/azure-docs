@@ -40,14 +40,14 @@ You may be able to improve performance by increasing the concurrency of the I/O 
 
 For example, on a cluster with 4 VMs and 4 worker processes, 32 spout executors and 32 spout tasks, and 256 bolt executors and 512 bolt tasks, consider the following:
 
-Each supervisor, which is a worker node, has a single worker Java virtual machine (JVM) process. This JVM process manages 4 spout threads and 64 bolt threads. Within each thread, tasks are run sequentially. With the above configuration, each spout thread has 1 task, and each bolt thread has 2 tasks.
+Each supervisor, which is a worker node, has a single worker Java virtual machine (JVM) process. This JVM process manages 4 spout threads and 64 bolt threads. Within each thread, tasks are run sequentially. With the preceding configuration, each spout thread has 1 task, and each bolt thread has 2 tasks.
 
 In Storm, here are the various components involved, and how they impact the level of parallelism you have:
 * The head node (called Nimbus in Storm) is used to submit and manage jobs. These nodes have no impact on the degree of parallelism.
 * The supervisor nodes. In HDInsight, this corresponds to a worker node Azure VM.
 * The worker tasks are Storm processes running in the VMs. Each worker task corresponds to a JVM instance. Storm distributes the number of worker processes you specify to the worker nodes as evenly as possible.
 * Spout and bolt executor instances. Each executor instance corresponds to a thread running within the workers (JVMs).
-* Storm tasks: These are logical tasks that each of these threads run. This does not change the level of parallelism, so you should evaluate if you need multiple tasks per executor or not.
+* Storm tasks. These are logical tasks that each of these threads run. This does not change the level of parallelism, so you should evaluate if you need multiple tasks per executor or not.
 
 ### Get the best performance from Data Lake Store
 
@@ -59,7 +59,7 @@ When working with Data Lake Store, you get the best performance if you do the fo
 
 Let’s assume you have an 8 worker node cluster with a D13v2 Azure VM. This VM has 8 cores, so among the 8 worker nodes, you have 64 total cores.
 
-Let’s say we do 8 bolt threads per core. Given 64 cores, that means we want 512 total bolt executor instances (i.e., threads). In this case, let’s say we start with one JVM per VM, and mainly use the thread concurrency within the JVM to achieve concurrency. That means we need 8 worker tasks (one per Azure VM), and 512 bolt executors. Given this configuration, Storm tries to distribute the workers evenly across worker nodes (also known as supervisor nodes), giving each worker node 1 JVM. Now within the supervisors, Storm tries to distribute the executors evenly between supervisors, giving each supervisor (that is, JVM) 8 threads each.
+Let’s say we do 8 bolt threads per core. Given 64 cores, that means we want 512 total bolt executor instances (that is, threads). In this case, let’s say we start with one JVM per VM, and mainly use the thread concurrency within the JVM to achieve concurrency. That means we need 8 worker tasks (one per Azure VM), and 512 bolt executors. Given this configuration, Storm tries to distribute the workers evenly across worker nodes (also known as supervisor nodes), giving each worker node 1 JVM. Now within the supervisors, Storm tries to distribute the executors evenly between supervisors, giving each supervisor (that is, JVM) 8 threads each.
 
 ## Tune additional parameters
 Once you have the basic topology, you can consider whether you want to tweak any of the parameters:
@@ -68,7 +68,7 @@ Once you have the basic topology, you can consider whether you want to tweak any
 * **Number of tasks.** Each bolt runs as a single thread. Additional tasks per bolt don't provide any additional concurrency. The only time they are of benefit is if your process of acknowledging the tuple takes a large proportion of your bolt execution time. It's a good idea to group many tuples into a larger append before you send an acknowledgement from the bolt. So, in most cases, multiple tasks provide no additional benefit.
 * **Local or shuffle grouping.** When this setting is enabled, tuples are sent to bolts within the same worker process. This reduces inter-process communication and network calls. This is recommended for most topologies.
 
-This basic scenario is a good starting point. Test with your own data to tweak the parameters mentioned above to achieve optimal performance.
+This basic scenario is a good starting point. Test with your own data to tweak the preceding parameters to achieve optimal performance.
 
 ## Tune the spout
 
@@ -76,14 +76,14 @@ You can modify the following settings to tune the spout.
 
 - **Tuple timeout: topology.message.timeout.secs**. This setting determines the amount of time a message takes to complete, and receive acknowledgement, before it is considered failed.
 
-- **Max memory per worker process: worker.childopts**. This setting lets you specify additional command line parameters to the Java workers. The most commonly used setting here is XmX, which determines the maximum memory allocated to a JVM’s heap.
+- **Max memory per worker process: worker.childopts**. This setting lets you specify additional command-line parameters to the Java workers. The most commonly used setting here is XmX, which determines the maximum memory allocated to a JVM’s heap.
 
-- **Max spout pending: topology.max.spout.pending**. This setting determines the number of tuples that can in be flight (not yet acknowledged at all nodes in the topology) per spout thread at any point of time.
+- **Max spout pending: topology.max.spout.pending**. This setting determines the number of tuples that can in be flight (not yet acknowledged at all nodes in the topology) per spout thread at any time.
 
  A good calculation to do is to estimate the size of each of your tuples. Then figure out how much memory one spout thread has. The total memory allocated to a thread, divided by this value, should give you the upper bound for the max spout pending parameter.
 
 ## Tune the bolt
-When writing to Data Lake Store, set a size sync policy (buffer on the client side) to 4 MB. A flushing or hsync() is then performed only when the buffer size is the above value. The Data Lake Store driver on the worker VM automatically does this buffering, unless the user explicitly performs an hsync().
+When writing to Data Lake Store, set a size sync policy (buffer on the client side) to 4 MB. A flushing or hsync() is then performed only when the buffer size is the at this value. The Data Lake Store driver on the worker VM automatically does this buffering, unless you explicitly perform an hsync().
 
 The default Data Lake Store Storm bolt has a size sync policy parameter (fileBufferSize) that can be used to tune this parameter.
 
@@ -98,7 +98,7 @@ For best performance on Data Lake Store, have the bolt buffer 4 MB of tuple data
 > [!NOTE]
 Applications may have a requirement to acknowledge tuples more frequently (at data sizes less than 4 MB) for other non-performance reasons. However, that may impact the I/O throughput to the storage back end. Carefully weigh this tradeoff against the bolt’s I/O performance.
 
-If the incoming rate of tuples is not very high, so the 4 MB buffer takes a long time to fill, consider mitigating this by:
+If the incoming rate of tuples is not high, so the 4-MB buffer takes a long time to fill, consider mitigating this by:
 * Reducing the number of bolts, so there are fewer buffers to fill.
 * Having a time-based or count-based policy, where an hflush() is triggered every x flushes or every y milliseconds, and the tuples accumulated so far are acknowledged back.
 
@@ -119,7 +119,7 @@ While your topology is running, you can monitor it in the Storm user interface. 
 
 ## Troubleshoot common problems
 Here are a few common troubleshooting scenarios.
-* **A large number of tuples are timing out.** Look at each node in the topology to determine where the bottleneck is. The most common reason for this is that the bolts are not able to keep up with the spouts. This leads to tuples clogging the internal buffers while waiting to be processed. Consider increasing the timeout value or decreasing the max spout pending.
+* **Many tuples are timing out.** Look at each node in the topology to determine where the bottleneck is. The most common reason for this is that the bolts are not able to keep up with the spouts. This leads to tuples clogging the internal buffers while waiting to be processed. Consider increasing the timeout value or decreasing the max spout pending.
 
 * **There is a high total process execution latency, but a low bolt process latency.** In this case, the tuples might not be being processed fast enough. Check that there are sufficient number of ackers. Another possibility is that they are waiting in the queue for too long before the bolts start processing them. Decrease the max spout pending.
 
