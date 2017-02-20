@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/02/2017
 ms.author: jeedes
 
 ---
+
 # Tutorial: Azure Active Directory integration with Intacct
 The objective of this tutorial is to show the integration of Azure and Intacct.  
 The scenario outlined in this tutorial assumes that you already have the following items:
@@ -27,17 +28,18 @@ After completing this tutorial, the Azure AD users you have assigned to Intacct 
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Intacct
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Intacct
+* Configuring single sign-on
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-intacct-tutorial/IC790030.png "Scenario")
 
-## Enabling the application integration for Intacct
+## Enable the application integration for Intacct
 The objective of this section is to outline how to enable the application integration for Intacct.
 
-### To enable the application integration for Intacct, perform the following steps:
+**To enable the application integration for Intacct, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-intacct-tutorial/IC700993.png "Active Directory")
@@ -58,13 +60,14 @@ The objective of this section is to outline how to enable the application integr
    
    ![Intacct](./media/active-directory-saas-intacct-tutorial/IC790032.png "Intacct")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Intacct with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-### To configure single sign-on, perform the following steps:
+As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Intacct** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790033.png "Configure Single Sign-On")
@@ -92,24 +95,22 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    2. As **Identity provider type**, select **SAML 2.0**.
    3. In the Azure classic portal, on the **Configure single sign-on at Intacct** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer URL** textbox.
    4. In the Azure classic portal, on the **Configure single sign-on at Intacct** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-   5. Create a **base-64 encoded** file from your downloaded certificate.
-      
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      > 
-      > 
-   6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox
+   5. Create a **base-64 encoded** file from your downloaded certificate.      
+      >[!TIP]
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+      >  
+   6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox.
    7. Click **Save**.
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790040.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into Intacct, they must be provisioned into Intacct.  
-In the case of Intacct, provisioning is a manual task.
+In order to enable Azure AD users to log into Intacct, they must be provisioned into Intacct. In the case of Intacct, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **Intacct** tenant.
 2. Click the **Company** tab, and then click **Users**.
    
@@ -123,24 +124,22 @@ In the case of Intacct, provisioning is a manual task.
    
    1. Type the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title** and the **Phone** of an Azure AD account you want to provision into the related textboxes.
    2. Select the **Admin privileges** of an Azure AD account you want to provision.
-   3. Click **Save**.
-      
-      > [!NOTE]
-      > The AAD account holder will receive an email and follow a link to confirm their account before it becomes active.
-      > 
-      > 
+   3. Click **Save**.      
+      >[!NOTE]
+      >The AAD account holder will receive an email and follow a link to confirm their account before it becomes active.
+      >  
 
-> [!NOTE]
-> You can use any other Intacct user account creation tools or APIs provided by Intacct to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Intacct user account creation tools or APIs provided by Intacct to provision AAD user accounts.
 > 
 
 ## Assigning users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Intacct, perform the following steps:
+**To assign users to Intacct, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Intacct **application integration page, click **Assign users**.
+2. On the **Intacct** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-intacct-tutorial/IC790044.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

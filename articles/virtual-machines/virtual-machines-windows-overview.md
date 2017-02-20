@@ -67,7 +67,7 @@ Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virt
 Your subscription has default [quota limits](../azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by filing a support ticket requesting an increase.
 
 ### Operating system disks and images
-Virtual machines use [virtual hard disks (VHDs)](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
+Virtual machines use [virtual hard disks (VHDs)](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
 
 Azure provides many [marketplace images](https://azure.microsoft.com/marketplace/virtual-machines/) to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). 
 

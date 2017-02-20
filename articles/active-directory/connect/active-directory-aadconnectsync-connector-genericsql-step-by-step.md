@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -31,7 +31,7 @@ The Generic SQL Connector is using ODBC to connect to the remote server. First w
 
 1. Start the ODBC management utility on your server:  
    ![ODBC](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc.png)
-2. Select the tab **File DSN**. Click **Add...**.
+2. Select the tab **File DSN**. Click **Add...**.  
    ![ODBC1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc1.png)
 3. The out-of-box driver works fine, so select it and click **Next>**.  
    ![ODBC2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
@@ -84,7 +84,7 @@ We now have the file we need and can start creating the Connector.
    ![Runprofile2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile2.png)
 3. Select the partition **OBJECT=User**.  
    ![Runprofile3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile3.png)
-4. Select **Table** and type **[USERS]**. Scroll down to the multi-valued object type section and enter the data as in the following picture. Select **Finish** to save the step.
+4. Select **Table** and type **[USERS]**. Scroll down to the multi-valued object type section and enter the data as in the following picture. Select **Finish** to save the step.  
    ![Runprofile4a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
    ![Runprofile4b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
 5. Select **New Step**. This time, select **OBJECT=Group**. On the last page, use the configuration as in the following picture. Click **Finish**.  

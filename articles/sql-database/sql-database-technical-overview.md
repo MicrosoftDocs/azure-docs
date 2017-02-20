@@ -1,5 +1,5 @@
 ---
-title: What is SQL Database? Intro to SQL Database | Microsoft Docs
+title: What is the Azure SQL Database service? | Microsoft Docs
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
@@ -12,23 +12,23 @@ ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 12/20/2016
-ms.author: shkurhek;carlrab
+ms.author: shkurhek
 ---
 # What is SQL Database? Introduction to SQL Database
 SQL Database is a relational database service in the Microsoft cloud based on the market-leading Microsoft SQL Server engine and capable of handling mission-critical workloads. SQL Database delivers predictable performance at multiple service levels, dynamic scalability with no downtime, built-in business continuity, and data protection — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. Because SQL Database is based on the [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) engine, SQL Database supports existing SQL Server tools, libraries, and APIs. As a result, it is easy for you to develop new solutions, to move your existing SQL Server solutions, and to extend your existing SQL Server solutions to the Microsoft cloud without having to learn new skills.
 
-This article is an introduction to SQL Database core concepts and features related to performance, scalability, and manageability, with links to explore details. If you are ready to jump in to hands-on tutorials, go to [Create your first SQL database](sql-database-get-started.md) or [Create an elastic pool](sql-database-elastic-pool-create-portal.md). For a short video demonstration, watch this video.
+This article is an introduction to SQL Database core concepts and features related to performance, scalability, and manageability, with links to explore details. If you are ready to jump in to hands-on tutorials, go to [Create your first SQL database](sql-database-get-started.md) or [Create an elastic pool](sql-database-elastic-pool-manage-portal.md). For a short video demonstration, watch this video.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
 ## Adjust performance and scale without downtime
-The SQL Database service offers three service tiers: Basic, Standard, and Premium. Each service tier offers [different levels of performance and capabilities](sql-database-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few bucks a month and then [change its service tier](sql-database-scale-up.md) manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+The SQL Database service offers three service tiers: Basic, Standard, and Premium. Each service tier offers [different levels of performance and capabilities](sql-database-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few bucks a month and then [change its service tier](sql-database-service-tiers.md) manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
 ## Elastic pools to maximize resource utilization
 For many businesses and apps, being able to create single databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. [Elastic pools](sql-database-elastic-pool.md) are designed to solve this problem. The concept is simple. You allocate performance resources to a pool rather than an individual database, and pay for the collective performance resources of the pool rather than for single database performance. With elastic pools, you don’t need to focus on dialing database performance up and down as demand for resources fluctuates. The pooled databases consume the performance resources of the elastic pool as needed. Pooled databases consume but don’t exceed the limits of the pool, so your cost remains predictable even if individual database usage doesn’t. What’s more, you can [add and remove databases to the pool](sql-database-elastic-pool-manage-portal.md), scaling your app from a handful of databases to thousands, all within a budget that you control. Finally, you can also control the minimum and maximum resources available to databases in the pool to ensure that no database in the pool uses all the pool resource and that every pooled database has a guaranteed minimum about of resources. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).

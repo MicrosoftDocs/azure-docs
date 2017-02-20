@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus | Microsoft Docs
+title: Overview of Azure Service Bus fundamentals | Microsoft Docs
 description: An introduction to using Service Bus to connect Azure applications to other software.
 services: service-bus-messaging
 documentationcenter: .net

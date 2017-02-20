@@ -1,23 +1,22 @@
 ---
-title: 'Azure AD Connect: FAQ | Microsoft Docs'
+title: 'Azure Active Directory Connect: FAQ - | Microsoft Docs'
 description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
 manager: femila
-editor: curtand
-
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 02/07/2017
 ms.author: billmath
 
 ---
-# Azure AD Connect FAQ
+# Frequently asked questions for Azure Active Directory Connect
+
 ## General installation
 **Q: Will installation work if the Azure AD Global Admin has 2FA enabled?**  
 With the builds from February 2016, this is supported.

@@ -1,6 +1,6 @@
 ---
-title: Replicate Hyper-V virtual machines in VMM clouds using Azure Site Recovery and PowerShell | Microsoft Docs
-description: Learn how to automate the replication of Hyper-V virtual machines in VMM clouds using Site Recovery and PowerShell.
+title: Replicate Hyper-V VMs to Azure in the classic portal with PowerShell | Microsoft Docs
+description: Automate the replication of Hyper-V virtual machines in VMM clouds using Site Recovery and PowerShell in the classic portal
 services: site-recovery
 documentationcenter: ''
 author: bsiva
@@ -13,11 +13,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 
 ---
-# Replicate Hyper-V virtual machines in VMM clouds to Azure using Powershell - Classic
+# Replicate Hyper-V VMs to Azure with PowerShell in the classic portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
@@ -71,7 +71,6 @@ If you want to deploy network mapping you'll need the following:
 
 * The virtual machines you want to protect on the source VMM server should be connected to a VM network. That network should be linked to a logical network that is associated with the cloud.
 * An Azure network to which replicated virtual machines can connect after failover. You'll select this network at the time of failover. The network should be in the same region as your Azure Site Recovery subscription.
-* [Learn more](site-recovery-network-mapping.md) about network mapping:
 
 ### PowerShell prerequisites
 Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/library/dn850420.aspx).

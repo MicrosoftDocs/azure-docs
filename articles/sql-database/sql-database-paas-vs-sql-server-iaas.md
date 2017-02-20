@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 
 ---
@@ -139,8 +139,7 @@ Choose **SQL Server on Azure VMs** if:
 * You have existing IT resources and can ultimately own patching, backups, and database high availability. Notice that some automated features dramatically simplify these operations. 
 
 ## Next steps
-* See [SQL Database tutorial: Create a SQL database in minutes using the Azure portal](sql-database-get-started.md) to get started with SQL Database.
+* See [Your first Azure SQL Database](sql-database-get-started.md) to get started with SQL Database.
 * See [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 * See [Provision a SQL Server virtual machine in Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) to get started with SQL Server on Azure VMs.
-* See [SQL Server on an Azure Virtual Machine: Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 

@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Batch account | Microsoft Docs
+title: Create a Batch account in the Azure Portal | Microsoft Docs
 description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud
 services: batch
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2016
+ms.date: 01/23/2016
 ms.author: tamram
 
 ---

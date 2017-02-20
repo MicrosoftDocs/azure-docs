@@ -1,5 +1,5 @@
 ---
-title: Get started with Data Lake Store using cross-platform command line interface | Microsoft Docs
+title: Use command-line interface to get started with Azure Data Lake Store | Microsoft Docs
 description: Use Azure cross-platform command line to create a Data Lake Store account and perform basic operations
 services: data-lake-store
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 
 ---
@@ -29,6 +29,11 @@ ms.author: nitinme
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
+
+> [!NOTE]
+> For uploading and downloading large amount of data (large files, a large number of files, or both), we recommend that you use the [Python SDK](data-lake-store-get-started-python.md), the [.NET SDK](data-lake-store-get-started-net-sdk.md), or [Azure PowerShell](data-lake-store-get-started-powershell.md). These options have better performance as they use multiple threads to parallelize the data movement.
+> 
+>  
 
 Learn how to use Azure command line interface to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 

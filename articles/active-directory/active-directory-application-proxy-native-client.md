@@ -1,5 +1,5 @@
 ---
-title: How to enable publishing of native client apps with proxy applications | Microsoft Docs
+title: Publish native client apps - Azure AD | Microsoft Docs
 description: Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
@@ -80,4 +80,3 @@ For more information about the native application flow, see [Native application 
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-

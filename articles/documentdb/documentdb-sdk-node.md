@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Node.js API & SDK | Microsoft Docs
+title: Node.js API & SDK Resources - Azure DocumentDB | Microsoft Docs
 description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK.
 services: documentdb
 documentationcenter: nodejs

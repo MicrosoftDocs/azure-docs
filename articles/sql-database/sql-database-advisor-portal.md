@@ -19,11 +19,6 @@ ms.author: sstein
 
 ---
 # SQL Database Advisor using the Azure portal
-> [!div class="op_single_selector"]
-> * [SQL Database Advisor Overview](sql-database-advisor.md)
-> * [Portal](sql-database-advisor-portal.md)
-> 
-> 
 
 You can use the Azure SQL Database Advisor in the Azure portal to review and implement recommendations for your existing SQL Databases that can improve current query performance.
 

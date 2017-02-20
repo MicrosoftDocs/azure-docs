@@ -1,6 +1,6 @@
 ---
-title: Create a Logic App | Microsoft Docs
-description: Learn how to create a Logic App connecting SaaS services
+title: Create workflows with your first Azure Logic App | Microsoft Docs
+description: Get started connecting apps and SaaS services with your first Logic App
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 01/25/2017
 ms.author: jehollan
 
 ---

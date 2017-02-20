@@ -1,10 +1,10 @@
 ---
-title: ExpressRoute locations | Microsoft Docs
-description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
+title: 'Connectivity providers and locations: Azure ExpressRoute | Microsoft Docs'
+description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by connectivity provider.
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/18/2017
+ms.date: 02/13/2017
 ms.author: cherylmc
 
 ---
@@ -37,21 +37,21 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
-| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **South America** |Brazil South |Sao Paulo |
 | **Europe** |North Europe, West Europe, UK West, UK South |Amsterdam, Dublin, London, Newport(Wales), Paris |
 | **Asia** |East Asia, Southeast Asia |Hong Kong, Singapore |
 | **Japan** |Japan West, Japan East |Osaka, Tokyo |
 | **Australia** |Australia Southeast, Australia East |Melbourne, Sydney |
 | **India** |India West, India Central, India South |Chennai, Mumbai |
-| **South Korea** | Korea Central, Korea South | Busan, Seoul |
+| **South Korea** |Korea Central, Korea South |Busan, Seoul |
 
 ### Regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- | --- |
-| **US Government cloud** |US Gov Iowa, US Gov Virginia, US DoD Central+, US DoD East+  |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
+| **US Government cloud** |US Gov Iowa, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **China** |China North, China East |Beijing, Shanghai |
 | **Germany** |Germany Central, Germany East |Berlin, Frankfurt |
 
@@ -76,24 +76,28 @@ The following table shows locations by service provider. If you want to view ava
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Supported |Supported |Amsterdam, Dublin, London, Tokyo |
 | **Comcast** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
 | **Console**| Supported | Supported |Silicon Valley |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Los Angeles , New York |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Paris+, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Supported |Supported |Amsterdam |
+| **Global Cloud Exchange (GCX)** | Coming Soon | Coming Soon | Chennai |
 | **GÉANT** |Supported |Supported |Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supported |Supported |Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** |Supported |Supported |Amsterdam, London |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Supported |Supported |Amsterdam, London, Paris |
 | **Jisc** |Supported |Supported |London |
+| **KINX** |Supported |Supported |Seoul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Supported | Supported | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Singapore, Washington DC |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Toronto, Washington DC |
+| **LG CNS** |Coming Soon |Coming Soon |Busan+ |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Quebec City, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Supported |Supported |London |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Supported |Supported |Newport(Wales) |
 | **NEXTDC** |Supported |Supported |Melbourne, Sydney |
-| **NTT Communications** |Supported |Supported |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
+| **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Supported |Supported |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Supported |Supported |Hong Kong |
+| **Sejong Telecom** |Supported |Supported |Busan, Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supported |Supported |Chennai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported |Singapore |
 | **Softbank** |Supported |Supported |Osaka, Tokyo |
@@ -114,7 +118,7 @@ The following table shows locations by service provider. If you want to view ava
 | **Service provider** | **Microsoft Azure** | **Office 365** | **Locations** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Chicago, New York+, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported | Supported | Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Supported |Supported |Chicago, Dallas, New York, Washington DC |
@@ -133,7 +137,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Not Supported |Frankfurt |
 | **e-shelter** |Supported |Not Supported |Berlin |
 | **Interxion** |Supported |Not Supported |Frankfurt |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin+ |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin |
 
 ## <a name="nonpartners"></a>Connectivity through service providers not listed
 If your connectivity provider is not listed in previous sections, you can still create a connection.
@@ -156,6 +160,8 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
+| **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | London |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
@@ -178,7 +184,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Avanade Inc.](http://www.avanade.com/)** | Asia, Europe, North America, South America |
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Europe |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | North America |
-| **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Australia |
+| **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
 | **[Nelite](http://nelite.com/)** | Europe |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |

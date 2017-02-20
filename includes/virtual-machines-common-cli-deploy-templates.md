@@ -42,7 +42,7 @@ Now [log in to your Azure account interactively](../articles/xplat-cli-connect.m
 
 Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
 
-```azure cli
+```azurecli
 azure account list
 info:    Executing command account list
 data:    Name                              Id                                    Tenant Id                            Current

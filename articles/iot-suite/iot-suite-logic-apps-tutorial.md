@@ -4,7 +4,7 @@ description: A tutorial on how to hook up Logic Apps to Azure IoT Suite for busi
 services: ''
 suite: iot-suite
 documentationcenter: ''
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 
 ---
 # Tutorial: Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution
@@ -45,7 +45,7 @@ To begin, set up the logic app to use with the preconfigured solution.
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. Select **Request**. This action specifies that an incoming HTTP request with a specific JSON formatted payload acts as a trigger.
-7. Paste the following into the Request Body JSON Schema:
+7. Paste the following code into the Request Body JSON Schema:
    
     ```
     {

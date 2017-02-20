@@ -1,5 +1,5 @@
 ---
-title: Use Azure Event Hubs with Apache Spark in HDInsight to process streaming data | Microsoft Docs
+title: Stream data from Event Hubs with Apache Spark in Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to send a data stream to Azure Event Hub and then receive those events in Spark using a scala application
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---
