@@ -194,7 +194,7 @@ Now, let's set up a user interface and form handling logic to send a text messag
 
 ```javascript
 app.post('/sms', (request, response) => {
-  var client = twilio(accountSid, authToken);
+  const client = twilio(accountSid, authToken);
 
   client.sendSms({
       // send a text to this number
