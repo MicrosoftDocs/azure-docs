@@ -437,7 +437,10 @@ traces
 
 ### find operator
 
-    find in (Table1, Table2, Table3) where id=='42'
+    find in (Table1, Table2, Table3) where id=="a string"
+    find in (Table1, Table2, Table3) where id=="a string" project column1, column2
+    find in (Table1, Table2, Table3) where * has "a string"
+    find in (Table1, Table2, Table3) where appName in ("string 1", "string 2", "string 3")
 
 Find rows that match a predicate across a set of tables.
 
@@ -451,6 +454,7 @@ Find rows that match a predicate across a set of tables.
 
 * *Table1* A table name or query. It can be a let-defined table, but not a function. A table name performs better than a query.
 * *Predicate* A boolean expression evaluated for every row in the specified tables.
+ * You can use "*" in place of a column name in string comparisons
 * *Column1* The `project` option allows you to specify which columns must always appear in the output. 
 
 **Result**
@@ -1148,7 +1152,7 @@ To get the same order every time you run the query, append a tag column to each 
 Consider the [join operator](#join-operator) as an alternative.
 
 ### where operator
-     requests | where resultCode==200
+     requests | where resultCode=="200"
 
 Filters a table to the subset of rows that satisfy a predicate.
 
@@ -1192,61 +1196,7 @@ and come from the Source called "Kuskus", and have two columns of the same value
 
 Notice that we put the comparison between two columns last, as it can't utilize the index and forces a scan.
 
-### where-in operator
-    requests | where resultCode !in (200, 201)
 
-    requests | where resultCode in (403, 404)
-
-**Syntax**
-
-    T | where col in (listExpression)
-    T | where col !in (listExpression)
-
-**Arguments**
-
-* `col`: A column in the table.
-* `listExpression`...: A list of scalar expressions, or an expression that evaluates to a list. 
-
-A nested array is flattened into a single list - for example, `where x in (dynamic([1,[2,3]]))` becomes `where x in (1,2,3)`.
-
-Use `in` is used to include only rows in which `col` is equal to one of the expressions `expr1...`.
-
-Use `!in` to include only rows in which `col` is not equal to any of the expressions `expr1...`.  
-
-**Examples**
-
-```AIQL
-let cities = dynamic(['Dublin','Redmond','Amsterdam']);
-requests | where client_City in (cities) 
-|  summarize count() by client_City
-```
-
-Computed list:
-
-```AIQL
-let topCities =  toscalar ( // convert single column to value
-   requests
-   | summarize count() by client_City 
-   | top 4 by count_ 
-   | summarize makeset(client_City)) ;
-requests
-| where client_City in (topCities) 
-| summarize count() by client_City;
-```
-
-Using a function call as the list expression:
-
-```AIQL
-let topCities =  (n:int) {toscalar (
-   requests
-   | summarize count() by client_City 
-   | top n by count_ 
-   | summarize makeset(client_City)) };
-requests
-| where client_City in (topCities(3)) 
-| summarize count() by client_City;
-```
- 
 
 ## Aggregations
 Aggregations are functions used to combine values in groups created in the [summarize operation](#summarize-operator). For example, in this query, dcount() is an aggregation function:
@@ -2256,8 +2206,8 @@ h"hello"
 | `endswith` |RHS is a terminal substring of LHS. |No |`"Fabrikam" endswith "kam"` |
 | `!endswith` |RHS is not a terminal substring of LHS. |No |`"Fabrikam" !endswith "ka"` |
 | `matches regex` |LHS contains a match for RHS |Yes |`"Fabrikam" matches regex "b.*k"` |
-| `in` |Equal to any of the elements |Yes |`"abc" in ("123", "345", "abc")` |
-| `!in` |Not equal to any of the elements |Yes |`"bc" !in ("123", "345", "abc")` |
+| [`in`](#in) |Equal to any of the elements |Yes |`"abc" in ("123", "345", "abc")` |
+| [`!in`](#in) |Not equal to any of the elements |Yes |`"bc" !in ("123", "345", "abc")` |
 
 Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains`, `startswith` or `endswith`. The first of these queries runs faster:
 
@@ -2342,6 +2292,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
+
+
 
 ### isempty, isnotempty, notempty
     isempty("") == true
@@ -2630,8 +2582,8 @@ T
 ### Dynamic object functions
 |  |  |
 | --- | --- |
-| *value* `in` *array* |True if there is an element of *array* that == *value*<br/>`where City in ('London', 'Paris', 'Rome')` |
-| *value* `!in` *array* |True if there is no element of *array* that == *value* |
+| [*value* `in` *array*](#in) |*array* contains *value* |
+| [*value* `!in` *array*](#in) |*array* does not contain *value* |
 | [`arraylength(`array`)`](#arraylength) |Null if it isn't an array |
 | [`extractjson(`path,object`)`](#extractjson) |Uses path to navigate into object. |
 | [`parsejson(`source`)`](#parsejson) |Turns a JSON string into a dynamic object. |
@@ -2650,7 +2602,57 @@ T
     T | project parsejson(list1).a, parsejson(list2).a
 
 
+### in
+    value in (listExpression)
+    value !in (listExpression)
 
+Determines whether there is (not) an item in the list that is equal to the value. Case-sensitive, where the value is a string.
+
+**Arguments**
+
+* `value`: A scalar expression.
+* `listExpression`...: A list of scalar expressions, or an expression that evaluates to a list. 
+
+A nested array is flattened into a single list - for example, `where x in (dynamic([1,[2,3]]))` becomes `where x in (1,2,3)`.  
+
+**Examples**
+
+```AIQL
+    requests | where client_City in ("London", "Paris", "Rome")
+```
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Computed list:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Using a function call as the list expression:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ### arraylength
 The number of elements in a dynamic array.
