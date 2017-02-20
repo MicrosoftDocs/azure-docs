@@ -98,7 +98,7 @@ We have now specified a license template on the HR Department group. A backgroun
 
 To learn more about the feature set for license management through groups, read
 
-* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-group-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)

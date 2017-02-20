@@ -84,6 +84,6 @@ Here is what the migration process could look like:
 To learn more about other scenarios for license management through groups, read
 
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
-* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-group-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)
