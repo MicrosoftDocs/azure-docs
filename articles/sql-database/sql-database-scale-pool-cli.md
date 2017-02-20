@@ -20,7 +20,7 @@ ms.author: janeng
 
 # Scale an elastic pool in Azure SQL Database using the Azure CLI
 
-The sample script provided here creates an elastic database pool in the North Central US region and scales the performance up.This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+The sample script provided here creates an elastic database pool in the North Central US region and scales the performance up. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
