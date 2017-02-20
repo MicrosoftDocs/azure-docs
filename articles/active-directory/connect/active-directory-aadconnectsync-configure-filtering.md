@@ -97,7 +97,7 @@ To set the domain filter, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Service** from the **Start** menu.
-3. Select **Connectors**, and in the **Connectors** list, select the Connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
+3. Select **Connectors**, and in the **Connectors** list, select the connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
    ![Connector properties](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**.
 5. In the **Select directory partitions** list, select and unselect domains as needed. Verify that only the partitions that you want to synchronize are selected.  
@@ -110,7 +110,7 @@ To set the domain filter, do the following steps:
 ### Update the run profiles
 If you've updated your domain filter, you also need to update the run profiles.
 
-1. In the **Connectors** list, make sure that the Connector that you changed in the previous step is selected. In **Actions**, select **Configure Run Profiles**.  
+1. In the **Connectors** list, make sure that the connector that you changed in the previous step is selected. In **Actions**, select **Configure Run Profiles**.  
    ![Connector run profiles 1](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)  
 2. Find and identify the following profiles:
     * Full Import
@@ -143,7 +143,7 @@ To configure organizational unit–based filtering, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Service** from the **Start** menu.
-3. Select **Connectors**, and in the **Connectors** list, select the Connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
+3. Select **Connectors**, and in the **Connectors** list, select the connector with the type **Active Directory Domain Services**. In **Actions**, select **Properties**.  
    ![Connector properties](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**, select the domain that you want to configure, and then click **Containers**.
 5. When you're prompted, provide any credentials with read access to your on-premises Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.
@@ -159,12 +159,12 @@ To configure organizational unit–based filtering, do the following steps:
 8. To complete the configuration, you need to run a **Full import** and a **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
 ### Synchronize new OUs
-New OUs that are created after filtering has been configured are synchronized by default. This state is indicated by a selected check box. You can also unselect some sub-OUs. To get this behavior, click the box until it becomes white with a blue check box (its default state). Then unselect any sub-OUs that you don't want to synchronize.
+New OUs that are created after filtering has been configured are synchronized by default. This state is indicated by a selected check box. You can also unselect some sub-OUs. To get this behavior, click the box until it becomes white with a blue check mark (its default state). Then unselect any sub-OUs that you don't want to synchronize.
 
-If all sub-OUs are synchronized, then the box is white with a blue check box.  
+If all sub-OUs are synchronized, then the box is white with a blue check mark.  
 ![OU with all boxes selected](./media/active-directory-aadconnectsync-configure-filtering/ousyncnewall.png)
 
-If some sub-OUs have been unselected, then the box is gray with a white check box.  
+If some sub-OUs have been unselected, then the box is gray with a white check mark.  
 ![OU with some sub-OUs unselected](./media/active-directory-aadconnectsync-configure-filtering/ousyncnew.png)
 
 With this configuration, a new OU that was created under ManagedObjects is synchronized.
@@ -204,9 +204,9 @@ In the following example, you filter out (not synchronize) all users where **ext
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Rules Editor** from the **Start** menu.
 3. Make sure **Inbound** is selected, and click **Add New Rule**.
-4. Give the rule a descriptive name, such as "*In from AD – User DoNotSyncFilter*". Select the correct forest, select **User** as the **CS object type**, and select **Person** as the **MV object type**. In **Link Type**, select **Join**. In **Precedence**, type a value that isn't currently used by another Synchronization Rule (for example 500), and then click **Next**.  
+4. Give the rule a descriptive name, such as "*In from AD – User DoNotSyncFilter*". Select the correct forest, select **User** as the **CS object type**, and select **Person** as the **MV object type**. In **Link Type**, select **Join**. In **Precedence**, type a value that isn't currently used by another synchronization rule (for example 500), and then click **Next**.  
    ![Inbound 1 description](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
-5. In **Scoping filter**, click **Add Group**, and click **Add Clause**. In **Attribute**, select **ExtensionAttribute15**. Make sure that Operator is set to **EQUAL**, and type the value **NoSync** in the **Value** box. Click **Next**.  
+5. In **Scoping filter**, click **Add Group**, and click **Add Clause**. In **Attribute**, select **ExtensionAttribute15**. Make sure that **Operator** is set to **EQUAL**, and type the value **NoSync** in the **Value** box. Click **Next**.  
    ![Inbound 2 scope](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
 6. Leave the **Join** rules empty, and then click **Next**.
 7. Click **Add Transformation**, select the **FlowType** as **Constant**, and select **cloudFiltered** as the **Target Attribute**. In the **Source** text box, type **True**. Click **Add** to save the rule.  
@@ -223,7 +223,7 @@ In the following example, you only synchronize user objects where the department
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Rules Editor** from the **Start** menu.
 3. Make sure **Inbound** is selected, and click **Add New Rule**.
-4. Give the rule a descriptive name, such as "*In from AD – User Sales sync*". Select the correct forest, select **User** as the **CS object type**, and select **Person** as the **MV object type**. In **Link Type**, select **Join**. In **Precedence**, type a value that isn't currently used by another Synchronization Rule (for example 501), and then click **Next**.  
+4. Give the rule a descriptive name, such as "*In from AD – User Sales sync*". Select the correct forest, select **User** as the **CS object type**, and select **Person** as the **MV object type**. In **Link Type**, select **Join**. In **Precedence**, type a value that isn't currently used by another synchronization rule (for example 501), and then click **Next**.  
    ![Inbound 4 description](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
 5. In **Scoping filter**, click **Add Group**, and click **Add Clause**. In **Attribute**, select **department**. Make sure that Operator is set to **EQUAL**, and type the value **Sales** in the **Value** box. Click **Next**.  
    ![Inbound 5 scope](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
@@ -257,7 +257,7 @@ In this example, you change the filtering so that only users that have both thei
 9. To complete the configuration, you need to run a **Full sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
 ## Apply and verify changes
-After you've made your configuration changes, you must apply them to the objects that are already present in the system. It could also be that the objects that aren't currently in the sync engine should be processed (and the sync engine needs to read the source system again to verify its content).
+After you've made your configuration changes, you must apply them to the objects that are already present in the system. It might also be that the objects that aren't currently in the sync engine should be processed (and the sync engine needs to read the source system again to verify its content).
 
 If you changed the configuration by using **domain** or **organizational-unit** filtering, then you need to do a **Full import**, followed by **Delta synchronization**.
 
@@ -266,22 +266,22 @@ If you changed the configuration by using **attribute** filtering, then you need
 Do the following steps:
 
 1. Start **Synchronization Service** from the **Start** menu.
-2. Select **Connectors**. In the **Connectors** list, select the Connector where you made a configuration change earlier. In **Actions**, select **Run**.  
+2. Select **Connectors**. In the **Connectors** list, select the connector where you made a configuration change earlier. In **Actions**, select **Run**.  
    ![Connector run](./media/active-directory-aadconnectsync-configure-filtering/connectorrun.png)  
-3. In **Run profiles**, select the operation that was mentioned in the previous section. If you need to run two actions, run the second after the first one has finished (the **State** column is **Idle** for the selected connector).
+3. In **Run profiles**, select the operation that was mentioned in the previous section. If you need to run two actions, run the second after the first one has finished. (The **State** column is **Idle** for the selected connector.)
 
 After the synchronization, all changes are staged to be exported. Before you actually make the changes in Azure AD, you want to verify that all these changes are correct.
 
 1. Start a command prompt, and go to `%Program Files%\Microsoft Azure AD Sync\bin`.
 2. Run `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   The name of the Connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
+   The name of the connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
 3. Run `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. You now have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all the changes that are about to be exported.
 5. Make the necessary changes to the data or configuration, and run these steps again (Import, Synchronize, and Verify) until the changes that are about to be exported are what you expect.
 
 When you're satisfied, export the changes to Azure AD.
 
-1. Select **Connectors**. In the **Connectors** list, select the Azure AD Connector. In **Actions**, select **Run**.
+1. Select **Connectors**. In the **Connectors** list, select the Azure AD connector. In **Actions**, select **Run**.
 2. In **Run profiles**, select **Export**.
 3. If your configuration changes delete many objects, then you see an error in the export when the number is more than the configured threshold (by default 500). If you see this error, then you need to temporarily disable the "[prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)" feature.
 
@@ -291,7 +291,7 @@ Now it's time to enable the scheduler again.
 2. Directly under **Task Scheduler Library**, find the task named **Azure AD Sync Scheduler**, right-click, and select **Enable**.
 
 ## Group-based filtering
-You can configure group-based filtering the first time that you install Azure AD Connect by using custom installation. It's intended for a pilot deployment where you want only a small set of objects to be synchronized. When you disable group-based filtering, it can't be enabled again. It's **not supported** to use group-based filtering in a custom configuration. It's only supported to configure this feature by using the installation wizard. When you've completed your pilot, then use one of the other filtering options in this topic.
+You can configure group-based filtering the first time that you install Azure AD Connect by using custom installation. It's intended for a pilot deployment where you want only a small set of objects to be synchronized. When you disable group-based filtering, it can't be enabled again. It's *not supported* to use group-based filtering in a custom configuration. It's only supported to configure this feature by using the installation wizard. When you've completed your pilot, then use one of the other filtering options in this topic.
 
 ## Next steps
 - Learn more about [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
