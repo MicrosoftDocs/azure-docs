@@ -18,11 +18,11 @@ ms.author: billmath
 
 ---
 # Azure AD Connect: Version release history
-The Azure Active Directory team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
+The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
-This is list of related topics:
+This is a list of related topics:
 
 
 Topic |  Details
@@ -32,21 +32,21 @@ Required permissions | For permissions required to apply an update, see [account
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## 1.1.380.0
-Released: 2016 December
+Released: December 2016
 
 **Fixed issue:**
 
-* Fixed the issue where the issuerid claim rule for Active Directory Federation Services (ADFS) is missing in this build.
+* Fixed the issue where the issuerid claim rule for Active Directory Federation Services (AD FS) is missing in this build.
 
 >[!NOTE]
 >This build is not available to customers through the Azure AD Connect Auto Upgrade feature.
 
 ## 1.1.371.0
-Released: 2016 December
+Released: December 2016
 
 **Known issue:**
 
-* The issuerid claim rule for ADFS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure Active Directory (Azure AD). If you are using Azure AD Connect to manage your on-premises ADFS deployment, upgrading to this build removes the existing issuerid claim rule from your ADFS configuration. You can work around the issue by adding the issuerid claim rule after install/upgrade. For details on adding the issuerid claim rule, refer to this article on [Multiple domain support for federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
+* The issuerid claim rule for AD FS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure Active Directory (Azure AD). If you are using Azure AD Connect to manage your on-premises AD FS deployment, upgrading to this build removes the existing issuerid claim rule from your AD FS configuration. You can work around the issue by adding the issuerid claim rule after the installation/upgrade. For details on adding the issuerid claim rule, refer to this article on [Multiple domain support for federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
 
 **Fixed issue:**
 
@@ -56,14 +56,14 @@ Released: 2016 December
 >This build is not available to customers through the Azure AD Connect Auto Upgrade feature.
 
 ## 1.1.370.0
-Released: 2016 December
+Released: December 2016
 
 **Known issues:**
 
-* The issuerid claim rule for ADFS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure AD. If you are using Azure AD Connect to manage your on-premises ADFS deployment, upgrading to this build removes the existing issuerid claim rule from your ADFS configuration. You can work around the issue by adding the issuerid claim rule after install/upgrade. For details on adding issuerid claim rule, refer to this article on [Multiple domain support for federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
+* The issuerid claim rule for AD FS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure AD. If you are using Azure AD Connect to manage your on-premises AD FS deployment, upgrading to this build removes the existing issuerid claim rule from your AD FS configuration. You can work around the issue by adding the issuerid claim rule after installation/upgrade. For details on adding issuerid claim rule, refer to this article on [Multiple domain support for federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
 * Port 9090 must be open outbound to complete installation.
 
-**New Features:**
+**New features:**
 
 * Pass-through Authentication (Preview).
 
@@ -71,11 +71,11 @@ Released: 2016 December
 >This build is not available to customers through the Azure AD Connect Auto Upgrade feature.
 
 ## 1.1.343.0
-Released: 2016 November
+Released: November 2016
 
 **Known issue:**
 
-* The issuerid claim rule for ADFS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure AD. If you are using Azure AD Connect to manage your on-premises ADFS deployment, upgrading to this build removes the existing issuerid claim rule from your ADFS configuration. You can work around the issue by adding the issuerid claim rule after install/upgrade. For details on adding issuerid claim rule, refer to this article on [Multiple domain support for federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
+* The issuerid claim rule for AD FS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure AD. If you are using Azure AD Connect to manage your on-premises AD FS deployment, upgrading to this build removes the existing issuerid claim rule from your AD FS configuration. You can work around the issue by adding the issuerid claim rule after installation/upgrade. For details on adding issuerid claim rule, refer to this article on [Multiple domain support for federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
 
 **Fixed issues:**
 
@@ -89,7 +89,7 @@ Released: 2016 November
 * Added support for using SQL Server 2016 as the remote database for Azure AD Connect.
 
 ## 1.1.281.0
-Released: 2016 August
+Released: August 2016
 
 **Fixed issues:**
 
@@ -110,16 +110,16 @@ Released: 2016 August
 * When configuring [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) in Azure AD Connect wizard, the Azure AD attribute of type "Teletex string" can now be selected.
 
 ## 1.1.189.0
-Released: 2016 June
+Released: June 2016
 
 **Fixed issues and improvements:**
 
 * Azure AD Connect can now be installed on a FIPS-compliant server.
-  * For password synchronization, see [Password sync and FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)
+  * For password synchronization, see [Password sync and FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
 * Fixed an issue where a NetBIOS name could not be resolved to the FQDN in the Active Directory Connector.
 
 ## 1.1.180.0
-Released: 2016 May
+Released: May 2016
 
 **New features:**
 
@@ -132,10 +132,10 @@ Released: 2016 May
 * Added filtering to the Sync Rule Editor to make it easy to find sync rules.
 * Improved performance when deleting a connector space.
 * Fixed an issue when the same object was both deleted and added in the same run (called delete/add).
-* A disabled Sync Rule no longer re-enables included objects and attributes on upgrade or directory schema refresh.
+* A disabled sync rule no longer re-enables included objects and attributes on upgrade or directory schema refresh.
 
 ## 1.1.130.0
-Released: 2016 April
+Released: April 2016
 
 **New features:**
 
@@ -144,34 +144,34 @@ Released: 2016 April
 * Added some cmdlets for [custom scheduler](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1.1.119.0
-Released: 2016 March
+Released: March 2016
 
 **Fixed issues:**
 
-* Made sure Express install cannot be used on Windows Server 2008 (pre-R2) since password sync is not supported on this operating system.
+* Made sure Express installation cannot be used on Windows Server 2008 (pre-R2) because password sync is not supported on this operating system.
 * Upgrade from DirSync with a custom filter configuration did not work as expected.
 * When upgrading to a newer release and there are no changes to the configuration, a full import/synchronization should not be scheduled.
 
 ## 1.1.110.0
-Released: 2016 February
+Released: February 2016
 
 **Fixed issues:**
 
 * Upgrade from earlier releases does not work if the installation is not in the default C:\Program Files folder.
 * If you install and clear **Start the synchronization process** at the end of the installation wizard, running the installation wizard a second time will not enable the scheduler.
 * The scheduler doesn't work as expected on servers where the US-en date/time format is not used. It will also block `Get-ADSyncScheduler` to return correct times.
-* If you installed an earlier release of Azure AD Connect with ADFS as the sign-in option and upgrade, you cannot run the installation wizard again.
+* If you installed an earlier release of Azure AD Connect with AD FS as the sign-in option and upgrade, you cannot run the installation wizard again.
 
 ## 1.1.105.0
-Released: 2016 February
+Released: February 2016
 
 **New features:**
 
 * [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature for Express settings customers.
-* Support for the global admin by using MFA and PIM in the installation wizard.
-  * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use MFA.
-  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for MFA to properly work.
-* Allow changing the user's sign-in method after initial install.
+* Support for the global admin by using Azure Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
+  * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
+  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
+* Allow changing the user's sign-in method after initial installation.
 * Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 * [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built in to the sync engine.
 
@@ -187,11 +187,11 @@ Released: 2016 February
 **Fixed issues:**
 
 * The verify DNS domains page didn't always recognize the domains.
-* Prompts for domain admin credentials when configuring ADFS.
+* Prompts for domain admin credentials when configuring AD FS.
 * The on-premises AD accounts are not recognized by the installation wizard if located in a domain with a different DNS tree than the root domain.
 
 ## 1.0.9131.0
-Released: 2015 December
+Released: December 2015
 
 **Fixed issues:**
 
@@ -201,14 +201,14 @@ Released: 2015 December
 * Updating from a previous release of Azure AD Connect with a remote SQL Server shows the “Unable to access the ADSync SQL database” error.
 
 ## 1.0.9125.0
-Released: 2015 November
+Released: November 2015
 
 **New features:**
 
-* Can reconfigure ADFS to Azure AD trust.
+* Can reconfigure AD FS to Azure AD trust.
 * Can refresh the Active Directory schema and regenerate sync rules.
-* Can disable a Sync Rule.
-* Can define "AuthoritativeNull" as a new literal in a Sync Rule.
+* Can disable a sync rule.
+* Can define "AuthoritativeNull" as a new literal in a sync rule.
 
 **New preview features:**
 
@@ -228,13 +228,13 @@ Released: 2015 November
   * The password retry queue is infinite and the previous limit of 5,000 objects to be retired has been removed.
   * [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization).
 * Not able to connect to Active Directory with Windows Server 2016 forest-functional level.
-* Not able to change the group that is used for group filtering after the initial install.
+* Not able to change the group that is used for group filtering after the initial installation.
 * No longer creates a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.
 * Not able to use Long Integer values in sync rules scopes.
 * The check box "device writeback" remains disabled if there are unreachable domain controllers.
 
 ## 1.0.8667.0
-Released: 2015 August
+Released: August 2015
 
 **New features:**
 
@@ -244,8 +244,8 @@ Released: 2015 August
 **Fixed issues:**
 
 * Azure AD Connect installation wizard crashes if another user continues installation rather than the person who first started the installation.
-* If a previous uninstall of Azure AD Connect fails to uninstall Azure AD Connect sync cleanly, it is not possible to reinstall.
-* Cannot install Azure AD Connect using Express install if the user is not in the root domain of the forest or if a non-English version of Active Directory is used.
+* If a previous uninstallation of Azure AD Connect fails to uninstall Azure AD Connect sync cleanly, it is not possible to reinstall.
+* Cannot install Azure AD Connect using Express installation if the user is not in the root domain of the forest or if a non-English version of Active Directory is used.
 * If the FQDN of the Active Directory user account cannot be resolved, a misleading error message “Failed to commit the schema” is shown.
 * If the account used on the Active Directory Connector is changed outside the wizard, the wizard fails on subsequent runs.
 * Azure AD Connect sometimes fails to install on a domain controller.
@@ -259,7 +259,7 @@ Released: 2015 August
 * The preview feature [User writeback](active-directory-aadconnect-feature-preview.md#user-writeback) was temporarily removed based on feedback from our preview customers. It will be added again later after we have addressed the provided feedback.
 
 ## 1.0.8641.0
-Released: 2015 June
+Released: June 2015
 
 **Initial release of Azure AD Connect.**
 
@@ -268,7 +268,7 @@ Changed name from Azure AD Sync to Azure AD Connect.
 **New features:**
 
 * [Express settings](active-directory-aadconnect-get-started-express.md) installation
-* Can [configure ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+* Can [configure AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 * Can [upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 * [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 * Introduced [staging mode](active-directory-aadconnectsync-operations.md#staging-mode)
@@ -281,7 +281,7 @@ Changed name from Azure AD Sync to Azure AD Connect.
 * [Directory extensions](active-directory-aadconnect-feature-preview.md)
 
 ## 1.0.494.0501
-Released: 2015 May
+Released: May 2015
 
 **New Requirement:**
 
@@ -292,7 +292,7 @@ Released: 2015 May
 * Password writeback from Azure AD is failing with an Azure Service Bus connectivity error.
 
 ## 1.0.491.0413
-Released: 2015 April
+Released: April 2015
 
 **Fixed issues and improvements:**
 
@@ -309,7 +309,7 @@ Released: 2015 April
 * A join can now connect to “ANY” object type in the MV.
 
 ## 1.0.485.0222
-Released: 2015 February
+Released: February 2015
 
 **Improvements:**
 
@@ -323,7 +323,7 @@ Released: 2015 February
 * Joining Foreign Security Principals (FSPs) from multiple domains in same forest causes an ambiguous-join error.
 
 ## 1.0.475.1202
-Released: 2014 December
+Released: December 2014
 
 **New features:**
 
@@ -341,10 +341,10 @@ Released: 2014 December
 * Fixed the templates for Office Pro Plus.
 * Fixed installation issues caused by user names that start with a dash.
 * Fixed losing the sourceAnchor setting when running the installation wizard a second time.
-* Fixed ETW tracing for password synchronization
+* Fixed ETW tracing for password synchronization.
 
 ## 1.0.470.1023
-Released: 2014 October
+Released: October 2014
 
 **New features:**
 
@@ -353,18 +353,18 @@ Released: 2014 October
 
 **Upgrading from AADSync 1.0 GA**
 
-If you already have Azure AD Sync installed, there is one additional step you have to take in case you have changed any of the out-of-box Synchronization Rules. After you have upgraded to the 1.0.470.1023 release, the synchronization rules you have modified are duplicated. For each modified Sync Rule do the following:
+If you already have Azure AD Sync installed, there is one additional step you have to take in case you have changed any of the out-of-box synchronization rules. After you have upgraded to the 1.0.470.1023 release, the synchronization rules you have modified are duplicated. For each modified sync rule, do the following:
 
-1.  Locate the Sync Rule you have modified and take a note of the changes.
-* Delete the Sync Rule.
-* Locate the new Sync Rule that is created by Azure AD Sync and then reapply the changes.
+1.  Locate the sync rule you have modified and take a note of the changes.
+* Delete the sync rule.
+* Locate the new sync rule that is created by Azure AD Sync and then reapply the changes.
 
 **Permissions for the Active Directory account**
 
 The Active Directory account must be granted additional permissions to be able to read the password hashes from Active Directory. The permissions to grant are named “Replicating Directory Changes” and “Replicating Directory Changes All.” Both permissions are required to be able to read the password hashes.
 
 ## 1.0.419.0911
-Released: 2014 September
+Released: September 2014
 
 **Initial release of Azure AD Sync.**
 
