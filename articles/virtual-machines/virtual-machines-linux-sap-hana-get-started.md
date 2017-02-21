@@ -226,13 +226,13 @@ During the testing phase, we found it a good idea to add the nofail parameter to
 ## Install graphical Gnome desktop on SLES 12/SLES-for-SAP Applications 12
 This section covers the following topics:
 
-* Installing Gnome desktop and xrdp on SLES 12/SLES-forSAP Applications 12
-* Running Java-based SAP MC by using Firefox on SLES 12/SLES-forSAP Applications 12
+* Installing Gnome desktop and xrdp on SLES 12/SLES-for-SAP Applications 12
+* Running Java-based SAP MC by using Firefox on SLES 12/SLES-for-SAP Applications 12
 
 You can also use alternatives such as Xterminal or VNC but, as of September 2016, the guide describes only xrdp.
 
-### Installing Gnome desktop and xrdp on SLES 12/SLES-forSAP Applications 12
-If you have a Microsoft Windows background, you can easily use a graphical desktop directly within the SAP Linux VMs to run Firefox, Sapinst, SAP GUI, SAP MC, or HANA Studio and connect to the VM through RDP from a Windows computer. Although the procedure might not be appropriate for a production database server, it's OK for a pure prototype/demo environment. Here is how to install Gnome desktop on an Azure SLES 12/SLES-forSAP Applications 12 VM:
+### Installing Gnome desktop and xrdp on SLES 12/SLES-for-SAP Applications 12
+If you have a Microsoft Windows background, you can easily use a graphical desktop directly within the SAP Linux VMs to run Firefox, Sapinst, SAP GUI, SAP MC, or HANA Studio and connect to the VM through RDP from a Windows computer. Although the procedure might not be appropriate for a production database server, it's OK for a pure prototype/demo environment. Here is how to install Gnome desktop on an Azure SLES 12/SLES-for-SAP Applications 12 VM:
 
 Install the gnome desktop by entering the following command (for example, in a putty window):
 
@@ -261,7 +261,7 @@ If xrdp restart as mentioned previously doesn't work, check whether there is a .
 Remove it and then try the restart again.
 
 ### SAP MC
-After you install the Gnome desktop, starting the graphical Java-based SAP MC from Firefox running in an Azure SLES 12/SLES-forSAP Applications 12 VM might display an error because of the missing Java-browser plug-in.
+After you install the Gnome desktop, starting the graphical Java-based SAP MC from Firefox running in an Azure SLES 12/SLES-for-SAP Applications 12 VM might display an error because of the missing Java-browser plug-in.
 
 The URL to start the SAP MC is <server>:5<instance_number>13.
 
@@ -280,7 +280,7 @@ Repeating the SAP Management Console URL displays a dialog box that asks you to 
 ![Dialog box requesting plug-in activation](./media/virtual-machines-linux-sap-hana-get-started/image015.jpg)
 
 One additional issue that might occur is an error message about a missing file, javafx.properties. This is related to the requirement of Oracle Java 1.8 for SAP GUI 7.4. [see SAP Note 2059429](https://launchpad.support.sap.com/#/notes/2059424)
-The IBM Java version nor the openjdk package delivered with SLES/SLES-forSAP Applications 12 include the needed javafx. The solution is to download and install Java SE8 from Oracle.
+The IBM Java version nor the openjdk package delivered with SLES/SLES-for-SAP Applications 12 include the needed javafx. The solution is to download and install Java SE8 from Oracle.
 
 An article which talks about a similar issue on openSUSE with openjdk can be found at [SAPGui 7.4 Java for openSUSE 42.1 Leap](https://scn.sap.com/thread/3908306).
 
