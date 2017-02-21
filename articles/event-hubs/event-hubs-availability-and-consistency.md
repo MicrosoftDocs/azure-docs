@@ -25,9 +25,9 @@ Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#pa
 To help explain the tradeoff between ordering and availability, we can look to the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer's theorem. The theorem states that, one must choose between consistency, availability, and partition tolerance.
 
 The theorem defines consistency and availability as the following:
-* Partition tolerance – the ability of a data processing system to continue processing data even if a partition failure occurs.
-* Availability – a non-failing node returns a reasonable response within a reasonable amount of time (with no errors or timeouts).
-* Consistency – a read is guaranteed to return the most recent write for a given client.
+* Partition tolerance - the ability of a data processing system to continue processing data even if a partition failure occurs.
+* Availability - a non-failing node returns a reasonable response within a reasonable amount of time (with no errors or timeouts).
+* Consistency - a read is guaranteed to return the most recent write for a given client.
 
 ## Partition tolerance
 Event Hubs is built on top of a partitioned model. You may configure the number of partitions in your Event Hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
