@@ -63,13 +63,13 @@ To download Flow logs, click **You download flow logs from configured storage ac
 
 ![flow logs settings][4]
 
-### Step 3
+### Step 2
 
 Navigate to the correct storage account and then **Containers** > **insights-log-networksecuritygroupflowevent**
 
 ![flow logs settings][5]
 
-### Step 4
+### Step 3
 
 Drill down to the location of the flow log, select the flow log and click **Download**
 
