@@ -40,7 +40,7 @@ Site Recovery needs access to VMware for the process server to automatically dis
 |**Failover** | You need at least a read-only user | Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, virtual machines, and networks).<br/><br/> Useful for migration purposes, but not full replication, failover, failback.|
 |**Failover and failback** | We suggest you create a role (AzureSiteRecoveryRole) with the required permissions, and then assign the role to a VMware user or group | Data Center object –> Propagate to Child Object, role=AzureSiteRecoveryRole<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, virtual machines, and networks).|
 
-## Create an account to connect to VMware vCenter Server
+## Create an account to connect to VMware vCenter Server/ VMware vSphere EXSi host
 1. Login into the Configuration server and launch the cspsconfigtool.exe using the shortcut placed on the Desktop.
 2. Click **Add Account** on the **Manage Account** tab.
 
@@ -57,7 +57,7 @@ Site Recovery needs access to VMware for the process server to automatically dis
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
-## Modify credentials used to connect to the vCenter
+## Modify credentials used to connect to the vCenter server/ vSphere ESXi host
 
 1. Login into the Configuration server and launch the cspsconfigtool.exe
 2. Click **Add Account** on the **Manage Account** tab.

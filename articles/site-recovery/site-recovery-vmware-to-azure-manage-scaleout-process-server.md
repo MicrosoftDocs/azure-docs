@@ -42,7 +42,7 @@ The following are the recommended hardware, software, and network configuration 
   > [!WARNING]
   The version of your Scale-out Process Server should be equal to or lesser than the Configuration Server version running in your environment. A simple way to ensure version compatibility is to use the same installer bits that you recently used to install/update your Configuration Server.
 
-## Installing and Registering a Scale-out Process Server from GUI
+## Installing and registering a Scale-out Process Server from GUI
 If you have to scale out your deployment beyond 200 source machines, or a total daily churn rate of more than 2 TB, you need additional process servers to handle the traffic volume.
 
 Check the [size recommendations for process servers](#size-recommendations-for-the-process-server), and then follow these instructions to set up the process server. After setting up the server, you migrate source machines to use it.
@@ -50,13 +50,13 @@ Check the [size recommendations for process servers](#size-recommendations-for-t
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
 
 
-## Installing and Registering a Scale-out Process Server using command-line
+## Installing and registering a Scale-out Process Server using command-line
 
 ```
 UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
 ```
 
-### Sample Usage
+### Sample usage
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
 cd C:\Temp\Extracted
@@ -67,7 +67,7 @@ UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
 
-### Create a Proxy settings configuration file
+### Create a proxy settings configuration file
 ProxySettingsFilePath parameter takes a file as input. Create file using the following format and pass it as input ProxySettingsFilePath parameter.
 ```
 * [ProxySettings]
@@ -77,7 +77,7 @@ ProxySettingsFilePath parameter takes a file as input. Create file using the fol
 * ProxyUserName="UserName"
 * ProxyPassword="Password"
 ```
-## Modifying Proxy Settings for Scale-out Process Server
+## Modifying proxy settings for Scale-out Process Server
 1. Login  into your Scale-out Process Server.
 2. Open an Admin PowerShell command window.
 3. Run the following command
@@ -116,7 +116,7 @@ It can take up-to 15 minutes for the Process Server deletion to reflect in the A
   > [!NOTE]
   If the Process server is unable to communicate with the Configuration Server (Connection State in portal is Disconnected), then you need to follow the following steps to purge it from the Configuration Server.
 
-## Unregistering a disconnected process server from a Configuration Server
+## Unregistering a disconnected Scale-out Process server from a Configuration Server
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 

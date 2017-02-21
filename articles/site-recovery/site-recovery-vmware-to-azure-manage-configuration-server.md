@@ -46,13 +46,13 @@ The following are the minimum hardware, software, and network configuration requ
 ## Installing and Registering a Configuration Server from GUI
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-## Installing and Registering a Configuration Server using Command line
+## Installing and registering a Configuration Server using Command line
 
   ```
   UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
   ```
 
-### Sample Usage
+### Sample usage
   ```
   MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
   cd C:\Temp\Extracted
@@ -71,7 +71,7 @@ MySQLCredsFilePath parameter takes a file as input. Create the file using the fo
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
 ```
-### Create a Proxy settings configuration file
+### Create a proxy settings configuration file
 ProxySettingsFilePath parameter takes a file as input. Create the file using the following format and pass it as input ProxySettingsFilePath parameter.
 
 ```
@@ -82,7 +82,7 @@ ProxyPort = "Port"
 ProxyUserName="UserName"
 ProxyPassword="Password"
 ```
-## Modifying Proxy Settings for Configuration Server
+## Modifying proxy settings for Configuration Server
 1. Login to your Configuration Server.
 2. Launch the cspsconfigtool.exe using the shortcut on your.
 3. Click the **Vault Registration** tab.
@@ -172,7 +172,7 @@ Certificate expiry can be performed only on version 9.4.XXXX.X or higher. Upgrad
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/renew-cert-page.png)
 
-### SSL Certificate expiry warning
+### Secure Socket Layer certificate expiry warning
 
 > [!NOTE]
 The SSL Certificate's validity for all installations that happened before May 2016 was set to one year. you have started seeing certificate expiry notifications showing up in the Azure portal.
