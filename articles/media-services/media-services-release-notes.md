@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/21/2017
 ms.author: juliako
 
 ---
@@ -100,6 +100,12 @@ Encoding Reserved Units renamed to reduce confusion with Encoder names.
 The Basic, Standard, and Premium encoding reserved units are renamed to S1, S2, and S3  reserved units, respectively.  Customers using Basic Encoding RUs today will see S1 as the label in Azure Portal (and in the bill), while Standard and Premium will see the labels S2 and S3 respectively. 
 
 ## <a id="dec_changes_15"></a>December 2015 Release
+
+### Azure Media Encoder deprecation announcement
+
+Azure Media Encoder will be deprecated in 12 months. Please, start using the [Media Encoder Standard](media-services-media-encoder-standard-formats.md) encoder.
+
+### Azure SDK for PHP
 The Azure SDK team published a new release of the [Azure SDK for PHP](http://github.com/Azure/azure-sdk-for-php) package that contains updates and new features for Microsoft Azure Media Services. In particular, the Azure Media Services SDK for PHP now supports the latest [content protection](media-services-content-protection-overview.md) features: dynamic encryption with AES and DRM (PlayReady and Widevine) with and without Token restriction. It also supports scaling [Encoding Units](media-services-dotnet-encoding-units.md).
 
 For more information, see:
