@@ -139,14 +139,17 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 1. Click **Step 2: Prepare Infrastructure** > **Source**.
 
     ![Set up source](./media/site-recovery-vmm-to-azure/set-source1.png)
+    
 2. In **Prepare source**, click **+ VMM** to add a VMM server.
 
     ![Set up source](./media/site-recovery-vmm-to-azure/set-source2.png)
+    
 3. In the **Add Server** blade, check that **System Center VMM server** appears in **Server type** and that the VMM server meets the [prerequisites and URL requirements](#on-premises-prerequisites).
 4. Download the Azure Site Recovery Provider installation file.
 5. Download the registration key. You need this when you run setup. The key is valid for five days after you generate it.
 
     ![Set up source](./media/site-recovery-vmm-to-azure/set-source3.png)
+    
 6. Install the Azure Site Recovery Provider on the VMM server.
 
 ### Set up the Azure Site Recovery Provider
