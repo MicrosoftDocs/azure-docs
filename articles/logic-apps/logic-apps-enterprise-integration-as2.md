@@ -61,12 +61,12 @@ In the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Ident
 
 	| Property | Description |
 	| --- | --- |
-	| Host Partner     | An agreement requires both a host and guest partner. The host partner represents the organization that's configuring the agreement. |
-	| Host Identity    | An identifier for the host partner. |
-	| Guest Partner    | An agreement requires both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-	| Guest Identity   | An identifier for the guest partner. |
-	| Receive Settings | The properties that apply to all messages that are received by the agreement. |
-	| Send Settings    | The properties that apply to all messages that are sent by the agreement. |
+	| Host Partner     |An agreement requires both a host and guest partner. The host partner represents the organization that's configuring the agreement. |
+	| Host Identity    |An identifier for the host partner. |
+	| Guest Partner    |An agreement requires both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
+	| Guest Identity   |An identifier for the guest partner. |
+	| Receive Settings |The properties that apply to all messages that are received by the agreement. |
+	| Send Settings    |The properties that apply to all messages that are sent by the agreement. |
 
 7.	To configure how messages received via this agreement are to be handled, follow these steps:
 
@@ -86,22 +86,22 @@ In the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Ident
 
   h. To send asynchronous MDNs for received messages, select the **Send asynchronous MDN** check box.
 
-		![Set the "Receive Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)  
+		![Set the "Receive Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
 
-	This table describes the **Receive Settings** properties:
+		This table describes the **Receive Settings** properties:
 
-	| Property | Description |
-	| --- | --- |
-	| Override message properties | Indicates that properties in received messages can be overridden. |
-	| Message should be signed | Requires messages to be digitally signed. Configure the guest partner public certificate for signature verification.  |
-	| Message should be encrypted | Requires messages to be encrypted. Non-encrypted messages are rejected. Configure the host partner private certificate for decrypting the messages.  |
-	| Message should be compressed | Requires messages to be compressed. Non-compressed messages are rejected. |
-	| MDN Text | The default message disposition notification (MDN) to be sent to the message sender. |
-	| Send MDN | Requires MDNs to be sent. |
-	| Send signed MDN | Requires MDNs to be signed. |
-	| MIC Algorithm | |
-	| Send asynchronous MDN | Requires messages to be sent asynchronously. |
-	| URL | The URL that the MDNs are to be sent to. |
+		| Property | Description |
+		| --- | --- |
+		| Override message properties |Indicates that properties in received messages can be overridden. |
+		| Message should be signed |Requires messages to be digitally signed. Configure the guest partner public certificate for signature verification.  |
+		| Message should be encrypted |Requires messages to be encrypted. Non-encrypted messages are rejected. Configure the host partner private certificate for decrypting the messages.  |
+		| Message should be compressed |Requires messages to be compressed. Non-compressed messages are rejected. |
+		| MDN Text |The default message disposition notification (MDN) to be sent to the message sender. |
+		| Send MDN |Requires MDNs to be sent. |
+		| Send signed MDN |Requires MDNs to be signed. |
+		| MIC Algorithm | |
+		| Send asynchronous MDN | Requires messages to be sent asynchronously. |
+		| URL | The URL that the MDNs are to be sent to. |
 
 8. To configure how messages that are sent via this agreement are to be handled, follow these steps:
 
@@ -127,23 +127,23 @@ In the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Ident
 
 		![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
 
-	The following table describes the **Send Settings** properties:  
+		The following table describes the **Send Settings** properties:  
 
-	| Property | Description |
-	| --- | --- |
-	| Enable message signing | Requires all messages that are sent from the agreement to be signed. |
-	| MIC Algorithm | The algorithm to use to sign messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
-	| Certificate | The certificate to use to sign messages. Configures the host partner private certificate for signing the messages. |
-	| Enable message encryption | Requires encryption of all messages that are sent from this agreement. Configures the guest partner public certificate algorithm for encrypting the messages. |
-	| Encryption Algorithm | The encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
-	| Certificate | The certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
-	| Enable message compression | Requires compression of all messages that are sent from this agreement. |
-	| Unfold HTTP headers | Places the HTTP content-type header onto a single line. |
-	| Request MDN | Requires an MDN for all messages that are sent from this agreement. |
-	| Request signed MDN | Requires all MDNs that are sent to this agreement to be signed. |
-	| Request asynchronous MDN | Requires asynchronous MDNs to be sent to this agreement. |
-	| URL | The URL that the MDNs are to be sent to. |
-	| Enable NRR | Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
+		| Property | Description |
+		| --- | --- |
+		| Enable message signing |Requires all messages that are sent from the agreement to be signed. |
+		| MIC Algorithm |The algorithm to use to sign messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
+		| Certificate |The certificate to use to sign messages. Configures the host partner private certificate for signing the messages. |
+		| Enable message encryption |Requires encryption of all messages that are sent from this agreement. Configures the guest partner public certificate algorithm for encrypting the messages. |
+		| Encryption Algorithm |The encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
+		| Certificate |The certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
+		| Enable message compression |Requires compression of all messages that are sent from this agreement. |
+		| Unfold HTTP headers |Places the HTTP content-type header onto a single line. |
+		| Request MDN |Requires an MDN for all messages that are sent from this agreement. |
+		| Request signed MDN |Requires all MDNs that are sent to this agreement to be signed. |
+		| Request asynchronous MDN |Requires asynchronous MDNs to be sent to this agreement. |
+		| URL |The URL that the MDNs are to be sent to. |
+		| Enable NRR |Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
 
 ## View the Agreements list
 To view the newly added agreement, select the **Agreements** tile on the **Integration Account** blade.
