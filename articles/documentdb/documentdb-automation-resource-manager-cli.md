@@ -37,7 +37,7 @@ Log in to your Azure account by executing the following command and following th
 
 If you do not already have an existing [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), create one:
 
-    az group create <resourcegroupname> <resourcegrouplocation>
+    az group create --name <resourcegroupname> --location <resourcegrouplocation>
     az group list
 
 The `resourcegrouplocation` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
