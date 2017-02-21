@@ -121,8 +121,8 @@ This example creates the following items.
 1. Create the NAT rules.
 
     ```azurecli
-        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh1 --protocol tcp --frontend-port 21 --backend-port 22
-        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh2 --protocol tcp --frontend-port 23 --backend-port 22
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name rdp1 --protocol tcp --frontend-port 21 --backend-port 22
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name rdp2 --protocol tcp --frontend-port 23 --backend-port 22
     ```
 
 2. Create a load balancer rule.
@@ -176,7 +176,7 @@ This example creates the following items.
         data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
         data:
         data:    Inbound NAT rules:
-        data:      Name                          : ssh1
+        data:      Name                          : rdp1
         data:      Provisioning state            : Succeeded
         data:      Protocol                      : Tcp
         data:      Frontend port                 : 21
@@ -185,7 +185,7 @@ This example creates the following items.
         data:      Idle timeout in minutes       : 4
         data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
         data:
-        data:      Name                          : ssh2
+        data:      Name                          : rdp2
         data:      Provisioning state            : Succeeded
         data:      Protocol                      : Tcp
         data:      Frontend port                 : 23
