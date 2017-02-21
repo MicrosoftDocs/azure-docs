@@ -52,9 +52,9 @@ you can manually cast it to JSON using the `@json()` function, for example: `@js
 
 ### Text/plain
 
-Similar to `application/json`, HTTP messages recieved with the `Content-Type` header of `text/plain` 
-is stored in its raw form. In addition, if included in a subsequent actions without any casting, 
-the request goes out with a `Content-Type`: `text/plain` header. 
+Similar to `application/json`, HTTP messages received with the `Content-Type` header 
+of `text/plain` are stored in raw form. Also, if included in subsequent actions without casting, 
+requests go out with a `Content-Type`: `text/plain` header. 
 For example, when working with a flat file, you might get this HTTP content as `text/plain`:
 
 ```
@@ -62,19 +62,19 @@ Date,Name,Address
 Oct-1,Frank,123 Ave.
 ```
 
-If in the next action, you sent it as the body of another request (`@body('flatfile')`), 
+If in the next action, you send the request as the body of another request (`@body('flatfile')`), 
 the request would have a `text/plain` Content-Type header. 
 If you are working with data that is plain text but didn't have a header specified, 
-you can manually cast it to text using the `@string()` function, for example: `@string(triggerBody())`.
+you can manually cast the data to text using the `@string()` function, for example: `@string(triggerBody())`.
 
 ### Application/xml and Application/octet-stream and Converter Functions
 
-The Logic Apps Engine always preserves the `Content-Type` that was recieved on the HTTP request or response. 
-So if content is recieved with `Content-Type` of `application/octet-stream`, 
-including that in a subsequent action with no casting results in an outgoing request 
-with `Content-Type`: `application/octet-stream`. This way, the engine can guarantee 
-data isn't lost while moving through the workflow. However, the action state 
-(inputs and outputs) are stored in a JSON object as state moves through the workflow. 
+The Logic Apps Engine always preserves the `Content-Type` that was received on the HTTP request or response. 
+So if the engine receives content with the `Content-Type` of `application/octet-stream`, 
+and a subsequent action includes that content without casting, 
+then the outgoing request has `Content-Type`: `application/octet-stream`. 
+This way, the engine can guarantee data isn't lost while moving through the workflow. 
+However, the action state (inputs and outputs) is stored in a JSON object as the state moves through the workflow. 
 So, to preserve some data-types, the engine converts the content 
 to a binary base64 encoded string with appropriate metadata that preserves 
 both `$content` and `$content-type`, which are automatically be converted. 
@@ -90,7 +90,7 @@ You can also manually convert between content types using built-in converter fun
 * `@encodeDataUri()` - encodes a string as a dataUri byte array
 * `@decodeDataUri()` - decodes a dataUri into a byte array
 
-For example, if you recieved an HTTP request with `Content-Type`: `application/xml`:
+For example, if you received an HTTP request with `Content-Type`: `application/xml`:
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -102,10 +102,10 @@ or in a function like `@xpath(xml(triggerBody()), '/CustomerName')`.
 
 ### Other content types
 
-Other content types are supported and work with a logic app, 
+Other content types are supported and work with logic apps, 
 but might require manually retrieving the message body by decoding the `$content`. 
-For example, if you triggered an `application/x-www-url-formencoded` request 
-like the following:
+So if you trigger an `application/x-www-url-formencoded` request 
+like this example:
 
 ```
 CustomerName=Frank&Address=123+Avenue
@@ -125,9 +125,9 @@ where `$content` is the payload encoded as a base64 string to preserve all data:
 Currently, there isn't a native function for form data, 
 so you could still use this data in a workflow by manually accessing the data 
 with a function like `@string(body('formdataAction'))`. 
-If you wanted the outgoing request to also have the `application/x-www-url-formencoded` content type header, 
-you could just add it to the action body without any casting like `@body('formdataAction')`.  
-However, this only works if the body is the only parameter in the `body` input. 
+If you wanted the outgoing request to also have 
+the `application/x-www-url-formencoded` content type header, 
+you could add the request to the action body without any casting like `@body('formdataAction')`. 
+However, this method only works if the body is the only parameter in the `body` input. 
 If you try to use `@body('formdataAction')` in an `application/json` request, 
-you get a runtime error because it sends the encoded body.
-
+you get a runtime error because the encoded body is sent.
