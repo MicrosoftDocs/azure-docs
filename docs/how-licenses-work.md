@@ -32,6 +32,7 @@ The add-in license categories used by the Office Store are based on how or wheth
 - SharePoint Add-ins can be Free, Paid, or Subscription priced, and offered on a Per-User or Site basis.
     
      >**Note:**  SharePoint 2013 does not support subscription licensing.
+     
 SharePoint 2013 maps the license categories used by the Office Store to add-in license types, based on user access. The following table shows how the SharePoint add-in license types map to the classifications used by the Office Store.
  
 
