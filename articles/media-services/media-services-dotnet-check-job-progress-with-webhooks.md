@@ -28,7 +28,7 @@ The following are required to complete the tutorial:
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * .NET Framework 4.0 or later
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
-* Understanding of [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
+* Understanding of [how to use the Azure functions](../azure-functions/functions-overview) and [Azure functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
 This topic shows how to
 
