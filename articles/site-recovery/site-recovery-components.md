@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/21/2017
 ms.author: raynew
 
 ---
@@ -220,4 +220,4 @@ There are a few failback requirements:
 
 ## Next steps
 
-[Prepare for deployment](site-recovery-best-practices.md)
+[Check prerequisites](site-recovery-prereqs.md)
