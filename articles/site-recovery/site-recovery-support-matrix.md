@@ -59,7 +59,7 @@ vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, 
 
 ### Machines (replicate to Azure)
 
-Virtual machines must meet [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Virtual machines must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machines).
 
 **Requirement** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
@@ -258,4 +258,4 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 
 
 ## Next steps
-[Prepare for deployment](site-recovery-best-practices.md)
+Check [prerequisites](site-recovery-prereq.md)

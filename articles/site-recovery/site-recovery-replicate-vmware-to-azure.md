@@ -3,11 +3,11 @@ title: 'Replicate applications (VMware to Azure) | Microsoft Docs'
 description: This article describes how to set up replication of virtual machines running on VMware into Azure.
 services: site-recovery
 documentationcenter: ''
-author: asgang	
+author: asgang
 manager: rochakm
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -25,10 +25,10 @@ ms.author: asgang
 This article describes how to set up replication of virtual machines running on VMware into Azure.
 ## Prerequisites
 
-The article assumes that you have already 
+The article assumes that you have already
 
 1.  [Setup on-premise source environment](site-recovery-set-up-vmware-to-azure.md)
-2.  [Setup target environment in Azure](site-recovery-prepare-target-vmware-to-azure.md) 
+2.  [Setup target environment in Azure](site-recovery-prepare-target-vmware-to-azure.md)
 
 
 ## Enable replication
@@ -59,7 +59,7 @@ If you're replicating VMware virtual machines, note that:
 
    * You can select a premium or standard storage account. If you select a premium account, you'll need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
    * If you want to use a different storage account than those you have, you can create one*PLaceholder LInk for creating storage account using resource manager which will be covered in getting started*. To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model, you do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
- 
+
 
 8. Select the Azure network and subnet to which Azure VMs will connect, when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network using Resource Manager, click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
 
@@ -85,7 +85,7 @@ If you're replicating VMware virtual machines, note that:
 >
 
 ## View and manage VM properties
-We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machines).
 
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
@@ -111,5 +111,5 @@ We recommend that you verify the properties of the source machine. Remember that
 * For generation 2/UEFI enabled virtual machines, the operating system family should be Windows and boot disk should be less than 300GB
 
 ## Next steps
- 
-Once the protection is completed, you can try test failover to check whether your application comes up in Azure or not.	
+
+Once the protection is completed, you can try test failover to check whether your application comes up in Azure or not.
