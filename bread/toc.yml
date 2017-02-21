@@ -32,17 +32,24 @@
     topicHref: /azure/api-management/api-management-key-concepts
   - name: App Service
     tocHref: /azure/app-service/
-    topicHref: /azure/app-service/app-service-how-works-readme
+    topicHref: /azure/app-service/index
     items:
     - name: Web Apps
       tocHref: /azure/app-service-web/
-      topicHref: /azure/app-service-web/app-service-web-overview
+      topicHref: /azure/app-service-web/index
+      items:
+      - name: PHP
+        tocHref: /azure/app-service-web/php/
+        topicHref: /azure/app-service-web/php/index
+      - name: ASP.NET
+        tocHref: /azure/app-service-web/aspnet/
+        topicHref: /azure/app-service-web/aspnet/index
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
-      topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
+      topicHref: /azure/app-service-mobile/index
     - name: API Apps
       tocHref: /azure/app-service-api/
-      topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+      topicHref: /azure/app-service-api/index
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/advisor-overview
