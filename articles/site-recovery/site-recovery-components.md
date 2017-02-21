@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/19/2017
 ms.author: raynew
 
 ---
@@ -21,13 +21,11 @@ ms.author: raynew
 
 Read this article to understand the underlying architecture of the Azure Site Recovery service, and the components that make it work.
 
-Organizations need a BCDR strategy that determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy should keep business data safe and recoverable, and ensure that workloads remain continuously available when disaster occurs.
-
 Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Site Recovery?](site-recovery-overview.md)
 
 This article describes deployment in the [Azure portal](https://portal.azure.com). The [Azure classic portal](https://manage.windowsazure.com/) can be used to maintain existing Site Recovery vaults, but you can't create new vaults.
 
-Post any comments at the bottom of this article. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post any comments at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Deployment scenarios
@@ -50,8 +48,8 @@ Site Recovery replicates apps running on supported VMs and physical servers. You
 
 **Component** | **Details**
 --- | ---
-**Azure** | In Azure you need a Microsoft Azure account, an Azure storage account, and a Azure network.<br/><br/> Storage and network can be Resource Manager accounts, or classic accounts.<br/><br/>  Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover from your on-premises site occurs. The Azure VMs connect to the Azure virtual network when they're created.
-**Configuration server** | You set up an configuration server on-premises to coordinate communications between the on-premises site and Azure, and to manage data replication.
+**Azure** | In Azure you need a Microsoft Azure account, an Azure storage account, and an Azure network.<br/><br/> Storage and network can be Resource Manager accounts, or classic accounts.<br/><br/>  Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover from your on-premises site occurs. The Azure VMs connect to the Azure virtual network when they're created.
+**Configuration server** | You set up a configuration server on-premises, to coordinate communications between the on-premises site and Azure, and to manage data replication.
 **Process server** | Installed by default on the on-premises configuration server.<br/><br/> Acts as a replication gateway. It receives replication data from protected source machines, optimizes it with caching, compression, and encryption, and sends the data to Azure storage.<br/><br/> Handles push installation of the Mobility service to protected machines, and performs automatic discovery of VMware VMs.<br/><br/> As your deployment grows you can add additional separate dedicated process servers to handle increasing volumes of replication traffic.
 **Master target server** | Installed by default on the on-premises configuration server.<br/><br/> Handles replication data during failback from Azure. If volumes of failback traffic are high, you can deploy a separate master target server for failback.
 **VMware servers** | You add vCenter and vSphere servers to your Recovery Services vault, to replicate VMware VMs.<br/><br/> If you replicate physical servers, you will need an on-premises VMware infrastructure for failback. You can't fail back to a physical machine.
@@ -80,8 +78,8 @@ Site Recovery replicates apps running on supported VMs and physical servers. You
 ### Failover and failback process
 
 1. You run unplanned failovers from on-premises VMware VMs and physical servers to Azure. Planned failover isn't supported.
-2. You can fail over a single machine, or create [recovery plans](site-recovery-create-recovery-plans.md) to orchestrate failover of multiple machines.
-3. When you run a fail over, replica VMs will be created in Azure. You commit a failover to start accessing the workload from the replica Azure VM.
+2. You can fail over a single machine, or create [recovery plans](site-recovery-create-recovery-plans.md), to orchestrate failover of multiple machines.
+3. When you run a failover, replica VMs are created in Azure. You commit a failover to start accessing the workload from the replica Azure VM.
 4. When your primary on-premises site is available again, you can fail back. You set up a failback infrastructure, start replicating the machine from the secondary site to the primary, and run an unplanned failover from the secondary site. After you commit this failover, data will be back on-premises, and you need to enable replication to Azure again. [Learn more](site-recovery-failback-azure-to-vmware.md)
 
 There are a few failback requirements:
@@ -130,8 +128,8 @@ There are a few failback requirements:
 
 **Component** | **Details**
 --- | ---
-**Azure** | In Azure you need a Microsoft Azure account, an Azure storage account, and a Azure network.<br/><br/> Storage and network can be Resource Manager-based, or classic accounts.<br/><br/> Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover from your on-premises site occurs.<br/><br/> The Azure VMs connect to the Azure virtual network when they're created.
-**VMM server** | If your Hyper-V hosts are located in VMM clouds, you need logical and VM networks set up to configure [network mapping](site-recovery-network-mapping.md). A VM network should be linked to a logical network that's associated with the cloud.
+**Azure** | In Azure you need a Microsoft Azure account, an Azure storage account, and an Azure network.<br/><br/> Storage and network can be Resource Manager-based, or classic accounts.<br/><br/> Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover from your on-premises site occurs.<br/><br/> The Azure VMs connect to the Azure virtual network when they're created.
+**VMM server** | If your Hyper-V hosts are located in VMM clouds, you need logical and VM networks set up to configure [network mapping](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping). A VM network should be linked to a logical network that's associated with the cloud.
 **Hyper-V host** | You need one or more Hyper-V host servers.
 **Hyper-V VMs** | You need one or more VMs on the Hyper-V host server. The Provider running on the Hyper-V host coordinates and orchestrates replication with the Site Recovery service over the internet. The agent handles data replication data over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
 
@@ -197,9 +195,9 @@ There are a few failback requirements:
 
 1. You can run a planned or unplanned [failover](site-recovery-failover.md) between on-premises sites. If you run a planned failover, then source VMs are shut down to ensure no data loss.
 2. You can fail over a single machine, or create [recovery plans](site-recovery-create-recovery-plans.md) to orchestrate failover of multiple machines.
-4. If you perform an unplanned failover to a secondary site, after the failover machines in the secondary location aren't enabled for protection or replication. If you did an planned failover, after the failover machines in the secondary location are protected.
-5. You then commit the failover to start accessing the workload from the replica VM.
-6. When your primary site is available again, you initiate reverse replication to replicate from the secondary site to the primary. Reverse replication brings the virtual machines into a protected statem but the secondary datacenter is still the active location.
+4. If you perform an unplanned failover to a secondary site, after the failover machines in the secondary location aren't enabled for protection or replication. If you ran a planned failover, after the failover, machines in the secondary location are protected.
+5. Then, you commit the failover to start accessing the workload from the replica VM.
+6. When your primary site is available again, you initiate reverse replication to replicate from the secondary site to the primary. Reverse replication brings the virtual machines into a protected state, but the secondary datacenter is still the active location.
 7. To make the primary site into the active location again, you initiate a planned failover from secondary to primary, followed by another reverse replication.
 
 
@@ -209,7 +207,7 @@ There are a few failback requirements:
 --- | ---
 1. **Enable protection** | After you enable protection for a Hyper-V VM the **Enable Protection** job is initiated, to check that the machine complies with prerequisites. The job invokes two methods:<br/><br/> [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) to set up replication with the settings you've configured.<br/><br/> [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), to initialize a full VM replication.
 2. **Initial replication** |  A virtual machine snapshot is taken, and virtual hard disks are replicated one by one until they're all copied to the secondary location.<br/><br/> The time needed to complete this depends on the VM size, network bandwidth, and the initial replication method.<br/><br/> If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks those changes as Hyper-V Replication Logs (.hrl) that are located in the same folder as the disks.<br/><br/> Each disk has an associated .hrl file that will be sent to secondary storage.<br/><br/> The snapshot and log files consume disk resources while initial replication is in progress. When the initial replication finishes, the VM snapshot is deleted, and the delta disk changes in the log are synchronized and merged.
-3. **Finalize protection** | After initial replication finishes, the **Finalize protection** job configures network and other post-replication settings, so that the virtual machine is protected.<br/><br/> If you replicating to Azure, you might need to tweak the settings for the virtual machine so that it's ready for failover.<br/><br/> At this point you can run a test failover to check everything is working as expected.
+3. **Finalize protection** | After initial replication finishes, the **Finalize protection** job configures network and other post-replication settings, so that the virtual machine is protected.<br/><br/> If you're replicating to Azure, you might need to tweak the settings for the virtual machine so that it's ready for failover.<br/><br/> At this point you can run a test failover to check everything is working as expected.
 4. **Replication** | After the initial replication, delta synchronization begins, in accordance with replication settings.<br/><br/> **Replication failure**: If delta replication fails, and a full replication would be costly in terms of bandwidth or time, then resynchronization occurs. For example, if the .hrl files reach 50% of the disk size, then the VM will be marked for resynchronization. Resynchronization minimizes the amount of data sent by computing checksums of the source and target virtual machines, and sending only the delta. After resynchronization finishes, delta replication will resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually.<br/><br/> **Replication error**: If a replication error occurs, there's a built-in retry. If it's a non-recoverable error such as an authentication or authorization error, or a replica machine is in an invalid state, then no retry will be attempted. If it's a recoverable error such as a network error, or low disk space/memory, then a retry occurs with increasing intervals between retries (1, 2, 4, 8, 10, and then every 30 minutes).
 5. **Planned/unplanned failover** | You can run planned or unplanned failovers as needed.<br/><br/> If you run a planned failover, then source VMs are shut down to ensure no data loss.<br/><br/> After replica VMs are created, they're placed in a commit pending state. You need to commit them to complete the failover.<br/><br/> After the primary site is up and running, you can fail back to the primary site, when it's available.
 

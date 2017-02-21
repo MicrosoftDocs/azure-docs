@@ -26,7 +26,7 @@ ms.author: dlepow
 This article shows how to create a Kubernetes cluster in Azure Container Service that contains Windows nodes to run Windows containers. 
 
 > [!NOTE]
-> Support for Windows containers with Kubernetes in Azure Container Service is in preview. Use the Azure portal or a Resource Manager template to create a Kubernetes cluster with Windows nodes. This feature isn't currently supported with the Azure CLI 2.0 (Preview).
+> Support for Windows containers with Kubernetes in Azure Container Service is in preview. Use the Azure portal or a Resource Manager template to create a Kubernetes cluster with Windows nodes. This feature isn't currently supported with the Azure CLI 2.0.
 
 
 
