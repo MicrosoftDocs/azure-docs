@@ -109,10 +109,10 @@ First, you need to have the list of virtual machines that you are looking to pro
 		Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4.	Run the following two commands to get all the names of virtual machines on a VMware vCenter or VMware vSphere ESXi and store in a .txt file.
-Replace '<server name>', '<user name>', '<password>', '<outputfile.txt>' with your inputs.
+Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo;, &lsaquo;outputfile.txt&rsaquo;; with your inputs.
  
-		Connect-VIServer -Server <server name> -User <user name> -Password <password>
-		Get-virtual machine |  Select Name | Sort-Object -Property Name > <outputfile.txt>
+		Connect-VIServer -Server <server name>; -User <user name> -Password <password>
+		Get-virtual machine |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
 
 5.	Open the output file in Notepad. Copy the names of all virtual machines that you want to profile to another file (say ProfileVMList.txt), one virtual machine name per line. This file will be used as input to the -VMListFile parameter of the command line tool
@@ -173,7 +173,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 > * If the sever from where the tool is running is rebooted or has crashed, or if you exit the tool using Ctrl + C, profiled data will be preserved. There is a chance of missing the last 15 minutes of profiled data due to this. You need to re-run the tool in profiling mode after the server starts back up.
 > * When Azure Storage account name and key is passed, the tool measures the throughput at the last step of profiling. If the tool is terminated before profiling gracefully completes, throughput is not calculated. You can always run the GetThroughput  operation from the command line console to find the throughput before generating the report, otherwise the generated report will not have the achieved throughput information. 
 > * You can run multiple instances of the tool for different sets of virtual machines. Ensure virtual machine names are not repeated in any of the profiling sets. For example, you have profiled ten virtual machines (VM1 - VM10) and after few days you want to profile another five virtual machines (VM11 - VM15), you can run the tool from another command line console for the second set of virtual machines (VM11 - VM15). But ensure that the second set of virtual machines do not have any virtual machine names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same virtual machines and use the same output directory, the generated report will be incorrect.
-> * Virtual machine configuration details are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information will be used at the time of report generation. Any change in VM configuration (e.g. increased number of cores, disks, NICs, etc.) from the time profiling started to when profiling ended will not be captured. If you have a situation where any profiled virtual machine configuration has changed during the course of profiling, in the Public Preview, here is the workaround to get latest virtual machine details when generating the report
+> * Virtual machine configuration 
+>  are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information will be used at the time of report generation. Any change in VM configuration (e.g. increased number of cores, disks, NICs, etc.) from the time profiling started to when profiling ended will not be captured. If you have a situation where any profiled virtual machine configuration has changed during the course of profiling, in the Public Preview, here is the workaround to get latest virtual machine details when generating the report
 > 
 > a.	Backup VMdetailList.xml and delete the file from its current location
 > 
@@ -236,15 +237,17 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com 
 
 >[!NOTE]
 >
-> * **Why should one consider growth factor while deployment planning?** 
-It is critical to account for growth in your workload characteristics assuming potential increase in usage over time. This is because once protected if your workload characteristics change, there is currently no means to switch to a different Azure Storage account for protection without disabling and re-enabling protection. E.g. if today a virtual machine fits in a standard storage replication account, in say three months’ time, due to an increase in number of users of the application running on the virtual machine, if say the churn on the VM increases and requires it to go to premium storage so that Azure Site Recovery replication can keep up with the new higher churn, you will have to disable and re-enable protection to a premium storage account. So, it is strongly advised to plan for growth while deployment planning and the default value is 30%. You know your applications usage pattern and growth projections the best and can change this number accordingly while generating a report. You can in fact generate multiple reports with different growth factors with the same profiled data and see what target Azure Storage and source bandwidth recommendations work best for you.
 > * **What default percentile value of the performance metrics collected during profiling is used at the time of report generation?**
-The tool defaults to 95th percentile values of R/W IOPS, write IOPS, and data churn collected during profiling of all the VMs. This ensures that the 100th percentile spike your VMs may see due to temporary events like say a backup job running once a day, a periodic database indexing or analytics report generation activity, or any other similar point in time short-lived event that happens during the profiling period is not used to determine your target Azure Storage and source bandwidth requirements. Using 95th percentile values gives a true picture of real workload characteristics and gives you the best performance when these workloads are running on Microsoft Azure. We do not expect you to change this number often, but if you choose to go even lower, e.g. 90th percentile, you can update this configuration file ‘ASRDeploymentPlanner.exe.config’ in the default folder and save it to generate a new report on the existing profiled data.
+> The tool defaults to 95th percentile values of R/W IOPS, write IOPS, and data churn collected during profiling of all the VMs. This ensures that the 100th percentile spike your VMs may see due to temporary events like say a backup job running once a day, a periodic database indexing or analytics report generation activity, or any other similar point in time short-lived event that happens during the profiling period is not used to determine your target Azure Storage and source bandwidth requirements. Using 95th percentile values gives a true picture of real workload characteristics and gives you the best performance when these workloads are running on Microsoft Azure. We do not expect you to change this number often, but if you choose to go even lower, e.g. 90th percentile, you can update this configuration file ‘ASRDeploymentPlanner.exe.config’ in the default folder and save it to generate a new report on the existing profiled data.
 >
->  '<add key="WriteIOPSPercentile" value="95" />'
->  '<add key="ReadWriteIOPSPercentile" value="95" />'
->  '<add key="DataChurnPercentile" value="95" />'
+> &lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;
+> 
+> &lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;
+> 
+> &lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
 >  
+> * **Why should one consider growth factor while deployment planning?** 
+> It is critical to account for growth in your workload characteristics assuming potential increase in usage over time. This is because once protected if your workload characteristics change, there is currently no means to switch to a different Azure Storage account for protection without disabling and re-enabling protection. E.g. if today a virtual machine fits in a standard storage replication account, in say three months’ time, due to an increase in number of users of the application running on the virtual machine, if say the churn on the VM increases and requires it to go to premium storage so that Azure Site Recovery replication can keep up with the new higher churn, you will have to disable and re-enable protection to a premium storage account. So, it is strongly advised to plan for growth while deployment planning and the default value is 30%. You know your applications usage pattern and growth projections the best and can change this number accordingly while generating a report. You can in fact generate multiple reports with different growth factors with the same profiled data and see what target Azure Storage and source bandwidth recommendations work best for you.
 
 
 ##Get Throughput
@@ -335,7 +338,7 @@ In cases where you are running the tool on a Configuration Server / Process Serv
 For all enterprise Azure Site Recovery deployments, using [ExpressRoute](https://aka.ms/expressroute) is recommended. 
 
 ###Required Azure Storage Accounts
-This chart shows the total number of Azure Storage accounts (standard and premium) required to protect all the compatible virtual machines.  Click on [Recommended VM placement plan](site-recovery-deployment-planner.md#vm<->storage-placement) to know which storage account should be used for each virtual machine.  
+This chart shows the total number of Azure Storage accounts (standard and premium) required to protect all the compatible virtual machines.  Click on [Recommended VM placement plan](site-recovery-deployment-planner.md#vm-storage-placement) to know which storage account should be used for each virtual machine.  
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
 
@@ -369,8 +372,11 @@ This section at the bottom of the sheet shows the percentile value used for all 
 
 ##Recommendations with Available Bandwidth as Input
 
+![Deployment Planner](./media/site-recovery-deployment-planner/profiling-overview-bandwidth-input.png)
+
 You may have a situation where you know that you cannot provision more than x Mbps bandwidth for Azure Site Recovery replication. The tool allows you to input available bandwidth (using the -Bandwidth parameter while report generation) and get the achievable RPO in minutes. With this achievable RPO value, you can decide if you need to provision additional bandwidth or are okay with having a disaster recovery solution with this RPO.
 
+![Deployment Planner](./media/site-recovery-deployment-planner/achievable-rpos.png)
 
 ##Input
 The Input page provides an overview of the profiled VMware environment. 
@@ -395,7 +401,7 @@ Total number of disks across all compatible virtual machines  is the total numbe
 **Observed typical data churn per day (GB)** is the average data churn observed across all profiling days. This number is used as one of the inputs to decide the number of Configuration Servers and additional Process Servers to be used in the deployment.
 
 
-##VM<->Storage Placement
+##VM-Storage Placement
 ![Deployment Planner](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
 **Disk Storage Type** is either ‘Standard’ or ‘Premium’ Azure Storage account used to replicate all the corresponding virtual machines mentioned in the ‘VMs to Place’ column.
