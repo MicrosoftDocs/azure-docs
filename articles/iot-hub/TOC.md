@@ -24,7 +24,7 @@
 ##### [Get the Azure tools (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Create your IoT hub and register your Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Run the sample application to send messages](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 ##### [Read messages persisted in storage](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
 #### Lesson 4: Send cloud-to-device messages
@@ -69,7 +69,7 @@
 ##### [Get the Azure tools (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Create your IoT hub and register your Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Create an Azure function app and storage account](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Run the sample application to send messages](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
 ##### [Read messages persisted in storage](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
 #### Lesson 4: Send cloud-to-device messages
@@ -112,13 +112,13 @@
 ##### [Get the Azure tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
 ##### [Get the Azure tools (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
 ##### [Get the Azure tools (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [Create your IoT hub and register your Raspberry Pi]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+##### [Create your IoT hub and register your Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
 #### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Create an Azure function app and storage account](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
 ##### [Run the sample application to send messages](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
 ##### [Read messages persisted in storage](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
 #### Lesson 4: Send cloud-to-device messages
-##### [Run the sample application to receive messages]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [Run the sample application to receive messages](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Optional: Change the LED behavior](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Troubleshoot](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
