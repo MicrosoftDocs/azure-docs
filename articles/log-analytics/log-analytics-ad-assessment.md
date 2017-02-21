@@ -35,7 +35,7 @@ After you've added the solution and an assessment is completed, summary informat
 Use the following information to install and configure the solutions.
 
 * Agents must be installed on domain controllers that are members of the domain to be evaluated.
-* The Active Directory Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
+* The Active Directory Assessment solution requires a supported version of .NET Framework 4 (4.5.2 or above) installed on each computer that has an OMS agent.
 * Add the Active Directory Assessment solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
   > [!NOTE]
