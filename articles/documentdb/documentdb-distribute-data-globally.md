@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/25/2017
 ms.author: arramac
 
 ---
@@ -219,7 +219,9 @@ DocumentDB transparently exposes the throughput, latency, consistency and availa
 ![Azure DocumentDB customer-visible SLA metrics](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="Next Steps"></a>Next Steps
-To implement global replication on your DocumentDB account using the Azure portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md).
+* To implement global replication on your DocumentDB account using the Azure portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md).
+* To learn about how to implement multi-master architectures with DocumentDB, see [Multi-master database architectures with Azure DocumentDB](documentdb-multi-region-writers.md).
+* To learn more about how automatic and manual failovers work in DocumentDB, see [Regional Failovers in Azure DocumentDB](documentdb-regional-failovers.md).
 
 ## <a id="References"></a>References
 1. Eric Brewer. [Towards Robust Distributed Systems](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)

@@ -1,5 +1,5 @@
 ---
-title: Manage access control records for the Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+title: Manage access control records for StorSimple Virtual Array | Microsoft Docs
 description: Describes how to manage access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''

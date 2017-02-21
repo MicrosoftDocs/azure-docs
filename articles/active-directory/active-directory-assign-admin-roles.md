@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -48,6 +48,8 @@ The following administrator roles are available:
   > In Microsoft Graph API, Azure AD Graph API and Azure AD PowerShell, this role is identified as "Helpdesk Administrator".
   >
   >
+* **Power BI service administrator**: Users with this role have global permissions within Microsoft Power BI, when the service is present. More information at [Making It Easier To Administer Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/).
+* **Privileged role administrator**: Users with this role can manage Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md) and update role assignments for other users.
 * **SharePoint service administrator**: Users with this role have global permissions within Microsoft SharePoint Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **[Service administrator](#service-administrator)**: Manages service requests and monitors service health.
 
@@ -111,8 +113,19 @@ The global administrator has access to all administrative features. By default, 
 6. Specify a location from the **Usage Location** drop-down list.
 7. When you have finished, click **Save**.
 
+## Deprecated roles
+
+The following roles should not be used. They been deprecated and will be removed from Azure AD in the future.
+
+* AdHoc License Administrator
+* Email Verified User Creator
+* Device Join
+* Device Managers
+* Device Users
+* Workplace Device Join
+
 ## Next steps
-* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Manage users](active-directory-create-users.md)

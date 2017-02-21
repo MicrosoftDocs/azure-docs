@@ -286,7 +286,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ### Using Code Behind
 To use the same functionality in Code Behind section of U-SQL program, we define C# function ToDateTime.
 
-Here is the section of base U-SQL script above that needs to be changed:
+Here is the section of base U-SQL script, in which we have made necessary changes:
 
 ```sql
      @rs1 =
@@ -389,6 +389,7 @@ The advantage of code-behind is, that the tooling is taking care of the followin
 You can see the generated prologue and epilogue when you open the script:
 
 ![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
+
 **Figure 2**: Auto-generated prologue and epilogue for code-behind
 <br />
 
@@ -419,7 +420,7 @@ The registration dialog box (see Step 2 in Figure 5) gives you the option on whe
 
 We make use of both of these options in the examples below. The [recent blog post on image processing](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/) is another example showing the use of a predefined assembly that can use these options for registration.
 
-Now you can refer to the registered assemblies from any U-SQL script that has permissions to the registered assemblies’ database (see the code in the U-SQL script in Figure 4). You have to add a reference for every separately registered assembly. The additional resource files will automatically be deployed. That script should not have a code-behind file for the code in referenced assemblies anymore, but can still provide other code.
+Now you can refer to the registered assemblies from any U-SQL script that has permissions to the registered assemblies’ database (see the code in the U-SQL script in Figure 4). You have to add a reference for every separately registered assembly. The additional resource files will automatically be deployed. That script should not have a code-behind file for the code in referenced assemblies anymore, but the code-behind file can still provide other code.
 
 ### Registering assemblies via ADL Tools in Visual Studio and in U-SQL scripts
 While the ADL Tools in Visual Studio make it easy to register an assembly, you can also do it with a script (in the same way that the tools do it for you) if you are for example developing on a different platform, have already compiled assemblies that you want to upload and register. You basically follow the following steps:
@@ -436,6 +437,7 @@ Our [U-SQL Github site](https://github.com/Azure/usql/) offers a set of shared e
 First we download the [Visual Studio project](https://github.com/Azure/usql/tree/master/Examples/DataFormats) to our local development environment (for example, with making a local copy with the GitHub tool for Windows). Then we open the solution in Visual Studio, right-click the project as explained above to register the assembly. While this assembly has two dependencies, we only have to include the Newtonsoft dependency since System.Xml is available in the Azure Data Lake already (it has to be explicitly referenced though). Figure 6 shows how we name the assembly (note that you can choose a different name without dots as well), and add the Newtonsoft dll as well. Each of the two assemblies will now be individually registered in the specified database (for example, JSONBlog).
 
 ![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
+
 **Figure 6**: How to register the Microsoft.Analytics.Samples.Formats assembly from Visual Studio
 <br />
 
@@ -446,7 +448,7 @@ REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
 REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 ```
 
-And if you want to use the XML functionality, you add a system assembly reference and an assembly to the registered assembly:
+And if you want to use the XML functionality, you add a system assembly reference and a reference to the registered assembly:
 
 ```
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -819,7 +821,10 @@ This example demonstrates a more complicated use case scenario when we use a Glo
 ## Using User-Defined Types - UDT
 User-Defined Types or UDT is another programmability feature of U-SQL. U-SQL UDT acts like a regular C# user-defined type. C# is a strongly typed language that allows the use of built-in and custom user-defined types.
 
-U-SQL currently cannot implicitly serialize/de-serialize UDT data to/from external files. Because of this, the IFormatter interface has to be defined with Serialize/De-serialize methods as part of the UDT definition. In ADLA V1 only intermediate serialization is supported. This means that while IFormatter is important for internal UDT processing, it cannot be used for persistent serialization in EXTRACTOR or OUTPUTTER. When writing data to file with OUTPUTTER or reading with EXTRACTOR, UDT has to be serialized to string with ToString() method of UDT implementation. As an alternative, custom EXTRACTOR/OUTPUTTER can be used when dealing with UDT.  
+U-SQL cannot implicitly serialize/de-serialize arbitrary UDTs while the UDT is passed between vertices in rowsets. Thus the user has to provide an explicit formatter using the IFormatter interface. This will provide U-SQL with the serialize and de-serialize methods for the UDT. 
+
+> [!NOTE]
+> U-SQL’s built-in extractors and outputters currently cannot serialize/de-serialize UDT data to/from files even with the IFormatter set.  Thus when writing UDT data to a file with the OUTPUT statement or reading it with an extractor, the user has to pass it as a string or byte array and call the serialization and deserialization code (e.g., the UDT’s ToString() method) explicitly. User-defined extractors and outputters on the other hand can read and write UDTs.
 
 If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT)
 
@@ -930,9 +935,9 @@ The constructor of the class
 `IColumnWriter` writer / `IColumnReader` reader – the underlying column stream.  
 `ISerializationContext` context – enum that defines a set of flags that specifies the source or destination context for the stream during serialization. 
  
-    * *Intermediate* - specifies that the source or destination context is not a persisted store
+   * *Intermediate* - specifies that the source or destination context is not a persisted store
 
-    * *Persistence* - specifies that the source or destination context is a persisted store
+   * *Persistence* - specifies that the source or destination context is a persisted store
 
 As a regular C# type, U-SQL UDT definition may include overrides for operators such as +/==/!=, etc. Can include static methods and so on. For example, if we are going to use this UDT as a parameter to U-SQL MIN aggregate function, we have to define < operator override.
 
@@ -1114,6 +1119,8 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
+	   
+	   // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
@@ -1282,9 +1289,6 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
     }
 }
 ```
-
-### UDTs from built-in Types
-Coming Soon
 
 ## User-defined aggregates – UDAGG
 User-defined aggregates are any aggregation-related functions that are not shipped out of the box with U-SQL. The example can be an aggregate to perform a custom math calculation, perform string concatenations or manipulations with strings, etc.

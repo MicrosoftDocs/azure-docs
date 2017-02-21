@@ -1,15 +1,14 @@
 ---
 title: Azure Government Web, Mobile and API | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: brendalee
 manager: zakramer
-editor: ''
 
 ms.assetid: a1e173a9-996a-4091-a2e3-6b1e36da9ae1
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

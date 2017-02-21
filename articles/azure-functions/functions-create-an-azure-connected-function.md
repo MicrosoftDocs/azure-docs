@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Function which binds to an Azure service | Microsoft Docs
-description: Build an Azure Function, a serverless application, which interacts with other Azure Services.
+title: Create a function that connects to Azure services | Microsoft Docs
+description: Use Azure Functions to create a serverless application that connects to other Azure services. 
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -15,20 +15,17 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 
 ---
-# Create an Azure Function connected to an Azure service
+# Use Azure Functions to create a function that connects to other Azure services
 
-This topic shows you how to create an Azure Function that listens to messages on an Azure  Storage queue and copies the messages to rows in an Azure Storage table. A timer triggered function is used to load messages into the queue. A second function reads from the queue and writes messages to the table. Both the queue and the table are created for you by Azure Functions based on the binding definitions. 
+This topic shows you how to create a function in Azure Functions that listens to messages on an Azure Storage queue and copies the messages to rows in an Azure Storage table. A timer triggered function is used to load messages into the queue. A second function reads from the queue and writes messages to the table. Both the queue and the table are created for you by Azure Functions based on the binding definitions. 
 
-To make things more interesting, one function is written in JavaScript and the other is written in C# script. This demonstrates how a function app can have functions in various languages.
+To make things more interesting, one function is written in JavaScript and the other is written in C# script. This demonstrates how a function app can have functions in various languages. 
 
-## Watch the video
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+You can see this scenario demonstrated in a [video on Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## Create a function that writes to the queue
 

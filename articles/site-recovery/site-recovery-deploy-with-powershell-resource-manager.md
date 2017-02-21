@@ -1,6 +1,6 @@
 ---
-title: Protect servers to Azure by using Azure PowerShell with Azure Resource Manager | Microsoft Docs
-description: Automate protection of servers to Azure with Azure Site Recovery by using PowerShell and Azure Resource Manager.
+title: Replicate Hyper-V VMs with PowerShell and Azure Resource Manager | Microsoft Docs
+description: Automate the replication of Hyper-V VMs to Azure with Azure Site Recovery using PowerShell and Azure Resource Manager.
 services: site-recovery
 documentationcenter: ''
 author: bsiva
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 
 ---

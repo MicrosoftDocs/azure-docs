@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 02/02/2017
 ms.author: rclaus
 
 ---
@@ -129,7 +129,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11 & openSUSE** - enable boot.md and create mdadm.conf
+    c. **SLES 11** - enable boot.md and create mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -164,7 +164,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
     ```
    
-    Or on **SLES 11 & openSUSE**:
+    Or on **SLES 11**:
 
     ```bash
     /dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2

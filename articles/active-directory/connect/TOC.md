@@ -11,7 +11,7 @@
 
 # Get started
 ## [Prerequisites](active-directory-aadconnect-prerequisites.md)
-## [Install Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+## [Install Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Express settings](active-directory-aadconnect-get-started-express.md)
 ### [Custom settings](active-directory-aadconnect-get-started-custom.md)
 ### [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -28,12 +28,11 @@
 ### [Renew certs for O365 and Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
 ### [User sign-on options](active-directory-aadconnect-user-signin.md)
-### [Multiple domain sSupport for federating](active-directory-aadconnect-multiple-domains.md)
+### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
 ## Manage Azure AD Connect Sync
-### [Generic SQL Connector step-by-step](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # Reference
-## [Windows PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md)
-## [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md)
-## [Generic LDAP Connector](active-directory-aadconnectsync-connector-genericldap.md)
-## [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md)
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Hybrid Identity Required Ports and Protocols](active-directory-aadconnect-ports.md)
 ## [Features in preview](active-directory-aadconnect-feature-preview.md)
 ## [Version History](active-directory-aadconnect-version-history.md)
+## [Accounts and permissions](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect Sync
 ### [Attributes synchronized to Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)

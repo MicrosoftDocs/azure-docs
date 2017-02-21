@@ -9,11 +9,11 @@ editor: monicar
 tags: azure-service-management
 
 ms.assetid: 553af55b-d02e-4e32-904c-682bfa20fa0f
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 

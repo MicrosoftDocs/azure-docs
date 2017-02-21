@@ -3,7 +3,7 @@ title: Get started with Azure AD Privileged Identity Management | Microsoft Docs
 description: Learn how to manage privileged identities with the Azure Active Directory Privileged Identity Management application in Azure portal.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 
 ---
 # Get started with Azure AD Privileged Identity Management
@@ -41,7 +41,6 @@ Once Azure AD Privileged Identity Management is set up, you'll see the navigatio
 * **Manage privileged roles** is the dashboard for privileged role admins to manage role assignments, change role activation settings, start access reviews, and more. The options in this dashboard are disabled for anyone who isn't a privileged role administrator.
 * **Review privileged access** takes you to any pending access reviews that you need to complete, whether you're reviewing access for yourself or someone else. 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 The [Azure AD Privileged Identity Management overview](active-directory-privileged-identity-management-configure.md) includes more details on how you can manage administrative access in your organization.
 
