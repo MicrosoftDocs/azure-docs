@@ -14,10 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-
 ---
-<!--TODO: Introduction -->
-
 ## Register your application with your AD tenant
 First, you will need to register your application with your Azure Active Directory (Azure AD) tenant. This will give you an Application ID for your application, as well as enable it to receive tokens.
 
