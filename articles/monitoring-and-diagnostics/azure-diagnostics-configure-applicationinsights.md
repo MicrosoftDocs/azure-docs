@@ -37,9 +37,9 @@ An example **SinksConfig** looks like this -
       </SinksConfig>
 
 For the **Sink** element the *name* attribute specifies a string value that will be used to uniquely refer to the sink.
-The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data will be sent. If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](application-insights/app-insights-create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
+The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data will be sent. If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](../application-insights/app-insights-create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
 
-If you are developing a Cloud Service project with Azure SDK 2.8 this instrumentation key is automatically populated in the public configuration based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the cloud service project. See [Use Application Insights with Azure Diagnostics to troubleshoot Cloud Service issues](cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
+If you are developing a Cloud Service project with Azure SDK 2.8 this instrumentation key is automatically populated in the public configuration based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the cloud service project. See [Use Application Insights with Azure Diagnostics to troubleshoot Cloud Service issues](../cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
 
 The **Channels** element lets you define one or more **Channel** elements for the data that will be sent to the sink. The channel acts like a filter and allows you to select specific log levels that you would want to send to the sink. For example you could collect verbose logs and send them to storage but you could choose to define a channel with a log level of Error and when you send logs through that channel only error logs will be sent to that sink.
 For a **Channel** the *name* attribute is used to uniquely refer to that channel.
@@ -70,6 +70,7 @@ You can also include multiple sinks in the configuration at different levels in 
 
 Here is a complete example of the public configuration file that sends all errors to Application Insights (specified at the **DiagnosticMonitorConfiguration** node) and in addition Verbose level logs for the Application Logs (specified at the **Logs** node).
 
+```XML
     <WadCfg>
       <DiagnosticMonitorConfiguration overallQuotaInMB="4096"
            sinks="ApplicationInsights.MyTopDiagData"> <!-- All info below sent to this channel -->
@@ -96,6 +97,7 @@ Here is a complete example of the public configuration file that sends all error
         </Sink>
       </SinksConfig>
     </WadCfg>
+```
 
 ![Diagnostics Public Configuration](./media/azure-diagnostics-configure-applicationinsights/diagnostics-publicconfig.png)
 
@@ -106,5 +108,5 @@ There are some limitations to be aware of with this functionality
 * You cannot send any blob data collected by Azure diagnostics extension to Application Insights. For example anything specified under the *Directories* node. For Crash Dumps the actual crash dump will still be sent to blob storage and only a notification that the crash dump was generated will be sent to Application Insights.
 
 ## Next Steps
-* Use [PowerShell](cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
-* Use [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) to enable the Azure diagnostics extension for your application
+* Use [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
+* Use [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) to enable the Azure diagnostics extension for your application
