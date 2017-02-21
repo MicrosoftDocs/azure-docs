@@ -1,0 +1,12 @@
+active-directory-aadconnect-azure-adfs.md
+active-directory-aadconnect-existing-tenant.md
+active-directory-aadconnect-germany.md
+active-directory-aadconnect-pass-through-authentication.md
+active-directory-aadconnect-sso.md
+active-directory-aadconnectsync-change-the-configuration.md
+active-directory-aadconnectsync-connector-domino.md
+active-directory-aadconnectsync-connector-genericldap.md
+active-directory-aadconnectsync-connector-genericsql-step-by-step.md
+active-directory-aadconnectsync-connector-genericsql.md
+active-directory-aadconnectsync-connector-powershell.md
+active-directory-aadconnectsync-service-manager-ui-operations.md
