@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.date: 02/01/2017
 ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---

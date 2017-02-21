@@ -14,24 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/23/2016
+ms.date: 02/15/2017
 ms.author: rasquill
 
 ---
 # Select Linux VM images with the Azure CLI
-This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Linux VM images are:
+This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. 
 
-**Table of commonly used Linux images**
-
-| PublisherName | Offer | Sku |
-|:--- |:--- |:--- |:--- |
-| RedHat |RHEL |7.2 |
-| credativ |Debian |8 |
-| SUSE |openSUSE |13.2 |
-| SUSE |SLES |12-SP1 |
-| OpenLogic |CentOS |7.1 |
-| Canonical |UbuntuServer |14.04.4-LTS |
-| CoreOS |CoreOS |Stable |
 
 [!INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
