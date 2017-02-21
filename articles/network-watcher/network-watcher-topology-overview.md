@@ -1,5 +1,5 @@
 ---
-title: Introduction to the topology in Azure Network Watcher | Microsoft Docs
+title: Introduction to topology in Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher topology capabilities
 services: network-watcher
 documentationcenter: na
@@ -13,267 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/30/2017
+ms.date: 02/22/2017
 ms.author: gwallace
 ---
 
-# Introduction to the topology API in Azure Network Watcher
+# Introduction to topology in Azure Network Watcher
 
-The topology feature of Network Watcher represents and graphs network resources in a subscription. Topology helps you **know your network**. This will show containment and association relationships between resources. If it is run through the portal, a visual representation of the topology is shown. If using PowerShell, CLI, or REST for Topology, a collection of objects and associations are returned. These objects can be mapped to objects in a tool of your choice to represent the topology graphically.
+Topology returns a graph of network resources in a virtual network. The graph depicts the interconnection between the resources to represent the end to end network connectivity.
 
-## Overview
+![topology overview][1]
 
-The topology view returns resources and how they are related to networking resources including but not limited to Network Security Groups (NSG) that are applied to the resources.
+In the portal, Topology returns the resource objects on a per virtual network basis. The relationships are depicted by lines between the resources Resources outside of the Network Watcher region, even if in the resource group will not be displayed. The resources returned in the portal view are a subset of the networking components that are graphed. To see the full list of networking resources you can use [PowerShell](network-watcher-topology-powershell.md) or [REST](network-watcher-topology-rest.md)
 
-The following are properties that are returned when querying the Topology REST API.
+> [!NOTE]
+> An instance of Network Watcher is required in each region that you want to run Topology on.
 
-* **name** - The name of the resource
-* **id** - The uri of the resource.
-* **location** - The location where the resource exists.
-* **associations** - A list of associations to the referenced object.
-    * **name** - The name of the referenced resource.
-    * **resourceId** - The resourceId is the uri of the resource referenced in the association.
-    * **associationType** - This value references the association between the child object and the parent. Valid values are **Contains** or **Associated**.
+As resources are returned the connection between them are modeled under two relationships.
 
-The following is an example of the json response returned.
+- **Containment** - Example: Virtual Network contains a Subnet which contains a NIC
+- **Associated** - Example: A NIC is associated with a VM
 
-```json
-{
-  "id": "ecd6c860-9cf5-411a-bdba-512f8df7799f",
-  "createdDateTime": "2017-01-18T04:13:07.1974591Z",
-  "lastModified": "2017-01-17T22:11:52.3527348Z",
-  "resources": [
-    {
-      "name": "virtualNetwork1",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/virtualNetwork1",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "appGatewaySubnet",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/virtualNetwork1/subnets
-/appGatewaySubnet",
-          "associationType": "Contains"
-        }
-      ]
-    },
-    {
-      "name": "webtestvnet-vybsv4xqn6j6w",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/webtestvnet-vybsv4xqn6j6w",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "Subnet",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/webtestvnet-vybsv4xqn6j
-6w/subnets/Subnet",
-          "associationType": "Contains"
-        }
-      ]
-    },
-    {
-      "name": "Subnet",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/webtestvnet-vybsv4xqn6j6w/subnets/S
-ubnet",
-      "location": "westcentralus",
-      "associations": []
-    },
-    {
-      "name": "webtestvnet-wjplxls65qcto",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/webtestvnet-wjplxls65qcto",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "Subnet",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/webtestvnet-wjplxls65qc
-to/subnets/Subnet",
-          "associationType": "Contains"
-        }
-      ]
-    },
-    {
-      "name": "Subnet",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/webtestvnet-wjplxls65qcto/subnets/S
-ubnet",
-      "location": "westcentralus",
-      "associations": []
-    },
-    {
-      "name": "webtestvm-backend-qghdzsjq7jvsy-1-yh2nfml56dvqq",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Compute/virtualMachines/webtestvm-backend-qghdzsjq7jvsy-1-y
-h2nfml56dvqq",
-      "associations": [
-        {
-          "name": "webtestnic-backend-qghdzsjq7jvsy-1-yh2nfml56dvqq",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkInterfaces/webtestnic-backend-qg
-hdzsjq7jvsy-1-yh2nfml56dvqq",
-          "associationType": "Contains"
-        }
-      ]
-    },
-    {
-      "name": "webtestvm-backend-qghdzsjq7jvsy-2-yh2nfml56dvqq",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Compute/virtualMachines/webtestvm-backend-qghdzsjq7jvsy-2-y
-h2nfml56dvqq",
-      "associations": [
-        {
-          "name": "webtestnic-backend-qghdzsjq7jvsy-2-yh2nfml56dvqq",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkInterfaces/webtestnic-backend-qg
-hdzsjq7jvsy-2-yh2nfml56dvqq",
-          "associationType": "Contains"
-        }
-      ]
-    },
-        {
-          "name": "webtestnsg-wjplxls65qcto",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-wjplxl
-s65qcto",
-          "associationType": "Associated"
-        },
-        {
-          "name": "Subnet",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/webtestvnet-wjplxls65qc
-to/subnets/Subnet",
-          "associationType": "Associated"
-        },
-        {
-          "name": "backend-qghdzsjq7jvsy-1",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/publicIPAddresses/backend-qghdzsjq7jvsy
--1",
-          "associationType": "Associated"
-        }
-      ]
-    },
-    {
-      "name": "webtestnic-backend-qghdzsjq7jvsy-2-yh2nfml56dvqq",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkInterfaces/webtestnic-backend-qghdzsjq7jvsy-
-2-yh2nfml56dvqq",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "webtestvm-backend-qghdzsjq7jvsy-2-yh2nfml56dvqq",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Compute/virtualMachines/webtestvm-backend-qghdz
-sjq7jvsy-2-yh2nfml56dvqq",
-          "associationType": "Associated"
-        },
-        {
-          "name": "webtestnsg-vybsv4xqn6j6w",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-vybsv4
-xqn6j6w",
-          "associationType": "Associated"
-        },
-        {
-          "name": "Subnet",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/webtestvnet-vybsv4xqn6j
-6w/subnets/Subnet",
-          "associationType": "Associated"
-        },
-        {
-          "name": "backend-qghdzsjq7jvsy-2",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/publicIPAddresses/backend-qghdzsjq7jvsy
--2",
-          "associationType": "Associated"
-        }
-      ]
-    },
-    {
-      "name": "webtestnsg-vybsv4xqn6j6w",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-vybsv4xqn6j6w",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "ssh-rule",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-vybsv4
-xqn6j6w/securityRules/ssh-rule",
-          "associationType": "Contains"
-        },
-        {
-          "name": "web-rule",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-vybsv4
-xqn6j6w/securityRules/web-rule",
-          "associationType": "Contains"
-        }
-      ]
-    },
-    {
-      "name": "ssh-rule",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-vybsv4xqn6j6w/secu
-rityRules/ssh-rule",
-      "location": "westcentralus",
-      "associations": []
-    },
-    {
-      "name": "web-rule",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-vybsv4xqn6j6w/secu
-rityRules/web-rule",
-      "location": "westcentralus",
-      "associations": []
-    },
-    {
-      "name": "webtestnsg-wjplxls65qcto",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-wjplxls65qcto",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "ssh-rule",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-wjplxl
-s65qcto/securityRules/ssh-rule",
-          "associationType": "Contains"
-        },
-        {
-          "name": "web-rule",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-wjplxl
-s65qcto/securityRules/web-rule",
-          "associationType": "Contains"
-        }
-      ]
-    },
-    {
-      "name": "ssh-rule",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-wjplxls65qcto/secu
-rityRules/ssh-rule",
-      "location": "westcentralus",
-      "associations": []
-    },
-    {
-      "name": "web-rule",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-wjplxls65qcto/secu
-rityRules/web-rule",
-      "location": "westcentralus",
-      "associations": []
-    },
-    {
-      "name": "backend-qghdzsjq7jvsy-1",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/publicIPAddresses/backend-qghdzsjq7jvsy-1",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "webtestnic-backend-qghdzsjq7jvsy-1-yh2nfml56dvqq",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkInterfaces/webtestnic-backend-qg
-hdzsjq7jvsy-1-yh2nfml56dvqq",
-          "associationType": "Associated"
-        }
-      ]
-    },
-    {
-      "name": "backend-qghdzsjq7jvsy-2",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/publicIPAddresses/backend-qghdzsjq7jvsy-2",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "webtestnic-backend-qghdzsjq7jvsy-2-yh2nfml56dvqq",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkInterfaces/webtestnic-backend-qg
-hdzsjq7jvsy-2-yh2nfml56dvqq",
-          "associationType": "Associated"
-        }
-      ]
-    }
-  ]
-}
-```
+### Next steps
 
-## Next steps
-
-Learn how to use the Azure REST API to retrieve the Topology view by visiting [Create Visio diagram based on Topology, REST API and PowerShell](network-watcher-topology-visio-rest.md)
+Learn how to use PowerShell to retrieve the Topology view by visiting [Network Watcher topology with PowerShell](network-watcher-topology-powershell.md)
 
 <!--Image references-->
 
-[1]: ./media/network-watcher-topology-overview/figure1.png
+[1]: ./media/network-watcher-topology-overview/topology.png

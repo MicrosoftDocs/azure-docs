@@ -41,7 +41,7 @@ This article assumes that you have the following resources:
 - A virtual machine with the packet capture extension enabled.
 
 > [!IMPORTANT]
-> Packet capture requires an extension to be running on the virtual machine. For instructions on to install the VM extension `AzureNetworkWatcherExtension`, visit [Virtual Machine extensions and features](../virtual-machines/virtual-machines-windows-extensions-features.md) or visit [Manage Packet Capture with PowerShell](network-watcher-packet-capture-manage-powershell.md#install-vm-extension)
+> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
 
 ### Packet Capture agent extension through the portal
 

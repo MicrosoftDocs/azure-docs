@@ -20,36 +20,26 @@ ms.author: gwallace
 
 # Introduction to flow logging for Network Security Groups
 
-Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These json flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
-
-## Configuring NSG Flow logs in the portal
+Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
 ![flow logs overview][1]
 
-## Configuring NSG Flow logs with powershell
+While flow logs target Network Security Groups they are not displayed the same as the other logs. Flow logs are stored only within a storage account and following the logging path as shown in the following example.
 
-The command to enable flow logs is shown in the following example:
-
-```powershell
-$NW = Get-AzurermNetworkWatcher -ResourceGroupName NetworkWatcherRg -Name NetworkWatcher_westcentralus
-$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName nsgRG-Name nsgName
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName StorageRG -Name contosostorage123
-Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id
-Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
+```
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
 ```
 
-Use the following example to disable flow logs:
+The same retention policies as seen on other logs apply to flow logs. Logs have a retention policy that can be set from 1 day to 365 days. If a retention policy is not set the logs are maintained forever.
 
-```powershell
-Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $false
-```
+## Log file
 
-The following list is a listing of the properties that are returned within the NSG flow log:
+Flow logs have multiple properties. The following list is a listing of the properties that are returned within the NSG flow log:
 
 * **time** - Time when the event was logged
-* **systemId** - Network Security Group resource ID.
+* **systemId** - Network Security Group resource Id.
 * **category** - The category of the event, this is always be NetworkSecurityGroupFlowEvent
-* **resourceid** - The resource id of the NSG
+* **resourceid** - The resource Id of the NSG
 * **operationName** - Always NetworkSecurityGroupFlowEvents
 * **properties** - A collection of properties of the flow
 	* **Version** - Version number of the Flow Log event schema
@@ -68,33 +58,49 @@ The following list is a listing of the properties that are returned within the N
 					* **Traffic** - Whether traffic was allowed or denied. Valid values are **A** for allowed and **D** for denied.
 
 
-The following snippet is an example of the results in the NSG flow event log.
+The following is an example of a Flow log. As you can see there are multiple records that follow the property list described in the preceding section. 
 
+> [!NOTE]
+> Values in the flowTuples property are a comma separated list.
+ 
 ```json
-"records": 
+{
+	"records": 
 	[
+		
 		{
-			 "time": "2017-01-11T19:00:12.1870000Z",
-			 "systemId": "d953ebda-5e51-4b58-ab66-5268eecbc597",
+			 "time": "2017-02-16T22:00:32.8950000Z",
+			 "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
 			 "category": "NetworkSecurityGroupFlowEvent",
-			 "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMEXAMPLERG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIKAMVM1-NSG",
+			 "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
 			 "operationName": "NetworkSecurityGroupFlowEvents",
-			 "properties": {"Version":1,"flows":[{"rule":"DefaultRule_AllowInternetOutBound","flows":[]},{"rule":"DefaultRule_AllowVnetOutBound","flows":[]},{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF845D6","flowTuples":["1484161205,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161205,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161206,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161206,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161207,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161207,167.220.1.58,10.1.0.4,1011,500,U,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[]}]}
+			 "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282421,42.119.146.95,10.1.0.4,51529,5358,T,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282370,163.28.66.17,10.1.0.4,61771,3389,T,I,A","1487282393,5.39.218.34,10.1.0.4,58596,3389,T,I,A","1487282393,91.224.160.154,10.1.0.4,61540,3389,T,I,A","1487282423,13.76.89.229,10.1.0.4,53163,3389,T,I,A"]}]}]}
 		}
 		,
 		{
-			 "time": "2017-01-11T19:01:12.1880000Z",
-			 "systemId": "d953ebda-5e51-4b58-ab66-5268eecbc597",
+			 "time": "2017-02-16T22:01:32.8960000Z",
+			 "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
 			 "category": "NetworkSecurityGroupFlowEvent",
-			 "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMEXAMPLERG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIKAMVM1-NSG",
+			 "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
 			 "operationName": "NetworkSecurityGroupFlowEvents",
-			 "properties": {"Version":1,"flows":[{"rule":"DefaultRule_AllowInternetOutBound","flows":[]},{"rule":"DefaultRule_AllowVnetOutBound","flows":[]},{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF845D6","flowTuples":["1484161210,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161210,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161247,14.188.227.186,10.1.0.4,58643,23,T,I,D","1484161263,167.220.1.58,10.1.0.4,38182,80,T,I,D","1484161266,167.220.1.58,10.1.0.4,38182,80,T,I,D","1484161266,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161266,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161267,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161267,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161268,167.220.1.58,10.1.0.4,1011,500,U,I,D","1484161268,167.220.1.58,10.1.0.4,1011,500,U,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[]}]}
-		},
+			 "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282481,195.78.210.194,10.1.0.4,53,1732,U,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282435,61.129.251.68,10.1.0.4,57776,3389,T,I,A","1487282454,84.25.174.170,10.1.0.4,59085,3389,T,I,A","1487282477,77.68.9.50,10.1.0.4,65078,3389,T,I,A"]}]}]}
+		}
+		,
+		{
+			 "time": "2017-02-16T22:02:32.9040000Z",
+			 "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+			 "category": "NetworkSecurityGroupFlowEvent",
+			 "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+			 "operationName": "NetworkSecurityGroupFlowEvents",
+			 "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282492,175.182.69.29,10.1.0.4,28918,5358,T,I,D","1487282505,71.6.216.55,10.1.0.4,8080,8080,T,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282512,91.224.160.154,10.1.0.4,59046,3389,T,I,A"]}]}]}
+		}
+		,
+		...
 ```
 
 ## Next steps
 
-Learn to audit your NSG settings by visiting [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-nsg-auditing-powershell.md).
+Learn how to enable Flow logs by visiting [Enabling Flow logging](network-watcher-nsg-flow-logging-portal.md).
 
 Learn about NSG logging by visiting [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md).
 
