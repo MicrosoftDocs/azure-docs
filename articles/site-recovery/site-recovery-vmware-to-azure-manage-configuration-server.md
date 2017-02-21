@@ -1,5 +1,5 @@
 ---
-title: ' Manage a Configuration server in Azure Site Recovery | Microsoft Docs'
+title: ' Manage a Configuration Server in Azure Site Recovery | Microsoft Docs'
 description: This article describes how to set and manage a Configuration Server.
 services: site-recovery
 documentationcenter: ''
@@ -17,31 +17,31 @@ ms.date: 2/14/2017
 ms.author: anoopkv
 ---
 
-# Manage a configuration server
+# Manage a Configuration Server
 
-Configuration server acts as a coordinator between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage the Configuration server.
+Configuration Server acts as a coordinator between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage the Configuration Server.
 
 ## Prerequisites
-The following are the minimum hardware, software, and network configuration required to set up a Configuration server.
+The following are the minimum hardware, software, and network configuration required to set up a Configuration Server.
 
 > [!NOTE]
-> [Capacity planning](site-recovery-capacity-planner.md) is an important step to ensure that you deploy the Configuration server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration server](#sizing-requirements-for-a-configuration-server).
+> [Capacity planning](site-recovery-capacity-planner.md) is an important step to ensure that you deploy the Configuration Server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration Server](#sizing-requirements-for-a-configuration-server).
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-## Downloading the Configuration server software
+## Downloading the Configuration Server software
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).
 
   ![Add Servers Page](./media/site-recovery-vmware-to-azure-manage-configuration-server/AddServers.png)
 3. Click the **+Servers** button.
-4. On the **Add Server** page, click the Download button to download the Registration key. You need this key during the Configuration server installation to register it with Azure Site Recovery service.
-5. Click the **Download the Microsoft Azure Site Recovery Unified Setup** link to download the latest version of the Configuration server.
+4. On the **Add Server** page, click the Download button to download the Registration key. You need this key during the Configuration Server installation to register it with Azure Site Recovery service.
+5. Click the **Download the Microsoft Azure Site Recovery Unified Setup** link to download the latest version of the Configuration Server.
 
   ![Download Page](./media/site-recovery-vmware-to-azure-manage-configuration-server/downloadcs.png)
 
   > [!TIP]
-  Latest version of the Configuration server can be downloaded directly from [Microsoft Download Center download page](http://aka.ms/unifiedsetup)
+  Latest version of the Configuration Server can be downloaded directly from [Microsoft Download Center download page](http://aka.ms/unifiedsetup)
 
 ## Installing and Registering a Configuration Server from GUI
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
@@ -60,7 +60,7 @@ The following are the minimum hardware, software, and network configuration requ
   ```
 
 
-### Configuration server installer command-line arguments.
+### Configuration Server installer command-line arguments.
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
 
@@ -82,7 +82,7 @@ ProxyPort = "Port"
 ProxyUserName="UserName"
 ProxyPassword="Password"
 ```
-## Modifying Proxy Settings for Configuration server
+## Modifying Proxy Settings for Configuration Server
 1. Login to your Configuration Server.
 2. Launch the cspsconfigtool.exe using the shortcut on your.
 3. Click the **Vault Registration** tab.
@@ -100,9 +100,9 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  If you have Scale-out Process servers attached to this configuration server, you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) in your deployment.
+  If you have Scale-out Process servers attached to this Configuration Server, you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) in your deployment.
 
-## Registering a Configuration server with a different Recovery Services Vault.
+## Registering a Configuration Server with a different Recovery Services Vault.
 1. Login to your Configuration Server.
 2. from and admin command prompt, run the command
 ```
@@ -124,28 +124,28 @@ net stop dra
     net start obengine
     ```
 
-## Decommissioning a Configuration server
-Ensure the following before you start decommissioning your configuration server.
-1. Disable protection for all virtual machines under this Configuration server.
-2. Disassociate all Replication policies from the Configuration server.
-3. Delete all vCenters servers/vSphere hosts that are associated to the Configuration server.
+## Decommissioning a Configuration Server
+Ensure the following before you start decommissioning your Configuration Server.
+1. Disable protection for all virtual machines under this Configuration Server.
+2. Disassociate all Replication policies from the Configuration Server.
+3. Delete all vCenters servers/vSphere hosts that are associated to the Configuration Server.
 
 ### Delete the Configuration Server from Azure portal
 1. In Azure portal, browse to **Site Recovery Infrastructure** > **Configuration Servers** from the Vault menu.
-2. Click the Configuration server that you want to decommission.
-3. On the Configuration server's details page, click the Delete button.
+2. Click the Configuration Server that you want to decommission.
+3. On the Configuration Server's details page, click the Delete button.
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Click **Yes** to confirm the deletion of the server.
 
   >[!WARNING]
-  If you have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration server, you cannot delete the server. Delete these entities before you try to delete the vault.
+  If you have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration Server, you cannot delete the server. Delete these entities before you try to delete the vault.
 
-### Uninstall the Configuration server software and its dependencies
+### Uninstall the Configuration Server software and its dependencies
   > [!TIP]
   If you plan to reuse the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
 
-1. Log on to the Configuration server as an Administrator.
+1. Log on to the Configuration Server as an Administrator.
 2. Open up Control Panel > Program > Uninstall Programs
 3. Uninstall the programs in the following sequence:
   * Microsoft Azure Site Recovery Mobility Service/Master Target server
@@ -160,14 +160,14 @@ Ensure the following before you start decommissioning your configuration server.
   ```
 
 ## Renew Configuration Server Secure Socket Layer(SSL) Certificates
-The Configuration server has an inbuilt webserver, which orchestrates the activities of the Mobility Service, Process Servers, and Master Target servers connected to the Configuration server. The Configuration server's webserver uses an SSL certificate to authenticate its clients. This certificate has an expiry of three years and can be renewed at any time using the following method:
+The Configuration Server has an inbuilt webserver, which orchestrates the activities of the Mobility Service, Process Servers, and Master Target servers connected to the Configuration Server. The Configuration Server's webserver uses an SSL certificate to authenticate its clients. This certificate has an expiry of three years and can be renewed at any time using the following method:
 
 > [!WARNING]
 Certificate expiry can be performed only on version 9.4.XXXX.X or higher. Upgrade all the Azure Site Recovery components (Configuration Server, Process Server, Master Target Server, Mobility Service) before you start the Renew Certificates workflow.
 
 1. On the Azure portal, browse to your Vault > Site Recovery Infrastructure > Configuration Server.
-2. Click the Configuration server for which you need to renew the SSL Certificate for.
-3. Under the Configuration server health, you can see the expiry date for the SSL Certificate.
+2. Click the Configuration Server for which you need to renew the SSL Certificate for.
+3. Under the Configuration Server health, you can see the expiry date for the SSL Certificate.
 4. Renew the certificate by clicking the **Renew Certificates** action as shown in the following image:
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/renew-cert-page.png)
@@ -177,7 +177,7 @@ Certificate expiry can be performed only on version 9.4.XXXX.X or higher. Upgrad
 > [!NOTE]
 The SSL Certificate's validity for all installations that happened before May 2016 was set to one year. you have started seeing certificate expiry notifications showing up in the Azure portal.
 
-1. If the Configuration server's SSL certificate is going to expire in the next two months, the service starts notifying users via the Azure portal & email (you need to be subscribed to Azure Site Recovery notifications). You start seeing a notification banner on the Vault's resource page.
+1. If the Configuration Server's SSL certificate is going to expire in the next two months, the service starts notifying users via the Azure portal & email (you need to be subscribed to Azure Site Recovery notifications). You start seeing a notification banner on the Vault's resource page.
 
   ![certificate-notification](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-renew-notification.png)
 2. Click the banner to get additional details on the Certificate expiry.
@@ -187,7 +187,7 @@ The SSL Certificate's validity for all installations that happened before May 20
   >[!TIP]
   If instead of a **Renew Now** button you see an **Upgrade Now** button. This means that there are some components in your environment that have not yet been upgraded to 9.4.xxxx.x or higher versions.
 
-## Sizing requirements for a Configuration server
+## Sizing requirements for a Configuration Server
 
 | **CPU** | **Memory** | **Cache disk size** | **Data change rate** | **Protected machines** |
 | --- | --- | --- | --- | --- |
