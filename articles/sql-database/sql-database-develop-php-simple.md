@@ -28,7 +28,7 @@ This topic shows how to connect and query an Azure SQL Database using PHP. You c
 ## Step 1: Create a SQL database
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. Once you create your database make sure you enable access to your IP address by enabling the firewall rules as described in the [getting started page](sql-database-get-started.md)
 
-## Step 2: Configure Development Environment
+## Step 2: Configure development environment
 
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install the **Microsoft ODBC Driver for Linux**, **pdo_sqlsrv** and **sqlsrv**. Microsoft PHP Driver for SQL Server uses the Microsoft ODBC Driver on Linux to connect to SQL Databases.
@@ -47,7 +47,7 @@ sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | s
 
 ### **Windows**
 - Install PHP 7.1.1 (x64) [from WebPlatform Installer](https://www.microsoft.com/web/downloads/platform.aspx?lang=) 
-- Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/en-us/download/details.aspx?id=53339). 
+- Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/download/details.aspx?id=53339). 
 - Download the non-thread safe dll's for the [Microsoft PHP Driver for SQL Server](https://pecl.php.net/package/sqlsrv/4.1.6.1/windows) and place the binaries in the PHP\v7.x\ext folder.
 - Next edit your php.ini (C:\Program Files\PHP\v7.1\php.ini) file by adding the reference to the dll. For example:
       
