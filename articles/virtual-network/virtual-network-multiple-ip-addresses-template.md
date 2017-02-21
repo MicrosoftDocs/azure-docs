@@ -155,7 +155,7 @@ To deploy the template using the Azure CLI 1.0, complete the following steps:
 
 	Regardless of the option you choose to deploy the template with, you must supply values for the parameter values listed in the [parameters](#parameters) section of this article. If you choose to supply parameters using a parameters file, copy the contents of the [parameters file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) from GitHub into a new file on your computer. Modify the values in the file. Use the file you created as the value for the `--parameters-file` (-e) parameter.
 	
-	To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli) article.
+	To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10) article.
 
 3. After the VM is deployed, connect to the VM and add the private IP addresses to the operating system you deployed by completing the steps in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
