@@ -98,64 +98,68 @@ In Active Directory, the default UPN suffix is the DNS name of the domain in whi
 The UPN of the user uses the format username@domain. For example, for an Active Directory domain named "contoso.com", a user named John might have the UPN "john@contoso.com". The UPN of the user is based on RFC 822. Although UPN and email share the same format, the value of UPN for a user might or might not be equal to the email address of the user.
 
 ### User principal name in Azure AD
-The Azure AD Connect wizard uses the userPrincipalName attribute or lets you specify the attribute (in custom install) to be used from on-premises as the user principal name in Azure AD. This is the value that will be used for signing in to Azure AD. If the value of the user principal name attribute does not correspond to a verified domain in Azure AD, then Azure AD will replace it with a default .onmicrosoft.com value.
+The Azure AD Connect wizard uses the userPrincipalName attribute or lets you specify the attribute (in a custom installation) to be used from on-premises as the user principal name in Azure AD. This is the value that is used for signing in to Azure AD. If the value of the user principal name attribute doesn't correspond to a verified domain in Azure AD, then Azure AD replaces it with a default .onmicrosoft.com value.
 
-Every directory in Azure Active Directory comes with a built-in domain name in the form contoso.onmicrosoft.com that lets you get started using Azure or other Microsoft services. You can improve and simplify sign-in experience using custom domains. For information on custom domain names in Azure AD and how to verify a domain, please read [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory)
+Every directory in Azure Active Directory comes with a built-in domain name, in the form contoso.onmicrosoft.com, that lets you get started using Azure or other Microsoft services. You can improve and simplify the sign-in experience by using custom domains. For information on custom domain names in Azure AD and how to verify a domain, see [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory).
 
 ## Azure AD sign-in configuration
 ### Azure AD sign-in configuration with Azure AD Connect
-Azure AD sign-in experience is dependent on whether Azure AD is able to match the user principal name suffix of a user being synced to one of the custom domains verified in the Azure AD directory. Azure AD Connect provides help while configuring Azure AD sign-in settings, so that user sign-in experience in cloud is similar to the on-premises experience. Azure AD Connect lists the UPN suffixes defined for the domain(s) and tries to match them with a custom domain in Azure AD and helps you with the appropriate action that needs to be taken.
-The Azure AD sign-in page lists out the UPN suffixes defined for the on-premises Active Directory and displays the corresponding status against each suffix. The status values can be one of the below:
+The Azure AD sign-in experience depends on whether Azure AD is able to match the user principal name suffix of a user that's being synced to one of the custom domains that's verified in the Azure AD directory. Azure AD Connect provides help while you configure Azure AD sign-in settings, so that the user sign-in experience in the cloud is similar to the on-premises experience.
+
+Azure AD Connect lists the UPN suffixes that are defined for the domain(s) and tries to match them with a custom domain in Azure AD. Then it helps you with the appropriate action that needs to be taken.
+The Azure AD sign-in page lists the UPN suffixes that are defined for the on-premises Active Directory and displays the corresponding status against each suffix. The status values can be one of the following:
 
 | State | Description | Action needed |
 |:--- |:--- |:--- |
-| Verified |Azure AD Connect found a matching verified domain in Azure AD. All users for this domain can sign-in using their on-premises credentials |No action is needed |
-| Not Verified |Azure AD Connect could find a matching custom domain in Azure AD but it is not verified. UPN suffix of the users of this domain will be changed to default .onmicrosoft.com suffix after sync if domain is not verified. |Verify the custom domain in Azure AD. [Learn more](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
-| Not Added |Azure AD Connect could not find a custom domain corresponding to the UPN suffix. UPN suffix of users from this domain will be changed to default .onmicrosoft.com if the domain is not added and verifeid in Azure. |Add and verify a custom domain corresponding to the UPN suffix [Learn More](../active-directory-add-domain.md) |
+| Verified |Azure AD Connect found a matching verified domain in Azure AD. All users for this domain can sign in by using their on-premises credentials |No action is needed. |
+| Not verified |Azure AD Connect found a matching custom domain in Azure AD, but it isn't verified. The UPN suffix of the users of this domain will be changed to the default .onmicrosoft.com suffix after synchronization if the domain isn't verified. | [Verify the custom domain in Azure AD.](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
+| Not added |Azure AD Connect didn't find a custom domain that corresponded to the UPN suffix. The UPN suffix of the users of this domain will be changed to the default .onmicrosoft.com suffix if the domain isn't added and verified in Azure. | [Add and verify a custom domain that corresponds to the UPN suffix.](../active-directory-add-domain.md) |
 
-Azure AD sign-in page lists the  UPN suffix(s) defined for the on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In custom installation, you can now select the attribute for user principal name on the **Azure AD sign-in** page.
+The Azure AD sign-in page lists the UPN suffix(s) that are defined for the on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In a custom installation, you can now select the attribute for the user principal name on the **Azure AD sign-in** page.
 
 ![Azure AD sign-in page](./media/active-directory-aadconnect-user-signin/custom_azure_sign_in.png)
 
-You can click on the refresh button to re-fetch the latest status of the custom domains from Azure AD.
+You can click the refresh button to re-fetch the latest status of the custom domains from Azure AD.
 
-### Selecting attribute for user principal name in Azure AD
-The attribute userPrincipalName is the attribute users will use when they sign-in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. It is strongly recommended to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified then it is possible to select another attribute, for example email, as the attribute holding the sign-in ID. This is known as Alternate ID. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with both password Single Sign-On (SSO) and federation SSO as the sign-in solution.
+### Selecting the attribute for the user principal name in Azure AD
+The attribute userPrincipalName is the attribute that users use when they sign in to Azure AD and Office 365. You should verify in Azure AD the domains that are used, also known as the UPN suffix, before the users are synchronized.
+
+We strongly recommend that you keep the default attribute userPrincipalName. If this attribute is nonroutable and can't be verified, then it's possible to select another attribute, for example email, as the attribute that holds the sign-in ID. This is known as the Alternate ID. The Alternate ID attribute value must follow the RFC822 standard. You can use an Alternate ID with both password SSO and federation SSO as the sign-in solution.
 
 > [!NOTE]
-> Using an Alternate ID is not compatible with all Office 365 workloads and pass-through authentication. For more information, please refer to [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
+> Using an Alternate ID isn't compatible with all Office 365 workloads and pass-through authentication. For more information, see [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
 >
 >
 
-#### Different custom domain states and effect on Azure sign-in experience
-It is very important to understand the relationship between the custom domain states in your Azure AD directory and the UPN suffixes defined on-premises. Let us go through the different possible Azure sign-in experiences when you are setting up synchronization using Azure AD Connect.
+#### Different custom domain states and their effect on the Azure sign-in experience
+It's very important to understand the relationship between the custom domain states in your Azure AD directory and the UPN suffixes that are defined on-premises. Let's go through the different possible Azure sign-in experiences when you're setting up synchronization by using Azure AD Connect.
 
-For the information below, let us assume that we are concerned with the UPN suffix contoso.com which is used in the on-premises directory as part of UPN, for example user@contoso.com.
+For the information below, let's assume that we're concerned with the UPN suffix contoso.com, which is used in the on-premises directory as part of UPN--for example user@contoso.com.
 
 ###### Express settings/Password synchronization
 | State | Effect on user Azure sign-in experience |
 |:---:|:--- |
-| Not added |In this case no custom domain for contoso.com has been added in Azure AD directory. Users who have UPN on-premises with suffix @contoso.com, will not be able to use their on-premises UPN to sign-in to Azure. They will instead have to use a new UPN provided to them by Azure AD by adding the suffix for default Azure AD directory. For example, if you are syncing users to Azure AD directory azurecontoso.onmicrosoft.com then the on-premises user user@contoso.com will be given a UPN of user@azurecontoso.onmicrosoft.com |
-| Not verified |In this case we have a custom domain contoso.com added in Azure AD directory, however it is not yet verified. If you go ahead with syncing users without verifying the domain, then the users will be assigned a new UPN by Azure AD just like it did in the 'Not added' scenario. |
-| Verified |In this case we have a custom domain contoso.com already added and verified in Azure AD for the UPN suffix. Users will be able to use their on-premises user principal name, e.g. user@contoso.com, to sign-in to Azure after they are synced to Azure AD |
+| Not added |In this case, no custom domain for contoso.com has been added in the Azure AD directory. Users who have UPN on-premises with the suffix @contoso.com won't be able to use their on-premises UPN to sign in to Azure. They'll instead have to use a new UPN that's provided to them by Azure AD by adding the suffix for the default Azure AD directory. For example, if you're syncing users to the Azure AD directory azurecontoso.onmicrosoft.com, then the on-premises user user@contoso.com will be given a UPN of user@azurecontoso.onmicrosoft.com. |
+| Not verified |In this case, we have a custom domain contoso.com that's added in Azure AD directory. However, it's not yet verified. If you go ahead with syncing users without verifying the domain, then the users will be assigned a new UPN by Azure AD, just like it did in the 'Not added' scenario. |
+| Verified |In this case, we have a custom domain contoso.com that's already added and verified in Azure AD for the UPN suffix. Users will be able to use their on-premises user principal name, for example user@contoso.com, to sign in to Azure after they're synced to Azure AD. |
 
 ###### AD FS federation
-You cannot create a federation with the default .onmicrosoft.com domain in Azure AD, or an unverified custom domain in Azure AD. When you are running the Azure AD Connect wizard, if you select an unverified domain to create a federation with then Azure AD Connect will prompt you with necessary records to be created where your DNS is hosted for the domain. For more information see [here](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
+You can't create a federation with the default .onmicrosoft.com domain in Azure AD, or an unverified custom domain in Azure AD. When you're running the Azure AD Connect wizard, if you select an unverified domain to create a federation with, then Azure AD Connect prompts you with the necessary records to be created where your DNS is hosted for the domain. For more information, see [Verify the Azure AD domain selected for federation](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
-If you selected User sign-in option as "Federation with AD FS", then you must have a custom domain to continue with creating a federation in Azure AD. For our discussion, this means that we should have a custom domain contoso.com added in Azure AD directory.
+If you selected the user sign-in option as "Federation with AD FS", then you must have a custom domain to continue creating a federation in Azure AD. For our discussion, this means that we should have a custom domain contoso.com added in the Azure AD directory.
 
-| State | Effect on user Azure sign-in experience |
+| State | Effect on the user Azure sign-in experience |
 |:---:|:--- |
-| Not added |In this case Azure AD Connect could not find a matching custom domain for the UPN suffix contoso.com in Azure AD directory. You need to add a custom domain contoso.com if you need users to sign-in using AD FS with their on-premises UPN like user@contoso.com. |
-| Not verified |In this case Azure AD Connect will prompt you with appropriate details on how you can verify your domain at a later stage |
-| Verified |In this case you can go ahead with the configuration without any further action |
+| Not added |In this case, Azure AD Connect didn't find a matching custom domain for the UPN suffix contoso.com in the Azure AD directory. You need to add a custom domain contoso.com if you need users to sign in by using AD FS with their on-premises UPN like user@contoso.com. |
+| Not verified |In this case, Azure AD Connect prompts you with appropriate details on how you can verify your domain at a later stage. |
+| Verified |In this case, you can go ahead with the configuration without any further action. |
 
-## Changing user sign-in method
-You can change the user sign-in method from Federation to Password Sync or to Pass-through authentication using the tasks available in Azure AD Connect after the initial configuration of Azure AD Connect using the wizard. Run the Azure AD Connect wizard again and you will be presented with a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
+## Changing the user sign-in method
+You can change the user sign-in method from federation, password synchronization, or pass-through authentication by using the tasks that are available in Azure AD Connect after the initial configuration of Azure AD Connect using the wizard. Run the Azure AD Connect wizard again, and you'll see a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
 
 ![Change user sign-in"](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
-On the next page, you will be asked to provide the credentials for Azure AD.
+On the next page, you're asked to provide the credentials for Azure AD.
 
 ![Connect to Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2.png)
 
@@ -164,10 +168,10 @@ On the **User sign-in** page, select the desired user sign-in.
 ![Connect to Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> If you are making only a temporary switch to password synchronization, then check the **Do not convert user accounts**. Not checking on the option will lead to conversion of each user to federated and it can take several hours.
+> If you're only making a temporary switch to password synchronization, then select the **Do not convert user accounts** check box. Not checking the option will convert each user to federated, and it can take several hours.
 >
 >
 
 ## Next steps
-- Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-- Learn more about [Azure AD Connect: Design concepts](active-directory-aadconnect-design-concepts.md).
+- Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- Learn more about [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md).
