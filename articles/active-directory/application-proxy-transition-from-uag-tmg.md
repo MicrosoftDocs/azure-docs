@@ -1,6 +1,6 @@
 ---
 title: Transition to Azure AD application proxies from Microsoft Forefront | Microsoft Docs
-description: Covers the basics about Web Application Proxy and Azure AD Application Proxy connectors.
+description: Covers the basics about how to move from the Microsoft Forefront TMG and UAG solutions to Azure Active Directory application proxies.
 services: active-directory
 documentationcenter: ''
 author: kgremban
