@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 02/21/2017
 ms.author: sethm;jotaub
 ---
 
 # Availability and consistency in Event Hubs
 
 ## Overview
-Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#partitions) that allows for greater uptime within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions has failed, or been taken offline for updates, you can still send and receive from three other partitions. However, Event Hubs can only guarantee the ordering of messages on a single partition. For this reason, it can be benefical to send and receive events from a specific partition when ordering matters.
+Azure Event Hubs uses a [partitioning model](event-hubs-what-is-event-hubs.md#partitions) to improve availability and parallelization within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions is being moved from one server to another in a load balancing operation, you can still send and receive from three other partitions. Additionally, more partitions allows you to have more concurrent readers processing your data, hence improving your aggregate throughput. Understanding the implications of partitioning and ordering in a distributed system is a critical aspect of solution design.
 
-To help explain the tradeoff between ordering and availability, we can look to the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewerâ€™s theorem. The theorem states that, one must choose between consistency, availability, and partition tolerance.
+To help explain the tradeoff between ordering and availability, we can look to the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer's theorem. The theorem states that, one must choose between consistency, availability, and partition tolerance.
 
 The theorem defines consistency and availability as the following:
-* Partition tolerance â€“ the ability of a data processing system to continue processing data even if a partition failure occurs.
-* Availability â€“ a non-failing node returns a reasonable response within a reasonable amount of time (with no errors or timeouts).
-* Consistency â€“ a read is guaranteed to return the most recent write for a given client.
+* Partition tolerance – the ability of a data processing system to continue processing data even if a partition failure occurs.
+* Availability – a non-failing node returns a reasonable response within a reasonable amount of time (with no errors or timeouts).
+* Consistency – a read is guaranteed to return the most recent write for a given client.
 
 ## Partition tolerance
 Event Hubs is built on top of a partitioned model. You may configure the number of partitions in your Event Hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
