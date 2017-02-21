@@ -53,6 +53,7 @@
 ## [View activity and security reports](active-directory-view-access-usage-reports.md)
 ### [Azure AD reporting](active-directory-reporting-getting-started.md)
 ### [FAQ](active-directory-reporting-faq.md)
+### [Report migration](active-directory-reporting-migration.md)
 
 ### [Known networks](active-directory-known-networks.md)
 
