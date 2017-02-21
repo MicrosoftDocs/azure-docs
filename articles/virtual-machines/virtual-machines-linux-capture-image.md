@@ -1,6 +1,6 @@
 ---
-title: Capture a Linux VM using Azure CLI 2.0 (Preview) | Microsoft Docs
-description: How to capture and generalize an image of a Linux-based Azure virtual machine (VM) using managed disks created with the Azure CLI 2.0 (Preview)
+title: Capture a Linux VM with Azure CLI 2.0 | Microsoft Docs
+description: How to capture and generalize an image of a Linux-based Azure virtual machine (VM) using managed disks created with the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -18,24 +18,19 @@ ms.date: 02/02/2017
 ms.author: iainfou
 
 ---
-# How to generalize and capture a Linux virtual machine using the Azure CLI 2.0 (Preview)
-To reuse virtual machines (VMs) deployed and configured in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to capture a VM image using the Azure CLI 2.0 (Preview) for a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+# How to generalize and capture a Linux virtual machine
+To reuse virtual machines (VMs) deployed and configured in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to capture a VM image with the Azure CLI 2.0 for a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This article details how to capture a Linux VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!TIP]
 > If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, see [Create a copy of a Linux virtual machine running on Azure](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). And if you want to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
-
-- [Azure CLI 1.0](virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview) - Azure Managed Disks](#quick-commands) - our next generation CLI for the resource management deployment model (this article)
 
 ## Before you begin
 Ensure that you meet the following prerequisites:
 
 * **Azure VM created in the Resource Manager deployment model** - If you haven't created a Linux VM, you can use the [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), the [Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), or [Resource Manager templates](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Configure the VM as needed. For example, [add data disks](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), apply updates, and install applications. 
 
-You also need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+You also need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to capture an image of a Linux VM in Azure. More detailed information and context for each step can be found in the rest of the document, starting [here](#detailed-steps). In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myVM`, and `myImage`.
@@ -92,7 +87,7 @@ To make the VM ready for generalizing, you deprovision the VM using the Azure VM
 4. After the command completes, type **exit**. This step closes the SSH client.
 
 ## Step 2: Capture the VM
-Use the Azure CLI 2.0 (Preview) to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include **myResourceGroup**, **myVnet**, and **myVM**.
+Use the Azure CLI 2.0 to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include **myResourceGroup**, **myVnet**, and **myVM**.
 
 1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli//azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
    
@@ -154,4 +149,4 @@ You can create multiple VMs from your source VM image. If you need to make chang
 - Make any updates or configuration changes.
 - Follow the steps again to deprovision, deallocate, generalize, and capture the VM. 
 
-For more information on managing your VMs with the CLI, see [Azure CLI 2.0 (Preview)](/cli/azure/overview).
+For more information on managing your VMs with the CLI, see [Azure CLI 2.0](/cli/azure/overview).

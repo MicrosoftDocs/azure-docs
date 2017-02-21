@@ -44,7 +44,7 @@ When creating a VM from the `azure-cli` you can choose between standard and prem
 
 ## Creating a VM with a Managed Disk
 
-The following example requires the Azure CLI 2.0 (Preview), which you can [install here].
+The following example requires the Azure CLI 2.0, which you can [install here].
 
 First, create a resource group to manage the resources:
 
