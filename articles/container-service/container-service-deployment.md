@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 
 ---
@@ -28,9 +28,6 @@ ms.author: rogardle
 
 Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. This document walks you through deploying an Azure Container Service cluster by using the Azure portal or an Azure Resource Manager quickstart template. 
 
-> [!NOTE]
-> Kubernetes support in Azure Container Service is currently in preview.
-
 You can also deploy an Azure Container Service cluster by using the [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md) or the Azure Container Service APIs.
 
 
@@ -39,7 +36,7 @@ You can also deploy an Azure Container Service cluster by using the [Azure CLI 2
 
 * **Azure subscription**: If you don't have one, sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
-* **SSH public key**: When deploying through the portal or one of the Azure quickstart templates, you need to provide the public key for authentication against Azure Container Service virtual machines. To create Secure Shell (SSH) keys, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
+* **SSH RSA public key**: When deploying through the portal or one of the Azure quickstart templates, you need to provide the public key for authentication against Azure Container Service virtual machines. To create Secure Shell (SSH) RSA keys, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
 
 * **Service principal client ID and secret** (Kubernetes only): For more information and guidance to create a service principal, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
@@ -58,36 +55,36 @@ You can also deploy an Azure Container Service cluster by using the [Azure CLI 2
 
     * **User name**: The user name for an account on each of the virtual machines and virtual machine scale sets in the Azure Container Service cluster.
     * **Subscription**: Select an Azure subscription.
-    * **Resource group**: Select an existing resource group, or create a new one.
+    * **Resource group**: Select an existing resource group, or create a new one. As a best practice, use a new resource group for each deployment.
     * **Location**: Select an Azure region for the Azure Container Service deployment.
-    * **SSH public key**: Add the public key to be used for authentication against Azure Container Service virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **SSH RSA public key**: Add the public key to be used for authentication against Azure Container Service virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
 
 4. Click **OK** when you're ready to proceed.
 
     ![Basic settings](media/container-service-deployment/acs-portal3.png)  <br />
 
-5. Select an Orchestration type. The options are:
+5. On the **Framework configuration** bladee, select an **Orchestrator configuration**. The options include:
 
   * **DC/OS**: Deploys a DC/OS cluster.
   * **Swarm**: Deploys a Docker Swarm cluster.
-  * **Kubernetes**: Deploys a Kubernetes cluster
+  * **Kubernetes**: Deploys a Kubernetes cluster.
 
 
 6. Click **OK** when you're ready to proceed.
 
     ![Choose an orchestrator](media/container-service-deployment/acs-portal4-new.png)  <br />
 
-7. If **Kubernetes** is selected in the dropdown, you will need to enter a service principal client ID and service principal client secret. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+7. If **Kubernetes** is selected in the dropdown, you need to enter a service principal client ID (also called the appId) and service principal client secret (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
     ![Enter service principal for Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
 
-7. In the **Azure Container service** settings blade, enter the following information:
+7. In the **Azure Container service settings** blade, enter the following information:
 
-    * **Master count**: The number of masters in the cluster. If Kubernetes is selected, the number of masters is set to a default of 1.
+    * **Master count**: The number of masters in the cluster.
     * **Agent count**: For Docker Swarm and Kubernetes, this value is the initial number of agents in the agent scale set. For DC/OS, it is the initial number of agents in a private scale set. Additionally, a public scale set is created for DC/OS, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster: one public agent for one master, and two public agents for three or five masters.
     * **Agent virtual machine size**: The size of the agent virtual machines.
     * **DNS prefix**: A world unique name that is used to prefix key parts of the fully qualified domain names for the service.
-    * **VM diagnostics**: For some orchestrators, you choose, you can choose to enable VM diagnostics.
+    * **VM diagnostics**: For some orchestrators, you can choose to enable VM diagnostics.
 
 8. Click **OK** when you're ready to proceed.
 
@@ -117,7 +114,7 @@ Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (P
 > [!NOTE] 
 > If you're on a Windows system, you can use similar steps to deploy a template using Azure PowerShell. See steps later in this section. You can also deploy a template through the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md) or other methods.
 
-1. To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the following templates from GitHub. Note that the DC/OS and Swarm templates are the same, with the exception of the default orchestrator selection.
+1. To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the available quickstart templates from GitHub. A partial list follows. Note that the DC/OS and Swarm templates are the same, with the exception of the default orchestrator selection.
 
     * [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -165,7 +162,7 @@ Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (P
 ### Equivalent PowerShell commands
 You can also deploy an Azure Container Service cluster template with PowerShell. This document is based on the version 1.0 [Azure PowerShell module](https://azure.microsoft.com/blog/azps-1-0/).
 
-1. To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the following templates. Note that the DC/OS and Swarm templates are the same, with the exception of the default orchestrator selection.
+1. To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the available quickstart templates from GitHub. A partial list follows. Note that the DC/OS and Swarm templates are the same, with the exception of the default orchestrator selection.
 
     * [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
