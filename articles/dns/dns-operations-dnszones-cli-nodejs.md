@@ -24,14 +24,16 @@ ms.author: gwallace
 
 This guide shows how to manage your DNS zones by using the cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. You can also manage your DNS zones using [Azure PowerShell](dns-operations-dnszones.md) or the Azure portal.
 
-[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
-
 ## CLI versions to complete the task
 
 You can complete the task using one of the following CLI versions:
 
 * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
 * [Azure CLI 2.0](dns-operations-dnszones-cli.md) - our next generation CLI for the resource management deployment model.
+
+## Introduction
+
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 [!INCLUDE [dns-cli-setup](../../includes/dns-cli-setup-include.md)]
 

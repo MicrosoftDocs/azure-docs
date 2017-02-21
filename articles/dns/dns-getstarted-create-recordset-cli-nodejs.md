@@ -26,6 +26,13 @@ ms.author: gwallace
 
 This article walks you through the process of creating records and records sets by using the Azure CLI 1.0.
 
+## CLI versions to complete the task
+
+You can complete the task using one of the following CLI versions:
+
+* [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
+* [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md) - our next generation CLI for the resource management deployment model.
+
 ## Introduction
 
 Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
@@ -33,13 +40,6 @@ Before creating DNS records in Azure DNS, you first need to understand how Azure
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 For more information about DNS records in Azure DNS, see [DNS zones and records](dns-zones-records.md).
-
-## CLI versions to complete the task
-
-You can complete the task using one of the following CLI versions:
-
-* [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
-* [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md) - our next generation CLI for the resource management deployment model.
 
 ## Create a record set and record
 

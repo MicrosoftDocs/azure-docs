@@ -26,14 +26,16 @@ ms.author: gwallace
 
 This article walks you through the steps to create a DNS zone using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also create a DNS zone using [Azure PowerShell](dns-getstarted-create-dnszone.md) or the [Azure portal](dns-getstarted-create-dnszone-portal.md).
 
-[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
-
 ## CLI versions to complete the task
 
 You can complete the task using one of the following CLI versions:
 
 * [Azure CLI 1.0](dns-getstarted-create-dnszone-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
 * [Azure CLI 2.0](dns-getstarted-create-dnszone-cli.md) - our next generation CLI for the resource management deployment model.
+
+## Introduction
+
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 ## Set up Azure CLI 2.0 for Azure DNS
 
@@ -73,7 +75,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 You can skip this step if you are using an existing resource group.
 
-``azurecli
+```azurecli
 az group create --name myresourcegroup --location "West US"
 ```
 

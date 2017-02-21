@@ -25,14 +25,16 @@ ms.author: gwallace
 
 This guide shows how to manage your DNS zones by using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also manage your DNS zones using [Azure PowerShell](dns-operations-dnszones.md) or the Azure portal.
 
-[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
-
 ## CLI versions to complete the task
 
 You can complete the task using one of the following CLI versions:
 
 * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
 * [Azure CLI 2.0](dns-operations-dnszones-cli.md) - our next generation CLI for the resource management deployment model.
+
+## Introduction
+
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 ## Set up Azure CLI 2.0 for Azure DNS
 
@@ -74,16 +76,6 @@ You can skip this step if you are using an existing resource group.
 
 ```azurecli
 az group create --name myresourcegroup --location "West US"
-```
-
-## Create a DNS zone
-
-A DNS zone is created using the `az network dns zone create` command. To see help for this command, type `az network dns zone create --help`.
-
-The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*. Use the example to create a DNS zone, substituting the values for your own.
-
-```azurecli
-az network dns zone create --resource-group myresourcegroup --name contoso.com
 ```
 
 ## Getting help
@@ -186,7 +178,7 @@ DNS zones can be deleted using `az network dns zone delete`. For help, see `az n
 >
 >To protect against accidental zone deletion, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md).
 
-This command prompts for confirmation. The optional `--force` switch suppresses this prompt.
+This command prompts for confirmation. The optional `--yes` switch suppresses this prompt.
 
 The following example shows how to delete the zone *contoso.com* from resource group *MyResourceGroup*.
 
