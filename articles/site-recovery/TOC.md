@@ -2,7 +2,7 @@
 ## [What is Site Recovery?](site-recovery-overview.md)
 ## [How does Site Recovery work?](site-recovery-components.md)
 ## [What workloads can you protect?](site-recovery-workload.md)
-## [Site Recovery support matrix](site-recovery-support-matrix.md)
+## [Site Recovery support matrix](site-recovery-support-matrix-to-azure.md)
 ## [FAQ](site-recovery-faq.md)
 ## [Watch an introduction](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -26,7 +26,14 @@
 ### [Deploy the Mobility service for VMware replication](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Deploy the Mobility service using System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Deploy the Mobility service using Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
+## Failover and failback
+### [Failover in Site Recovery](site-recovery-failover.md)
+### [Set up recovery plans](site-recovery-create-recovery-plans.md)
+#### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
+### [Run a test failover to Azure](site-recovery-test-failover-to-azure.md)
+### [Run a test failover between two VMM sites](site-recovery-test-failover-vmm-to-vmm.md)
+### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
+
 ## Migrate
 ### [Migrate to Azure](site-recovery-migrate-to-azure.md)
 ### [Migrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
@@ -44,13 +51,9 @@
 ### [Automate Hyper-V replication to Azure (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to Azure (with VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-## Failover and failback
-### [Failover in Site Recovery](site-recovery-failover.md)
-### [Set up recovery plans](site-recovery-create-recovery-plans.md)
-#### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
-### [Run a test failover from VMware to Azure](site-recovery-test-failover-to-azure.md)
-### [Run a test failover between two VMM sites](site-recovery-test-failover-vmm-to-vmm.md)
-### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
+## Manage
+### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
+### [Edit replication settings](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
