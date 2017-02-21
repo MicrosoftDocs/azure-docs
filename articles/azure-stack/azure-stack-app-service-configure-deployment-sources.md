@@ -43,9 +43,9 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 1. Log in to GitHub, browse to https://www.github.com/settings/developers and click **Register a new application**
     ![GitHub - Register a new application][3]
 2. Enter an **Application name** for example - App Service on Azure Stack
-3. Enter the **Homepage URL**.  **The Homepage URL must be the Azure Stack Portal address** for example - https://portal.azurestack.local
+3. Enter the **Homepage URL**.  **The Homepage URL must be the Azure Stack Portal address** for example - https://publicportal.local.azurestack.global
 4. Enter an **Application Description**
-5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
+5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://publicportal.local.azurestack.global/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
     ![GitHub - Register a new application with values populated][4]
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
     ![GitHub - Completed application registration][5]
@@ -68,8 +68,8 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
     ![BitBucket Add OAuth Consumer][8]
 3. Enter a **Name** for the consumer, for example App Service on Azure Stack
 4. Enter a **Description** for the application
-5. Enter the **Callback URL**.  In a default Azure Stack deployment, the Callback Url is in the form https://portal.azurestack.local/TokenAuthorize, if you are running under a different domain substitute your domain for azurestack.local.  The Url must follow the capitalization as listed here for BitBucket integration to succeed.
-6. Enter the **URL** - this Url should be the Azure Stack Portal URL, for example https://portal.azurestack.local
+5. Enter the **Callback URL**.  In a default Azure Stack deployment, the Callback Url is in the form https://publicportal.local.azurestack.global/TokenAuthorize, if you are running under a different domain substitute your domain for azurestack.local.  The Url must follow the capitalization as listed here for BitBucket integration to succeed.
+6. Enter the **URL** - this Url should be the Azure Stack Portal URL, for example https://publicportal.local.azurestack.global
 7. Select the **Permissions** required
     **Repositories**: **Read**
     **Webhooks**: **Read and write**
@@ -97,7 +97,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 > [!NOTE]
 > Make sure to make a note of the new password as it is not retrievable once you click OK at this stage.
 6. Under **Platforms** click **Add Platform** and select **Web**
-7. Enter the **Redirect URI**.  In a default Azure Stack deployment, the Redirect URI is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
+7. Enter the **Redirect URI**.  In a default Azure Stack deployment, the Redirect URI is in the form https://publicportal.local.azurestack.global/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
 ![OneDrive Application - Add Web Platform][12]
 8. Set the **Microsoft Graph Permissions** - **Delegated Permissions**
     - **Files.ReadWrite.AppFolder**
@@ -125,7 +125,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 ![Dropbox application registration][15]
 6. Click **Create App**.  You will now be presented with a page listing the settings for the App including **App key** and **App secret**.
 7. Check the **App folder name** is set to **App Service on Azure Stack**
-8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment, the Redirect URI is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
+8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment, the Redirect URI is in the form https://publicportal.local.azurestack.global/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
 ![Dropbox application configuration][16]
 9.  In a new browser tab or window Log in to the Azure Stack Portal as the service administrator. 
 10.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**. 
