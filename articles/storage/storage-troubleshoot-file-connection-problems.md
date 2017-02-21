@@ -31,6 +31,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 * [Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
 * [Error 53 attempting to mount an Azure File Share](#error53)
+* [Error 87 The parameter is incorrect while attempting to mount an Azure File Share](#error87)
 * [Net use was successful but I don’t see the Azure file share mounted in Windows Explorer](#netuse)
 * [My storage account contains "/" and the net use command fails](#slashfails)
 * [My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
@@ -53,19 +54,15 @@ This article lists common problems that are related to Microsoft Azure File stor
 ## Quota error when trying to open a file
 In Windows, you receive error messages that resemble the following:
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Not enough quota is available to process this command**
-
-**Invalid handle value GetLastError: 53**
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 On Linux, you receive error messages that resemble the following:
 
-**<filename> [permission denied]**
-
-**Disk quota exceeded**
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### Cause
 The problem occurs because you have reached the upper limit of concurrent open handles that are allowed for a file.
@@ -92,9 +89,8 @@ You can run the following script to check whether the hotfix has been installed 
 
 If hotfix is installed, the following output is displayed:
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
@@ -141,8 +137,9 @@ For more information on using Portqry, see [Description of the Portqry.exe comma
 ### Solution for Cause 2
 Work with your IT organization to open Port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
+<a id="error87"></a>
 ### Cause 3
-"System Error 53" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
+"System Error 53 or System error 87" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -245,8 +242,11 @@ This can occur when the mount command does not include the **serverino** option.
 ### Solution
 Check the **serverino** in your "/etc/fstab" entry:
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,
-file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+
+You can also check if that option is being used by just running the command **sudo mount | grep cifs** and looking as its output:
+
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.+
 
@@ -261,7 +261,7 @@ This error can be caused by a Linux reconnect issue or other problems that preve
 
 ### Workaround
 
-The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
+The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds or less. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
 
 <a id="webjobs"></a>
 
