@@ -71,7 +71,7 @@ NetworkInterfaces : [
                           {
                             "Name": "default-allow-rdp",
                             "Etag": "W/\"d4c411d4-0d62-49dc-8092-3d4b57825740\"",
-                            "Id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/testrg2/providers/Microsoft.Network/networkSecurityGroups/gwtestvm2-nsg/securityRules/default-allow-rdp",
+                            "Id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg2/providers/Microsoft.Network/networkSecurityGroups/testvm2-nsg/securityRules/default-allow-rdp",
                             "Protocol": "TCP",
                             "SourcePortRange": "*",
                             "DestinationPortRange": "3389",
@@ -87,7 +87,7 @@ NetworkInterfaces : [
                         "DefaultSecurityRules": [
                           {
                             "Name": "AllowVnetInBound",
-                            "Id": "/subscriptions//resourceGroups//providers/Microsoft.Network/networkSecurityGroups//defaultSecurityRules/",
+                            "Id": "/subscriptions00000000-0000-0000-0000-000000000000/resourceGroups/testrg2/providers/Microsoft.Network/networkSecurityGroups/testvm2-nsg/defaultSecurityRules/",
                             "Description": "Allow inbound traffic from all VMs in VNET",
                             "Protocol": "*",
                             "SourcePortRange": "*",
