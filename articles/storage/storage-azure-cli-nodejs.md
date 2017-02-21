@@ -237,6 +237,6 @@ You can find Azure CLI 1.0 command reference for working with Storage resources 
 * [Azure CLI commands in Resource Manager mode](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
 * [Azure CLI commands in Azure Service Management mode](../xplat-cli-install.md)
 
-You may also like to try the [Azure CLI 2.0 (Preview)](storage-azure-cli.md), our next-generation CLI written in Python, for use with the resource management deployment model.
+You may also like to try the [Azure CLI 2.0](storage-azure-cli.md), our next-generation CLI written in Python, for use with the Resource Manager deployment model.
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
