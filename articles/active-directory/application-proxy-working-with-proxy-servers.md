@@ -22,8 +22,8 @@ ms.author: kgremban
 This article explains how to configure Azure Active Directory (Azure AD) Application Proxy Connector to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
 
 We start by looking at these main deployment scenarios:
-* Configuring connectors to bypass your on-premises outbound proxies.
-* Configuring connectors to use an outbound proxy to access Azure AD Application Proxy.
+* Configure connectors to bypass your on-premises outbound proxies.
+* Configure connectors to use an outbound proxy to access Azure AD Application Proxy.
 
 For more information about how connectors work, see [How to provide secure remote access to on-premises applications](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started).
 
@@ -83,7 +83,7 @@ You can configure the connector traffic to go through the outbound proxy, as sho
 
 As a result of having only outbound traffic, there's no need to set up load balancing between the connectors or configure inbound access through your firewalls.
 
-In any case, you will need to perform the following steps:
+In any case, you need to perform the following steps:
 1. Configure the Connector Updater service to go through the outbound proxy.
 2. Configure the proxy settings to permit connections to the Azure AD Application Proxy service.
 
@@ -164,7 +164,7 @@ To ensure that the Service Bus traffic is also sent through the outbound proxy s
 Do not use SSL inspection for the connector traffic, because it will cause problems for the connector traffic.
 
 ## Troubleshoot connector proxy problems and service connectivity issues
-Now you should see all traffic flowing through the proxy. If you run into problems, the following troubleshooting information should help.
+Now you should see all traffic flowing through the proxy. If you have problems, the following troubleshooting information should help.
 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture on the connector service while starting the connector service. This can be a daunting task, so let’s look at quick tips on capturing and filtering network traces.
 
@@ -232,7 +232,7 @@ If you see something like the preceding response, the connector is trying to com
 >If you are configured to use a proxy server, this response might mean that Service Bus is attempting a direct TCP connection before switching to attempting a connection over HTTPS.
 >
 
-Network trace analysis is not for everyone. But it can be a hugely valuable tool to get quick information about what's going on with your network.
+Network trace analysis is not for everyone. But it can be a valuable tool to get quick information about what's going on with your network.
 
 If you continue to struggle with connector connectivity issues, please create a ticket with our support team. The team can assist you with further troubleshooting.
 
