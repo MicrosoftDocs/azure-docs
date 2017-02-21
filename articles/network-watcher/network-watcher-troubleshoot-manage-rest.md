@@ -18,13 +18,13 @@ ms.author: gwallace
 
 ---
 
-# Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher
+# Troubleshoot Virtual Network gateway and Connections using Azure Network Watcher
 
-Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting.  Resource troubleshooting can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
+Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting.  Resource troubleshooting can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network gateway or a Connection and returns its findings.
 
 This article takes you through the different management tasks that are currently available for resource troubleshooting.
 
-- [**Troubleshoot a Virtual Network Gateway**](#troubleshoot-a-virtual-network-gateway)
+- [**Troubleshoot a Virtual Network gateway**](#troubleshoot-a-virtual-network-gateway)
 - [**Troubleshoot a Connection**](#troubleshoot-connections)
 
 ## Before you begin
@@ -35,7 +35,7 @@ This scenario assumes you have already followed the steps in [Create a Network W
 
 ## Overview
 
-Network Watcher troubleshooting provides the ability troubleshoot issues that arise with Virtual Network Gateways and Connections. When a request is made to the resource troubleshooting, logs are querying and inspected. When inspection is complete, the results are returned. The troubleshoot API requests are long running requests, which could take multiple minutes to return a result. Logs are stored in a container on a storage account.
+Network Watcher troubleshooting provides the ability troubleshoot issues that arise with Virtual Network gateways and Connections. When a request is made to the resource troubleshooting, logs are querying and inspected. When inspection is complete, the results are returned. The troubleshoot API requests are long running requests, which could take multiple minutes to return a result. Logs are stored in a container on a storage account.
 
 
 ## Log in with ARMClient
@@ -44,12 +44,12 @@ Network Watcher troubleshooting provides the ability troubleshoot issues that ar
 armclient login
 ```
 
-## Troubleshoot a Virtual Network Gateway
+## Troubleshoot a Virtual Network gateway
 
 
 ### POST the troubleshoot request
 
-The following example queries the status of a Virtual Network Gateway.
+The following example queries the status of a Virtual Network gateway.
 
 ```powershell
 
@@ -145,7 +145,7 @@ The following responses are examples of a typical degraded response returned whe
       "detail": "During this time the gateway will not initiate or accept VPN connections with on premises VPN devices or other Azure VPN Gateways. This is a transient state while the Azure platform is being updated.",
       "recommendedActions": [
         {
-          "actionText": "If the condition persists, please try resetting your Azure VPN Gateway",
+          "actionText": "If the condition persists, please try resetting your Azure VPN gateway",
           "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting the VPN Gateway"
         },
@@ -279,9 +279,9 @@ The following responses are examples of a typical response returned when queryin
 is a transient state while the Azure platform is being updated.",
       "recommendedActions": [
         {
-          "actionText": "If the condition persists, please try resetting your Azure VPN Gateway",
+          "actionText": "If the condition persists, please try resetting your Azure VPN gateway",
           "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
-          "actionUriText": "resetting the VPN Gateway"
+          "actionUriText": "resetting the VPN gateway"
         },
         {
           "actionText": "If your VPN Connection isn't up and running by the expected resolution time, contact support",

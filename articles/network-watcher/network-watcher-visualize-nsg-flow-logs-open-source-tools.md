@@ -31,7 +31,7 @@ In this article, we will set up a solution that will allow you to visualize Netw
 
 ### Steps
 
-#### Enable Network Security Group Flow Logging
+#### Enable Network Security Group flow logging
 For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
 
@@ -151,7 +151,7 @@ For further instructions on installing Elastic search, refer to the page [Instal
 
 For further instructions on installing Logstash, refer to the [official documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
-### Install the Logstash input plugin for Azure Blob Storage
+### Install the Logstash input plugin for Azure blob storage
 
 This Logstash plug in will allow you to directly access the flow logs from their designated storage account. To install this plug in, run the command:
 
@@ -200,7 +200,7 @@ For this article, we have provided a sample dashboard for you to view trends and
 
 You can also create your own visualizations and dashboards tailored towards metrics of your own interest. Read more about creating Kibana visualizations from Kibana's [official documentation](https://www.elastic.co/guide/en/kibana/current/visualize.html).
 
-### Visualize NSG Flow Logs
+### Visualize NSG flow logs
 
 The sample dashboard provides several visualizations of the flow logs:
 
@@ -232,7 +232,7 @@ Using the query bar at the top of the dashboard, you can filter down the dashboa
 
 ## Conclusion
 
-By combining the Network Security Group Flow logs with the Elastic Stack, we have come up with powerful and customizable way to visualize our network traffic. These dashboards allow you to quickly gain and share insights about your network traffic, as well as filter down and investigate on any potential anomalies. Using Kibana, you can tailor these dashboards and create specific visualizations to meet any security, audit, and compliance needs.
+By combining the Network Security Group flow logs with the Elastic Stack, we have come up with powerful and customizable way to visualize our network traffic. These dashboards allow you to quickly gain and share insights about your network traffic, as well as filter down and investigate on any potential anomalies. Using Kibana, you can tailor these dashboards and create specific visualizations to meet any security, audit, and compliance needs.
 
 ## Next steps
 
