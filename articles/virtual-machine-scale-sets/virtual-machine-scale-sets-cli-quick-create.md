@@ -19,9 +19,9 @@ ms.date: 12/23/2016
 ms.author: negat
 
 ---
-# Quickly create a scale set using the Azure CLI
+# Quickly create a scale set using the Azure CLI 2.0 (Preview)
 
-This article uses the Azure CLI 2.0. If you wish to use the Azure CLI 1.0, refer to [this article](virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md).
+This article uses the Azure CLI 2.0 (Preview). If you wish to use the Azure CLI 1.0, refer to [this article](virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md).
 
 [!INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
