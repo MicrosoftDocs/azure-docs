@@ -18,7 +18,7 @@ ms.author: billmath
 
 ---
 # Next steps and how to manage Azure AD Connect
-Use the operational procedures in this article to customize Azure AD Connect to meet your organization's needs and requirements.  
+Use the operational procedures in this article to customize Azure Active Directory (Azure AD) Connect to meet your organization's needs and requirements.  
 
 ## Add additional sync admins
 By default, only the user who did the installation and local admins are able to manage the installed sync engine. For additional people to be able to access and manage the sync engine, locate the group named ADSyncAdmins on the local server and add them to this group.
@@ -43,12 +43,12 @@ Use the Azure portal to check the status of a synchronization.
 2. On the left, select **Active Directory**.
 3. On the **Active Directory** page, double-click the directory that has the users you want to set up.
 4. At the top of the directory page, select **Directory Integration**.
-5. Under integration with local active directory, note the last sync time.
+5. Under **integration with local active directory**, note the last sync time.
 
 <center>![Directory sync time](./media/active-directory-aadconnect-whats-next/verify.png)</center>
 
 ## Start a scheduled synchronization task
-If you need to run a synchronization task, you can do this by running through the Azure AD Connect wizard again.  You need to provide your Azure AD credentials.  In the wizard, select the **Customize synchronization options** task, and click next to move through the wizard. At the end, ensure that the **Start the synchronization process as soon as the initial configuration completes** box is selected.
+If you need to run a synchronization task, you can do this by running through the Azure AD Connect wizard again.  You need to provide your Azure AD credentials.  In the wizard, select the **Customize synchronization options** task, and click **Next** to move through the wizard. At the end, ensure that the **Start the synchronization process as soon as the initial configuration completes** box is selected.
 
 <center>![Start synchronization](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
@@ -59,13 +59,13 @@ After your initial installation of Azure AD Connect, you can always start the wi
 
 The following table provides a summary of these tasks and a brief description of each task.
 
-![Join Rule](./media/active-directory-aadconnect-whats-next/addtasks.png)
+![List of additional tasks](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
 | Additional task | Description |
 | --- | --- |
-| **View the selected scenario** |View your current Azure AD Connect solution.  This includes general settings, synchronized directories, and synch settings. |
+| **View the selected scenario** |View your current Azure AD Connect solution.  This includes general settings, synchronized directories, and sync settings. |
 | **Customize synchronization options** |Change the current configuration like adding additional Active Directory forests to the configuration, or enabling sync options such as user, group, device, or password write-back. |
-| **Enable Staging Mode** |Stage information that is not immediately synchronized, and is not exported to Azure AD or Active Directory.  With this feature, you can preview the synchronizations before they occur. |
+| **Enable Staging Mode** |Stage information that is not immediately synchronized and is not exported to Azure AD or on-premises Active Directory.  With this feature, you can preview the synchronizations before they occur. |
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
