@@ -59,12 +59,12 @@ If you want to replicate to a secondary datacenter, then Hyper-V VMs must be on 
 Yes. You can either replicate VMs in Hyper-V servers in the VMM cloud to Azure, or you can replicate between VMM clouds on the same server. For on-premises to on-premises replication, we recommend that you have a VMM server in both the primary and secondary sites.  
 
 ### What physical servers can I protect?
-You can replicate physical servers running Windows and Linux to Azure or to a secondary site. [Learn about](site-recovery-support-matrix-to-azure.md#support-for-replicated-machines) operating system requirements.  The same requirements apply whether you're replicating physical servers to Azure, or to a secondary site.
+You can replicate physical servers running Windows and Linux to Azure or to a secondary site. [Learn about](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) operating system requirements.  The same requirements apply whether you're replicating physical servers to Azure, or to a secondary site.
 
 Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported, but you can fail back to a virtual machine running on Hyper-V or VMware.
 
 ### What VMware VMs can I protect?
-To protect VMware VMs you'll need a vSphere hypervisor, and virtual machines running VMware tools. We also recommend that you have a VMware vCenter server to manage the hypervisors. [Learn more](site-recovery-support-matrix-to-azure.md#support-for-replicated-machines) about exact requirements for replicating VMware servers and VMs to Azure, or to a secondary site.
+To protect VMware VMs you'll need a vSphere hypervisor, and virtual machines running VMware tools. We also recommend that you have a VMware vCenter server to manage the hypervisors. [Learn more](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) about exact requirements for replicating VMware servers and VMs to Azure, or to a secondary site.
 
 ### Can I manage disaster recovery for my branch offices with Site Recovery?
 Yes. When you use Site Recovery to orchestrate replication and failover in your branch offices, you'll get a unified orchestration and view of all your branch office workloads in a central location. You can easily run failovers and administer disaster recovery of all branches from your head office, without visiting the branches.
