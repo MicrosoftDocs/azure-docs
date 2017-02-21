@@ -63,18 +63,20 @@ The tool has two main phases – profiling and report generation. There is also 
 - Administrator access on the server
 - Minimum free disk space of 100 GB (assuming 1000 virtual machines with average 3 disks each profiled for 30 days)
 
+| Requirement | Description|
+|---|---|
+|Profiling & throughput measurement| <br>Operating System : Microsoft Windows Server 2012 R2 <br>Ideally matching at least the following Configuration Server [size](https://aka.ms/asr-v2a-on-prem-components)<br>Machine Configuration : 8 vCPus, 16 GB RAM, 300 GB HDD<br [Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)<br>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)<br>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)<br> Internet access to Microsoft Azure from this server<br> Microsoft Azure storage account<Br>Administrator access on the server<br>Minimum free disk space of 100 GB (assuming 1000 virtual machines with average 3 disks each profiled for 30 days)|
+| Report Generation| Any Windows PC/Windows Server with Microsoft Excel 2013 and above |
+| User Permissions | Read-only permission for the user account used to access the VMware vCenter/vSphere server during profiling|
+
+
+
+
 > [!NOTE]
 > 
 > The tool can only profile virtual machines with VMDK and RDM disks. It cannot profile virtual machines with iSCSI or NFS disks. While Azure Site Recovery supports iSCSI and NFS disks for VMware servers, given the deployment planner is not sitting inside the guest and profiling only using vCenter performance counters, the tool does not have visibility into these disk types.
 > 
 
-###For report generation
-
-- Any Windows PC/Windows Server with Microsoft Excel 2013 and above 
-
-###User permissions
-
-- Read-only permission for the user account used to access the VMware vCenter/vSphere server during profiling
 
 ##Download
 [Download](https://aka.ms/asr-deployment-planner) the latest version of the Azure Site Recovery Deployment Planner Public Preview.  The tool is packaged in the zip format.  The current version of the tool supports only the VMware to Azure scenario. 
@@ -125,31 +127,17 @@ After you have the list of VMs to be profiled, you can now run the tool in profi
 
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
-		-Operation   	StartProfiling
-
-		-Server      	Fully qualified domain name or IP address of the vCenter
-					 	server/ESXi host whose virtual machines are to be profiled.
-
-		-User 			User name to connect to the vCenter server/ESXi host. User 
-						needs to have atleast a read only access.
-
-		-VMListFile		The file with the list of virtual machines to be profiled. 
-						The file path can be absolute or relative. This file should contain one virtual machine name/IP address per line. virtual machine name specified in the file should be the same as the VM name on the vCenter server or the ESXi host.
-
-						E.g.: File “VMList.txt” contains the following virtual machines:
-						virtual_machine_A
-						10.150.29.110
-						virtual_machine_B
-
-		-NoOfDaysToProfile       	Number of days for which profiling is to be run. It is recommended to run profiling for more than 15 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation
-
-		[-Directory] 	UNC or local directory path to store profiling data generated during profiling. If not given, the directory named ‘ProfiledData’ under the current path will be used as the default directory.
-
-		[-Password ]                     	Password to connect to the vCenter server/ESXi host. If not specified now, you will be prompted for it when the command is executed.
-
-		[-StorageAccountName] 	Azure Storage account name to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.
-		
-		[-StorageAccountKey]  	 Azure Storage account Key used to access the storage account. Go to the Azure portal > Storage accounts > [Storage account name] > Settings > Access Keys > Key1 (or Primary access key for classic storage account).
+| Parmeter Name | Description |
+|---|---|
+| -Operation |  	StartProfiling |
+| -Server | Fully qualified domain name or IP address of the vCenter server/ESXi host whose virtual machines are to be profiled.|
+| -User | User name to connect to the vCenter server/ESXi host. User needs to have atleast a read only access.|
+| -VMListFile |	The file with the list of virtual machines to be profiled. The file path can be absolute or relative. This file should contain one virtual machine name/IP address per line. virtual machine name specified in the file should be the same as the VM name on the vCenter server or the ESXi host. <br> E.g.: File “VMList.txt” contains the following virtual machines:<br>virtual_machine_A <br>10.150.29.110<br>virtual_machine_B |
+| -NoOfDaysToProfile | Number of days for which profiling is to be run. It is recommended to run profiling for more than 15 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation |
+| [-Directory] |	UNC or local directory path to store profiling data generated during profiling. If not given, the directory named ‘ProfiledData’ under the current path will be used as the default directory. |
+| [-Password ] | Password to connect to the vCenter server/ESXi host. If not specified now, you will be prompted for it when the command is executed.|
+|  [-StorageAccountName]  | Azure Storage account name to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.|
+| [-StorageAccountKey] | Azure Storage account Key used to access the storage account. Go to the Azure portal > Storage accounts > [Storage account name] > Settings > Access Keys > Key1 (or Primary access key for classic storage account). |
 
 It is recommended to profile your virtual machines for at least 15 to 30 days. During the profiling period ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. If you want to profile for few hours or minutes for a quick test of the tool, in the Public Preview, you will need to convert the time into the equivalent measure of days.  For example, to profile for 30 minutes, the input will need to be 30 / (60*24) = 0.021 days.  Minimum allowed profiling time is 30 minutes. 
 
@@ -190,29 +178,20 @@ After profiling is complete, you can run the tool in report generation mode. Her
 
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 
-			-Operation                     		GenerateReport
-			
-			-Server                           	vCenter/vSphere Server fully qualified domain name or IP address (use the exact same name or IP address as you used at the time of profiling) where the profiled virtual machines whose report is to be generated are located. Note that if you used a vCenter Server at the time of profiling, you cannot use a vSphere Server for report generation, and vice-versa.
-			
-			-VMListFile      		The file with the list of profiled virtual machines for which the report is to be generated. The file path can be absolute or relative. This file should contain one virtual machine name/IP address per line. Virtual machine names specified in the file should be the same as the virtual machine names on the vCenter server or the ESXi host, and match what was used at profiling time.
-			                                                                         
-			[-Directory]                    	UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If not specified, ‘ProfiledData’ directory will be used. 
-			
-			[-GoalToCompleteIR]	Number of hours in which the initial replication of the profiled virtual machines needs to be completed. The generated report will provide the number of virtual machines for which initial replication can be completed in the specified time. Default is 72 hours.
-			
-			[-User]               	User name to connect to the vCenter/vSphere server. This is used to fetch the latest configuration information of the virtual machines like number of disks, number of cores, number of NICs, etc. to use in the report. If not provided, configuration information collected at the beginning of profiling kick-off is used. 
-			[-Password]                     	Password to connect to the vCenter server/ESXi host. If not specified as a parameter, you will be prompted for it later when the command is executed.
-			
-			[-DesiredRPO]       	Desired Recovery Point Objective (RPO) in minutes. Default is 15 minutes.
-			
-			[-Bandwidth]                 	Bandwidth in Mbps. This is used to calculate the RPO that can be achieved for the specified bandwidth.
-			
-			[-StartDate]                 	Start date and time in MM-DD-YYYY:HH:MM (in 24 hours format). ‘StartDate’ needs to be specified along with ‘EndDate’. When specified, the report will be generated for the profiled data collected between StartDate and EndDate.
-			
-			[-EndDate]                      	End date and time in MM-DD-YYYY:HH:MM (in 24 hours format). ‘EndDate’ needs to be specified along with ‘StartDate’. When specified, the report will be generated for the profiled data collected between StartDate and EndDate.
-			
-			[-GrowthFactor]	              Growth factor in percentage. Default is 30%. 
-
+|Parmeter Name | Description |
+|-|-|	
+| -Operation | GenerateReport |
+| -Server |  vCenter/vSphere Server fully qualified domain name or IP address (use the exact same name or IP address as you used at the time of profiling) where the profiled virtual machines whose report is to be generated are located. Note that if you used a vCenter Server at the time of profiling, you cannot use a vSphere Server for report generation, and vice-versa.|
+| -VMListFile | The file with the list of profiled virtual machines for which the report is to be generated. The file path can be absolute or relative. This file should contain one virtual machine name/IP address per line. Virtual machine names specified in the file should be the same as the virtual machine names on the vCenter server or the ESXi host, and match what was used at profiling time.|
+| [-Directory] | UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If not specified, ‘ProfiledData’ directory will be used. |
+| [-GoalToCompleteIR] |	Number of hours in which the initial replication of the profiled virtual machines needs to be completed. The generated report will provide the number of virtual machines for which initial replication can be completed in the specified time. Default is 72 hours. |
+| [-User] | User name to connect to the vCenter/vSphere server. This is used to fetch the latest configuration information of the virtual machines like number of disks, number of cores, number of NICs, etc. to use in the report. If not provided, configuration information collected at the beginning of profiling kick-off is used. |
+| [-Password] | Password to connect to the vCenter server/ESXi host. If not specified as a parameter, you will be prompted for it later when the command is executed. |
+| [-DesiredRPO] | Desired Recovery Point Objective (RPO) in minutes. Default is 15 minutes.| 
+| [-Bandwidth] | Bandwidth in Mbps. This is used to calculate the RPO that can be achieved for the specified bandwidth. |
+| [-StartDate]  | Start date and time in MM-DD-YYYY:HH:MM (in 24 hours format). ‘StartDate’ needs to be specified along with ‘EndDate’. When specified, the report will be generated for the profiled data collected between StartDate and EndDate. |
+| [-EndDate] | End date and time in MM-DD-YYYY:HH:MM (in 24 hours format). ‘EndDate’ needs to be specified along with ‘StartDate’. When specified, the report will be generated for the profiled data collected between StartDate and EndDate. |
+| [-GrowthFactor] |Growth factor in percentage. Default is 30%.  |
 
 
 #####Example 1: To generate report with default values when profiled data is on the local drive
@@ -256,21 +235,13 @@ To estimate the throughput that Azure Site Recovery can achieve from on-premises
 Open a command line console and go to ASR deployment planning tool folder.  Run ASRDeploymentPlanner.exe with following parameters. Parameters in [] are optional.
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 
-		-operation 			GetThroughput
-		
-		[-Directory] 	UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If not specified, ‘ProfiledData’ directory will be used.  
-		
-		-StorageAccountName 	Azure Storage account name to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed.
-		 
-		-StorageAccountKey   	Azure Storage Account Key used to access the storage account. Go to the Azure portal > Storage accounts > [Storage account name] > Settings > Access Keys > Key1(or Primary access key for classic storage account).
-		
-		-VMListFile         	The file with the list of virtual machines to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. This file should contain one virtual machine name/IP address per line. The virtual machine names specified in the file should be the same as the virtual machine names on the vCenter server or ESXi host.
-		                                                                         
-		E.g. File “VMList.txt” contains the following virtual machines:
-		
-		 virtual machine_A
-		 10.150.29.110
-		 virtual machine_B
+|Parmeter Name | Description |
+|-|-|
+| -operation | GetThroughput |
+| [-Directory] | UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If not specified, ‘ProfiledData’ directory will be used.  |
+| -StorageAccountName | Azure Storage account name to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. |
+| -StorageAccountKey | Azure Storage Account Key used to access the storage account. Go to the Azure portal > Storage accounts > [Storage account name] > Settings > Access Keys > Key1(or Primary access key for classic storage account). |
+| -VMListFile | The file with the list of virtual machines to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. This file should contain one virtual machine name/IP address per line. The virtual machine names specified in the file should be the same as the virtual machine names on the vCenter server or ESXi host.<br>E.g. File “VMList.txt” contains the following virtual machines:<br>virtual machine_A <br>10.150.29.110<br>virtual machine_B|
 
 #####Example 
 ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFileE:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
