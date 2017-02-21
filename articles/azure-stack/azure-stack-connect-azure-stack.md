@@ -30,7 +30,7 @@ With a Remote Desktop connection, a single concurrent user can work with the por
 2. Open a Remote Desktop Connection and connect to MAS-CON01. Enter **AzureStack\AzureStackAdmin** as the username, and the administrative password you provided during Azure Stack setup.  
 3. On the MAS-CON01 desktop, open Server Manager, click **Local Server**, turn off Internet Explorer Enhanced Security, and
 then close Server Manager.
-4. Double-click **Microsoft Azure Stack Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
+4. Double-click **Microsoft Azure Stack Portal** icon (https://publicportal.local.azurestack.global/) to open the [portal](azure-stack-key-features.md#portal).
    
    ![Azure stack portal icon](media/azure-stack-connect-azure-stack/image2.png)
 5. Log in using the Azure Active Directory credentials specified during installation.
@@ -91,7 +91,7 @@ Virtual Private Network connections let multiple concurrent users connect from c
    ```
 5. When prompted, trust the Azure Stack host.
 6. When prompted, install a certificate (the prompt appears behind the Powershell session window).
-7. To test the portal connection, in an Internet browser, navigate to *https://portal.azurestack.local*.
+7. To test the portal connection, in an Internet browser, navigate to *https://publicportal.local.azurestack.global*.
 8. To review and manage the Azure Stack connection, use **Networks** on your client:
    
     ![Image of the network connect menu in Windows 10](media/azure-stack-connect-azure-stack/image1.png)
