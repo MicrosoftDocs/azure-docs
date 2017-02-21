@@ -44,7 +44,7 @@
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
 ### [Retire S1, S2, S3](documentdb-performance-levels.md)
 ### [Request units](documentdb-request-units.md)
-### [Azure CLI 2.0 (Preview) ](documentdb-automation-resource-manager-cli.md)
+### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 ### Azure CLI 1.0
 #### [Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Add or remove regions](documentdb-automation-region-management.md)
