@@ -71,12 +71,12 @@ The second step is to download, compile, and install protobuf 2.5.0 for Caffe du
 
 To simply get started, you can just run this script action against your cluster to all the worker nodes and head nodes (for HDInsight 3.5). You can either run the script actions for a running cluster, or you can also run the script actions during the cluster provision time. For more details on the script actions, please see the documentation [here](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)
 
-![Script Actions to Install Dependencies](./media/hdinsight-deep-learning-caffe-spark/Script Action 1.PNG)
+![Script Actions to Install Dependencies](./media/hdinsight-deep-learning-caffe-spark/Script-Action-1.png)
 
 
 ## Step 2: Build Caffe on Spark for HDInsight on the head node
 
-The second step is to build Caffe on the headnode, and then distribute the compiled libraries to all the worker nodes. In this step, you will need to [ssh into your headnode](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix), then simply follow the [CaffeOnSpark build process](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn), and below is the script I use to build CaffeOnSpark with a few additional steps. 
+The second step is to build Caffe on the headnode, and then distribute the compiled libraries to all the worker nodes. In this step, you will need to [ssh into your headnode](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix), then simply follow the [CaffeOnSpark build process](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn), and below is the script you can use to build CaffeOnSpark with a few additional steps. 
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive
@@ -115,15 +115,15 @@ The second step is to build Caffe on the headnode, and then distribute the compi
     hadoop fs -put CaffeOnSpark/caffe-distri/distribute/lib/* /CaffeOnSpark/caffe-distri/distribute/lib/
     hadoop fs -put CaffeOnSpark/caffe-public/distribute/lib/* /CaffeOnSpark/caffe-public/distribute/lib/
 
-I actually do more than what the documentation of CaffeOnSpark says. The changes are:
-- I have changed to CPU only and use libatlas for this particular purpose.
-- I put the datasets to the BLOB storage, which is a shared location that is accessible to all worker nodes for later use.
-- I put the compiled Caffe Libraries to the BLOB storage, and I will copy those libraries to all the nodes using script actions to avoid additional compilation time.
+You may need to do more than what the documentation of CaffeOnSpark says. The changes are:
+- Change to CPU only and use libatlas for this particular purpose.
+- Put the datasets to the BLOB storage, which is a shared location that is accessible to all worker nodes for later use.
+- Put the compiled Caffe libraries to BLOB storage, and later you will copy those libraries to all the nodes using script actions to avoid additional compilation time.
 
 
 ### Troubleshooting: An Ant BuildException has occured: exec returned: 2
 
-When I was first trying to build CaffeOnSpark, sometimes it will say
+When first trying to build CaffeOnSpark, sometimes it will say
 
     failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occured: exec returned: 2
 
@@ -138,7 +138,7 @@ Sometimes maven gives me the connection time out error, similar to below:
     Feb 01, 2017 5:14:49 AM org.apache.maven.wagon.providers.http.httpclient.impl.execchain.RetryExec execute
     INFO: I/O exception (java.net.SocketException) caught when processing request to {s}->https://repo.maven.apache.org:443: Connection timed out (Read failed)
 
-It will be OK after I wait for a few minutes and then just rebuild the code, so I suspect it might be Maven somehow limits the traffic from a given IP address.
+It will be OK after waiting for a few minutes and then just try to rebuild the code, so it might be Maven somehow limits the traffic from a given IP address.
 
 
 ### Troubleshooting: Test failure for Caffe
@@ -179,7 +179,7 @@ For this example, since we are using CPU rather than GPU, we should change the l
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config](./media/hdinsight-deep-learning-caffe-spark/Caffe 1.png)
+![Caffe Config](./media/hdinsight-deep-learning-caffe-spark/Caffe-1.png)
 
 You can change other lines as needed.
 
@@ -188,7 +188,7 @@ The second file (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) define
 - change the "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" to "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - change "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" to "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe Config](./media/hdinsight-deep-learning-caffe-spark/Caffe 2.png)
+![Caffe Config](./media/hdinsight-deep-learning-caffe-spark/Caffe-2.png)
 
 For more information on how to define the network, please check the [Caffe documentation on MNIST dataset](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
@@ -208,15 +208,15 @@ If you want to know what happened, you usually need to get the Spark driver's lo
 
     https://yourclustername.azurehdinsight.net/yarnui
    
-![YARN UI](./media/hdinsight-deep-learning-caffe-spark/YARN UI 1.PNG)
+![YARN UI](./media/hdinsight-deep-learning-caffe-spark/YARN-UI-1.png)
 
 You can take a look at how many resources are allocated for this particular application. You can click the "Scheduler" link, and then you will see that for this application, there are 9 containers running. We ask YARN to provide 8 executors, and another container is for driver process. 
 
-![YARN Scheduler](./media/hdinsight-deep-learning-caffe-spark/YARN Scheduler.png)
+![YARN Scheduler](./media/hdinsight-deep-learning-caffe-spark/YARN-Scheduler.png)
 
 You may want to check the  driver logs or container logs if there are failures. For driver logs, you can click the application ID in YARN UI, then click the "Logs" button. The driver logs are written into stderr.
 
-![YARN UI 2](./media/hdinsight-deep-learning-caffe-spark/YARN UI 2.PNG)
+![YARN UI 2](./media/hdinsight-deep-learning-caffe-spark/YARN-UI-2.png)
 
 For example, you might see some of the error below from the driver logs, indicating you allocate too many executors.
 
@@ -231,7 +231,7 @@ For example, you might see some of the error below from the driver logs, indicat
         at java.lang.reflect.Method.invoke(Method.java:498)
         at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:627)
 
-Sometimes, the issue can happen in executors rather than drivers. In this case, you need to check the container logs. You can always get the driver container logs, and then get the failed container. For example, I met this failure when I was running Caffe.
+Sometimes, the issue can happen in executors rather than drivers. In this case, you need to check the container logs. You can always get the driver container logs, and then get the failed container. For example, you might meet this failure when running Caffe.
 
     17/02/01 07:12:05 WARN YarnAllocator: Container marked as failed: container_1485916338528_0008_05_000005 on host: 10.0.0.14. Exit status: 134. Diagnostics: Exception from container-launch.
     Container id: container_1485916338528_0008_05_000005
@@ -258,7 +258,7 @@ In this case, you need to get the failed container ID (in the above case, it is 
 
     yarn logs -containerId container_1485916338528_0008_03_000005
 
-from the headnode. After checking container failure, I realize that I use GPU mode because I forget to change the mode in lenet_memory_solver.prototxt.
+from the headnode. After checking container failure, it is caused by using GPU mode (where you should use CPU mode instead) in lenet_memory_solver.prototxt.
 
     17/02/01 07:10:48 INFO LMDB: Batch size:100
     WARNING: Logging before InitGoogleLogging() is written to STDERR
@@ -303,20 +303,6 @@ Feel free to drop any comments and feedbacks to xiaoyzhu at microsoft dot com, a
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
-* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-
-### Create and run applications
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
-
-### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
