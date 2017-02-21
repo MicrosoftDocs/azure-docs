@@ -40,7 +40,7 @@ The Azure IoT Gateway SDK that has been installed on your host computer.
 
 In the Lesson 5 subfolder of the sample code which you cloned in lesson 1, there is a `module` folder and a `sample` folder.
 
-![my_module](/media/iot-hub-gateway-kit-lessons/lesson5/my_module.png)
+![my_module](media/iot-hub-gateway-kit-lessons/lesson5/my_module.png)
 
 - The `module/my_module` folder contains the source code and script to build the module.
 - The `sample` folder contains the source code and script to build the sample app.
@@ -114,7 +114,7 @@ You can optionally implement the following interface:
 
 The following diagram shows the important state paths of a module. The square rectangles represent methods you implement to perform operations when the module moves between states. The ovals are major states the module can be in.
 
-![state_path](/media/iot-hub-gateway-kit-lessons/lesson5/state_path.png)
+![state_path](media/iot-hub-gateway-kit-lessons/lesson5/state_path.png)
 
 Now let’s create a module based on the template:
 
@@ -124,7 +124,7 @@ Now let’s create a module based on the template:
    code module/my_module
    ```
 
-   ![code_module](/media/iot-hub-gateway-kit-lessons/lesson5/code_module.png)
+   ![code_module](media/iot-hub-gateway-kit-lessons/lesson5/code_module.png)
 
    - `src/my_module.c` serves as a template that facilitates the creation of a module. The template declares the interfaces. All you need to do is to add logic to the `MyModule_Receive` function.
    - `build.sh` is the build script to compile the module on Intel NUC.
@@ -190,7 +190,7 @@ Now let’s create a module based on the template:
       "deploy_path": "module/my_module"
       ```
 
-      ![config_json](/media/iot-hub-gateway-kit-lessons/lesson5/config_json.png)
+      ![config_json](media/iot-hub-gateway-kit-lessons/lesson5/config_json.png)
 
 1. Compile the module by running the following command:
 
@@ -253,7 +253,7 @@ To perform this task, follow these steps:
 
       This code specifies that messages are transferred from the `hello_world` module to `my_module`.
 
-      ![hello_world_json](/media/iot-hub-gateway-kit-lessons/lesson5/hello_world_json.png)
+      ![hello_world_json](media/iot-hub-gateway-kit-lessons/lesson5/hello_world_json.png)
 
 1. Run the `hello_world` sample app by running the following command:
 
@@ -263,7 +263,7 @@ To perform this task, follow these steps:
 
    The `--config` parameter forces the `run-hello-world.js` script to run by using the `hello_world.json` file.
 
-   ![hello_world_new](/media/iot-hub-gateway-kit-lessons/lesson5/hello_world_new.png)
+   ![hello_world_new](media/iot-hub-gateway-kit-lessons/lesson5/hello_world_new.png)
 
 Congratulations. You can now see the behavior of this new module, it simply prints out "hello world" messages with a timestamp, a different result from the original "hello_world" module.
 
