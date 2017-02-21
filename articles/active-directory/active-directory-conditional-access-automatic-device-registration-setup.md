@@ -169,10 +169,7 @@ Use the following script to add the AD FS rules if you only have **one verified 
 
 	<#----------------------------------------------------------------------
 	|   Modify the Azure AD Relying Party to include the claims needed
-	|   for DomainJoin++. The rules include:
-	|   -ObjectGuid
-	|   -AccountType
-	|   -ObjectSid
+	|   for DomainJoin auto-registration with Azure AD
 	+---------------------------------------------------------------------#>
 
 	$rule1 = '@RuleName = "Issue object GUID" 
@@ -216,14 +213,12 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
 => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
 
-2. Run this script: 
+2. Run this script:
+
 
         <#----------------------------------------------------------------------  
         |   Modify the Azure AD Relying Party to include the claims needed  
-        |   for DomainJoin++. The rules include:
-        |   -ObjectGuid
-        |   -AccountType
-        |   -ObjectSid
+        |   for DomainJoin auto-registration with Azure AD
         +---------------------------------------------------------------------#>
 
         $VerifiedDomain = 'example.com'      # Replace example.com with one of your verified domains
@@ -280,9 +275,9 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
 
 
 
-## Step 3: Setup AD FS for authentication of device registration
+## Step 3: Setup AD FS for authentication of device registration (for registering non-Windows 10/non-Windows Server 2016 computers)
 
-Make sure that WIA is set as a valid alternative to multi-factor authentication for device registration in AD FS. To do this, you need to have an issuance transform rule that passes through the authentication method.
+If you have Windows 7, 8.1 or Windows Server 2008 R2, 2012 or 2012 R2 computers that you want to register to Azure AD make sure that Windows Integrated Authentication (WIA) is set as a valid alternative to multi-factor authentication for device registration in AD FS. To do this, you need to have an issuance transform rule that passes through the authentication method.
 
 1. In the AD FS management console, go to **AD FS** > **Trust Relationships** > **Relying Party Trusts**.
 2. Right-click the Microsoft Office 365 Identity Platform relying party trust object, and then select **Edit Claim Rules**.
