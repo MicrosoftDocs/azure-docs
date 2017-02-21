@@ -215,7 +215,6 @@
 #### [B2B user tokens](active-directory-b2b-user-token.md)
 #### [B2B user claims mapping](active-directory-b2b-claims-mapping.md)
 #### [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
-#### [Compare B2B and B2C](active-directory-b2b-compare-b2c.md)
 #### [Configure SaaS apps for B2B](active-directory-b2b-configure-saas-apps.md)
 #### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
