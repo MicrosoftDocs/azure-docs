@@ -253,7 +253,7 @@ Specify the Azure storage account to be used for replication, and the Azure netw
    If you want to create a network using the classic model, do that in the Azure portal. [Learn more](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### Configure network mapping
-* [Read](#prepare-for-network-mapping) a quick overview of what network mapping does. [Read this](site-recovery-network-mapping.md) for a more in-depth explanation.
+* [Read](#prepare-for-network-mapping) a quick overview of what network mapping does. 
 * Verify that virtual machines on the VMM server are connected to a VM network, and that you've created at least one Azure virtual network. Multiple VM networks can be mapped to a single Azure network.
 
 Configure mapping as follows:
