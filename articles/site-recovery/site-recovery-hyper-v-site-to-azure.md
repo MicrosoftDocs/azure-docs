@@ -155,17 +155,17 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 
 5. In **Proxy Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
 
-* If you want the Provider to connect directly select **Connect directly without a proxy**.
-* If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
-* If your existing proxy requires authentication, or you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
-* If you use a custom proxy, you need to specify the address, port, and credentials
-* If you use a proxy, make sure the URLs described in the [prerequisites](#on-premises-prerequisites) are allowed through it.
+	* If you want the Provider to connect directly select **Connect directly without a proxy**.
+	* If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
+	* If your existing proxy requires authentication, or you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
+	* If you use a custom proxy, you need to specify the address, port, and credentials
+	* If you use a proxy, make sure the URLs described in the [prerequisites](#on-premises-prerequisites) are allowed through it.
 
     ![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
 6. After installation finishes click **Register** to register the server in the vault.
 
-![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+	![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
 7. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
 
