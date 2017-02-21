@@ -207,4 +207,4 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 
 
 ## Next steps
-[Prepare for deployment](site-recovery-best-practices.md)
+[Check prerequisites](site-recovery-prereq.md)
