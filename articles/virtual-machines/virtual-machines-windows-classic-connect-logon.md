@@ -31,11 +31,6 @@ Learn how to [perform these steps using new Azure portal](virtual-machines-windo
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about how to log on to a VM using the Resource Manager model, see [here](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Video walkthrough
-Here's a video walkthrough of the steps in this tutorial. It also covers endpoints and public and private ports used for connecting to a Windows VM in Azure.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Logging-On-To-VM-Running-Windows-Server-on-Azure/player]
-
 ## Connect to the virtual machine
 1. Sign in to the Azure portal.
 2. Click on the virtual machine that you want to access. The name is listed in the **All resources** pane.
@@ -47,6 +42,7 @@ Here's a video walkthrough of the steps in this tutorial. It also covers endpoin
     ![Connect icon for the virtual machine](./media/virtual-machines-windows-classic-connect-logon/virtualmachine_dashboard_connect.png)
 
 <!-- Don't know if this still applies
+     I think we can zap this.
 > [!TIP]
 > If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
 >
