@@ -22,7 +22,7 @@ ms.author: mimig
 > [!div class="op_single_selector"]
 > * [Azure portal](documentdb-create-account.md)
 > * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
-> * [Azure CLI 2.0 (Preview)](documentdb-automation-resource-manager-cli.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 > * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
 This article shows you how to create an Azure DocumentDB account by using Azure Resource Manager templates or directly with Azure Command-Line Interface (CLI) 1.0. To create a DocumentDB account using the Azure portal, see [Create a DocumentDB database account using the Azure portal](documentdb-create-account.md).
