@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 02/18/2017
 ms.author: markvi
 
 ---
@@ -29,7 +29,7 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 **Q: How long does it take until I can see the Activity data after I have completed my task?**
 
-**A:** You can find the answer to this question in the [Azure Active Directory report latencies](active-directory-reporting-latencies.md).
+**A:** Audit activity logs have a latency ranging from 15 mins to an hour. Sign-in activity logs have a latency ranging from 15 mins for most records and up to 2 hours for a few records.
 
 ---
 
@@ -60,7 +60,7 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 **Q: How many records can I query through the activities API?**
 
-**A:** You can get up to 1 million records through programmatic access of the reporting APIs. You can find sample queries about how to access all records using a single script [here](active-directory-reporting-api-getting-started.md).
+**A:** You can query up to 1 million records (if you don’t use the top operator, which sorts the record by most recent). If you do use the “top” operator, you can query up to 500K records. You can find sample queries on how to use the API here [here](active-directory-reporting-api-getting-started.md).
 
 ---
 
@@ -72,11 +72,7 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 **Q: How soon should I see activities data after getting a premium license?**
 
-**A:** 
-
-- If you already have activities data as a free license, then you can see the same data.
-
-- If you don’t have any data, then it will take one or two days.
+**A:** If you already have activities data as a free license, then you can see the same data. If you don’t have any data, then it will take one or two days.
 
 ---
 

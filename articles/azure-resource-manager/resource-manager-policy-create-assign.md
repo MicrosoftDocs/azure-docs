@@ -189,11 +189,11 @@ To remove a policy assignment, use:
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## Azure CLI 2.0 (Preview)
+## Azure CLI 2.0
 
 ### Create policy definition
 
-You can create a policy definition using Azure CLI 2.0 (Preview) with the policy definition command. The following example creates a policy for allowing resources only in North Europe and West Europe.
+You can create a policy definition using Azure CLI 2.0 with the policy definition command. The following example creates a policy for allowing resources only in North Europe and West Europe.
 
 ```azurecli
 az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
