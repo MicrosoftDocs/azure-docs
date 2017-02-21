@@ -21,7 +21,7 @@ ms.author: magoedte
 The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
 
 ## Prerequisites
-* The solution only supports performing update assessments against Windows Server 2008 and higher, and Windows Server 2012 and higher for update deployments.  Server Core and Nano Server installation options are not supported.
+* The solution only supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2012 and higher.  Server Core and Nano Server installation options are not supported.
 * Windows client operating systems are not supported.  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
   
