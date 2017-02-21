@@ -68,7 +68,7 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 
 ## Deployment recommendations
 
-**Version | **Deployment** | **On-premises to secondary** | **On-premises to Azure** |
+**Version** | **Deployment** | **On-premises to secondary** | **On-premises to Azure** |
 --- | --- | --- | --- | --- |
 **SQL Server 2014/2012 Enterprise FCI** | Failover cluster | AlwaysOn availability groups | AlwaysOn availability groups
 **SQL Server 2014/2012 AlwaysOn** | AlwaysOn availability groups | AlwaysOn | AlwaysOn
@@ -108,8 +108,8 @@ Site Recovery natively supports SQL AlwaysOn. If you've created a SQL Availabili
 To integrate SQL AlwaysOn with Site Recovery you need:
 
 * An on-premises SQL Server (standalone server or a failover cluster).
-* One or more Azure virtual machines, with SQL Server installed
-* A SQL Server Availability Group, set up between an on-premises SQL Server and SQL Server running in .
+* One or more Azure virtual machines, with SQL Server installed.
+* A SQL Server Availability Group, set up between an on-premises SQL Server and SQL Server running in Azure.
 * PowerShell remoting enabled on the on-premises SQL Server. The VMM server or the configuration server should be able to make remote PowerShell calls to the SQL Server machine.
 * A user account should be added to the on-premises SQL Server machine. Add in a SQL Server group with at least these permissions:
   * ALTER AVAILABILITY GROUP: permissions [here](https://msdn.microsoft.com/library/hh231018.aspx), and [here](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
