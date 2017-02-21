@@ -58,7 +58,7 @@ By default, request trigger in Logic Apps expects HTTP POST request. But you can
  > Only one type of method is allowed.
 
 ### Relative trigger URL
-You can also customize relative path of the request Url to accept prarmeters.
+You can also customize relative path of the request Url to accept parameters.
 
 1. Expand `Show advanced options` of the **Request** trigger.
  - Under `Relative path`, enter `customer/{customerId}`.
@@ -71,10 +71,10 @@ You can also customize relative path of the request Url to accept prarmeters.
 
   ![Relative Url Response](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
-3. Save the Logic App, you should notice the request Url update to include the relatvie path.
+3. Save the Logic App, you should notice the request Url update to include the relative path.
 
-4. Copy the new request Url and paste it into a new browser window. Substitude `{customerId}` with `123`, and press Enter.
- - You should see `Your customer Id is 123` returend.
+4. Copy the new request Url and paste it into a new browser window. Substitute `{customerId}` with `123`, and press Enter.
+ - You should see `Your customer Id is 123` returned.
 
 ### Security for the trigger URL
 Logic App callback URLs are generated securely using a Shared Access Signature.  The signature is passed through as a query parameter, and must be validated before the logic app will fire.  It is generated through a unique combination of a secret key per logic app, the trigger name, and the operation being performed.  Unless someone has access to the secret logic app key, they would not be able to generate a valid signature.
