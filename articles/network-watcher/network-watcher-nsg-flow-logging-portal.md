@@ -1,6 +1,6 @@
 ---
-title: Manage Network Security Group Flow logs with Azure Network Watcher | Microsoft Docs
-description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher
+title: Manage Network Security Group flow logs with Azure Network Watcher | Microsoft Docs
+description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -18,7 +18,7 @@ ms.author: gwallace
 
 ---
 
-# Manage Network Security Group Flow logs in the Azure portal
+# Manage Network Security Group flow logs in the Azure portal
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -31,7 +31,7 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
 
-## Enable Flow logs
+## Enable flow logs
 
 These steps take you through enabling Flow logs on a Network Security Group.
 
@@ -75,7 +75,7 @@ Drill down to the location of the flow log, select the flow log and click **Down
 
 ![flow logs settings][6]
 
-For information about the structure of the log visit [Network Security Group Flow log Overview](network-watcher-nsg-flow-logging-overview.md)
+For information about the structure of the log visit [Network Security Group flow log Overview](network-watcher-nsg-flow-logging-overview.md)
 
 ## Next steps
 

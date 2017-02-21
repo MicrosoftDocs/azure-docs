@@ -33,7 +33,7 @@ In this scenario, you:
 
 * Review a packet capture
 
-## Calculate Network Latency
+## Calculate network latency
 
 In this scenario, we show how to view the initial Round Trip Time (RTT) of a Transmission Control Protocol (TCP) conversation occurring between two endpoints.
 
