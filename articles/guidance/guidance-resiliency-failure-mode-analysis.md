@@ -486,7 +486,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [search-sdk]: https://msdn.microsoft.com/library/dn951165.aspx
 [scheduler-agent-supervisor]: https://msdn.microsoft.com/library/dn589780.aspx
 [search-analytics]: ../search/search-traffic-analytics.md
-[sql-db-audit]: ../sql-database/sql-database-auditing-get-started.md
+[sql-db-audit]: ../sql-database/sql-database-auditing.md
 [sql-db-errors]: ../sql-database/sql-database-develop-error-messages.md#resource-governance-errors
 [sql-db-failover]: ../sql-database/sql-database-geo-replication-failover-portal.md
 [sql-db-limits]: ../sql-database/sql-database-resource-limits.md

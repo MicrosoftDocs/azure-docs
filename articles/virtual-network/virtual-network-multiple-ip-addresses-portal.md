@@ -38,13 +38,15 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 
 ### <a name="coreadd"></a>Core steps
 
-1. Register for the preview by running both the following commands in PowerShell after you login and select the appropriate subscription:
+1. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 	```
 	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
 	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+	
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 	```
-	Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+	Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 		
 	```powershell
 	FeatureName                            ProviderName      RegistrationState

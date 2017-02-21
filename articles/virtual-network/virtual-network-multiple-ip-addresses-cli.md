@@ -34,11 +34,13 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article and log into your Azure account.
 
-2. Register for the preview by running both the following commands in PowerShell after you login and select the appropriate subscription:
+2. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 	```
 	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
 	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+	
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 	```
 	Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 		
@@ -125,9 +127,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 1. Open Azure CLI and complete the remaining steps in this section within a single CLI session. If you don't already have Azure CLI installed and configured, complete the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article and log into your Azure account.
 
-2. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
-	- Until you receive an e-mail notifying you that you've been accepted into the preview
-	- Without following the instructions in the email you receive
+2. Register for the public preview by following step 2 in the **Create a VM with multiple IP addresses** section.
 
 3. Complete the steps in one of the following sections, based on your requirements:
 

@@ -192,17 +192,17 @@ machine is running”. In order to make this tab active, shutdown machine.
 
 e. See whether already a row with **disk.EnableUUID** exists?
 
-If exists and if the value is set to False over write the value with
+  If exists and if the value is set to False over write the value with
 True (True and False values are case in-sensitive).
 
-If exists and is set to true, click on cancel and test the SCSI
+  If exists and is set to true, click on cancel and test the SCSI
 command inside guest operating system after it is boot-up.
 
 f. If does not exist click **Add Row.**
 
-Add disk.EnableUUID in the Name column.
+  Add disk.EnableUUID in the Name column.
 
-Set its value as TRUE
+  Set its value as TRUE
 
 NOTE: Do not add the above values along with double-quotes.
 

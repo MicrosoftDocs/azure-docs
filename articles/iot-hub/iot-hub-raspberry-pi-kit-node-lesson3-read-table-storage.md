@@ -1,4 +1,6 @@
 ---
+featureFlags: 
+- usabilla
 title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 3: Table storage | Microsoft Docs'
 description: Monitor the device-to-cloud messages as they are written to your Azure Table storage.
 services: iot-hub
