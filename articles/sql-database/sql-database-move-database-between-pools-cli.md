@@ -24,7 +24,7 @@ The sample script provided here illustrates how a database can be moved from one
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
-## Run CLI script
+## Create elastic pools and move databases between pools
 
 [!code-azurecli[main](../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "Move database between pools")]
 

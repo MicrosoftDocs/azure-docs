@@ -24,7 +24,7 @@ The sample script provided here creates an elastic database pool in the North Ce
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
-## Run the CLI script
+## Scale an elastic pool
 
 [!code-azurecli[main](../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
 
