@@ -34,7 +34,7 @@ ms.author: sutalasi
 6. In **Recovery point retention**, specify (in hours) the duration of the retention window for each recovery point. Protected machines can be recovered to any point within a retention window.
 
 	> [!NOTE]
-	> Up to 24 hours of retention is supported for machines replicated to premium storage, and up to 72 hours of retention is supported for machines replicated to standard storage.
+	> Up to 24 hours of retention is supported for machines replicated to premium storage. Up to 72 hours of retention is supported for machines replicated to standard storage.
 
 	> [!NOTE]
 	> A replication policy for failback is automatically created.
