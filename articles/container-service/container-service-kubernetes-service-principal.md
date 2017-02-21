@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 02/21/2017
 ms.author: danlep
 
 ---
@@ -31,8 +31,6 @@ and the Layer 4 Azure Load Balancer.
 
 This article shows different options to specify a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
 
-> [!NOTE]
-> Kubernetes support in Azure Container Service is currently in preview.
 
 
 ## Requirements for the service principal
@@ -54,7 +52,7 @@ Following are requirements for the Azure Active Directory service principal in a
 
 ### Option 1: Pass the service principal client ID and client secret
 
-Provide the **client ID** (often called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. If you are using an existing service principal, make sure it meets the requirements in the previous section. If you need to create a service principal, see [Create a service principal](#create-a-service-principal-in-azure-active-directory) later in this article.
+Provide the **client ID** (also called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. If you are using an existing service principal, make sure it meets the requirements in the previous section. If you need to create a service principal, see [Create a service principal](#create-a-service-principal-in-azure-active-directory) later in this article.
 
 You can specify these parameters when [deploying the Kubernetes cluster](./container-service-deployment.md) using the portal, the Azure Command-Line Interface (CLI) 2.0 (Preview), Azure PowerShell, or other methods.
 
