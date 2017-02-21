@@ -20,8 +20,7 @@ Learn how to use Log Analytics in the Operations Management Suite to collect and
 
 <ul class="panelContent cardsFTitle">
     <li>
-
-<a href="/azure/log-analytics/log-analytics-overview">
+      <a href="/azure/log-analytics/log-analytics-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
