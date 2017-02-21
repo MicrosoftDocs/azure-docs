@@ -1,19 +1,19 @@
 ---
-title: Azure Diagnostics 1.3, 1.4, 1.5 Configuration Schema | Microsoft Docs
-description: Schema version 1.3, 1.4 and 1.5 for Azure diagnostics shipped as part of the Microsoft Azure SDK.
-services: multiple
+title: Azure Diagnostics 1.3, 1.4, 1.5, 1.6, 1.7 Configuration Schema | Microsoft Docs
+description: Schema version 1.3 and later Azure diagnostics shipped as part of the Microsoft Azure SDK.
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: ''
 
 ms.assetid:
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 
 ---
@@ -109,18 +109,232 @@ This page is valid for versions 1.3, 1.4 and 1.5 (Azure SDK 2.4 and newer). Newe
             <Channel logLevel="Verbose" name="AppLogs"  />   
           </Channels>   
         </Sink>   
-      </SinksConfig>   
+        <Sink name="EventHub"> <!-- Added in 1.7 -->
+          <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
+        </Sink>
+        <Sink name="secondaryEventHub"> <!-- Added in 1.7 -->
+          <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
+        </Sink>
+        <Sink name="secondaryStorageAccount"> <!-- Added in 1.7 -->
+          <StorageAccount name="secondarydiagstorageaccount" endpoint="https://core.windows.net" />
+        </Sink>
+   </SinksConfig>
 
     </WadCfg>  
   </PublicConfig>  
 
   <PrivateConfig>  <!-- Added in 1.3 -->  
-    <StorageAccount name="" key="" endpoint="" />  
+    <StorageAccount name="" key="" endpoint="" />
+    <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
+    <SecondaryStorageAccounts>
+       <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" />
+    </SecondaryStorageAccounts>
+    <SecondaryEventHubs>
+       <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
+    </SecondaryEventHubs>
+
   </PrivateConfig>  
   <IsEnabled>true</IsEnabled>  
 </DiagnosticsConfiguration>  
 
 ```  
+
+Here is the JSON equivalent of the previous XML configuration file.  
+```json
+{
+    "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+            "overallQuotaInMB": 10000,
+            "DiagnosticInfrastructureLogs": {
+                "scheduledTransferLogLevelFilter": "Error"
+            },
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT1M",
+                        "unit": "percent"
+                    }
+                ]
+            },
+            "Directories": {
+                "scheduledTransferPeriod": "PT5M",
+                "IISLogs": {
+                    "containerName": "iislogs"
+                },
+                "FailedRequestLogs": {
+                    "containerName": "iisfailed"
+                },
+                "DataSources": [
+                    {
+                        "containerName": "mynewprocess",
+                        "Absolute": {
+                            "path": "C:\\MyNewProcess",
+                            "expandEnvironment": false
+                        }
+                    },
+                    {
+                        "containerName": "badapp",
+                        "Absolute": {
+                            "path": "%SYSTEMDRIVE%\\BadApp",
+                            "expandEnvironment": true
+                        }
+                    },
+                    {
+                        "containerName": "goodapp",
+                        "LocalResource": {
+                            "relativePath": "..\\PeanutButter",
+                            "name": "Skippy"
+                        }
+                    }
+                ]
+            },
+            "EtwProviders": {
+                "sinks": "",
+                "EtwEventSourceProviderConfiguration": [
+                    {
+                        "scheduledTransferPeriod": "PT5M",
+                        "provider": "MyProviderClass",
+                        "Event": [
+                            {
+                                "id": 0
+                            },
+                            {
+                                "id": 1,
+                                "eventDestination": "errorTable"
+                            }
+                        ],
+                        "DefaultEvents": {
+                        }
+                    }
+                ],
+                "EtwManifestProviderConfiguration": [
+                    {
+                        "scheduledTransferPeriod": "PT2M",
+                        "scheduledTransferLogLevelFilter": "Information",
+                        "provider": "5974b00b-84c2-44bc-9e58-3a2451b4e3ad",
+                        "Event": [
+                            {
+                                "id": 0
+                            }
+                        ],
+                        "DefaultEvents": {
+                        }
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT5M",
+                "DataSource": [
+                    {
+                        "name": "System!*[System[Provider[@Name='Microsoft Antimalware']]]"
+                    },
+                    {
+                        "name": "System!*[System[Provider[@Name='NTFS'] and (EventID=55)]]"
+                    },
+                    {
+                        "name": "System!*[System[Provider[@Name='disk'] and (EventID=7 or EventID=52 or EventID=55)]]"
+                    }
+                ]
+            },
+            "Logs": {
+                "scheduledTransferPeriod": "PT1M",
+                "scheduledTransferLogLevelFilter": "Verbose",
+                "sinks": "ApplicationInsights.AppLogs"
+            },
+            "CrashDumps": {
+                "directoryQuotaPercentage": 30,
+                "dumpType": "Mini",
+                "containerName": "wad-crashdumps",
+                "CrashDumpConfiguration": [
+                    {
+                        "processName": "mynewprocess.exe"
+                    },
+                    {
+                        "processName": "badapp.exe"
+                    }
+                ]
+            }
+        },
+        "SinksConfig": {
+            "Sink": [
+                {
+                    "name": "ApplicationInsights",
+                    "ApplicationInsights": "{Insert InstrumentationKey}",
+                    "Channels": {
+                        "Channel": [
+                            {
+                                "logLevel": "Error",
+                                "name": "Errors"
+                            },
+                            {
+                                "logLevel": "Verbose",
+                                "name": "AppLogs"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "EventHub",
+                    "EventHub": {
+                        "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
+                        "SharedAccessKeyName": "SendRule",
+                        "usePublisherId": false
+                    }
+                },
+                {
+                    "name": "secondaryEventHub",
+                    "EventHub": {
+                        "Url": "https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub",
+                        "SharedAccessKeyName": "SendRule",
+                        "usePublisherId": false
+                    }
+                },
+                {
+                    "name": "secondaryStorageAccount",
+                    "StorageAccount": {
+                        "name": "secondarydiagstorageaccount",
+                        "endpoint": "https://core.windows.net"
+                    }
+                }
+            ]
+        }
+    },
+    "StorageAccount": "diagstorageaccount"
+}
+
+
+{
+    "storageAccountName": "diagstorageaccount",
+    "storageAccountKey": "{base64 encoded key}",
+    "storageAccountEndPoint": "https://core.windows.net",
+    "EventHub": {
+        "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
+        "SharedAccessKeyName": "SendRule",
+        "SharedAccessKey": "{base64 encoded key}"
+    },
+    "SecondaryStorageAccounts": {
+        "StorageAccount": [
+            {
+                "name": "secondarydiagstorageaccount",
+                "key": "{base64 encoded key}",
+                "endpoint": "https://core.windows.net"
+            }
+        ]
+    },
+    "SecondaryEventHubs": {
+        "EventHub": [
+            {
+                "Url": "https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub",
+                "SharedAccessKeyName": "SendRule",
+                "SharedAccessKey": "{base64 encoded key}"
+            }
+        ]
+    }
+}
+
+```
 
 ## Reading this page  
  The tags following are roughly in order shown in the preceding example.  If you don't see a full description where you expect it, search the page for the element or attribute.  
