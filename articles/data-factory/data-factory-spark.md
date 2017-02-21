@@ -24,7 +24,7 @@ The HDInsight Spark activity in a Data Factory [pipeline](data-factory-create-pi
 ## HDInsight linked service
 Before you use a Spark activity in a Data Factory pipeline, create a HDInsight (your own) linked service. The following JSON snippet shows the definition of a HDInsight linked service to point to your own Azure HDInsight Spark cluster.   
 
-```
+```json
 {
 	"name": "HDInsightLinkedService",
 	"properties": {
@@ -44,26 +44,27 @@ For details about the HDInsight linked service and other compute linked services
 ## Spark Activity JSON
 Here is the sample JSON definition of a Spark activity:    
 
-	{
-		"name": "MySparkActivity",
-		"description": "This activity invokes the Spark program",
-		"type": "HDInsightSpark",
-		"outputs": [
-        	{
-            	"name": "PlaceholderDataset"
-        	}
-		],
-		"linkedServiceName": "HDInsightLinkedService",
-		"typeProperties": {
-			"rootPath": "mycontainer\\myfolder",
-			"entryFilePath": "main.py",
-    		"arguments": [ "arg1", "arg2" ],
-    		"sparkConfig": {
-      			"spark.python.worker.memory": "512m"
-    		}
+```json
+{
+	"name": "MySparkActivity",
+	"description": "This activity invokes the Spark program",
+	"type": "HDInsightSpark",
+	"outputs": [
+    	{
+        	"name": "PlaceholderDataset"
+    	}
+	],
+	"linkedServiceName": "HDInsightLinkedService",
+	"typeProperties": {
+		"rootPath": "mycontainer\\myfolder",
+		"entryFilePath": "main.py",
+		"arguments": [ "arg1", "arg2" ],
+		"sparkConfig": {
+  			"spark.python.worker.memory": "512m"
 		}
 	}
-
+}
+```
 The following table describes the JSON properties used in the JSON definition: 
 
 | Property | Description | Required |
@@ -98,23 +99,24 @@ Create the following folder structure in the Azure Blob storage referenced by th
 
 Here is an example for a storage containing two Spark job files in the Azure Blob Storage referenced by the on-demand HDInsight linked service. 
 
-	SparkJob1
-		main.jar
-		files
-			input1.txt
-			input2.txt
-		jars
-			package1.jar
-			package2.jar
-		logs
+```
+SparkJob1
+	main.jar
+	files
+		input1.txt
+		input2.txt
+	jars
+		package1.jar
+		package2.jar
+	logs
 
-	SparkJob2
-		main.py
-		pyFiles
-			scrip1.py
-			script2.py
-		logs	
-
+SparkJob2
+	main.py
+	pyFiles
+		scrip1.py
+		script2.py
+	logs	
+```
 
 > [!IMPORTANT]
 > For a complete walkthrough of creating a pipeline with a transformation activity, see [Create a pipeline to transform data](data-factory-build-your-first-pipeline-using-editor.md) article. 
