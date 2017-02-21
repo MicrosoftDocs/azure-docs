@@ -242,8 +242,11 @@ This can occur when the mount command does not include the **serverino** option.
 ### Solution
 Check the **serverino** in your "/etc/fstab" entry:
 
-`//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,
-file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)`
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+
+You can also check if that option is being used by just running the command **sudo mount | grep cifs** and looking as its output:
+
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.+
 
