@@ -48,9 +48,7 @@ To send messages to an Event Hub, we will write a C# console application using V
 
 ### Add the Event Hubs NuGet package
 
-1. Right-click the newly created project and select **Manage NuGet Packages**.
-
-2. Click the **Browse** tab, then search for “Microsoft Azure Event Hubs” and select the **Microsoft Azure Event Hubs** item. Click **Install** to complete the installation, then close this dialog box.
+* Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package to your project.
 
 ### Write some code to send messages to the Event Hub
 
