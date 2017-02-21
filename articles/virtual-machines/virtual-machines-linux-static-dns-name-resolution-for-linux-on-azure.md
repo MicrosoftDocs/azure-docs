@@ -1,5 +1,5 @@
 ---
-title: Use internal DNS for VM name resolution with the Azure CLI 2.0 (Preview) | Microsoft Docs
+title: Use internal DNS for VM name resolution with the Azure CLI 2.0 | Microsoft Docs
 description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
@@ -20,23 +20,15 @@ ms.author: v-livech
 ---
 
 # Create virtual network interface cards and use internal DNS for VM name resolution on Azure
-This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
+This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
 
 The requirements are:
 
 * [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 * [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-
-## CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
-
-- [Azure CLI 1.0](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](#quick-commands) - our next generation CLI for the resource management deployment model (this article)
-
-
 ## Quick commands
-If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 Pre-Requirements: Resource Group, virtual network and subnet, Network Security Group with SSH inbound.
 
