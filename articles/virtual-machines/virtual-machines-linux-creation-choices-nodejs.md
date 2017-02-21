@@ -25,7 +25,7 @@ You have the flexibility in Azure to create a Linux virtual machine (VM) using t
 You can create VMs in Azure using one of the following CLI versions:
 
 - Azure CLI 1.0 – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-creation-choices.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-creation-choices.md) - our next generation CLI for the resource management deployment model
 
 The Azure CLI 1.0 is available across platforms via an npm package, distro-provided packages, or Docker container. You can read more about [how to install and configure the Azure CLI](../xplat-cli-install.md). The following tutorials provide examples on using the Azure CLI 1.0. Read each article for more details on the CLI quick-start commands shown:
 
