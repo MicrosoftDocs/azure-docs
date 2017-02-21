@@ -19,13 +19,13 @@ ms.author: danielsollondon
 
 ---
 # Creating Virtual Machine Scale Sets using PowerShell cmdlets
-This is an example of how to create a Virtual Machine scale set (VMSS). It creates a VMSS of 3 nodes, with all the associated Networking and Storage.
+This article walks through an example of how to create a Virtual Machine scale set (VMSS). It creates a scale set of three nodes, with associated Networking and Storage.
 
 ## First Steps
-Ensure you have the latest Azure PowerShell module installed, this will contain the PowerShell commandlets needed to maintain and create VMSS.
-Go to the commandline tools [here](http://aka.ms/webpi-azps) for the latest available Azure Modules.
+Ensure you have the latest Azure PowerShell module installed, to make sure you have the PowerShell commandlets needed to maintain, and create scale sets.
+Go to the command line tools [here](http://aka.ms/webpi-azps) for the latest available Azure Modules.
 
-To find VMSS related commandlets, use the search string \*VMSS\*. E.g. _gcm *vmss*_
+To find VMSS related commandlets, use the search string \*VMSS\*. For example, _gcm *vmss*_
 
 ## Creating a VMSS
 #### Create Resource Group
@@ -73,7 +73,7 @@ $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicI
 ```
 
 #### Configure Load Balancer
-Create Backend Address Pool Config, this will be shared by the NICs of the VMs in VMSS.
+Create Backend Address Pool Config, this will be shared by the NICs of the VMs in the scale set.
 
 ```
 $backendAddressPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name $backendAddressPoolName
@@ -85,7 +85,7 @@ Set Load Balanced Probe Port, change the settings as appropriate for your applic
 $probe = New-AzureRmLoadBalancerProbeConfig -Name $probeName -RequestPath healthcheck.aspx -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 ```
 
-Create an inbound NAT pool for direct routed connectivity (not load balanced) to the VMs in the VMSS via the Load Balancer. This is to demonstrate using RDP and may not be required in your application.
+Create an inbound NAT pool for direct routed connectivity (not load balanced) to the VMs in the scale set via the Load Balancer. This is to demonstrate using RDP and may not be required in your application.
 
 ```
 $frontendpoolrangestart = 3360
@@ -116,20 +116,20 @@ $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Lo
 -Probe $probe -LoadBalancingRule $lbrule -InboundNatPool $inboundNatPool -Verbose;
 ```
 
-Check  LB settings, check load balanced port configs, note, you will not see Inbound NAT rules until the VM's in the VMSS are created.
+Check  LB settings, check load balanced port configs, note, you will not see Inbound NAT rules until the VMs in the scale set are created.
 
 ```
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### Configure and Create VMSS
-Note, this infrastructure example shows how to setup distribute and scale web traffic across the VMSS, but the VMs Images specified here do not have any web services installed.
+##### Configure and Create the scale set
+Note, this infrastructure example shows how to set up distribute and scale web traffic across the scale set, but the VMs Images specified here do not have any web services installed.
 
 ```
-#specify VMSS Name
+# specify scale set Name
 $vmssName = 'vmss' + $rgname;
 
-##specify VMSS specific details
+## specify VMSS specific details
 $adminUsername = 'azadmin';
 $adminPassword = "Password1234!";
 
@@ -155,7 +155,7 @@ $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
 -SubnetId $subnetId;
 ```
 
-Create VMSS Config
+Create scale set Config
 
 ```
 # Specify number of nodes
@@ -170,13 +170,13 @@ $vmss = New-AzureRmVmssConfig -Location $loc -SkuCapacity $numberofnodes -SkuNam
     | Add-AzureRmVmssExtension -Name $extname -Publisher $publisher -Type $exttype -TypeHandlerVersion $extver -AutoUpgradeMinorVersion $true
 ```
 
-Build VMSS Config
+Build scale set configuration
 
 ```
 New-AzureRmVmss -ResourceGroupName $rgname -Name $vmssName -VirtualMachineScaleSet $vmss -Verbose;
 ```
 
-Now you have created the VMSS. You can test connecting to the individual VM using RDP in this example:
+Now you have created the scale set. You can test connecting to the individual VM using RDP in this example:
 
 ```
 VM0 : pubipmynewrgwu.westus.cloudapp.azure.com:3360
