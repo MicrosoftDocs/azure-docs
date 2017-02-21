@@ -24,6 +24,7 @@ If you experience issues or failures with your logic apps, there are a few appro
 The Azure portal provides many tools to diagnose each logic app at each step.
 
 ### Trigger history
+
 Each logic app has at least one trigger. 
 If you notice that apps aren't firing, 
 look first at the trigger history for more information. 
@@ -32,7 +33,7 @@ You can access the trigger history on the logic app'ss main blade.
 ![Locating the trigger history][1]
 
 The trigger history lists all trigger attempts that your logic app made. 
-You can click each trigger attempt to get the next level of detail, 
+You can click each trigger attempt to drill into the details, 
 specifically, any inputs or outputs that the trigger attempt generated. 
 If you find failed triggers, select the trigger attempt and 
 choose the **Outputs** link to review any generated error messages, 
@@ -68,7 +69,7 @@ That is, the failure was handled by an action that was set to run after a failed
 * **Failed**. At least one action had a failure that was not handled by an action later in the workflow.
 * **Cancelled**. The workflow was running but received a cancel request.
 * **Running**. The workflow is currently running. 
-This might occur for workflows that are being throttled, or because of the current pricing plan. 
+This status might occur for throttled workflows, or because of the current pricing plan. 
 For details, see [action limits on the pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/). 
 Configuring diagnostics (the charts that appear under the run history) 
 also can provide information about any throttle events that happen.
@@ -103,7 +104,7 @@ you could add some steps to a workflow that help with debugging.
 [RequestBin](http://requestb.in) is a powerful tool that you can add as a step in a workflow. 
 By using RequestBin, you can set up an HTTP request inspector to determine the exact size, 
 shape, and format of an HTTP request. You can create a RequestBin and paste the URL in 
-a logic app HTTP POST action along with body content that you want to test, 
+a logic app HTTP POST action with body content that you want to test, 
 for example, an expression or another step output. After you run the logic app, 
 you can refresh your RequestBin to see how the request was formed when generated from the Logic Apps engine.
 
