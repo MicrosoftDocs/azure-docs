@@ -105,6 +105,7 @@
 #### Create a cluster on Azure
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio and Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
