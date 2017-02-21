@@ -73,7 +73,7 @@ When you select a user, you get a detailed report view for this user that enable
 
 
 To investigate a risk event, select one from the list.  
-This opens the **Details** blade for this risk event. On the **Details** blade, you have the option to either [manually close a risk event](closing-risk-events-manually) or reactivate a manually closed risk event. 
+This opens the **Details** blade for this risk event. On the **Details** blade, you have the option to either [manually close a risk event](active-directory-identityprotection.md#closing-risk-events-manually) or reactivate a manually closed risk event. 
 
 
 ![Risky Sign-ins](./media/active-directory-reporting-security-azure-portal-user-at-risk/325.png)
