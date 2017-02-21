@@ -15,18 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/21/2017
 ms.author: saudas
 
 ---
 # Scale an Azure Container Service cluster
 After [deploying an Azure Container Service cluster](container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
 
-You can change the number of agent nodes in the cluster by using the Azure portal or the Azure CLI 2.0 (Preview). The Azure CLI 2.0 (Preview) is the [next generation CLI](/cli/azure/old-and-new-clis) for the Resource Manager deployment model.
-
-> [!NOTE]
-> Currently, scaling of agent nodes in a container service Kubernetes cluster is not supported.
-
+You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes cluster by using the Azure portal or the Azure CLI 2.0. The Azure CLI 2.0 is the [next generation CLI](/cli/azure/old-and-new-clis) for the Resource Manager deployment model.
 
 ## Scale with the Azure portal
 
@@ -40,9 +36,9 @@ You can change the number of agent nodes in the cluster by using the Azure porta
 
 
 
-## Scale with the Azure CLI 2.0 (Preview)
+## Scale with the Azure CLI 2.0
 
-Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 (Preview) and logged in to an azure account (`az login`).
+Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and logged in to an azure account (`az login`).
 
 
 ### See the current agent count
@@ -64,7 +60,7 @@ For example, to change the number of agents in the previous cluster to 10, type 
 azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-The Azure CLI 2.0 (Preview) returns a JSON string representing the new configuration of the container service, including the new agent count.
+The Azure CLI 2.0 returns a JSON string representing the new configuration of the container service, including the new agent count.
 
 For more command options, run `az acs scale --help`.
 
@@ -87,6 +83,6 @@ For more command options, run `az acs scale --help`.
 
 
 ## Next steps
-* See [more examples](container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 (Preview) commands with Azure Container Service.
+* See [more examples](container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 commands with Azure Container Service.
 * Learn more about [DC/OS agent pools](container-service-dcos-agents.md) in Azure Container Service.
 

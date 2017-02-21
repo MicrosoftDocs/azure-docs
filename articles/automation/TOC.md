@@ -44,6 +44,7 @@
 ### [Integration Modules](automation-integration-modules.md)
 ### [Schedules](automation-schedules.md)
 ### [Variables](automation-variables.md)
+### [Update Azure PowerShell modules](automation-update-azure-modules.md)
 ## Automate scenarios
 ### [Runbook gallery](automation-runbook-gallery.md)
 ### [Start/stop virtual machines](automation-solution-startstopvm-graphical.md)
@@ -53,7 +54,8 @@
 ### [Start/stop VM with JSON Tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
-### [Source Control Integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Unlink Azure Automation account from Log Analytics](automation-unlink-from-log-analytics.md)
