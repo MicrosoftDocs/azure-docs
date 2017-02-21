@@ -1,5 +1,4 @@
 ---
-=======
 title: Prerequisites for replication to Azure by using Azure Site Recovery | Microsoft Docs
 description: This article summarizes prerequisites for replicating VMs and physical machines to Azure by using the Azure Site Recovery service.
 services: site-recovery
