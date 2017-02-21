@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 02/21/2017
 ms.author: bwren
 
 ---
@@ -33,6 +33,16 @@ Use the following syntax to use the **RegEx** keyword in a log search.  You can 
 For example, to use a regular expression to return alert records with a type of *Warning* or *Error*, you would use the following log search. 
 
 	Type=Alert AlertSeverity=RegEx("Warning|Error")
+
+## Partial matches
+Note that the regular expression must match the entire text of the property.  Partial matches will not return any records.  For example, if you were trying to return records from a computer named srv01.contoso.com, the following log search would **not** return any records.
+
+	Computer=RegEx("srv..") 
+
+This is because only the first part of the name matches the regular expression.  The following two log searches would return records from this computer because they match the entire name. 
+
+	Computer=RegEx("srv..@")
+	Computer=RegEx("srv...contoso.com") 
 
 ## Characters
 Specify different characters.
@@ -68,15 +78,15 @@ Select from multiple values.
 | Character | Description | Example | Sample Matches |
 |:--|:--|:--|:--|
 | &#124; | Logical OR.  Returns result if match on either expression. | Type=Alert AlertSeverity=RegEx("Warning&#124;Error") | Warning<br>Error |
-| & | Logical AND.  Returns result if match on both expressions | EventData=regex(“(Security.*&.*success.*)”) | Security auditing successful |
+| & | Logical AND.  Returns result if match on both expressions | EventData=regex("(Security.\*&.\*success.\*)") | Security auditing successful |
 
 
 ## Literals
-Convert special characters.
+Convert special characters to literal characters.  This includes characters that provide functionality to regular expressions such as ?-\*^\[\]{}\(\)+\|.&.
 
 | Character | Description | Example | Sample Matches |
 |:--|:--|:--|:--|
-| \\ | Converts a special character to a literal. | Status_CF=\\[Error\\]@ | [Error]File not found. |
+| \\ | Converts a special character to a literal. | Status_CF=\\[Error\\]@<br>Status_CF=Error\\-@ | [Error]File not found.<br>Error-File not found. |
 
 
 ## Next Steps
