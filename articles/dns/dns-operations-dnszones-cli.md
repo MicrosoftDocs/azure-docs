@@ -121,10 +121,10 @@ The following example is the response.
 ```json
 {
   "etag": "00000002-0000-0000-3d4d-64aa3689d201",
-  "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/gwcontoso.com",
+  "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
   "location": "global",
   "maxNumberOfRecordSets": 5000,
-  "name": "gwcontoso.com",
+  "name": "contoso.com",
   "nameServers": [
     "ns1-04.azure-dns.com.",
     "ns2-04.azure-dns.net.",

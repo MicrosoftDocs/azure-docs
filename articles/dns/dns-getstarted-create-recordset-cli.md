@@ -61,13 +61,13 @@ If a new record set is created, a default time-to-live (TTL) of 3600 is used. Fo
 The following example creates an A record called *www* in the zone *contoso.com* in the resource group *MyResourceGroup*. The IP address of the A record is *1.2.3.4*.
 
 ```azurecli
-az network dns record-set a create --resource-group myresourcegroup --zone-name gwcontoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
 To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "@", including the quotation marks:
 
 ```azurecli
-az network dns record-set a --resource-group myresourcegroup --zone-name gwcontoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+az network dns record-set a --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 The parameters used to specify the record data vary depending on the type of the record. For example, for a record of type "A", you specify the IPv4 address with the parameter `--ipv4-address <IPv4 address>`. See `az network dns record --help` to list the parameters for other record types. For examples for each record type, see [Manage DNS records and record sets by using the Azure CLI 2.0](dns-operations-recordsets-cli.md).

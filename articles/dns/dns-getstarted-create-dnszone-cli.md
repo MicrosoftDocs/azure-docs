@@ -110,7 +110,7 @@ The response for `az network dns record-set list` is shown below:
 [
   {
     "etag": "510f4711-8b7f-414e-b8d5-c0383ea3d62e",
-    "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/gwcontoso.com/NS/@",
+    "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@",
     "metadata": null,
     "name": "@",
     "nsRecords": [
@@ -133,7 +133,7 @@ The response for `az network dns record-set list` is shown below:
   },
   {
     "etag": "0e48e82f-f194-4d3e-a864-7e109a95c73a",
-    "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/gwcontoso.com/SOA/@",
+    "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@",
     "metadata": null,
     "name": "@",
     "resourceGroup": "myresourcegroup",

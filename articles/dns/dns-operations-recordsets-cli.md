@@ -45,7 +45,7 @@ For more information about DNS records in Azure DNS, see [DNS zones and records]
 
 ## Create a DNS record
 
-To create a DNS record, use the `az network dns record-set <recordtype> create` command. (Where recordtype is the type of record, i.e A, SRV, TXT, etc) For help, see `az network dns record-set --help`.
+To create a DNS record, use the `az network dns record-set <recordtype> add-record` command. (Where recordtype is the type of record, i.e A, SRV, TXT, etc) For help, see `az network dns record-set --help`.
 
 When creating a record, you need to specify the resource group name, zone name, record set name, the record type, and the details of the record being 
 created. The record set name given must be a *relative* name, meaning it must exclude the zone name.
@@ -77,13 +77,13 @@ Creating the record set explicitly allows you to specify record set properties s
 The following example creates an empty record set with a 60-second TTL, by using the `--ttl` parameter (short form `-l`):
 
 ```azurecli
-az network dns record-set create --resource-group myresourcegroup --zone-name gwcontoso.com --name www --type A --ttl 60
+az network dns record-set create --resource-group myresourcegroup --zone-name contoso.com --name www --type A --ttl 60
 ```
 
 The following example creates a record set with two metadata entries, "dept=finance" and "environment=production", by using the `--metadata` parameter :
 
 ```azurecli
-az network dns record-set create --resource-group myresourcegroup --zone-name gwcontoso.com --name www --type A --metadata "dept=finance" "environment=production"
+az network dns record-set create --resource-group myresourcegroup --zone-name contoso.com --name www --type A --metadata "dept=finance" "environment=production"
 ```
 
 Having created an empty record set, records can be added using `azure network dns record-set add-record` as described in [Create a DNS record](#create-a-dns-record).
@@ -126,7 +126,7 @@ az network dns record-set mx add-record --resource-group myresourcegroup --zone-
 ### Create an NS record
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name gwcontoso.com --record-set-name "test-ns" --nsdname ns1.contoso.com
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "test-ns" --nsdname ns1.contoso.com
 ```
 
 ### Create a PTR record
@@ -142,7 +142,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 When creating an [SRV record set](dns-zones-records.md#srv-records), specify the *\_service* and *\_protocol* in the record set name. There is no need to include "@" in the record set name when creating an SRV record set at the zone apex.
 
 ```azurecli
-az network dns record srv add --resource-group myresourcegroup --zone-name gwcontoso.com --record-set-name "_sip.tls" --priority 10 --weight 5 --port 8080 --target "sip.contoso.com"
+az network dns record srv add --resource-group myresourcegroup --zone-name contoso.com --record-set-name "_sip.tls" --priority 10 --weight 5 --port 8080 --target "sip.contoso.com"
 ```
 
 ### Create a TXT record
@@ -162,7 +162,7 @@ As when creating a record or record set, the record set name given must be a *re
 The following example retrieves the record *www* of type A from zone *contoso.com* in resource group *MyResourceGroup*:
 
 ```azurecli
-az network dns record-set show --resource-group myresourcegroup --zone-name gwcontoso.com --name www --type A
+az network dns record-set show --resource-group myresourcegroup --zone-name contoso.com --name www --type A
 ```
 
 ## List record sets
@@ -172,13 +172,13 @@ You can list all records in a DNS zone by using the `az network dns record-set l
 This example returns all record sets in the zone *contoso.com*, in resource group *MyResourceGroup*, regardless of name or record type:
 
 ```azurecli
-az network dns record-set list --resource-group myresourcegroup --zone-name gwcontoso.com
+az network dns record-set list --resource-group myresourcegroup --zone-name contoso.com
 ```
 
 This example returns all record sets that match the given record type (in this case, 'A' records):
 
 ```azurecli
-az network dns record-setA a list --resource-group myresourcegroup --zone-name gwcontoso.com 
+az network dns record-setA a list --resource-group myresourcegroup --zone-name contoso.com 
 ```
 
 ## Add a record to an existing record set
@@ -200,7 +200,7 @@ This command prompts for confirmation. This prompt can be suppressed using the `
 The following example deletes the A record with value '1.2.3.4' from the record set named *www* in the zone *contoso.com*, in the resource group *MyResourceGroup*. The confirmation prompt is suppressed.
 
 ```azurecli
-az network dns record-set a remove-record --resource-group myresourcegroup --zone-name gwcontoso.com --record-set-name "www" --ipv4-address 1.2.3.4 --yes
+az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4 --yes
 ```
 
 ## Modify an existing record set
@@ -227,7 +227,7 @@ To modify a CNAME record, use `az network dns record-set update` with the --set 
 The example modifies the CNAME record set *www* in the zone *contoso.com*, in resource group *MyResourceGroup*, to point to 'www.fabrikam.net' instead of its existing value:
 
 ```azurecli
-az network dns record-set update --resource-group myresourcegroup --zone-name gwcontoso.com --name test-cname --type cname --set cnameRecord.cname=www.fabrikam.net
+az network dns record-set update --resource-group myresourcegroup --zone-name contoso.com --name test-cname --type cname --set cnameRecord.cname=www.fabrikam.net
 ``` 
 
 ### To modify an SOA record
@@ -237,7 +237,7 @@ Use `az network dns record-set soa update` to modify the SOA for a given DNS zon
 The following example shows how to set the 'email' property of the SOA record for the zone *contoso.com* in the resource group *MyResourceGroup*:
 
 ```azurecli
-az network dns record-set soa update --resource-group myresourcegroup --zone-name gwcontoso.com --email admin.contoso.com
+az network dns record-set soa update --resource-group myresourcegroup --zone-name contoso.com --email admin.contoso.com
 ```
 
 ### To modify the TTL of an existing record set
@@ -247,7 +247,7 @@ To modify the TTL of an existing record set, use `azure network dns record-set s
 The following example shows how to modify a record set TTL, in this case to 60 seconds:
 
 ```azurecli
-az network dns record-set update --resource-group myresourcegroup --zone-name gwcontoso.com --name "www" --type A --set ttl=60
+az network dns record-set update --resource-group myresourcegroup --zone-name contoso.com --name "www" --type A --set ttl=60
 ```
 
 ### To modify the metadata of an existing record set
@@ -257,7 +257,7 @@ az network dns record-set update --resource-group myresourcegroup --zone-name gw
 The following example shows how to modify a record set with two metadata entries, "dept=finance" and "environment=production", by using the `--metadata` parameter (short form `-m`). Note that any existing metadata is *replaced* by the values given.
 
 ```azurecli
-az network dns record-set update --resource-group myresourcegroup --zone-name gwcontoso.com --name "www" --type A --set metadata.dept=finance metadata.environment=production
+az network dns record-set update --resource-group myresourcegroup --zone-name contoso.com --name "www" --type A --set metadata.dept=finance metadata.environment=production
 ```
 
 ## Delete a record set
