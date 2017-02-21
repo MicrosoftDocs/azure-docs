@@ -118,8 +118,6 @@ During public preview, PowerShell cannot be used to fully control group license 
   ![using the Get-Msolaccountsku cmdlet](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. In this example, we want to find out which users have the *EMS* license assigned directly, from a group, or both. We will use a PowerShell script that contains two functions that can answer this question for a user object and a SKU
-
-
   ```
   \# Returns TRUE if the user has the license assigned directly
 
