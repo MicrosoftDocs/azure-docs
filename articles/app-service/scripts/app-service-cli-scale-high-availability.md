@@ -8,13 +8,13 @@ manager: erikre
 editor: 
 tags: azure-service-management
 
-ms.assetid:
+ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 02/01/2017
+ms.date: 02/21/2017
 ms.author: cfowler
 ---
 
@@ -42,14 +42,14 @@ This script uses the following commands to create a resource group, web app, tra
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#create) | Creates an App Service Plan. This is like a Server Farm for your App Service Web Apps. |
-| [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) | Creates a Web App within the App Service Plan. |
-| [az network traffic-manager profile create](https://docs.microsoft.com/en-us/cli/azure/network/traffic-manager/profile#create) | Creates a Traffic Manager profile. |
-| [az network traffic-manager endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/traffic-manager/endpoint#create) | Adds a endpoint to a Traffic Manager Profile. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Creates an Azure web app within the App Service plan. |
+| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#create) | Creates an Azure Traffic Manager profile. |
+| [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) | Adds a endpoint to an Azure Traffic Manager Profile. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentaiton](https://docs.microsoft.com/en-us/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentaiton](https://docs.microsoft.com/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation](https://docs.microsoft.com/en-us/cli/azure/appservice).
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).

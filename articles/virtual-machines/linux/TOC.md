@@ -16,15 +16,6 @@
 ## [Containers](../virtual-machines-linux-containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [FAQ](../virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-# [Common Examples](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Quick Create a VM with the Azure CLI](/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md)
-## [Create a VM with the Azure CLI](/scripts/virtual-machines-linux-cli-sample-create-vm.md)
-## [Load balance traffic between highly avaliable VMs](/scripts/virtual-machines-linux-cli-sample-nlb.md)
-## [Monitor VMs with Operations Management Suite](/scripts/virtual-machines-linux-cli-sample-create-vm-oms.md)
-## [Secure network traffic network traffic](/scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md)
-## [Virtual machine with Docker enabled](/scripts/virtual-machines-linux-cli-sample-create-docker-host.md)
-## [Troubleshoot OS disk issues](/scripts/virtual-machines-linux-cli-sample-mount-os-disk.md)
-
 # Get started
 ## [Create a VM with the portal](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Create SSH keys on Linux and Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
