@@ -1,6 +1,6 @@
 ---
 
-  title: Azure Active Directory group-based licensing additional scenarios
+  title: Azure Active Directory group-based licensing additional scenarios | Microsoft Docs
   description: More scenarios for Azure Active Directory group-based licensing
   services: active-directory
   keywords: Azure AD licensing
@@ -181,7 +181,6 @@ During public preview, PowerShell cannot be used to fully control group license 
       return \$false
   }
   ```
-
 4. The rest of the script gets all users and executes these functions on each user and then formats the output into a table.
 
   ```
