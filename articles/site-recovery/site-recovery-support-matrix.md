@@ -59,7 +59,7 @@ vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, 
 
 ### Machines (replicate to Azure)
 
-Virtual machines must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machines).
+Virtual machines must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 **Requirement** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
