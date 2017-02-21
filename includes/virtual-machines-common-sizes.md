@@ -50,6 +50,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [G1-G5](#g-series) |180 - 240* |
 | [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
+| [L4s-L32s](#l-series) |180 - 240* |
 
 ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
 
@@ -251,8 +252,26 @@ For information and considerations about using these sizes, see [About the H-ser
 
 <br>
 
+
+## Ls-series 
+
+The Ls-series is optimized for workloads that require low latency local storage, like NoSQL databases (e.g. Cassandra, MongoDB, Cloudera and Redis). The Ls-series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per CPU core.  
+
+ 
+| Size          | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth | 
+|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s  | 4    | 32   | 678   | 8              | NA / NA (0)          | 5,000 / 125                               | 2 / high       | 
+| Standard_L8s  | 8    | 64   | 1,388 | 16             | NA / NA (0)          | 10,000 / 250                              | 4 / very high  | 
+| Standard_L16s | 16   | 128  | 2,807 | 32             | NA / NA (0)          | 20,000 / 500                              | 8 / extremely high | 
+| Standard_L32s | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 40,000 / 1,000                            | 8 / extremely high | 
+ 
+MBps = 10^6 bytes per second, and GiB = 1024^3 bytes. 
+
+
+
 ## N-series
 The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations. 
+
 
 ### NV instances
 The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264. 
