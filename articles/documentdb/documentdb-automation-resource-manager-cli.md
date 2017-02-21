@@ -126,7 +126,7 @@ Examples:
 
 ## <a id="add-remove-region-documentdb-account-cli"></a> Add/remove region from a DocumentDB database account
 
-To add or remove region(s) from your existing DocumentDB database account, use the [update](update-documentdb-account-cli) command with the `--locations` flag. The example below shows how to create a new account and subsequently add and remove regions from that account.
+To add or remove region(s) from your existing DocumentDB database account, use the [update](#update-documentdb-account-cli) command with the `--locations` flag. The example below shows how to create a new account and subsequently add and remove regions from that account.
 
 Example:
 
