@@ -131,7 +131,7 @@ There are a few failback requirements:
 **Component** | **Details**
 --- | ---
 **Azure** | In Azure you need a Microsoft Azure account, an Azure storage account, and a Azure network.<br/><br/> Storage and network can be Resource Manager-based, or classic accounts.<br/><br/> Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover from your on-premises site occurs.<br/><br/> The Azure VMs connect to the Azure virtual network when they're created.
-**VMM server** | If your Hyper-V hosts are located in VMM clouds, you need logical and VM networks set up to configure [network mapping](site-recovery-network-mapping.md). A VM network should be linked to a logical network that's associated with the cloud.
+**VMM server** | If your Hyper-V hosts are located in VMM clouds, you need logical and VM networks set up to configure network mapping. A VM network should be linked to a logical network that's associated with the cloud.
 **Hyper-V host** | You need one or more Hyper-V host servers.
 **Hyper-V VMs** | You need one or more VMs on the Hyper-V host server. The Provider running on the Hyper-V host coordinates and orchestrates replication with the Site Recovery service over the internet. The agent handles data replication data over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
 
@@ -220,4 +220,4 @@ There are a few failback requirements:
 
 ## Next steps
 
-[Check prerequisites](site-recovery-prereqs.md)
+[Check prerequisites](site-recovery-prereq.md)
