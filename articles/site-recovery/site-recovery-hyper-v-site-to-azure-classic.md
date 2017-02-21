@@ -1,6 +1,6 @@
 ---
 title: Replicate Hyper-V VMs to Azure in the classic portal | Microsoft Docs
-description: This article describes how to replicate Hyper-V virtual machines to Azure with Azure Site Recovery when machines aren't managed in VMM clouds.
+description: This article describes how to replicate Hyper-V virtual machines to Azure when machines aren't managed in VMM clouds.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 02/21/2017
 ms.author: raynew
 
 ---
@@ -25,16 +25,9 @@ ms.author: raynew
 >
 >
 
-Welcome to the Azure Site Recovery service!
-
-Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy. Site Recovery orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
-
-This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using Azure Site Recovery in the Azure portal. In this scenario, Hyper-V servers are not managed in VMM clouds.
+This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service, in the Azure portal. In this scenario, Hyper-V servers are not managed in VMM clouds.
 
 After reading this article, post any comments at the bottom, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
-
 
 
 ## Site Recovery in the Azure portal
