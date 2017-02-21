@@ -38,12 +38,12 @@ az group delete --name SampleResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, logical server, SQL Database and firewall rules. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, logical server, SQL Database, and firewall rules. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.microsoft.com/en-us/cli/azure/sql/server#create) | Creates a logical server that will host the SQL Database. |
+| [az sql server create](https://docs.microsoft.com/en-us/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
 | [az sql server firewall create](https://docs.microsoft.com/en-us/cli/azure/sql/server/firewall#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
 | [az sql db create](https://docs.microsoft.com/en-us/cli/azure/sql/db#create) | Creates the SQL Database in the logical server. |
 | [az group delete](https://docs.microsoft.com/en-us/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
