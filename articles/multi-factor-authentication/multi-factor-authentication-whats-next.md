@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/21/2017
 ms.author: kgremban
 
 ---
@@ -28,7 +28,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 | [Caching](#caching-in-azure-multi-factor-authentication) |Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |
 | [Trusted IPs](#trusted-ips) |Administrators of a managed or federated tenant can use Trusted IPs to bypass two-step verification for users that sign in from the company’s local intranet. |
 | [App Passwords](#app-passwords) |An app password allows an application that is not MFA-aware to bypass multi-factor authentication and continue working. |
-| [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
+| [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
 | [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |
 
 ## Access the Azure MFA Management Portal
