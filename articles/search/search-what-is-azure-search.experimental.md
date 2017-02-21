@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: heidist
 experimental: true
-experiment_id: "heidist-experiment1-20170221"
+experiment_id: "heidist-20170221"
 ---
 # What is Azure Search?
 
@@ -25,7 +25,7 @@ Azure Search offers a dedicated and programmable search engine with intelligent 
 
 Having a solid search experience is a necessity for most web and mobile apps. Full text search with auto-completed query terms, spelling corrections, and matches based on semantically identical but superficially different inputs ("car" and "auto") is almost the minimum bar, despite the technical complexity backing the experience. Equally important are operational requirements for scale, reliability, and synchronization between search and backend data stores. 
 
-Azure Search provides a comprehensive range of capabilities so you can meet both search and operational requirements.
+Azure Search provides comprehensive functionality so you can meet both search and operational requirements.
 
 ![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -47,7 +47,7 @@ Dedicated services run 24-7 at scale with [99.9% service level agreements](https
 Several cloud service providers offer custom search engines with features that power a search bar in custom apps. 
 Some offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
-As points of comparison with other search solutions, Azure Search is strongest for full text search workloads over content stores and databases on Azure, with an additional layer of functionality necessary for apps that rely primarily on search for content navigation. 
+As points of comparison with other search solutions, Azure Search is strongest for full text search workloads over content stores and databases on Azure, with an additional layer of functionality necessary for apps that rely primarily on search for information retrieval and content navigation. 
 
 + Azure data integration (crawlers) at the indexing layer
 + Azure portal for central management
