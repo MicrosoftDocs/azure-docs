@@ -106,14 +106,23 @@ In the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Ident
 8.	To configure how messages that are sent via this agreement are to be handled, follow these steps.
 
     a. Select **Send Settings**.
+
     b. To send signed messages to the partner, select the **Enable message signing** check box. If you select this option, sign the messages by selecting **host partner private certificate MIC Algorithm** in the **MIC Algorithm** list and **host partner private certificate** in the **Certificate** list.
+
     c. To send encrypted messages to the partner, select the **Enable message encryption** check box. If you select this option, encrypt the messages by selecting **guest partner public certificate algorithm** in the **Encryption Algorithm** list and **guest partner public certificate** in the **Certificate** list.
+
     d. To compress the message, select the **Enable message compression** check box.
+
     e. To unfold the HTTP content-type header into a single line, select the **Unfold HTTP headers** check box.
+
     f. To receive synchronous MDNs for the sent messages, select the **Request MDN** check box.
+
     g. To receive signed MDNs for the sent messages, select the **Request signed MDN** check box.
+
     h. To receive asynchronous MDNs for the sent messages, select the **Request asynchronous MDN** check box. If you select this option, enter the URL for where to send the MDNs.
+
     i. To require non-repudiation of receipt, select the **Enable NRR** check box.
+
     j. Select **OK**.
 
 		![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
