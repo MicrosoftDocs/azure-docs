@@ -103,47 +103,47 @@ In the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Ident
 		| Send asynchronous MDN | Requires messages to be sent asynchronously. |
 		| URL | The URL that the MDNs are to be sent to. |
 
-8.	To configure how messages that are sent via this agreement are to be handled, follow these steps.
+8.	To configure how to handle messages that are sent through this agreement, follow these steps.
 
-    a. Select **Send Settings**.
+   a. Select **Send Settings**.
 
-    b. To send signed messages to the partner, select the **Enable message signing** check box. If you select this option, sign the messages by selecting **host partner private certificate MIC Algorithm** in the **MIC Algorithm** list and **host partner private certificate** in the **Certificate** list.
+   b. To send signed messages to the partner, select the **Enable message signing** check box. If you select this option, sign the messages by selecting **host partner private certificate MIC Algorithm** in the **MIC Algorithm** list and **host partner private certificate** in the **Certificate** list.
 
-    c. To send encrypted messages to the partner, select the **Enable message encryption** check box. If you select this option, encrypt the messages by selecting **guest partner public certificate algorithm** in the **Encryption Algorithm** list and **guest partner public certificate** in the **Certificate** list.
+   c. To send encrypted messages to the partner, select the **Enable message encryption** check box. If you select this option, encrypt the messages by selecting **guest partner public certificate algorithm** in the **Encryption Algorithm** list and **guest partner public certificate** in the **Certificate** list.
 
-    d. To compress the message, select the **Enable message compression** check box.
+   d. To compress the message, select the **Enable message compression** check box.
 
-    e. To unfold the HTTP content-type header into a single line, select the **Unfold HTTP headers** check box.
+   e. To unfold the HTTP content-type header into a single line, select the **Unfold HTTP headers** check box.
 
-    f. To receive synchronous MDNs for the sent messages, select the **Request MDN** check box.
+   f. To receive synchronous MDNs for the sent messages, select the **Request MDN** check box.
 
-    g. To receive signed MDNs for the sent messages, select the **Request signed MDN** check box.
+   g. To receive signed MDNs for the sent messages, select the **Request signed MDN** check box.
 
-    h. To receive asynchronous MDNs for the sent messages, select the **Request asynchronous MDN** check box. If you select this option, enter the URL for where to send the MDNs.
+   h. To receive asynchronous MDNs for the sent messages, select the **Request asynchronous MDN** check box. If you select this option, enter the URL for where to send the MDNs.
 
-    i. To require non-repudiation of receipt, select the **Enable NRR** check box.
+   i. To require non-repudiation of receipt, select the **Enable NRR** check box.
 
-    j. Select **OK**.
+   j. Select **OK**.
 
 		![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
 
-	The following table describes the **Send Settings** properties:  
+		The following table describes the **Send Settings** properties:
 
-	| Property | Description |
-	| --- | --- |
-	| Enable message signing |Requires all messages that are sent from the agreement to be signed. |
-	| MIC Algorithm |The algorithm to use to sign messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
-	| Certificate |The certificate to use to sign messages. Configures the host partner private certificate for signing the messages. |
-	| Enable message encryption |Requires encryption of all messages that are sent from this agreement. Configures the guest partner public certificate algorithm for encrypting the messages. |
-	| Encryption Algorithm |The encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
-	| Certificate |The certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
-	| Enable message compression |Requires compression of all messages that are sent from this agreement. |
-	| Unfold HTTP headers |Places the HTTP content-type header onto a single line. |
-	| Request MDN |Requires an MDN for all messages that are sent from this agreement. |
-	| Request signed MDN |Requires all MDNs that are sent to this agreement to be signed. |
-	| Request asynchronous MDN |Requires asynchronous MDNs to be sent to this agreement. |
-	| URL |The URL that the MDNs are to be sent to. |
-	| Enable NRR |Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
+		| Property | Description |
+		| --- | --- |
+		| Enable message signing |Requires all messages that are sent from the agreement to be signed. |
+		| MIC Algorithm |The algorithm to use to sign messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
+		| Certificate |The certificate to use to sign messages. Configures the host partner private certificate for signing the messages. |
+		| Enable message encryption |Requires encryption of all messages that are sent from this agreement. Configures the guest partner public certificate algorithm for encrypting the messages. |
+		| Encryption Algorithm |The encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
+		| Certificate |The certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
+		| Enable message compression |Requires compression of all messages that are sent from this agreement. |
+		| Unfold HTTP headers |Places the HTTP content-type header onto a single line. |
+		| Request MDN |Requires an MDN for all messages that are sent from this agreement. |
+		| Request signed MDN |Requires all MDNs that are sent to this agreement to be signed. |
+		| Request asynchronous MDN |Requires asynchronous MDNs to be sent to this agreement. |
+		| URL |The URL that the MDNs are to be sent to. |
+		| Enable NRR |Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
 
 ## View the Agreements list
 
