@@ -272,8 +272,8 @@ If a character set is not specified for a given message schema, then the default
 | Allow leading/ trailing zeroes |Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed. |
 | Trailing separator |Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select Not Allowed if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the received interchange must contain trailing delimiters and separators. |
 
-1.	After you have set the send settings properties, choose **OK**. 
-Your agreement is ready to handle outgoing messages that confirm to the schema you selected.
+1.	After you set the **Send settings** properties, choose **OK**. 
+Your agreement is ready to handle outgoing messages that conform to the schema you selected.
 
 2.	To create the agreement, choose **OK**.
 
