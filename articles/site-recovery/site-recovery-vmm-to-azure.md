@@ -100,7 +100,6 @@ You need to set up network mapping during Site Recovery deployment. Network mapp
 
   * Make sure that VMs on the source Hyper-V host server are connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.
   * An Azure network as described [above](#set-up-an-azure-network)
-* [Learn more](site-recovery-network-mapping.md) about how network mapping works.
 
 ## Create a Recovery Services vault
 1. Sign in to the [Azure portal](https://portal.azure.com).
