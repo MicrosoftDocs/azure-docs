@@ -75,7 +75,7 @@
 
 ## Pricing & billing
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-### [Billing plans](logic-apps-pricing.md)
+### [Usage metering](logic-apps-pricing.md)
 
 # Reference
 ## [Workflow Definition Language](https://docs.microsoft.com/rest/api/logic/definition-language)
