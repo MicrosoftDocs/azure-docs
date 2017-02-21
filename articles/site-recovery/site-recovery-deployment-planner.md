@@ -18,7 +18,7 @@ ms.author: nisoneji
 
 ---
 #Azure Site Recovery Deployment Planner
-This is Azure Site Recovery Deployment Planner User Guide for VMware to Azure Production Deployments
+This is Azure Site Recovery Deployment Planner user guide for VMware to Azure production deployments
 
 
 ##Overview
@@ -60,7 +60,7 @@ The tool has two main phases – profiling and report generation. There is also 
 - [Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)
 - Internet access to Microsoft Azure from this server
 - Microsoft Azure storage account
-- Administrator access on this server
+- Administrator access on the server
 - Minimum free disk space of 100 GB (assuming 1000 virtual machines with average 3 disks each profiled for 30 days)
 
 > [!NOTE]
@@ -98,7 +98,7 @@ The command line tool (ASRDeploymentPlanner.exe) can be run in any of the follow
 
 You first need to run the tool in profiling mode to gather the virtual machines data churn and IOPS.  Then run the tool to generate the report to find the network bandwidth, storage requirements.
 
-###Profiling
+##Profiling
 ####Get virtual machine names
 First, you need to have the list of virtual machines that you are looking to profile. You can get all the names of virtual machines on a VMware vCenter or VMware vSphere ESXi host by using the following VMware vSphere PowerCLI commands. Alternatively, you can just list down friendly names / IP addresses of the virtual machines you are looking to profile manually in a file.
 
@@ -182,7 +182,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 > * The profiling command generates several files in the profiling directory – please do not delete any of them, else report generation will be impacted.
 
 
-###Generate Report
+##Generate Report
 The tool generates a XLSM (macro-enabled Microsoft Excel file) as the report output which summarizes all the deployment recommendations – the report is named DeploymentPlannerReport_<Unique Numeric Identifier>.xlsm and placed in the specified directory.
 
 After profiling is complete, you can run the tool in report generation mode. Here is the list of mandatory and optional parameters of the tool to run in report generation mode. Parameters in [] are optional.
@@ -247,7 +247,7 @@ The tool defaults to 95th percentile values of R/W IOPS, write IOPS, and data ch
 >  
 
 
-###Get Throughput
+##Get Throughput
 To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server where the tool is running (ideally a server based on the Configuration Server sizing guide).  If you have already deployed Azure Site Recovery infrastructure components on-premises, run the tool on the Configuration Server. 
 
 Open a command line console and go to ASR deployment planning tool folder.  Run ASRDeploymentPlanner.exe with following parameters. Parameters in [] are optional.
@@ -287,9 +287,6 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 > 
 > 4. The throughput is measured at a given point of time and it is the maximum throughput that Azure Site Recovery can achieve during replication provided all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, then actual throughput varies during replication. If you are running GetThroghput command from a Configuration Server, the tool is not aware of any protected virtual machines and on-going replication. Result of measured throughout will be different if the GetThroughput operation is run at the time when protected virtual machines have high data churn vs. when they have low data churn.  It is recommended to run the tool at different points of time during profiling to understand what throughput can be achieved at various times. In the report, the tool shows the last measured throughput.
 > 
-
-#Details
-The generated deployment planner report has multiple sheets. 
 
 ##Recommendations with Desired RPO as input
 
@@ -338,7 +335,7 @@ In cases where you are running the tool on a Configuration Server / Process Serv
 For all enterprise Azure Site Recovery deployments, using [ExpressRoute](https://aka.ms/expressroute) is recommended. 
 
 ###Required Azure Storage Accounts
-This chart shows the total number of Azure Storage accounts (standard and premium) required to protect all the compatible virtual machines.  Click on [Recommended VM placement plan](site-recovery-deployment-planner.md#VM<->Storage-Placement) to know which storage account should be used for each virtual machine.  
+This chart shows the total number of Azure Storage accounts (standard and premium) required to protect all the compatible virtual machines.  Click on [Recommended VM placement plan](site-recovery-deployment-planner.md#vm<->storage-placement) to know which storage account should be used for each virtual machine.  
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
 
@@ -348,7 +345,7 @@ This is the total number of cores to be provisioned before failover or test fail
 ![Deployment Planner](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
 
 ###Required On-premises Infrastructure
-It is the total number of Configuration Servers and additional Process Servers to be configured to protect all the compatible virtual machines. Based on the supported [limits](https://aka.ms/asr-v2a-on-prem-components) on the largest configuration - either the per day churn or the maximum number of protected virtual machines (assuming average of three disks per virtual machine), whichever is hit first on the Configuration Server or the additional Process Server, the tool recommends additional servers. The details of total churn per day and total number of protected disks are found in the [Input](site-recovery-deployment-planner.md#Input) sheet.
+It is the total number of Configuration Servers and additional Process Servers to be configured to protect all the compatible virtual machines. Based on the supported [limits](https://aka.ms/asr-v2a-on-prem-components) on the largest configuration - either the per day churn or the maximum number of protected virtual machines (assuming average of three disks per virtual machine), whichever is hit first on the Configuration Server or the additional Process Server, the tool recommends additional servers. The details of total churn per day and total number of protected disks are found in the [Input](site-recovery-deployment-planner.md#input) sheet.
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
 
@@ -370,13 +367,10 @@ This section at the bottom of the sheet shows the percentile value used for all 
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/max-iops-and-data-churn-setting.png)
 
-###Recommendations with Available Bandwidth as Input
-
-![Deployment Planner](./media/site-recovery-deployment-planner/)
+##Recommendations with Available Bandwidth as Input
 
 You may have a situation where you know that you cannot provision more than x Mbps bandwidth for Azure Site Recovery replication. The tool allows you to input available bandwidth (using the -Bandwidth parameter while report generation) and get the achievable RPO in minutes. With this achievable RPO value, you can decide if you need to provision additional bandwidth or are okay with having a disaster recovery solution with this RPO.
 
-![Deployment Planner](./media/site-recovery-deployment-planner/)
 
 ##Input
 The Input page provides an overview of the profiled VMware environment. 
@@ -500,7 +494,3 @@ The Azure Site Recovery Deployment Planner Public Preview 1.0 has the following 
 * The tool works only for the VMware to Azure scenario, not for Hyper-V to Azure deployments.
 * The GetThroughput operation is not supported in US Government and China Microsoft Azure regions.
 * The tool cannot profile virtual machines if the vCenter has two or more virtual machines with the same name / IP address  across different ESXi hosts. In this version, the tool skips profiling for duplicate virtual machine names / IP addresses in the VMListFile.
-
-
-## Next steps
-After your deployment planning deploy Azure Site Recovery c, [learn more](site-recovery-failover.md) about different types of failover.
