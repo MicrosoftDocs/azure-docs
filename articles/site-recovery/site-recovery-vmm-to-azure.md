@@ -71,7 +71,7 @@ To prepare for deployment you need to:
 1. [Set up an Azure network](#set-up-an-azure-network) in which Azure VMs will be located after failover.
 2. [Set up an Azure storage account](#set-up-an-azure-storage-account) for replicated data.
 3. [Prepare the VMM server](#prepare-the-vmm-server) for Site Recovery deployment.
-4. [Prepare for network mapping](#prepare-for-network-mapping). Set up networks so that you can configure network mapping during Site Recovery deployment.
+4. Prepare for network mapping. Set up networks so that you can configure network mapping during Site Recovery deployment.
 
 ### Set up an Azure network
 You need an Azure network to which Azure VMs created after failover will connect.
