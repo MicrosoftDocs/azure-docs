@@ -61,7 +61,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## Support for replicated machine OS versions
 
-Virtual machines that are protected must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machines) when replicating to Azure.
+Virtual machines that are protected must meet [Azure requirements](#failed-over-azure-vm-requirements) when replicating to Azure.
 The following table summarizes replicated operating system support in various deployment scenarios while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
 
  **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
