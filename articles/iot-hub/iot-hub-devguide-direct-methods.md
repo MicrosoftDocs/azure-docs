@@ -42,7 +42,7 @@ Direct methods are synchronous and either succeed or fail after the timeout peri
 
 Direct method are HTTP-only from the cloud side, and MQTT-only from the device side.
 
-The payload for method requests and reponses is a JSON document up to 8KB.
+The payload for method requests and responses is a JSON document up to 8KB.
 
 ## Reference topics:
 The following reference topics provide you with more information about using direct methods.
