@@ -30,9 +30,54 @@ For example, a management solution might include an [Azure Automation runbook](.
 
 ## Procedure to define solution
 
+Every management solution has unique requirements, and each one can include any set of Azure resources required to perform a particular management function.     
+
 ### Determine required data
+The first step in designing a solution is determining the data that you require.  This data may already be in the Log Analytics repository, or your solution may need to provide the process to collect it.
+
+#### Data sources
+
+There are a number of ways that data can be collected in the Log Analytics repository as described in [Data sources in Log Analytics](log-analytics-data-sources.md).  These data sources collect data from a variety of different agents and sources.  
+
+You can configure a data source in your template  
+
+If your solution requires data collected by a data source then you should
+
+
+
+
+#### Runbook
+
+The most common model of 
+
+If you require data that's not accessible through any of the data sources, then you can use the [HTTP Data Collector API]() allows you to write data to the Log Analytics repository from any client that call all a REST API.  
+
+The most common means of data collection in a management solution is to create a runbook in Azure Automation that collects the required data and uses the Data Collector API to write to the repository. 
+
+
 
 ### Define data collection
+
+
+
+
+
+General process: 
+
+- Determine how to get data to Log Analytics (typically done by using fluentd plugins for Linux or the ingestion API more generally)
+ - Ingestion API information is here: [https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-collector-api](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-collector-api) 
+ - Linux Open source agent is here, to see how we use fluentd: [https://github.com/Microsoft/OMS-Agent-for-Linux](https://github.com/Microsoft/OMS-Agent-for-Linux)
+
+- Build a dashboard for views, use the export functionality to get the ARM resource representing it
+ - https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-view-designer-parts 
+
+- Optionally build any runbooks with Azure Automation
+ - Build a solution template containing the dashboard and runbook resources
+ - https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-solutions-creating 
+- Authoring Azure Resource Manager templates: https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/ 
+ - Useful tooling: Installing and using VS Code for ARM Templates
+- Test and iterate
+
 
 
 
