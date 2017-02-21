@@ -48,15 +48,11 @@ All these calculations in the tool are done assuming a 30% growth factor in your
 ##Requirements
 The tool has two main phases – profiling and report generation. There is also a third option to only calculate throughput. Below are the requirements for the server from where profiling / throughput measurement is initiated.
 
-###For profiling or throughput measurement
-
 | Requirement | Description|
 |---|---|
 |Profiling & throughput measurement| <br>Operating System : Microsoft Windows Server 2012 R2 <br>Ideally matching at least the following Configuration Server [size](https://aka.ms/asr-v2a-on-prem-components)<br>Machine Configuration : 8 vCPus, 16 GB RAM, 300 GB HDD<br [Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)<br>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)<br>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)<br> Internet access to Microsoft Azure from this server<br> Microsoft Azure storage account<Br>Administrator access on the server<br>Minimum free disk space of 100 GB (assuming 1000 virtual machines with average 3 disks each profiled for 30 days)|
 | Report Generation| Any Windows PC/Windows Server with Microsoft Excel 2013 and above |
 | User Permissions | Read-only permission for the user account used to access the VMware vCenter/vSphere server during profiling|
-
-
 
 
 > [!NOTE]
