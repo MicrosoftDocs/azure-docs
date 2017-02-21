@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 02/20/2017
+ms.date: 02/21/2017
 ms.author: janeng
 ---
 
-# Monitor and scale a SQL database uisng the Azure CLI
+# Monitor and scale a SQL database using the Azure CLI
 
 The sample script provided here illustrates how to scale an Azure SQL database to a different performance level after querying the size information of the database. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines/virtual-machines-windows-cli-options.md).
 

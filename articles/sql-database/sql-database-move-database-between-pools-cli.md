@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 02/20/2017
+ms.date: 02/21/2017
 ms.author: janeng
 ---
 
