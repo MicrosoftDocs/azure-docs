@@ -22,7 +22,7 @@ ms.author: v-livech
 This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the `azure vm quick-create` command in the Azure command-line interface (CLI). The `quick-create` command deploys a VM inside a basic, secure infrastructure that you can use to prototype or test a concept rapidly.
 
 > [!NOTE]
-To create a VM using the Azure CLI 2.0 (Preview), see [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To create a VM using the Azure CLI 2.0, see [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The article requires:
 

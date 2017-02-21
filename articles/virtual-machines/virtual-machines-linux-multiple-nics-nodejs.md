@@ -28,7 +28,7 @@ You can create a virtual machine (VM) in Azure that has multiple virtual network
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#create-supporting-resources) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model (this article)
+- [Azure CLI 2.0](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model (this article)
 
 
 ## Create supporting resources
