@@ -4,7 +4,7 @@ If you haven't already, you can get an [Azure subscription free trial](https://a
 azure config mode arm
 ```
 
-Now create your scale set using the `azure vmss quick-create` command. The following example creates a Linux scale set named `myVMSS` with 5 VM instances in the resource group named `myResourceGroup`:
+Now create your scale set using the `azure vmss quick-create` command. The following example creates a Linux scale set named `myVMSS` with five VM instances in the resource group named `myResourceGroup`:
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
@@ -20,9 +20,9 @@ azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+If you want to customize the location or image-urn, look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to connect via ssh to our VMs:
+This command returns once the scale set is done deploying. At this point, the scale set has a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we can to connect via ssh to our VMs:
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)
