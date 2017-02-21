@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: cfowler
 ---
 
-# Scale a Web App manually using Azure CLI 2.0
+# Scale a web app manually
 
 In this scenario you will learn to create a resource group, app service plan and web app. You will then scale the App Service Plan from a single instance to multiple instances.
 

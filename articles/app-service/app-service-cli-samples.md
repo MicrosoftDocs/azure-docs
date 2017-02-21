@@ -25,16 +25,16 @@ The following table includes links to bash scripts built using the Azure CLI.
 | Sample | Description  |
 |---|---|
 |**Deploy to App Service**||
-| [Continuously deploy web app from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)| Creates an Azure web app which pulls code from GitHub. |
+| [Continuously deploy a web app from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)| Creates an Azure web app which pulls code from GitHub. |
 | [Deploy a web app from a local Git repository](./scripts/app-service-cli-deploy-local-git.md) | Creates an Azure web app and configures code push from a local Git repository. |
 | [Deploy a web app to a staging environment](./scripts/app-service-cli-deploy-staging-environment.md) | Creates an Azure web app with a deployment slot for staging code changes. |
-| [Deploy an ASP.NET Core App in a Docker Container](./scripts/app-service-cli-linux-docker-aspnetcore.md)| Creates an Azure web app on Linux and loads a Docker image from Docker Hub. |
+| [Deploy an ASP.NET Core web app in a Docker container](./scripts/app-service-cli-linux-docker-aspnetcore.md)| Creates an Azure web app on Linux and loads a Docker image from Docker Hub. |
 |**Configure App Service**||
 | [Map a custom domain to a web app](./scripts/app-service-cli-configure-custom-domain.md)| Creates an Azure web app and maps a custom domain name to it. |
 |**Scale App Service**||
 | [Scale a web app manually](./scripts/app-service-cli-scale-manual.md) | Creates an Azure web app and scales it across 2 instances. |
 | [Scale a web app worldwide with a high-availabilty architecture](./scripts/app-service-cli-scale-high-availability.md) | Creates two Azure web apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |
 |**Connect to App Service**||
-| [Connect a storage account to a web app](./scripts/app-service-cli-app-service-storage.md)| Creates an Azure web app and a storage account, then adds the storage connection string to the app settings. |
+| [Connect a web app to a storage account](./scripts/app-service-cli-app-service-storage.md)| Creates an Azure web app and a storage account, then adds the storage connection string to the app settings. |
 |**Monitor App Service**||
-| [Monitor a web app with Web Server Logs](./scripts/app-service-cli-monitor.md) | Creates an Azure web app, enables logging for it, and downloads the logs to your local machine. |
+| [Monitor a web app with web server logs](./scripts/app-service-cli-monitor.md) | Creates an Azure web app, enables logging for it, and downloads the logs to your local machine. |

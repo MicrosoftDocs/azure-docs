@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Connect a storage account to a web app | Microsoft Docs
-description: Azure CLI Script Sample - Connect a storage account to a web app
+title: Azure CLI Script Sample - Connect a web app to a storage account | Microsoft Docs
+description: Azure CLI Script Sample - Connect a web app to a storage account
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: cfowler
 ---
 
-# Connect a storage account to a web app using Azure CLI 2.0
+# Connect a web app to a storage account
 
 In this scenario you will learn how to create an Azure storage account and an Azure web app. Then you will link the storage account to the web app using app settings.
 

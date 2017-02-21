@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Monitor a web app using Web Server Logs using Azure CLI 2.0 | Microsoft Docs
-description: Azure CLI Script Sample - Monitor a web app using Web Server Logs using Azure CLI 2.0
+title: Azure CLI Script Sample - Monitor a web app with web server logs | Microsoft Docs
+description: Azure CLI Script Sample - Monitor a web app with web server logs
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: cfowler
 ---
 
-# Monitor a web app with Web Server Logs using Azure CLI 2.0
+# Monitor a web app with web server logs
 
 In this scenario you will create a resource group, app service plan, web app and configure the web app to enable web server logs. You will then download the log files for review.
 
