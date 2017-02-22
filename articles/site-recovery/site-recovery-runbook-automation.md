@@ -35,15 +35,14 @@ how to orchestrate recovery to Azure using recovery plans
 In this tutorial, we look at how you can integrate Azure Automation
 runbooks into recovery plans. We automate simple tasks that earlier
 required manual intervention and see how to convert a multi-step
-recovery into a single-click recovery action. We look at how you
-can troubleshoot a script, if it goes wrong.
+recovery into a single-click recovery action.
 
 ## Customize the recovery plan
 1. Let us begin by operning the resource blade of the recovery plan. You can see the recovery plan has two virtual machines added to it for recovery.
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 - - -
-1. Click the customize button to begin adding a runbook. This opens the recovery plan customize blade.
+1. Click the customize button to begin adding a runbook. 
 
     ![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
@@ -51,11 +50,14 @@ can troubleshoot a script, if it goes wrong.
 1. Right-click on the start group 1 and select to add a 'Add post action'.
 2. Select to choose a script in the new blade.
 3. Name the script 'Hello World'.
-4. Choose an Automation Account name. Note that this account can be in any Azure geography but has to be in the same subscription as the Site Recovery vault.
-5. Select a runbook from the Automation Account. This is the script that will run during the execution of the recovery plan after the recovery of first group.
+4. Choose an Automation Account name. 
+	>[!NOTE]
+	> Automation account can be in any Azure geography but has to be in the same subscription as the Site Recovery vault.
+	
+5. Select a runbook from the Automation Account. This runbook is the script that will run during the execution of the recovery plan after the recovery of first group.
 
     ![](media/site-recovery-runbook-automation-new/update-rp.PNG)
-6. Select OK to save the script. This adds the script to the post action group of Group 1: Start.
+6. Select OK to save the script. Script is added to the post action group of Group 1: Start.
 
     ![](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
@@ -109,7 +111,7 @@ You also need to ensure that the Automation Account has the following modules ad
 
 
 ### Accessing all VMs of the VmMap in a loop
-Use the below snippet to loop across all VMs of the VmMap.
+Use the following snippet to loop across all VMs of the VmMap.
 
 ```
 	$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
@@ -127,7 +129,7 @@ Use the below snippet to loop across all VMs of the VmMap.
 ```
 
 > [!NOTE]
-> The Resource Group name and the Role name values are empty when the script is a pre-action to a boot group. It will be populated only if the VM of that group succeeds in failover and the script is a post-action of the boot group.
+> The Resource Group name and the Role name values are empty when the script is a pre-action to a boot group. The values are populated only if the VM of that group succeeds in failover and the script is a post-action of the boot group.
 
 ## Using the same Automation runbook for across multiple recovery plans
 
@@ -158,7 +160,7 @@ To apply an existing NSG, you need the NSG name and the NSG resource group. We p
 	![Create NSG RG name](media/site-recovery-runbook-automation-new/var2.png)
 
 
-In the script, acquire the variables' values by using the following reference code.
+In the script, acquire the variables' values by using the following reference code:
 
 ```
 	$NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
@@ -188,7 +190,7 @@ For each recovery plan, create independent variables so that you can reuse the s
 
 ### Using complex variable to store more information
 
-Consider a scenario where you want just one script to turn on a public IP on specific VMs Another example would be to apply different NSGs on different virtual machines (not all). This script should be reusable for any other recovery plan. Each recovery plan can have variable number of virtual machines (example, a sharepoint recovery has two front ends, a simple LOB application has only 1 front end). For this, it is impossible to separate variables per recovery plan. Here we create a [complex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) in the Azure Automation account assets, by specifying multiple values. For this, you will need the Azure powershell
+Consider a scenario where you want just one script to turn on a public IP on specific VMs Another example would be to apply different NSGs on different virtual machines (not all). This script should be reusable for any other recovery plan. Each recovery plan can have variable number of virtual machines (example, a sharepoint recovery has two front ends, a simple LOB application has only one front end). To achieve this result, it is impossible to create separate variables per recovery plan. Here we use a new technique and create a [complex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) in the Azure Automation account assets, by specifying multiple values. You need the Azure powershell to execute the following steps.
 
 1. On the Azure powershell login to your subscription.
 
@@ -198,11 +200,11 @@ Consider a scenario where you want just one script to turn on a public IP on spe
 		$sub | Select-AzureRmSubscription
 	```
 
-2. Create the complex variable with the same name as the recovery plan, to store the parameters
+2. To store the parameters, create the complex variable with the same name as the recovery plan.
 
 	```
 		$VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
-	        New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
+	    New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
 	```
 
 	In this complex variable, **VMDetails* is the VM ID for the protected virtual machine. You can find this in the properties of the virtual machine on the portal. Here we have created a variable to store the details of two virtual machines.
@@ -237,25 +239,25 @@ Consider a scenario where you want just one script to turn on a public IP on spe
 You can use the same script with different recovery plans and provide different parameters by storing the value corresponding to different recovery plans in different variable.
 
 ## Sample scripts
-For a repository of scripts that you can directly import into your automation account, please see [Kristian Nese's OMS repository for scripts](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
+For a repository of scripts that you can directly import into your automation account, see [Kristian Nese's OMS repository for scripts](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
 
-The script here is an Azure Resource Manager template that will deploy all the below scripts
+The script here is an Azure Resource Manager template that will deploy all the following scripts
 
 * NSG
 
-The NSG runbook will assign Public IP addresses to every VM within the Recovery Plan and attach their virtual network adapters to a Network Security Group that will allow default communication
+The NSG runbook will assign Public IP addresses to every VM within the Recovery Plan and attach their virtual network adapters to a Network Security Group that allows default communication
 
 * PublicIP
 
-The Public IP runbook will assign Public IP addresses to every VM within the Recovery Plan. Access to the machines and applications will depend on the firewall settings within each guest
+The Public IP runbook assigns Public IP addresses to every VM within the Recovery Plan. Access to the machines and applications will depend on the firewall settings within each guest
 
 * CustomScript
 
-The CustomScript runbook will assign Public IP addresses to every VM within the Recovery Plan and install a custom script extension that will pull the script you refer to during deployment of the template
+The CustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan and install a custom script extension that will pull the script you refer to during deployment of the template
 
 * NSGwithCustomScript
 
-The NSGwithCustomScript runbook will assign Public IP addresses to every VM within the Recovery Plan, install a custom script using extension and connect the virtual network adapters to a NSG allowing default inbound and outbound communication for remote access
+The NSGwithCustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan, install a custom script using extension and connect the virtual network adapters to a NSG allowing default inbound and outbound communication for remote access
 
 ## Additional Resources
 [Azure Automation Service Run as Account](../automation/automation-sec-configure-azure-runas-account.md)
