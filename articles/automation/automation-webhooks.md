@@ -30,7 +30,7 @@ The following table describes the properties that you must configure for a webho
 |:--- |:--- |
 | Name |You can provide any name you want for a webhook since this is not exposed to the client.  It is only used for you to identify the runbook in Azure Automation. <br>  As a best practice, you should give the webhook a name related to the client that will use it. |
 | URL |The URL of the webhook is the unique address that a client calls with an HTTP POST to start the runbook linked to the webhook.  It is automatically generated when you create the webhook.  You cannot specify a custom URL. <br> <br>  The URL contains a security token that allows the runbook to be invoked by a third party system with no further authentication. For this reason, it should be treated like a password.  For security reasons, you can only view the URL in the Azure portal at the time the webhook is created. You should note the URL in a secure location for future use. |
-| Expiration date |Like a certificate, each webhook has an expiration date at which time it can no longer be used.  This expiration date can be changed after the webhook is created. |
+| Expiration date |Like a certificate, each webhook has an expiration date at which time it can no longer be used.  This expiration date can be modified after the webhook is created. |
 | Enabled |A webhook is enabled by default when it is created.  If you set it to Disabled, then no client will be able to use it.  You can set the **Enabled** property when you create the webhook or anytime once it is created. |
 
 ### Parameters
