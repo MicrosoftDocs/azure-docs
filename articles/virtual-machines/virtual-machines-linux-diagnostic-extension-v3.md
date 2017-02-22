@@ -176,12 +176,12 @@ Samples of the metrics specified in the performanceCounters section are collecte
 ```
 Element | Value
 ------- | -----
-type |
-class |
-counter |
-counterSpecifier |
+type | Identifies the actual provider of the metric.
+class | Together with "counter", identifies the specific metric within the provider's namespace.
+counter | Together with "class", identifies the specific metric within the provider's namespace.
+counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
 table | 
-condition |
+condition | Selects a specific instance of the object to which the metric applies or selects the aggregation across all instances of that object. See the metric definitions (below) for more information.
 displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. 
 
 #### syslogEvents
@@ -251,6 +251,104 @@ Element | Value
 ------- | -----
 file | The full pathname of the log file to be watched and captured.
 table | The Azure storage table into which the results of the query will be placed.
+
+## Metrics supported by "builtin"
+The "builtin" metric provider is a source of metrics most interesting to a broad set of users. These metrics fall into five broad classes:
+- Processor
+- Memory
+- Network
+- Filesystem
+- Disk
+
+The available metrics are described in greater detail in the following sections.
+
+### Builtin metrics for the Processor class
+The Processor class of metrics provide information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. For example, given a VM with two cores, if one core was 100% busy for a given aggregation window and the other core was 100% idle, the reported PercentIdleTime would be 50; if each core was 50% busy for the same period, the reported result would also be 50. In a four core system, with one core 100% busy and the others completely idle, the reported PercentIdleTime would be 75.
+
+counter | Meaning
+------- | -------
+PercentIdleTime | Percentage of time during the aggregation window that processors were executing the kernel idle loop
+PercentProcessorTime | Percentage of time executing a non-idle thread
+PercentIOWaitTime | Percentage of time waiting for IO operations to complete
+PercentInterruptTime | Percentage of time executing hardware/software interrupts and DPCs (deferred procedure calls)
+PercentUserTime | Of non-idle time during the aggregation window, the percentage of time spent in user more at normal priority
+PercentNiceTime | Of non-idle time, the percentage spent at lowered (nice) priority
+PercentPrivilegedTime | Of non-idle time, the percentage spent in privileged (kernel) mode
+
+The first four counters should sum to 100%. The last three counters also sum to 100%; they subdivide the sum of PercentProcessorTime, PercentIOWaitTime, and PercentInterruptTime.
+
+To obtain a single metric aggregated across all processors, set "condition" to "IsAggregate=TRUE". To obtain a metric for a specific processor, set "condition" to "Name=\\"*nn*\\"" where *nn* is the logical processor number as known to the operating system, typically in the range 0..*n-1*.
+
+### Builtin metrics for the Memory class
+The Memory class of metrics provide information about memory utilization, paging, and swapping.
+
+counter | Meaning
+------- | -------
+AvailableMemory | Available physical memory in MiB
+PercentAvailableMemory | Available physical memory as a percent of total memory
+UsedMemory | In-use physical memory (MiB)
+PercentUsedMemory | In-use physical memory as a percent of total memory
+PagesPerSec | Total paging (read/write)
+PagesReadPerSec | Pages read from backing store (pagefile, program file, mapped file, etc)
+PagesWrittenPerSec | Pages written to backing store (pagefile, mapped file, etc)
+AvailableSwap | Unused swap space (MiB)
+PercentAvailableSwap | Unused swap space as a percentage of total swap
+UsedSwap | In-use swap space (MiB)
+PercentUsedSwap | In-use swap space as a percentage of total swap
+
+This family of metrics has only a single instance; the "condition" attribute has no useful settings and should be omitted.
+### Builtin metrics for the Network class
+The Network class of metrics provide information about network activity, aggregated across all network devices (eth0, eth1, etc.) since boot. Bandwidth information is not directly available; it can be computed, of course, but this is probably better retrieved from host metrics rather than from within the guest.
+
+counter | Meaning
+------- | -------
+BytesTransmitted | Total bytes sent since boot
+BytesReceived | Total bytes received since boot
+BytesTotal | Total bytes sent or received since boot
+PacketsTransmitted | Total packets sent since boot
+PacketsReceived | Total packets received since boot
+TotalRxErrors | Number of receive errors since boot
+TotalTxErrors | Number of transmit errors since boot
+TotalCollisions | Number of collisions reported by the network ports since boot
+
+This family of metrics has only a single instance; the "condition" attribute has no useful settings and should be omitted.
+### Builtin metrics for the Filesystem class
+The Filesystem class of metrics provide information about filesystem usage. Absolute and percentage values are reported as they'd be displayed to an ordinary user (not root).
+
+counter | Meaning
+------- | -------
+FreeMegabytes | Available disk space in MiB
+UsedMegabytes | Used disk space in MiB
+PercentFreeSpace | Percentage free space
+PercentUsedSpace | Percentage used space
+PercentFreeInodes | Percentage of unused inodes
+PercentUsedInodes | Percentage of allocated (in use) inodes summed across all filesystems
+BytesReadPerSecond | Bytes read per second
+BytesWrittenPerSecond | Bytes written per second
+BytesPerSecond | Bytes read or written per second
+ReadsPerSecond | Read operations per second
+WritesPerSecond | Write operations per second
+TransfersPerSecond | Read or write operations per second
+
+Aggregated values across all file systems can be obtained by setting "condition" to "IsAggregate=True". Values for a specific mounted file system can be obtained by setting "condition" to "Name=\\"*mountpoint*\\"" where *mountpoint* is the path at which the filesystem was mounted ("/", "/mnt", etc.).
+
+### Builtin metrics for the Disk class
+The Disk class of metrics provide information about disk device usage. These statistics apply to the drive itself without regard to the number of file systems that may exist on the device; if there are multiple file systems on a device, the counters for that device are, effectively, aggregated across of them.
+
+counter | Meaning
+------- | -------
+ReadsPerSecond | Read operations per second
+WritesPerSecond | Write operations per second
+TransfersPerSecond | Total operations per second
+AverageReadTime | Average seconds per read operation
+AverageWriteTime | Average seconds per write operation
+AverageTransferTime | Average seconds per operation
+AverageDiskQueueLength | Average number of queued disk operations
+ReadBytesPerSecond | Number of bytes read per second
+WriteBytesPerSecond | Number of bytes written per second
+BytesPerSecond | Number of bytes read or written per second
+
+Aggregated values across all disks can be obtained by setting "condition" to "IsAggregate=True". Values for a specific disk device can be obtained by setting "condition" to "Name=\\"*devicename*\\"" where *devicename* is the path of the device file for the disk ("/dev/sda1", "/dev/sdb1", etc.).
 
 ## Scenario - Customize the performance monitor metrics
 This section describes how to customize the performance and diagnostic data table.
