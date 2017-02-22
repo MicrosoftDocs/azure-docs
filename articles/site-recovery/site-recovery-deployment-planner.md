@@ -154,7 +154,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 > * The profiling command generates several files in the profiling directory – please do not delete any of them, else report generation will be impacted.
 
 
-##Generate Report
+##Generate report
 The tool generates a XLSM (macro-enabled Microsoft Excel file) as the report output which summarizes all the deployment recommendations – the report is named DeploymentPlannerReport_<Unique Numeric Identifier>.xlsm and placed in the specified directory.
 
 After profiling is complete, you can run the tool in report generation mode. Here is the list of mandatory and optional parameters of the tool to run in report generation mode. Parameters in [] are optional.
@@ -212,7 +212,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com 
 > It is critical to account for growth in your workload characteristics assuming potential increase in usage over time. This is because once protected if your workload characteristics change, there is currently no means to switch to a different Azure Storage account for protection without disabling and re-enabling protection. E.g. if today a virtual machine fits in a standard storage replication account, in say three months’ time, due to an increase in number of users of the application running on the virtual machine, if say the churn on the VM increases and requires it to go to premium storage so that Azure Site Recovery replication can keep up with the new higher churn, you will have to disable and re-enable protection to a premium storage account. So, it is strongly advised to plan for growth while deployment planning and the default value is 30%. You know your applications usage pattern and growth projections the best and can change this number accordingly while generating a report. You can in fact generate multiple reports with different growth factors with the same profiled data and see what target Azure Storage and source bandwidth recommendations work best for you.
 
 
-##Get Throughput
+##Get throughput
 To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server where the tool is running (ideally a server based on the Configuration Server sizing guide).  If you have already deployed Azure Site Recovery infrastructure components on-premises, run the tool on the Configuration Server. 
 
 Open a command line console and go to ASR deployment planning tool folder.  Run ASRDeploymentPlanner.exe with following parameters. Parameters in [] are optional.
@@ -245,7 +245,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 > 4. The throughput is measured at a given point of time and it is the maximum throughput that Azure Site Recovery can achieve during replication provided all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, then actual throughput varies during replication. If you are running GetThroghput command from a Configuration Server, the tool is not aware of any protected virtual machines and on-going replication. Result of measured throughout will be different if the GetThroughput operation is run at the time when protected virtual machines have high data churn vs. when they have low data churn.  It is recommended to run the tool at different points of time during profiling to understand what throughput can be achieved at various times. In the report, the tool shows the last measured throughput.
 > 
 
-##Recommendations with Desired RPO as input
+##Recommendations with desired RPO as input
 
 ###Profiled data
 
@@ -312,19 +312,19 @@ Based on this analysis, you can decide if the number of RPO violations across al
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/what-if-analysis.png)
 
-###Recommended VM Batch Size For Initial Replication
+###Recommended VM batch size for initial replication
 This section recommends the number of virtual machines that can be protected in parallel to complete initial replication within 72 hours (configurable value – use the GoalToCompleteIR parameter at report generation time to change this) with the suggested bandwidth to meet desired RPO 100% of the time being provisioned.  The graph shows a range of bandwidth values and calculated virtual machine batch size count to complete initial replication in 72 hours based on the average detected virtual machine size across all the compatible virtual machines.  
 
 In the Public Preview, the report does not specify which virtual machines should be included in a batch. You can use the disk size shown in the Compatible VMs sheet to find each virtual machine’s size and select your virtual machines for a batch or select based on known workload characteristics.  Initial replication completion time proportionately changes based on the actual virtual machine disk size, used space disk space and available network throughput.
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/recommended-vm-batch-size.png)
 
-###Growth Factor and Percentile Values Used
+###Growth factor and percentile values used
 This section at the bottom of the sheet shows the percentile value used for all the performance counters of the profiled virtual machines (default 95th percentile), and the growth factor in % used in all the calculations (default 30%).
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/max-iops-and-data-churn-setting.png)
 
-##Recommendations with Available Bandwidth as Input
+##Recommendations with available bandwidth as input
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/profiling-overview-bandwidth-input.png)
 
@@ -355,7 +355,7 @@ Total number of disks across all compatible virtual machines  is the total numbe
 **Observed typical data churn per day (GB)** is the average data churn observed across all profiling days. This number is used as one of the inputs to decide the number of Configuration Servers and additional Process Servers to be used in the deployment.
 
 
-##VM-Storage Placement
+##VM-Storage placement
 ![Deployment Planner](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
 **Disk Storage Type** is either ‘Standard’ or ‘Premium’ Azure Storage account used to replicate all the corresponding virtual machines mentioned in the ‘VMs to Place’ column.
@@ -432,7 +432,7 @@ Storage Type is standard or premium.
 **NICs** is the number of NICs on the virtual machine.
 
 
-##Azure Site Recovery Limits
+##Azure Site Recovery limits
 
 **Replication Storage Target** | **Average Source Disk I/O Size** |**Average Source Disk Data Churn** | **Total Source Disk Data Churn Per Day**
 ---|---|---|---
@@ -448,7 +448,7 @@ These are average numbers assuming a 30% IO overlap. Azure Site Recovery is capa
 
 The above published limits are based on our tests but cannot cover all possible application I/O combinations. Actual results will vary based on your application I/O mix. For best results, even after deployment planning, it is always recommended to perform extensive application testing using test failover to get the true performance picture. 
 
-##Release Notes
+##Release notes
 The Azure Site Recovery Deployment Planner Public Preview 1.0 has the following known issues that will be addressed in upcoming updates.
 
 * The tool works only for the VMware to Azure scenario, not for Hyper-V to Azure deployments.
