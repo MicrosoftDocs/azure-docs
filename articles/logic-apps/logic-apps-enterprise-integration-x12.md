@@ -30,24 +30,26 @@ The following steps walk you through the process of creating an X12 agreement.
 
 ## Create an X12 agreement
 
-1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal").
+1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
 
-2. Select **More services**, and enter **integration** in the filter search box. 
-Select **Integration Accounts** from the results list:    
+2. From the left menu, select **More services**. 
+In the filter search box, type "integration". 
+In the results list, select **Integration Accounts**.  
 
-	![](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+	![Select "More services", filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
 
 3. Select the integration account where you want to add the certificate.
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+	![Select integration account to add certificate](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
-4. Select the **Agreements** tile. If you don't see the agreements tile, add the tile. 
+4. Choose the **Agreements** tile. If you don't see the agreements tile, 
+add the tile. 
 
-	![](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-5. In the Agreements blade that opens, select **Add**.
+5. In the Agreements blade that opens, choose **Add**.
 
-	![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+	![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
 Select **X12** for the agreement type, then select the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity**.
