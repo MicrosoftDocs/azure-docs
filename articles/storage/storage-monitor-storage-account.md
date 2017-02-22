@@ -34,9 +34,6 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 1. To open the **Diagnostic blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
    
     ![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
-    > [!NOTE]
-    > Azure File storage currently supports metrics, but does not yet support logging.
-    >
 1. Select the **services** you wish to monitor and the **data retention policy** for the metrics data. You can also disable monitoring by setting **Status** to **Off**.
 
    There are two types of metrics you can enable for each service:
@@ -78,6 +75,7 @@ On the **Monitor** page, you can view the full set of metrics for your storage a
 Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed on the **Monitor** page. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.
 
 ## How to: Add metrics to the metrics table
+
 1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 2. Click **Monitor**.
    
@@ -108,12 +106,18 @@ Use the following procedures to choose which storage metrics to view in the metr
     ![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
 ## How to: Customize the metrics chart on the Monitor page
+
 1. On the **Monitor** page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the chart, clear the check box.
 2. To switch the chart between relative values (final value only displayed) and absolute values (Y axis displayed), select **Relative** or **Absolute** at the top of the chart.
 3. To change the time range the metrics chart displays, select **6 hours**, **24 hours**, or **7 days** at the top of the chart.
 
 ## How to: Configure logging
+
 For each of the storage services available with your storage account (blob, table, and queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.
+
+> [!NOTE]
+> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
+>
 
 1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 2. Click **Configure**, and use the Down arrow on the keyboard to scroll down to **logging**.
