@@ -1,5 +1,5 @@
 ---
-title: Network Performance Monitor solution in Log Analytics | Microsoft Docs
+title: Network Performance Monitor solution in Azure Log Analytics | Microsoft Docs
 description: Network Performance Monitor in Azure Log Analytics helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks.
 services: log-analytics
 documentationcenter: ''
@@ -16,9 +16,9 @@ ms.date: 02/22/2017
 ms.author: banders
 
 ---
-# Network Performance Monitor solution in OMS
+# Network Performance Monitor solution in Log Analytics
 
-This document describes how to set-up and use the Network Performance Monitor solution in OMS, which helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks. With the Network Performance Monitor solution, you can monitor the loss and latency between two networks, subnets or servers. Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods are not able to detect. Network Performance Monitor generates alerts and notifies as and when a threshold is breached for a network link. These thresholds can be learned automatically by the system or you can configure them to use custom alert rules. Network Performance Monitor ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device.
+This document describes how to set-up and use the Network Performance Monitor solution in Log Analytics, which helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks. With the Network Performance Monitor solution, you can monitor the loss and latency between two networks, subnets or servers. Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods are not able to detect. Network Performance Monitor generates alerts and notifies as and when a threshold is breached for a network link. These thresholds can be learned automatically by the system or you can configure them to use custom alert rules. Network Performance Monitor ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device.
 
 You can detect network issues with the solution dashboard which displays summarized information about your network including recent network health events, unhealthy network links, and subnetwork links that are facing high packet loss and latency. You can drill-down into a network link to view the current health status of subnetwork links as well as node-to-node links. You can also view the historical trend of loss and latency at the network, subnetwork, and node-to-node level. You can detect transient network issues by viewing historical trend charts for packet loss and latency and locate network bottlenecks on a topology map. The interactive topology graph allows you to visualize the hop-by-hop network routes and determine the source of the problem. Like any other solutions, you can use Log Search for various analytics requirements to create custom reports based on the data collected by Network Performance Monitor.
 
@@ -71,7 +71,7 @@ The port opened by default is 8084. You can use a custom port by providing the p
 Use the following information to install and configure the solution.
 
 1. The Network Performance Monitor solution acquires data from computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later, which are the same requirements as the Microsoft Monitoring Agent (MMA). NPM agents can also run on Windows desktop/client operating systems (Windows 10, Windows 8.1, Windows 8 and Windows 7).
-2. Add the Network Performance Monitor solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+2. Add the Network Performance Monitor solution to your workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
    ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 3. In the OMS portal, you'll see a new tile titled **Network Performance Monitor** with the message *Solution requires additional configuration*. You'll need to configure the solution to add networks based on subnetworks and nodes that are discovered by agents. Click **Network Performance Monitor** to start configuring the default network.  
    ![solution requires additional configuration](./media/log-analytics-network-performance-monitor/npm-config.png)
@@ -143,7 +143,7 @@ The *Default rule* is created by the system and it creates a health event whenev
 7. Click **Save** to save the configuration.  
    ![create custom monitoring rule](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
-After you save a monitoring rule, you can integrate that rule with OMS Alert Management by clicking **Create Alert**. An alert rule is automatically created with the search query and other required parameters automatically filled-in. Using an alert rule, you can receive email-based alerts, in addition to the existing alerts within NPM. Alerts can also trigger remedial actions with runbooks or they can integrate with existing service management solutions using webhooks. You can click **Manage Alert** to edit the alert settings.
+After you save a monitoring rule, you can integrate that rule with Alert Management by clicking **Create Alert**. An alert rule is automatically created with the search query and other required parameters automatically filled-in. Using an alert rule, you can receive email-based alerts, in addition to the existing alerts within NPM. Alerts can also trigger remedial actions with runbooks or they can integrate with existing service management solutions using webhooks. You can click **Manage Alert** to edit the alert settings.
 
 ### Choose the right protocol-ICMP or TCP
 
@@ -197,7 +197,7 @@ The following table shows data collection methods and other details about how da
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Yes](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Yes](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |TCP handshakes/ICMP ECHO messages every 5 seconds, data sent every 3 minutes |
 
-The solution uses synthetic transactions to assess the health of the network. OMS agents installed at various point in the network exchange TCP packets or ICMP Echo (depending on the protocol selected for monitoring) with one another. In the process, agents learn the round-trip time and packet loss, if any. Periodically, each agent also performs a trace route to other agents to find all the various routes in the network that must be tested. Using this data, the agents can deduce the network latency and packet loss figures. The tests are repeated every five seconds and data is aggregated for a period of three minutes by the agents before uploading it to OMS.
+The solution uses synthetic transactions to assess the health of the network. OMS agents installed at various point in the network exchange TCP packets or ICMP Echo (depending on the protocol selected for monitoring) with one another. In the process, agents learn the round-trip time and packet loss, if any. Periodically, each agent also performs a trace route to other agents to find all the various routes in the network that must be tested. Using this data, the agents can deduce the network latency and packet loss figures. The tests are repeated every five seconds and data is aggregated for a period of three minutes by the agents before uploading it to the Log Analytics service.
 
 > [!NOTE]
 > Although agents communicate with each other frequently, they do not generate a lot of network traffic while conducting the tests. Agents rely only on TCP SYN-SYNACK-ACK handshake packets to determine the loss and latency -- no data packets are exchanged. During this process, agents communicate with each other only when needed and the agent communication topology is optimized to reduce network traffic.
