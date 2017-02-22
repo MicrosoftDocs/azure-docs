@@ -29,19 +29,19 @@ The detected risk events are used to calculate:
 
 In the Azure portal, you can find the security reports on the **Azure Active Directory** blade in the **Security** section.  
 
-![Risky Sign-ins](./media/active-directory-reporting-security-azure-portal-user-at-risk/10.png)
+![Risky Sign-ins](./media/active-directory-reporting-security-user-at-risk/10.png)
 
 ## Azure Active Directory free and basic edition
 
 The users at risk report in the Azure Active Directory free and basic editions provides you with a list of user accounts that may have been compromised. 
 
 
-![Risky Sign-ins](./media/active-directory-reporting-security-azure-portal-user-at-risk/03.png)
+![Risky Sign-ins](./media/active-directory-reporting-security-user-at-risk/03.png)
 
 Selecting a user opens the related user data blade.
 For users that are at risk, you can review the user’s sign-in history and reset the password if necessary.
 
-![Risky Sign-ins](./media/active-directory-reporting-security-azure-portal-user-at-risk/46.png)
+![Risky Sign-ins](./media/active-directory-reporting-security-user-at-risk/46.png)
 
 ## Azure Active Directory premium editions
 
@@ -56,7 +56,7 @@ The users at risk report in the Azure Active Directory premium editions provides
 - An option to configure a [user risk remediation policy](active-directory-identityprotection.md#user-risk-security-policy)  
 
 
-![Risky Sign-ins](./media/active-directory-reporting-security-azure-portal-user-at-risk/71.png)
+![Risky Sign-ins](./media/active-directory-reporting-security-user-at-risk/71.png)
 
 When you select a user, you get a detailed report view for this user that enables you to:
 
@@ -69,14 +69,14 @@ When you select a user, you get a detailed report view for this user that enable
 - Investigate reported risk events for the user. 
 
 
-![Risky Sign-ins](./media/active-directory-reporting-security-azure-portal-user-at-risk/324.png)
+![Risky Sign-ins](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
 To investigate a risk event, select one from the list.  
 This opens the **Details** blade for this risk event. On the **Details** blade, you have the option to either [manually close a risk event](active-directory-identityprotection.md#closing-risk-events-manually) or reactivate a manually closed risk event. 
 
 
-![Risky Sign-ins](./media/active-directory-reporting-security-azure-portal-user-at-risk/325.png)
+![Risky Sign-ins](./media/active-directory-reporting-security-user-at-risk/325.png)
 
 
 
