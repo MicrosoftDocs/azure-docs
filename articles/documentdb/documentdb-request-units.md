@@ -18,7 +18,12 @@ ms.author: syamk
 
 ---
 # Request Units in DocumentDB
-Azure DocumentDB is a fully managed, scalable document-oriented NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection. Data in DocumentDB is stored within collections, which are elastic, highly available containers. Instead of thinking about and managing hardware resources like CPU, memory, and IOPs for a collection, you can reserve throughput in terms of requests per second. DocumentDB will automatically manage the provisioning, transparent partitioning, and scaling of your collection in order to serve the provisioned number of requests. 
+Now available: DocumentDB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).
+
+![Throughput calculator][5]
+
+## Introduction
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a fully managed, scalable NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection. Data in DocumentDB is stored within collections, which are elastic, highly available containers. Instead of thinking about and managing hardware resources like CPU, memory, and IOPs for a collection, you can reserve throughput in terms of requests per second. DocumentDB will automatically manage the provisioning, transparent partitioning, and scaling of your collection in order to serve the provisioned number of requests. 
 
 DocumentDB supports a number of APIs for reads, writes, queries, and stored procedure executions. Since not all requests are equal, they are assigned a normalized amount of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in DocumentDB via a response header.
 
