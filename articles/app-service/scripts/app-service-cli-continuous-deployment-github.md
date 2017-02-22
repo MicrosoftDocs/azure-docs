@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Continuously deploy a web app from GitHub | Microsoft Docs
-description: Azure CLI Script Sample - Continuously deploy a web app from GitHub
+title: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -17,7 +17,7 @@ ms.date: 02/21/2017
 ms.author: cephalin
 ---
 
-# Continuously deploy a web app from GitHub
+# Create a web app with continuous deployment from GitHub
 
 This sample script does the following using Azure CLI 2.0: 
 
@@ -38,7 +38,7 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create VM sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Continuously deploy a web app from GitHub")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app with continuous deployment from GitHub")]
 
 ## Clean up deployment 
 

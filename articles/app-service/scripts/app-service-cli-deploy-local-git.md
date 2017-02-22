@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Deploy a web app from a local Git repository | Microsoft Docs
-description: Azure CLI Script Sample - Deploy a web app from a local Git repository
+title: Azure CLI Script Sample - Create a web app and deploy code from a local Git repository | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app and deploy code from a local Git repository
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -17,7 +17,7 @@ ms.date: 02/21/2017
 ms.author: cephalin
 ---
 
-# Deploy a web app from a local Git repository
+# Create a web app and deploy code from a local Git repository
 
 This sample script does the following using Azure CLI 2.0: 
 
@@ -32,7 +32,7 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create VM sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Deploy a web app from a local Git repository")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Create a web app and deploy code from a local Git repository")]
 
 ## Clean up deployment 
 

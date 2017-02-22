@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Deploy an ASP.NET Core App in a Docker Container using Azure CLI 2.0 | Microsoft Docs
-description: Azure CLI Script Sample - Deploy an ASP.NET Core App in a Docker Container using Azure CLI 2.0
+title: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container | Microsoft Docs
+description: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: cfowler
 ---
 
-# Deploy an ASP.NET Core web app in a Docker container
+# Create an ASP.NET Core web app in a Docker container
 
 In this scenario you will learn how to create a resource group, Linux app service plan, and web app, and deploy an ASP.NET Core application using a Docker Container.
 
