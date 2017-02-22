@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 
 ---
 # Using Windows 10 devices in your workplace
