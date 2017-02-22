@@ -58,7 +58,7 @@ Organizations need a BCDR strategy that determines how apps and data stay runnin
 * Be running the fixes described in KB [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
 
 ## Virtual machine prerequisites
-Virtual machines you want to protect should conform with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Virtual machines you want to protect should conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## Provider and agent prerequisites
 As part of Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider and the Azure Recovery Services Agent on each Hyper-V server. Note that:

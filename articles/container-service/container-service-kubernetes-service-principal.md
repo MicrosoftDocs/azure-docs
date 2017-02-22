@@ -37,7 +37,7 @@ This article shows different options to specify a service principal for your Kub
 
 Following are requirements for the Azure Active Directory service principal in a Kubernetes cluster in Azure Container Service. 
 
-* **Scope**: the Azure subscription in which the cluster is deployed
+* **Scope**: the resource group in which the cluster is deployed
 
 * **Role**: **Contributor**
 

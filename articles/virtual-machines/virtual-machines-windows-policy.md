@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2016
-ms.author: singhkay
+ms.author: kasing
 
 ---
 # Apply security and policies to Windows VMs with Azure Resource Manager
