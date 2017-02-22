@@ -76,7 +76,7 @@ After rebooting your host, you may notice Azure Stack services are not immediate
 You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue in TP2, and just requires a few manual steps to bring them online:
 
 1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
-2.  Select the cluster **S-Cluster.azurestack.local**.
+2.  Select the cluster **S-Cluster.local.azurestack.global**.
 3.  Select **Roles**.
 4.  Tenant VMs will appear in a *saved* state.  Once all Infrastructure VMs are running, right-click the tenant VMs and select **Start** to resume the VM.
 
