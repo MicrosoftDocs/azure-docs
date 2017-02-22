@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 
 ---
@@ -28,24 +28,21 @@ Global Admins and limited admins can use the [Azure portal](https://portal.azure
 ## Admins adding guest users to the directory
 Add B2B collaboration users to the directory as an Azure AD administrator, as shown in the following video:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant/Player]
 
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant).
 
 ## Admins adding guest users to a group
 Add B2B collaboration users to a group as an Azure AD administrator, as shown in the following video:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
 
 ## Admins adding guest users to an application
 
 Add B2B collaboration users to an application as an Azure AD administrator, as shown in the following video:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
 
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps).
 
 ## Related articles
 

@@ -38,7 +38,7 @@
     ![server location](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](../articles/sql-database/sql-database-get-started-security.md).
+    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](../articles/sql-database/sql-database-manage-servers-portal.md).
     >
     
 9. Click **Create**.

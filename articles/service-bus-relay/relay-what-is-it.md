@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: babanisa,sethm
+ms.date: 02/14/2017
+ms.author: babanisa;sethm
 
 ---
 # What is Azure Relay?

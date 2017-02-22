@@ -1,5 +1,5 @@
 ---
-title: Back up files and folders from Windows to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Docs
+title: Back up files and folders from Windows to Azure using the Resource Manager deployment model | Microsoft Docs
 description: Learn to backup Windows files and folders to Azure in a Resource Manager deployment.
 services: backup
 documentationcenter: ''
