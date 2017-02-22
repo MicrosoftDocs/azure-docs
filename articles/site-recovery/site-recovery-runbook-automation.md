@@ -139,7 +139,7 @@ Use the following snippet to loop across all VMs of the VmMap.
 > [!NOTE]
 > The Resource Group name and the Role name values are empty when the script is a pre-action to a boot group. The values are populated only if the VM of that group succeeds in failover and the script is a post-action of the boot group.
 
-## Using the same Automation runbook for across multiple recovery plans
+## Using the same Automation runbook with multiple recovery plans
 
 A single script can be used across multiple recovery plans by using external variables. You can use the [Azure Automation variables](../automation/automation-variables.md) to store parameters that you can pass for a recovery plan execution. By pre-fixing the variable with the name of the recovery plan, you can create individual variables for every recovery plan and use them as a parameter. You can change the parameter without changing the script and make the script work differently.
 
