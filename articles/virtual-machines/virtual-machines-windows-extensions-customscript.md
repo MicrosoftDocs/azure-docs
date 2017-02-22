@@ -95,14 +95,13 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 
 The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension
 ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
-
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
--VMName myVM `
--Location myLocation `
--FileUri myURL `
--Run 'myScript.ps1' `
--Name DemoScriptExtension
+	-VMName myVM `
+	-Location myLocation `
+	-FileUri myURL `
+	-Run 'myScript.ps1' `
+	-Name DemoScriptExtension
 ```
 
 ## Troubleshoot and support
@@ -115,20 +114,36 @@ Data about the state of extension deployments can be retrieved from the Azure po
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Extension execution output is logged to files found in the following directory on the target virtual machine.
-
+Extension execution output is logged to files found under the following directory on the target virtual machine.
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
 
-The script itself is downloaded into the following directory on the target virtual machine.
-
+The specified files are downloaded into the following directory on the target virtual machine.
 ```cmd
-C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
+where `<n>` is a decimal integer which may change between executions of the extension.  The `1.*` value matches the actual, current `typeHandlerVersion` value of the extension.  For example, the actual directory could be `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+
+When executing the `commandToExecute` command, the extension will have set this directory (e.g., `...\Downloads\2`) as the current working directory. This enables the use of relative paths to locate the files downloaded via the `fileURIs` property. See the table below for examples.
+
+Since the absolute download path may vary over time, it is better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
+```json
+	"commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+```
+
+Path information after the first URI segment is retained for files downloaded via the `fileUris` property list.  As shown in the table below, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
+
+#### Examples of Downloaded Files
+
+| URI in fileUris | Relative downloaded location | Absolute downloaded location * |
+| ---- | ------- |:--- |
+| `https://someAcct.blob.core.windows.net/aContainer/scripts/myscript.ps1` | `./scripts/myscript.ps1` |`C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\scripts\myscript.ps1`  |
+| `https://someAcct.blob.core.windows.net/aContainer/topLevel.ps1` | `./topLevel.ps1` | `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\topLevel.ps1` |
+
+\* As above, the absolute directory paths will change over the lifetime of the VM, but not within a single execution of the CustomScript extension.
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
-
-
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums]
+(https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
