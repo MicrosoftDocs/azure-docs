@@ -24,7 +24,7 @@ In this scenario you will learn how to create an Azure storage account and an Az
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Create 
+## Connect app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/connect-to-storage/setup.sh?highlight=7-10 "Azure Storage")]
 

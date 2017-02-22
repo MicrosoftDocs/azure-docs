@@ -24,7 +24,7 @@ In this scenario you will learn to create a resource group, app service plan and
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Create 
+## Scale app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/scale-manual/setup.sh?highlight=4,7-9 "Manual Scale")]
 

@@ -24,7 +24,7 @@ In this scenario you will create a resource group, two app service plans, two we
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Create 
+## Scale app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/scale-geographic/setup.sh?highlight=7-11 "Geographic Scale")]
 

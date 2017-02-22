@@ -30,7 +30,7 @@ This sample script does the following using Azure CLI 2.0:
 * Run `az login` to log in to Azure.
 * Commit your web app code into a local Git repository.
 
-## Create VM sample
+## Create app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Create a web app and deploy code from a local Git repository")]
 

@@ -24,7 +24,7 @@ In this scenario you will create a resource group, app service plan, web app and
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Create 
+## Monitor app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/monitor-with-logs/setup.sh?highlight=7-9 "Monitor Logs")]
 

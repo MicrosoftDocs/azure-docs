@@ -36,7 +36,7 @@ This sample script does the following using Azure CLI 2.0:
 >
 >
 
-## Create VM sample
+## Configure app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to a web app")]
 

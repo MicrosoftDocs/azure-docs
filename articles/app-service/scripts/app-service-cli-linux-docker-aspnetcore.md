@@ -24,7 +24,7 @@ In this scenario you will learn how to create a resource group, Linux app servic
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Create 
+## Create app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-linux-docker/setup.sh?highlight=7-10 "Linux Docker")]
 
