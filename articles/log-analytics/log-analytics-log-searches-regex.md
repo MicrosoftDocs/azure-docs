@@ -1,5 +1,5 @@
 ---
-title: Regular expressions in Log Analytics log searches | Microsoft Docs
+title: Regular expressions in OMS Log Analytics log searches | Microsoft Docs
 description: You can use the RegEx keyword in Log Analytics log searches to the filter the results according to a regular expression.  This article provides the syntax for these expressions with several examples.
 services: log-analytics
 documentationcenter: ''
