@@ -79,9 +79,9 @@ The following steps guide you through the installation stages:
 13.	Review the **SysAdmin Login Account** and make changes if necessary.
 14.	Enter the **SysAdmin Password**.
 15.	Click **Next**.  At this point, the installer will verify the connection details for SQL Server provided.![App Service on Azure Stack Technical Preview 2 Subscription Selection][4]	
-16.	Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
+16.	Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.local.azurestack.global** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 17.	Enter the **certificate password** that you set when you created the certificates.
-18.	Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
+18.	Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.local.azurestack.global** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 19.	Enter the **certificate password** that you set when you created the certificates.
 20.	Click **Browse** next to the **Resource Provider Root Certificate File** and navigate to the **AzureStackCertificationAuthority** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 21.	Click **Next** the installer will verify the certificate password provided.![App Service on Azure Stack Technical Preview 2 Certificate Details][6]
