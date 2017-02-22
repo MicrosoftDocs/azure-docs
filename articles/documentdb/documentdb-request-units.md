@@ -57,34 +57,34 @@ DocumentDB requires a partition key to be specified when a collection is provisi
 
 Here is a code snippet for creating a collection with 3,000 request units per second using the .NET SDK:
 
-    ```C#
-    DocumentCollection myCollection = new DocumentCollection();
-    myCollection.Id = "coll";
-    myCollection.PartitionKey.Paths.Add("/deviceId");
+```C#
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
 
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri("db"),
-        myCollection,
-        new RequestOptions { OfferThroughput = 3000 });
-    ```
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 3000 });
+```
 
 DocumentDB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through DocumentDB SDKs or using the [Azure Portal](https://portal.azure.com).
 
 Each collection is mapped to an `Offer` resource in DocumentDB, which has metadata about the collection's provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a collection, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
 
-    ```C#
-    // Fetch the resource to be updated
-    Offer offer = client.CreateOfferQuery()
-                    .Where(r => r.ResourceLink == collection.SelfLink)    
-                    .AsEnumerable()
-                    .SingleOrDefault();
+```C#
+// Fetch the resource to be updated
+Offer offer = client.CreateOfferQuery()
+                .Where(r => r.ResourceLink == collection.SelfLink)    
+                .AsEnumerable()
+                .SingleOrDefault();
 
-    // Set the throughput to 5000 request units per second
-    offer = new OfferV2(offer, 5000);
+// Set the throughput to 5000 request units per second
+offer = new OfferV2(offer, 5000);
 
-    // Now persist these changes to the database by replacing the original resource
-    await client.ReplaceOfferAsync(offer);
-    ```
+// Now persist these changes to the database by replacing the original resource
+await client.ReplaceOfferAsync(offer);
+```
 
 There is no impact to the availability of your collection when you change the throughput. Typically the new reserved throughput is effective within seconds on application of the new throughput.
 
@@ -208,55 +208,55 @@ For example:
 ## A request unit estimation example
 Consider the following ~1KB document:
 
-    ```JSON
+```JSON
+{
+ "id": "08259",
+  "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
+  "tags": [
     {
-     "id": "08259",
-      "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
-      "tags": [
-        {
-          "name": "cereals ready-to-eat"
-        },
-        {
-          "name": "kellogg"
-        },
-        {
-          "name": "kellogg's crispix"
-        }
-    ],
-      "version": 1,
-      "commonName": "Includes USDA Commodity B855",
-      "manufacturerName": "Kellogg, Co.",
-      "isFromSurvey": false,
-      "foodGroup": "Breakfast Cereals",
-      "nutrients": [
-        {
-          "id": "262",
-          "description": "Caffeine",
-          "nutritionValue": 0,
-          "units": "mg"
-        },
-        {
-          "id": "307",
-          "description": "Sodium, Na",
-          "nutritionValue": 611,
-          "units": "mg"
-        },
-        {
-          "id": "309",
-          "description": "Zinc, Zn",
-          "nutritionValue": 5.2,
-          "units": "mg"
-        }
-      ],
-      "servings": [
-        {
-          "amount": 1,
-          "description": "cup (1 NLEA serving)",
-          "weightInGrams": 29
-        }
-      ]
+      "name": "cereals ready-to-eat"
+    },
+    {
+      "name": "kellogg"
+    },
+    {
+      "name": "kellogg's crispix"
     }
-    ```
+  ],
+  "version": 1,
+  "commonName": "Includes USDA Commodity B855",
+  "manufacturerName": "Kellogg, Co.",
+  "isFromSurvey": false,
+  "foodGroup": "Breakfast Cereals",
+  "nutrients": [
+    {
+      "id": "262",
+      "description": "Caffeine",
+      "nutritionValue": 0,
+      "units": "mg"
+    },
+    {
+      "id": "307",
+      "description": "Sodium, Na",
+      "nutritionValue": 611,
+      "units": "mg"
+    },
+    {
+      "id": "309",
+      "description": "Zinc, Zn",
+      "nutritionValue": 5.2,
+      "units": "mg"
+    }
+  ],
+  "servings": [
+    {
+      "amount": 1,
+      "description": "cup (1 NLEA serving)",
+      "weightInGrams": 29
+    }
+  ]
+}
+```
 
 > [!NOTE]
 > Documents are minified in DocumentDB, so the system calculated size of the document above is slightly less than 1KB.

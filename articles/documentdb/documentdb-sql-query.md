@@ -42,60 +42,60 @@ Here we have a simple JSON document for the Andersen family, the parents, childr
 
 **Document**  
 
-    ```JSON
-    {
-      "id": "AndersenFamily",
-      "lastName": "Andersen",
-      "parents": [
-         { "firstName": "Thomas" },
-         { "firstName": "Mary Kay"}
-      ],
-      "children": [
-         {
-             "firstName": "Henriette Thaulow", 
-             "gender": "female", 
-             "grade": 5,
-             "pets": [{ "givenName": "Fluffy" }]
-         }
-      ],
-      "address": { "state": "WA", "county": "King", "city": "seattle" },
-      "creationDate": 1431620472,
-      "isRegistered": true
-    }
-    ```
+```JSON
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow", 
+         "gender": "female", 
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 Here's a second document with one subtle difference – `givenName` and `familyName` are used instead of `firstName` and `lastName`.
 
 **Document**  
 
-    ```JSON
-    {
-      "id": "WakefieldFamily",
-      "parents": [
-          { "familyName": "Wakefield", "givenName": "Robin" },
-          { "familyName": "Miller", "givenName": "Ben" }
-      ],
-      "children": [
-          {
-            "familyName": "Merriam", 
-            "givenName": "Jesse", 
-            "gender": "female", "grade": 1,
-            "pets": [
-                { "givenName": "Goofy" },
-                { "givenName": "Shadow" }
-            ]
-          },
-          { 
-            "familyName": "Miller", 
-             "givenName": "Lisa", 
-             "gender": "female", 
-             "grade": 8 }
-      ],
-      "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-      "creationDate": 1431620462,
-      "isRegistered": false
-    }
-    ```
+```JSON
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 Now let's try a few queries against this data to understand some of the key aspects of DocumentDB SQL. For example, the following query will return the documents where the id field matches `AndersenFamily`. Since it's a `SELECT *`, the output of the query is the complete JSON document:
 
@@ -980,7 +980,7 @@ Aggregates can also be performed over the results of an array iteration. For mor
 > [!NOTE]
 > When using the Azure Portal's Query Explorer, note that aggregation queries may return the partially aggregated results over a query page. The SDKs will produce a single cumulative value across all pages. 
 > 
-> In order to perform aggregation queries using code, you need .NET SDK 1.12.0 or above.    
+> In order to perform aggregation queries using code, you need .NET SDK 1.12.0, .NET Core SDK 1.1.0, or Java SDK 1.9.5 or above.    
 >
 
 ## <a id="OrderByClause"></a>ORDER BY clause
@@ -1828,7 +1828,7 @@ Here is a list of supported LINQ operators in the LINQ provider included with th
 * **Miscellaneous**: Supports translation of the coalesce and conditional operators. Can translate Contains to String CONTAINS, ARRAY_CONTAINS or the SQL IN depending on context.
 
 > [!NOTE]
-> Aggregate operators **Count, Sum, Min, Max, and Average** are not currently supported but will be available in .NET SDK 1.13.0.  
+> Aggregate operators **Count, Sum, Min, Max, and Average** are not currently supported but will be available in future versions of the SDK.  
 > 
 > 
 
