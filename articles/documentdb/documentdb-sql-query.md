@@ -42,6 +42,7 @@ Here we have a simple JSON document for the Andersen family, the parents, childr
 
 **Document**  
 
+    ```JSON
     {
       "id": "AndersenFamily",
       "lastName": "Andersen",
@@ -61,12 +62,13 @@ Here we have a simple JSON document for the Andersen family, the parents, childr
       "creationDate": 1431620472,
       "isRegistered": true
     }
-
+    ```
 
 Here's a second document with one subtle difference – `givenName` and `familyName` are used instead of `firstName` and `lastName`.
 
 **Document**  
 
+    ```JSON
     {
       "id": "WakefieldFamily",
       "parents": [
@@ -93,8 +95,7 @@ Here's a second document with one subtle difference – `givenName` and `familyN
       "creationDate": 1431620462,
       "isRegistered": false
     }
-
-
+    ```
 
 Now let's try a few queries against this data to understand some of the key aspects of DocumentDB SQL. For example, the following query will return the documents where the id field matches `AndersenFamily`. Since it's a `SELECT *`, the output of the query is the complete JSON document:
 

@@ -188,6 +188,7 @@ This method makes a REST API call to DocumentDB, and the service will provision 
 ### Reading and writing documents
 Now, let's insert data into DocumentDB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
 
+    ```C#
     public class DeviceReading
     {
         [JsonProperty("id")]
@@ -222,10 +223,11 @@ Now, let's insert data into DocumentDB. Here's a sample class containing a devic
             Unit = "Fahrenheit",
             ReadingTime = DateTime.UtcNow
         });
-
+    ```
 
 Let's read the document by it's partition key and id, update it, and then as a final step, delete it by partition key and id. Note that the reads include a PartitionKey value (corresponding to the `x-ms-documentdb-partitionkey` request header in the REST API).
 
+    ```C#
     // Read document. Needs the partition key and the ID to be specified
     Document result = await client.ReadDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
@@ -245,37 +247,42 @@ Let's read the document by it's partition key and id, update it, and then as a f
     await client.DeleteDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
       new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
-
-
+    ```
 
 ### Querying partitioned collections
 When you query data in partitioned collections, DocumentDB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
+    ```C#
     // Query using partition key
     IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
         UriFactory.CreateDocumentCollectionUri("db", "coll"))
         .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
-
+    ```
+    
 The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. Note that you have to specify the EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` in the REST API) to have the SDK to execute a query across partitions.
 
+    ```C#
     // Query across partition keys
     IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
         UriFactory.CreateDocumentCollectionUri("db", "coll"), 
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+    ```
 
-DocumentDB supports aggregate functions `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned collections using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
+DocumentDB supports [aggregate functions]([Aggregate functions](documentdb-sql-query.md#aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned collections using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ### Parallel query execution
 The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
 
+    ```C#
     // Cross-partition Order By Queries
     IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
         UriFactory.CreateDocumentCollectionUri("db", "coll"), 
         new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
         .OrderBy(m => m.MetricValue);
-
+    ```
+    
 You can manage parallel query execution by tuning the following parameters:
 
 * By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the collection's partitions. If you set this to -1, the degree of parallelism is managed by the SDK. If the `MaxDegreeOfParallelism` is not specified or set to 0, which is the default value, there will be a single network connection to the collection's partitions.
@@ -286,11 +293,13 @@ Given the same state of the collection, a parallel query will return results in 
 ### Executing stored procedures
 You can also execute atomic transactions against documents with the same device ID, e.g. if you're maintaining aggregates or the latest state of a device in a single document. 
 
+    ```C#
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
         UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
         new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
         "XMS-001-FE24C");
-
+    ```
+    
 In the next section, we look at how you can move to partitioned collections from single-partition collections.
 
 <a name="migrating-from-single-partition"></a>
