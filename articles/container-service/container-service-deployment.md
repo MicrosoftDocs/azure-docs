@@ -66,12 +66,12 @@ For background, see [Azure Container Service introduction](container-service/con
     
     Click **OK** when you're ready to proceed.
 
-4. On the **Master configuration** blade, enter the following settings for the Linux master node (or nodes) in the cluster:
+4. On the **Master configuration** blade, enter the following settings for the Linux master node or nodes in the cluster (some settings are specific to each orchestrator):
 
     * **Master DNS name**: A world unique name that is used to prefix key parts of the fully qualified domain names for the service.
     * **User name**: The user name for an account on each of the master virtual machines in the cluster.
     * **SSH RSA public key**: Add the public key to be used for authentication against the master virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
-    * **Service principal**: If you selected the **Kubernetes** orchedstrator, you need to enter an Azure Active Directory **Service principal client ID** (also called the appId) and **Service principal client secret** (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+    * **Service principal**: If you selected the **Kubernetes** orchestrator, you need to enter an Azure Active Directory **Service principal client ID** (also called the appId) and **Service principal client secret** (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
     * **Master count**: The number of masters in the cluster.
     * **VM diagnostics**: For some orchestrators, you can choose to enable VM diagnostics on the masters.
 
@@ -79,25 +79,26 @@ For background, see [Azure Container Service introduction](container-service/con
 
     Click **OK** when you're ready to proceed.
 
-7. In the **Azure Container service settings** blade, enter the following information:
+5. On the **Agent configuration** blade, enter the following information:
 
-    * **Master count**: The number of masters in the cluster.
     * **Agent count**: For Docker Swarm and Kubernetes, this value is the initial number of agents in the agent scale set. For DC/OS, it is the initial number of agents in a private scale set. Additionally, a public scale set is created for DC/OS, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster: one public agent for one master, and two public agents for three or five masters.
     * **Agent virtual machine size**: The size of the agent virtual machines.
-    
-    * **VM diagnostics**: For some orchestrators, you can choose to enable VM diagnostics.
+    * **Operating system**: If you selected the **Kubernetes** orchestrator, choose either a Linux distribution or a Windows Server operating system to run on the agents. This setting determines whether your cluster can run Linux or Windows container apps.
 
-8. Click **OK** when you're ready to proceed.
+        > [!NOTE]
+        > Windows container support is currently in preview.
 
-    ![Container Service settings](media/container-service-deployment/acs-portal5.png)  <br />
+    * **Agent credentials**: If you selected the Windows operating system, enter an administrator **User name** and **Password** for the agent VMs. 
 
-9. Click **OK** after service validation has finished.
+    ![Agent configuration](media/container-service-deployment/acs-portal5.png)  <br />
+
+    Click **OK** when you're ready to proceed.
+
+6. Click **OK** after service validation finishes.
 
     ![Validation](media/container-service-deployment/acs-portal6.png)  <br />
 
-10. Review the terms. To start the deployment process, click **Purchase**.
-
-    ![Purchase](media/container-service-deployment/acs-portal7.png)  <br />
+7. Review the terms. To start the deployment process, click **Create**.
 
     If you've elected to pin the deployment to the Azure portal, you can see the deployment status.
 
