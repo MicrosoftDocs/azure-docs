@@ -33,14 +33,17 @@ The following steps walk you through the process of creating an X12 agreement.
 1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
 
 2. From the left menu, select **More services**. 
-In the filter search box, type "integration". 
+
+	![Select "More services"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+
+3.	In the filter search box, type "integration". 
 In the results list, select **Integration Accounts**.  
 
-	![Select "More services", filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
 3. Select the integration account where you want to add the certificate.
 
-	![Select integration account to add certificate](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+	![Select integration account to add certificate](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Choose the **Agreements** tile. If you don't see the agreements tile, 
 add the tile. 
@@ -54,7 +57,7 @@ add the tile.
 6. Under **Add**, enter a **Name** for your agreement. 
 Select **X12** for the agreement type, then select the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity**.
 
-	![](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
+	![Provide agreement details](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
 	| Property | Description |
 	| --- | --- |
@@ -74,15 +77,17 @@ Select **X12** for the agreement type, then select the **Host Partner**, **Host 
 
 ## Receive Settings
 
-1. To configure how to handle messages received through this agreement, select **Receive Settings**.
-2. The Receive Settings control is divided into the following sections, including Identifiers, 
-Acknowledgment, Schemas, Envelopes, Control Numbers, Validations, and Internal Settings. 
-Configure these properties based on your agreement with the partner that you exchange messages. 
-Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages.
+To specify how to handle messages received from your partner through this agreement, 
+select **Receive Settings**. Configure these settings based on your agreement with your partner 
+and on how you want to identify and handle incoming messages from your partner through this agreement. 
+
+The Receive Settings control is organized into these sections: Identifiers, 
+Acknowledgment, Schemas, Envelopes, Control Numbers, Validation, and Internal Settings, 
+described here.
 
 ### Identifiers
 
-![](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
+![Set Identifier properties](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
 | Property | Description |
 | --- | --- |
@@ -91,9 +96,9 @@ Here is a view of these controls, configure them based on how you want this agre
 | ISA3 (Security Qualifier) |Select the Security qualifier value from the drop-down list. |
 | ISA4 |Optional. Enter the Security information value. If the value you entered for ISA3 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10. |
 
-### Acknowledgments
+### Acknowledgment
 
-![](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
+![Set Acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
 | Property | Description |
 | --- | --- |
@@ -101,58 +106,59 @@ Here is a view of these controls, configure them based on how you want this agre
 | FA expected |Returns a functional acknowledgment to the interchange sender. Then select whether you want the 997 or 999 acknowledgments, based on the schema version |
 | Include AK2/IK2 Loop |Enables generation of AK2 loops in functional acknowledgments for accepted transaction sets |
 
-
 ### Schemas
-Choose a schema for each transaction type (ST1) and Sender Application (GS2). 
+
+Select a schema for each transaction type (ST1) and Sender Application (GS2). 
 The receive pipeline disassembles the incoming message by matching the values for ST1 and GS2 
 in the incoming message with the values you set here, and the schema of the incoming message with the schema you set here.
 
-![](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
+![Select schema](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
 
 | Property | Description |
 | --- | --- |
 | Version |Select the X12 version |
 | Transaction Type (ST01) |Select the transaction type |
 | Sender Application (GS02) |Select the sender application |
-| Schema |Select the schema file you want to us. Schemas are added to your integration account |
+| Schema |Select the schema file you want to use. Schemas are added to your integration account. |
 
 > [!NOTE]
-> Configure required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) 
-> that is uploaded in [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+> Configure the required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) 
+> that is uploaded to your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 
 ### Envelopes
 
-![](./media/logic-apps-enterprise-integration-x12/x12-34.png) 
+![Specify the separator in a transaction set: choose Standard Identifier or Repetition Seperator](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
 | Property | Description |
 | --- | --- |
-| ISA11 Usage |Use this field to specify the separator in a transaction set:</br></br>Select the Standard identifier to use the decimal notation of “.”, rather than the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually "^" is used as repetition separator. For HIPAA schemas, you can only use "^". |
+| ISA11 Usage |Specifies the separator in a transaction set:</br></br>Select Standard identifier to use "." for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition Separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually "^" is used as the repetition separator. For HIPAA schemas, you can only use "^". |
 
 ### Control Numbers
 
-![](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
+![Select how to handle control number duplicates](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
 | Property | Description |
 | --- | --- |
-| Disallow Interchange Control Number duplicates |Blocks duplicate interchanges. Checks that the interchange control number (ISA13) for the received interchange control number. If a match is detected, the receive pipeline does not process the interchange. You can specify the number of days at which the check is performed by giving the appropriate value for *Check for duplicate ISA13 every x days*. |
-| Disallow Group control number duplicates |Blocks interchanges with duplicate group control numbers |
-| Disallow Transaction set control number duplicates |Blocks interchanges with duplicate transaction set control numbers |
+| Disallow Interchange Control Number duplicates |Block duplicate interchanges. Checks that the interchange control number (ISA13) for the received interchange control number. If a match is detected, the receive pipeline does not process the interchange. You can specify the number of days at which the check is performed by giving the appropriate value for *Check for duplicate ISA13 every x days*. |
+| Disallow Group control number duplicates |Block interchanges with duplicate group control numbers. |
+| Disallow Transaction set control number duplicates |Block interchanges with duplicate transaction set control numbers. |
 
 ### Validations
 
-![](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
+![Set Validation properties for received messages](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
 | Property | Description |
 | --- | --- |
-| Message Type |EDI Message types, like 850-Purchase Order or 999-Implementation Acknowledgement. |
-| EDI Validation |Performs EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators. |
-| Extended Validation |If the data type is not EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
-| Allow Leading/Trailing Zeroes |Any additional space and zero characters that are leading or trailing are retained. They are not removed. |
-| Trailing Separator Policy |Generates trailing separators on the interchange received. Options include NotAllowed, Optional, and Mandatory. |
+| Message Type |EDI Message types, like 850-Purchase Order or 999-Implementation Acknowledgement |
+| EDI Validation |Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
+| Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
+| Allow Leading/Trailing Zeroes |Retain any additional leading (or trailing) zero and space characters. Don't remove these characters. |
+| Trim Leading/Trailing Zeroes |Remove leading (or trailing) zero and space characters. |
+| Trailing Separator Policy |Generates trailing separators on the interchange received from the interchange sender.</br></br>Select Not Allowed when you don't want to allow trailing delimiters and separators in the received interchange. If the interchange contains trailing delimiters and separators, the interchange is declared not valid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the interchange must contain trailing delimiters and separators. |
 
 ### Internal Settings
 
-![](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
+![Select internal settings](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
 
 | Property | Description |
 | --- | --- |
@@ -163,22 +169,22 @@ in the incoming message with the values you set here, and the schema of the inco
 | Preserve Interchange - suspend transaction sets on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends only the transaction sets that fail validation, while continuing to process all other transaction sets. |
 | Preserve Interchange - suspend interchange on error |Leaves the interchange intact, creates an XML document for the entire batched interchange.  Suspends entire interchange if one or more transaction sets in the interchange fail validation. |
 
-After you have set the receive settings properties, select the **OK** button  
-   
+After you set the Receive Settings properties, choose **OK**.
 Your agreement is ready to handle incoming messages that conform to the schema you selected.
 
 ## Send Settings
 
-1. Select **Send Settings** to configure how to handle messages sent through this agreement.
+To specify how to handle messages sent through this agreement, 
+select **Send Settings**. Configure these settings based on your agreement with your partner 
+and on how you want to identify and handle outgoing messages to your partner.
 
-2. The Send Settings control is divided into the following sections, including Identifiers, 
-Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers, and Validations. 
-Configure these properties based on your agreement with the partner that you exchange messages. 
-Here is a view of these controls, configure them based on how you want this agreement to identify and handle outgoing messages.
+The Send Settings control is organized into these sections: Identifiers, 
+Acknowledgment, Schemas, Envelopes, Character Sets and Separators, 
+Control Numbers, and Validation, described here.
 
 ### Identifiers
 
-![](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
+![Set Identifier properties](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
 | Property | Description |
 | --- | --- |
@@ -189,7 +195,7 @@ Here is a view of these controls, configure them based on how you want this agre
 
 ### Acknowledgment
 
-![](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+![Set Acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
 | Property | Description |
 | --- | --- |
@@ -199,7 +205,7 @@ Here is a view of these controls, configure them based on how you want this agre
 
 ### Schemas
 
-![](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+![Select schema to use](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
 | Property | Description |
 | --- | --- |
@@ -208,12 +214,12 @@ Here is a view of these controls, configure them based on how you want this agre
 | SCHEMA |Select the schema to use. Schemas are located in your integration account. If you select schema first, it automatically configures version and transaction type  |
 
 > [!NOTE]
-> Configure required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) 
-> that is uploaded in [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+> Configure the required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) 
+> that is uploaded to your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 
 ### Envelopes
 
-![](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
+![Specify the separator in a transaction set: choose Standard Identifier or Repetition Seperator](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
 | Property | Description |
 | --- | --- |
@@ -223,7 +229,7 @@ Here is a view of these controls, configure them based on how you want this agre
 
 ### Control Numbers
 
-![](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+![Specify Control Number properties](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | Property | Description |
 | --- | --- |
@@ -245,11 +251,10 @@ Here is a view of these controls, configure them based on how you want this agre
 
 ### Character Sets and Separators
 
-Other than the character set, you can enter a different set of delimiters to be used for each message type. 
-If a character set is not specified for a given message schema, then the default character set is used.
+Other than the character set, you can enter a different set of delimiters to use for each message type. 
+If a character set isn't specified for a given message schema, then the default character set is used.
 
-![](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
-
+![Specify delimiters to use for message types](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
 
 | Property | Description |
 | --- | --- |
@@ -264,24 +269,25 @@ If a character set is not specified for a given message schema, then the default
 
 ### Validation
 
-![](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
+![Set Validation properties for sending messages](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
 
 | Property | Description |
 | --- | --- |
 | Message Type |Select the message type from the list |
-| EDI Validation |Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction set data elements, validating data types, length restrictions, and empty data elements and trailing separators |
-| Extended Validation |Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
-| Allow leading/ trailing zeroes |Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed. |
-| Trailing separator |Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select Not Allowed if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the received interchange must contain trailing delimiters and separators. |
+| EDI Validation |Enable validation on the interchange receiver. This validation performs EDI validation on transaction set data elements, validating data types, length restrictions, and empty data elements and trailing separators |
+| Extended Validation |Enable extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
+| Allow Leading/Trailing Zeroes |Specifies that an EDI interchange received from the party doesn't fail validation when a data element in an EDI interchange doesn't conform to its length requirement. The data elment might not conform due to leading (or trailing) zeros or spaces, but does conform to its length requirement when those characters are removed. |
+| Trim Leading/Trailing Zeroes |Remove leading (or trailing) zero characters. |
+| Trailing Separator Policy |Generates trailing separators on the interchange sent.</br></br>Select Not Allowed if you don't want to allow trailing delimiters and separators in the sent interchange. If the interchange contains trailing delimiters and separators, the interchange is declared invalid.</br></br>Select Optional to send interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the sent interchange must contain trailing delimiters and separators. |
 
 1.	After you set the **Send settings** properties, choose **OK**. 
 Your agreement is ready to handle outgoing messages that conform to the schema you selected.
 
 2.	To create the agreement, choose **OK**.
 
-3.	Select the **Agreements** tile on the Integration Account blade. The newly added agreement appears. 
+3.	On the Integration Account blade, select the **Agreements** tile. The newly added agreement appears. 
 
-	![](./media/logic-apps-enterprise-integration-x12/x12-7.png)   
+	![View the agreement that you created](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
