@@ -88,7 +88,7 @@ on the machine where the gateway is running, and run either these commands:
 ### Configure a firewall or proxy
 
 To provide proxy information for your gateway, see 
-[Configure proxy settings](https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-proxy/).
+[Configure proxy settings](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy/).
 
 You can verify whether your firewall, or proxy, might block 
 connections by running the following command from a PowerShell prompt. 

@@ -40,36 +40,37 @@ and [added partners](logic-apps-enterprise-integration-partners.md), you can cre
 ### From the Azure portal home page
 
 1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
-From the left menu, select **Browse**.
+From the left menu, select **More services**.
 
     > [!TIP]
-    > If you don't see **Browse**, you might have to expand the menu first. 
+    > If you don't see **More services**, you might have to expand the menu first. 
     > At the top of the collapsed menu, select **Show menu**.
 
-	![](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+	![On left menu, choose "More services"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. Type *integration* into the filter search box, then select **Integration Accounts** from the results list.
+2. In the filter search box, type "integration". 
+In the results list, select **Integration Accounts**.
 
-	![](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
 
-3. In the **Integration Accounts** blade that opens, select the integration account where you want to the agreement. 
+3. In the **Integration Accounts** blade that opens, select the integration account where you want to create the agreement.
 If you don't see any integration accounts, 
 [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
 
-	![](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+	![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
 4. Select the **Agreements** tile. If you don't see the agreements tile, add the tile first.   
 
-	![](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+	![Select "Agreements"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-5. In the Agreements blade that opens, select **Add**.
+5. In the Agreements blade that opens, choose **Add**.
 
-	![](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+	![Choose "Add"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. Under **Add**, enter a **Name** for your agreement. For **Agreement type**, select **EDIFACT**. 
 Select the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity** for your agreement.
 
-	![](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+	![Provide agreement details](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
 7. After you set the agreement properties, 
 configure how to handle messages received through this agreement. Select **Receive Settings**.
@@ -79,7 +80,7 @@ including Identifiers, Acknowledgment, Schemas, Control Numbers, Validations, In
 Configure these properties based on your agreement with the partner that exchanges messages with you. 
 Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
 
-	![](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+	![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 9. To save your settings, choose **OK**.
 
@@ -129,6 +130,7 @@ Here is a view of these controls, configure them based on how you want this agre
 | Trailing Separator Policy |Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid. Select **Optional** to accept interchanges with or without trailing delimiters and separators. Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
 
 ### Internal Settings
+
 | Property | Description |
 | --- | --- |
 | Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
@@ -136,19 +138,20 @@ Here is a view of these controls, configure them based on how you want this agre
 
 Your agreement is ready to handle incoming messages that conform to the settings you selected.
 
-To configure the settings that handle messages that you send to partners:  
+1.	To configure the settings that handle messages that you send to partners through this agreement, 
+select **Send Settings**.
 
-1. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
+	The Send Settings control is divided into the following sections, including Identifiers, 
+	Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers, and Validation. 
 
-The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers, and Validation. 
+	Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
 
-Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
+	![Configure "Send Settings"](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
-![](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
-
-1. To save your settings, choose **OK**.
+2. To save your settings, choose **OK**.
 
 ### Identifiers
+
 | Property | Description |
 | --- | --- |
 | UNB1.2 (Syntax version) |Select a value between **1** and **4**. |
@@ -209,9 +212,10 @@ Other than the character set, you can enter a different set of delimiters to be 
 
 After you select **OK** on the open blade:  
 
-1. Select the **Agreements** tile on the Integration Account blade. The newly added agreement appears.  
+1. On the integration account blade, select the **Agreements** tile. 
+The newly added agreement appears.  
 
-	![](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+	![Select "Agreements" to see new agreements](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
