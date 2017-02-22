@@ -78,7 +78,7 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
 
     > [!NOTE]
-    > If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a corrupted state. This is because Data Synchronization copies the latest data from Azure VM disks to the on-prem data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchronization is cancelled, it may not boot. Re-trigger failover to complete the Data Synchronization.
+    > If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a corrupted state. This is because Data Synchronization copies the latest data from Azure VM disks to the on-prem data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchronization is canceled, it may not boot. Re-trigger failover to complete the Data Synchronization.
     >
     >
 
