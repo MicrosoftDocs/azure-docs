@@ -27,15 +27,15 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bi-dir
 
 To get started with the IoT Hub service, you can:
 
-- Follow a tutorial that uses a simulated device running on your development machine. You can choose a get started tutorial that uses one of the following programming languages: [.NET][lnk-dotnet], [Java][lnk-java], or [Node.js][lnk-nodejs].
+- Follow a tutorial that uses a simulated device running on your development machine. Choose a get started tutorial that uses your preferred programming language: [.NET][lnk-dotnet], [Java][lnk-java], or [Node.js][lnk-nodejs].
 
-- Follow a tutorial that uses a physical device. You can choose a get started tutorial that uses one of the following hardware platforms: [Raspberry Pi][lnk-rasp-pi], [Intel Edison][lnk-edison], or [Arduino][lnk-arduino]. These tutorials include information about how you can obtain the hardware devices.
+- Follow a tutorial that uses a physical device. Choose a get started tutorial that uses your preferred hardware platform: [Raspberry Pi][lnk-rasp-pi], [Intel Edison][lnk-edison], or [Arduino][lnk-arduino]. These tutorials include information about how you can obtain the hardware devices.
 
 - Read about using the C language to develop IoT devices, in the [Introduction to the Azure IoT device SDK for C][lnk-c-intro] article.
 
 ## Gateway SDK
 
-You can use the Gateway SDK to build a custom field gateway runs analytics on the edge, makes time-sensitive decisions to reduce latency, provides device management services, enforces security and privacy constraints, and performs protocol translation.
+You can use the Gateway SDK to build a custom field gateway. A gateway performs tasks such as running analytics, making time-sensitive decisions to reduce latency, providing device management services, enforcing security and privacy constraints, and performing protocol translation.
 
 To get started with the Gateway SDK, you can:
 
