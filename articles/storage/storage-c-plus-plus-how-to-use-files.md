@@ -351,6 +351,7 @@ For more information about creating and using shared access signatures, see [Usi
 To learn more about Azure Storage, explore these resources:
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
+* [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 
