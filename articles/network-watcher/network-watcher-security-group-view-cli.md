@@ -37,12 +37,13 @@ The scenario covered in this article retrieves the configured and effective secu
 
 A virtual machine is required to run the `vm list` cmdlet. The following command lists the virtual machinese in a resource group:
 
-```
+```azurecli
 azure vm list -g resourceGroupName
 ```
 
 Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource Id:
-```
+
+```azurecli
 azure vm show -g resourceGroupName -n virtualMachineName
 ```
 
@@ -50,7 +51,7 @@ azure vm show -g resourceGroupName -n virtualMachineName
 
 The next step is to retrieve the security group view result. Adding the "--json" flag will format the results in json.
 
-```
+```azurecli
 azure network watcher security-group-view -g resourceGroupName -n networkWatcherName -t targetResourceId --json
 ```
 

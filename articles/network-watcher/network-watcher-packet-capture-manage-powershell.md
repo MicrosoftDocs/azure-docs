@@ -7,7 +7,7 @@ author: georgewallace
 manager: timlt
 editor: 
 
-ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
+ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -150,7 +150,7 @@ $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 Run the `New-AzureRmNetworkWatcherPacketCapture` cmdlet to start the packet capture process, passing the required values retrieved in the preceding steps.
 ```powershell
 
-New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
+New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filters $filter1, $filter2
 ```
 
 The following example is the expected output from running the `New-AzureRmNetworkWatcherPacketCapture` cmdlet.

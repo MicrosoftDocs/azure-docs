@@ -51,7 +51,7 @@ The scenario covered in this article retrieves the topology response for a given
 
 The `network watcher topology` cmdlet retrieves the topology for a given resource group. Add the argument "--json" to view the oput in json format
 
-```bash
+```azurecli
 azure network watcher topology -g resourceGroupName -n networkWatcherName -r topologyResourceGroupName --json
 ```
 

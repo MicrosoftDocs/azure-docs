@@ -7,7 +7,7 @@ author: georgewallace
 manager: timlt
 editor: 
 
-ms.assetid: 7b459dcf-4077-424e-a774-f7bfa34c5975
+ms.assetid: 6a656c55-17bd-40f1-905d-90659087639c
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -29,7 +29,7 @@ Next hop is a feature of Network Watcher that provides the ability get the next 
 
 ## Before you begin
 
-In this scenario, you will use PowerShell to find the next hop type and IP address.
+In this scenario, you will use the Azure portal to find the next hop type and IP address.
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
 

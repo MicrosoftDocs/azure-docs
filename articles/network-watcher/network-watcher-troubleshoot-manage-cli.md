@@ -34,25 +34,27 @@ Resource troubleshooting provides the ability troubleshoot issues that arise wit
 
 In this example, resource troubleshooting is being ran on a Connection. You can also pass it a Virtual Network Gateway. The following cmdlet lists the vpn-connections in a resource group.
 
-```
+```azurecli
 azure network vpn-connection list -g resourceGroupName
 ```
 
 You can also run the command to see the connections in a subscription.
 
-```
+```azurecli
 azure network vpn-connection list -s subscription
 ```
 
 Once you have the name of the storage account, you can run this command to get its resource Id:
-```
+
+```azurecli
 azure network vpn-connection show -g resourceGroupName -n connectionName
 ```
+
 ## Create a storage account
 
 Resource troubleshooting returns data about the health of the resource, it also saves logs to a storage account to be reviewed. In this step, we create a storage account, if an existing storage account exists you can use it.
 
-```
+```azurecli
 azure storage account create -n storageAccountName -l location -g resourceGroupName
 ```
 
@@ -60,7 +62,7 @@ azure storage account create -n storageAccountName -l location -g resourceGroupN
 
 You troubleshoot resources with the `network watcher troubleshoot` cmdlet. We pass the cmdlet the resource group, the name of the Network Watcher, the Id of the connection, the Id of the storage account, and the path to the blob to store the troubleshoot results in.
 
-```
+```azurecli
 azure network watcher -g resourceGroupName -n networkWatcherName -t connectionId -i storageId -p storagePath
 ```
 

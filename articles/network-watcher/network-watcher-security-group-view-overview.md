@@ -23,7 +23,7 @@ Network Security group can be associated at a subnet level or at a NIC level. Wh
 
 A more extended use case is in security compliance and audit. You can define a prescriptive set of security rules as a model for security governance in your organization. A periodic compliance audit can be implemented in a programmatic way by comparing the prescriptive rules with the effective rules for each of the VMs in your network.
 
-In the portal rules are broken out by Effective, Subnet, Network Interface, and Default. This provides a simple view into the rules applied to a virtual machine. A download button is provided to easily download all the security rules no matter the tab into a CSV file.
+In the portal rules are divided by Effective, Subnet, Network Interface, and Default. This provides a simple view into the rules applied to a virtual machine. A download button is provided to easily download all the security rules no matter the tab into a CSV file.
 
 > [!NOTE]
 > Network Watcher is currently in preview, in order to use the features of Network Watcher the [feature needs to be registered](network-watcher-create.md#register-the-preview-capability).
