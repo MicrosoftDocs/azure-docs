@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Novatus | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with 10,000ft Plans | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and 10,000ft Plans.
 services: active-directory
 documentationcenter: ''
