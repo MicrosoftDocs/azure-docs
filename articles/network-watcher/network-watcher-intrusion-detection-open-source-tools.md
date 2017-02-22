@@ -47,7 +47,7 @@ For all other methods of installation, visit http://suricata.readthedocs.io/en/l
 
 1. To verify your installation, run the command `suricata -h` to see the full list of commands.
 
-### Download the Emerging Threats Ruleset
+### Download the Emerging Threats ruleset
 
 At this stage, we do not have any rules for Suricata to run. You can create your own rules if there are specific threats to your network you would like to detect, or you can also use developed rule sets from a number of providers, such as Emerging Threats, or VRT rules from Snort. We use the freely accessible Emerging Threats ruleset here:
 
@@ -281,7 +281,7 @@ By combining packet captures provided by Network Watcher and open source IDS too
 
 Learn how to trigger packet captures based on alerts by visiting [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 
-Learn how to visualize your NSG flow logs with Power BI by visiting [Visualize NSG flows logs with Power BI](network-watcher-visualize-flow-logs-power-bi.md)
+Learn how to visualize your NSG flow logs with Power BI by visiting [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi)
 
 
 
