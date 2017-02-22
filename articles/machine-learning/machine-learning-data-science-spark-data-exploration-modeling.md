@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/21/2017
 ms.author: deguhath;bradsev;gokuma
 
 ---
@@ -69,6 +69,13 @@ The regression and classification tasks that are implemented using a Spark 2.0 c
 <!-- -->
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+<!-- -->
+
+> [!NOTE]
+The descriptions below are related to using Spark 1.6. For Spark 2.0 versions, please use the notebooks described and linked above. 
+
+<!-- -->
 
 ## Setup: storage locations, libraries, and the preset Spark context
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
