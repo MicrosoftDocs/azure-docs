@@ -198,7 +198,7 @@ To perform cluster config upgrade, run Start-ServiceFabricClusterConfigurationUp
 
 ```
 
-### Cluster Certificate Config Upgrade (PLS HOLD ON TILL v5.5 is released, because cluster cert upgrade doesn't work till v5.5)
+### Cluster Certificate Config Upgrade
 Cluster certificate is used for authentication between cluster nodes, so the certificate roll over should be performed with extra caution because failure will block the communication among cluster nodes.
 Technically, two options are supported:
 
