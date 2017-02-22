@@ -68,7 +68,7 @@ Here's a second document with one subtle difference – `givenName` and `familyN
 
 **Document**  
 
-```JSON
+```json
 {
   "id": "WakefieldFamily",
   "parents": [
