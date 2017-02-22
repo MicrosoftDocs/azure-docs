@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/8/2017
-ms.author: trinadhk;giridham;arunak;markgal;jimpark;
+ms.author: markgal;giridham;arunak;markgal;trinadhk;
 
 ---
 # Azure Backup service- FAQ
