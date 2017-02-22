@@ -17,11 +17,11 @@ ms.date: 11/29/2016
 ms.author: juliako
 
 ---
-#  Use Azure Media Standard to auto-generate a bitrate ladder
+#  Create an encoding task that generates fMP4 chunks
 
 ## Overview
 
-This topic shows how to create an encoding task that generates fMP4 chunks instead of ISO MP4 files. To generate fMP4 chunks, use the **Media Encoder Standard** or **Media Encoder Premium Workflow** encoder to create an encoding task and also specify **AssetFormatOption.AdaptiveStreaming** option, as shown in this code snippet:  
+This topic shows how to create an encoding task that generates fragmented MP4 (fMP4) chunks instead of ISO MP4 files. To generate fMP4 chunks, use the **Media Encoder Standard** or **Media Encoder Premium Workflow** encoder to create an encoding task and also specify **AssetFormatOption.AdaptiveStreaming** option, as shown in this code snippet:  
 	
 	task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
 			options: AssetCreationOptions.None, 
