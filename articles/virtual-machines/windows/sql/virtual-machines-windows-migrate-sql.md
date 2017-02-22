@@ -19,9 +19,10 @@ ms.author: carlasab
 
 ---
 # Migrate a SQL Server database to SQL Server in an Azure VM
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
 There are a number of methods to migrate an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods and recommend the best method for various scenarios.
+
+[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## What are the primary migration methods?
 The primary migration methods are:
@@ -34,12 +35,15 @@ The primary migration methods are:
 * If you have an AlwaysOn deployment on-premises, use the [Add Azure Replica Wizard](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) to create a replica in Azure and then failover, pointing users to the Azure database instance
 * Use SQL Server [transactional replication](https://msdn.microsoft.com/library/ms151176.aspx) to configure the Azure SQL Server instance as a subscriber and then disable replication, pointing users to the Azure database instance
 
+> [!TIP]
+> you can also use these same techniques to move databases between SQL Server VMs in Azure. For example, there is no supported way to upgrade a SQL Server gallery-image VM from one version/edition to another. In this case, you should create a new SQL Server VM with the new version/edition and then use one of the migration techniques in this article to move your databases. 
+
 ## Choosing your migration method
 For optimum data transfer performance, migrate the database files into the Azure VM using a compressed backup file.
 
 To minimize downtime during the database migration process, use either the AlwaysOn option or the transactional replication option.
 
-If it is not possible to use the above methods, manually migrate your database. Using this method, you will generally start with a database backup followed by a copy of the database backup into Azure and then perform a database restore. You can also copy the database files themselves into Azure and then attach them. There several methods by which you can accomplish this manual process of migrating a database into an Azure VM.
+If it is not possible to use the above methods, manually migrate your database. Using this method, you will generally start with a database backup followed by a copy of the database backup into Azure and then perform a database restore. You can also copy the database files themselves into Azure and then attach them. There are several methods by which you can accomplish this manual process of migrating a database into an Azure VM.
 
 > [!NOTE]
 > When you upgrade to SQL Server 2014 or SQL Server 2016 from older versions of SQL Server, you should consider whether changes are needed. We recommend that you address all dependencies on features not supported by the new version of SQL Server as part of your migration project. For more information on the supported editions and scenarios, see [Upgrade to SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
