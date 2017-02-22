@@ -104,7 +104,7 @@ az vm image list-offers --publisher Canonical --location WestUS
 List available SKUs (distro releases) of a given offer:
 
 ```azurecli
-az vm image list-skus --publisher-name Canonical --offer UbuntuServer --location WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
 ```
 
 List all available images for a given release:
