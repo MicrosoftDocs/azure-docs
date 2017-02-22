@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery Deployment Planner for VMware to Azure| Microsoft Docs
+title: Azure Site Recovery Deployment Planner | Microsoft Docs
 description: This is the Azure Site Recovery Deployment Planner user guide.
 services: site-recovery
 documentationcenter: ''
@@ -45,7 +45,7 @@ All these calculations in the tool are done assuming a 30% growth factor in your
 
 
 
-## Requirements
+##Requirements
 The tool has two main phases – profiling and report generation. There is also a third option to only calculate throughput. Below are the requirements for the server from where profiling / throughput measurement is initiated.
 
 | Requirement | Description|
@@ -148,11 +148,11 @@ ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCen
 > * When Azure Storage account name and key is passed, the tool measures the throughput at the last step of profiling. If the tool is terminated before profiling gracefully completes, throughput is not calculated. You can always run the GetThroughput  operation from the command line console to find the throughput before generating the report, otherwise the generated report will not have the achieved throughput information. 
 > * You can run multiple instances of the tool for different sets of virtual machines. Ensure virtual machine names are not repeated in any of the profiling sets. For example, you have profiled ten virtual machines (VM1 - VM10) and after few days you want to profile another five virtual machines (VM11 - VM15), you can run the tool from another command line console for the second set of virtual machines (VM11 - VM15). But ensure that the second set of virtual machines do not have any virtual machine names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same virtual machines and use the same output directory, the generated report will be incorrect.
 > * Virtual machine configuration 
->  are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information will be used at the time of report generation. Any change in VM configuration (e.g. increased number of cores, disks, NICs, etc.) from the time profiling started to when profiling ended will not be captured. If you have a situation where any profiled virtual machine configuration has changed during the course of profiling, in the Public Preview, here is the workaround to get latest virtual machine details when generating the report.   
->  
->      Back-up 'VMdetailList.xml' and delete the file from its current location.
->      
->      Pass -User and -Password arguments at the time of report generation.
+>  are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information will be used at the time of report generation. Any change in VM configuration (e.g. increased number of cores, disks, NICs, etc.) from the time profiling started to when profiling ended will not be captured. If you have a situation where any profiled virtual machine configuration has changed during the course of profiling, in the Public Preview, here is the workaround to get latest virtual machine details when generating the report
+> 
+> a.	Backup VMdetailList.xml and delete the file from its current location
+> 
+> b.	Pass -User and -Password arguments at the time of report generation
 > 
 > * The profiling command generates several files in the profiling directory – please do not delete any of them, else report generation will be impacted.
 
@@ -180,32 +180,36 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | [-GrowthFactor] |Growth factor in percentage. Default is 30%.  |
 
 
-##### Example 1: To generate report with default values when profiled data is on the local drive
+#####Example 1: To generate report with default values when profiled data is on the local drive
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” 
 
 
-##### Example 2: To generate report when profiled data is on a remote server. User should have read/write access on the remote directory.
+#####Example 2: To generate report when profiled data is on a remote server. User should have read/write access on the remote directory.
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt” 
 
-##### Example 3: Generate report with specific bandwidth and goal to complete IR within specified time 
+#####Example 3: Generate report with specific bandwidth and goal to complete IR within specified time 
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
 
-##### Example 4: Generate report with 5% growth factor instead of the default 30%
+#####Example 4: Generate report with 5% growth factor instead of the default 30%
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-GrowthFactor** 5
 
-##### Example 5: Generate report with a subset of profiled data. Say you have 30 days of profiled data and want to generate the report for only 20 days.
+#####Example 5: Generate report with a subset of profiled data. Say you have 30 days of profiled data and want to generate the report for only 20 days.
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-StartDate**  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 
-##### Example 6: Generate report for 5 minutes RPO.
+#####Example 6: Generate report for 5 minutes RPO.
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-DesiredRPO** 5
 
->[!IMPORTANT]
+
+>[!NOTE]
+>
 > * **What default percentile value of the performance metrics collected during profiling is used at the time of report generation?**
 > The tool defaults to 95th percentile values of R/W IOPS, write IOPS, and data churn collected during profiling of all the VMs. This ensures that the 100th percentile spike your VMs may see due to temporary events like say a backup job running once a day, a periodic database indexing or analytics report generation activity, or any other similar point in time short-lived event that happens during the profiling period is not used to determine your target Azure Storage and source bandwidth requirements. Using 95th percentile values gives a true picture of real workload characteristics and gives you the best performance when these workloads are running on Microsoft Azure. We do not expect you to change this number often, but if you choose to go even lower, e.g. 90th percentile, you can update this configuration file ‘ASRDeploymentPlanner.exe.config’ in the default folder and save it to generate a new report on the existing profiled data.
 >
->      &lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;>      
->      &lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;>      
->      &lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
+> &lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;
+> 
+> &lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;
+> 
+> &lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
 >  
 > * **Why should one consider growth factor while deployment planning?** 
 > It is critical to account for growth in your workload characteristics assuming potential increase in usage over time. This is because once protected if your workload characteristics change, there is currently no means to switch to a different Azure Storage account for protection without disabling and re-enabling protection. E.g. if today a virtual machine fits in a standard storage replication account, in say three months’ time, due to an increase in number of users of the application running on the virtual machine, if say the churn on the VM increases and requires it to go to premium storage so that Azure Site Recovery replication can keep up with the new higher churn, you will have to disable and re-enable protection to a premium storage account. So, it is strongly advised to plan for growth while deployment planning and the default value is 30%. You know your applications usage pattern and growth projections the best and can change this number accordingly while generating a report. You can in fact generate multiple reports with different growth factors with the same profiled data and see what target Azure Storage and source bandwidth recommendations work best for you.
@@ -233,14 +237,13 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -StorageAccountKey | Azure Storage Account Key used to access the storage account. Go to the Azure portal > Storage accounts > [Storage account name] > Settings > Access Keys > Key1(or Primary access key for classic storage account). |
 | -VMListFile | The file with the list of virtual machines to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. This file should contain one virtual machine name/IP address per line. The virtual machine names specified in the file should be the same as the virtual machine names on the vCenter server or ESXi host.<br>E.g. File “VMList.txt” contains the following virtual machines:<br>virtual machine_A <br>10.150.29.110<br>virtual machine_B|
 
-##### Example 
+#####Example 
 ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter1_ProfiledData **-VMListFile** E:\vCenter1_ProfiledData\ProfileVMList1.txt  **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 
 >[!NOTE]
 >
-> * Run the tool on a server which has the same storage and CPU characteristics as the Configuration Server
-> 
-> * For replication, provision the bandwidth that is recommended to meet the RPO 100% of the time. Even after provisioning the right bandwidth, if you don’t see any increase in the achieved throughput reported by the tool, check the following:
+> 1. Run the tool on a server which has the same storage and CPU characteristics as the Configuration Server
+> 2. For replication, provision the bandwidth that is recommended to meet the RPO 100% of the time. Even after provisioning the right bandwidth, if you don’t see any increase in the achieved throughput reported by the tool, check the following:
 > 
 > a. Check if there is any network Quality of Service (QoS) that is limiting Azure Site Recovery throughput
 > 
@@ -248,9 +251,9 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter
 > 
 > c. Check your local storage characteristics and look to improve the hardware (e.g. HDD to SSD, etc.)
 > 
-> * The tool creates several 64 MB ‘asrvhdfile<#>.vhd’ (where # is the number) files on the specified directory.  It uploads these files to the Azure Storage account to find the throughput. Once the throughput is measured it deletes all these files from the Azure Storage account and from the local server. If the tool is terminated for any reason mid-way while calculating throughput, it will not delete the files from Azure Storage or from the local server and you will have to delete them manually.
+> 3. The tool creates several 64 MB ‘asrvhdfile<#>.vhd’ (where # is the number) files on the specified directory.  It uploads these files to the Azure Storage account to find the throughput. Once the throughput is measured it deletes all these files from the Azure Storage account and from the local server. If the tool is terminated for any reason mid-way while calculating throughput, it will not delete the files from Azure Storage or from the local server and you will have to delete them manually.
 > 
-> * The throughput is measured at a given point of time and it is the maximum throughput that Azure Site Recovery can achieve during replication provided all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, then actual throughput varies during replication. If you are running GetThroughput command from a Configuration Server, the tool is not aware of any protected virtual machines and on-going replication. Result of measured throughout will be different if the GetThroughput operation is run at the time when protected virtual machines have high data churn vs. when they have low data churn.  It is recommended to run the tool at different points of time during profiling to understand what throughput can be achieved at various times. In the report, the tool shows the last measured throughput.
+> 4. The throughput is measured at a given point of time and it is the maximum throughput that Azure Site Recovery can achieve during replication provided all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, then actual throughput varies during replication. If you are running GetThroughput command from a Configuration Server, the tool is not aware of any protected virtual machines and on-going replication. Result of measured throughout will be different if the GetThroughput operation is run at the time when protected virtual machines have high data churn vs. when they have low data churn.  It is recommended to run the tool at different points of time during profiling to understand what throughput can be achieved at various times. In the report, the tool shows the last measured throughput.
 > 
 
 ##Recommendations with desired RPO as input
@@ -461,4 +464,4 @@ The Azure Site Recovery Deployment Planner Public Preview 1.0 has the following 
 
 * The tool works only for the VMware to Azure scenario, not for Hyper-V to Azure deployments.
 * The GetThroughput operation is not supported in US Government and China Microsoft Azure regions.
-* The tool cannot profile virtual machines if the vCenter has two or more virtual machines with the same name/IP address  across different ESXi hosts. In this version, the tool skips profiling for duplicate virtual machine names/IP addresses in the VMListFile. Workaround is to profile virtual machines with ESXi host instead of vCenter server. You need to run one instance for each ESXi host.
+* The tool cannot profile virtual machines if the vCenter has two or more virtual machines with the same name / IP address  across different ESXi hosts. In this version, the tool skips profiling for duplicate virtual machine names / IP addresses in the VMListFile. Workaround is to profile virtual machines with ESXi host instead of vCenter server. You need to run one instance for each ESXi host.

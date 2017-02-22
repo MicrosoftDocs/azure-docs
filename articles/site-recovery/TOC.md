@@ -12,7 +12,6 @@
 # How To
 ## Plan
 ### [Capacity planning](site-recovery-capacity-planner.md)
-### [Deployment planning](site-recovery-deployment-planner.md)
 ### [Performance and scale test results](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
 ### [Network infrastructure considerations](site-recovery-network-design.md)
 ### [Network mapping (VMM)](site-recovery-network-mapping.md)
