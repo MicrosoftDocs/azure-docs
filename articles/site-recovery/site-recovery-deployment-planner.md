@@ -84,7 +84,12 @@ The command line tool (ASRDeploymentPlanner.exe) can be run in any of the follow
 You first need to run the tool in profiling mode to gather the virtual machines data churn and IOPS.  Then run the tool to generate the report to find the network bandwidth, storage requirements.
 
 ##Profiling
-####Get virtual machine names
+In profiling mode, the Deployment Planner tool connects to the vCenter Server or vSphere ESXi hosts to collect performance data about the virtual machine.
+
+* Profiling does not impact the performance of the production virtual machines as no direct connection is made to the production virtual machine. All performance data is collected from the vCenter Server/ vSphere ESXi host.
+* The vCenter server / vSphere EXSi host is queried once every 15 minutes, to ensure that there is negligible impact on the server due to profiling. However this does not compromise profiling accuracy because the tool is storing every minute’s performance counter data.
+
+####Create a list of virtual machines to profile
 First, you need to have the list of virtual machines that you are looking to profile. You can get all the names of virtual machines on a VMware vCenter or VMware vSphere ESXi host by using the following VMware vSphere PowerCLI commands. Alternatively, you can just list down friendly names / IP addresses of the virtual machines you are looking to profile manually in a file.
 
 1.	Logon to the virtual machine where VMware vSphere PowerCLI is installed
@@ -139,8 +144,6 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 
 >[!NOTE]
 >
-> * The tool does not connect to any of the production servers being profiled ensuring no performance impact on these whatsoever
-> * While profiling, the tool connects once in every 15 minutes to the vCenter Server or vSphere ESXi Server – this ensures that there is negligible performance impact on these servers due to the tool. However this does not compromise profiling accuracy because the tool is storing every minute’s performance counter data.
 > * If the sever from where the tool is running is rebooted or has crashed, or if you exit the tool using Ctrl + C, profiled data will be preserved. There is a chance of missing the last 15 minutes of profiled data due to this. You need to re-run the tool in profiling mode after the server starts back up.
 > * When Azure Storage account name and key is passed, the tool measures the throughput at the last step of profiling. If the tool is terminated before profiling gracefully completes, throughput is not calculated. You can always run the GetThroughput  operation from the command line console to find the throughput before generating the report, otherwise the generated report will not have the achieved throughput information. 
 > * You can run multiple instances of the tool for different sets of virtual machines. Ensure virtual machine names are not repeated in any of the profiling sets. For example, you have profiled ten virtual machines (VM1 - VM10) and after few days you want to profile another five virtual machines (VM11 - VM15), you can run the tool from another command line console for the second set of virtual machines (VM11 - VM15). But ensure that the second set of virtual machines do not have any virtual machine names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same virtual machines and use the same output directory, the generated report will be incorrect.
@@ -453,4 +456,4 @@ The Azure Site Recovery Deployment Planner Public Preview 1.0 has the following 
 
 * The tool works only for the VMware to Azure scenario, not for Hyper-V to Azure deployments.
 * The GetThroughput operation is not supported in US Government and China Microsoft Azure regions.
-* The tool cannot profile virtual machines if the vCenter has two or more virtual machines with the same name / IP address  across different ESXi hosts. In this version, the tool skips profiling for duplicate virtual machine names / IP addresses in the VMListFile.
+* The tool cannot profile virtual machines if the vCenter has two or more virtual machines with the same name / IP address  across different ESXi hosts. In this version, the tool skips profiling for duplicate virtual machine names / IP addresses in the VMListFile. Workaround is to profile virtual machines with ESXi host instead of vCenter server. You need to run one instance for each ESXi host.
