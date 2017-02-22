@@ -111,18 +111,21 @@ ProxyPassword="Password"
   5. Provide the Proxy Server details and click the **Register** button.  
   6. Open an Admin PowerShell command window.
   7. Run the following command
+
       ```
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
       net start obengine
       ```
-      >[!WARNING]
-      If you have Scale-out Process servers attached to this Configuration Server, you need to [re-register all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) in your deployment.
+
+  >[!WARNING]
+  If you have Scale-out Process servers attached to this Configuration Server, you need to [re-register all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) in your deployment.
 
 ## Registering a Configuration Server with a different Recovery Services Vault.
 1. Login to your Configuration Server.
 2. from and admin command prompt, run the command
+
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 net stop dra
