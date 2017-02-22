@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/06/2017
+ms.date: 02/21/2017
 ms.author: alkohli
 
 ---
@@ -41,7 +41,7 @@ Perform the following steps to update your device to [Update 4](storsimple-updat
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-Verify that your device is running **StorSimple 8000 Series Update 4 (6.3.9600.17818)**. The **Last updated date** should also be modified. 
+Verify that your device is running **StorSimple 8000 Series Update 4 (6.3.9600.17820)**. The **Last updated date** should also be modified. 
 
 * You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. 
  
@@ -72,9 +72,10 @@ You must download and install the following hotfixes in the prescribed order and
 
 | Order | KB | Description | Update type | Install time |Install in folder|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Software update &#42; |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 <br> KB3103616  |LSI driver and firmware updates <br> USM firmware update (version 3.38) <br> OS updates package |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B.)|SecondOrderUpdate|
-| 2B. |KB3123538, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914 <br> KB3139398 |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 1. |KB4011839 |Software update |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |LSI driver and firmware updates <br> USM firmware update (version 3.38) |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 You may also need to install disk firmware updates on top of all the updates shown in the preceding tables. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, then you do not need to install these updates.
 

@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 
 ---
 
 # Azure Active Directory B2B collaboration current limitations
 
-1. Azure Active Directory (Azure AD) B2B collaboration nvitation APIs are in Beta
+1. Azure Active Directory (Azure AD) B2B collaboration invitation APIs are in Beta testing
   That API surface is the direction forward however like all beta, it's subject to the beta namespace contract. We will move the API to a numbered version with our GA release.
 2. Possibility of double multi-factor authentication (MFA) if your partner already has an MFA policy in place
   B2B collaboration MFA will be performed and managed at the inviting organization. This is desirable because it covers all identities and allows you to have control over the authentication strength of your B2B collaboration invitees. However, if you have a partner who already has MFA set up and enforces it, their users may have to perform MFA once in their home organization and then again in your organization. In future releases, we will be introducing a policy where you can choose to trust certain partners' MFA to avoid the double MFA issue.

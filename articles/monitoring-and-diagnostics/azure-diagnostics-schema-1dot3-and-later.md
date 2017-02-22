@@ -1,6 +1,6 @@
 ---
-title: Azure Diagnostics 1.3, 1.4, 1.5 Configuration Schema | Microsoft Docs
-description: Schema version 1.3, 1.4 and 1.5 for Azure diagnostics shipped as part of the Microsoft Azure SDK.
+title: Azure Diagnostics 1.3, 1.4, 1.5, 1.6, 1.7 Configuration Schema | Microsoft Docs
+description: Schema version 1.3 and later Azure diagnostics shipped as part of the Microsoft Azure SDK.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher

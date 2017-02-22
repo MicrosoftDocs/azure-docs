@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
-ms.author: singhkay
+ms.author: kasing
 
 ---
 # Community tools to migrate IaaS resources from classic to Azure Resource Manager

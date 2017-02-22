@@ -140,11 +140,10 @@ Simplify management of the entire system by using centralized administration too
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. The reference architecture is deployed in three stages. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select "open in new tab" or "open in new window."  
-   [!["Deploy To Azure"][1]][2]
+1. Open [this link][2] in a new tab or browser window. The link takes you to the Azure Portal.
 2. Once the link has opened in the Azure portal, enter the follow values: 
    
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
+   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-cassandra-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.

@@ -23,7 +23,7 @@ ms.author: robb
 > Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
 >
 
-Azure Diagnostics is used in conjunction with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+Azure Diagnostics is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
 
 The Azure Diagnostics configuration file defines values that are used to initialize the Diagnostics Monitor. This file is used to initialize diagnostic configuration settings when the diagnostics monitor starts.  
 

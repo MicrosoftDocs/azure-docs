@@ -89,7 +89,7 @@ The table below describes the Virtual Machine properties that can be used as fie
 | imageVersion |Specifies the image version for the chosen SKU |
 
 ## Create the Policy
-A policy can easily be created using the REST API directly or the PowerShell cmdlets. You can read more about [creating and assigning a policy](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
+A policy can easily be created using the REST API directly or the PowerShell cmdlets. You can read more about [creating and assigning a policy](../azure-resource-manager/resource-manager-policy.md).
 
 ## Apply the Policy
-After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. You can read more about [creating and assigning a policy](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
+After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. You can read more about [creating and assigning a policy](../azure-resource-manager/resource-manager-policy.md).
