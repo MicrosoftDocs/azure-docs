@@ -19,7 +19,7 @@ ms.author: dobett
 ---
 # How to use Azure IoT Hub
 
-You have a number of options to learn how to develop for the IoT Hub service. You can read the conceptual articles that describe the features of IoT Hub in detail or follow one of the tutorials that cover the various features of IoT Hub.
+You have various options to learn how to develop for the IoT Hub service. You can read the conceptual articles that describe the features of IoT Hub in detail or follow one of the tutorials that cover the various features of IoT Hub.
 
 ## The developer guide
 
@@ -28,7 +28,7 @@ As a developer, you can read detailed conceptual guidance about IoT Hub in the [
 
 ## The tutorials
 
-If you prefer to learn about specific IoT Hub features by working through hands-on exercises, there are a number of tutorials to choose from. Many of these tutorials are available in multiple programming languages. These tutorials include:
+If you prefer to learn about specific IoT Hub features by working through hands-on exercises, there are several tutorials to choose from. Many of these tutorials are available in multiple programming languages. These tutorials include:
 
 - [Process IoT Hub device-to-cloud messages using routes][lnk-routes-tutorial]. This tutorial shows you how to use IoT Hub routing rules to dispatch device-to-cloud messages in an easy, configuration-based way.
 
@@ -42,7 +42,7 @@ If you prefer to learn about specific IoT Hub features by working through hands-
 
 - [Get started with device management][lnk-dm-tutorial]. This tutorial shows you how to use key device management features such as twins and direct methods to remotely reboot your simulated device.
 
-- [Use desired properties to configure devices][lnk-properties-tutorial]. This tutorial shows you how to use the device twin's desired properties in conjunction with reported properties, to remotely configure your device.
+- [Use desired properties to configure devices][lnk-properties-tutorial]. This tutorial shows you how to use the device twin's desired properties along with reported properties, to remotely configure your device.
 
 - [Use device jobs to initiate a device firmware update][lnk-jobs-tutorial]. This tutorial shows you how to use key device management features such as twins and direct methods to remotely update your device's firmware.
 
