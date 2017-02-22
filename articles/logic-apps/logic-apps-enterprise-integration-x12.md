@@ -19,7 +19,7 @@ ms.author: padmavc
 ---
 # Enterprise integration with X12
 
-## Prereqs
+## Prerequisites
 
 Before you can exchange X12 messages, you must create an X12 agreement and store that agreement in your integration account. 
 The following steps walk you through the process of creating an X12 agreement.
@@ -36,14 +36,14 @@ The following steps walk you through the process of creating an X12 agreement.
 
 	![Select "More services"](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-3.	In the filter search box, type "integration". 
+3.	In the search box, type "integration" as your filter. 
 In the results list, select **Integration Accounts**.  
 
 	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
 3. Select the integration account where you want to add the certificate.
 
-	![Select integration account to add certificate](./media/logic-apps-enterprise-integration-x12/account-3.png)
+	![Select integration account for adding certificate](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Choose the **Agreements** tile. If you don't see the agreements tile, 
 add the tile. 
@@ -127,11 +127,11 @@ in the incoming message with the values you set here, and the schema of the inco
 
 ### Envelopes
 
-![Specify the separator in a transaction set: choose Standard Identifier or Repetition Seperator](./media/logic-apps-enterprise-integration-x12/x12-34.png)
+![Specify the separator in a transaction set: choose Standard Identifier or Repetition Sparator](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
 | Property | Description |
 | --- | --- |
-| ISA11 Usage |Specifies the separator in a transaction set:</br></br>Select Standard identifier to use "." for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition Separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually "^" is used as the repetition separator. For HIPAA schemas, you can only use "^". |
+| ISA11 Usage |Specifies the separator in a transaction set:</br></br>Select Standard identifier to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition Separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
 ### Control Numbers
 
@@ -139,7 +139,7 @@ in the incoming message with the values you set here, and the schema of the inco
 
 | Property | Description |
 | --- | --- |
-| Disallow Interchange Control Number duplicates |Block duplicate interchanges. Checks that the interchange control number (ISA13) for the received interchange control number. If a match is detected, the receive pipeline does not process the interchange. You can specify the number of days at which the check is performed by giving the appropriate value for *Check for duplicate ISA13 every x days*. |
+| Disallow Interchange Control Number duplicates |Block duplicate interchanges. Checks the interchange control number (ISA13) for the received interchange control number. If a match is detected, the receive pipeline doesn't process the interchange. You can specify the number of days for performing the check by giving a value for *Check for duplicate ISA13 every (days)*. |
 | Disallow Group control number duplicates |Block interchanges with duplicate group control numbers. |
 | Disallow Transaction set control number duplicates |Block interchanges with duplicate transaction set control numbers. |
 
@@ -154,7 +154,7 @@ in the incoming message with the values you set here, and the schema of the inco
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading (or trailing) zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |Remove leading (or trailing) zero and space characters. |
-| Trailing Separator Policy |Generates trailing separators on the interchange received from the interchange sender.</br></br>Select Not Allowed when you don't want to allow trailing delimiters and separators in the received interchange. If the interchange contains trailing delimiters and separators, the interchange is declared not valid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the interchange must contain trailing delimiters and separators. |
+| Trailing Separator Policy |Generates trailing separators on the interchange received from the interchange sender.</br></br>Select Not Allowed when you want to prohibit trailing delimiters and separators in the received interchange. If the interchange contains trailing delimiters and separators, the interchange is declared not valid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the interchange must contain trailing delimiters and separators. |
 
 ### Internal Settings
 
@@ -162,7 +162,7 @@ in the incoming message with the values you set here, and the schema of the inco
 
 | Property | Description |
 | --- | --- |
-| Convert implied decimal format *Nn* to a base 10 numeric value |Converts an EDI number that is specified with the format Nn into a base-10 numeric value |
+| Convert implied decimal format "Nn" to a base 10 numeric value |Converts an EDI number that is specified with the format "Nn" into a base-10 numeric value |
 | Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
 | Split Interchange as transaction sets - suspend transaction sets on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. Suspends only the transactions where the validation fails. |
 | Split Interchange as transaction sets - suspend interchange on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. Suspends entire interchange if one or more transaction sets in the interchange fail validation. | 
@@ -199,8 +199,8 @@ Control Numbers, and Validation, described here.
 
 | Property | Description |
 | --- | --- |
-| TA1 expected |Select this checkbox to return a technical (TA1) acknowledgment to the interchange sender. This setting specifies that the host partner who is sending the message requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement. |
-| FA expected |Select this checkbox to return a functional (FA) acknowledgment to the interchange sender, and then select whether you want the 997 or 999 acknowledgements, based on the schema versions you are working with. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement. |
+| TA1 expected |Return a technical acknowledgment (TA1) to the interchange sender. This setting specifies that the host partner who is sending the message requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement. |
+| FA expected |Return a functional acknowledgment (FA) to the interchange sender. Select whether you want the 997 or 999 acknowledgements, based on the schema versions you are working with. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement. |
 | FA Version |Select the FA version |
 
 ### Schemas
@@ -219,13 +219,13 @@ Control Numbers, and Validation, described here.
 
 ### Envelopes
 
-![Specify the separator in a transaction set: choose Standard Identifier or Repetition Seperator](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
+![Specify the separator in a transaction set: choose Standard Identifier or Repetition Separator](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
 | Property | Description |
 | --- | --- |
 | ISA11 Usage |Use this field to specify the separator in a transaction |
 | Standard Identifier |Select the Standard identifier to use the decimal notation of “.” |
-| Repetition Separator |Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually "^" is used as repetition separator. For HIPAA schemas, you can only use "^". |
+| Repetition Separator |Select Repetition Separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
 ### Control Numbers
 
@@ -276,9 +276,9 @@ If a character set isn't specified for a given message schema, then the default 
 | Message Type |Select the message type from the list |
 | EDI Validation |Enable validation on the interchange receiver. This validation performs EDI validation on transaction set data elements, validating data types, length restrictions, and empty data elements and trailing separators |
 | Extended Validation |Enable extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
-| Allow Leading/Trailing Zeroes |Specifies that an EDI interchange received from the party doesn't fail validation when a data element in an EDI interchange doesn't conform to its length requirement. The data elment might not conform due to leading (or trailing) zeros or spaces, but does conform to its length requirement when those characters are removed. |
+| Allow Leading/Trailing Zeroes |Specifies that an EDI interchange received from the party won't fail validation when a data element in an EDI interchange doesn't conform to its length requirement. The data element might not conform due to leading (or trailing) zeros or spaces, but does conform to its length requirement when those characters are removed. |
 | Trim Leading/Trailing Zeroes |Remove leading (or trailing) zero characters. |
-| Trailing Separator Policy |Generates trailing separators on the interchange sent.</br></br>Select Not Allowed if you don't want to allow trailing delimiters and separators in the sent interchange. If the interchange contains trailing delimiters and separators, the interchange is declared invalid.</br></br>Select Optional to send interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the sent interchange must contain trailing delimiters and separators. |
+| Trailing Separator Policy |Generates trailing separators on the interchange sent.</br></br>Select Not Allowed if you want to prohibit trailing delimiters and separators in the sent interchange. If the interchange contains trailing delimiters and separators, the interchange is declared invalid.</br></br>Select Optional to send interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the sent interchange must contain trailing delimiters and separators. |
 
 1.	After you set the **Send settings** properties, choose **OK**. 
 Your agreement is ready to handle outgoing messages that conform to the schema you selected.
