@@ -1,4 +1,4 @@
----
+6---
 title: Security Center pricing | Microsoft Docs
 description: This article provides information on pricing for Azure Security Center.
 services: security-center
@@ -24,7 +24,7 @@ Azure Security Center helps you prevent, detect, and respond to threats with inc
 Security Center is offered in two tiers:
 
 * The **Free tier** is automatically enabled on all Azure subscriptions. The Free tier provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
-* The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat assessment reports. A **90 day free trial** is available for the Standard tier.
+* The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat assessment reports. A **60 day free trial** is available for the Standard tier.
 
 For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -33,12 +33,12 @@ For more information, see the Security Center [pricing page](https://azure.micro
 >
 >
 
-## Try Standard free for 90 days
-A 90 day free trial is available for the Standard tier. To get the free trial of the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard – Free Trial**.
+## Try Standard free for 60 days
+A 60 day free trial is available for the Standard tier. To get the free trial of the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard – Free Trial**.
 
 ![Free trial][1]
 
-At the end of 90 days, should you choose to continue using the service, we automatically start charging for usage.
+At the end of 60 days, should you choose to continue using the service, we automatically start charging for usage.
 
 ## Upgrade to Standard
 Upgrade to the Standard tier to add advanced threat detection. To get the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard**.
