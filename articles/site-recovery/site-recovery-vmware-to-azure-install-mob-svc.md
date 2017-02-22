@@ -79,4 +79,4 @@ To be able to perform push installation of Mobility Service using Azure Site Rec
 
 
 ## Next steps
-Once the Mobility Service is installed you can use the **+Replicate** button in Azure Portal to start enabling protection for these VMs.
+Once the Mobility Service is installed you can use the **+Replicate** button in Azure portal to start enabling protection for these VMs.

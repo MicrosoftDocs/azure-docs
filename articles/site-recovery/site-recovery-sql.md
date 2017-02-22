@@ -78,7 +78,7 @@ This table summarizes our recommendations for integrating SQL Server BCDR techno
 || Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
 | SQL Server 2008 R2 |Enterprise or Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
 || Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
-| SQL Server (Any version) |Enterprise or Standard |Failover cluster instance - DTC applicaiton |Site Recovery replication |Not Supported |
+| SQL Server (Any version) |Enterprise or Standard |Failover cluster instance - DTC application |Site Recovery replication |Not Supported |
 =======
 
 **Version** | **Deployment** | **On-premises to secondary** | **On-premises to Azure** |
@@ -113,7 +113,7 @@ The instructions in this article presume that a domain controller is available i
 Site Recovery natively supports SQL AlwaysOn. If you've created a SQL Availability Group with an Azure virtual machine set up as secondary location, then you can use Site Recovery to manage the failover of the Availability Groups.
 
 > [!NOTE]
-> This capability is currently in preview. It's available when the primary site has Hyper-V host servers managed in System Center VMM clouds, or when you've set up [VMware replication](site-recovery-vmware-to-azure.md). The functionality isn't currently available in the new Azure portal. Follow the steps in [this section](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal) if you are using new Azure portal.
+> This capability is currently in preview. It's available when the primary site has Hyper-V host servers managed in System Center VMM clouds, or when you've set up [VMware replication](site-recovery-vmware-to-azure.md). The functionality isn't currently available in the new Azure portal. Follow the steps in [this section](site-recovery-sql.md#integrate-with-sql-server-always-on-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server) if you are using new Azure portal.
 > 
 >
 
@@ -133,8 +133,8 @@ To integrate SQL AlwaysOn with Site Recovery you need:
 - If you're running VMware, an account should be created on the configuration server using the CSPSConfigtool.exe
 * The SQL PS module should be installed on SQL Servers running on-premises, and on Azure VMs.
 * The VM agent should be installed on Azure VMs.
-* NTAUTHORITY\System should have following permissions in SQL Server running pn Azure VMs.
-  * ALTER AVAILABILITY GROUP  - permissions [here](https://msdn.microsoft.com/library/hh231018.aspx), and [here](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+* NTAUTHORITY\System should have following permissions in SQL Server running on Azure VMs.
+  * ALTER AVAILABILITY GROUP: permissions [here](https://msdn.microsoft.com/library/hh231018.aspx), and [here](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
   * ALTER DATABASE - permissions [here](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ### Add a SQL Server
@@ -354,7 +354,7 @@ For a cluster running SQL Server Standard edition, or SQL Server 2008 R2, we rec
 
 ### On-premises to Azure
 
-Site recovery doesn't provide guest cluster support when replicating to Azure. SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition. In this scenario, we recommend you protect the on-premises SQL Server cluster to a standalone SQL Server, and recover it in Azure.
+Site Recovery doesn't provide guest cluster support when replicating to Azure. SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition. In this scenario, we recommend you protect the on-premises SQL Server cluster to a standalone SQL Server, and recover it in Azure.
 
 1. Configure an additional standalone SQL Server instance on the on-premises site.
 2. Configure the instance to serve as a mirror for the databases you want to protect. Configure mirroring in high safety mode.

@@ -77,7 +77,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines and networks that were created during test failover. 
 
 
-## Network options in site recovery
+## Network options in Site Recovery
 
 When you run a test failover you'll be asked to select network settings for test replica machines. You have a number of options.  
 

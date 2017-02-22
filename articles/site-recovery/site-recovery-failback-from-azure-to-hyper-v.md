@@ -22,7 +22,7 @@ This article describes how to failback virtual machines protected by Site Recove
 
 ## Prerequisites
 1. Ensure that the primary site VMM server/Hyper-V server is connected.
-2. You should have Commited the virtual machine in Azure.
+2. You should have performed **Commit** on the virtual machine.
 
 ## Why is there no button called failback?
 On the portal, there is no explicit gesture called failback. Failback is a step where you come back to the primary site. By definition, failover is when you failover the virtual machines from primary(on-premises) site to recovery (Azure), and failback is when you failover the virtual machines from recovery back to primary.
@@ -30,7 +30,7 @@ On the portal, there is no explicit gesture called failback. Failback is a step 
 When you initiate a failover, the blade informs you about the direction of the job. If the direction is from Azure to On-premises, it is a failback.
 
 ## Why is there only a planned failover gesture to failback?
-Azure is a highly available environment and yor virtual machines will be always available. Failback is a planned activity where you decide to take a small downtime so that the workloads can start running on-premises again. This expects no data loss. Hence only a planned failover gesture is available, that will turn off the VMs in Azure, download the latest changes and ensure there is no data loss.
+Azure is a highly available environment and your virtual machines will be always available. Failback is a planned activity where you decide to take a small downtime so that the workloads can start running on-premises again. This expects no data loss. Hence only a planned failover gesture is available, that will turn off the VMs in Azure, download the latest changes and ensure there is no data loss.
 
 ## Initiate failback
 After failover from the primary to secondary location, replicated virtual machines aren't protected by Site Recovery, and the secondary location is now acting as the active location. Follow these procedures to fail back to the original primary site. This procedure describes how to run a planned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine on the **Virtual Machines** tab.
@@ -39,11 +39,11 @@ After failover from the primary to secondary location, replicated virtual machin
 2. On the **Confirm Planned Failover **page, choose the source and target locations. Note the failover direction. If the failover from primary worked as expect and all virtual machines are in the secondary location this is for information only.
 3. If you're failing back from Azure select settings in **Data Synchronization**:
 
-   * **Synchronize data before failover(Synchonize delta changes only)**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
+   * **Synchronize data before failover(Synchronize delta changes only)**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
      * Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
      * Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of delta changes are transferred to the on-premises server and the on-premises virtual machine is started up.
 
-    - **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we dont want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
+    - **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
 
     	[!NOTE] 
     	We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem VM has been deleted.This option doesn't perform any checksum calculations.
@@ -75,7 +75,7 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
 
     > [!NOTE]
-    > If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a currupted state. This is because Data Synchonization copies the latest data from Azure VM disks to the on-prem data disks, and untill the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchonization is cancelled, it may not boot. Re-trigger failover to complete the Data Synchonization.
+    > If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a corrupted state. This is because Data Synchronization copies the latest data from Azure VM disks to the on-prem data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchronization is cancelled, it may not boot. Re-trigger failover to complete the Data Synchronization.
     >
     >
 
