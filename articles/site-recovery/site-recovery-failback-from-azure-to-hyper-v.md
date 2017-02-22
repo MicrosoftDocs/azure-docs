@@ -1,5 +1,5 @@
 ---
-title: Failback in Site Recovery for Hyper-v virtual machines | Microsoft Docs
+title: Failback in Azure Site Recovery for Hyper-v virtual machines | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failback from Azure to on-premises datacenter.
 services: site-recovery
 documentationcenter: ''
