@@ -38,7 +38,7 @@ When an application is published through Azure AD Application Proxy, all traffic
 
 When you sign up for an Azure AD tenant, the region of your tenant is determined by the country you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are displayed in the same region as your Azure AD tenant, or the closest region to it.
 
-For example, if your Azure AD tenant’s region is the European Union (EU), all of your Azure AD Application Proxy connectors are connected to the Application Proxy service instances in Azure datacenters in the EU. This also means that all of your users go through the Application Proxy service instances in this location, when trying to access published applications.
+For example, if your Azure AD tenant’s region is the European Union (EU), all your Application Proxy connectors are using service instances in Azure datacenters in the EU. This also means that all your users go through the Application Proxy service instances in this location, when trying to access published applications.
 
 ## Considerations for reducing latency
 
@@ -53,7 +53,7 @@ Application Proxy chooses the location of instances for you, based on your tenan
 When setting up the Application Proxy service, you should ask the following questions:
 
 * Where is the app located?
-* Where are the majority of users accessing the app located?
+* Where are most users accessing the app located?
 * Where is the Application Proxy instance located (this is based on your tenant)?
 * Do you already have a dedicated network connection to Azure datacenters set up (such as Azure ExpressRoute or a similar VPN)?
 
@@ -77,13 +77,13 @@ Because your users may access apps remotely over the Internet, you should always
 
 ### Pattern 1: Optimize hop 3
 
-To optimize hop 3, the connector is placed close to the target application in the customer network. The advantage of doing this is that the connector is likely to need a line of sight to the domain controller. This approach is usually sufficient for most scenarios. (In fact, most of our customers follow this pattern.)
+To optimize hop 3, the connector is placed close to the target application in the customer network. The advantage of doing this is that the connector is likely to need a line of sight to the domain controller. This approach is sufficient for most scenarios. (In fact, most of our customers follow this pattern.)
 
  ![Diagram showing hop 3 optimization, with the connector placed close to the target application](./media/application-proxy-network-topologies/application-proxy-hop3.png)
 
 
 > [!NOTE]
-There are some scenarios where you will need to optimize both hop 2 and hop 3 to get the latency characteristics you want. For example, if you have a VPN or ExpressRoute set up between your network and the Azure datacenter, you can optimize both of these hops.
+There are some scenarios where you need to optimize both hop 2 and hop 3 to get the latency characteristics you want. For example, if you have a VPN or ExpressRoute set up between your network and the Azure datacenter, you can optimize both of these hops.
 >
 
 ### Pattern 2: Take advantage of ExpressRoute with public peering
@@ -128,7 +128,7 @@ The app is in an organization's network in the US, with users spread out globall
 
 **Recommendation:** Follow pattern 2, explained in the previous section. For improved latency, consider using ExpressRoute, if needed.
 
-Again, the common pattern is to optimize hop 3, where you place the connector near the app. Hop 3 is not typically expensive, if it is all within the same region. However, hop 1 can be more expensive depending on where the user is, because all users access the Application Proxy instance in the US. It's worth noting that any proxy solution has similar characteristics with respect to users being spread out globally.
+Again, the common pattern is to optimize hop 3, where you place the connector near the app. Hop 3 is not typically expensive, if it is all within the same region. However, hop 1 can be more expensive depending on where the user is, because all users access the Application Proxy instance in the US. It's worth noting that any proxy solution has similar characteristics regarding users being spread out globally.
 
 ![Diagram showing outline of global continents, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern2.png)
 
