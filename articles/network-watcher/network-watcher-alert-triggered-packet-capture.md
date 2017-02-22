@@ -102,7 +102,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     string token = GetAuthorizationToken();
     
     //Create URI and Delete existing Packet Capture if it exists
-    string endpoint = @"https://BrazilUs.management.azure.com";
+    string endpoint = @"https://management.azure.com";
     string PacketCaptureRequestURI = $@"{endpoint}/subscriptions/{inParams.subscriptionId}/resourceGroups/{inParams.networkWatcherResourceGroup}/providers/Microsoft.Network/networkWatchers/{inParams.networkWatcherName}/packetCaptures/{inParams.packetCaptureName}?api-version=2016-03-30";
 
     //Delete Packet Capture
