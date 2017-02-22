@@ -28,13 +28,6 @@ The Linux Diagnostic Extension helps a user monitor the health of a Linux VM tha
 * Enables users to customize the syslog facilities and severity levels of events that will be collected and uploaded.
 * Enables users to upload specified log files to a designated storage table.
 
-In version 3.0, collectible metrics include those defined by these five providers supported by [the System Center Cross Platform Providers](https://scx.codeplex.com/wikipage?title=xplatproviders) for the OMI service:
-* SCX_ProcessorStatisticalInformation
-* SCX_MemoryStatisticalInformation
-* SCX_EthernetPortStatistics
-* SCX_FileSystemStatisticalInformation
-* SCX_DiskDriveStatisticalInformation
-
 This extension works with both the classic and Resource Manager deployment models.
 
 ### Migration from previous versions of the extension
@@ -97,64 +90,112 @@ This structure contains various blocks of settings which control the various inf
 Element | Value
 ------- | -----
 enableSyslog | If false, the extension will ignore all configuration elements related to syslog and will make no changes to the syslog configuration on the VM.
-mdsdHttpProxy | Same as in the Private Settings (see above). The public value is overridden by the private value, if set. 
+mdsdHttpProxy | (optional) Same as in the Private Settings (see above). The public value is overridden by the private value, if set. 
 
 The remaining elements are described in detail, below.
 ### ladCfg
 ```json
 "ladCfg": {
     "eventVolume": "Medium",
-    "useProxyServer": false,
-    "sinksConfig": {
-        "Sink": [
-            {
-                "name": "sinkname",
-                "type": "sinktype"
-            },
-        ]
-    },
+    "sinksConfig": { ... },
     "sinks": "",
-    "metrics": {
-        "resourceId": "/subscriptions/...",
-        "metricAggregation" : [
-            { "scheduledTransferPeriod" : "PT1H" },
-            { "scheduledTransferPeriod" : "PT1M" }
-        ]
-    },
-    "performanceCounters": {
-        "performanceCounterConfiguration": [
-            {
-                "type": "builtin",
-                "class": "Processor",
-                "counter": "PercentIdleTime",
-                "counterSpecifier": "/builtin/Processor/PercentIdleTime",
-                "table": "MyTableName",
-                "condition": "IsAggregate=TRUE",
-                "annotation": [
-                    {
-                        "displayName" : "Aggregate CPU %idle time",
-                        "locale" : "en-us"
-                    }
-                ],
-            },
-        ]
-    },
-    "syslogEvents": {
-        "facilityName": "minSeverity",
-    }
+    "metrics": { ... },
+    "performanceCounters": { ... },
+    "syslogEvents": { ... }
 }
 ```
-Controls the gathering of metrics and logs for delivery to the Azure Metrics services and to other data destinations ("sinks").
+Controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data destinations ("sinks").
 
-The Azure Metrics service requires metrics to be stored in a very particular Azure storage table. Similarly, log events must be stored in a different, but also very particular, table. All instances of the diagnostic extension configured (via Private Config) to use the same storage account name and endpoint will add their metrics and logs to the same table. 
+The Azure Metrics service requires metrics to be stored in a very particular Azure storage table. Similarly, log events must be stored in a different, but also very particular, table. All instances of the diagnostic extension configured (via Private Config) to use the same storage account name and endpoint will add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. The eventVolume setting changes how partition keys are constructed so that, across all instances of the extension writing to the same table, entries are spread across 1, 10, or 100 different partitions.  
 
-
-
-The syslogEvents element has one entry for each syslog facility of interest. Setting a minSeverity of "NONE" for a particular facility behaves exactly as if that facility did not appear in the element at all; no events from that facility are captured. 
+The Azure Metrics service tables 
 
 Element | Value
 ------- | -----
 eventVolume | Controls the number of partitions created within the storage table. Must be one of "Large", "Medium", or "Small".
+ 
+#### sinksConfig
+```json
+"sinksConfig": {
+    "Sink": [
+        {
+            "name": "sinkname",
+            "type": "sinktype"
+        },
+    ]
+},
+```
+Defines additional destinations to which the extension will deliver the information it collects. The Sink array contains an object for each additional data sink. The object will contain additional attributes as determined by the "type" attribute.
+
+Element | Value
+------- | -----
+name | A string used to refer to this sink elsewhere in the extension configuration
+type | The type of sink being defined.
+
+#### metrics
+```json
+"metrics": {
+    "resourceId": "/subscriptions/...",
+    "metricAggregation" : [
+        { "scheduledTransferPeriod" : "PT1H" },
+        { "scheduledTransferPeriod" : "PT1M" }
+    ]
+}
+```
+
+Samples of the metrics specified in the performanceCounters section are collected every 15 seconds. If multiple scheduledTransferPeriod frequencies appear (as in the example), each aggregation is computed independently. The name of the storage table to which aggregated metrics are written (and from which Acure Metrics reads data) is based, in part, on the transfer period of the aggregated metrics stored within it.
+
+
+Element | Value
+------- | -----
+resourceId | The ARM resource ID of the VM or of the VM Scale Set to which the VM belongs.
+scheduledTransferPeriod | The frequency at which aggregate metrics are to be computed and transferred to Azure Metrics, expressed as an IS 8601 time interval.
+
+Samples of the metrics specified in the performanceCounters section are collected every 15 seconds. If multiple scheduledTransferPeriod frequencies appear (as in the example), each aggregation is computed independently. The name of the storage table to which aggregated metrics are written (and from which Acure Metrics reads data) is based, in part, on the transfer period of the aggregated metrics stored within it.
+
+#### performanceCounters
+```json
+"performanceCounters": {
+    "performanceCounterConfiguration": [
+        {
+            "type": "builtin",
+            "class": "Processor",
+            "counter": "PercentIdleTime",
+            "counterSpecifier": "/builtin/Processor/PercentIdleTime",
+            "table": "MyTableName",
+            "condition": "IsAggregate=TRUE",
+            "annotation": [
+                {
+                    "displayName" : "Aggregate CPU %idle time",
+                    "locale" : "en-us"
+                }
+            ],
+        },
+    ]
+}
+```
+Element | Value
+------- | -----
+type |
+class |
+counter |
+counterSpecifier |
+table | 
+condition |
+displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. 
+
+#### syslogEvents
+```json
+"syslogEvents": {
+    "syslogEventConfiguration": {
+        "facilityName": "minSeverity",
+    }
+}
+```
+The syslogEventConfiguration collection has one entry for each syslog facility of interest. Setting a minSeverity of "NONE" for a particular facility behaves exactly as if that facility did not appear in the element at all; no events from that facility are captured. 
+
+Element | Value
+------- | -----
 facilityName | A syslog facility name (e.g. "LOG_USER" or "LOG_LOCAL0"). See the "facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
 minSeverity | A syslog severity level (e.g. "LOG_ERR") or the value "NONE". See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list. The extension will capture events sent to the facility at or above the specified level. If set to NONE, no log messages from the facility will be captured.
 
