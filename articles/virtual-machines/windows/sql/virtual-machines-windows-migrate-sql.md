@@ -39,7 +39,7 @@ For optimum data transfer performance, migrate the database files into the Azure
 
 To minimize downtime during the database migration process, use either the AlwaysOn option or the transactional replication option.
 
-If it is not possible to use the above methods, manually migrate your database. Using this method, you will generally start with a database backup followed by a copy of the the database backup into Azure and then perform a database restore. You can also copy the database files themselves into Azure and then attach them. There several methods by which you can accomplish this manual process of migrating a database into an Azure VM.
+If it is not possible to use the above methods, manually migrate your database. Using this method, you will generally start with a database backup followed by a copy of the database backup into Azure and then perform a database restore. You can also copy the database files themselves into Azure and then attach them. There several methods by which you can accomplish this manual process of migrating a database into an Azure VM.
 
 > [!NOTE]
 > When you upgrade to SQL Server 2014 or SQL Server 2016 from older versions of SQL Server, you should consider whether changes are needed. We recommend that you address all dependencies on features not supported by the new version of SQL Server as part of your migration project. For more information on the supported editions and scenarios, see [Upgrade to SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
