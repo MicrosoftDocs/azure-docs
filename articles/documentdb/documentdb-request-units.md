@@ -57,7 +57,7 @@ DocumentDB requires a partition key to be specified when a collection is provisi
 
 Here is a code snippet for creating a collection with 3,000 request units per second using the .NET SDK:
 
-```C#
+```csharp
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
 myCollection.PartitionKey.Paths.Add("/deviceId");
@@ -72,7 +72,7 @@ DocumentDB operates on a reservation model on throughput. That is, you are bille
 
 Each collection is mapped to an `Offer` resource in DocumentDB, which has metadata about the collection's provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a collection, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
 
-```C#
+```csharp
 // Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -208,7 +208,7 @@ For example:
 ## A request unit estimation example
 Consider the following ~1KB document:
 
-```JSON
+```json
 {
  "id": "08259",
   "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
