@@ -29,7 +29,7 @@ Mobility Service needs to be  deployed on every machine (VMware VM or physical s
 
 
 >[!IMPORTANT]
-> Starting version 9.7.0.0, on Windows virtual machines, mobility service installer will also install latest available [Azure VM Agent](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). This will ensure that when machine fails over into Azure it meets this prerequisite required to use any VM extension.
+> Starting version 9.7.0.0, on Windows virtual machines, mobility service installer will also install latest available [Azure VM Agent](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). This ensures that when machine fails over into Azure it meets this prerequisite required to use any VM extension.
 
 ## Prerequisites
 Perform these prerequisites before you start manually installing the Mobility Service on your servers.
