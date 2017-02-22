@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/22/2017
 ms.author: jgao
 
 ---
@@ -44,10 +44,10 @@ To keep the changes through the clusters' lifetime, you can use HDInsight cluste
 There are 3 methods to use bootstrap:
 
 * Use Azure PowerShell
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 * Use .NET SDK
 * Use Azure Resource Manager template
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 For information on installing additional components on HDInsight cluster during the creation time, see :
 
