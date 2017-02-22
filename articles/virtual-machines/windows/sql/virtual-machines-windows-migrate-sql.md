@@ -43,8 +43,6 @@ If it is not possible to use the above methods, manually migrate your database. 
 
 > [!NOTE]
 > When you upgrade to SQL Server 2014 or SQL Server 2016 from older versions of SQL Server, you should consider whether changes are needed. We recommend that you address all dependencies on features not supported by the new version of SQL Server as part of your migration project. For more information on the supported editions and scenarios, see [Upgrade to SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
-> 
-> 
 
 The following table lists each of the primary migration methods and discusses when the use of each method is most appropriate.
 
