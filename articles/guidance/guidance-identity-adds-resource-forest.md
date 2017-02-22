@@ -45,7 +45,7 @@ The following diagram highlights the important components in this architecture.
 > 
 > 
 
-[![0]][0] 
+![[0]][0] 
 
 * **On-premises network**. The on-premises network contains its own Active Directory forest and domains.
 * **Active Directory servers**. These are domain controllers implementing domain services running as VMs in the cloud. These servers host a forest containing one or more domains, separate from those located on-premises.

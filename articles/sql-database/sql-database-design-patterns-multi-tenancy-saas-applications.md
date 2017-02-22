@@ -147,7 +147,7 @@ Create an [elastic pool custom dashboard for SaaS](https://github.com/Microsoft/
 
 Use the Azure SQL Database tools to [migrate existing databases to scale out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-View our tutorial on how to [create an elastic pool](sql-database-elastic-pool-create-portal.md).  
+To create an elastic pool using the Azure portal, see [create an elastic pool](sql-database-elastic-pool-manage-portal.md).  
 
 Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
@@ -157,7 +157,7 @@ Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-mana
 * [Multitenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
-* [Solution quick starts](sql-database-solution-quick-starts.md)
+
 
 ## Questions and feature requests
 For questions, find us in the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Add a feature request in the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).

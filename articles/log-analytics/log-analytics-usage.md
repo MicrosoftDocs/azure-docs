@@ -43,6 +43,12 @@ The **Log Analytics usage** dashboard displays the following information:
     - Time taken to collect and index data
 - List of queries
 
+## Understanding nodes for OMS offers
+
+If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you have enabled. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.
+
+![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## To work with usage data
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
 2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
