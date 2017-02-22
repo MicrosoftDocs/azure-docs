@@ -1,5 +1,5 @@
 ---
-title: Adding an Azure Active Directory B2B collaboration user to a role | Microsoft Docs
+title: Auditing and reporting an Azure Active Directory B2B collaboration user | Microsoft Docs
 description: Azure Active Directory B2B collaboration user properties are configurable
 services: active-directory
 documentationcenter: ''
@@ -19,28 +19,25 @@ ms.author: sasubram
 
 ---
 
-# Adding an Azure Active Directory B2B collaboration user to a role
 
-While Azure Active Directory (Azure AD) B2B collaboration users are added as guest users to the directory and guest permissions in the directory are restricted by default, your business may need some guest users to fill more privilege roles in your organization. To support this, guest users can be added to any roles you desire, based on your organization's needs.
+# Auditing and reporting a B2B collaboration user
+With guest users, in this preview you have auditing capabilities on par with member users. Here's an example below of the invitation and redemption history of the just invited Sam Oogle:
 
-## Default Role
+![audit log](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 
-![default role](./media/active-directory-b2b-add-guest-to-role/default-role.png)
+You can dive into each of these events to get the details. For example, let's look at the acceptance details.
 
-## Global Administrator Role
+![activity details](./media/active-directory-b2b-auditing-and-reporting/activity-details.png)
 
-![global admin role](./media/active-directory-b2b-add-guest-to-role/global-admin-role.png)
+You can also export these logs from Azure AD and use the reporting tool of your choice in order to get customized reports.
 
-## Limited Administrator Role
-
-![limited admin role](./media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
-
-## Next steps
+### Next steps
 
 Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [B2B collaboration user properties](active-directory-b2b-user-properties.md)
+* [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
 * [Delegate B2bB collaboration invitations](active-directory-b2b-delegate-invitations.md)
 * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
 * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
