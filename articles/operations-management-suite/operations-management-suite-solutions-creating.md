@@ -36,13 +36,13 @@ Every management solution has unique requirements, and each one can include any 
 The first step in designing a solution is determining the data that you require.  This data may already be in the Log Analytics repository, or your solution may need to provide the process to collect it.
 
 #### Data sources
-
 There are a number of ways that data can be collected in the Log Analytics repository as described in [Data sources in Log Analytics](log-analytics-data-sources.md).  These data sources collect data from a variety of different agents and sources.  
 
-You can configure a data source in your template  
+Data sources can be [configured with an ARM template](log-analytics-template-workspace-configuration.md) and thus included in a management solution. This should only be done if the configuration is specific to your application though since you risk overwriting existing configurations.
 
-If your solution requires data collected by a data source then you should
+For example, your solution may require Warning and Error events from the Application event log.  If you specify this as a data source in your solution, you risk removing Information events if the user had this configured in their workspace.  If you included all events, then you may be collecting excessive Information events in the user's workspace.
 
+If y
 
 
 
