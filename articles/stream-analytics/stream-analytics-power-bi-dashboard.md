@@ -33,11 +33,11 @@ In this article, you learn how create your own custom business intelligence tool
 ## Add Power BI output
 Now that an input exists for the job, an output to Power BI can be defined.
 
-1. Select the **Outputs** box in the middle of the job dashboard. Then select the  **+ Add** button to create your output.
+1. Select the **Outputs** box in the middle of the job dashboard. Then select **+ Add** to create your output.
 
     ![Add output](./media/stream-analytics-power-bi-dashboard/create-pbi-output.png)
 
-2. Provide the **Output Alias**. You can use any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In this case, you have to refer to this output in your query. For example, let’s use the output alias value  "StreamAnalyticsRealTimeFraudPBI".
+2. Provide the **Output Alias**. You can use any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In this case, you refer to this output in your query. For example, let’s use the output alias value  "StreamAnalyticsRealTimeFraudPBI".
 
 3. Then select **Authorize**.
 
@@ -59,13 +59,13 @@ Now that an input exists for the job, an output to Power BI can be defined.
 7. Select **Create**. Now your output configuration is complete.
 
 > [!WARNING]
-> Be aware that if Power BI already has a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+> Be aware that if Power BI already has a dataset and table that has the same name as the one in this Stream Analytics job, the existing data will is overwritten.
 > Also, we recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table won't be created.
 >
 >
 
 The dataset is created with the following settings:
-* **defaultRetentionPolicy: BasicFIFO**: Data is FIFO, 200k maximum rows
+* **defaultRetentionPolicy: BasicFIFO**: Data is FIFO, with 200k maximum rows.
 * **defaultMode: pushStreaming**: Supports both streaming tiles and traditional report-based visuals (aka push).
 
 Currently, you can't create datasets with other flags.
@@ -79,7 +79,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
 ```
 /* Our criteria for fraud:
- Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds) */
+ Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
  SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
  INTO "StreamAnalyticsRealTimeFraudPBI"
@@ -99,7 +99,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
 ## Create the dashboard in Power BI
 
-1. Go to [Powerbi.com](https://powerbi.com) and sign in with your work or school account. If the Stream Analytics job query outputs results, you will see that your dataset is already created:
+1. Go to [Powerbi.com](https://powerbi.com). and then sign in with your work or school account. If the Stream Analytics job query outputs results, you will see that your dataset is already created:
 
     ![Streaming dataset](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
 
@@ -107,7 +107,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
     ![Custom streaming dataset](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-3. Then select your dataset from the list:
+3. Select your dataset from the list:
 
     ![Your streaming dataset](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
@@ -126,10 +126,10 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
 Note that this tutorial demonstrates how to create only one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
 
-For more information about configuring a Power BI output and about utilizing Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource you can use to learn more about creating sashboards with Power BI is [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+For more information about configuring a Power BI output and about utilizing Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource you can use to learn more about creating dashboards with Power BI is [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## Limitations and best practices
-Power BI employs both concurrency and throughput constraints as described here [on this page about Power BI](https://powerbi.microsoft.com/pricing "Power BI Pricing").
+Power BI employs both concurrency and throughput constraints as described [on this page about Power BI](https://powerbi.microsoft.com/pricing "Power BI Pricing").
 
 Currently, your Power BI can be called roughly once per second. Streaming visuals support packets of  15 KB. Beyond that, streaming visuals fail (but push continues to work).
 
@@ -142,7 +142,7 @@ You can use the following equation to compute the value to give your window in s
 
 For example:
 - You have 1,000 devices sending data every second.
-- You are on the Power BI Pro SKU that supports 1,000,000 rows/hour.
+- You are on the Power BI Pro SKU that supports 1,000,000 rows per hour.
 - You want to get average data per device on Power BI you can do at most a push every four seconds per device (as shown below):  
 
 ![Equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
