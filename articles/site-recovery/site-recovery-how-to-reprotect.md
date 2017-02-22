@@ -27,7 +27,7 @@ After reprotect completes and the protected virtual machines are replicating, yo
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 For a quick video overview, you can also go through the video here.
-[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises]
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 read about the complete process of failback here.
 
@@ -138,8 +138,8 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 
 Before re-protection, make sure you have installed the [Process server](site-recovery-vmware-setup-azure-ps-resource-manager.md) in Azure and the on-premises Windows or [Linux Master Target](site-recovery-how-to-install-linux-master-target.md).
 
-[!NOTE]
-After a VM boots up in Azure, it takes some time for the agent to register back to the configuration server (upto 15 mins). During this time you will find reprotect to fail and the error message stating that the agent is not installed. Wait for a few minutes and then try Reprotect again.
+> [!NOTE]
+> After a VM boots up in Azure, it takes some time for the agent to register back to the configuration server (upto 15 mins). During this time you will find reprotect to fail and the error message stating that the agent is not installed. Wait for a few minutes and then try Reprotect again.
  
  
 
@@ -157,8 +157,8 @@ If you want to recover the Azure VM to an existing on-premises VM then the on-pr
 
 You can also reprotect at a recovery plan level. If you have a replication group, it can only be reprotected using a recovery plan. While reprotecting via a recovery plan, you will need to give the above values for every protected machine.
 
-[!NOTE]
-A replication group should be protected back using the same Master target. If they are protected back using different Master target server, a common point in time cannot be taken for it.
+> [!NOTE]
+> A replication group should be protected back using the same Master target. If they are protected back using different Master target server, a common point in time cannot be taken for it.
  
 
 After the reprotect succeed, the VM will enter into a protected state.

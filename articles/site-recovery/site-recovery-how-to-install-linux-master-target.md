@@ -112,8 +112,8 @@ click **Next** to continue.
 13. Select **Free** partition and click on **Create** for creating **/**, **/var/crash** and **/home** partitions with **ext4** as
 File System Type. Create **Swap partition** with **swap** as file system type. To allocate partition size, follow the size allocation formula as mentioned in below table.
 
-	[!NOTE]
-	Linux Master Target (MT) system should not use LVM for root or retention storage spaces. Linux MT configured to avoid LVM partitions/disks discovery by default.
+	> [!NOTE]
+	> Linux Master Target (MT) system should not use LVM for root or retention storage spaces. Linux MT configured to avoid LVM partitions/disks discovery by default.
 
 	![](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
 
@@ -194,8 +194,8 @@ f. If does not exist click **Add Row.**
 
 #### Download and install the additional packages
 
-[!NOTE]
-Make sure system has Internet connectivity before download and installing additional packages or else you will need to manually find out these package RPM and install them.
+> [!NOTE]
+> Make sure system has Internet connectivity before download and installing additional packages or else you will need to manually find out these package RPM and install them.
 
 ```
 yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
@@ -237,8 +237,8 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 #### Install additional packages for specific operating systems
 
-[!NOTE]
-If source protected machines use Reiser or XFS filesystem for the root or boot device, then following additional packages should be download and installed on Linux Master Target prior to the protection.
+> [!NOTE]
+> If source protected machines use Reiser or XFS filesystem for the root or boot device, then following additional packages should be download and installed on Linux Master Target prior to the protection.
  
 
 ***ReiserFS (If used in Suse11SP3. However, ReiserFS is not the default filesystem in Suse11SP3)***
@@ -316,8 +316,8 @@ To apply custom configuration changes, follow the below mentioned steps:
 	```
 	./ApplyCustomChanges.sh
 	```
-[!NOTE]
-Execute the script only once on the server. Shut down the server. Reboot the server after adding a disk as given in the next steps.
+> [!NOTE]
+> Execute the script only once on the server. Shut down the server. Reboot the server after adding a disk as given in the next steps.
 
 ### Add retention disk to Linux MT VM 
 
@@ -361,12 +361,12 @@ multipath id.
 
 ### Install Master Target
 
-[!NOTE]
-Master target server version should be less than or equal to the process server and the configuration server. If the MT version is higher, the reprotect will succeed but replication will fail.
+> [!NOTE]
+> Master target server version should be less than or equal to the process server and the configuration server. If the MT version is higher, the reprotect will succeed but replication will fail.
  
 
-[!NOTE]
-Before installing the master target server, check that the /etc/hosts file on the VM contains entries that map the local hostname to IP addresses associated with all network adapters.
+> [!NOTE]
+> Before installing the master target server, check that the /etc/hosts file on the VM contains entries that map the local hostname to IP addresses associated with all network adapters.
  
 1. Copy the passphrase from **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** on the Configuration server, and save it in passphrase.txt in the same local directory by running the following command.
 

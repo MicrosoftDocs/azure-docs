@@ -32,7 +32,7 @@ Here’s how failback works - After you’ve failed over to Azure, you fail back
 After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
 For a quick video overview, you can also go through the video here.
-[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises]
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 ### Failback to the original or alternate location
 	
@@ -84,8 +84,8 @@ If you select the the latest processed point in time, all virtual machines will 
 
 You cannot failback a VM untill it has atleast one recovery point. You cannot failback a recovery plan untill all its VMs have atleast one recovery point.
 
-[!NOTE]
-A latest recovery point is a crash consistent recovery point.
+> [!NOTE]
+> A latest recovery point is a crash consistent recovery point.
 
 If you select the application consistent recovery point, a single VM failback will recover to its latest available application consistent recovery point. In case of a recovery plan with a replication group, each replication group will recover to ts common available recovery point.
 Note that application consistent recovery points can be behind in time and there might be loss in data.
@@ -106,8 +106,8 @@ After commit completes your VM will be back on the on-premises site, but won’t
 2. Give the value of Process server that needs to be used to send data back to Azure.
 3. Click OK to begin the re-protect job.
 
-[!NOTE]
-After a VM boots up on-premises, it takes some time for the agent to register back to the configuration server (upto 15 mins). During this time you will find reprotect to fail and the error message stating that the agent is not installed. Wait for a few minutes and then try Reprotect again.
+> [!NOTE]
+> After a VM boots up on-premises, it takes some time for the agent to register back to the configuration server (upto 15 mins). During this time you will find reprotect to fail and the error message stating that the agent is not installed. Wait for a few minutes and then try Reprotect again.
 
 Once the reprotect job completes, the VM is replicating back to Azure and you can do a failover.
 
