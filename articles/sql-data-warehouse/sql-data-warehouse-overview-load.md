@@ -30,8 +30,7 @@ The fastest way to import data into SQL Data Warehouse is to use PolyBase to loa
 ### 1. Use PolyBase and T-SQL
 Summary of loading process:
 
-1. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
-2. Move your data to Azure blob storage and store it in text files.
+1. Move your data to Azure blob storage or Azure Data Lake Store and store it in text files.
 3. Configure external objects in SQL Data Warehouse to define the location and format of the data
 4. Run a T-SQL command to load the data in parallel into a new database table.
 
@@ -44,8 +43,7 @@ For a simpler way to use PolyBase, you can create an Azure Data Factory pipeline
 
 Summary of loading process:
 
-1. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
-2. Move your data to Azure blob storage and store it in text files.
+1. Move your data to Azure blob storage and store it in text files. Azure Data Factory does not currently support ADLS connectivity with PolyBase).
 3. Create an Azure Data Factory pipeline to ingest the data. Use the PolyBase option.
 4. Schedule and run the pipeline.
 
