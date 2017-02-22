@@ -262,7 +262,6 @@
 #### [Register devices](active-directory-conditional-access-device-registration-overview.md)
 #### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
 ##### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Manage Authenticator app](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
 #### [Deploy on-premises](active-directory-conditional-access-on-premises-setup.md)
