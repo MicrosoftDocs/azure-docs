@@ -20,10 +20,11 @@ ms.author: nepeters
 
 # Create a virtual machine
 
-The sample script provided here creates an Azure Virtual Machine with an Ubuntu operating system. Once the script has been successfully run, the virtual Machine can be accessed over SSH. Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
+The sample script provided here creates an Azure Virtual Machine with an Ubuntu operating system. Once the script has been successfully run, the virtual Machine can be accessed over SSH. 
 
-> [!NOTE]
-This sample works in Bash. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
+
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Create VM sample
 
