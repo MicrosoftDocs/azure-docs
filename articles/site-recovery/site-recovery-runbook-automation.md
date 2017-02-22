@@ -13,7 +13,7 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 02/06/2017
+ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 
 ---
@@ -100,8 +100,132 @@ The table below contains name and description for each variable in the context.
 | CloudServiceName |Azure Cloud Service name under which the virtual machine is created. |
 | CloudServiceName (in Resource Manager deployment model) |Azure Resource Group name under which the virtual machine is created. |
 
-## Using complex variables per recovery plan
-Sometimes, a runbook requires more information than just the RecoveryPlanContext. There is no first class mechanism to pass a parameter to a runbook. However, if you want to use the same script via multiple recovery plans you can use the Recovery Plan Context variable 'RecoveryPlanName' and use the below experimental technique to use an Azure Automation complex variable in a runbook. The example below shows how you can create three different complex variable assets and use them in the runbook based on the name of the recovery plan.
+### Accessing all VMs of the VmMap in a loop
+Use the below snippet to loop across all VMs of the VmMap.
+
+```
+	$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
+	$vmMap = $RecoveryPlanContext.VmMap
+	 foreach($VMID in $VMinfo)
+	 {
+	     $VM = $vmMap.$VMID                
+             if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
+	         #this check is to ensure that we skip when some data is not available else it will fail
+		 Write-output "Resource group name ", $VM.ResourceGroupName
+		 Write-output "Rolename " = $VM.RoleName
+	     }
+	 }
+
+```
+
+> [!NOTE]
+> The Resource Group name and the Role name values will be empty when the script is a pre-action to a boot group. It will be populated only if the VM of that group succeed in failover and the script is a post-action of the boot group.
+
+## Using the same Automation runbook for across multiple recovery plans
+
+A single script can be used across multiple recovery plans by using external variables. You can use the [Azure Automation variables](../automation/automation-variables.md) to store parameters that you can pass for a recovery plan execution. By pre-fixing the variable with the name of the recovery plan, you can create individual variables for every recovery plan and use them as a parameter. You can change the parameter without changing the script and make the script work differently.
+
+### Using simple string variables in runbook script
+
+Consider script that takes the input of an NSG and applies it to the VMs of a recovery plan.
+
+For the script to understand which recovery plan is executing, you can use the Recovery Plan Context.
+
+```
+	workflow AddPublicIPAndNSG {
+	    param (
+	          [parameter(Mandatory=$false)]
+	          [Object]$RecoveryPlanContext
+	    )
+
+	    $RPName = $RecoveryPlanContext.RecoveryPlanName
+```
+
+To apply an existing NSG, you need the NSG name and the NSG resource group. We will provide this as an input for the recovery plan. To do this, we will create two variables in the Automation accounts assets and prefix it with the name of the recovery plan for which you are creating the parameters.
+
+1. Create a variable to store the NSG name. Prefix it with the name of the recovery plan.
+	![Create NSG name variable](media/site-recovery-runbook-automation-new/var1.png)
+
+2. Create a variable to store the NSG's RG name. Prefix it with the name of the recovery plan.
+	![Create NSG RG name](media/site-recovery-runbook-automation-new/var2.png)
+
+
+In the script, acquire the variables' values by using the below reference code.
+
+```
+	$NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
+	$NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
+
+	$NSGnameVar = Get-AutomationVariable -Name $NSGValue 
+	$RGnameVar = Get-AutomationVariable -Name $NSGRGValue
+```
+
+Next you can use the variables in the runbook and apply the NSG to the Network Interface of the failed over virtual machine.
+
+```
+	 InlineScript { 
+	 	if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
+			$NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
+			Write-output $NSG.Id
+			#Apply the NSG to a network interface
+			#$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+			#Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+			#  -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $NSG
+		}
+	}
+```
+
+For each recovery plan, create independent variables so that you can reuse the script and prefix it wih the recovery plan name. A complete end to end script for this example is [given here](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
+
+
+### Using complex variable to store more information
+
+Consider a scenario where you want just one script to turn on a public IP on specific VMs Another example would be to apply different NSGs on different virtual machines (not all). This script should be reusable for any other recovery plan. Each recovery plan can have variable number of virtual machines (example, a sharepoint recovery has two front ends, a simple LOB application has only 1 front end). For this it is impossible to separate variables per recovery plan. Here we create a [complex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) in the Azure Automation account assets, by specifying multiple values. For this you will need the Azure powershell
+
+1. On the Azure powershell login to your subscription.
+
+	```
+		login-azurermaccount
+		$sub = Get-AzureRmSubscription -Name <SubscriptionName>
+		$sub | Select-AzureRmSubscription
+	```
+
+2. Create the complex variable with the same name as the recovery plan to store the properties
+
+	```
+		$VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
+	        New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
+	```
+
+	In this complex variable, **VMDetails* is the VM ID for the protected virtual machine. You can find this in the properties of the virtual machine on the portal. He we have created a variable to store the details of two virtual machines.
+
+	![VM's ID to be used as GUID](media/site-recovery-runbook-automation-new/vmguid.png)
+
+3. Use this variable in your runbook and apply the NSG on the virtual machine if any of the given VMGUID is found in the recovery plan context.
+
+	```
+		$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName 
+	```
+
+4. In your runbook, loop through the VMs of the recovery plan context and check if the VM also exists in **$VMDetailsObj**. If it exists, apply the NSG by accessing the properties of the variable.
+	```
+		$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
+		$vmMap = $RecoveryPlanContext.VmMap
+		   
+		foreach($VMID in $VMinfo) {
+			Write-output $VMDetailsObj.value.$VMID
+			
+			if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+				$VM = $vmMap.$VMID
+				# Access the properties of the variable
+				$NSGname = $VMDetailsObj.value.$VMID.'NSGName'
+				$NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+
+				# Add code to apply the NSG properties to the VM
+			}
+		}
+	```
+
 
 Consider that you want to use 3 additional parameters in a runbook. Let us encode them into a JSON form
 {"Var1":"testautomation","Var2":"Unplanned","Var3":"PrimaryToSecondary"}
