@@ -28,7 +28,7 @@ In this article, you learn how create your own custom business intelligence tool
 ## Prerequisites
 * Microsoft Azure Account
 * Work or school account for Power BI
-* Completion of the Get Started scenario [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md). This article builds upon the workflow that's described there and adds a Power BI streaming dataset output.
+* Completion of the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) scenario. The article you're reading now builds on the workflow that's described there and adds a Power BI streaming dataset output.
 
 ## Add Power BI output
 Now that an input exists for the job, an output to Power BI can be defined.
@@ -39,7 +39,7 @@ Now that an input exists for the job, an output to Power BI can be defined.
 
 2. Provide the **Output Alias**. You can use any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In this case, you refer to this output in your query. For example, let’s use the output alias value  "StreamAnalyticsRealTimeFraudPBI".
 
-3. Then select **Authorize**.
+3. Select **Authorize**.
 
     ![Add authorization](./media/stream-analytics-power-bi-dashboard/pbi-authorize.png)
 
@@ -49,7 +49,7 @@ Now that an input exists for the job, an output to Power BI can be defined.
 
 5. The authorization disappears after you've provided the necessary information. The **New output** area has fields for the **Dataset Name** and **Table Name**.
 
-    ![pbi workspace](./media/stream-analytics-power-bi-dashboard/pbi-workspace.png)
+    ![PBI workspace](./media/stream-analytics-power-bi-dashboard/pbi-workspace.png)
 
 6. Define them as follows:
     * **Group Workspace**: Select a workspace in your Power BI tenant under which to create the dataset.
@@ -65,7 +65,7 @@ Now that an input exists for the job, an output to Power BI can be defined.
 >
 
 The dataset is created with the following settings:
-* **defaultRetentionPolicy: BasicFIFO**: Data is FIFO, with 200k maximum rows.
+* **defaultRetentionPolicy: BasicFIFO**: Data is FIFO, with a maximum of 200,000 rows.
 * **defaultMode: pushStreaming**: Supports both streaming tiles and traditional report-based visuals (aka push).
 
 Currently, you can't create datasets with other flags.
@@ -117,9 +117,9 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
     Now we have a fraud counter!
 
-    ![fraud counter](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
+    ![Fraud counter](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
 
-5. Walk through the exercise of adding a tile again. This time, however, select the line chart. Add **fraudulentcalls** as the value and **windowend** as the axis. We selected the last 10 minutes, as shown in the following screenshot:
+5. Walk through the exercise of adding a tile again. This time, however, select the line chart. Add **fraudulentcalls** as the value and **windowend** Select the last 10 minutes, as shown in the following screenshot:
 
 ![Fraud calls](./media/stream-analytics-power-bi-dashboard/fraud-calls.png)
 
@@ -128,7 +128,7 @@ Note that this tutorial demonstrates how to create only one kind of chart for a 
 
 For more information about configuring a Power BI output and about utilizing Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource you can use to learn more about creating dashboards with Power BI is [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## Limitations and best practices
+## Learn about limitations and best practices
 Power BI employs both concurrency and throughput constraints as described [on this page about Power BI](https://powerbi.microsoft.com/pricing "Power BI Pricing").
 
 Currently, your Power BI can be called roughly once per second. Streaming visuals support packets of  15 KB. Beyond that, streaming visuals fail (but push continues to work).
