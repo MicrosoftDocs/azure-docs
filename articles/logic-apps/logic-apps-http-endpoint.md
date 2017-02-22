@@ -51,6 +51,31 @@ Or, by calling:
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
 
+### Changing HTTP method of the trigger
+By default, request trigger in Logic Apps expects HTTP POST request. But you can configure the HTTP method under `Show advanced options`.
+
+ > [!NOTE]
+ > Only one type of method is allowed.
+
+### Relative trigger URL
+You can also customize relative path of the request Url to accept parameters.
+
+1. Expand `Show advanced options` of the **Request** trigger.
+ - Under `Relative path`, enter `customer/{customerId}`.
+
+  ![Relative Url Trigger](./media/logic-apps-http-endpoint/relativeurl.png)
+
+2. Update **Respond** action to make user of the parameter.
+ - You should see `customerId` shows up in the token picker.
+ - Update the body of the respond to return `Hello {customerId}`.
+
+  ![Relative Url Response](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+
+3. Save the Logic App, you should notice the request Url update to include the relative path.
+
+4. Copy the new request Url and paste it into a new browser window. Substitute `{customerId}` with `123`, and press Enter.
+ - You should see `Your customer Id is 123` returned.
+
 ### Security for the trigger URL
 Logic App callback URLs are generated securely using a Shared Access Signature.  The signature is passed through as a query parameter, and must be validated before the logic app will fire.  It is generated through a unique combination of a secret key per logic app, the trigger name, and the operation being performed.  Unless someone has access to the secret logic app key, they would not be able to generate a valid signature.
 

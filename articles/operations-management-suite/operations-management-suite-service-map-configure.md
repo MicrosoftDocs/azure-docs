@@ -252,6 +252,7 @@ The following sections list the supported operating systems for the Dependency A
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
 
 #### Red Hat Linux 6
 | OS Version | Kernel Version |
@@ -272,7 +273,7 @@ The following sections list the supported operating systems for the Dependency A
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417 |
 
 #### Oracle Enterprise Linux w/ Unbreakable Kernel (UEK)
 
