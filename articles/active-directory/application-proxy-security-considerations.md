@@ -28,7 +28,7 @@ Azure AD Application Proxy offers the following security benefits:
 
 **Authenticated access:** Only authenticated connections can access your network.
 
-* Azure AD Application Proxy relies on the Azure AD security token service (STS) for all authentication. For applications that are published with preauthentication, no traffic can pass through the Application Proxy service to your environment without a valid STS token.
+* Azure AD Application Proxy relies on the Azure AD security token service (STS) for all authentication. For applications that are published with preauthentication, traffic cannot pass through the Application Proxy service to your environment without a valid STS token.
 * Preauthentication, by its very nature, blocks a significant number of anonymous attacks, because only authenticated identities can access the back-end application.
 
 **Conditional access:** Apply richer policy controls before connections to your network are established.
@@ -40,10 +40,10 @@ Azure AD Application Proxy offers the following security benefits:
 
 * Because Azure AD Application Proxy is a reverse-proxy, all traffic to back-end applications is terminated at the service. The session can get reestablished only with the back-end server, which means that your back-end servers are not exposed to direct HTTP traffic. For example, you can more easily mitigate targeted attacks.
 
-**All access is outbound:** No inbound connections need to be opened to the corporate network.
+**All access is outbound:** You don't need to open inbound connections to the corporate network.
 
 * Azure AD connectors maintain outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections.
-* Traditional approaches required a DMZ and opening access to unauthenticated connections at the network edge. This scenario resulted in the need for a lot of additional investment in WAF products to analyze traffic and offer addition protections to the environment. With Application Proxy, you can avoid this scenario. You can even consider going without the DMZ, because all connections are outbound and take place over a secure channel.
+* Traditional approaches required a DMZ and opening access to unauthenticated connections at the network edge. This scenario resulted in the need for many additional investment in WAF products to analyze traffic and offer addition protections to the environment. With Application Proxy, you can avoid this scenario. You can even consider going without the DMZ, because all connections are outbound and take place over a secure channel.
 
 **Security analytics and machine language-based intelligence:** Get cutting-edge security protection.
 
@@ -63,10 +63,10 @@ The following diagram shows how Azure AD enables secure remote access to your on
  ![Diagram of secure remote access through Azure AD Application Proxy](./media/application-proxy-security-considerations/secure-remote-access.png)
 
 >[!NOTE]
->To improve the security of applications published by Azure AD Application Proxy, we block web crawler robots from indexing and archiving your applications. Each time a web crawler robot tries to retrieve the robot's settings for a published app, Application Proxy replies with a robots.txt file that includes the following:
-
-_User-agent: *_  
-_Disallow: /_
+>To improve the security of applications published by Azure AD Application Proxy, we block web crawler robots from indexing and archiving your applications. Each time a web crawler robot tries to retrieve the robot's settings for a published app, Application Proxy replies with a robots.txt file that includes the following text:
+>
+>_User-agent: *_  
+>_Disallow: /_
 
 ## Components of the Azure AD Application Proxy solution
 
@@ -75,7 +75,7 @@ Azure AD Application Proxy consists of two parts:
 * The cloud-based service: This service is where the external client/user connections are made.
 * The Azure AD Application Proxy connector: An on-premises component, the connector listens for requests from the Azure AD Application Proxy service and handles connections to the internal applications. The service includes taking care of items such as the Kerberos Constrained Delegation (KCD) for SSO.
 
-### Traffic flows and how they're secured
+### Securing traffic flows
 This section discusses how the flows are secured. A flow between the connector and the Application Proxy service is established when:
 
 * The connector is first set up.
@@ -91,7 +91,7 @@ The connector uses a client certificate to authenticate to the Application Proxy
 
 When the connector is first set up, the following flow events take place:
 
-* The connector registration to the service happens as part of the installation of the connector. At this time, users are prompted to enter their Azure AD admin credentials. The token acquired is then presented to the Azure AD Application Proxy service.
+* The connector registration to the service happens as part of the installation of the connector. Currently, users are prompted to enter their Azure AD admin credentials. The token acquired is then presented to the Azure AD Application Proxy service.
 * Application Proxy evaluates the token to ensure that the user is a member of the company admin role within the tenant that the token was issued for. If the user is not a member of the admin role, the process is terminated.
 * The connector generates a client certificate request and passes it, with the token, to the Application Proxy service, which in turn verifies the token and signs the client certificate request.
 * The connector uses the client certificate for future communication with the Application Proxy service.
@@ -103,7 +103,7 @@ Whenever the Application Proxy service updates the configuration settings, the f
 
 * The connector connects to the configuration endpoint within the Application Proxy service by using its client certificate.
 * After the client certificate has been validated, the Application Proxy service returns configuration data to the connector (for example, the connector group that the connector should be part of).
-* The connector generates a new certificate request if the current certificate is more than 30 days old, effectively rolling the client certificate every 30 days.
+* If the current certificate is more than 30 days old, the connector generates a new certificate request, which effectively updates the client certificate every 30 days.
 
 #### Accessing published applications
 
@@ -129,7 +129,7 @@ When users access a published application, the following flow events take place:
 
 3. The connector receives the request from the queue, based on a long-lived outbound connection. Based on the request, Application Proxy performs one of the following actions:
  * The connector confirms whether it can identify the application. If it cannot identify the application, the connector establishes a connection to the Application Proxy service to gather details about the application, and it caches the application locally.
- * If the request is a simple operation (for example, there is no data within the body as-is with a RESTful *GET* request), the connector makes a connection to the target internal resource and then waits for a response.
+ * If the request is a simple operation (for example, there is no data within the body as is with a RESTful *GET* request), the connector makes a connection to the target internal resource and then waits for a response.
  * If the request has data associated with it in the body (for example, a RESTful *POST* operation), the connector makes an outbound connection by using the client certificate to the Application Proxy instance. It makes this connection to request the data and open a connection to the internal resource.
  * After it receives the request from the connector, the Application Proxy service begins accepting content from the user and forwards data to the connector. The connector, in turn, forwards the data to the internal resource.
 
