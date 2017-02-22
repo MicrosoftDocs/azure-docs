@@ -36,7 +36,7 @@ The primary migration methods are:
 * Use SQL Server [transactional replication](https://msdn.microsoft.com/library/ms151176.aspx) to configure the Azure SQL Server instance as a subscriber and then disable replication, pointing users to the Azure database instance
 
 > [!TIP]
-> you can also use these same techniques to move databases between SQL Server VMs in Azure. For example, there is no supported way to upgrade a SQL Server gallery-image VM from one version/edition to another. In this case, you should create a new SQL Server VM with the new version/edition and then use one of the migration techniques in this article to move your databases. 
+> You can also use these same techniques to move databases between SQL Server VMs in Azure. For example, there is no supported way to upgrade a SQL Server gallery-image VM from one version/edition to another. In this case, you should create a new SQL Server VM with the new version/edition, and then use one of the migration techniques in this article to move your databases. 
 
 ## Choosing your migration method
 For optimum data transfer performance, migrate the database files into the Azure VM using a compressed backup file.
