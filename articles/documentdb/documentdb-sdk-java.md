@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/22/2017
 ms.author: khdang
 
 ---
@@ -47,8 +47,12 @@ ms.author: khdang
 </table></br>
 
 ## Release Notes
+### <a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+* Fixed a bug in the query engine configuration that may cause exceptions for queries in Gateway mode.
+* Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
+
 ### <a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
-* Added support for aggregation queries (AVG, COUNT, MIN, MAX, and SUM).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
@@ -148,6 +152,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.9.6](#1.9.6) |February 21, 2017 |--- |
 | [1.9.5](#1.9.5) |January 31, 2017 |--- |
 | [1.9.4](#1.9.4) |November 24, 2016 |--- |
 | [1.9.3](#1.9.3) |October 30, 2016 |--- |
