@@ -21,7 +21,8 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > * [Azure portal](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
-> * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-dnszone-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-dnszone-cli.md)
 
 This article walks you through the steps to create a DNS zone using Azure PowerShell. You can also create a DNS zone using the cross-platform [Azure CLI](dns-getstarted-create-dnszone-cli.md) or the [Azure portal](dns-getstarted-create-dnszone-portal.md).
 
