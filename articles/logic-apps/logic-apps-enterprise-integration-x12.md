@@ -127,7 +127,7 @@ in the incoming message with the values you set here, and the schema of the inco
 
 ### Envelopes
 
-![Specify the separator in a transaction set: choose Standard Identifier or Repetition Sparator](./media/logic-apps-enterprise-integration-x12/x12-34.png)
+![Specify the separator in a transaction set: choose Standard Identifier or Repetition Separator](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
 | Property | Description |
 | --- | --- |
@@ -276,7 +276,7 @@ If a character set isn't specified for a given message schema, then the default 
 | Message Type |Select the message type from the list |
 | EDI Validation |Enable validation on the interchange receiver. This validation performs EDI validation on transaction set data elements, validating data types, length restrictions, and empty data elements and trailing separators |
 | Extended Validation |Enable extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
-| Allow Leading/Trailing Zeroes |Specifies that an EDI interchange received from the party won't fail validation when a data element in an EDI interchange doesn't conform to its length requirement. The data element might not conform due to leading (or trailing) zeros or spaces, but does conform to its length requirement when those characters are removed. |
+| Allow Leading/Trailing Zeroes |Specifies that an EDI interchange received from the party does not fail validation when a data element in an EDI interchange does not conform to its length requirement. The data element might not conform due to leading (or trailing) zeros or spaces, but does conform to its length requirement when those characters are removed. |
 | Trim Leading/Trailing Zeroes |Remove leading (or trailing) zero characters. |
 | Trailing Separator Policy |Generates trailing separators on the interchange sent.</br></br>Select Not Allowed if you want to prohibit trailing delimiters and separators in the sent interchange. If the interchange contains trailing delimiters and separators, the interchange is declared invalid.</br></br>Select Optional to send interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the sent interchange must contain trailing delimiters and separators. |
 

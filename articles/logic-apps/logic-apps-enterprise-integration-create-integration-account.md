@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/23/2017
 ms.author: mandia
 
 ---
@@ -70,24 +70,23 @@ link the integration account to your logic app.
 > [!NOTE] 
 > Make sure your integration account and logic app are in the *same Azure location* before you begin.
 
-1. From the menu for your logic app, choose **Settings**.
 
-	![Go to your logic app, choose "Settings"](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)
+1. In the Azure portal, select your logic app, and check your logic app's location.
+
+	![Select your logic app, check location](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)
 
 2. Under **Settings**, select **Integration Account**.
 
 	![Select "Integration Account"](./media/logic-apps-enterprise-integration-accounts/linkaccount-2.png)
 
-3. From the **Select an Integration account** list, select the integration account you want to link to your logic app.
+3. From the **Select an Integration account** list, 
+select the integration account you want to link to your logic app. 
+To finish linking, choose **Save**.
 
 	![Select your integration account](./media/logic-apps-enterprise-integration-accounts/linkaccount-3.png)
 
-4. When you're ready, save your work.
-
-	![When ready, choose "Save"](./media/logic-apps-enterprise-integration-accounts/linkaccount-4.png)
-
-5. You get a notification that shows your integration account is linked to your logic app, 
-and that all artifacts in your integration account are now available to your logic app.
+	You get a notification that shows your integration account is linked to your logic app, 
+	and that all artifacts in your integration account are now available to your logic app.
 
 	![Your logic app is linked to your integration account](./media/logic-apps-enterprise-integration-accounts/linkaccount-5.png)
 
@@ -99,16 +98,16 @@ Some common B2B connectors include XML validation and flat file encode/decode.
 
 1. Select **More services**.
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
+	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
-2. In the filter search box, type "integration". 
+2. In the search box, type "integration" for your filter. 
 In the results list, select **Integration Accounts**.
 
-	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-overview/overview-2.png)  
+	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
 
 3. Select the integration account that you want to delete.
 
-	![Select integration account to delete](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+	![Select integration account to delete](./media/logic-apps-enterprise-integration-accounts/account-5.png)
 
 4. On the menu, choose **Delete**.
 
@@ -125,22 +124,21 @@ To move an integration account to another Azure subscription or resource group, 
 
 1. Select **More services**.
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. In the filter search box, type "integration". 
 In the results list, select **Integration Accounts**.
 
-	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-accounts/account-2.png)
 
-3. Select the integration account that you want to move.
+3. Select the integration account that you want to move. 
+Under **Settings**, choose **Properties**.
 
-	![Select integration account to move](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+	![Select integration account to move. Under Settings, choose Properties](./media/logic-apps-enterprise-integration-accounts/move.png)
 
-4. On the menu, choose **Move**.
+5. Change the resource group or Azure subscription that's associated with your integration account.
 
-	![Choose "Move"](./media/logic-apps-enterprise-integration-accounts/move.png)
-
-5. Confirm your choice to move the integration account.
+	![Choose Change resource group or Change subscription](./media/logic-apps-enterprise-integration-accounts/move-2.png)
 
 ## Next Steps
 * [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
