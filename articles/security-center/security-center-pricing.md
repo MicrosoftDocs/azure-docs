@@ -36,7 +36,7 @@ For more information, see the Security Center [pricing page](https://azure.micro
 ## Try Standard free for 60 days
 The Standard tier is offered free for the first 60 days. At the end of 60 days, should you choose to continue using the service, we will automatically start charging for usage.
 
-To get the Standard tier,
+To get the Standard tier:
 
 1. Select the **Policy** tile on the **Security Center** blade.
 2. Select the subscription that you want to upgrade to Standard.
@@ -68,7 +68,7 @@ The **Network communication** alert below provides details about the alert. Deta
 ## Enable data collection
 To enable virtual machine behavioral analytics, data collection must be turned on.
 
-To validate that data collection is enabled,
+To validate that data collection is enabled:
 
 1. Select the **Policy** tile. The **Security policy** blade opens listing your Azure subscriptions.
 2. Select a subscription.
