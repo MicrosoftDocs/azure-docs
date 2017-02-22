@@ -100,19 +100,19 @@ This template includes the following slicers to allow you to view only the data 
 
 ## Conclusion
 
-We showed in this scenario that by using Network Security Group Flow logs provided by Network Watcher and Power BI, we are able to visualize and understand the traffic. Using the provided template, Power BI downloads the logs directly from storage and processes them locally. Time taken to load the template will vary depending on the number of files requested and total size of files downloaded.
+We showed in this scenario that by using Network Security Group Flow logs provided by Network Watcher and Power BI, we are able to visualize and understand the traffic. Using the provided template, Power BI downloads the logs directly from storage and processes them locally. Time taken to load the template varies depending on the number of files requested and total size of files downloaded.
 
 Feel free to customize this template for your needs. There are many numerous ways that you can use Power BI with Network Security Group Flow Logs. 
 
 ## Notes
 
-* Logs by default are stored in `https://{storageAccountName}.blob.core.windows.net/insights-logsneh-networksecuritygroupflowevent/`
+* Logs by default are stored in `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
-    * If other data exists in another directory they the queries to pull process the data must be modified.
+    * If other data exists in another directory they the queries to pull and process the data must be modified.
 
 * The provided template is not recommended for use with more than 1 GB of logs.
 
-* If you have a large amount logs, we recommend that you investigate a solution using another data store like Data Lake or SQL server.
+* If you have a large amount of logs, we recommend that you investigate a solution using another data store like Data Lake or SQL server.
 
 ## Next Steps
 
