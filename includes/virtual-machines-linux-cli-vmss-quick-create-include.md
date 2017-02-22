@@ -1,4 +1,8 @@
+## Prerequisites
+
 If you haven't already, get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and install the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+
+## Create the scale set
 
 First, create a resource group to deploy the scale set into:
 

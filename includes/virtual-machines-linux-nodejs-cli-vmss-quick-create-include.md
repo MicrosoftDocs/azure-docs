@@ -1,8 +1,12 @@
+## Prerequisites
+
 If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI 1.0](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Make sure the Azure CLI is in Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm
 ```
+
+## Create the scale set
 
 Now create your scale set using the `azure vmss quick-create` command. The following example creates a Linux scale set named `myVMSS` with five VM instances in the resource group named `myResourceGroup`:
 
