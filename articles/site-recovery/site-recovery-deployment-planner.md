@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery Deployment Planer | Microsoft Docs
-description: It is Azure Site Recovery Deployment Planner user guide.
+title: Azure Site Recovery Deployment Planner | Microsoft Docs
+description: This is the Azure Site Recovery Deployment Planner user guide.
 services: site-recovery
 documentationcenter: ''
 author: nsoneji
@@ -18,12 +18,12 @@ ms.author: nisoneji
 
 ---
 #Azure Site Recovery Deployment Planner
-This is Azure Site Recovery Deployment Planner user guide for VMware to Azure production deployments
+This is the Azure Site Recovery Deployment Planner user guide for VMware to Azure production deployments.
 
 
 ##Overview
 
-Before protecting any VMware virtual machines using Azure Site Recovery, you need to allocate sufficient bandwidth based on your daily data change rate to meet the desired RPO. You need to deploy the right number of Configuration Servers and Process Servers on-premises. You also need to create the right type and number of target Azure Storage accounts - either standard or premium, factoring in growth on your source production servers due to increased usage over time. Storage type is decided per virtual machine based on workload characteristics (R/W IOPS, data churn) and Azure Site Recovery limits.  
+Before protecting any VMware virtual machines using Azure Site Recovery, you need to allocate sufficient bandwidth based on your daily data change rate to meet the desired RPO. You need to deploy the right number of Configuration Servers and Process Servers on-premises. You also need to create the right type and number of target Azure Storage accounts - either standard or premium, factoring in growth on your source productiont servers due to increased usage over time. Storage type is decided per virtual machine based on workload characteristics (R/W IOPS, data churn) and Azure Site Recovery limits.  
 
 Azure Site Recovery Deployment Planner Public Preview is a command line tool currently available only for the VMware to Azure scenario. You can remotely profile your VMware virtual machines using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and Test Failover .  You can run the tool without installing any Azure Site Recovery components on-premises, although to get accurate achieved throughput results, it is recommended to run the Planner on a Windows Server that meets the minimum requirements of the Azure Site Recovery Configuration Server that you would eventually need to deploy as one of the first steps of the production deployment.
 
