@@ -1,6 +1,6 @@
 ---
 title: Mount Azure File storage on Linux VMs by using SMB with Azure CLI 1.0 | Microsoft Docs
-description: How to mount Azure File storage on Linux VMs using SMB
+description: How to mount Azure File storage on Linux VMs by using SMB
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -20,7 +20,7 @@ ms.author: v-livech
 
 # Mount Azure File storage on Linux VMs by using SMB with Azure CLI 1.0
 
-This article shows how to mount Azure File storage on a Linux VM by using the server message block (SMB) protocol. File storage offers file shares in the cloud via the standard SMB protocol. The requirements are:
+This article shows how to mount Azure File storage on a Linux VM by using the Server Message Block (SMB) protocol. File storage offers file shares in the cloud via the standard SMB protocol. The requirements are:
 
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial/)
 * [Secure Shell (SSH) public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
@@ -38,11 +38,11 @@ To accomplish the task quickly, follow the steps in this section. For more detai
 
 ### Prerequisites
 * A resource group
-* An Azure Virtual Network
+* An Azure virtual network
 * A network security group with an SSH inbound
 * A subnet
-* An Azure Storage account
-* Azure Storage account keys
+* An Azure storage account
+* Azure storage account keys
 * An Azure File storage share
 * A Linux VM
 
@@ -54,14 +54,14 @@ Replace any examples with your own settings.
 mkdir -p /mnt/mymountpoint
 ```
 
-### Mount the File storage SMB share to the mountpoint
+### Mount the File storage SMB share to the mount point
 
 ```bash
 sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ### Persist the mount after a reboot
-To do so, add the following line to the `/etc/fstab`:
+Add the following line to `/etc/fstab`:
 
 ```bash
 //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -75,7 +75,7 @@ Moving files from a VM to an SMB mount that's hosted on File storage is a great 
 
 For this detailed walkthrough, we create the prerequisites needed to first create the File storage share, and then mount it via SMB on a Linux VM.
 
-1. Create an Azure Storage account by using the following code:
+1. Create an Azure storage account by using the following code:
 
     ```azurecli
     azure storage account create myStorageAccount \
@@ -85,9 +85,9 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     -g myResourceGroup
     ```
 
-2. Show the Storage account keys.
+2. Show the storage account keys.
 
-    When you create a Storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New Storage account keys are always created in pairs, ensuring that you always have at least one unused storage key ready to switch to. To show the Storage account keys, use the following code:
+    When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, ensuring that you always have at least one unused storage key ready to switch to. To show the storage account keys, use the following code:
 
     ```azurecli
     azure storage account keys list myStorageAccount \
@@ -104,7 +104,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     --account-key nPOgPR<--snip-->4Q==
     ```
 
-4. Create the mountpoint directory.
+4. Create the mount-point directory.
 
     You must create a local directory in the Linux file system to mount the SMB share to. Anything written or read from the local mount directory is forwarded to the SMB share that's hosted on File storage. To create the directory, use the following code:
 
