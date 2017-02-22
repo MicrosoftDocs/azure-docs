@@ -9,7 +9,9 @@
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
-## [Manage AD licensing](active-directory-licensing-what-is.md)
+## Manage Azure AD licensing
+### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
+### [Classic portal](active-directory-licensing-what-is.md)
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
 ## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
@@ -47,14 +49,22 @@
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Classic portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Group-based licensing](active-directory-licensing-whatis-azure-portal.md)
+#### [Assigning licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifying and resolving license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [How to migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
 ## [View activity and security reports](active-directory-view-access-usage-reports.md)
 ### [Azure AD reporting](active-directory-reporting-getting-started.md)
+### [Sign-ins](active-directory-reporting-activity-sign-ins.md)
+### [Audit logs](active-directory-reporting-activity-audit-logs.md)
+### [Users at risk](active-directory-reporting-security-azure-portal-user-at-risk.md)
+### [Risky sign-ins](active-directory-reporting-security-azure-portal-risky-sign-ins.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### [Report migration](active-directory-reporting-migration.md)
-
 ### [Known networks](active-directory-known-networks.md)
 
 ### [Reporting guide](active-directory-reporting-guide.md)

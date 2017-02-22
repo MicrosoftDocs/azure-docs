@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/22/2017
 ms.author: khdang
 
 ---
@@ -48,7 +48,7 @@ ms.author: khdang
 
 ## Release Notes
 ### <a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
-* Added support for aggregation queries (AVG, COUNT, MIN, MAX, and SUM).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
