@@ -48,8 +48,8 @@ ms.author: khdang
 
 ## Release Notes
 ### <a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
-* Fixed a bug in query engine config which may cause exceptions for query in Gateway mode
-* Fixed a few bugs in session container which may cause "Owner resource not found" exception for requests right after collection creation
+* Fixed a bug in the query engine configuration that may cause exceptions for queries in Gateway mode.
+* Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
 * Added support for aggregation queries (AVG, COUNT, MIN, MAX, and SUM).
