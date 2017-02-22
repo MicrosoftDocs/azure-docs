@@ -20,13 +20,9 @@ ms.author: cynthn
 ---
 # Attach a data disk to a Windows virtual machine created with the classic deployment model
 <!--
-** Need to delete this after all other edits are made. **
-
-If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Refernce article:
+    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
-
-> [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
 This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal.
 
@@ -41,6 +37,9 @@ Before you attach a disk, review these tips:
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
 
 You can also [attach a data disk using Powershell](virtual-machines-windows-attach-disk-ps.md).
+
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Find the virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.com/).
