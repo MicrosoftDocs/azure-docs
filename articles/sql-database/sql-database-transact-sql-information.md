@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/22/2016
+ms.date: 02/22/2017
 ms.author: rickbyh
 
 ---
