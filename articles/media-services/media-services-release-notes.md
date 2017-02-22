@@ -103,7 +103,7 @@ The Basic, Standard, and Premium encoding reserved units are renamed to S1, S2, 
 
 ### Azure Media Encoder deprecation announcement
 
-Azure Media Encoder will be deprecated in 12 months. Please, start using the [Media Encoder Standard](media-services-media-encoder-standard-formats.md) encoder.
+Azure Media Encoder will be deprecated starting in approximately 12 months from the release of Media Encoder Standard.
 
 ### Azure SDK for PHP
 The Azure SDK team published a new release of the [Azure SDK for PHP](http://github.com/Azure/azure-sdk-for-php) package that contains updates and new features for Microsoft Azure Media Services. In particular, the Azure Media Services SDK for PHP now supports the latest [content protection](media-services-content-protection-overview.md) features: dynamic encryption with AES and DRM (PlayReady and Widevine) with and without Token restriction. It also supports scaling [Encoding Units](media-services-dotnet-encoding-units.md).

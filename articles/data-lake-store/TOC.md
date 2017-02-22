@@ -21,6 +21,7 @@
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
+### [Migrate Azure Data Lake Store across regions](data-lake-store-migration-cross-region.md)
 
 ## Secure Data
 ### [Security overview](data-lake-store-security-overview.md)
