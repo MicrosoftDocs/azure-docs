@@ -46,8 +46,7 @@ This script uses the following commands to create the deployment. Each item in t
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used, and administrative credentials.  |
-| [az network nsg list](https://docs.microsoft.com/cli/azure/network/nsg#create) | Lists network security groups. In this case, the name of the network security group is stored in a variable for later use in the script. |
-| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |
+| [az vm open-port](https://docs.microsoft.com/en-us/cli/azure/vm#open-port) | Creates an NSG rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#set) | Adds and runs a virtual machine extension to a VM. In this sample, the Docker VM extension is used to configure a Docker host.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
