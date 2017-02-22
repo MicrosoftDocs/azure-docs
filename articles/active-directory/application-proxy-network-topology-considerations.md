@@ -73,7 +73,7 @@ If you have a dedicated VPN or ExpressRoute link between Azure and your corporat
 
 ## Focus your optimizing strategy
 
-Because your users may access apps remotely over the Internet, you should always focus on optimizing hops 2 and 3. Below are some of the common patterns you can incorporate.
+Because your users may access apps remotely over the Internet, you should always focus on optimizing hops 2 and 3. The following are some of the common patterns you can incorporate.
 
 ### Pattern 1: Optimize hop 3
 
@@ -106,57 +106,57 @@ Although the focus of this article is connector placement, you can also change t
 
 Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location.
 
-Consider using connector groups to target apps that are in different locations and networks. If you're considering this option, see [Azure AD Domain Services](https://azure.microsoft.com/en-us/services/active-directory-ds).
+Consider using connector groups to target apps that are in different locations and networks. If you're considering this option, see [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds).
 
 ## Common scenarios
 
-In this section, we walk through a few use cases. Assume that the Azure AD tenant (and therefore proxy service endpoint) is located in the U.S. The considerations discussed in these use cases usually also apply to other regions around the globe.
+In this section, we walk through a few use cases. Assume that the Azure AD tenant (and therefore proxy service endpoint) is located in the United States (US). The considerations discussed in these use cases usually also apply to other regions around the globe.
 
 ### Use case 1
 
-The app is in an organization's network in the U.S., with users in the same region. No ExpressRoute or VPN exists between the Azure datacenter and the corporate network.
+The app is in an organization's network in the US, with users in the same region. No ExpressRoute or VPN exists between the Azure datacenter and the corporate network.
 
 **Recommendation:** Follow pattern 1, explained in the previous section. For improved latency, consider using ExpressRoute, if needed.
 
 This is a simple pattern. You optimize hop 3, by placing the connector near the app. This is also a natural choice, because the connector typically is installed with line of sight to the app and to the datacenter to perform KCD operations.
 
-![Diagram showing outline of U.S., and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern1.png)
+![Diagram showing outline of the US, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern1.png)
 
 ### Use case 2
 
-The app is in an organization's network in the U.S., with users spread out globally. No ExpressRoute or VPN exists between the Azure datacenter and the corporate network.
+The app is in an organization's network in the US, with users spread out globally. No ExpressRoute or VPN exists between the Azure datacenter and the corporate network.
 
 **Recommendation:** Follow pattern 2, explained in the previous section. For improved latency, consider using ExpressRoute, if needed.
 
-Again, the common pattern is to optimize hop 3, where you place the connector near the app. Hop 3 is not typically expensive, if it is all within the same region. However, hop 1 can be more expensive depending on where the user is, because all users access the App Proxy instance in the U.S. It's worth noting that any proxy solution has similar characteristics with respect to users being spread out globally.
+Again, the common pattern is to optimize hop 3, where you place the connector near the app. Hop 3 is not typically expensive, if it is all within the same region. However, hop 1 can be more expensive depending on where the user is, because all users access the Application Proxy instance in the US. It's worth noting that any proxy solution has similar characteristics with respect to users being spread out globally.
 
 ![Diagram showing outline of global continents, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern2.png)
 
 ### Use case 3
 
-The app is in an organization's network in the U.S.. ExpressRoute with public peering exists between Azure and the corporate network.
+The app is in an organization's network in the US. ExpressRoute with public peering exists between Azure and the corporate network.
 
 **Recommendation:** Place the connector as close as possible to the app. The system automatically uses ExpressRoute for hop 2. This follows pattern 2, explained in the previous section.
 
 If the ExpressRoute link is using public peering, the traffic between the proxy and the connector flows over that link. Hop 2 has optimized latency.
 
-![Diagram showing outline of U.S., and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern3.png)
+![Diagram showing outline of the US, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern3.png)
 
 ### Use case 4
 
-The app is in an organization's network in the U.S.. ExpressRoute with private peering exists between Azure and the corporate network.
+The app is in an organization's network in the US. ExpressRoute with private peering exists between Azure and the corporate network.
 
 **Recommendation:** Place the connector in the Azure datacenter that is connected to the corporate network through ExpressRoute private peering. This follows pattern 3, explained in the previous section.
 
 The connector can be placed in the Azure datacenter. Since the connector still has a line of sight to the application and the datacenter through the private network, hop 3 remains optimized. In addition, hop 2 is optimized further.
 
-![Diagram showing outline of U.S., and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern4.png)
+![Diagram showing outline of the US, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern4.png)
 
 ### Use case 5
 
-The app is in an organization's network in the E.U., with most users in the U.S..
+The app is in an organization's network in the EU, with most users in the US.
 
-**Recommendation:** Place the connector near the app. Because U.S. users are accessing an Application Proxy instance that happens to be in the same region, hop 1 is not too expensive. Hop 3 is optimized. However, hop 2 is typically expensive in this use case.
+**Recommendation:** Place the connector near the app. Because US users are accessing an Application Proxy instance that happens to be in the same region, hop 1 is not too expensive. Hop 3 is optimized. However, hop 2 is typically expensive in this use case.
 
 ![Diagram showing outline of global continents, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern5a.png)
 
@@ -164,7 +164,7 @@ Consider using ExpressRoute, as described in preceding sections about patterns 2
 
 ![Diagram showing outline of global continents, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern5b.png)
 
-You can also consider using one other variant in this situation. If most users in the organization are in the U.S., then chances are that your network extends to the U.S. as well. If that is the case, the connector can be placed in the U.S., and can use the dedicated internal corporate network line to the application in the E.U.. This way hops 2 and 3 are optimized.
+You can also consider using one other variant in this situation. If most users in the organization are in the US, then chances are that your network extends to the US as well. If that is the case, the connector can be placed in the US, and can use the dedicated internal corporate network line to the application in the EU. This way hops 2 and 3 are optimized.
 
 ![Diagram showing outline of global continents, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
