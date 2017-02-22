@@ -1,5 +1,5 @@
 ---
-title: Authenticating identities without passwords through Windows Hello for Business | Microsoft Docs
+title: Authenticating identities without passwords through Windows Hello for Business and Azure AD | Microsoft Docs
 description: Provides an overview of Windows Hello for Business and additional information on deploying Windows Hello for Business.
 services: active-directory
 documentationcenter: ''
