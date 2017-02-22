@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 02/20/2017
+ms.date: 02/21/2017
 ms.author: janeng
 ---
 
-# Monitor and scale a SQL database uisng the Azure CLI
+# Monitor and scale a single SQL database using the Azure CLI
 
 The sample script provided here illustrates how to scale an Azure SQL database to a different performance level after querying the size information of the database. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines/virtual-machines-windows-cli-options.md).
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
-## Run the CLI script
+## Monitor and scale a single SQL database
 
 [!code-azurecli[main](../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale SQL Database")]
 
@@ -38,12 +38,12 @@ az group delete --name SampleResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, logical server, SQL Database and firewall rules. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, logical server, SQL Database, and firewall rules. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.microsoft.com/en-us/cli/azure/sql/server#create) | Creates a logical server that will host the SQL Database. |
+| [az sql server create](https://docs.microsoft.com/en-us/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
 | [az sql db show-usage](https://docs.microsoft.com/en-us/cli/azure/sql/db#show-usage) | Shows the size usage information for the database. |
 | [az sql db update](https://docs.microsoft.com/en-us/cli/azure/sql/db#update) | Updates the SQL Database, in this example changes the performance level. |
 | [az group delete](https://docs.microsoft.com/en-us/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
