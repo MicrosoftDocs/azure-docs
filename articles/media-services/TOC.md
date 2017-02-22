@@ -45,9 +45,9 @@
 
 ## [Encode content](media-services-encode-asset.md)
 ### [Compare encoders](media-services-compare-encoders.md)
-### [Error codes](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
+#### [Use MES to auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md)
 #### MES Schemas
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)
@@ -92,9 +92,11 @@
 ##### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
 ##### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Create a task that generates fMP4 chunks](media-services-generates-fmp4-chunks.md)
 ### Media processors
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Error codes](media-services-encoding-error-codes.md)
 ### Deprecated
 #### [Static packaging and encryption](media-services-static-packaging.md)
 
