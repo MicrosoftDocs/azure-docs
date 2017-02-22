@@ -28,7 +28,7 @@ In this article, you learn how create your own custom business intelligence tool
 ## Prerequisites
 * Microsoft Azure Account
 * Work or school account for Power BI
-* Completion of the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) scenario. The article you're reading now builds on the workflow that's described there and adds a Power BI streaming dataset output.
+* Completion of the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) scenario. The article you're reading now builds on the workflow that's described in [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)and adds a Power BI streaming dataset output.
 
 ## Add Power BI output
 Now that an input exists for the job, an output to Power BI can be defined.
@@ -59,7 +59,7 @@ Now that an input exists for the job, an output to Power BI can be defined.
 7. Select **Create**. Now your output configuration is complete.
 
 > [!WARNING]
-> Be aware that if Power BI already has a dataset and table that has the same name as the one in this Stream Analytics job, the existing data will is overwritten.
+> Be aware that if Power BI already has a dataset and table that has the same name as the one in this Stream Analytics job, the existing data is overwritten.
 > Also, we recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table won't be created.
 >
 >
@@ -99,7 +99,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
 ## Create the dashboard in Power BI
 
-1. Go to [Powerbi.com](https://powerbi.com). and then sign in with your work or school account. If the Stream Analytics job query outputs results, you will see that your dataset is already created:
+1. Go to [Powerbi.com](https://powerbi.com). and then sign in with your work or school account. If the Stream Analytics job query outputs results, you will see that your dataset is already created, as shown in the following illustration:
 
     ![Streaming dataset](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
 
@@ -119,7 +119,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
     ![Fraud counter](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
 
-5. Walk through the exercise of adding a tile again. This time, however, select the line chart. Add **fraudulentcalls** as the value and **windowend** Select the last 10 minutes, as shown in the following screenshot:
+5. Walk through the exercise of adding a tile again. This time, however, select the line chart. Add **fraudulentcalls** as the value and the axias **windowend** We selected the last 10 minutes, as shown in the following screenshot:
 
 ![Fraud calls](./media/stream-analytics-power-bi-dashboard/fraud-calls.png)
 
@@ -143,7 +143,7 @@ You can use the following equation to compute the value to give your window in s
 For example:
 - You have 1,000 devices sending data every second.
 - You are on the Power BI Pro SKU that supports 1,000,000 rows per hour.
-- You want to get average data per device on Power BI you can do at most a push every four seconds per device (as shown below):  
+- You want to get average data per device on Power BI and you can do at most a push every four seconds per device (as shown in the following equation):  
 
 ![Equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
 
@@ -164,7 +164,7 @@ This means we can change the original query to:
 
 
 ### Renew authorization
-You need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. Symptoms of this issue could include no job output or an "Authenticate user error" in the operation logs.
+You need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't review, you could see symptoms such as a lack of job output or an "Authenticate user error" in the operation logs.
 
 Similarly, if a job attempts to start after the token has expired, an error occurs and the job starts to fail. To resolve this issue, stop the job that's running and go to your Power BI output.  Select the **Renew authorization** link, and then restart your job from the **Last Stopped Time** to avoid data loss.
 
