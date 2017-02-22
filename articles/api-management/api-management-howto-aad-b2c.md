@@ -141,7 +141,7 @@ When the signup is complete, You will be redireted back to the developer portal.
 [api-management-howto-aad-b2c-dev-portal-b2c-button]: ./media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-button.PNG
 [api-management-howto-aad-b2c-dev-portal-b2c-options]: ./media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-options.PNG
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.PNG
-[api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.PNG
+[api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
 [api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-b2c-security-tab.png
