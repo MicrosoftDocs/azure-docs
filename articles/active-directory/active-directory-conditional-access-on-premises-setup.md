@@ -4,7 +4,7 @@ description: A step-by-step guide to enable conditional access to on-premises ap
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: swadhwa
+manager: femila
 editor: ''
 
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 
 ---
 # Setting up on-premises conditional access using Azure Active Directory Device Registration

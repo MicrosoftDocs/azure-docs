@@ -4,7 +4,7 @@ description: If you know how to deploy AD Domain Services and AD Federation Serv
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: stevenpo
+manager: femila
 editor: ''
 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: femila
 
 ---
