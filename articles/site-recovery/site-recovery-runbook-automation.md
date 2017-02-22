@@ -79,9 +79,15 @@ Following is an example of how the context variable looks.
 
         "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
 
-                {"CloudServiceName":"pod02hrweb-Chicago-test",
+                { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+				
+				"ResourceGroupName":"ContosoRG",
+				
+				"CloudServiceName":"pod02hrweb-Chicago-test",
 
-                "RoleName":"Fabrikam-Hrweb-frontend-test"}
+                "RoleName":"Fabrikam-Hrweb-frontend-test",
+				
+				"RecoveryPointId":"TimeStamp"}
 
                 }
 
@@ -98,9 +104,11 @@ The following table contains name and description for each variable in the conte
 | GroupID |Identify the group number within the recovery plan when the plan is running |
 | VmMap |Array of all the virtual machines in the group |
 | VMMap key |Unique key (GUID) for each VM. It's the same as the VMM ID of the virtual machine where applicable. |
+| SubscriptionId |Azure Subscription ID in which the VM is created. |
 | RoleName |Name of the Azure VM that's being recovered |
 | CloudServiceName |Azure Cloud Service name under which the virtual machine is created. |
-| CloudServiceName (in Resource Manager deployment model) |Azure Resource Group name under which the virtual machine is created. |
+| ResourceGroupName|Azure Resource Group name under which the virtual machine is created. |
+| RecoveryPointId|Timestamp to which the VM is recovered. |
 
 You also need to ensure that the Automation Account has the following modules added. All the modules should be of compatible versions. An easy way is to make sure all modules are at the latest version available.
 * AzureRM.profile
