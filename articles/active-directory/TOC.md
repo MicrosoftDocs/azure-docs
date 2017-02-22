@@ -52,6 +52,7 @@
 
 ## [View activity and security reports](active-directory-view-access-usage-reports.md)
 ### [Azure AD reporting](active-directory-reporting-getting-started.md)
+### [Audit logs](active-directory-reporting-activity-audit-logs.md)
 ### [Users at risk](active-directory-reporting-security-azure-portal-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-azure-portal-risky-sign-ins.md)
 ### [FAQ](active-directory-reporting-faq.md)
