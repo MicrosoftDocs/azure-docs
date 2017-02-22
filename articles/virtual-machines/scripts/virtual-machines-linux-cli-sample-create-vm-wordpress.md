@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: nepeters
 ---
 
-# Create a VM with WordPress installed
+# Create a VM with WordPress
 
 This script creates a virtual machine, and then uses the Azure Virtual Machine custom script extension to install WordPress. Once the script has been run, the WordPress site can be accessed through the public IP address of the virtual machine. Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 

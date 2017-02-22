@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: nepeters
 ---
 
-# Create a fully configured virtual machine
+# Create a VM with NGINX
 
 This script creates an Azure Virtual Machine and then uses the Azure Virtual Machine Custom Script Extension to install NGINX. Once the script has been run, the NGINX default site can be reached on the public IP address of the virtual machine.Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 
