@@ -56,6 +56,8 @@ Note the following:
   editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
   one. To manually create this app setting, see [configure this app setting manually](). 
 
+When blob containers are warm, functions can process blobs quickly. However, a cold start could take up to a 10 minute delay to access blob storage . 
+
 Also, see one of the following subheadings for more information:
 
 * [Name patterns](#pattern)
