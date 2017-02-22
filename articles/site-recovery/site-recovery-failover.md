@@ -3,8 +3,8 @@ title: Failover in Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman
-manager: jwhit
+author: prateek9us
+manager: gauravd
 editor: ''
 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
-ms.author: raynew
+ms.author: pratshar
 
 ---
 # Failover in Site Recovery
@@ -59,6 +59,10 @@ This procedure describes how to run a failover for a [recovery plan](site-recove
 ## Planned failover
 Apart from, Failover, Hyper-V virtual machines protected using Site Recovery also support **Planned failover**. This is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shutdown, the the data yet to be synchronized is synchronized and then a failover is triggered. 
 
+> [!NOTE]
+> When you failover Hyper-v virtual machines from one on-premises site to another on-premises site, to come back to the primary on-premises site you will have to first **reverse replicate** the virtual machine back to primary site and then trigger a failover. If the primary virtual machine is not available then before starting to **reverse replicate** you will have to restore the virtual machine from a backup.   
+>
+> 
 
 ## Failover job
 
@@ -88,7 +92,7 @@ You might want to automate certain actions while doing a failover. You can use s
 ## Next Steps
 Once you have failed over virtual machines and the on-premises data center is available, you should [re-protect](site-recovery-how-to-reprotect.md) VMware virutal machines back to the on-premises data center.
 
-Use [**Planned failover**](site-recovery-failback.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
+Use [**Planned failover**](site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
 
 If you have failed over a Hyper-v virtual machine to another on-premises data center managed by a VMM server and the primary data center is available then use **Reverse replicate** option to start the replication back to the primary data center. 
 
