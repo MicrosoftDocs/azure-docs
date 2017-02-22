@@ -73,7 +73,8 @@ az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –
   * The following example uses [az vm disk attach-new](/cli/azure/vm/disk#attach-new) to add a 50 Gb managed disk to an existing VM named `myVM`:
   
     ```azurecli
-    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 50
+    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
+    –-new --size-gb 50
     ```
 
 ## Azure portal
