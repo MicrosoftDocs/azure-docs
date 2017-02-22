@@ -16,7 +16,7 @@
 ### [Connect to storage](../../app-service/scripts/app-service-cli-app-service-storage.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ### [Deploy to staging](../app-service-web-cli-deploy-staging-environment.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json) 
 ### [Scale a web app](../../app-service/scripts/app-service-cli-scale-manual.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
-### [Deploy ASP.NET Core to Linux](../../app-service/scripts/app-service-cli-linux-docker-aspnetcore?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+### [Deploy ASP.NET Core to Linux](../../app-service/scripts/app-service-cli-linux-docker-aspnetcore.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
 # Tutorials 		 	
 ## [ASP.NET app with Visual Studio](../web-sites-dotnet-get-started.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
