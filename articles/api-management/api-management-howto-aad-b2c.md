@@ -20,6 +20,7 @@ ms.author: apimpm
 ## Overview
 Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your developer portal. This guide shows you the configuration required in your API Management service to integrate with Azure Active Directory B2C. For information about enabling access to the developer portal using the classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory].
 
+> [!NOTE]
 > To complete the steps in this guide you must first have an Azure Active Directory B2C tenant in which to create an application and have sign-up, sign-in policies ready. For more information, see [Azure Active Directory B2C overview].
 > 
 > 
@@ -30,6 +31,7 @@ To get started, click **Publisher portal** in the Azure portal for your API Mana
 
 ![Publisher portal][api-management-management-console]
 
+> [!NOTE]
 > If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
 > 
 > 
@@ -102,6 +104,7 @@ Choose sign up with **Azure Active Directory B2C** in the button.
 
 You are redirected to the signup policy configured in the previous section and can choose to sign up using your email address or your existing social accounts. 
 
+> [!NOTE]
 > If Azure Active Directory B2C is the only option enabled in the **Identities** tab in the publisher portal, you will be redirected to the signup policy directly.
 >
 >
@@ -185,13 +188,13 @@ When the signup is complete, you are redirected back to the developer portal. Yo
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
-[Azure Active Directory B2C overview]: https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview
+[Azure Active Directory B2C overview]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [How to authorize developer accounts using Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
 [Azure Active Directory B2C: Extensible policy framework]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
-[Use Microsoft Account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
-[Use Google Account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
-[Use Facebook Account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
-[Use Linkedin Account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Use Microsoft Account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Use Google Account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
+[Use Facebook Account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Use Linkedin Account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1
