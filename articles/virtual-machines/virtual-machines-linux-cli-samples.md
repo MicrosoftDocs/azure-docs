@@ -25,13 +25,15 @@ The following table includes links to bash scripts built using the Azure CLI.
 | | |
 |---|---|
 |**Create virtual machines**||
-| [Create virtual machine](./scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a Linux virtual machine with minimal configuration. |
-| [Create fully configured virtual machine](./scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
+| [Create a virtual machine](./scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a Linux virtual machine with minimal configuration. |
+| [Create a fully configured virtual machine](./scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
 | [Create highly available virtual machines](./scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates several Linux virtual machines, all related resources, and a network load balancer to balance incoming traffic across the VM set. |
 | [Create a VM with Docker enabled](./scripts/virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, configures this VM as a Docker host, and runs an NGINX container. |
+| [Create a VM with NGINX installed](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | This simple sample shows how the custom script extension can be used to run scripts on a virtual machine.. |
+| [Create a VM with WordPress installed](./scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and installs WordPress. |
 |**Network virtual machines**||
-| [Secure network traffic between VMs](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
+| [Secure network traffic between virtual machines](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
 |**Monitor virtual machines**||
-| [Monitor VMs with Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, all related resources, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
+| [Monitor a VM with Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, all related resources, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
 |**Troubleshoot virtual machines**||
-| [Troubleshoot OS disk issues](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mounts the operating system disk from one VM as the data disk of a second VM. This can be useful when troubleshooting or recovering data. |
+| [Troubleshoot a VMs operating system disk](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mounts the operating system disk from one VM as the data disk of a second VM. This can be useful when troubleshooting or recovering data. |
