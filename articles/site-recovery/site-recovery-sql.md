@@ -29,12 +29,12 @@ Before you start, make sure you understand SQL Server disaster recovery capabili
 Many workloads use SQL Server as a foundation, and it can be integrated with apps such as SharePoint, Dynamics, and SAP, to implement data services.  SQL Server can be deployed in a number of ways:
 
 * **Standalone SQL Server**: SQL Server and all databases are hosted on a single machine (physical or a virtual). When virtualized, host clustering is used for local high availability. Guest-level high availability isn't implemented.
-* **SQL Server Failover Clustering Instances (Always On FCI)**: Two or more nodes running SQL Server instanced with shared disks are configured in a Windows Failover cluster. If a node is down, the cluster can fail SQL Server over to another instance. This setup is typically used to implement high availability at a primary site. This deployment doesn't protect against failure or outage in the shared storage layer. A shared disk can be implemented using iSCSI, fiber channel or shared vhdx.
-* **SQL Always On Availability Groups**: Two or more nodes are set up in a shared nothing cluster, with SQL Server databases configured in an availability group, with synchronous replication and automatic failover.
+* **SQL Server Failover Clustering Instances (AlwaysOn FCI)**: Two or more nodes running SQL Server instanced with shared disks are configured in a Windows Failover cluster. If a node is down, the cluster can fail SQL Server over to another instance. This setup is typically used to implement high availability at a primary site. This deployment doesn't protect against failure or outage in the shared storage layer. A shared disk can be implemented using iSCSI, fiber channel or shared vhdx.
+* **SQL AlwaysOn Availability Groups**: Two or more nodes are set up in a shared nothing cluster, with SQL Server databases configured in an availability group, with synchronous replication and automatic failover.
 
  This article leverages the following native SQL disaster recovery technologies for recovering databases to a remote site:
 
-* SQL Always On Availability Groups, to provide for disaster recovery for SQL Server 2012 or 2014 Enterprise editions.
+* SQL AlwaysOn Availability Groups, to provide for disaster recovery for SQL Server 2012 or 2014 Enterprise editions.
 * SQL database mirroring in high safety mode, for SQL Server Standard edition (any version), or for SQL Server 2008 R2.
 
 ## Site Recovery support
@@ -61,22 +61,24 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 
 **Feature** | **Details** | **SQL Server** |
 --- | --- | ---
-**Always On availability group** | Multiple standalone instances of SQL Server each run in a failover cluster that has multiple nodes.<br/><br/>Databases can be grouped into failover groups that can be copied (mirrored) on SQL Server instances so that no shared storage is needed.<br/><br/>Provides disaster recovery between a primary site and one or more secondary sites. Two nodes can be set up in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover. | SQL Server 2014 & 2012 Enterprise edition
+**AlwaysOn availability group** | Multiple standalone instances of SQL Server each run in a failover cluster that has multiple nodes.<br/><br/>Databases can be grouped into failover groups that can be copied (mirrored) on SQL Server instances so that no shared storage is needed.<br/><br/>Provides disaster recovery between a primary site and one or more secondary sites. Two nodes can be set up in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover. | SQL Server 2014 & 2012 Enterprise edition
 **Failover clustering (AlwaysOn FCI)** | SQL Server leverages Windows failover clustering for high availability of on-premises SQL Server workloads.<br/><br/>Nodes running instances of SQL Server with shared disks are configured in a failover cluster. If an instance is down the cluster fails over to different one.<br/><br/>The cluster doesn't protect against failure or outages in shared storage. The shared disk can be implemented with iSCSI, fiber channel, or shared VHDXs. | SQL Server Enterprise editions<br/><br/>SQL Server Standard edition (limited to two nodes only)
 **Database mirroring (high safety mode)** | Protects a single database to a single secondary copy. Available in both high safety (synchronous) and high performance (asynchronous) replication modes. Doesn’t require a failover cluster. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise all editions
 **Standalone SQL Server** | The SQL Server and database are hosted on a single server (physical or virtual). Host clustering is used for high availability if the server is virtual. No guest-level high availability. | Enterprise or Standard edition
 
 ## Deployment recommendations
 
-**Version** | **Deployment** | **On-premises to secondary** | **On-premises to Azure** |
---- | --- | --- | --- | --- |
-**SQL Server 2014/2012 Enterprise FCI** | Failover cluster | AlwaysOn availability groups | AlwaysOn availability groups
-**SQL Server 2014/2012 AlwaysOn** | AlwaysOn availability groups | AlwaysOn | AlwaysOn
-**SQL Server 2014/2012 Standard FCI** | Failover cluster | Site Recovery replication with local mirror | Site Recovery replication with local mirror
-**SQL Server 2014/2012 Enterprise/Standard** | Standalone | Site Recovery replication | Site Recovery replication
-**SQL Server 2008 R2 Enterprise/Standard** | FCI |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
-**SQL Server 2008 R2 Enterprise/Standard** | Standalone |Site Recovery replication | Site Recovery replication
-**SQL Server (any version) Enterprise/Standard** |FCI - DTC application | Site Recovery replication |Not supported
+This table summarizes our recommendations for integrating SQL Server BCDR technologies with Site Recovery.
+
+| **Version** | **Edition** | **Deployment** | **On-prem to on-prem** | **On-prem to Azure** |
+| --- | --- | --- | --- | --- |
+| SQL Server 2014 or 2012 |Enterprise |Failover cluster instance |AlwaysOn availability groups |AlwaysOn availability groups |
+|| Enterprise |AlwaysOn availability groups for high availability |AlwaysOn availability groups |AlwaysOn availability groups | |
+|| Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror | |
+|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
+| SQL Server 2008 R2 |Enterprise or Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
+|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
+| SQL Server (Any version) |Enterprise or Standard |Failover cluster instance - DTC application |Site Recovery replication |Not Supported |
 
 ## Deployment prerequisites
 
@@ -93,15 +95,16 @@ Set up Active Directory, in the secondary recovery site, for SQL Server to run p
 
 The instructions in this article presume that a domain controller is available in the secondary location. [Read more](site-recovery-active-directory.md) about protecting Active Directory with Site Recovery.
 
-## Integrate with SQL Server Always On for replication to Azure (classic portal with a VMM/configuration server)
+## Integrate with SQL Server AlwaysOn for replication to Azure (classic portal with a VMM/configuration server)
 
 
 Site Recovery natively supports SQL AlwaysOn. If you've created a SQL Availability Group with an Azure virtual machine set up as secondary location, then you can use Site Recovery to manage the failover of the Availability Groups.
 
 > [!NOTE]
-> This capability is currently in preview. It's available when the primary site has Hyper-V host servers managed in System Center VMM clouds, or when you've set up [VMware replication](site-recovery-vmware-to-azure-classic.md). The functionality isn't currently available in the new Azure portal. Right now this capability is not available in the new Azure portal.
+> This capability is currently in preview. It's available when the primary site has Hyper-V host servers managed in System Center VMM clouds, or when you've set up [VMware replication](site-recovery-vmware-to-azure.md). The functionality isn't currently available in the new Azure portal. Follow the steps in [this section](site-recovery-sql.md#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server) if you are using new Azure portal.
 >
 >
+
 
 #### Before you start
 
@@ -118,8 +121,8 @@ To integrate SQL AlwaysOn with Site Recovery you need:
 - If you're running VMware, an account should be created on the configuration server using the CSPSConfigtool.exe
 * The SQL PS module should be installed on SQL Servers running on-premises, and on Azure VMs.
 * The VM agent should be installed on Azure VMs.
-* NTAUTHORITY\System should have following permissions in SQL Server running pn Azure VMs.
-  * ALTER AVAILABILITY GROUP  - permissions [here](https://msdn.microsoft.com/library/hh231018.aspx), and [here](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+* NTAUTHORITY\System should have following permissions in SQL Server running on Azure VMs.
+  * ALTER AVAILABILITY GROUP: permissions [here](https://msdn.microsoft.com/library/hh231018.aspx), and [here](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
   * ALTER DATABASE - permissions [here](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ### Add a SQL Server
@@ -165,7 +168,7 @@ In the example, the Sharepoint app consists of three virtual machines which use 
 
 ![Customize Recovery Plan](./media/site-recovery-sql/customize-rp.png)
 
-### Fail over
+### Failover
 
 After the Availability Group is added to a recovery plan, different failover options are available.
 
@@ -191,7 +194,7 @@ If you want to make the Availability Group primary again on the on-premises SQL 
 >
 >
 
-## Integrate with SQL Server Always On for replication to Azure (Azure portal/classic portal with no VMM/configuration server)
+## Integrate with SQL Server AlwaysOn for replication to Azure (Azure portal/classic portal with no VMM/configuration server)
 
 These instructions are relevant if you're integrating with SQL Server Availability Groups in the new Azure portal, or in the classic portal if you're not using a VMM server, or configuration server. In this scenario, Azure Automation Runbooks can be used to configure a scripted failover of SQL Availability Groups.
 
@@ -300,7 +303,7 @@ Here's what you need to do:
          }
      }``
 
-## Integrate with SQL Server Always On for replication to a secondary on-premises site
+## Integrate with SQL Server AlwaysOn for replication to a secondary on-premises site
 
 If the SQL Server is using availability groups for high availability (or an FCI), we recommend using availability groups on the recovery site as well. Note that this applies to apps that don't use distributed transactions.
 
@@ -339,7 +342,7 @@ For a cluster running SQL Server Standard edition, or SQL Server 2008 R2, we rec
 
 ### On-premises to Azure
 
-Site recovery doesn't provide guest cluster support when replicating to Azure. SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition. In this scenario, we recommend you protect the on-premises SQL Server cluster to a standalone SQL Server, and recover it in Azure.
+Site Recovery doesn't provide guest cluster support when replicating to Azure. SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition. In this scenario, we recommend you protect the on-premises SQL Server cluster to a standalone SQL Server, and recover it in Azure.
 
 1. Configure an additional standalone SQL Server instance on the on-premises site.
 2. Configure the instance to serve as a mirror for the databases you want to protect. Configure mirroring in high safety mode.
