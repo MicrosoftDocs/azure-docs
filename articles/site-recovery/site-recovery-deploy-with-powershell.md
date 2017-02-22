@@ -46,7 +46,7 @@ Make sure you have these prerequisites in place:
 ### Azure prerequisites
 * You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md).
-* You'll need to make sure that virtual machines you want to protect comply with [Azure virtual machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* You'll need to make sure that virtual machines you want to protect comply with [Azure virtual machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ### VMM prerequisites
 * You'll need  VMM server running on System Center 2012 R2.
@@ -298,7 +298,7 @@ The final cmdlet creates a mapping between the primary network and the Azure vir
 ## Step 9: Enable protection for virtual machines
 After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:
 
-Virtual machines must meet [Azure virtual machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Virtual machines must meet [Azure virtual machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 

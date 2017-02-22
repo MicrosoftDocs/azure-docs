@@ -97,7 +97,7 @@ Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the UR
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
@@ -107,7 +107,7 @@ To create a VM with unmanaged disks, specify the URI to your disk (`--image`) wi
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd
 ```
@@ -248,7 +248,7 @@ Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the UR
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
@@ -262,7 +262,7 @@ The following example creates a VM named `myVM` from your custom disk:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
