@@ -18,12 +18,25 @@ ms.author: johnkem; magoedte
 
 ---
 # Overview of Azure Diagnostic Logs
-**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts) and differ from the [Activity Log (formerly known as Audit Log or Operational Log)](monitoring-overview-activity-logs.md), which provides insight into the operations that were performed on resources in your subscription. Not all resources support the new type of Diagnostic Logs described here. The list of Supported Services below shows which resource types support the new Diagnostic Logs.
+**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts).
 
-![Logical placement of Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](monitoring-overview-activity-logs.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+
+Not all resources support the new type of Diagnostic Logs described here. The list of Supported Services below shows which resource types support the new Diagnostic Logs.
+
+![Diagnostic Logs in Compute ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Overview_compute_v2.png)
+
+Figure 1: Diagnostics logs when gathering information from an application running on Azure compute
+
+![Diagnostic Logs in Compute ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Overview_non-compute_v2.png)
+
+Figure 2: Diagnostics logs when gathering information on a non compute resource
 
 ## What you can do with Diagnostic Logs
 Here are some of the things you can do with Diagnostic Logs:
+
+![Logical placement of Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+
 
 * Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.

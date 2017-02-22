@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/22/2017
 ms.author: ashwink
 
 ---
@@ -43,14 +43,20 @@ Metrics have the following characteristics:
 You can also:
 
 * Easily discover, access, and **view all metrics** via the Azure portal when you select a resource and plot the metrics on a chart.
+
 * Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Autoscale is a special automated action that enables you to scale out your resource to meet incoming requests or loads on your website or computing resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
+
 * **Archive** metrics for longer or use them for offline reporting. You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
+
 * **Stream** metrics to an event hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You can do this by using diagnostic settings.
+
 * **Route** all metrics to Log Analytics (OMS) to unlock instant analytics, search, and custom alerting on metrics data from your resources.
+
 * **Consume** the metrics via the new Azure Monitor REST APIs.
+
 * **Query** metrics by using the PowerShell cmdlets or the Cross-Platform REST API.
-  
-  ![Routing of Metrics in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview0.png)
+
+  ![Routing of Metrics in Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
 ## Access metrics via the portal
 Following is a quick walkthrough of how to create a metric chart by using the Azure portal.
@@ -60,7 +66,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 2. Create an Azure App Service website.
 3. After you create a website, go to the **Overview** blade of the website.
 4. You can view new metrics as a **Monitoring** tile. You can then edit the tile and select more metrics.
-   
+
    ![Metrics on a resource in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### To access all metrics in a single place
@@ -69,13 +75,13 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 3. Select your subscription, resource group, and the name of the resource from the drop-down list.
 4. View the available metrics list. Then select the metric you are interested in and plot it.
 5. You can pin it to the dashboard by clicking the pin on the upper-right corner.
-   
+
    ![Access all metrics in a single place in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 > [!NOTE]
 > You can access host-level metrics from VMs (Azure Resource Manager-based) and virtual machine scale sets without any additional diagnostic setup. These new host-level metrics are available for Windows and Linux instances. These metrics are not to be confused with the Guest-OS-level metrics that you have access to when you turn on Azure Diagnostics on your VMs or virtual machine scale sets. To learn more about configuring Diagnostics, see [What is Microsoft Azure Diagnostics](../azure-diagnostics.md).
-> 
-> 
+>
+>
 
 ## Access metrics via the REST API
 Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs that help you discover and access metrics:
@@ -85,8 +91,8 @@ Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs tha
 
 > [!NOTE]
 > This article covers the metrics via the [new API for metrics](https://msdn.microsoft.com/library/dn931930.aspx) for Azure resources. The API version for the new metric definitions API is 2016-03-01 and the version for metrics API is 2016-09-01. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
-> 
-> 
+>
+>
 
 For a more detailed walkthrough using the Azure Monitor REST APIs, see [Azure Monitor REST API walkthrough](monitoring-rest-api-walkthrough.md).
 
@@ -135,4 +141,3 @@ Refer to the links throughout this article. Additionally, learn about:
 
 * [Common metrics for autoscaling](insights-autoscale-common-metrics.md)
 * [How to create alert rules](insights-alerts-portal.md)
-

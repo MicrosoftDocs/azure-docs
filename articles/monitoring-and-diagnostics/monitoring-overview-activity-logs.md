@@ -13,23 +13,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 02/22/2017
 ms.author: johnkem
 
 ---
 # Overview of the Azure Activity Log
 The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or those for resources that use the Classic/"RDFE" model.
 
-The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource.
+The following diagram shows a conceptual view of Azure monitoring, including the type of logs you can collect and what you can do with that data.   
+
+![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v1.png)
+
+Figure 1: Activity Logs and where you can send them and access them from.
+
+The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource.
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
-View this [video introducing the Activity Log](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
 
 > [!WARNING]
 > The Azure Activity Log is primarily for activities that occur in Azure Resource Manager, not those using the Classic/RDFE model. Note that some Classic resource types have a proxy resource provider in Azure Resource Manager (eg. Microsoft.ClassicCompute). If a user interacts with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations will apear in the Activity Log. If a user interacts with a Classic resource type in the Classic portal or otherwise outside of the Azure Resource Manager proxies, user actions will only be recorded in the Operation Log, which is accessible only in the Classic portal.
 >
 >
+
+View the following video introducing the Activity Log.
+[!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
@@ -57,18 +65,18 @@ These settings can be configured via the “Export” option in the Activity Log
 You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
 
 1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
-   
+
     ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Click the **Export** button at the top of the blade.
-   
+
     ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. In the blade that appears, you can select:  
-   
+
    * regions for which you would like to export events
    * the Storage Account to which you would like to save events
    * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
    * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
-     
+
      ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
@@ -237,4 +245,3 @@ Each event in the Activity Log has a JSON blob similar to this example:
 ## Next Steps
 * [Learn more about the Activity Log (formerly Audit Logs)](../azure-resource-manager/resource-group-audit.md)
 * [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
-
