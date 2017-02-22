@@ -28,7 +28,20 @@ Also, users in this role have access to the Azure Billing API (hyperlink to bill
 
 ## Adding users to billing reading role
 Users who are in Service Administrator, Co-administrator, Owner, User Access Administrator roles can delegate access to other users. (hyperlink to Azure RBAC roles)
-1.	Select the subscription that you want to delegate billing reader access
-2.	Select Access Control (IAM) (Screen shots need to be replaced)
 
+1. Select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.
+    
+2. Select **Access Control (IAM)** and then click **Add**.
+
+    ![Screenshot shows to click IAM in the subscription blade](./media/billing-manage-access/select-iam.PNG)
+    
+3. Select **Billing Reader**
+
+    ![Screenshot shows to Billing Reader in the popup view](./media/billing-manage-access/select-roles.PNG)
+ 
+3. Add the email for the user you want to invite, then click **Ok** to send the invitation.
+
+    ![Screenshot that shows to enter email to invite someone](./media/billing-manage-access/add-user.PNG)
+    
+4. The invited user then follows instructions in the invitation email to finish getting access.
 
