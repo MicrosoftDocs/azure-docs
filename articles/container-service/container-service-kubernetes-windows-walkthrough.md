@@ -69,7 +69,7 @@ Use the `kubectl` command-line tool to connect from your local computer to the m
 
 After creating the cluster and connecting with `kubectl`, you can try starting a basic Windows web app and expose it to the internet. In this example, you specify the container resources using a YAML file, and then create it using `kubctl apply`.
 
-1. To see a list of your nodes, type `kubectl get nodes`.  If you want full details of the nodes, type:  
+1. To see a list of your nodes, type `kubectl get nodes`. If you want full details of the nodes, type:  
 
   ```
   kubectl get nodes -o yaml
