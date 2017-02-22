@@ -7,11 +7,10 @@
 ## Use a simulated device
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
-### [Node](iot-hub-node-node-getstarted.md)
+### [Node.js](iot-hub-node-node-getstarted.md)
 
 ## Use a Raspberry Pi
-### Node.js
-#### [Start](iot-hub-raspberry-pi-kit-node-get-started.md)
+### [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 ##### [Get the tools (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
@@ -32,8 +31,7 @@
 ##### [Optional: Change the LED behavior](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [Troubleshoot](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-### C
-#### [Start](iot-hub-raspberry-pi-kit-c-get-started.md)
+### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 ##### [Get the tools (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -55,8 +53,7 @@
 #### [Troubleshoot](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Use an Intel Edison
-### Node.js
-#### [Start](iot-hub-intel-edison-kit-node-get-started.md)
+### [Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
 ##### [Get the tools (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
@@ -77,8 +74,7 @@
 ##### [Optional: Change the LED behavior](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
 #### [Troubleshoot](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-### C
-#### [Start](iot-hub-intel-edison-kit-c-get-started.md)
+### [C](iot-hub-intel-edison-kit-c-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
 ##### [Get the tools (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
@@ -100,8 +96,7 @@
 #### [Troubleshoot](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Use an Arduino
-### Node.js
-#### [Start](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lesson 1: Configure your device
 ##### [Configure your device](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Get the tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -127,9 +122,7 @@
 ### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## Use the IoT Gateway Starter Kit
-### Simulated device
-
-#### [Start](iot-hub-gateway-kit-c-sim-get-started.md)
+### [Simulated device](iot-hub-gateway-kit-c-sim-get-started.md)
 #### Lesson 1: Configure your NUC
 ##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
@@ -149,8 +142,7 @@
 
 #### [Troubleshooting](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
-### SensorTag device
-#### [Start](iot-hub-gateway-kit-c-get-started.md)
+### [SensorTag device](iot-hub-gateway-kit-c-get-started.md)
 #### Lesson 1: Configure your NUC
 ##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
@@ -170,8 +162,7 @@
 
 ##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## Use the IoT device SDK for C
-### [Introduction](iot-hub-device-sdk-c-intro.md)
+## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 ### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 
