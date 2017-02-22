@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2016
-ms.author: aelnably
+ms.date: 02/16/2017
+ms.author: aelnably;wesmc
 
 ---
 
@@ -26,18 +26,18 @@ With the latest update to our back end, we introduced support for .NET Core v.1.
 
 ## Using XPlat CLI ##
 
-Using the latest Azure Cross Platform CLI, you can use the **azure webapp config set** command to change the application stack. Here is an example of that:
+Using the latest Azure Cross Platform CLI, you can use the **azure webapp config set** command to change the application stack. Here is an example:
 
         azure webapp config set --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup --netframeworkversion v1.0 --appcommandline aspnetcore.dll
 
-Note that the **aspnetcore.dll** file is the dll of your app. You can use any name you like in you app.
+Tthe **aspnetcore.dll** file is the dll of your app. You can use any name you like in your app.
 
-This will load the .Net Core image and start your web app. You can check that the settings have been correctly set by using the **azure webapp config show**. Here is an example of that:
+This loads the .Net Core image and starts your web app. You can check that the settings have been correctly set by using the **azure webapp config show**. Here is an example:
 
         azure webapp config show --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup
 
 ## Next steps
-* [Introduction to App Service on Linux](./app-service-linux-intro.md) 
 * [What is App Service on Linux?](app-service-linux-intro.md)
 * [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [Azure Web App Cross Platform CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)

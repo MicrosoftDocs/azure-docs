@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/01/2017

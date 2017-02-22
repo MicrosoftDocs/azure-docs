@@ -45,7 +45,7 @@ The following table describes the available password policy settings that can be
 | Password expiry duration |<ul><li>Default value: **90** days </li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
 | Password expiry notification |<ul><li>Default value: **14** days (before password expires)</li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet.</li></ul> |
 | Password Expiry |<ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
-| Password **change** history |Last when **changing** a password. |
+| Password **change** history |Last password **cannot** be used again when **changing** a password. |
 | Password **reset** history | Last password **may** be used again when **resetting** a forgotten password. |
 | Account Lockout |After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
