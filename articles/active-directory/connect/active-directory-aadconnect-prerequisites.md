@@ -49,7 +49,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If you use a separate SQL Server, then these requirements apply:
   * Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2016. Microsoft Azure SQL Database is **not supported** as a database.
   * You must use a case-insensitive SQL collation. These are identified with a \_CI_ in their name. It is **not supported** to use a case-sensitive collation, identified by \_CS_ in their name.
-  * You can only have one sync engine per database instance. It is **not supported** to share the database instance with FIM/MIM Sync, DirSync, or Azure AD Sync.
+  * You can only have one sync engine per SQL instance. It is **not supported** to share a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync.
 
 ### Accounts
 * An Azure AD Global Administrator account for the Azure AD directory you wish to integrate with. This must be a **school or organization account** and cannot be a **Microsoft account**.
@@ -197,4 +197,3 @@ The minimum requirements for computers running AD FS or Web Application Servers 
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-

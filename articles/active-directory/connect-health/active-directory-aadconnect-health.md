@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: vakarand
 
 ---
@@ -88,17 +88,20 @@ To get started with Azure AD Connect Health, use the following steps:
 ## Download and install Azure AD Connect Health Agent
 * Make sure that you [satisfy the requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS
-    * [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973).
+    * [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
     * [See the installation instructions](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Get started using Azure AD Connect Health for sync
     * [Download and install the latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
 * Get started using Azure AD Connect Health for AD DS
     * [Download Azure AD Connect Health Agent for AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
-    * [See the installation instructions](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+    * [See the installation instructions](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## Azure AD Connect Health portal
 The Azure AD Connect Health portal shows views of alerts, performance monitoring, and usage analytics. The  https://aka.ms/aadconnecthealth URL takes you to the main blade of Azure AD Connect Health. You can think of a blade as a window. On The main blade, you see **Quick Start**, services within Azure AD Connect Health, and additional configuration options. See the following screenshot and brief explanations that follow the screenshot. After you deploy the agents, the health service automatically identifies the services that Azure AD Connect Health is monitoring.
 
+> [!NOTE]
+> For Licensing information see the [Azure AD Connect FAQ](active-directory-aadconnect-health-faq.md) or the [Azure AD Pricing page](https://aka.ms/aadpricing).
+    
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal4.png)
 
 * **Quick Start**: When you select this option, the **Quick Start** blade opens. You can download the Azure AD Connect Health Agent by choosing **Get Tools**. You can also access documentation and provide feedback.

@@ -143,7 +143,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 1. Open [this link][2] in a new tab or browser window. The link takes you to the Azure Portal.
 2. Once the link has opened in the Azure portal, enter the follow values: 
    
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
+   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-cassandra-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
