@@ -28,7 +28,8 @@ This sample script does the following using Azure CLI 2.0:
 ## Prerequisites
 
 * Run `az login` to log in to Azure.
-* Put your web app code in a GitHub repository you own.
+* Put your web app code in a GitHub repository.
+* For a GitHub repository you own, [create an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
 > [!NOTE]
 > If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
@@ -38,7 +39,7 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create VM sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app with continuous deployment from GitHub")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3-4 "Create a web app with continuous deployment from GitHub")]
 
 ## Clean up deployment 
 

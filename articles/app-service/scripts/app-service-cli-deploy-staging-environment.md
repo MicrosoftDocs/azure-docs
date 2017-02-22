@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Deploy a web app to a staging environment | Microsoft Docs
-description: Azure CLI Script Sample - Deploy a web app to a staging environment
+title: Azure CLI Script Sample - Create a web app and deploy code to a staging environment | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app and deploy code to a staging environment
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -17,7 +17,7 @@ ms.date: 02/21/2017
 ms.author: cephalin
 ---
 
-# Deploy a web app to a staging environment
+# Create a web app and deploy code to a staging environment
 
 This sample script does the following using Azure CLI 2.0: 
 
@@ -41,7 +41,7 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create VM sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh?highlight=3 "Deploy a web app to a staging environment")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh?highlight=3 "Create a web app and deploy code to a staging environment")]
 
 ## Clean up deployment 
 
