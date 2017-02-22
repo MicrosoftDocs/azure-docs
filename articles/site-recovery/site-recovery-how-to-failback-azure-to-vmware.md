@@ -1,5 +1,5 @@
 ---
-title: Hot to Failback from Azure to On-premises | Microsoft Docs
+title: How to Failback from Azure to Hyper-v | Microsoft Docs
 description: After failover of VMs to Azure, you can initiate a failback to bring VMs back to on-premises. Learn the steps how to failback.
 services: site-recovery
 documentationcenter: ''
