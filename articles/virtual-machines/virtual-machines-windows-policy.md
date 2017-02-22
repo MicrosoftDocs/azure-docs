@@ -93,9 +93,9 @@ The table below describes the Virtual Machine properties that can be used as fie
 ## Create the Policy
 A policy can easily be created using the REST API directly or the PowerShell cmdlets. For creating the policy, see the article below:
 
-* [Creating a Policy](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
+* [Creating a Policy](../azure-resource-manager/resource-manager-policy.md)
 
 ## Apply the Policy
 After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. For applying the policy, see the article below:
 
-* [Creating a Policy](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
+* [Creating a Policy](../azure-resource-manager/resource-manager-policy.md)
