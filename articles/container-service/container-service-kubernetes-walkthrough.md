@@ -155,13 +155,13 @@ kubectl get pods
 Using your pod name, you can run a remote command on your pod.  For example:
 
 ```console
-kubectl exec nginx-701339712-retbj date
+kubectl exec <pod name> date
 ```
 
 You can also get a fully interactive session using the `-it` flags:
 
 ```console
-kubectl exec nginx-701339712-retbj -it bash
+kubectl exec <pod name> -it bash
 ```
 
 ![Remote session inside a container](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
