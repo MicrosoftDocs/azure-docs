@@ -39,7 +39,7 @@ For background, see [Azure Container Service introduction](container-service/con
 
 * **SSH RSA public key**: When deploying through the portal or one of the Azure quickstart templates, you need to provide the public key for authentication against Azure Container Service virtual machines. To create Secure Shell (SSH) RSA keys, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
 
-* **Service principal client ID and secret** (Kubernetes only): For more information and guidance to create a service principal, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+* **Service principal client ID and secret** (Kubernetes only): For more information and guidance to create an Azure Active Directory service principal, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
 
 
@@ -48,13 +48,11 @@ For background, see [Azure Container Service introduction](container-service/con
 
     ![Azure Container Service in Marketplace](media/container-service-deployment/acs-portal1.png)  <br />
 
-2. Select **Azure Container Service**, and click **Create**.
-
-    ![Create a container service](media/container-service-deployment/acs-portal2.png)  <br />
+2. Click **Azure Container Service**, and click **Create**.
 
 3. On the **Basics** blade, enter the following information:
 
-    * **Orchestrator**: Select one of the container management solutions to deploy on the cluster.
+    * **Orchestrator**: Select one of the container orchestrators to deploy on the cluster.
         * **DC/OS**: Deploys a DC/OS cluster.
         * **Swarm**: Deploys a Docker Swarm cluster.
         * **Kubernetes**: Deploys a Kubernetes cluster.
@@ -68,12 +66,12 @@ For background, see [Azure Container Service introduction](container-service/con
 
 4. On the **Master configuration** blade, enter the following settings for the Linux master node or nodes in the cluster (some settings are specific to each orchestrator):
 
-    * **Master DNS name**: A world unique name that is used to prefix key parts of the fully qualified domain names for the service.
-    * **User name**: The user name for an account on each of the master virtual machines in the cluster.
-    * **SSH RSA public key**: Add the public key to be used for authentication against the master virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
-    * **Service principal**: If you selected the **Kubernetes** orchestrator, you need to enter an Azure Active Directory **Service principal client ID** (also called the appId) and **Service principal client secret** (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+    * **Master DNS name**: The prefix used to create a unique fully qualified domain name (FQDN) for the master. The master FQDN is of the form *prefix*.*location*.cloudapp.net.
+    * **User name**: The user name for an account on each of the Linux virtual machines in the cluster.
+    * **SSH RSA public key**: Add the public key to be used for authentication against the Linux virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **Service principal**: If you selected the Kubernetes orchestrator, enter an Azure Active Directory **Service principal client ID** (also called the appId) and **Service principal client secret** (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
     * **Master count**: The number of masters in the cluster.
-    * **VM diagnostics**: For some orchestrators, you can choose to enable VM diagnostics on the masters.
+    * **VM diagnostics**: For some orchestrators, you can enable VM diagnostics on the masters.
 
     ![Master configuration](media/container-service-deployment/acs-portal4.png)  <br />
 
@@ -81,12 +79,12 @@ For background, see [Azure Container Service introduction](container-service/con
 
 5. On the **Agent configuration** blade, enter the following information:
 
-    * **Agent count**: For Docker Swarm and Kubernetes, this value is the initial number of agents in the agent scale set. For DC/OS, it is the initial number of agents in a private scale set. Additionally, a public scale set is created for DC/OS, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster: one public agent for one master, and two public agents for three or five masters.
+    * **Agent count**: For Docker Swarm and Kubernetes, this value is the initial number of agents in the agent scale set. For DC/OS, it is the initial number of agents in a private scale set. Additionally, a public scale set is created for DC/OS, which contains a predetermined number of agents. The number of agents in this public scale set is determined by the number of masters in the cluster: one public agent for one master, and two public agents for three or five masters.
     * **Agent virtual machine size**: The size of the agent virtual machines.
-    * **Operating system**: If you selected the **Kubernetes** orchestrator, choose either a Linux distribution or a Windows Server operating system to run on the agents. This setting determines whether your cluster can run Linux or Windows container apps.
+    * **Operating system**: This setting is currently available only if you selected the Kubernetes orchestrator. Choose either a Linux distribution or a Windows Server operating system to run on the agents. This setting determines whether your cluster can run Linux or Windows container apps. 
 
         > [!NOTE]
-        > Windows container support is currently in preview.
+        > Windows container support is in preview for Kubernetes clusters. On DC/OS and Swarm clusters, only Linux agents are currently supported in Azure Container Service.
 
     * **Agent credentials**: If you selected the Windows operating system, enter an administrator **User name** and **Password** for the agent VMs. 
 
@@ -94,7 +92,7 @@ For background, see [Azure Container Service introduction](container-service/con
 
     Click **OK** when you're ready to proceed.
 
-6. Click **OK** after service validation finishes.
+6. After service validation finishes, click **OK**.
 
     ![Validation](media/container-service-deployment/acs-portal6.png)  <br />
 
@@ -105,7 +103,6 @@ For background, see [Azure Container Service introduction](container-service/con
     ![Deployment status](media/container-service-deployment/acs-portal8.png)  <br />
 
 The deployment takes several minutes to complete. Then, the Azure Container Service cluster is ready for use.
-
 
 
 ## Create a cluster by using a quickstart template

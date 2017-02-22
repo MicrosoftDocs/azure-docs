@@ -53,9 +53,13 @@ All VMs are in the same private virtual network and are fully accessible to each
 
 ## Create the cluster
 
-You can use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) with Windows agent nodes. 
+You can use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) with Windows agent nodes. Note the following settings when creating the cluster:
 
-On the **Framework configuration** pane, in **Orchestrator configuration**, select **Kubernetes - Windows**. 
+* On the **Basics** blade, in **Orchestrator**, select **Kubernetes**. 
+* On the **Master configuration** blade, enter user credentials and service principal credentials for the Linux master nodes.
+* On the **Agent configuration** blade, in **Operating system**, select **Windows (preview)**. Enter administrator credentials for the Windows agent nodes.
+
+For details, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
 
 ## Connect to the cluster
 
