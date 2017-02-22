@@ -20,6 +20,13 @@
 ### [Scale a web app](../app-service/scripts/app-service-cli-scale-manual.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Deploy ASP.NET Core to Linux](../app-service/scripts/app-service-cli-linux-docker-aspnetcore.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
+## PowerShell 
+### Continuous deploy from GitHub
+### Connect to storage
+### Deploy to staging
+### Scale a web app
+### Deploy ASP.NET Core to Linux
+
 # Tutorials
 ## ASP.NET
 ### [MVC app with Visual Studio](web-sites-dotnet-get-started.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
