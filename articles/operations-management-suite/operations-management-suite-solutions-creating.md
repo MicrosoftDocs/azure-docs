@@ -40,23 +40,31 @@ There are a number of ways that data can be collected in the Log Analytics repos
 
 Data sources can be [configured with an ARM template](log-analytics-template-workspace-configuration.md) and thus included in a management solution. This should only be done if the configuration is specific to your application though since you risk overwriting existing configurations.
 
+
+##### Windows events
+Only include Windows events in your solution if the event log is unique to your application or you may risk overwriting the user's existing configuration.
+
 For example, your solution may require Warning and Error events from the Application event log.  If you specify this as a data source in your solution, you risk removing Information events if the user had this configured in their workspace.  If you included all events, then you may be collecting excessive Information events in the user's workspace.
 
-If y
+If your application uses its own event log, then you can safely include this in your solution.  You should also contain the   
 
+##### Windows performance counters 
+You can include Windows performance counters that you require in your solution.  
 
+- Configure the sample interval to the minimum of 10 seconds to ensure that you don't change any existing configuration to a higher sample interval.
+- Do not contain the data source in the solution unless the performance counter is specific to your application.  This will ensure that a data source that was configured before your solution was installed isn't removed if the solution is removed. 
+   
 
 #### Runbook
+If you require data that's not accessible through any of the data sources, then you can use the [HTTP Data Collector API](log-analytics-data-collector-api.md) which allows you to write data to the Log Analytics repository from any client that call all a REST API.  
 
-The most common model of 
+The most common means of custom data collection in a management solution is to create a [runbook in Azure Automation](automation\automation-runbooks.md) that collects the required data and uses the Data Collector API to write to the repository.  Runbooks are written in PowerShell and can access other services and applications in Azure as well as other clouds.    
 
-If you require data that's not accessible through any of the data sources, then you can use the [HTTP Data Collector API]() allows you to write data to the Log Analytics repository from any client that call all a REST API.  
-
-The most common means of data collection in a management solution is to create a runbook in Azure Automation that collects the required data and uses the Data Collector API to write to the repository. 
-
+You can include a runbook in the solution file so that it's created when the solution is installed.  Contain the runbook in the solution so that it's removed when the solution is removed.
 
 
-### Define data collection
+### Build a dashboard
+Dashboards in Log Analytics are used to visualize data from the Log Analytics repository.  Once you've 
 
 
 
