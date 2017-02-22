@@ -32,7 +32,7 @@ From the left menu, select **More services**.
 
 	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
-2. In the filter search box, type "integration". 
+2. In the search box, type "integration" for your filter. 
 In the results list, select **Integration Accounts**.
 
 	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
@@ -41,15 +41,16 @@ In the results list, select **Integration Accounts**.
 
 	![Choose Add](./media/logic-apps-enterprise-integration-accounts/account-3.png)
 
-4. Name your integration account and select the **Subscription** you want to use. 
+4. Name your integration account and select the Azure subscription that you want to use. 
 You can either create a new **Resource group** or select an existing resource group. 
-Then select a **Location** for hosting your integration account and a **Pricing tier**.
-When you're ready, choose **Create**.
-   
-	Azure provisions your integration account 
-	in the selected location, which should complete within 1 minute.
+Then select a **Location** for hosting your integration account and a **Pricing Tier**. 
+
+	When you're ready, choose **Create**.
 
 	![Provide details for your integration account](./media/logic-apps-enterprise-integration-accounts/account-4.png)
+
+	Azure provisions your integration account 
+	in the selected location, which should complete within 1 minute.
 
 5. Refresh the page. You see your new integration account listed.
 
@@ -126,7 +127,7 @@ To move an integration account to another Azure subscription or resource group, 
 
 	![Select "More services"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
-2. In the filter search box, type "integration". 
+2. In the search box, type "integration" for your filter. 
 In the results list, select **Integration Accounts**.
 
 	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-accounts/account-2.png)
