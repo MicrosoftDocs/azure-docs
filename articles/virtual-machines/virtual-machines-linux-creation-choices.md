@@ -98,7 +98,7 @@ az vm image list-publishers --location WestUS
 List available products (offers) for a given publisher:
 
 ```azurecli
-az vm image list-offers --publisher-name Canonical --location WestUS
+az vm image list-offers --publisher Canonical --location WestUS
 ```
 
 List available SKUs (distro releases) of a given offer:
