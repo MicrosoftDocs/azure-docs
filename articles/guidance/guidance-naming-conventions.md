@@ -120,7 +120,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | Networking |Public IP Address |Resource Group |1-80 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<vm or service name>-pip` |`profx-sql1-pip` |
 | Networking |Load Balancer |Resource Group |1-80 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-lb` |`profx-lb` |
 | Networking |Load Balanced Rules Config |Load Balancer |1-80 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`http` |
-| Networking |Azure Application Gateway |Resource Group |1-80 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-aag` |`profx-agw` |
+| Networking |Azure Application Gateway |Resource Group |1-80 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-aag` |`profx-aag` |
 | Networking |Traffic Manager Profile |Resource Group |1-63 |Case-insensitive |Alphanumeric, dash, and period |`<descriptive context>` |`app1` |
 
 
