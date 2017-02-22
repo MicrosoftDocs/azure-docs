@@ -5,9 +5,9 @@
 ## [Compare Azure hosting options](../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # Quickstart
-## [Host your first app on Windows](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
-## [Host your first app on Linux](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-## [Host your first WordPress site](../app-service-web-get-started-php-portal.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## [Create your first app on Windows](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
+## [Create your first app on Linux](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## [Create your first WordPress site](../app-service-web-get-started-php-portal.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## [Add functionality to an app](../app-service-web-get-started-2.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # Common examples

@@ -5,11 +5,11 @@
 ## [Compare Azure hosting options](choose-web-site-cloud-service-vm.md)
 
 # Quickstart	
-## [Host your first ASP.NET app](app-service-web-get-started-dotnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		
-## [Host your first Java app](app-service-web-get-started-java.md)		
-## [Host your first Node.js	app](app-service-web-get-started-nodejs.md) 
-## [Host your first PHP app](app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
-## [Host your first Python app](app-service-web-get-started-python.md)	
+## [Create your first ASP.NET app](app-service-web-get-started-dotnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		
+## [Create your first Java app](app-service-web-get-started-java.md)		
+## [Create your first Node.js	app](app-service-web-get-started-nodejs.md) 
+## [Create your first PHP app](app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
+## [Create your first Python app](app-service-web-get-started-python.md)	
 ## [Add functionality to an app](app-service-web-get-started-2.md)	
 
 # Common examples
