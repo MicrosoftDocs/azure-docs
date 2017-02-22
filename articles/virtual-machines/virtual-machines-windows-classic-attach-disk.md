@@ -30,9 +30,9 @@ If you want to use the new portal, see [How to attach a data disk to a Windows V
 
 This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal.
 
-You can also [attach a data disk to a Linux VM in the Azure portal ](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also [attach a data disk to a Linux VM in the Azure portal](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Before you do this, review these tips:
+Before you attach a disk, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -68,7 +68,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
     ![Open Server Manager](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
 
 3. Select **Disks**.
-4. The **Disks** section lists the disks. In most cases, it will have disk 0, disk 1, and disk 2. Disk 0 is the operating system disk, disk 1 is the temporary disk, and disk 2 is the data disk you just attached to the VM. The new data disk will list the Partition as **Unknown**.
+4. The **Disks** section lists the disks. Most often, a virtual machine has disk 0, disk 1, and disk 2. Disk 0 is the operating system disk, disk 1 is the temporary disk, and disk 2 is the data disk newly attached to VM. The data disk lists the Partition as **Unknown**.
 
  Right-click the disk and select **Initialize**.
 
@@ -93,7 +93,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 
 ## Use TRIM with standard storage
 
-If you use standard storage (HDD), you should enable TRIM. TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using. This can save on costs if you create large files and then delete them.
+If you use standard storage (HDD), you should enable TRIM. TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using. Using TRIM can save on costs if you create large files and then delete them.
 
 You can run this command to check the TRIM setting. Open a command prompt on your Windows VM and type:
 
