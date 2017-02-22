@@ -115,7 +115,7 @@ Data about the state of extension deployments can be retrieved from the Azure po
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Extension execution output us logged to files found in the following directory on the target virtual machine.
+Extension execution output is logged to files found in the following directory on the target virtual machine.
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
