@@ -105,6 +105,7 @@
 #### Create a cluster on Azure
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio and Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
 ### Standalone clusters
+#### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Contents of the Service Fabric standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
 #### [Create a standalone cluster on Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Scale a cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
