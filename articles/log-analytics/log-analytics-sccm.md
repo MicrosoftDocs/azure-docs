@@ -21,7 +21,7 @@ You can connect System Center Configuration Manager to Log Analytics in OMS to s
 
 ## Prerequisites
 
-Log Analytics supports System Center Configuration Manager version 1606 and higher.  
+Log Analytics supports System Center Configuration Manager current branch version 1606 and higher.  
 
 ## Configuration overview
 The following steps summarizes the process to connect Configuration Manager to Log Analytics.  
