@@ -72,15 +72,8 @@ Learn how to use App Service Web Apps to build and host websites and web applica
         </div>
         </a>
     </li>
-</ul>
-
----
-    
-Choose a preferred language to start building your web app in Azure:
-  
-<ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-dotnet?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -90,7 +83,7 @@ Choose a preferred language to start building your web app in Azure:
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>ASP.NET</h3>
+                        <h3>Get Started with Web Apps using ASP.NET and Visual Studio</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +101,7 @@ Choose a preferred language to start building your web app in Azure:
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Java</h3>
+                        <h3>Get Started with Web Apps using Java</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +119,7 @@ Choose a preferred language to start building your web app in Azure:
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Node.js</h3>
+                        <h3>Get started with Web Apps using Node.js </h3>
                     </div>
                 </div>
             </div>
@@ -144,15 +137,16 @@ Choose a preferred language to start building your web app in Azure:
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Python</h3>
+                        <h3>Get Started with Web Apps using Python Tools 2.2</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+   
      <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-php?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -162,7 +156,7 @@ Choose a preferred language to start building your web app in Azure:
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>PHP</h3>
+                        <h3>Get Started with Web Apps using PHP</h3>
                     </div>
                 </div>
             </div>
@@ -170,7 +164,7 @@ Choose a preferred language to start building your web app in Azure:
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-php-web-site-gallery?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
+        <a href="/azure/app-service-web/web-sites-php-web-site-gallery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -180,7 +174,7 @@ Choose a preferred language to start building your web app in Azure:
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>WordPress (PHP) </h3>
+                        <h3>Get Started with WordPress in Azure App Service</h3>
                     </div>
                 </div>
             </div>

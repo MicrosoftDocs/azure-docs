@@ -11,18 +11,12 @@
 ## [Add functionality to an app](../app-service-web-get-started-2.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # Common examples
-## Azure CLI 2.0 
-### CD from GitHub
-### Connect to storage
-### Deploy to staging
-### Scale a web app
-### Deploy ASP.NET Core to Linux
-## PowerShell 
-### CD from GitHub
-### Connect to storage
-### Deploy to staging
-### Scale a web app
-### Deploy ASP.NET Core to Linux
+## [Azure CLI 2.0](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
+### [Continuous deploy from GitHub](../app-service-web-cli-continuous-deployment-github.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Connect to storage](../../app-service/scripts/app-service-cli-app-service-storage.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Deploy to staging](../app-service-web-cli-deploy-staging-environment.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
+### [Scale a web app](../../app-service/scripts/app-service-cli-scale-manual.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Deploy ASP.NET Core to Linux](../../app-service/scripts/app-service-cli-linux-docker-aspnetcore?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # Tutorials
 
