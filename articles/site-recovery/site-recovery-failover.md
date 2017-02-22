@@ -21,7 +21,7 @@ ms.author: pratshar
 This article describes how to failover virtual machines and physical servers protected by Site Recovery. 
 
 ## Prerequisites
-Before you do a failover, you should do a [test failover](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected. [Prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
+Before you do a failover, you should do a [test failover](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected. You should also [prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
 
 
 ## Run a failover
@@ -90,7 +90,7 @@ You might want to automate certain actions while doing a failover. You can use s
 
 
 ## Next Steps
-Once you have failed over virtual machines and the on-premises data center is available, you should [re-protect](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
+Once you have failed over virtual machines and the on-premises data center is available, you should [**Re-protect**](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
 
 Use [**Planned failover**](site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
 

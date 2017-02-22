@@ -45,8 +45,11 @@ After failover from the primary to secondary location, replicated virtual machin
 
     - **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
 
-    	[!NOTE] 
-    	We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem VM has been deleted.This option doesn't perform any checksum calculations.
+	>[!NOTE] 
+	>We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted.This option doesn't perform any checksum calculations.
+	>
+	>
+
 
 
 

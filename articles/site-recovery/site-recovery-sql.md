@@ -67,7 +67,7 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 **Standalone SQL Server** | The SQL Server and database are hosted on a single server (physical or virtual). Host clustering is used for high availability if the server is virtual. No guest-level high availability. | Enterprise or Standard edition
 
 ## Deployment recommendations
-<<<<<<< HEAD
+
 This table summarizes our recommendations for integrating SQL Server BCDR technologies with Site Recovery.
 
 | **Version** | **Edition** | **Deployment** | **On-prem to on-prem** | **On-prem to Azure** |
@@ -79,18 +79,6 @@ This table summarizes our recommendations for integrating SQL Server BCDR techno
 | SQL Server 2008 R2 |Enterprise or Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
 || Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
 | SQL Server (Any version) |Enterprise or Standard |Failover cluster instance - DTC application |Site Recovery replication |Not Supported |
-=======
-
-**Version** | **Deployment** | **On-premises to secondary** | **On-premises to Azure** |
---- | --- | --- | --- | --- |
-**SQL Server 2014/2012 Enterprise FCI** | Failover cluster | AlwaysOn availability groups | AlwaysOn availability groups
-**SQL Server 2014/2012 AlwaysOn** | AlwaysOn availability groups | AlwaysOn | AlwaysOn
-**SQL Server 2014/2012 Standard FCI** | Failover cluster | Site Recovery replication with local mirror | Site Recovery replication with local mirror
-**SQL Server 2014/2012 Enterprise/Standard** | Standalone | Site Recovery replication | Site Recovery replication
-**SQL Server 2008 R2 Enterprise/Standard** | FCI |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
-**SQL Server 2008 R2 Enterprise/Standard** | Standalone |Site Recovery replication | Site Recovery replication
-**SQL Server (any version) Enterprise/Standard** |FCI - DTC application | Site Recovery replication |Not supported
->>>>>>> de12f63779eb2c17d9c3fb0d18be5d4c95af8a72
 
 ## Deployment prerequisites
 
