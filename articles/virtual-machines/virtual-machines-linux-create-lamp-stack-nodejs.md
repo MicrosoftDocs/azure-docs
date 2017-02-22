@@ -24,7 +24,7 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 There are two methods for installing LAMP covered in this article:
 
 ## Quick Command Summary
-* Deploy LAMP on new VM with Azure CLI 1.0. If you want Azure CLI 2.0 go [here](virtual-machines-linux-create-lamp-stack.md).
+* Deploy LAMP on new VM with Azure CLI 1.0. If you prefer Azure CLI 2.0, visit [this document](virtual-machines-linux-create-lamp-stack.md).
 
 ```
 # One command to create a resource group holding a VM with LAMP already on it
@@ -97,10 +97,10 @@ You have now created a Linux VM with LAMP already installed on it. If you wish, 
 
 ## Deploy LAMP on existing VM Walkthrough
 If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-Next, you need to SSH into the Linux VM. If you need help with creating an SSH key you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh exampleUsername@exampleDNS`.
 
-Now that you are working within your Linux VM, we will walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
+Now that you are working within your Linux VM, we can walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
 
 #### Installing on Debian/Ubuntu
 You need the following packages installed: `apache2`, `mysql-server`, `php5`, and `php5-mysql`. You can install these packages by directly grabbing these packages or using Tasksel. Instructions for both options are listed below.
@@ -119,7 +119,7 @@ Alternatively you can download Tasksel, a Debian/Ubuntu tool that installs multi
     user@ubuntu$ sudo apt-get install tasksel
     user@ubuntu$ sudo tasksel install lamp-server
 
-After running either of the above options, you will be prompted to install these packages and various other dependencies. Press 'y' and then 'Enter' to continue, and follow any other prompts to set an administrative password for MySQL. This installs the minimum required PHP extensions needed to use PHP with MySQL. 
+After running either of the previous options, you will be prompted to install these packages and various other dependencies. Press 'y' and then 'Enter' to continue, and follow any other prompts to set an administrative password for MySQL. This installs the minimum required PHP extensions needed to use PHP with MySQL. 
 
 ![][1]
 
@@ -131,7 +131,7 @@ Run the following command to see other PHP extensions that are available as pack
 #### Create info.php document
 You should now be able to check what version of Apache, MySQL, and PHP you have through the command line by typing `apache2 -v`, `mysql -v`, or `php -v`.
 
-If you would like to test further, you can create a quick PHP info page to view in a browser. Create a new file with Nano text editor with this command:
+If you would like to test further, you can create a quick PHP info page to view in a browser. Create a file with Nano text editor with this command:
 
     user@ubuntu$ sudo nano /var/www/html/info.php
 
@@ -148,11 +148,11 @@ Restart Apache with this command so all new installs take effect.
     user@ubuntu$ sudo service apache2 restart
 
 ## Verify LAMP Successfully Installed
-Now you can check the PHP info page you created by opening a browser and going to http://youruniqueDNS/info.php. It should look similar to this.
+Now you can check the PHP info page you created by opening a browser and going to http://youruniqueDNS/info.php. It should look similar to this image.
 
 ![][2]
 
-You can check your Apache installation by viewing the Apache2 Ubuntu Default Page by going to you http://youruniqueDNS/. You should see something like this.
+You can check your Apache installation by viewing the Apache2 Ubuntu Default Page by going to you http://youruniqueDNS/. You should see something like this image.
 
 ![][3]
 
