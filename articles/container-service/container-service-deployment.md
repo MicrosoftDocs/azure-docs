@@ -113,7 +113,7 @@ Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (s
 > [!NOTE] 
 > If you're on a Windows system, you can use similar steps to deploy a template using Azure PowerShell. See steps later in this section. You can also deploy a template through the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md) or other methods.
 
-1. To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the available quickstart templates from GitHub. A partial list follows. Note that the DC/OS and Swarm templates are the same, with the exception of the default orchestrator selection.
+1. To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the available quickstart templates from GitHub. A partial list follows. The DC/OS and Swarm templates are the same, except for the default orchestrator selection.
 
     * [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -185,16 +185,16 @@ You can also deploy an Azure Container Service cluster template with PowerShell.
     New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
     ```
 
-5. After you create a resource group, you can create your cluster with the following command. The URI of the desired template will be specified for the `-TemplateUri` parameter. When you run this command, PowerShell prompts you for deployment parameter values.
+5. After you create a resource group, you can create your cluster with the following command. The URI of the desired template is specified with the `-TemplateUri` parameter. When you run this command, PowerShell prompts you for deployment parameter values.
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
     ```
 
 #### Provide template parameters
-If you're familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses the parameters, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
+If you're familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses the parameters, and adds the template parameters to the command dynamically. This makes it easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
 
-Below is the full command, with parameters included. You can provide your own values for the names of the resources.
+Here is the full command, with parameters included. Provide your own values for the names of the resources.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
