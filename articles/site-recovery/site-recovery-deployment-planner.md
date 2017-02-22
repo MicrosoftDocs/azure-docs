@@ -214,6 +214,14 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com 
 > * **Why should one consider growth factor while deployment planning?** 
 > It is critical to account for growth in your workload characteristics assuming potential increase in usage over time. This is because once protected if your workload characteristics change, there is currently no means to switch to a different Azure Storage account for protection without disabling and re-enabling protection. E.g. if today a virtual machine fits in a standard storage replication account, in say three months’ time, due to an increase in number of users of the application running on the virtual machine, if say the churn on the VM increases and requires it to go to premium storage so that Azure Site Recovery replication can keep up with the new higher churn, you will have to disable and re-enable protection to a premium storage account. So, it is strongly advised to plan for growth while deployment planning and the default value is 30%. You know your applications usage pattern and growth projections the best and can change this number accordingly while generating a report. You can in fact generate multiple reports with different growth factors with the same profiled data and see what target Azure Storage and source bandwidth recommendations work best for you.
 
+The generated Microsoft Excel report has following sheets
+
+* [Input](site-recovery-deployment-planner.md#input) 
+* [Recommedations](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input) 
+* [Recommedations-Bandwidth Input](site-recovery-deployment-planner.md#recommendations-with-available-bandwidth-as-input)
+* [VM<->Storage Placement](site-recovery-deployment-planner.md#vm-storage-placement)
+* [Compatible VMs](site-recovery-deployment-planner.md#compatible-vms)
+* [Incompatible VMs](site-recovery-deployment-planner.md#incompatible-vms)
 
 ##Get throughput
 To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server where the tool is running (ideally a server based on the Configuration Server sizing guide).  If you have already deployed Azure Site Recovery infrastructure components on-premises, run the tool on the Configuration Server. 
