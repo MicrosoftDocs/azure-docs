@@ -9,7 +9,7 @@ editor: mattshel
 
 ms.assetid: 3a37bbc0-f624-46f3-bc4e-5a10560f9fbf
 ms.service: multiple
-nms.workload: na
+ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -19,7 +19,7 @@ ms.author: robb
 ---
 # Application Architecture on Microsoft Azure
 Resources for building applications that use Microsoft Azure. This includes tools to help you draw diagrams to visually describe software systems.
-i
+
 ## Design patterns poster
 Microsoft patterns & practices has published the book [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx) which is available both on MSDN and in PDF download. There is also a large format poster available which lists all the patterns.
 
