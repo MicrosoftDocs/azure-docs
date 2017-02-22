@@ -119,4 +119,4 @@ Building Applications Using the Azure Container Service (Build 2016)
 
 ## Next steps
 
-Deploy a container service cluster using the [portal](container-service-deployment.md) or [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md).
+Deploy a container service cluster using the [portal](container-service-deployment.md) or [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).

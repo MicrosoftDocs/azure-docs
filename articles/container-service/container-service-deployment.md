@@ -28,7 +28,7 @@ ms.author: rogardle
 
 Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. This document walks you through deploying an Azure Container Service cluster by using the Azure portal or an Azure Resource Manager quickstart template. 
 
-You can also deploy an Azure Container Service cluster by using the [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md) or the Azure Container Service APIs.
+You can also deploy an Azure Container Service cluster by using the [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) or the Azure Container Service APIs.
 
 
 
@@ -109,7 +109,7 @@ The deployment takes several minutes to complete. Then, the Azure Container Serv
 ## Create a cluster by using a quickstart template
 Azure quickstart templates are available to deploy a cluster in Azure Container Service. The provided quickstart templates can be modified to include additional or advanced Azure configuration. To create an Azure Container Service cluster by using an Azure quickstart template, you need an Azure subscription. If you don't have one, then sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (Preview) (see [installation and setup instructions](/cli/azure/install-az-cli2.md)).
+Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (see [installation and setup instructions](/cli/azure/install-az-cli2.md)).
 
 > [!NOTE] 
 > If you're on a Windows system, you can use similar steps to deploy a template using Azure PowerShell. See steps later in this section. You can also deploy a template through the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md) or other methods.

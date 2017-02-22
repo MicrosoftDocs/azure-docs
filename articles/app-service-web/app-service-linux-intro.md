@@ -36,7 +36,7 @@ Customers can deploy their applications by using:
 
 * FTP
 * Local Git
-* GitHub or Bitbucket
+* GitHub
 
 For application scaling:
 
