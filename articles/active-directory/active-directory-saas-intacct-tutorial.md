@@ -177,7 +177,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 ### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+![Create Azure AD user][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
