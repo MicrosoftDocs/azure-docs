@@ -40,7 +40,7 @@ To participate in the SSE Files Preview please contact ssdiscussions@microsoft.c
 
 To learn more, please refer to the FAQ.
 Availability for File Storage
-Storage Service Encryption for File Storage is currently available in East Asia region.
+Storage Service Encryption for File Storage is currently available in East Asia, North Europe and East US 2 region.
 
 
 To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://azure.portal.com) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
