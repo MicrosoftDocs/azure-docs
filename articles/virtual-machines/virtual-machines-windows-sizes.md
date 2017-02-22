@@ -14,24 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/16/2017
+ms.date: 02/22/2017
 ms.author: cynthn
 
 ---
 # Sizes for Windows virtual machines in Azure
 This article describes the available sizes and options for the Azure virtual machines you can use to run your Windows apps and workloads. It also provides deployment considerations to be aware of when you're planning to use these resources.  This article is also available for [Linux virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-> [!IMPORTANT]
-> * For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
-> * For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
-> * To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-> * The size affects the processing, memory, and storage capacity of the virtual machine. 
-> * Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
->   <br>    
-> 
-> 
+* For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
+* For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
+* To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* The size affects the processing, memory, and storage capacity of the virtual machine. 
+* Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
+<br>    
 
- 
 
 [!INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
