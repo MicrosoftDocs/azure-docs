@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Virtual Network Gateway and connections using Azure Network Watcher Troubleshoot REST API | Microsoft Docs
-description: This page explains how to use the Azure Network Watcher troubleshoot REST API
+title: Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher - REST | Microsoft Docs
+description: This page explains how to troubleshoot Virtual Network Gateways and Connections with Azure Network Watcher using REST
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/30/2017
+ms.date: 02/22/2017
 ms.author: gwallace
 
 ---
 
-# Troubleshoot Virtual Network Gateway and connections using Azure Network Watcher Troubleshoot REST API
+# Troubleshoot Virtual Network gateway and Connections using Azure Network Watcher
 
-Network Watcher troubleshoot API provides the ability to troubleshoot Virtual Network Gateway and connection issues.
+Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting.  Resource troubleshooting can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network gateway or a Connection and returns its findings.
 
-This article takes you through the different management tasks that are currently available for packet capture.
+This article takes you through the different management tasks that are currently available for resource troubleshooting.
 
-- [**Troubleshoot a Virtual Network Gateway**](#troubleshoot-a-virtual-network-gateway)
-- [**Troubleshoot a connection**](#troubleshoot-connections)
+- [**Troubleshoot a Virtual Network gateway**](#troubleshoot-a-virtual-network-gateway)
+- [**Troubleshoot a Connection**](#troubleshoot-connections)
 
 ## Before you begin
 
-To provide the examples **PowerShell** is used with ARMclient, which is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
 ## Overview
 
-The Network Watcher troubleshoot API provides the ability troubleshoot issues that arise with Virtual Network Gateways and connections. When a request is made to the troubleshoot API, logs are querying and inspected. When inspection is complete the results are returned. The troubleshoot API requests are long running requests which could take multiple minutes to return a result. Logs are stored in a container on a storage account.
+Network Watcher troubleshooting provides the ability troubleshoot issues that arise with Virtual Network gateways and Connections. When a request is made to the resource troubleshooting, logs are querying and inspected. When inspection is complete, the results are returned. The troubleshoot API requests are long running requests, which could take multiple minutes to return a result. Logs are stored in a container on a storage account.
 
 
 ## Log in with ARMClient
@@ -44,12 +44,12 @@ The Network Watcher troubleshoot API provides the ability troubleshoot issues th
 armclient login
 ```
 
-## Troubleshoot a Virtual Network Gateway
+## Troubleshoot a Virtual Network gateway
 
 
 ### POST the troubleshoot request
 
-The following example queries the status of a Virtual Network Gateway.
+The following example queries the status of a Virtual Network gateway.
 
 ```powershell
 
@@ -74,7 +74,7 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
 ```
 
-Since this is a long running transaction, in the response header, the URI for querying the operation and the URI for the result is returned as shown in the following response.
+Since this operation is long running, the URI for querying the operation and the URI for the result is returned in the response header as shown in the following response:
 
 **Important Values**
 
@@ -107,7 +107,7 @@ Use the operations URI to query for the progress of the operation as seen in the
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
 ```
 
-While the operation is in progress, the response will show **InProgress** as seen in the following example:
+While the operation is in progress, the response shows **InProgress** as seen in the following example:
 
 ```json
 {
@@ -115,7 +115,7 @@ While the operation is in progress, the response will show **InProgress** as see
 }
 ```
 
-When the operation is complete the status will change to **Succeeded**.
+When the operation is complete the status changes to **Succeeded**.
 
 ```json
 {
@@ -128,7 +128,7 @@ When the operation is complete the status will change to **Succeeded**.
 Once the status returned is **Succeeded**, call a GET Method on the operationResult URI to retrieve the results.
 
 ```powershell
-armclient get "https://management.azure.com/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
+armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
 ```
 
 The following responses are examples of a typical degraded response returned when querying the results of troubleshooting a gateway. See [Understanding the results](#understanding-the-results) to get clarification on what the properties in the response mean.
@@ -145,7 +145,7 @@ The following responses are examples of a typical degraded response returned whe
       "detail": "During this time the gateway will not initiate or accept VPN connections with on premises VPN devices or other Azure VPN Gateways. This is a transient state while the Azure platform is being updated.",
       "recommendedActions": [
         {
-          "actionText": "If the condition persists, please try resetting your Azure VPN Gateway",
+          "actionText": "If the condition persists, please try resetting your Azure VPN gateway",
           "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting the VPN Gateway"
         },
@@ -178,9 +178,9 @@ The following responses are examples of a typical degraded response returned whe
 ```
 
 
-## Troubleshoot connections
+## Troubleshoot Connections
 
-The following example queries the status of a connection.
+The following example queries the status of a Connection.
 
 ```powershell
 
@@ -202,7 +202,10 @@ $requestBody = @{
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
 ```
 
-Since this is a long running transaction, in the response header, the URI for querying the operation and the URI for the result is returned as shown in the following response.
+> [!NOTE]
+> The troubleshoot operation cannot be run in parallel on a Connection and its corresponding gateways. The operation must complete prior to running it on the previous resource.
+
+Since this is a long running transaction, in the response header, the URI for querying the operation and the URI for the result is returned as shown in the following response:
 
 **Important Values**
 
@@ -235,7 +238,7 @@ Use the operations URI to query for the progress of the operation as seen in the
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-While the operation is in progress, the response will show **InProgress** as seen in the following example:
+While the operation is in progress, the response shows **InProgress** as seen in the following example:
 
 ```json
 {
@@ -243,7 +246,7 @@ While the operation is in progress, the response will show **InProgress** as see
 }
 ```
 
-When the operation is complete the status will change to **Succeeded**.
+When the operation is complete, the status changes to **Succeeded**.
 
 ```json
 {
@@ -251,7 +254,7 @@ When the operation is complete the status will change to **Succeeded**.
 }
 ```
 
-The following responses are examples of a typical response returned when querying the results of troubleshooting a connection.
+The following responses are examples of a typical response returned when querying the results of troubleshooting a Connection.
 
 ### Retrieve the results
 
@@ -261,7 +264,7 @@ Once the status returned is **Succeeded**, call a GET Method on the operationRes
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-The following responses are examples of a typical response returned when querying the results of troubleshooting a connection. See [Understanding the results](#understanding-the-results) to get clarification on what the properties in the response mean.
+The following responses are examples of a typical response returned when querying the results of troubleshooting a Connection.
 
 ```json
 {
@@ -276,9 +279,9 @@ The following responses are examples of a typical response returned when queryin
 is a transient state while the Azure platform is being updated.",
       "recommendedActions": [
         {
-          "actionText": "If the condition persists, please try resetting your Azure VPN Gateway",
+          "actionText": "If the condition persists, please try resetting your Azure VPN gateway",
           "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
-          "actionUriText": "resetting the VPN Gateway"
+          "actionUriText": "resetting the VPN gateway"
         },
         {
           "actionText": "If your VPN Connection isn't up and running by the expected resolution time, contact support",
@@ -310,41 +313,9 @@ is a transient state while the Azure platform is being updated.",
 
 ## Understanding the results
 
-The following is a list of the values returned with the troubleshoot API:
+The action text provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance. In the case where there is no additional guidance, the response provides the url to open a support case.  For more information about the properties of the response and what is included, visit [Network Watcher Troubleshoot overview](network-watcher-troubleshoot-overview.md)
 
-* **startTime** - This value is the time the troubleshoot API call started.
-* **endTime** - This value is the time that the troubleshoot API call ended. 
-* **code** - This value is a role up of the **results** collection.  If one item is not healthy it will return **UnHealty**.
-* **results** - Results is a collection of results returned on the connection or the virtual network gateway.
-    * **id** - This value is the fault Type.
-    * **summary** - This value is a summary of the fault.
-    * **detailed** - This value provides a detailed description of the fault.
-    * **recommendedActions** - This is a collection of recommended actions to take.
-      * **actionText** - This value contains the text describing what action to take.
-      * **actionUri** - This value provides the URI to documentation on how to act.
-      * **actionUriText** - This value is a short description of the action text.
-
-The following table shows the different fault types (id under results from the preceding list) that are available.
-
-|Fault Type | Gateway | Connection |
-|--|--|--|
-|NoFault| Yes | Yes|
-|GatewayNotFound | Yes | Yes |
-|PlannedMaitenance | Yes | Yes |
-|UserDrivenUpdate| Yes | Yes|
-|VipUnResponsive| Yes | Yes|
-|PlatformInActive|Yes | No|
-|ServiceNotRunning | Yes | No|
-|NoConnectionsFoundForGateway|Yes| No|
-|ConnectionsNotConnected| Yes | No|
-|GatewayGPUUsageExceeded| Yes | No|
-|ConnectionEntityNotFound|No|Yes|
-|ConnectionIsMarkedDisconnected|No|Yes|
-|ConnectionMarkedStandy|No|Yes|
-|Authentication|No|Yes|
-|PeerReachability|No|Yes|
-|IkePolicyMismatch|No|Yes|
-|WfpParse Error|No|Yes|
+For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
 
 ## Next steps
 

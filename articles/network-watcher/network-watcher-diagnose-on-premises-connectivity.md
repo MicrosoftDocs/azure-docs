@@ -1,6 +1,6 @@
 ---
-title: Diagnose On-Premises connectivity via VPN Gateway with Azure Network Watcher | Microsoft Docs
-description: This article describes how to diagnose on-premises connectivity via VPN Gateway with Azure Network Watcher resource troubleshooting.
+title: Diagnose On-Premises connectivity via VPN gateway with Azure Network Watcher | Microsoft Docs
+description: This article describes how to diagnose on-premises connectivity via VPN gateway with Azure Network Watcher resource troubleshooting.
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -17,7 +17,7 @@ ms.date: 02/22/2017
 ms.author: gwallace
 ---
 
-# Diagnose On-Premise connectivity via VPN Gateways
+# Diagnose on-premise connectivity via VPN gateways
 
 Azure VPN Gateway enables you to create hybrid solution that address the need for a secure connection between your on-premises network and your Azure virtual network. As your requirements are unique, so is the choice of on-premises VPN device. Azure currently supports [several VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) that are constantly validated in partnership with the device vendors. Review the device-specific configuration settings before configuring your on-premises VPN device. Similarly, Azure VPN Gateway is configured with a set of [supported IPsec parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters) that are used for establishing connections. Currently there is no way for you to specify or select a specific combination of IPsec parameters from the Azure VPN Gateway. For establishing a successful connection between on-premises and Azure, the on-premises VPN device settings must be in accordance with the IPsec parameters prescribed by Azure VPN Gateway. Failure to do so results in loss of connectivity and until now troubleshooting these issues was not trivial and usually took hours to identify and fix the issue.
 
@@ -36,7 +36,8 @@ Detailed step by step guidance for configuring a Site-to-Site configuration can 
 
 One of the critical configuration steps is configuring the IPsec communication parameters, any misconfiguration leads to loss of connectivity between the on-premises network and Azure. Currently Azure VPN Gateways are configured to support the following IPsec parameters for Phase 1. Note, as mentioned earlier these settings cannot be modified.  As you can see in the table below, the encryption algorithms supported by Azure VPN Gateway are AES256, AES128, and 3DES.
 
-### IKE Phase 1 setup
+### IKE phase 1 setup
+
 | **Property** | **PolicyBased** | **RouteBased and Standard or High-Performance VPN gateway** |
 | --- | --- | --- |
 | IKE Version |IKEv1 |IKEv2 |
