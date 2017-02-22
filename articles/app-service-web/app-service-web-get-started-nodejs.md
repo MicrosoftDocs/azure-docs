@@ -133,7 +133,7 @@ Congratulations, you have deployed your app to Azure App Service.
 ## See your app running live
 To see your app running live in Azure, run this command from any directory in your repository:
 
-    azure site browse
+    az appservice web browse -n <app-name> --resource-group my-first-app-group
 
 ## Make updates to your app
 You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code

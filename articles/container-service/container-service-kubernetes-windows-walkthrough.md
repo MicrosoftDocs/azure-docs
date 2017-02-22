@@ -26,7 +26,7 @@ ms.author: dlepow
 This article shows how to create a Kubernetes cluster in Azure Container Service that contains Windows nodes to run Windows containers. 
 
 > [!NOTE]
-> Support for Windows containers with Kubernetes in Azure Container Service is in preview. Use the Azure portal or a Resource Manager template to create a Kubernetes cluster with Windows nodes. This feature isn't currently supported with the Azure CLI 2.0 (Preview).
+> Support for Windows containers with Kubernetes in Azure Container Service is in preview. Use the Azure portal or a Resource Manager template to create a Kubernetes cluster with Windows nodes. This feature isn't currently supported with the Azure CLI 2.0.
 
 
 
@@ -53,9 +53,13 @@ All VMs are in the same private virtual network and are fully accessible to each
 
 ## Create the cluster
 
-You can use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) with Windows agent nodes. 
+You can use the Azure portal to [create a Kubernetes cluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) with Windows agent nodes. Note the following settings when creating the cluster:
 
-On the **Framework configuration** pane, in **Orchestrator configuration**, select **Kubernetes - Windows**. 
+* On the **Basics** blade, in **Orchestrator**, select **Kubernetes**. 
+* On the **Master configuration** blade, enter user credentials and service principal credentials for the Linux master nodes.
+* On the **Agent configuration** blade, in **Operating system**, select **Windows (preview)**. Enter administrator credentials for the Windows agent nodes.
+
+For details, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
 
 ## Connect to the cluster
 
@@ -65,7 +69,7 @@ Use the `kubectl` command-line tool to connect from your local computer to the m
 
 After creating the cluster and connecting with `kubectl`, you can try starting a basic Windows web app and expose it to the internet. In this example, you specify the container resources using a YAML file, and then create it using `kubctl apply`.
 
-1. To see a list of your nodes, type `kubectl get nodes`.  If you want full details of the nodes, type:  
+1. To see a list of your nodes, type `kubectl get nodes`. If you want full details of the nodes, type:  
 
   ```
   kubectl get nodes -o yaml
