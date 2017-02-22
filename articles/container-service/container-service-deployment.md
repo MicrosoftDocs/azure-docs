@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 02/22/2017
 ms.author: rogardle
 
 ---
@@ -30,11 +30,12 @@ Azure Container Service provides rapid deployment of popular open-source contain
 
 You can also deploy an Azure Container Service cluster by using the [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) or the Azure Container Service APIs.
 
+For background, see [Azure Container Service introduction](container-service/container-service-intro.md).
 
 
 ## Prerequisites
 
-* **Azure subscription**: If you don't have one, sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+* **Azure subscription**: If you don't have one, sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
 * **SSH RSA public key**: When deploying through the portal or one of the Azure quickstart templates, you need to provide the public key for authentication against Azure Container Service virtual machines. To create Secure Shell (SSH) RSA keys, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
 
@@ -51,39 +52,39 @@ You can also deploy an Azure Container Service cluster by using the [Azure CLI 2
 
     ![Create a container service](media/container-service-deployment/acs-portal2.png)  <br />
 
-3. Enter the following information:
+3. On the **Basics** blade, enter the following information:
 
-    * **User name**: The user name for an account on each of the virtual machines and virtual machine scale sets in the Azure Container Service cluster.
+    * **Orchestrator**: Select one of the container management solutions to deploy on the cluster.
+        * **DC/OS**: Deploys a DC/OS cluster.
+        * **Swarm**: Deploys a Docker Swarm cluster.
+        * **Kubernetes**: Deploys a Kubernetes cluster.
     * **Subscription**: Select an Azure subscription.
-    * **Resource group**: Select an existing resource group, or create a new one. As a best practice, use a new resource group for each deployment.
-    * **Location**: Select an Azure region for the Azure Container Service deployment.
-    * **SSH RSA public key**: Add the public key to be used for authentication against Azure Container Service virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
-
-4. Click **OK** when you're ready to proceed.
-
+    * **Resource group**: Enter the name of a new resource group for the deployment.
+    * **Location**: Select an Azure region for the Azure Container Service deployment. For availability, check [Products available by region](https://azure.microsoft.com/regions/services/).
+    
     ![Basic settings](media/container-service-deployment/acs-portal3.png)  <br />
+    
+    Click **OK** when you're ready to proceed.
 
-5. On the **Framework configuration** bladee, select an **Orchestrator configuration**. The options include:
+4. On the **Master configuration** blade, enter the following settings for the Linux master node (or nodes) in the cluster:
 
-  * **DC/OS**: Deploys a DC/OS cluster.
-  * **Swarm**: Deploys a Docker Swarm cluster.
-  * **Kubernetes**: Deploys a Kubernetes cluster.
+    * **Master DNS name**: A world unique name that is used to prefix key parts of the fully qualified domain names for the service.
+    * **User name**: The user name for an account on each of the master virtual machines in the cluster.
+    * **SSH RSA public key**: Add the public key to be used for authentication against the master virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **Service principal**: If you selected the **Kubernetes** orchedstrator, you need to enter an Azure Active Directory **Service principal client ID** (also called the appId) and **Service principal client secret** (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+    * **Master count**: The number of masters in the cluster.
+    * **VM diagnostics**: For some orchestrators, you can choose to enable VM diagnostics on the masters.
 
+    ![Master configuration](media/container-service-deployment/acs-portal4.png)  <br />
 
-6. Click **OK** when you're ready to proceed.
-
-    ![Choose an orchestrator](media/container-service-deployment/acs-portal4-new.png)  <br />
-
-7. If **Kubernetes** is selected in the dropdown, you need to enter a service principal client ID (also called the appId) and service principal client secret (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
-
-    ![Enter service principal for Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
+    Click **OK** when you're ready to proceed.
 
 7. In the **Azure Container service settings** blade, enter the following information:
 
     * **Master count**: The number of masters in the cluster.
     * **Agent count**: For Docker Swarm and Kubernetes, this value is the initial number of agents in the agent scale set. For DC/OS, it is the initial number of agents in a private scale set. Additionally, a public scale set is created for DC/OS, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster: one public agent for one master, and two public agents for three or five masters.
     * **Agent virtual machine size**: The size of the agent virtual machines.
-    * **DNS prefix**: A world unique name that is used to prefix key parts of the fully qualified domain names for the service.
+    
     * **VM diagnostics**: For some orchestrators, you can choose to enable VM diagnostics.
 
 8. Click **OK** when you're ready to proceed.
