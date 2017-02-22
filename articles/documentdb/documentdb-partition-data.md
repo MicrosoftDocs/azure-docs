@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/22/2017
 ms.author: arramac
 
 ---
@@ -42,10 +42,18 @@ How does this work? When you create a collection in DocumentDB, you'll notice th
 
 For example, consider an application that stores data about employees and their departments in DocumentDB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every document in DocumentDB must contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }`, and `{ "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the primary key for your collection.
 
-## Partition keys
-The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. The partition key is specified as a JSON path, e.g. `/department` represents the property department. 
+DocumentDB creates a small number of physical partitions behind each collection based on storage size and provisioned throughput. The property that you define as partition key is a logical partition. Multiple partition key values typically share a single physical partition, but a single value will never span a partition. If you have a partition key with a lot of values, it’s good because DocumentDB will be able to perform better load balancing as your data grows or you increase the provisioned throughput.
 
-The following table shows examples of partition key definitions and the JSON values corresponding to each.
+For example, let’s say you create a collection with 25,000 requests per second throughput and DocumentDB can support 10,000 requests per second per single physical partition. DocumentDB would create 3 physical partitions P1, P2, and P3 for your collection. When its time to insert/read a DocumentDB, the DocumentDB service hashes the `Department` value to map data to the three partitions P1, P2, and P3. So for example, if “Marketing” and “Sales” hash to 1, they are both stored in P1. And if P1 becomes full, DocumentDB splits P1 into two new partitions P4 and P5, then might move “Marketing” to P4 and “Sales” to P5 after the split, then drop P1. These moves between partitions are completely transparent to your application, and have no impact to the availability of your collection.
+
+## Partition keys
+The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. 
+
+> [!NOTE]
+> It is a best practice to have a partition key with a large number of distinct values (100s-1000s at a minimum). Many customers use DocumentDB as effectively a key value store, where the unique “id” is the partition key so millions-billions of partition keys.
+>
+
+The following table shows examples of partition key definitions and the JSON values corresponding to each. The partition key is specified as a JSON path, e.g. `/department` represents the property department. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -255,6 +263,8 @@ The following query does not have a filter on the partition key (DeviceId) and i
         UriFactory.CreateDocumentCollectionUri("db", "coll"), 
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+
+DocumentDB supports aggregate functions `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned collections using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ### Parallel query execution
 The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
