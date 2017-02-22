@@ -30,17 +30,13 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 The following script creates the virtual machine and invokes the custom script extension.
 
-```bash
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Quick Create VM")]
-```
 
 ## Custom Scrpt Extension
 
 The custom script extension copies this script onto the virtual machine and runs it to install NGINX.
 
-```bash
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/install_nginx.sh "NGINX")]
-```
 
 ## Clean up deployment 
 
