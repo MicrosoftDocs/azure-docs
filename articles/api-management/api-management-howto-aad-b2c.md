@@ -18,15 +18,14 @@ ms.author: apimpm
 ---
 # How to authorize developer accounts using Azure Active Directory B2C in Azure API Management
 ## Overview
-Azure Active Directory B2C is a cloud identity manaagement solution for consumer-facing web and mobile applications. You can use it to manage access to your developer portal. This guide shows you the configuration required in your API Management service to integrate with Azure Active Directory B2C.
-
-For information about enabling access to the developer portal using the classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory].
+Azure Active Directory B2C is a cloud identity manaagement solution for consumer-facing web and mobile applications. You can use it to manage access to your developer portal. This guide shows you the configuration required in your API Management service to integrate with Azure Active Directory B2C. For information about enabling access to the developer portal using the classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory].
 
 > To complete the steps in this guide you must first have an Azure Active Directory B2C tenant in which to create an application and have signup, signin policies ready. For more information, see [Azure Active Directory B2C overview].
 > 
 > 
 
 ## How to authorize developer accounts using Azure Active Directory B2C
+
 To get started, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
@@ -35,11 +34,11 @@ To get started, click **Publisher portal** in the Azure Portal for your API Mana
 > 
 > 
 
-Click **Security** from the **API Management** menu on the left and click **External Identities**.
+Click **Security** from the **API Management** menu. From the **Identities** tab, choose **Azure Active Directory B2C**.
 
 ![External Identities][api-management-howto-aad-b2c-security-tab]
 
-Click **Azure Active Directory B2C**. Make a note of the **Redirect URL** and switch over to your Azure Active Directory B2C in the Azure Portal.
+Make a note of the **Redirect URL** and switch over to your Azure Active Directory B2C in the Azure Portal.
 
 ![External Identities][api-management-howto-aad-b2c-security-tab-reply-url]
 
@@ -51,7 +50,7 @@ Click the **Add** button to create a new Azure Active Directory B2C application.
 
 ![Register New Application][api-management-howto-aad-b2c-add-button]
 
-In the **New application** blade, enter a name for the application, choose **Yes** under **Web App/Web API** and choose **Yes** under **Allow implicit flow**. Then copy the **Redirect URL** from the **Azure Active Directory B2C** section of the **External Identities** tab in the publisher portal and paste it into the **Reply URL** text box. 
+In the **New application** blade, enter a name for the application, choose **Yes** under **Web App/Web API** and choose **Yes** under **Allow implicit flow**. Then copy the **Redirect URL** from the **Azure Active Directory B2C** section of the **Identities** tab in the publisher portal and paste it into the **Reply URL** text box. 
 
 ![Register New Application][api-management-howto-aad-b2c-app-details]
 
@@ -59,7 +58,7 @@ Click the **Create** button. When the application is created, it will appear in 
 
 ![Register New Application][api-management-howto-aad-b2c-app-created]
 
-From the **Properties** blade, copy the **Application Id** to the clipboard.
+From the **Properties** blade, copy the **Application ID** to the clipboard.
 
 ![App ID][api-management-howto-aad-b2c-app-id]
 
@@ -67,13 +66,9 @@ Switch back to the publsiher portal and paste the ID into the **Client ID** text
 
 ![App ID][api-management-howto-aad-b2c-client-id]
 
-Switch back to the Azure Portal, click the **Keys** button, then click **Generate key**.
+Switch back to the Azure Portal, click the **Keys** button, then click **Generate key**. Click **Save** to save the configuration and display the **App key**. Copy the key to the clipborad. 
 
 ![App Key][api-management-howto-aad-b2c-app-key]
-
-Click **Save** to save the configuration and display the **App key**. Copy the key to the clipborad. 
-
-![App Key][api-management-howto-aad-b2c-app-key-saved]  
 
 Switch back to the publisher portal and paste the key into the **Client Secret** text box.
 
@@ -105,7 +100,11 @@ Choose sign up with **Azure Active Directory B2C** in the button.
 
 ![Developer Portal][api-management-howto-aad-b2c-dev-portal-b2c-button]
 
-You will be redirected to the signup policy configured in the previous section and can choose to signup using their email address or their existing social accounts. 
+You will be redirected to the signup policy configured in the previous section and can choose to signup using your email address or your existing social accounts. 
+
+> If Azure Active Directory B2C is the only option enabled in the **Identities** tab in the publisher portal, you will be redirected to the signup policy directly.
+>
+>
 
 ![Developer Portal][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
