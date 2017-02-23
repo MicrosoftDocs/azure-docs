@@ -17,6 +17,23 @@
 ## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
 
 # How to
+## Plan and design
+### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
+#### Determine requirements
+##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
+##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-factor auth](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Identity lifecycle strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Plan for data security](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Data protection](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Content management](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Access control](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Incident response](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+#### Plan your identity lifecycle
+##### [Tasks](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Next steps](active-directory-hybrid-identity-design-considerations-nextsteps.md)
+#### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 ## Manage users
 ### Add users
 #### [Azure portal](active-directory-users-create-azure-portal.md)
@@ -186,6 +203,7 @@
 ### [Document library](active-directory-apps-index.md)
 
 ## Manage your directory
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
 #### [Overview](active-directory-add-domain-concepts.md)
 #### Add your domain name
@@ -288,22 +306,7 @@
 ### [Replica domain controller in an Azure virtual network](active-directory-install-replica-active-directory-domain-controller.md)
 ### [New forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
 
-## [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
-### Determine requirements
-#### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
-#### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-#### [Multi-factor auth](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-#### [Identity lifecycle strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-### [Plan for data security](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-#### [Data protection](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-#### [Content management](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-#### [Access control](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-#### [Incident response](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
-### Plan your identity lifecycle
-#### [Tasks](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-#### [Adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-### [Next steps](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
