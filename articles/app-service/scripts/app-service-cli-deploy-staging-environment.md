@@ -19,29 +19,15 @@ ms.author: cephalin
 
 # Create a web app and deploy code to a staging environment
 
-This sample script does the following using Azure CLI 2.0: 
+This sample script creates a web app in App Service with an additional deployment slot called "staging", and then deploys a sample app to the "staging" slot.
 
-* Create a web app in Azure App Service in the West Europe Azure region.
-* Upgrade the App Service plan to STANDARD tier (minimum for deployment slots).
-* Set up a deployment slot named "staging".
-* Deploy your web app code from GitHub to the staging slot.
-* Open the deployed staging slot in the browser for verification.
-* Swap the staging slot into production.
+Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Prerequisites
-
-* Run `az login` to log in to Azure.
-* Put your web app code in a GitHub repository you own.
-
-> [!NOTE]
-> If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
-> cannot set up the SSH key and webhooks necessary for continuous deployment.
->
->
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh?highlight=3 "Create a web app and deploy code to a staging environment")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Create a web app and deploy code to a staging environment")]
 
 ## Clean up deployment 
 
@@ -60,7 +46,6 @@ This script uses the following commands. Each command in the table links to comm
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Creates an Azure web app. |
-| [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) | Update an App Service plan to scale its pricing tier. |
 | [az appservice web deployment slot create](https://docs.microsoft.com/cli/azure/appservice/web/deployment/slot#create) | Create a deployment slot. |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Associates an Azure web app with a Git or Mercurial repository. |
 | [az appservice web browse](https://docs.microsoft.com/cli/azure/appservice/web#browse) | Open an Azure web app in a browser. |

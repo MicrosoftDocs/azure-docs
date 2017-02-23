@@ -19,22 +19,11 @@ ms.author: cephalin
 
 # Map a custom domain to a web app
 
-This sample script does the following using Azure CLI 2.0: 
+This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it. 
 
-* Create a web app in Azure App Service in the West Europe Azure region. 
-* Deploy your web app code from GitHub.
-* Display the deployed Azure web app in the browser.
+Before running this script, ensure that a connection with Azure has been created using the `az login` command, and that you have access to your domain registrar's DNS configuration page.
 
-## Prerequisites
-
-* Run `az login` to log in to Azure.
-* Put your web app code in a GitHub repository you own.
-
-> [!NOTE]
-> If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
-> cannot set up the SSH key and webhooks necessary for continuous deployment.
->
->
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Configure app sample
 
@@ -57,7 +46,6 @@ This script uses the following commands. Each command in the table links to comm
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Creates an Azure web app. |
-| [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) | Update an App Service plan to scale its pricing tier. |
 | [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Update an App Service plan to scale its pricing tier. |
 | [az appservice web browse](https://docs.microsoft.com/cli/azure/appservice/web#browse) | Open an Azure web app in a browser. |
 
