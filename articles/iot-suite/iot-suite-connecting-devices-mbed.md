@@ -44,15 +44,15 @@ Follow these steps to add some sample code to an mbed project. You import the re
 
 1. Click **Import** on the main menu. Then click **Click here to import from URL**.
    
-    ![][6]
+    ![Start import to mbed workspace][6]
 
 1. In the pop-up window, enter the link for the sample code https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ then click **Import**.
    
-    ![][7]
+    ![Import sample code to mbed workspace][7]
 
 1. You can see in the mbed compiler window that importing this project also imports various libraries. Some are provided and maintained by the Azure IoT team ([azureiot_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub_amqp_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), while others are third-party libraries available in the mbed libraries catalog.
    
-    ![][8]
+    ![View mbed project][8]
 
 1. In the **Program Workspace**, right-click the **iothub\_amqp\_transport** library, click **Delete**, and then click **OK** to confirm.
 
@@ -60,17 +60,17 @@ Follow these steps to add some sample code to an mbed project. You import the re
 
 1. Right-click the **remote_monitoring** project in the **Program Workspace**, select **Import Library**, then select **From URL**.
    
-    ![][6]
+    ![Start library import to mbed workspace][6]
 
 1. In the pop-up window, enter the link for the MQTT transport library https://developer.mbed.org/users/AzureIoTClient/code/iothub\_mqtt\_transport/ then click **Import**.
    
-    ![][12]
+    ![Import library to mbed workspace][12]
 
 1. Repeat the previous step to add the MQTT library from https://developer.mbed.org/users/AzureIoTClient/code/azure\_umqtt\_c/.
 
 1. Your workspace now looks like the following:
 
-    ![][13]
+    ![View mbed workspace][13]
 
 1. Open the remote\_monitoring\remote_monitoring.c file and replace the existing `#include` statements with the following code:
 

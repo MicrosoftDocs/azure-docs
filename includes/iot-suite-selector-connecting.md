@@ -37,7 +37,7 @@ The device you create in this tutorial sends data to an instance of the [remote 
 
 When the provisioning process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 
-![][img-dashboard]
+![Solution dashboard][img-dashboard]
 
 ### Provision your device in the remote monitoring solution
 > [!NOTE]
@@ -51,16 +51,16 @@ To add a device to your remote monitoring solution, complete the following steps
 
 1. In the lower left-hand corner of the dashboard, click **Add a device**.
    
-   ![][1]
+   ![Add a device][1]
 2. In the **Custom Device** panel, click **Add new**.
    
-   ![][2]
+   ![Add a custom device][2]
 3. Choose **Let me define my own Device ID**. Enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't already in use, and then click **Create** to provision the device.
    
-   ![][3]
+   ![Add device ID][3]
 4. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key). Your client application needs these values to connect to the remote monitoring solution. Then click **Done**.
    
-    ![][4]
+    ![View device credentials][4]
 5. Select your device in the device list in the solution dashboard. Then, in the **Device Details** panel, click **Enable Device**. The status of your device is now **Running**. The remote monitoring solution can now receive telemetry from your device and invoke methods on the device.
 
 [img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png

@@ -61,7 +61,7 @@ The *device list* shows all the registered devices in the solution. From the dev
 2. The device list initially shows four simulated devices created by the provisioning process. You can add additional simulated and physical devices to the solution.
 3. You can customize the information shown in the device list by clicking **Column editor**. You can add and remove columns that display reported property and tag values. You can also reorder and rename columns:
    
-   ![Column editor][img-columneditor]
+   ![Column editor in dashboard][img-columneditor]
 4. To view device details, click a device in the device list.
    
    ![Device details in dashboard][img-devicedetails]
@@ -84,7 +84,7 @@ You can customize the device icon displayed in the device list from the **Device
    ![Open device image editor][img-startimageedit]
 2. Either upload a new image or use one of the existing images and then click **Save**:
    
-   ![Open device image editor][img-imageedit]
+   ![Edit device image editor][img-imageedit]
 3. The image you selected now displays in the **Icon** column for the device.
 
 > [!NOTE]
@@ -97,7 +97,7 @@ From the **Device Details** panel, you can invoke methods on the device. When a 
 
 1. Click **Methods** in the **Device Details** panel for the selected device:
    
-   ![Device commands in dashboard][img-devicemethods]
+   ![Device methods in dashboard][img-devicemethods]
 2. Select **Reboot** in the method list.
 3. Click **Invoke Method**.
 4. You can see the status of the method invocation in the method history.
@@ -159,13 +159,13 @@ The remote monitoring preconfigured solution uses [device twins][lnk-device-twin
 1. Navigate back to the device list.
 2. Select your new device in the **Devices List**, and then click **Edit** to edit the **Device Twin - Desired Properties**:
    
-   ![Edit device metadata][img-editdevice]
+   ![Edit device desired properties][img-editdevice]
 3. Set the **Desired Property Name** to **Latitude** and set the value to **47.639521**. Then click **Save Changes to Device Registry**:
    
-    ![Edit device metadata][img-editdevice2]
+    ![Edit device desired property][img-editdevice2]
 4. In the **Device Details** panel, the new latitude value initially shows as a desired property, and the old latitude value shows as a reported property:
    
-    ![Edit device metadata][img-editdevice3]
+    ![View reported property][img-editdevice3]
 5. Currently, simulated devices in the preconfigured solution only process the **Desired.Config.TemperatureMeanValue** and the **Desired.Config.TelemetryInterval** desired properties. A real device should read all desired properties from the IoT hub, make the changes to its configuration, and report the new values to the hub as reported properties.
 
 On the **Device Details** panel, you can also edit the **Device Twin - Tags** in the same way that you edit **Device Twin - Desired Properties**. However, unlike desired properties, tags do not synchronize with the device. Tags only exist in the device twin in the IoT hub. Tags are useful for building custom filters in the device list.

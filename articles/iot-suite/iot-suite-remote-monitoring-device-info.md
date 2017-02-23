@@ -89,11 +89,11 @@ When a device first connects to the solution, it sends reported properties and a
 ### View and edit device information in the solution portal
 The device list in the solution portal displays the following device properties as columns by default: **Status**, **DeviceId**, **Manufacturer**, **Model Number**, **Serial Number**, **Firmware**, **Platform**, **Processor**, and **Installed RAM**. You can customize the columns by clicking **Column editor**. The device properties **Latitude** and **Longitude** drive the location in the Bing Map on the dashboard.
 
-![Device list][img-device-list]
+![Column editor in device list][img-device-list]
 
 In the **Device Details** pane in the solution portal, you can edit desired properties and tags (reported properties are read only).
 
-![Device edit][img-device-edit]
+![Device deatils pane][img-device-edit]
 
 You can use the solution portal to remove a device from your solution. When you remove a device, the solution removes the device entry from identity registry and then deletes the device twin. The solution also removes information related to the device from the DocumentDB database. Before you can remove a device, you must disable it.
 
