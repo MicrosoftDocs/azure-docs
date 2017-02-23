@@ -24,6 +24,8 @@ In this scenario you will learn how to create an Azure storage account and an Az
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+
 ## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/connect-to-storage/connect-to-storage.sh "Azure Storage")]
