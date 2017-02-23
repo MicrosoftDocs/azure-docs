@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 02/06/2017
 ms.author: yuemlu 
 
 ---
@@ -40,7 +40,7 @@ To get started with Azure Standard Storage, visit [Get started for free](https:/
 For information on how to create a VM with Managed Disks, please see one of the following articles.
 
 * [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 ## Standard Storage Features 
 
@@ -154,4 +154,4 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 * [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)

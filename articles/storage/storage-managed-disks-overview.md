@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 02/06/2017
 ms.author: ramankum
 
 ---
@@ -102,7 +102,7 @@ Managed Disks also support creating a managed custom image. You can create an im
 
 For information on creating images, please check out the following articles:
 * [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-capture-image.md)
 
 ## Images versus snapshots
 
@@ -135,7 +135,7 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 * [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 
