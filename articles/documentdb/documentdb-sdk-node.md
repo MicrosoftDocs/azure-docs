@@ -52,6 +52,10 @@ ms.author: rnagpal
 
 ## Release notes
 
+### <a name="1.10.2"/>1.10.2</a>
+* Fixed header user-agent.
+* Minor code cleanup.
+
 ### <a name="1.10.1"/>1.10.1</a>
 * Disabling SSL verification when using the SDK to target the emulator(hostname=localhost).
 * Added support for enabling script logging during stored procedure execution.
@@ -142,6 +146,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.10.2](#1.10.2) |January 27, 2017 |--- |
 | [1.10.1](#1.10.1) |December 22, 2016 |--- |
 | [1.10.0](#1.10.0) |October 03, 2016 |--- |
 | [1.9.0](#1.9.0) |July 07, 2016 |--- |
