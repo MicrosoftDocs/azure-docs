@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 
 ---
@@ -27,9 +27,7 @@ Information workers can use the [Application Access Panel](http://myapps.microso
 ## Information workers adding B2B collaboration users to an application
 Assign B2B collaboration users to a app as an information worker in a partner organization, as shown in the following video:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps]
-
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
 ## Information workers adding B2B collaboration users to a group
 

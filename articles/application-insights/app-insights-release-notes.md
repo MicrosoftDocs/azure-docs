@@ -1,10 +1,10 @@
 ---
-title: Release notes for Application Insights
-description: The latest updates.
+title: Release notes for Azure Application Insights | Microsoft Docs
+description: The latest updates for Application Insights SDKs.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2016
+ms.date: 02/15/2017
 ms.author: awills
 
 ---
@@ -27,8 +27,6 @@ Here are detailed release notes and update instructions for our SDKs:
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
-* [Windows Phone and Store C#|VB](app-insights-release-notes-windows.md)
-* [Windows Phone and Store C++](https://github.com/Microsoft/ApplicationInsights-CPP/releases)
 * [Visual Studio tools](app-insights-release-notes-vsix.md)
 * [Other platforms](https://github.com/Microsoft/ApplicationInsights-Home)
 

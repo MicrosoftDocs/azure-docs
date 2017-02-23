@@ -54,19 +54,15 @@ This article lists common problems that are related to Microsoft Azure File stor
 ## Quota error when trying to open a file
 In Windows, you receive error messages that resemble the following:
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Not enough quota is available to process this command**
-
-**Invalid handle value GetLastError: 53**
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 On Linux, you receive error messages that resemble the following:
 
-**<filename> [permission denied]**
-
-**Disk quota exceeded**
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### Cause
 The problem occurs because you have reached the upper limit of concurrent open handles that are allowed for a file.
@@ -93,9 +89,8 @@ You can run the following script to check whether the hotfix has been installed 
 
 If hotfix is installed, the following output is displayed:
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
@@ -247,8 +242,11 @@ This can occur when the mount command does not include the **serverino** option.
 ### Solution
 Check the **serverino** in your "/etc/fstab" entry:
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,
-file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+
+You can also check if that option is being used by just running the command **sudo mount | grep cifs** and looking as its output:
+
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.+
 
@@ -261,9 +259,13 @@ This error indicates communication failures that prevent re-establishing a TCP c
 
 This error can be caused by a Linux reconnect issue or other problems that prevent reconnection, such as network errors. Specifying a hard mount will force the client to wait until a connection is established or until explicitly interrupted, and can be used to prevent errors due to network timeouts. However, users should be aware that this could lead to indefinite waits and should handle halting a connection as needed.
 
+
 ### Workaround
 
-The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
+The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds or less. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection. This is the list of popular Linux kernels that have this and other reconnect fixes:
+4.4.40+
+4.8.16+
+4.9.1+
 
 <a id="webjobs"></a>
 
