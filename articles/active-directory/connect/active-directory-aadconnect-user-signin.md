@@ -24,7 +24,7 @@ If you’re already familiar with the Azure AD identity model and want to learn 
 
 * [Password synchronization](#password-synchronization) with [single sign-on (SSO)](active-directory-aadconnect-sso.md)
 * [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md)
-* [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with ad-fs-in-windows-server-2012-r2)
+* [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## Choosing the user sign-in method for your organization
 For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD–based resources, we recommend the default password synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
