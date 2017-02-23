@@ -35,7 +35,7 @@ Sign in to the [Azure portal][portal], and create a new Application Insights res
 
 ![Click New, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Choose Other as the application type. The choice of application type sets the default content of the resource blades and the properties visible in [Metrics Explorer][metrics].
+Choose General as the application type. The choice of application type sets the default content of the resource blades and the properties visible in [Metrics Explorer][metrics].
 
 #### Copy the Instrumentation Key
 The key identifies the resource, and you'll install it soon in the SDK to direct data to the resource.
