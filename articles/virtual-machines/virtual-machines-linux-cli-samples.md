@@ -29,8 +29,8 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create a fully configured virtual machine](./scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
 | [Create highly available virtual machines](./scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates several virtual machines in a highly available and load balanced configuration. |
 | [Create a VM with Docker enabled](./scripts/virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, configures this VM as a Docker host, and runs an NGINX container. |
-| [Create a VM with Apache installed](./scripts/virtual-machines-linux-cli-sample-create-vm-apache.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a Linux virtual machine with minimal configuration. |
-| [Create a VM with WordPress installed](./scripts/virtual-machines-linux-cli-sample-create-vm-apache.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install Apache. |
+| [Create a VM and run script](./scripts/virtual-machines-linux-cli-sample-create-vm-apache.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install Apache. |
+| [Create a VM with WordPress installed](./scripts/virtual-machines-linux-cli-sample-create-vm-apache.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install WordPress. |
 |**Network virtual machines**||
 | [Secure network traffic between virtual machines](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
 |**Monitor virtual machines**||
