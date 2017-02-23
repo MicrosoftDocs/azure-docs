@@ -11,8 +11,7 @@
 
 ## [Create DNS records](dns-getstarted-create-recordset-portal.md)
 ### [PowerShell](dns-getstarted-create-recordset.md)
-### [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
-### [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md)
+### [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 ## [Delegate your domain to Azure DNS](dns-domain-delegation.md)
 ## [Create custom DNS records for a web app](dns-web-sites-custom-domain.md)
@@ -21,18 +20,15 @@
 
 ## Manage DNS zones
 ### [PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 ## [Manage DNS records](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli.md)
-### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## [Manage reverse DNS records](dns-reverse-dns-record-operations-ps.md)
-### [Azure CLI 1.0](dns-reverse-dns-record-operations-cli-nodejs.md)
-### [Azure CLI 2.0](dns-reverse-dns-record-operations-cli.md)
+### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Import and export a DNS zone file](dns-import-export.md)
