@@ -15,6 +15,7 @@
 ### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
 ### [Connect to an internal virtual network](api-management-using-with-internal-vnet.md)
+### [Integrate Application Gateway in an internal VNET](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Mutual Certificate authentication](api-management-howto-mutual-certificates.md)
 ## Configure Policies
 ### [Custom caching](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [Policy reference index](api-management-policy-reference.md)
 ### [Policies overview](api-management-howto-policies.md)
 ### [Manage secrets using properties](api-management-howto-properties.md)
+### [Secure APIs using client certificate authentication](api-management-howto-mutual-certificates-for-clients.md)
 ## Customize the developer experience
-### [Customize the Developer Portal](api-management-customize-portal.md)
+### [Modify page content and layout](api-management-modify-content-layout.md)
+### [Customize styling of page elements](api-management-customize-styles.md)
+### [Customize system pages using templates](api-management-developer-portal-templates.md)
 ### [Authentication with AAD](api-management-howto-aad.md)
+### [Authentication with AAD B2C](api-management-howto-aad-b2c.md)
 ### [Delegated authentication](api-management-howto-setup-delegation.md)
 ### [E-mail notifications and templates](api-management-howto-configure-notifications.md)
 ### [Enable console OAuth support](api-management-howto-oauth2.md)
-### [Customize using templates](api-management-developer-portal-templates.md)
 ## Manage in production
 ### [Manage groups](api-management-howto-create-groups.md)
 ### [Deploy to multiple Azure regions](api-management-howto-deploy-multi-region.md)
