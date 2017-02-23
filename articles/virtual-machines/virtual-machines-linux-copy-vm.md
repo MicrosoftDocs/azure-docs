@@ -1,6 +1,6 @@
 ---
-title: Copy a Linux VM using the Azure CLI 2.0 (Preview) | Microsoft Docs
-description: Learn how to create a copy of your Azure Linux virtual machine in the Resource Manager deployment model with the Azure CLI 2.0 (Preview)
+title: Copy a Linux VM using the Azure CLI 2.0 | Microsoft Docs
+description: Learn how to create a copy of your Azure Linux virtual machine in the Resource Manager deployment model with the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -17,19 +17,13 @@ ms.date: 02/02/2017
 ms.author: cynthn
 
 ---
-# Create a copy of a Linux virtual machine with the Azure CLI 2.0 (Preview)
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the virtual machine.
+# Create a copy of a Linux virtual machine
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the virtual machine. This article details how to create a copy of a Linux VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
-
-- [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
-- Azure CLI 2.0 (Preview) - our next generation CLI for the resource management deployment model (this article)
-
 ## Prerequisites
-- You need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+- You need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 - You need an Azure VM to use as your source when you create a copy.
 
 ## Stop the VM
