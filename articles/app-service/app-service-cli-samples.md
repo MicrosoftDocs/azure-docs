@@ -22,8 +22,9 @@ ms.author: cfowler
 
 The following table includes links to bash scripts built using the Azure CLI.
 
-| Sample | Description  |
-|**Create app**| |
+| Sample | Description|
+|---|---|
+|**Create app**||
 | [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)| Creates an Azure web app which pulls code from GitHub. |
 | [Create a web app and deploy code from a local Git repository](./scripts/app-service-cli-deploy-local-git.md) | Creates an Azure web app and configures code push from a local Git repository. |
 | [Create a web app and deploy code to a staging environment](./scripts/app-service-cli-deploy-staging-environment.md) | Creates an Azure web app with a deployment slot for staging code changes. |
