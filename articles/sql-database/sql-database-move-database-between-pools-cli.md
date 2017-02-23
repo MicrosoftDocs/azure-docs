@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 02/20/2017
+ms.date: 02/21/2017
 ms.author: janeng
 ---
 
@@ -24,7 +24,7 @@ The sample script provided here illustrates how a database can be moved from one
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 
-## Run CLI script
+## Create elastic pools and move databases between pools
 
 [!code-azurecli[main](../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "Move database between pools")]
 
@@ -38,12 +38,12 @@ az group delete --name SampleResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, logical server, SQL Database and firewall rules. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, logical server, SQL Database, and firewall rules. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.microsoft.com/en-us/cli/azure/sql/server#create) | Creates a logical server that will host the SQL Database. |
+| [az sql server create](https://docs.microsoft.com/en-us/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
 | [az sql elastic-pools create](https://docs.microsoft.com/en-us/cli/azure/sql/elastic-pools#create) | Creates an elastic database pool within the logical server. |
 | [az sql db create](https://docs.microsoft.com/en-us/cli/azure/sql/db#create) | Creates the SQL Database in the logical server. |
 | [az sql db update](https://docs.microsoft.com/en-us/cli/azure/sql/db#update) | Updates the SQL Database. |
