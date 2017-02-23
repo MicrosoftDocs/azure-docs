@@ -58,7 +58,7 @@ To complete the steps in this article, you need the following.
    
     These statements perform the following actions:
    
-   * `DROP TABLE`: Deletes the table and the data file if the table already exists.
+   * `DROP TABLE`: If the table exists, this statement deletes it.
 
    * `CREATE EXTERNAL TABLE`: Creates a new 'external' table in Hive. External tables only store the table definition in Hive (the data is left in the original location).
      
@@ -71,9 +71,9 @@ To complete the steps in this article, you need the following.
 
    * `STORED AS TEXTFILE LOCATION`: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
 
-   * `SELECT`: Select a count of all rows where column `t4` contains the value `[ERROR]`. This should return a value of `3` because there are three rows that contain this value.
+   * `SELECT`: Select a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are three rows that contain this value.
 
-   * `INPUT__FILE__NAME LIKE '%.log'` - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
+   * `INPUT__FILE__NAME LIKE '%.log'` - Tells Hive that we should only return data from files ending in .log. This clause restricts the search to the sample.log file that contains the data.
 
 3. From the toolbar, select the **HDInsight Cluster** that you want to use for this query. Select **Submit** to run the statements as a Hive job.
 
@@ -97,12 +97,12 @@ To complete the steps in this article, you need the following.
 
     These statements perform the following actions:
    
-   * `CREATE TABLE IF NOT EXISTS`: Creates a table if it does not already exist. Because the `EXTERNAL` keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
+   * `CREATE TABLE IF NOT EXISTS`: Creates a table if it does not already exist. Because the `EXTERNAL` keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed by Hive.
      
      > [!NOTE]
      > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
-   * `STORED AS ORC`: Stores the data in optimized row columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+   * `STORED AS ORC`: Stores the data in optimized row columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
 
    * `INSERT OVERWRITE ... SELECT`: Selects rows from the `log4jLogs` table that contain `[ERROR]`, then inserts the data into the `errorLogs` table.
 
@@ -112,7 +112,7 @@ To complete the steps in this article, you need the following.
 
 ## <a id="nextsteps"></a>Next steps
 
-As you can see, the the HDInsight tools for Visual Studio provide an easy way to run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
+As you can see, the HDInsight tools for Visual Studio provide an easy way to work with Hive queries on HDInsight.
 
 For general information about Hive in HDInsight:
 
