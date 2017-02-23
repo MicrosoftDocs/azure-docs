@@ -109,7 +109,7 @@ Once you have learned of an upcoming event and completed your logic for graceful
 
 ## PowerShell Sample 
 
-The following sample shows how to get the scheduled events document and approve events using a powershell script.
+The sample below shows how to get the scheduled events document and approve events using a powershell script.
 
 ```PowerShell
 # How to get scheduled events 
