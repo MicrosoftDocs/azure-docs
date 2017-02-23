@@ -123,25 +123,25 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
 **`search=seattle`**
 
-The `search` parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
++ The `search` parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
 
-**Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements. Documents are composed of all fields marked as retrievable in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
++ **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements. Documents are composed of all fields marked as retrievable in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
 
 **`search=seattle&$count=true&$top=100`**
 
-The `&` symbol is used to append search parameters, which can be specified in any order. 
++ The `&` symbol is used to append search parameters, which can be specified in any order. 
 
-The `$count=true` parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes reported by `$count=true`. 
++  The `$count=true` parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes reported by `$count=true`. 
 
-The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
++ The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
 
 **`search=*&facet=city&$top=2`**
 
-`search=*` is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all cities in the index.
++ `search=*` is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all cities in the index.
 
-`facet` returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
++  `facet` returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
 
-`$top=2` brings back two documents, illustrating that you can use `top` to both reduce or increase results.
++ `$top=2` brings back two documents, illustrating that you can use `top` to both reduce or increase results.
 
 
 **`search=seattle&facet=beds`**
@@ -166,7 +166,7 @@ Misspelled words, like 'samamish' for the Samammish plateau in the Seattle area,
 
 **`search=samamish~&queryType=full`**
 
-Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser if you require fuzzy search, regular expressions, proximity search, or other advanced query types. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser by setting `querType=full` if you require fuzzy search, regular expressions, proximity search, or other advanced query types. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
