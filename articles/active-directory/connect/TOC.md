@@ -54,7 +54,7 @@
 ## Troubleshoot
 ### [Connectivity](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # Reference
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
