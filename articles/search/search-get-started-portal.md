@@ -125,7 +125,9 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
 + The `search` parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
 
-+ **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements. Documents are composed of all fields marked as retrievable in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
++ **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements. 
+
++ Documents are composed of all fields marked as retrievable in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
 
 **`search=seattle&$count=true&$top=100`**
 
@@ -143,38 +145,47 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
 + `$top=2` brings back two documents, illustrating that you can use `top` to both reduce or increase results.
 
-
 **`search=seattle&facet=beds`**
 
-This query is facet for beds, on a text search for *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). Only filterable fields can be faceted. Only retrievable fields can be returned.
++ This query is facet for beds, on a text search for *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). 
+
++ Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
 **`search=seattle&$filter=beds gt 3`**
 
-The `filter` parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
++ The `filter` parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. 
+
++ Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 **`search=granite countertops&highlight=description`**
 
-Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. In this case, the formatted phrase `"granite countertops"` is easier to see in the description field.
++ Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. In this case, the formatted phrase `"granite countertops"` is easier to see in the description field.
 
 **`search=mice&highlight=description`**
 
-Full text search finds word forms with similar semantics. In this case, search results contain highlighted text for "mouse", for homes that have mouse infestation, in response to a keyword search on "mice". Different forms of the same word can appear in results because of linguistic analysis. Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer. 
++ Full text search finds word forms with similar semantics. In this case, search results contain highlighted text for "mouse", for homes that have mouse infestation, in response to a keyword search on "mice". Different forms of the same word can appear in results because of linguistic analysis. 
+
++ Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer. 
 
 **`search=samamish`**
 
-Misspelled words, like 'samamish' for the Samammish plateau in the Seattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
++ Misspelled words, like 'samamish' for the Samammish plateau in the Seattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
 
 **`search=samamish~&queryType=full`**
 
-Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser by setting `querType=full` if you require fuzzy search, regular expressions, proximity search, or other advanced query types. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++ Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. 
+
++ Fuzzy search is available when you opt in for the full query parser, which occurs when you set `queryType=full`. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+
++ When `queryType` is unspecified, the default simple query parser is used. The simple query parser is faster, but if you require fuzzy search, regular expressions, proximity search, or other advanced query types, you will need the full syntax. 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
++ Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-This query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding `$count`, you can see how many results are returned when you change either the distance or the coordinates. 
++ The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding `$count`, you can see how many results are returned when you change either the distance or the coordinates. 
 
-Geospatial search is useful if your search application has a 'find near me' feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
++ Geospatial search is useful if your search application has a 'find near me' feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
 
 ## Next steps
 
