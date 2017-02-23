@@ -28,7 +28,7 @@
 ### [Marketplace app](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)	
 
-# Common Examples
+# Common examples
 ## CLI examples
 ### [Create a web app and deploy code from GitHub](./scripts/app-service-cli-deploy-github.md)
 ### [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)

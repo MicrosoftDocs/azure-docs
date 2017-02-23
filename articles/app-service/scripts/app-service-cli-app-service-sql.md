@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/connect-to-storage/connect-to-storage.sh?highlight=7-10 "Azure Storage")]
+[!code-azurecli[main](../../../cli_scripts/app-service/connect-to-storage/connect-to-storage.sh "Azure Storage")]
 
 ## Clean up deployment 
 

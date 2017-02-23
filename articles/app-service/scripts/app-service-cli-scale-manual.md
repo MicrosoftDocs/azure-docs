@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/scale-manual/scale-manual.sh?highlight=4,7-9 "Manual Scale")]
+[!code-azurecli[main](../../../cli_scripts/app-service/scale-manual/scale-manual.sh "Manual Scale")]
 
 ## Clean up deployment 
 
