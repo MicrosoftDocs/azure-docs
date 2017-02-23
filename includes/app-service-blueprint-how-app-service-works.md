@@ -8,8 +8,8 @@
 * [Understanding App Service Plans](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 * [Introduction to App Service Environment](../articles/app-service-web/app-service-app-service-environment-intro.md)
   * [Exercise: Create an App Service Environment](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
-* [Azure App Service Development Stacks Support](/blog/windows-azure-websites-development-stacks-support/)
+* [Azure App Service Development Stacks Support](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)
 
 ## Videos
-* [Azure App Service Architecture](/documentation/videos/why-azure-web-sites-plus-architecture/)
+* [Azure App Service Architecture](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/)
 
