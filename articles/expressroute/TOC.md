@@ -51,7 +51,7 @@
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
