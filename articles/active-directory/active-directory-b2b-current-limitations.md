@@ -22,7 +22,6 @@ ms.author: sasubram
 # Limitations of Azure AD B2B collaboration
 Azure Active Directory (Azure AD) B2B collaboration is currently subject to the limitations described in this article.
 
-<<<<<<< HEAD
 ## Invitation APIs are in preview
 The API surface is our anticipated direction forward. However, like all prerelease versions, the API is subject to the preview namespace contract. We will move the API to a numbered version with our general availability (GA) release.
 
@@ -31,7 +30,7 @@ This redundancy can arise if your partner already has an Azure Multi-Factor Auth
 
 However, if a partner already has Multi-Factor Authentication set up and enforces it, the partner's users might have to perform the authentication once in their home organization and then again in yours.
 
-In a future release, we will introduce a policy where you can avoid the double authentication issue by choosing to trust the partner's Multi-Factor Authentication.
+In a future release, we plan to introduce a policy where you can avoid the double authentication issue by choosing to trust the partner's Multi-Factor Authentication.
 
 ## Instant-On
 In the B2B collaboration flows, we add users to the directory and dynamically update them during invitation redemption, app assignment, and so on. The updates and writes ordinarily happen in one directory instance and must be replicated across all instances. We have observed that, because of the finite amount of time it can take to complete replication, authorization issues can sometimes arise. We are working hard to minimize or eliminate these issues before our GA release. You're unlikely to experience them in the meantime, but if you do, refreshing or retrying should help resolve them.
