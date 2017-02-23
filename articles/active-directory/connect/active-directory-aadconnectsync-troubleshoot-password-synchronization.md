@@ -41,25 +41,25 @@ Follow these steps to figure out why no passwords are synchronized:
 ### Connectivity problem
 
 1. Do you have connectivity with Azure AD.
-2. Does the account have required permissions to read the password hashes in all domains? If you installed Connect using Express settings, the permissions should already be connect. If you used custom install, you need to set the permissions manually.
+2. Does the account have required permissions to read the password hashes in all domains? If you installed Connect using Express settings, the permissions should already be correct. If you used custom install, you need to set the permissions manually.
     1. To find the account used by the Active Directory Connector, start **Synchronization Service Manager**. Go to **Connectors** and find the on-premises Active Directory forest you are troubleshooting. Select the Connector and click **Properties**. Go to **Connect to Active Directory Forest**.  
     ![Account used by AD Connector](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/connectoraccount.png)  
     Take a note of the username and the domain the account is located in.
     2. Start **Active Directory Users and Computers**. Verify that the account you found in the previous steps have the follow permissions set at the root of all domains in your forest:
         * Replicate Directory Changes
         * Replicate Directory Changes All
-    3. Verify that the domain controller used by Azure AD Connect is reachable. To find which domain controller Connect is using, go back to **Synchronization Service Manager** and **Configure Directory Partition**. Find **Last used** on the page.  
+3. Verify that the domain controller used by Azure AD Connect is reachable. To find which domain controller Connect is using, go back to **Synchronization Service Manager** and **Configure Directory Partition**. Find **Last used** on the page.  
     ![Domain controller used by AD Connector](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/dcused.png)  
     Make sure this Domain Controller is appropriate and is reachable. Fix any DNS or networking issues. Connect depends on Windows to find the best Domain Controller.
-    4. Is the checkbox **Only use preferred domain controller** selected? If it is, click **Configure** and make sure the list of Domain Controllers are appropriate. The checkbox is by default unselected, which indicates that Windows provides the best Domain Controller to use.
-    5. If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
+4. Is the checkbox **Only use preferred domain controller** selected? If it is, click **Configure** and make sure the list of Domain Controllers are appropriate. The checkbox is by default unselected, which indicates that Windows provides the best Domain Controller to use.
+5. If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
 
 ### Enable verbose logging
 The following steps enable verbose debug tracing for password synchronization.
 
 1. Start a cmd prompt. Run `NET STOP ADSync`.
 2. Create a folder `C:\Temp`
-3. In the file **c:\Program Files\Microsoft Azure AD Sync\bin\miiserver.exe.config** add the following to the section **<system.diagnostics>**:
+3. In the file **c:\Program Files\Microsoft Azure AD Sync\bin\miiserver.exe.config** add the following to the section `<system.diagnostics>`:
 ```
 <source name="passwordSync" switchValue="Verbose">
   <listeners>
@@ -90,13 +90,13 @@ If it is selected, then ask the user to sign in and change the password. Tempora
     5. Locate the user you are looking for and click **Properties** to see all attributes. If the user is not in the search result, then verify your [filtering rules](active-directory-aadconnectsync-configure-filtering.md) and make sure you run [Apply and verify changes](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes) for the user to appear in Connect.
     6. To see the password sync details of the object for the past week, click **Log...**.  
     ![Object log details](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/csobjectlog.png)  
-    If the object log is empty, then Azure AD Connect has not been able to read the password hash from Active Directory. Then read [Connectivity Errors](#connectivity-errors) to continue your troubleshooting. If you see any other value than **success**, then refer to the table in [Password sync log](#password-sync-log).
+    If the object log is empty, then Azure AD Connect has not been able to read the password hash from Active Directory. Continue your troubleshooting with [Connectivity Errors](#connectivity-errors). If you see any other value than **success**, then refer to the table in [Password sync log](#password-sync-log).
     7. Select the **lineage** tab and make sure that at least one Sync Rule shows **Password Sync** as **True**. In the default configuration, the name of the Sync Rule is **In from AD - User AccountEnabled**.  
     ![Lineage information about a user](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync.png)  
     8. Click **Metaverse Object Properties**. You see a list of attributes in the user.  
     ![Metaverse information](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvpasswordsync.png)  
-    Verify that there is no attribute **cloudFiltered** present. Make sure that the domain (ddomainFQDN and domainNetBios) are the expected domains.
-    9. Click on the tab **Connectors**. Make sure you see connectors to both your on-premises AD and to Azure AD.
+    Verify that there is no attribute **cloudFiltered** present. Make sure that the domain attributes (domainFQDN and domainNetBios) have the expected values.
+    9. Click the tab **Connectors**. Make sure you see connectors to both your on-premises AD and to Azure AD.
     ![Metaverse information](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvconnectors.png)  
     10. Select the row representing Azure AD and click **Properties**. Click the tab **Lineage**. The connector space object should have an outbound rule with **Password Sync** set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.  
     ![Connector space properties of a user](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync2.png)  
