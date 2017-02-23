@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.author: singhkay
+ms.author: kasing
 
 ---
 # Set up Key Vault for virtual machines in Azure Resource Manager
