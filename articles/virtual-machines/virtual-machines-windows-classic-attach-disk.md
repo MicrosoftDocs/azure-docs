@@ -67,7 +67,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
     ![Open Server Manager](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
 
 3. Select **Disks**.
-4. The **Disks** section lists the disks. Most often, a virtual machine has disk 0, disk 1, and disk 2. Disk 0 is the operating system disk, disk 1 is the temporary disk, and disk 2 is the data disk newly attached to VM. The data disk lists the Partition as **Unknown**.
+4. The **Disks** section lists the disks. Most often, a virtual machine has disk 0, disk 1, and disk 2. Disk 0 is the operating system disk, disk 1 is the temporary disk, and disk 2 is the data disk newly attached to the virtual machine. The data disk lists the Partition as **Unknown**.
 
  Right-click the disk and select **Initialize**.
 
@@ -79,7 +79,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 
 ## Option 2: Attach an existing disk
 1. On the **Disks** blade, click **Attach existing**.
-2. Under **Attach existing disk**, click **VHD File**.
+2. Under **Attach existing disk**, click **Location**.
 
    ![Attach existing disk](./media/virtual-machines-windows-classic-attach-disk/attachexistingdisksettings.png)
 3. Under **Storage accounts**, select the account and container that holds the .vhd file.
