@@ -44,7 +44,7 @@ This method is preferred when you have a single server and less than about 100,0
 If you've made changes to the out-of-box synchronization rules, these will be set back to the default configuration on upgrade. To make sure that your configuration is kept between upgrades, make sure that you make changes as they're described in [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 ## Swing migration
-If you have a complex deployment or many objects, it might be impractical to do an in-place upgrade on the live system. For some customers, this could take multiple days--and during this time, no delta changes will be processed. You can also use this method when you plan to make substantial changes to your configuration and you want to try them out before they're pushed to the cloud.
+If you have a complex deployment or many objects, it might be impractical to do an in-place upgrade on the live system. For some customers, this might take multiple days--and during this time, no delta changes will be processed. You can also use this method when you plan to make substantial changes to your configuration and you want to try them out before they're pushed to the cloud.
 
 The recommended method for these scenarios is to use a swing migration. You need (at least) two servers--one active server and one staging server. The active server (shown with solid blue lines in the following picture) is responsible for the active production load. The staging server (shown with dashed purple lines) is prepared with the new release or configuration. When it's fully ready, this server is made active. The previous active server, which now has the old version or configuration installed, is made into the staging server and is upgraded.
 
@@ -61,7 +61,7 @@ These steps also work to move from Azure AD Sync or a solution with FIM + Azure 
 2. If you've made a custom configuration and your staging server doesn't have it, follow the steps under [Move a custom configuration from the active server to the staging server](#move-custom-configuration-from-active-to-staging-server).
 3. If you're upgrading from an earlier release of Azure AD Connect, upgrade the staging server to the latest version. If you're moving from Azure AD Sync, then install Azure AD Connect on your staging server.
 4. Let the sync engine run full import and full synchronization on your staging server.
-5. Verify that the new configuration didn't cause any unexpected changes by using the steps under "Verify" in [Verify the configuration of a server](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). If something isn't as expected, correct it, run the import and sync, and verify the data until it looks good, as per the steps.
+5. Verify that the new configuration didn't cause any unexpected changes by using the steps under "Verify" in [Verify the configuration of a server](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). If something isn't as expected, correct it, run the import and sync, and verify the data until it looks good, by following the steps.
 6. Switch the staging server to be the active server. This is the final step "Switch active server" in [Verify the configuration of a server](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
 7. If you're upgrading Azure AD Connect, upgrade the server that's now in staging mode to the latest release. Follow the same steps as before to get the data and configuration upgraded. If you upgraded from Azure AD Sync, you can now turn off and decommission your old server.
 
@@ -72,9 +72,9 @@ You can move the custom sync rules that you've created by using PowerShell. You 
 
 You need to configure the following things the same way on both servers:
 
-* Connection to the same forests.
-* Any domain and OU filtering.
-* The same optional features, such as password sync and password writeback.
+* Connection to the same forests
+* Any domain and OU filtering
+* The same optional features, such as password sync and password writeback
 
 **Move custom synchronization rules**  
 To move custom synchronization rules, do the following:
