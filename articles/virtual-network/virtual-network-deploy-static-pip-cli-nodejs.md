@@ -24,7 +24,7 @@ ms.author: jdial
 - [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 - [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 - [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-- [Azure CLI 1.0](virtual-network-deploy-static-pip-arm-cli-nodejs.md)
+- [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
 - [Template](virtual-network-deploy-static-pip-arm-template.md)
 - [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
