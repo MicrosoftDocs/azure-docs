@@ -43,7 +43,26 @@ All app types rely on the scalable and flexible Web Apps platform, which enables
 * **Scaling the app**. Use one of many options to automatically scale your service horizontally and vertically based on traffic and resource utilization. Configure private environments that are dedicated to your apps.   
 * **Maintaining the app**. Use many of the debugging and diagnostics features to stay ahead of problems and to efficiently resolve them either in real time (with features such as auto-healing and live debugging) or after the fact by analyzing logs and memory dumps.
 
-As a whole, App Service capabilities enable developers to focus on their code and reach a stable, highly scalable production state quickly. With the API Apps and Logic Apps features, developers can build real-world enterprise applications that bridge barriers between business solutions as well as on-premises to cloud integration.  
+As a whole, App Service capabilities enable developers to focus on their code and reach a stable, highly scalable production state quickly. With the API Apps and Logic Apps features, developers can build real-world enterprise applications that bridge barriers between business solutions as well as on-premises to cloud integration. 
 
-[!INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
+## Videos
+* [Azure App Service Architecture](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/)
+
+## Next steps
+
+Learn more about App Service in one of the following topics 
+
+* [What is Azure App Service?](../articles/app-service/app-service-value-prop-what-is.md)
+  * [Web App](../articles/app-service-web/app-service-web-overview.md)
+  * [Mobile App](../articles/app-service-mobile/app-service-mobile-value-prop.md)
+  * [API App](../articles/app-service-api/app-service-api-apps-why-best-platform.md)
+  * [Logic App](../articles/logic-apps/logic-apps-what-are-logic-apps.md)
+* [Azure App Service Architecture (presentation)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
+* [Azure App Service, Cloud Services, and Virtual Machines comparison](../articles/app-service-web/choose-web-site-cloud-service-vm.md)
+* [Understanding App Service Plans](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
+* [Introduction to App Service Environment](../articles/app-service-web/app-service-app-service-environment-intro.md)
+  * [Exercise: Create an App Service Environment](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Azure App Service Development Stacks Support](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)
+
+
 
