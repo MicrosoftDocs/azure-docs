@@ -59,7 +59,7 @@ You have several options to secure the connection between the API Management gat
 * Use HTTP basic authentication. For more information, see [Configure API settings](api-management-howto-create-apis.md#configure-api-settings).
 * Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
 * Use IP whitelisting on your back-end service. If you have a Standard or Premium tier API Management instance, the IP address of the gateway remains constant. You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
-* Connect your API Management instance to an Azure Virtual Network. For more information, see [How to set up VPN connections in Azure API Management](api-management-howto-setup-vpn.md).
+* Connect your API Management instance to an Azure Virtual Network. 
 
 ### How do I copy my API Management service instance to a new instance?
 You have several options if you want to copy an API Management instance to a new instance. You can:

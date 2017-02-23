@@ -1,19 +1,19 @@
 ---
 title: List of Azure Diagnostics configuration schema versions | Microsoft Docs
 description: Used to configure the collection of perf counters in Azure Virtual Machines, VM Scale Sets, Service Fabric, and Cloud Services.
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: ''
 
 ms.assetid:
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 
 ---
@@ -25,7 +25,7 @@ This page indexes Azure Diagnostics Schema versions shipped as part of the Micro
 > Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
 >
 
-Azure Diagnostics is used in conjunction with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+Azure Diagnostics is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
 
 ## Azure SDK and Diagnostics versions shipping chart  
 
@@ -37,6 +37,10 @@ Azure Diagnostics is used in conjunction with other Microsoft diagnostics produc
 |2.6               |1.3                         |"|  
 |2.7               |1.4                         |"|  
 |2.8               |1.5                         |"|  
+|2.9               |1.6                         |"|
+|2.96              |1.7                         |"|
+
+
 
  Azure Diagnostics version 1.0 first shipped in a plug-in model, meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
 
@@ -49,4 +53,4 @@ Azure Diagnostics is used in conjunction with other Microsoft diagnostics produc
 
 [Diagnostics 1.2 Configuration Schema](azure-diagnostics-schema-1dot2.md)  
 
-[Diagnostics 1.3 to 1.5 Configuration Schema](azure-diagnostics-schema-1dot3-to-1dot5.md)  
+[Diagnostics 1.3 and later Configuration Schema](azure-diagnostics-schema-1dot3-and-later.md)  

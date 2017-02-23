@@ -58,7 +58,7 @@ Organizations need a BCDR strategy that determines how apps and data stay runnin
 * Be running the fixes described in KB [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
 
 ## Virtual machine prerequisites
-Virtual machines you want to protect should conform with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Virtual machines you want to protect should conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## Provider and agent prerequisites
 As part of Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider and the Azure Recovery Services Agent on each Hyper-V server. Note that:
@@ -239,7 +239,7 @@ There are two ways to run a test failover to Azure.
 
 If you want to run a test failover without specifying an Azure network you don’t need to prepare anything.
 
-To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure). Read [run a test failover](site-recovery-failover.md#run-a-test-failover) for more details.
+To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure). Read [run a test failover](site-recovery-failover.md) for more details.
 
 To fully test your replication and network deployment you'll need to set up the infrastructure so that the replicated virtual machine to work as expected. One way of doing this to to set up a virtual machine as a domain controller with DNS and replicate it to Azure using Site Recovery to create it in the test network by running a test failover.  [Read more](site-recovery-active-directory.md#test-failover-considerations) about test failover considerations for Active Directory.
 
