@@ -28,8 +28,8 @@ In short, PF is an extremely powerful and feature-rich firewall.
 If you are interested in setting up a secure firewall in the cloud for your web servers then let’s get started. And you also could leverage the scripts used in this ARM template to set up your networking topology.
 The ARM (Azure Resource Manager) template set up a FreeBSD virtual machine that performs NAT /redirection using PF and 2 FreeBSD virtual machines with the Nginx web server installed and configured. In addition to performing NAT for the 2 web servers egress traffics, the NAT/redirection virtual machine intercepts HTTP requests and redirect them to the 2 web servers in round-robin fashion. The VNet uses the private non-routable IP address space 10.0.0.2/24 and you can modify the parameters of the template. The ARM template also defines a route table for the whole VNet which is a collection of individual routes used to override Azure default routes based on the destination IP address. 
 
-[pf_topology]:./media/virtual-machines-freebsd-pf-nat/pf_topology.jpg
-
+    ![pf_topology](./media/virtual-machines-freebsd-pf-nat/pf_topology.jpg)
+    
 ## Deploy through the Azure Portal
 1.	Go to [azure template of pf-freebsd-setup](https://azure.microsoft.com/en-us/resources/templates/pf-freebsd-setup/) or [github link for pf-free-setup template](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup).
 2.	Click “Deploy to Azure”.
@@ -38,13 +38,14 @@ The ARM (Azure Resource Manager) template set up a FreeBSD virtual machine that 
 5.	Make sure checkbox “I agree to the terms and conditions stated above” is selected. 
 6.	Click “Purchase”. 
 
-[pf_template_setup]:./media/virtual-machines-freebsd-pf-nat/pf_template_setup.jpg
+    ![pf_template_setup](./media/virtual-machines-freebsd-pf-nat/pf_template_setup.jpg)
 
-You will see the deployment is kicked off and you can get the NAT firewall and 2 backend virtual machines act as web servers set up in your resource group after about 5 minutes. Then you can access Nginx web server using the public IP of front-end VM from a browser. 
+You will see the deployment is kicked off and you can get the NAT firewall and 2 backend virtual machines act as web servers set up in your resource group after about 5 minutes. Then you can access Nginx web server using the public IP of front-end VM from a browser.
 
-[pf_template_deploy_portal]:./media/virtual-machines-freebsd-pf-nat/pf_template_deploy_portal.jpg
+    ![pf_template_deploy_portal](./media/virtual-machines-freebsd-pf-nat/pf_template_deploy_portal.jpg)
+    
 
-## Deploy through Powershell
+# Deploy through Powershell
 After [install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/), login your Azure account. 
 
     Login-AzureRmAccount
