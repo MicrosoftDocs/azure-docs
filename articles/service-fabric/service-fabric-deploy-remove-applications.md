@@ -106,7 +106,7 @@ PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
 Register application type succeeded
 ```
 
-To see what application types have been registered, run the [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/servicefabric) cmdlet:
+To see what application types have been registered, run the [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/servicefabric/get-servicefabricapplicationtype) cmdlet:
 ```powershell
 PS D:\temp> Get-ServiceFabricApplicationType
 
