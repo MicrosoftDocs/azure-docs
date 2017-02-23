@@ -1,5 +1,5 @@
 ---
-title: Getting Started: Azure AD Password management | Microsoft Docs
+title: 'Getting Started: Azure AD Password management | Microsoft Docs'
 description: Enable users to reset their own passwords, discover pre-requisites for password reset, and enable password writeback to manage on-premises passwords in Active Directory.
 services: active-directory
 keywords: Active directory password management, password management, reset Azure AD password
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---

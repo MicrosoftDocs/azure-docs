@@ -1,5 +1,5 @@
 ---
-title: Best Practices: Azure AD Password Management | Microsoft Docs
+title: 'Best Practices: Azure AD Password Management | Microsoft Docs'
 description: Deployment and usage best practices, sample end-user documentation and training guides for Password Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---
@@ -137,7 +137,7 @@ We are working on sample training materials that you can use to get your IT orga
 <br/>
 <br/>
 
-## Next atepa
+## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
 * **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).

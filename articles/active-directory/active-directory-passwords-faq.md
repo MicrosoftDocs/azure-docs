@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---
@@ -165,7 +165,7 @@ This FAQ is split into the following sections:
   >
   >
 
-## password management reports
+## Password management reports
 * **Q:  How long does it take for data to show up on the password management reports?**
 
   > **A:** Data should appear on the password management reports within 5-10 minutes. It some instances it may take up to an hour to appear.

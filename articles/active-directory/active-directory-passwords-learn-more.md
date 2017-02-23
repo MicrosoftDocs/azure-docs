@@ -1,5 +1,5 @@
 ---
-title: Learn more: Azure Active Directory password management | Microsoft Docs'
+title: 'Learn more: Azure Active Directory password management | Microsoft Docs'
 description: Advanced topics on Azure AD password management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---

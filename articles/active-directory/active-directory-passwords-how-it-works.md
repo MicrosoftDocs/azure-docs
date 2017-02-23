@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---
-# How Password Management works
+# How password management works
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 >
 >
 
-Password Management in Azure Active Directory is comprised of several logical components that are described below.  Click on each link to learn more about that component.
+Password management in Azure Active Directory (Azure AD) comprises several logical components that are described below. Select the links to learn more about that component.
 
 * [**Password Management Configuration Portal**](#password-management-configuration-portal) – Administrators can control different facets of how passwords are managed in their tenants by navigating to their directory’s Configure tab in the [Azure Management Portal](https://manage.windowsazure.com).
 * [**User Registration Portal**](#user-registration-portal) – Users can self-register for password reset through this web portal.

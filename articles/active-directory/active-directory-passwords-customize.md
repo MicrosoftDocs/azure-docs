@@ -1,5 +1,5 @@
 ---
-title: Customize: Azure Active Directory password management | Microsoft Docs
+title: 'Customize: Azure Active Directory password management | Microsoft Docs'
 description: How to customize password management look and feel, behavior, and notifications in Azure AD to meet your needs.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---
@@ -132,7 +132,7 @@ The following table describes how each control affects the experience for users 
             </tr>
           </tbody></table>
 
-## password management behavior
+## Password management behavior
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the **User Password Reset Policy** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).
 
 > [!NOTE]
@@ -780,7 +780,7 @@ The following table describes how each control affects the experience for users 
             </tr>
           </tbody></table>
 
-## password management notifications
+## Password management notifications
 The following table describes how each control affects the experience for users and admins who receive password reset notifications.  You can configure these options under the **Notifications** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).
 
 <table>
