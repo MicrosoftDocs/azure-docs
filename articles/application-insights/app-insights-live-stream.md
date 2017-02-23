@@ -23,7 +23,8 @@ Live Metrics Stream shows you your [Application Insights](app-insights-overview.
 Unlike [Metrics Explorer](app-insights-metrics-explorer.md), Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
 
 Live Metrics Stream data is free: it doesn't add to your bill.
-[![Live Metrics Stream video](./media/app-insights-live-stream/youtube.png) Live Metrics Stream](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+
+![Live Metrics Stream video](./media/app-insights-live-stream/youtube.png) [Live Metrics Stream video](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 ![In the Overview blade, click Live Stream](./media/app-insights-live-stream/live-stream.png)
 
