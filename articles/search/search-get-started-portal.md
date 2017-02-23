@@ -131,13 +131,13 @@ The `search` parameter is used to input a keyword search for full text search, i
 
 The `&` symbol is used to append search parameters, which can be specified in any order. 
 
-The `$count=true` parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes in the `$count=true`. 
+The `$count=true` parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes reported by `$count=true`. 
 
 The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
 
 **`search=*&facet=city&$top=2`**
 
-`search=*` is an empty search. Empty searches search over everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents.
+`search=*` is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all cities in the index.
 
 `facet` returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
 
