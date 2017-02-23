@@ -1,8 +1,5 @@
 
 
-
-The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see (Sizes for virtual machines)[virtual-machines-size-specs.md] and for VM pricing information, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
-
 |SKU Family	|ACU/Core |
 |---|---|
 |[Basic_A0](#basic-tier)	|50 |

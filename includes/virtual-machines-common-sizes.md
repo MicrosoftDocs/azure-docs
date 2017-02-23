@@ -17,6 +17,7 @@
 |                                      |        | NC sizes are ideal for compute intensive and network intensive applications, algorithms, and simulations.                                      | xxx-xxx*   |
 | [Memory optimized](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md)                    | G      | high disk throughput and IO. Workloads like Big Data, MPP, SQL and NO-SQL databases.                                                           | 180-240*   |
 |                                      | GS     | Premium storage option for G-series.                                                                                                           | 180 - 240* |
+| [Storage optimized](../articles/virtual-machines/virtual-machines-windows-sizes-storage.md)                    | Ls      | workloads that require low latency local storage, like NoSQL databases.                                                           | 180-240*   |
 
 
 ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 

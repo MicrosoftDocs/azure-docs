@@ -22,9 +22,7 @@ ms.author: cynthn
 This article describes the available sizes and options for the Azure virtual machines you can use to run your Windows apps and workloads. It also provides deployment considerations to be aware of when you're planning to use these resources.  This article is also available for [Linux virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 * For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
-* For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
 * To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-* The size affects the processing, memory, and storage capacity of the virtual machine. 
 * Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 <br>    
 
@@ -39,3 +37,4 @@ This article describes the available sizes and options for the Azure virtual mac
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
 - [GPU optimized](virtual-machines-windows-sizes-gpu.md)
 - [High performance compute](virtual-machines-windows-sizes-hpc.md)
+- [Storage optimized](virtual-machines-windows-sizes-storage.md)

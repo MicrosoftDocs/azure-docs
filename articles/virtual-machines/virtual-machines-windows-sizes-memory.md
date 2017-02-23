@@ -27,7 +27,9 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-sizes-memory](../../includes/virtual-machines-common-sizes-memory.md)]
 
 ## Other sizes
-[General purpose](virtual-machines-windows-sizes-general.md)
-[Compute optimized](virtual-machines-windows-sizes-compute.md)
-[GPU optimized](virtual-machines-windows-sizes-gpu.md)
-[High performance compute](virtual-machines-windows-sizes-hpc.md)
+- [General purpose](virtual-machines-windows-sizes-general.md)
+- [Compute optimized](virtual-machines-windows-sizes-compute.md)
+- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [High performance compute](virtual-machines-windows-sizes-hpc.md)
+- [Storage optimized](virtual-machines-windows-sizes-storage.md)
+

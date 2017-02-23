@@ -1,5 +1,5 @@
 ---
-title: Windows VM sizes | Microsoft Docs
+title: Azure Windows VM sizes - Economy | Microsoft Docs
 description: Lists the economy sizes available for development and test scenarios on Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -24,6 +24,7 @@ ms.author: cynthn
 The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see (Sizes for virtual machines)[virtual-machines-size-specs.md] and for VM pricing information, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 
+
 [!INCLUDE [virtual-machines-common-sizes-economy](../../includes/virtual-machines-common-sizes-economy.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
@@ -35,4 +36,5 @@ The basic tier sizes are primarily for development workloads and other applicati
 - [Compute optimized](virtual-machines-windows-sizes-compute.md)
 - [GPU optimized](virtual-machines-windows-sizes-gpu.md)
 - [High performance compute](virtual-machines-windows-sizes-hpc.md)
+- [Storage optimized](virtual-machines-windows-sizes-storage.md)
 
