@@ -44,7 +44,7 @@ To enable users to sign in using their organization account, you must manually c
 
   ![Search for "dropbox" on the Add an application page](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
 
-3. On the **Single sign-on** page, select **Single sign-on** in the left pane, and then enter **user.mail** in the **User Identifier** box (it's set as UPN by default).
+3. On the **Single sign-on** page, select **Single sign-on** in the left pane, and then enter **user.mail** in the **User Identifier** box. (It's set as UPN by default.)
 
   ![Configuring single sign-on for the app](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
 
@@ -82,15 +82,15 @@ You can enable users to authenticate Box guest users with their Azure AD account
   ![Configure Box single sign-on](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
  a. In the **Sign on URL** box, ensure that the sign-on URL is set appropriately for Box in the Azure portal. This URL is the URL of your Box.com tenant. It should follow the naming convention *https://.box.com*.  
- The **Identifier** does not apply to this app, but it still shows as mandatory field.
+ The **Identifier** does not apply to this app, but it still appears as a mandatory field.
 
  b. In the **User identifier** box, enter **user.mail** (for SSO for guest accounts).
 
  c. Under **SAML Signing Certificate**, click **Create new certificate**.
 
- d. To begin configuring your Box.com tenant to use Azure AD as an identity provider, download the following metadata file and then save it to your local drive: Download metadata file (make sure to make it active)
+ d. To begin configuring your Box.com tenant to use Azure AD as an identity provider, download the following metadata file and then save it to your local drive: Download metadata file (make sure to make it active).
 
- e. Forward the metadata file to the Box support team, who will configure single sign-on for you.
+ e. Forward the metadata file to the Box support team, which will configure single sign-on for you.
 
 3. For Azure AD automatic user setup, in the left pane, select **Provisioning**, and then select **Authorize**.
 
