@@ -111,7 +111,7 @@ See [Next Steps](#next-steps) for other things you can do with your new VM using
 
 ## Using unmanaged disks 
 
-VMs that use unmanaged storage disks have unmanaged storage accounts and First, type [az group create](/cli/azure/group#create) to create your resource group to contain all deployed resources:
+VMs that use unmanaged storage disks have unmanaged storage accounts. First, type [az group create](/cli/azure/group#create) to create your resource group to contain all deployed resources:
 
 ```azurecli
 az group create --name nativedisks --location westus
@@ -134,7 +134,7 @@ The output looks like the following (you can choose a different `--output` optio
 
 ### Create your VM 
 
-Now you can create your VM and its environment. Remember to replace the `--public-ip-address-dns-name` value with a unique one; the one below may already be taken.
+Now you can create your VM and its environment. Use the `--use-unmanaged-disk` flag to create the VM with unmanaged disks. An unmanaged storage account is also created. Remember to replace the `--public-ip-address-dns-name` value with a unique one; the one below may already be taken.
 
 ```azurecli
 az vm create \
@@ -145,7 +145,7 @@ az vm create \
 --resource-group nativedisks \
 --location westus \
 --name myVM \
---use-native-disk
+--use-unmanaged-disk
 ```
 
 The output looks like the following. Note either the `publicIpAddress` or the `fqdn` value to **ssh** into your VM.

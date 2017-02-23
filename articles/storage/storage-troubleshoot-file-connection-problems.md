@@ -259,9 +259,13 @@ This error indicates communication failures that prevent re-establishing a TCP c
 
 This error can be caused by a Linux reconnect issue or other problems that prevent reconnection, such as network errors. Specifying a hard mount will force the client to wait until a connection is established or until explicitly interrupted, and can be used to prevent errors due to network timeouts. However, users should be aware that this could lead to indefinite waits and should handle halting a connection as needed.
 
+
 ### Workaround
 
-The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds or less. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
+The Linux issue has been fixed, however not ported to Linux distributions yet. If the issue is caused by the reconnect issue in Linux, this can be worked around by avoiding getting into an idle state. To achieve this, keep a file in the Azure File share that you write to every 30 seconds or less. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection. This is the list of popular Linux kernels that have this and other reconnect fixes:
+4.4.40+
+4.8.16+
+4.9.1+
 
 <a id="webjobs"></a>
 

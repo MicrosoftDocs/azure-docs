@@ -28,13 +28,15 @@ The following example attaches a `50`GB disk to the VM named `myVM` in the resou
 To use managed disks:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
 To use unmanaged disks:
 
 ```azurecli
-az vm unmanaged-disk attach --new -g myResourceGroup -n myUnmanagedDisk --vm-name myVM --size-gb 50
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## Attach a managed disk
@@ -47,7 +49,8 @@ Using managed disks enables you to focus on your VMs and their disks without wor
 If you just need a new disk on your VM, you can use the `az vm disk attach` command.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
 ### Attach an existing disk 
@@ -93,7 +96,8 @@ The output looks something like the following (you can use the `-o table` option
 Attaching a new disk is quick if you do not mind creating a disk in the same storage account as your VM. Type `azure vm disk attach-new` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
-az vm unmanaged-disk attach --new -g myResourceGroup -n myUnmanagedDisk --vm-name myVM --size-gb 50
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## Connect to the Linux VM to mount the new disk
