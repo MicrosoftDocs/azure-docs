@@ -40,22 +40,27 @@ The integration between SCOM and Service Map is enabled by importing the Microso
 1. After installing the ServiceMap management pack, there will be a new node, Service Map, under the Operations Management Suite in the Administration pane.
 2. Click “Add workspace” in the Service Map Overview pane to open the configuration wizard.
 
-![SCOM Configuration Wizard](media/oms-service-map/scom-configuration.png)
+    ![SCOM Configuration Wizard](media/oms-service-map/scom-configuration.png)
+
 3. The first step in the wizard is Connection Configuration to configure a Service Principal Name. Enter the Tenant ID, Application ID (or Username or ClientID), and Password of the Service Principal.  Please refer to the Appendix section on how to create a Service Principal.
 
-![SCOM Config SPN](media/oms-service-map/scom-config-spn.png)
+    ![SCOM Config SPN](media/oms-service-map/scom-config-spn.png)
+
 4. The next step is to select the Azure Subscription, Azure Resource Group (the one containing the OMS Workspace), and OMS Workspace.
 
-![SCOM Config Workspace](media/oms-service-map/scom-config-workspace.png)
+    ![SCOM Config Workspace](media/oms-service-map/scom-config-workspace.png)
+
 5. The next step is to configure the Service Map Servers Group with the servers you would like to sync between SCOM and Service Map.  Click the Add/Remove Servers… button. Note that for the integration to build a Distributed Application Diagram for a server, the server must: 1) be managed by SCOM, 2) be managed by Service Map, and 3) be listed in the Service Map Servers Group.
 
-![SCOM Config Group](media/oms-service-map/scom-config-group.png)
+    ![SCOM Config Group](media/oms-service-map/scom-config-group.png)
+
 6. Optional - Select the Management Server resource pool to communicate with OMS and click “Add Workspace”.
 
-![SCOM Config Resource Pool](media/oms-service-map/scom-config-pool.png)
+    ![SCOM Config Resource Pool](media/oms-service-map/scom-config-pool.png)
+
 7. Please note that it will take a minute to configure and register the OMS workspace. Once this is configured, SCOM will initiate the first Service Map sync from OMS.
 
-![SCOM Config Resource Pool](media/oms-service-map/scom-config-success.png)
+    ![SCOM Config Resource Pool](media/oms-service-map/scom-config-success.png)
 
 **Note:** The default sync interval is set to 60 minutes. Users can configure overrides to change the sync interval. Users can also add servers to the Service Map Servers Group manually through the Authoring pane (Authoring pane --> Groups, then search for "Service Map Servers Group"). The server maps for those servers will be synced with the next sync (based on the sync interval configured).
 
