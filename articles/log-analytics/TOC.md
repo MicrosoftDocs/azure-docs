@@ -31,6 +31,7 @@
 ## Query data
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
+#### [Regular expressions](log-analytics-log-searches-regex.md)
 ### [Computer groups](log-analytics-computer-groups.md)
 ### [Alerts](log-analytics-alerts.md)
 ## Analyze data
