@@ -251,6 +251,10 @@ The following table lists the operationName and corresponding REST API command.
 | SecretList |[List secrets in a vault](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[List versions of a secret](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a id="loganalytics"></a>Use Log Analytics
+
+You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs. You can find details on setting this up, or migrating from the old Key Vault solution in [Azure Key Vault Analytics solution in Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault#install-and-configure-the-solution).
+
 ## <a id="next"></a>Next steps
 For a tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).
 
