@@ -75,6 +75,7 @@ If a custom route was used to route this traffic, the User-defined route (UDR) i
 
 ## Next steps
 
+Learn how to review your network security group settings programmatically by visiting [NSG Auditing with Network Watcher](network-watcher-nsg-auditing-powershell.md)
 
 [1]: ./media/network-watcher-check-next-hop-portal/figure1.png
 [2]: ./media/network-watcher-check-next-hop-portal/figure2.png
