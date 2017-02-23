@@ -54,7 +54,7 @@ The following tables shows the different fault types (id under results from the 
 | ServiceNotRunning | The underlying service is not running. | No|
 | NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
 | ConnectionsNotConnected | None of the Connections are not connected. This is only a warning.| Yes|
-| GatewayCPUUsageExceeded | The current Gateway usage CPU usage is > 95%. | Yes |
+| GatewayCPUUsageExceeded | The current Gateway CPU usage is > 95%. | Yes |
 
 ### Connection
 
