@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/22/2017
 ms.author: jingwang
 
 ---
@@ -26,9 +26,9 @@ Data factory currently supports only moving data from Amazon S3 to other data st
 To copy data from Amazon S3, make sure you have been granted below permissions:
 
 * **s3:GetObject** and **s3:GetObjectVersion** for Amazon S3 Object Operations
-* **s3:ListBucket** and **s3:ListAllMyBuckets** (used in copy wizard only) for Amazon S3 Bucket Operations
+* **s3:ListBucket** for Amazon S3 Bucket Operations. If you are using copy wizard, **s3:ListAllMyBuckets** is also required.
 
-You can find the full list of Amazon S3 permisions with detail from [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+You can find the full list of Amazon S3 permissions with detail from [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from Amazon S3 is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
