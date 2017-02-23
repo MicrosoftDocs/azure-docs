@@ -34,14 +34,16 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 1. To open the **Diagnostic blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
    
     ![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
-1. Select the **services** you wish to monitor and the **data retention policy** for the metrics data. You can also disable monitoring by setting **Status** to **Off**.
+1. Select the **type** of metrics data for each **service** you wish to monitor, and the **retention policy** for the data. You can also disable monitoring by setting **Status** to **Off**.
 
-   There are two types of metrics you can enable for each service:
+   There are two types of metrics you can enable for each service, both of which are enabled by default for new storage accounts:
 
-   * **Aggregate metrics**: 
-   * **Per API metrics**:
+   * **Aggregate**: Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the blob, queue, table, and file services.
+   * **Per API**: In addition to the aggregate metrics, collects the same set of metrics for each storage operation in the Azure Storage service API.
 
-   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by the system at no cost.
+   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is 7 days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
+
+   > [!TIP] We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by the system at no cost. You are charged when you manually delete metrics data. See [What charges do you incur when you enable storage metrics?](storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
 
 1. When you finish the monitoring configuration, select **Save**.
 
