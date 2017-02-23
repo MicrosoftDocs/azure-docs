@@ -22,10 +22,9 @@ ms.author: yochayk
 Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today.
 App Service focuses on providing superior developer productivity without compromising on the need to deliver applications at cloud scale. 
 
-App Service also provides the features and frameworks that are necessary for creating enterprise line-of-business applications while supporting developers with the most popular development languages (such as Microsoft .NET, Java, PHP, Node.js, and Python).
-With App Service, developers can:
+App Service also provides the features and frameworks that are necessary for creating enterprise line-of-business applications. App Service lets you develop apps in most popular development languages, including Java, PHP, Node.js, Python, and the Microsoft .NET languages. With App Service, you can:
 
-* Build highly-scalable web apps.
+* Build highly scalable web apps.
 * Quickly build Mobile Apps back ends with a set of easy-to-use mobile capabilities such as data back ends, user authentication, and push notifications.
 * Implement, deploy, and publish APIs with API Apps.
 * Tie business applications together into workflows and transform data with Logic Apps.
@@ -43,7 +42,7 @@ All app types rely on the scalable and flexible Web Apps platform, which enables
 * **Scaling the app**. Use one of many options to automatically scale your service horizontally and vertically based on traffic and resource utilization. Configure private environments that are dedicated to your apps.   
 * **Maintaining the app**. Use many of the debugging and diagnostics features to stay ahead of problems and to efficiently resolve them either in real time (with features such as auto-healing and live debugging) or after the fact by analyzing logs and memory dumps.
 
-As a whole, App Service capabilities enable developers to focus on their code and quickly reach a stable and highly-scalable production state. With the API Apps and Logic Apps features, developers can build real-world enterprise applications that bridge barriers between business solutions and on-premises to cloud integration. 
+As a whole, App Service capabilities enable developers to focus on their code and quickly reach a stable and highly scalable production state. With the API Apps and Logic Apps features, developers can build real-world enterprise applications that bridge barriers between business solutions and on-premises to cloud integration. 
 
 ## Videos
 * [Azure App Service Architecture](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/)
