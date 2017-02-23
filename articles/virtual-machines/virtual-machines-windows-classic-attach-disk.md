@@ -75,7 +75,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 
 6. Complete the wizard using the default values. When the wizard is done, the **Volumes** section lists the new volume. The disk is now online and ready to store data.
 
-    ![Volume successfully initialized](./media/virtual-machines-windows-classic-attach-disk/newdiskfterinitialization.png)
+    ![Volume successfully initialized](./media/virtual-machines-windows-classic-attach-disk/newdiskafterinitialization.png)
 
 ## Option 2: Attach an existing disk
 1. On the **Disks** blade, click **Attach existing**.
