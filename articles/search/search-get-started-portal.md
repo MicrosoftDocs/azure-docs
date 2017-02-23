@@ -129,15 +129,23 @@ The `search` parameter is used to input a keyword search for full text search, i
 
 **`search=seattle&$count=true&$top=100`**
 
-The `$count` parameter returns a count in the response header for the sum of all documents returned. You can see this number in the portal, but the `$count` parameter is how you get it programmatically. The `&` symbol is used to append search parameters, which can be specified in any order. The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
+The `&` symbol is used to append search parameters, which can be specified in any order. 
 
-The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. The faceted navigation structure is followed by the result set (50 documents, by default). There is no aggregation in Azure Search, but you can get a summary of matches by category with `facet`. 
+The `$count` parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes in the `$count`. 
+
+The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
+
+**`search=*&facet=city&$top=2`**
+
+The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. The faceted navigation structure is followed by the result set (50 documents, by default). There is no aggregation in Azure Search, but you can get a summary of matches by category with `facet`. `$top=2` brings back two documents.
+
+`search=*` is an empty search. Empty searches return everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents, such as all of the cities in index.
 
 **`search=seattle&facet=beds`**
 
 This query is facet for beds, on a text search for *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). Only filterable fields can be facted. Only retrievable fields can be returned.
 
-**`search=seattle&filter=bed gt 3`**
+**`search=seattle&$filter=beds gt 3`**
 
 The `filter` parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -157,15 +165,11 @@ Misspelled words, like 'samamish' for the Samammish plateau in the Seattle area,
 
 Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser if you require fuzzy search, regular expressions, proximity search, or other advanced query types. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-**`search=*`**
+**`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-Empty searches return everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents, as described next in the geosearch example.
+Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-**`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`**
-
-Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. This query filters all results for positional data, where results are less than 10 kilometers from a given point (specified as latitude and longitude coordinates). Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
-
-Normally, filter expressions are specified as $filter with a `$` character. In Search Explorer, you should omit the `$`.
+This query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding `$count`, you can see how many results are returned when you change either the distance or the coordinates. 
 
 Geospatial search is useful if your search application has a 'find near me' feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
 
