@@ -29,7 +29,7 @@ ms.author: jdial
 
 ## <a name="create"></a>Create the VM
 
-You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-deploy-multinic-arm-cli-nodejs.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
+You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-deploy-multinic-cli-nodejs.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
 
 1. Install the [Azure CLI 2.0](/cli/azure/install-az-cli2) if you don't already have it installed.
 2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
