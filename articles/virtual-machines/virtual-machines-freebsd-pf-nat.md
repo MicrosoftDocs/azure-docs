@@ -22,7 +22,7 @@ This article introduces how to deploy a NAT firewall using FreeBSD’s PF throug
 
 # What is PF?
 PF (Packet Filter, also written pf) is a BSD licensed stateful packet filter, a central piece of software for firewalling. PF has since evolved quickly and now has several advantages over other available firewalls. Network Address Translation (NAT) is in PF since day one, then packet scheduler and active queue management have been integrated into PF, by integrating the ALTQ and making it configurable through PF's configuration. Features such as pfsync and CARP for failover and redundancy, authpf for session authentication, and ftp-proxy to ease firewalling the difficult FTP protocol, have also extended PF.
-In short, PF is an powerful and feature-rich firewall. 
+In short, PF is a powerful and feature-rich firewall. 
 
 # Get Started
 If you are interested in setting up a secure firewall in the cloud for your web servers, then let’s get started. And you also could apply the scripts used in this Azure Resource Manager template to set up your networking topology.
@@ -40,7 +40,7 @@ The Azure Resource Manager template set up a FreeBSD virtual machine that perfor
 
     ![pf_template_setup](./media/virtual-machines-freebsd-pf-nat/pf_template_setup.jpg)
 
-You will see the deployment is kicked off and you can get the NAT firewall and two backend virtual machines act as web servers set up in your resource group after about 5 minutes. Then you can access Nginx web server using the public IP of front-end VM from a browser.
+You will see the deployment is kicked off and you can get the NAT firewall and two backend virtual machines act as web servers set up in your resource group after about five minutes. Then you can access Nginx web server using the public IP of front-end VM from a browser.
 
     ![pf_template_deploy_portal](./media/virtual-machines-freebsd-pf-nat/pf_template_deploy_portal.jpg)
     
@@ -57,7 +57,7 @@ Then you can create a resource group and deployment the template.
     New-AzureRmResourceGroup -Name <resource-group-name> -Location <location>
     New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json
 
-You will be promoted to key in the admin password, Network Prefix, and domain Name Prefix. 
+You are prompted to key in the admin password, Network Prefix, and domain Name Prefix. 
 
 If you want to modify the parameters by yourself, you could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and modify the parameters. Then create below deployment with the “-TemplateParameterFile .\azuredeploy.parameters.json.”  
 
@@ -103,7 +103,7 @@ After [install and configure the Azure Cross-Platform Command-Line Interface] (h
     azure group create <my-resource-group> <location>
     azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json
 
-Then you are prompted to key in the admin password, Network Prefix and domain Name Prefix. 
+Then you are prompted to key in the admin password, Network Prefix, and domain Name Prefix. 
 If you want to modify the parameters by yourself, you could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and modify the parameters. Then run below command line.
 
     azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json -e .\azuredeploy.parameters.json
