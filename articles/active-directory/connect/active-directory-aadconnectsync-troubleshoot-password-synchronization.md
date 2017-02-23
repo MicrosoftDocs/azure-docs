@@ -62,13 +62,13 @@ The following steps enable verbose debug tracing for password synchronization.
 3. In the file **c:\Program Files\Microsoft Azure AD Sync\bin\miiserver.exe.config** add the following to the section `<system.diagnostics>`:
 ```
 <source name="passwordSync" switchValue="Verbose">
-  <listeners>
-    <add name="passwordSyncTraceListener"
-      type="System.Diagnostics.TextWriterTraceListener"
-      initializeData="C:\Temp\passwordSyncVerboseTrace.log"
-      traceOutputOptions="DateTime" />
-    <remove name="Default" />
-  </listeners>
+    <listeners>
+        <add name="passwordSyncTraceListener"
+            type="System.Diagnostics.TextWriterTraceListener"
+            initializeData="C:\Temp\passwordSyncVerboseTrace.log"
+            traceOutputOptions="DateTime" />
+        <remove name="Default" />
+    </listeners>
 </source>
 ```
 4. From the cmd prompt, run `NET START ADSync`.
@@ -76,7 +76,7 @@ The following steps enable verbose debug tracing for password synchronization.
 6. Read the created verbose trace.
 7. Revert the changes you made in the previous steps.
 
-### One object is not synchronizing passwords
+## One object is not synchronizing passwords
 You can easily troubleshoot password synchronization issues by reviewing the status of an object.
 
 1. Start in **Active Directory Users and Computers**. Find the user and verify that **User must change password at next logon** is unselected.  
