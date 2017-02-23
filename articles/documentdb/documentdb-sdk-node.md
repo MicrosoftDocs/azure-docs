@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/27/2017
 ms.author: rnagpal
 
 ---
@@ -53,7 +53,7 @@ ms.author: rnagpal
 ## Release notes
 
 ### <a name="1.10.2"/>1.10.2</a>
-* Fixed header user-agent.
+* Fixed user-agent header to include the SDK version.
 * Minor code cleanup.
 
 ### <a name="1.10.1"/>1.10.1</a>
