@@ -61,14 +61,14 @@ The following steps enable verbose debug tracing for password synchronization.
 2. Create a folder `C:\Temp`
 3. In the file **c:\Program Files\Microsoft Azure AD Sync\bin\miiserver.exe.config** add the following to the section `<system.diagnostics>`:
 ```
-<source name="passwordSync" switchValue="Verbose">
-    <listeners>
-        <add name="passwordSyncTraceListener"
-            type="System.Diagnostics.TextWriterTraceListener"
-            initializeData="C:\Temp\passwordSyncVerboseTrace.log"
-            traceOutputOptions="DateTime" />
-        <remove name="Default" />
-    </listeners>
+<source name="passwordSync" switchValue="Verbose">  
+    <listeners>  
+        <add name="passwordSyncTraceListener"  
+            type="System.Diagnostics.TextWriterTraceListener"  
+            initializeData="C:\Temp\passwordSyncVerboseTrace.log"  
+            traceOutputOptions="DateTime" />  
+        <remove name="Default" />  
+    </listeners>  
 </source>
 ```
 4. From the cmd prompt, run `NET START ADSync`.
