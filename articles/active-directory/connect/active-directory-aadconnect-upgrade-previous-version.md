@@ -76,15 +76,15 @@ You need to configure the following things the same way on both servers:
 * Any domain and OU filtering.
 * The same optional features, such as password sync and password writeback.
 
-**Move a custom synchronization rule**  
-To move a custom synchronization rule, do the following:
+**Move custom synchronization rules**  
+To move custom synchronization rules, do the following:
 
 1. Open **Synchronization Rules Editor** on your active server.
-2. Select your custom rule. Click **Export**. This brings up a Notepad window. Save the temporary file with a PS1 extension. This makes it a PowerShell script. Copy the PS1 file to the staging server.  
+2. Select a custom rule. Click **Export**. This brings up a Notepad window. Save the temporary file with a PS1 extension. This makes it a PowerShell script. Copy the PS1 file to the staging server.  
    ![Sync rule export](./media/active-directory-aadconnect-upgrade-previous-version/exportrule.png)
 3. The Connector GUID is different on the staging server, and you must change it. To get the GUID, start **Synchronization Rules Editor**, select one of the out-of-box rules that represent the same connected system, and click **Export**. Replace the GUID in your PS1 file with the GUID from the staging server.
 4. In a PowerShell prompt, run the PS1 file. This creates the custom synchronization rule on the staging server.
-5. If you have multiple custom rules, repeat this for all custom rules.
+5. Repeat this for all your custom rules.
 
 ## Next steps
 Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
