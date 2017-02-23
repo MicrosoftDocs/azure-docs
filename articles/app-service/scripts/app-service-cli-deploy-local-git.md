@@ -19,7 +19,7 @@ ms.author: cephalin
 
 # Create a web app and deploy code from a local Git repository
 
-This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository. 
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command, and that your application code is committed into a local Git repository.
 
