@@ -24,6 +24,8 @@ In this scenario you will create a resource group, two app service plans, two we
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+
 ## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "Geographic Scale")]
