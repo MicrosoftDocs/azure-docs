@@ -40,10 +40,10 @@ With Azure AD B2B collaboration, a tenant admin can set the following invitation
 
 - Turn off invitations
 - Only admins and users in the Guest Inviter role can invite
-- Admins, the Guest Inviter role, and Members can invite
+- Admins, the Guest Inviter role, and members can invite
 - All users, including guests, can invite
 
-By defaults, tenants are set to #4 (all users, including guests can invite B2B users).
+By default, tenants are set to #4. (All users, including guests, can invite B2B users.)
 
 ## Next steps
 
