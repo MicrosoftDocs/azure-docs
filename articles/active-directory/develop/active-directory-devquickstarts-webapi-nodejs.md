@@ -48,16 +48,16 @@ This dependency chain structure results in a larger application footprint. But i
 To use this sample, you need an Azure Active Directory tenant. If you're not sure what a tenant is or how to get one, see [How to get an Azure AD tenant](active-directory-howto-tenant.md).
 
 ## Step 2: Create an application
-Next you create an app in your directory that gives Azure AD information that it needs to securely communicate with your app.  Both the client app and web API are represented by a single **Application ID** in this case, since they comprise one logical app.  To create an app,
+Next you create an app in your directory that gives Azure AD information that it needs to securely communicate with your app.  Both the client app and web API are represented by a single **Application ID** in this case, because they comprise one logical app.  To create an app,
 follow [these instructions](active-directory-how-applications-are-added.md). If you are building a line-of-business app, [these additional instructions might be useful](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
 To create an application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the top navigation menu, select your account. Then, under the **Directory** list, choose the Active Directory tenant where you want to register your application.
+2. On the top menu, select your account. Then, under the **Directory** list, choose the Active Directory tenant where you want to register your application.
 
-3. In the navigation menu on the left, select **More Services**, and then select **Azure Active Directory**.
+3. In the menu on the left, select **More Services**, and then select **Azure Active Directory**.
 
 4. Select **App registrations**, and then select **Add**.
 
@@ -71,7 +71,7 @@ To create an application:
 
 6. After you register, Azure AD assigns your app a unique Application ID. You need this value in the next sections, so copy it from the application page.
 
-7. Create a **Key** for your application from the **Settings** page, and then copy it somewhere. You need it shortly.
+7. Create a **Key** for your application from the **Settings** page, and then copy it somewhere. You'll need it shortly.
 
 ## Step 3: Download Node.js for your platform
 To successfully use this sample, you must have a working installation of Node.js.
@@ -84,7 +84,7 @@ To successfully use this sample, you must have a working installation of MongoDB
 Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
 > [!NOTE]
-> This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost.
+> This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is mongodb://localhost.
 >
 >
 
@@ -126,7 +126,7 @@ npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 ```
 Restify provides a powerful mechanism for tracing REST calls by using DTrace. However, many operating systems do not have DTrace. You can safely ignore these errors.
 
-The output of this command should appear similar to the following output:
+The output of this command should look similar to the following output:
 
     restify@2.6.1 node_modules/restify
     ├── assert-plus@0.1.4
@@ -170,10 +170,10 @@ We have developed a strategy for Azure Active Directory. We install this module 
 ``
 
 ## Step 7: Add Passport-Azure-AD to your web API
-Next we add the OAuth strategy, using `passport-azure-ad`, a suite of strategies that connect Azure Active Directory to Passport. We use this strategy for Bearer tokens in this Rest API sample.
+Next we add the OAuth strategy by using `passport-azure-ad`, a suite of strategies that connect Azure Active Directory to Passport. We use this strategy for bearer tokens in this REST API sample.
 
 > [!NOTE]
-> Although OAuth2 provides a framework in which any known token type can be issued, only certain token types are commonly used. Bearer tokens are the most commonly used tokens for protecting endpoints. They are the most widely issued type of token in OAuth2. Many implementations assume that Bearer tokens are the only type of tokens that are issued.
+> Although OAuth2 provides a framework in which any known token type can be issued, only certain token types are commonly used. Bearer tokens are the most commonly used tokens for protecting endpoints. They are the most widely issued type of token in OAuth2. Many implementations assume that bearer tokens are the only type of tokens that are issued.
 >
 >
 
@@ -183,7 +183,7 @@ Type the following command to install the Passport.js `passport-azure-ad module`
 
 `npm install passport-azure-ad`
 
-The output of the command should appear similar to the following output:
+The output of the command should look similar to the following output:
 
 
     passport-azure-ad@1.0.0 node_modules/passport-azure-ad
@@ -222,7 +222,7 @@ Next we install the remaining required modules.
 ## Step 10: Create a server.js with your dependencies
 The server.js file provides most of the functionality for our web API server. We add most of our code to this file. For production purposes, we recommend that you refactor the functionality into smaller files, such as separate routes and controllers. In this demo, we use server.js for this functionality.
 
-1. From the command line, change directories to the **azuread** folder if not already there.
+1. From the command line, change directories to the **azuread** folder if you're not already there.
 
     `cd azuread`
 
@@ -247,7 +247,7 @@ The server.js file provides most of the functionality for our web API server. We
       var BearerStrategy = require('passport-azure-ad').BearerStrategy;
     ```
 
-3. Save the file. We return to it shortly.
+3. Save the file. We'll return to it shortly.
 
 ## Step 11: Create a config file to store your Azure AD settings
 This code file passes the configuration parameters from your Azure Active Directory portal to Passport.js. You created these configuration values when you added the web API to the portal in the first part of the walkthrough. We explain what to put in the values of these parameters after you copy the code.
@@ -334,9 +334,9 @@ We need to read these values from the .config file that you created across our a
 ## Step 13: Add The MongoDB Model and schema information by using Mongoose
 Now all this preparation is going to start paying off as we combine these three files into a REST API service.
 
-For this walkthrough, we use MongoDB to store our tasks as discussed in **Step 4**.
+For this walkthrough, we use MongoDB to store our tasks as discussed in Step 4.
 
-In the `config.js` file that we created in **Step 11**, we called our database `tasklist`, because that was what we put at the end of our **mogoose_auth_local** connection URL. You don't need to create this database beforehand in MongoDB. Instead, MongoDB creates this for us on the first run of our server application (assuming that the database doesn't already exist).
+In the `config.js` file that we created in Step 11, we called our database `tasklist`, because that was what we put at the end of our **mogoose_auth_local** connection URL. You don't need to create this database beforehand in MongoDB. Instead, MongoDB creates this for us on the first run of our server application (assuming that the database doesn't already exist).
 
 Now that we've told the server which MongoDB database we'd like to use, we need to write some additional code to create the model and schema for our server's tasks.
 
@@ -347,7 +347,7 @@ NAME: The name of the person who is assigned to the task. A **String**.
 
 TASK: The task itself. A **String**.
 
-DATE : The date that the task is due. A **DATETIME**.
+DATE: The date that the task is due. A **DATETIME**.
 
 COMPLETED: If the task has been completed or not. A **BOOLEAN**.
 
@@ -703,7 +703,7 @@ Test out your server before we add authentication.
 
 The easiest way to test your server is by using curl in a command line. Before we do that, we need a utility that allows us to parse output as JSON.
 
-1. Install the following json tool (all the following examples use this tool):
+1. Install the following JSON tool (all the following examples use this tool):
 
     `$npm install -g jsontool`
 
@@ -762,7 +762,7 @@ If all this works, we're ready to add OAuth to the REST API server.
 You have a REST API server with MongoDB!
 
 ## Step 18: Add authentication to our REST API server
-Now that we have a running REST API (congratulation, by the way!) let's start making it useful with Azure AD.
+Now that we have a running REST API, let's start making it useful with Azure AD.
 
 From the command line, change directories to the **azuread** folder if you're not already there.
 
@@ -782,7 +782,7 @@ So far we have built a typical REST TODO server without any kind of authorizatio
     > [!TIP]
     > When you write APIs, we recommend that you always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the object ID of the user in the token (called through token.oid), which we put in the “owner” field. This ensures that only that user can access their TODOs. There is no exposure in the API of “owner,” so an external user can request the TODOs of others even if they are authenticated.                    
 
-2. Next let’s use the Bearer strategy that comes with `passport-azure-ad`. Look at the code for now and we'll explain the rest shortly. Put this after what you pasted above:
+2. Next let’s use the bearer strategy that comes with `passport-azure-ad`. Look at the code for now and we'll explain the rest shortly. Put this after what you pasted above:
 
 ```Javascript
     /**
@@ -834,7 +834,7 @@ So far we have built a typical REST TODO server without any kind of authorizatio
 Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to. Looking at the strategy, you see we pass it a function that has a token and a done as the parameters. The strategy comes back to us after it does its work. After it does, we store the user and stash the token so we won’t need to ask for it again.
 
 > [!IMPORTANT]
-> The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. In production servers, you we recommend that you don't let anyone in without first having them go through a registration process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command-line program, we could have extracted the email from the token object that is returned and then asked the user to fill out additional information. Since this is a test server, we simply add them to the in-memory database.
+> The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. In production servers, you we recommend that you don't let anyone in without first having them go through a registration process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command-line program, we could have extracted the email from the token object that is returned and then asked the user to fill out additional information. Because this is a test server, we simply add them to the in-memory database.
 >
 >
 
@@ -910,7 +910,7 @@ You've gone as far as you can with this server without using an OAuth2 compatibl
 
 You've now learned how to implement a REST API by using Restify and OAuth2. You also have more than enough code to keep developing your service and learning how to build on this example.
 
-If you are interested in the next steps in your ADAL journey, here are some supported ADAL clients we recommend that you  keep working with:
+If you are interested in the next steps in your ADAL journey, here are some supported ADAL clients we recommend that you  keep working with.
 
 Clone down to your developer machine and configure as described in the walkthrough.
 
