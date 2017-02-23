@@ -29,9 +29,9 @@ In this article, we will set up a solution that will allow you to visualize Netw
 
 ![scenario][scenario]
 
-### Steps
+## Steps
 
-#### Enable Network Security Group flow logging
+### Enable Network Security Group flow logging
 For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
 
@@ -161,9 +161,9 @@ logstash-plugin install logstash-input-azureblob
 
 To start Logstash run the command:
 
-  ```
-  sudo /etc/init.d/logstash start
-  ```
+```
+sudo /etc/init.d/logstash start
+```
 
 For more information about this plug in, refer to documentation [here](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)
 
@@ -171,13 +171,13 @@ For more information about this plug in, refer to documentation [here](https://g
 
 1. Run the following commands to install Kibana:
 
-    ```
-    curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
-        For further instructions on installing Elastic s
-    tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
+  ```
+  curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
+  tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
+  ```
 
-    ```
 1. To run Kibana use the commands:
+
   ```
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana

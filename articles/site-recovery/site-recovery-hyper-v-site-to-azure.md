@@ -381,7 +381,7 @@ After initial replication is complete for  your machines, you can invoke failove
 [Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
 
 > [!NOTE]
-> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
+> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
 
 
 ### Run a planned Failover
@@ -404,7 +404,7 @@ This should be chosen when a primary site becomes inaccessible because of an une
 4. Select **Shut down virtual machines and synchronize the latest data** to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over.
 5. After the failover, the virtual machines are in a commit pending state.  Click **Commit** to commit the failover.
 
-[Learn more](site-recovery-failover.md#run-an-unplanned-failover)
+[Learn more](site-recovery-failover.md)
 
 ## Complete migration of your virtual machines to Azure
 > [!NOTE]
