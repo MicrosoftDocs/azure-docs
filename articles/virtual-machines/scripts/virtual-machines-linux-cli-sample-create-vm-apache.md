@@ -30,7 +30,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 The following script creates the virtual machine and invokes the custom script extension.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-apache/create-vm-apache.sh "Quick Create VM")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-apache/create-vm-apache.sh "Create VM Apache")]
 
 ## Custom Scrpt Extension
 
@@ -66,8 +66,7 @@ This script uses the following commands to create a resource group, virtual mach
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates the virtual machine. This command also specifies the virtual machine image to be used, and administrative credentials.  |
-| [az network nsg list](https://docs.microsoft.com/cli/azure/network/nsg#create) | Lists network security groups. In this case, the name of the network security group is stored in a variable for later use in the script. |
-| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Creates an NSG rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Creates an NSG rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#set) | Adds and runs a virtual machine extension to a VM. In this sample, the custom script extension is used to install apache.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
