@@ -21,7 +21,7 @@ ms.author: sasubram
 
 # Office 365 external sharing and Azure Active Directory B2B collaboration
 
-External sharing in Office 365 (OneDrive, SharePoint Online, Unified Groups, etc.) and Azure Active Directory (Azure AD) business-to-business B2B collaboration are technically the same thing. All external sharing, (except OneDrive/SharePoint Online), including Guests in Unified Groups, already uses the Azure AD B2B collaboration invitation APIs for sharing.
+External sharing in Office 365 (OneDrive, SharePoint Online, Unified Groups, etc.) and Azure Active Directory (Azure AD) business-to-business (B2B) collaboration are technically the same thing. All external sharing (except OneDrive/SharePoint Online), including Guests in Unified Groups, already uses the Azure AD B2B collaboration invitation APIs for sharing.
 
 OneDrive/SharePoint Online has a separate invitation manager. Support for external sharing in OneDrive/SharePoint Online started before Azure AD developed its support. Over time, OneDrive/SharePoint Online external sharing has accrued several features and many millions of users who use the product's in-built sharing pattern. We are working with OneDrive/SharePoint Online to add the Azure AD B2B invitation APIs (referred to in this documentation) to unify the process across products and adopt all the innovations that Azure AD is making. In the meantime, there are some subtle differences between how OneDrive/SharePoint Online external sharing works and how Azure AD B2B collaboration works:
 
