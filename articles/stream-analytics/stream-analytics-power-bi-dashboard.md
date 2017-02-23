@@ -141,9 +141,11 @@ You can use the following equation to compute the value to give your window in s
 ![Equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
 For example:
-- You have 1,000 devices sending data every second.
-- You are on the Power BI Pro SKU that supports 1,000,000 rows per hour.
-- You want to get average data per device on Power BI and you can do at most a push every four seconds per device (as shown in the following equation):  
+- You have 1,000 devices sending data at one-second intervals.
+- You are using the Power BI Pro SKU that supports 1,000,000 rows per hour.
+- You want to publish the amount of average data per device to Power BI.
+
+As a result, the equation becomes:
 
 ![Equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
 
