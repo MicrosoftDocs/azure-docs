@@ -1,5 +1,5 @@
 ---
-title: Optimizing your Linux VM on Azure | Microsoft Docs
+title: Optimize your Linux VM on Azure | Microsoft Docs
 description: Learn some optimization tips to make sure you have set up your Linux VM for optimal performance on Azure
 keywords: linux virtual machine,virtual machine linux,ubuntu virtual machine
 services: virtual-machines-linux
@@ -23,10 +23,10 @@ ms.author: rclaus
 Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Microsoft Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## Prerequisites
-This topic assumes you already have a working Azure Subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)), [installed the Azure CLI](../xplat-cli-install.md) and have already provisioned a VM into your Azure Subscription. Before doing anything with Azure - you have to authenticate to your subscription. To do this with Azure CLI, simply type `azure login` to start the interactive process. 
+This topic assumes you already have a working Azure subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to your Azure subscription with [az login](/cli/azure/#login) before you [create a VM](virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Azure OS Disk
-Once you create a Linux Vm in Azure, it has two disks associated with it. /dev/sda is your OS disk, /dev/sdb is your temporary disk.  Do not use the main OS disk (/dev/sda) for anything except the operating system as it is optimized for fast VM boot time and does not provide good performance for your workloads. You want to attach one or more disks to your VM to get persistent and optimized storage for your data. 
+Once you create a Linux VM in Azure, it has two disks associated with it. /dev/sda is your OS disk, /dev/sdb is your temporary disk.  Do not use the main OS disk (/dev/sda) for anything except the operating system as it is optimized for fast VM boot time and does not provide good performance for your workloads. You want to attach one or more disks to your VM to get persistent and optimized storage for your data. 
 
 ## Adding Disks for Size and Performance targets
 Based on the VM size, you can attach up to 16 additional disks on an A-Series, 32 disks on a D-Series and 64 disks on a G-Series machine - each up to 1 TB in size. You add extra disks as needed per your space and IOps requirements. Each disk has a performance target of 500 IOps for Standard Storage and up to 5000 IOps per disk for Premium Storage.  For more information about Premium Storage disks, refer to [Premium Storage: High-Performance Storage for Azure VMs](../storage/storage-premium-storage.md)
@@ -37,10 +37,13 @@ To achieve the highest IOps on Premium Storage disks where their cache settings 
 * If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
 * If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 
-## Storage Account Considerations
-When you create your Linux VM in Azure, you should make sure you attach disks from storage accounts residing in the same region as your VM to ensure close proximity and minimize network latency.  Each Standard storage account has a maximum of 20k IOps and a 500 TB size capacity.  This works out to approximately 40 heavily used disks including both the OS disk and any data disks you create. For Premium Storage accounts, there is no Maximum IOps limit but there is a 32 TB size limit. 
+## Unmanaged storage account considerations
+The default action when you create a VM with the Azure CLI 2.0 is to use Azure Managed Disks.  These disks are handled by the Azure platform and do not require any preparation or location to store them.  Unmanaged disks require a storage account and have some additional performance considerations.  For more information about managed disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md).  The following section outlines performance considerations only when you use unmanaged disks.  Again, the default and recommended storage solution is to use managed disks.
 
-When dealing with high IOps workloads and you have chosen Standard Storage for your disks, you might need to split the disks across multiple storage accounts to make sure you have not hit the 20,000 IOps limit for Standard Storage accounts. Your VM can contain a mix of disks from across different storage accounts and storage account types to achieve your optimal configuration. 
+If you create a VM with unmanaged disks, make sure that you attach disks from storage accounts residing in the same region as your VM to ensure close proximity and minimize network latency.  Each Standard storage account has a maximum of 20k IOps and a 500 TB size capacity.  This works out to approximately 40 heavily used disks including both the OS disk and any data disks you create. For Premium Storage accounts, there is no Maximum IOps limit but there is a 32 TB size limit. 
+
+When dealing with high IOps workloads and you have chosen Standard Storage for your disks, you might need to split the disks across multiple storage accounts to make sure you have not hit the 20,000 IOps limit for Standard Storage accounts. Your VM can contain a mix of disks from across different storage accounts and storage account types to achieve your optimal configuration.
+ 
 
 ## Your VM Temporary drive
 By default when you create a VM, Azure provides you with an OS disk (/dev/sda) and a temporary disk (/dev/sdb).  All additional disks you add show up as /dev/sdc, /dev/sdd, /dev/sde and so on. All data on your temporary disk (/dev/sdb) is not durable, and can be lost if specific events like VM Resizing, redeployment, or maintenance forces a restart of your VM.  The size and type of your temporary disk is related to the VM size you chose at deployment time. In the case of any of the premium size VMs (DS, G, and DS_V2 series) the temporary drive is backed by a local SSD for additional performance of up to 48k IOps. 
