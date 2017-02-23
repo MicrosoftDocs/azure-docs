@@ -33,21 +33,23 @@ A Billing Reader has read-only access to subscription billing information in Azu
     
 2. Select **Access control (IAM)** and then click **Add**.
 
-    ![Screenshot shows IAM in the subscription blade](./media/billing-manage-access/select-iam.PNG)
+    ![Screenshot shows IAM in the subscription blade](./media/billing-manage-access/select-iam.png)
     
 3. Choose **Billing Reader** in the "Select a role" page.
 
-    ![Screenshot shows Billing Reader in the popup view](./media/billing-manage-access/select-roles.PNG)
+    ![Screenshot shows Billing Reader in the popup view](./media/billing-manage-access/select-roles.png)
  
 3. Type the email for the user you want to invite, then click **OK** to send the invitation.
 
-    ![Screenshot that shows to enter email to invite someone](./media/billing-manage-access/add-user.PNG)
+    ![Screenshot that shows to enter email to invite someone](./media/billing-manage-access/add-user.png)
     
-4. The invited user then follows instructions in the invitation email to finish getting access.
+4. Follow instructions in the invite email to log in as a Billing Reader.
+
+    ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
 ## Adding users as other roles 
 
-Users in other roles, such as Owner or Contributor, have access not just to billing information, but Azure services as well. To manage these roles, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
+Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
 
 The user roles who have access to billing information are Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader.
 
