@@ -60,7 +60,7 @@ The Twitter streaming APIs use [OAuth](http://oauth.net/) to authorize requests.
 
 1. Sign in to [Twitter Apps](https://apps.twitter.com/). Click the **Sign up now** link if you don't have a Twitter account.
 2. Click **Create New App**.
-3. Enter a **Name**, **Description**, and **Website**. The Twitter application name must be an unique name. The Website field is not really used. It doesn't have to be a valid URL. 
+3. Enter a **Name**, **Description**, and **Website**. The Twitter application name must be a unique name. The Website field is not really used. It doesn't have to be a valid URL. 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial. 
 6. Click the **Keys and Access Tokens** tab.
