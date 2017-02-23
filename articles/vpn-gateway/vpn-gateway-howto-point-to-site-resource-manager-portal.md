@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2017
+ms.date: 02/17/2017
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site connection to a VNet using the Azure Portal
+# Configure a Point-to-Site connection to a VNet using the Azure portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -111,7 +111,7 @@ You can either generate a unique certificate for each client that will connect t
 
 ####Enterprise certificate
 - If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
-- Make sure the certificate that you issue is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by looking at the certificate properties: **Details > Enhanced Key Usage**.
+- Make sure the client certificate that you issue is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by double-clicking the client certificate and viewing **Details > Enhanced Key Usage**.
 
 ####Self-signed certificate 
 If you are using a self-signed certificate, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) to generate a client certificate.
@@ -184,7 +184,7 @@ Each client computer must have a client certificate to authenticate. When instal
                                                                                                                                                                            
 
 > [!NOTE]
-> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating because a certificate cannot be found that can be used, make sure that the client certificate you are using was issued based on the User template that shows 'Client Authentication' as the first one in the list, rather than 'Smart Card Logon'. You can check your certificate by looking at the Enhanced Key Usage list.
+> If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, check the authentication order on the client certificate. You can check the authentication list order by double-clicking the client certificate, and going to **Details > Enhanced Key Usage**. Make sure the list shows 'Client Authentication' as the first item. If not, you need to issue a client certificate based on the User template that has Client Authentication as the first item in the list. 
 >
 >
 
@@ -213,7 +213,7 @@ You can revoke client certificates. The certificate revocation list allows you t
 
 The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 
-You can manage the list of revoked client certificates on the **Point-to-site configuration** blade. This is the blade that you used to [upload a trusted root certificate](#uploadfile).
+You can manage the list of revoked client certificates on the **Point-to-site configuration** blade. This is the blade that you used to [upload a trusted root certificate](#uploadfile). Add the certificate name and thumbprint, then save.
 
 ## <a name="faq"></a>Point-to-Site FAQ
 
