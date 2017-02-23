@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Create 
 
-[!code-azurecli[main](../../../cli_scripts/app-service/scale-geographic/setup.sh?highlight=7-11 "Geographic Scale")]
+[!code-azurecli[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh?highlight=7-11 "Geographic Scale")]
 
 ## Clean up deployment 
 

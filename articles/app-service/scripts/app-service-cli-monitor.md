@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Create 
 
-[!code-azurecli[main](../../../cli_scripts/app-service/monitor-with-logs/setup.sh?highlight=7-9 "Monitor Logs")]
+[!code-azurecli[main](../../../cli_scripts/app-service/monitor-with-logs/monitor-with-logs.sh?highlight=7-9 "Monitor Logs")]
 
 ## Clean up deployment 
 

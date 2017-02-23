@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Create 
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-linux-docker/setup.sh?highlight=7-10 "Linux Docker")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-linux-docker/deploy-linux-docker.sh?highlight=7-10 "Linux Docker")]
 
 ## Clean up deployment 
 
