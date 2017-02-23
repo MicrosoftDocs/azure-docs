@@ -220,13 +220,31 @@ Considerations
 
 * Target batches: consider Azure Batch if your needs include any of these: Big Data or Big Compute, Azure Batch offers a balanced solution that fits.
 * Accounts: you'll need an Azure Subscription, a Batch account and, potentially, a Storage account.
-* You have at your fingertips, capabilities and infrastructre such as: MPI (Message Passing Interface), RDMA (Remote Direct Memory Access) for inter-task-communications, and H and N series for compute intensive taks. [Discuss with reviewer: no mention on FPGA in documentation.]
+* You have at your fingertips, capabilities and infrastructure such as: MPI (Message Passing Interface), RDMA (Remote Direct Memory Access) for inter-task-communications, and H and N series for compute intensive taks. [Discuss with reviewer: no mention on FPGA in documentation.]
 * During Batch executions, resources might become scarce or unavailable from time to time. Code accordingly to contemplate such situations.
 
 ### More information
 * [Basics of Azure Batch](batch/batch-technical-overview)
 * [Batch feature overview for developers](batch/batch-api-basics)
 * [Batch and HPC solutions in the Azure cloud](batch/batch-hpc-solutions)
+
+## Azure Container Services
+ACS (for short), provides a rich environment to run containerized workloads including microservices, apps and services, as well as Jobs. ACS allows for different orchestration engines, each bringing its own capabilities.
+
+Orchestration and technologies
+
+ACS, provides the environment for your workloads to run, more like an IaaS cacoon. Then, you have to choose among several container orchestration technologies like: DC/OS (Apache Mesosphere), Kubernetes (Google), Swarm (Docker), all, on top of Linux. Proximately, also on Windows with the upcoming support for Windows Server Containers.
+
+Considerations
+
+* Linux workloads fit well into ACS, so they're by now, an option to run Containerized Background Jobs on top of it. Windows development support will come with Windows Server Containers.
+* There's a visible IaaS for ACS to build on top. Understaning it is not a must, but a plus.
+* Containers have their ups and downs. A mitigation plan is suggested on a case by case basis, to enjoy their ups, while taking care of their downs.
+* Azure Container Registry allows you to register your Containers inside Azure boundaries. This comes with security, privacy and proximity benefits. It's usefull for consuption, as well as for enhancing Continuous Delivery processes.
+
+### More information
+* [Azure Container Service introduction](container-service/container-service-intro)
+* [What is Azure Container Registry?](container-registry/container-registry-intro)
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
