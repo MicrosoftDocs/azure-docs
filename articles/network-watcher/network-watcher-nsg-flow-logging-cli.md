@@ -1,11 +1,11 @@
 ---
-title: Manage Network Security Group Flow logs with Azure Network Watcher - PowerShell | Microsoft Docs
-description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with PowerShell
+title: Manage Network Security Group Flow logs with Azure Network Watcher - Azure CLI | Microsoft Docs
+description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with Azure CLI
 services: network-watcher
 documentationcenter: na
 author: georgewallace
 manager: timlt
-editor: 
+editor:
 
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
@@ -19,7 +19,7 @@ ms.author: gwallace
 ---
 
 
-# Configuring Network Security Group Flow logs with PowerShell
+# Configuring Network Security Group Flow logs with Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -33,20 +33,16 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 The command to enable flow logs is shown in the following example:
 
-```powershell
-$NW = Get-AzurermNetworkWatcher -ResourceGroupName NetworkWatcherRg -Name NetworkWatcher_westcentralus
-$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName nsgRG-Name nsgName
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName StorageRG -Name contosostorage123
-Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id
-Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
+```azurecli
+azure network watcher configure-flow-log -g resourceGroupName -n networkWatcherName -t nsgId -i storageAccountId -e true
 ```
 
 ## Disable Network Security Group Flow logs
 
 Use the following example to disable flow logs:
 
-```powershell
-Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $false
+```azurecli
+azure network watcher configure-flow-log -g resourceGroupName -n networkWatcherName -t nsgId -i storageAccountId -e false
 ```
 
 ## Download a Flow log
