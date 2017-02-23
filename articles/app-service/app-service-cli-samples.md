@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: cfowler
 
 ---
-# Azure CLI Samples - bash
+# Azure CLI Samples
 
 The following table includes links to bash scripts built using the Azure CLI.
 
