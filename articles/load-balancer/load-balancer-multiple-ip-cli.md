@@ -29,6 +29,9 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 
 For this scenario we have two VMs running Windows, each with a single NIC. Each NIC has multiple IP configurations. Each VM hosts both websites for contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the NIC. We use Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
 
+>[!NOTE] 
+>This example shows the usage of an internet facing Load Balancer using 2 different backend configuration on 2 different ipconfigs to a single NIC. This also works with 2 NICs and 1 ipconfig per NIC, as well as using 2 load balancers (internet facing load balancer and internal load balancer) to two different ipconfigs, on the same or on different NICs. 
+
 ![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ## Limitations
