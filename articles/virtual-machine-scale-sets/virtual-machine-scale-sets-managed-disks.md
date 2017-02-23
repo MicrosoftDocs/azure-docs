@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/14/2017
+ms.date: 2/21/2017
 ms.author: negat
 
 ---
@@ -30,7 +30,7 @@ Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now suppo
 
 ## Get started
 
-A simple way to get started with managed disk scale sets is to deploy one from the Azure portal. For more information, see [this article](./virtual-machine-scale-sets-portal-create.md). Another simple way to get started is to use [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) to deploy a scale set. The following example shows how to create an Ubuntu based scale set with 10 VMs, each with a 50-GB and 100-GB data disk:
+A simple way to get started with managed disk scale sets is to deploy one from the Azure portal. For more information, see [this article](./virtual-machine-scale-sets-portal-create.md). Another simple way to get started is to use [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2) to deploy a scale set. The following example shows how to create an Ubuntu based scale set with 10 VMs, each with a 50-GB and 100-GB data disk:
 
 ```bash
 az group create -l southcentralus -n dsktest

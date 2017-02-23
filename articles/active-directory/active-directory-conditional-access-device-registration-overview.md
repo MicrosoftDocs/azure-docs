@@ -5,7 +5,7 @@ services: active-directory
 keywords: device registration, enable device registration, device registration and MDM
 documentationcenter: ''
 author: femila
-manager: swadhwa
+manager: femila
 editor: ''
 
 ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: Markvi
 
 ---
