@@ -107,7 +107,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
     ![Custom streaming dataset](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-3. Select your dataset from the list:
+3. Select your dataset from the list.
 
     ![Your streaming dataset](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
@@ -126,7 +126,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
 This tutorial demonstrates how to create only one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
 
-For more information about configuring a Power BI output and utilizing Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource you can use to learn more about creating dashboards with Power BI is [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+For more information about configuring a Power BI output and utilizing Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/) is another helpful resource.
 
 ## Learn about limitations and best practices
 Power BI employs both concurrency and throughput constraints as described [on this page about Power BI](https://powerbi.microsoft.com/pricing "Power BI Pricing").
@@ -147,7 +147,7 @@ For example:
 
 ![Equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
 
-This means we can change the original query to:
+This means we can change the original query to the following:
 
     SELECT
         MAX(hmdt) AS hmdt,
@@ -164,7 +164,7 @@ This means we can change the original query to:
 
 
 ### Renew authorization
-If its password has changed since your job was created or last authenticated, you need to re-authenticate your Power BI account if Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't review, you could see symptoms such as a lack of job output or an "Authenticate user error" in the operation logs.
+If its password has changed since your job was created or last authenticated, you need to re-authenticate your Power BI account. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an "Authenticate user error" in the operation logs.
 
 Similarly, if a job attempts to start after the token has expired, an error occurs and the job starts to fail. To resolve this issue, stop the job that's running and go to your Power BI output. To avoid data loss, select the **Renew authorization** link, and then restart your job from the **Last Stopped Time**.
 
