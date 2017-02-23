@@ -49,7 +49,7 @@ As a whole, App Service capabilities enable developers to focus on their code an
 
 ## Next steps
 
-Learn more about App Service in one of the following topics 
+Learn more about App Service in one of the following topics:
 
 * [What is Azure App Service?](app-service-value-prop-what-is.md)
   * [Web App](../app-service-web/app-service-web-overview.md)
