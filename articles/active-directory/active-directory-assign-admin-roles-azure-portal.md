@@ -45,9 +45,9 @@ The following administrator roles are available:
   >
 * **Compliance administrator**:Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center, and access to read audit logs in the Office 365 Admin Center. More information at “[About Office 365 admin roles](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1).”
 
-* **CRM service administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **CRM service administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Customer LockBox access approver**: When the LockBox service is enabled, users with this role can approve requests for Microsoft engineers to access company information. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **Customer LockBox access approver**: When the LockBox service is enabled, users with this role can approve requests for Microsoft engineers to access company information. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Device administrators**: Users with this role become Administrators on all Windows 10 devices that are joined to Azure Active Directory.
 
@@ -56,9 +56,9 @@ The following administrator roles are available:
 * **Directory synchronization accounts**: Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
 * **Directory writers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
 
-* **Exchange service administrator**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **Exchange service administrator**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Intune service administrator**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **Intune service administrator**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Mailbox Administrator**: This role is only used as part of Exchange Online email support for RIM Blackberry devices. If your organization does not use Exchange Online email on RIM Blackberry devices, do not use this role.
 
@@ -74,7 +74,7 @@ The following administrator roles are available:
   > In Microsoft Graph API, Azure AD Graph API and Azure AD PowerShell, this role is identified as "Helpdesk Administrator".
   >
   >
-* **SharePoint service administrator**: Users with this role have global permissions within Microsoft SharePoint Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **SharePoint service administrator**: Users with this role have global permissions within Microsoft SharePoint Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 - **Skype for Business service administrator**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present. More information at About Office 365 admin roles. This role was referred to previously as the Lync service administrator role.
 
@@ -149,7 +149,7 @@ The following administrator roles are available:
 The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
 ## Assign or remove administrator roles
-To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory preview](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal)
+To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory preview](active-directory-users-assign-role-azure-portal.md)
 
 ## Next steps
 
