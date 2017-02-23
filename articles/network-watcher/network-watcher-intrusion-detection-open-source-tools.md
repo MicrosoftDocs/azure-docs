@@ -31,9 +31,9 @@ This article explains how to set up your environment to perform network intrusio
 
 Both open source tools can be set up on an Azure VM, allowing you to perform this analysis within your own Azure network environment.
 
-### Steps
+## Steps
 
-#### Install Suricata
+### Install Suricata
 
 For all other methods of installation, visit http://suricata.readthedocs.io/en/latest/install.html
 
