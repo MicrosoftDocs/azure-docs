@@ -45,7 +45,7 @@ You will see the deployment is kicked off and you can get the NAT firewall and 2
     ![pf_template_deploy_portal](./media/virtual-machines-freebsd-pf-nat/pf_template_deploy_portal.jpg)
     
 
-# Deploy through Powershell
+## Deploy through Powershell
 After [install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/), login your Azure account. 
 
     Login-AzureRmAccount
