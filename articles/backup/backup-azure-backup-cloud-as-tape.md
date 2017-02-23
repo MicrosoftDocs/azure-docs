@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/10/2017
-ms.author: jimpark;trinadhk;markgal
+ms.author: saurse;trinadhk;markgal
 
 ---
 # Use Azure Backup to replace your tape infrastructure

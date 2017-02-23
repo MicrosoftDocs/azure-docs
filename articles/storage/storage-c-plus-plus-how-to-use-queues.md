@@ -52,8 +52,8 @@ Install-Package wastorage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access queues:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/queue.h"
+#include <was/storage_account.h>
+#include <was/queue.h>
 ```
 
 ## Set up an Azure storage connection string

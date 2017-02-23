@@ -1,4 +1,3 @@
-
 ---
 title: Azure Active Directory v2.0 and the OpenID Connect protocol | Microsoft Docs
 description: Build web applications by using the Azure AD v2.0 implementation of the OpenID Connect authentication protocol.
@@ -14,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: dastrock
 
 ---
@@ -196,6 +195,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
+## Single sign-out
+The v2.0 endpoint uses cookies to identify a user's session. When a user first signs in to an application, the v2.0 endpoint sets a cookie in the user's browser. When the user signs in to another application subsequently, Azure AD first checks the cookie to determine if the user has a valid sign-on session with the Azure AD v2.0 endpoint, instead of re-authenticating the user.
+
+Similarly, when the user first signs out of an application, the v2.0 endpoint clears the cookie from the browser. However, the user may still be signed in to other applications that use the Azure AD v2.0 endpoint for authentication. To ensure that the user gets signed out of all applications, the v2.0 endpoint sends an HTTP GET request to the `LogoutUrl` of all the applications that the user is currently signed in to. The applications must respond to this request by clearing any cookies that identify the user's session. You can set the `LogoutUrl` from the Azure portal.
+
+1. Navigate to the [Azure Portal](https://portal.azure.com).
+2. Choose your Active Directory by clicking on your account in the top right corner of the page.
+3. From the left hand navigation panel, choose **Azure Active Directory**, then choose **App registrations** and select your application.
+4. Click on **Properties** and find the **Logout URL** text box. 
+
 ## Protocol diagram: Token acquisition
 Many web apps need to not only sign the user in, but also to access a web service on behalf of the user by using OAuth. This scenario combines OpenID Connect for user authentication while simultaneously getting an authorization code that you can use to get access tokens if you are using the OAuth authorization code flow.
 
@@ -265,4 +274,3 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 For a description of possible error codes and recommended client responses, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
 When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](#validate-the-id-token). To get access tokens, follow the steps described in our [OAuth protocol documentation](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
-

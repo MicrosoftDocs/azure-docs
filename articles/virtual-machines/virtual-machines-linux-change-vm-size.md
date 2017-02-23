@@ -39,7 +39,7 @@ To resize a VM, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install
 2. If the desired VM size is listed, resize the VM with [az vm resize](/cli/azure/vm#resize). The following example resizes the VM named `myVM` to the `Standard_DS3_v2` size:
    
     ```azurecli
-    az vm resize --resource-group myResourceGroup --name myVM -size Standard_DS3_v2
+    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
     ```
    
     The VM restarts during this process. After the restart, your existing OS and data disks are remapped. Anything on the temporary disk is lost.
@@ -48,7 +48,7 @@ To resize a VM, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install
    
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
-    az vm resize --resource-group myResourceGroup --name myVM -size Standard_DS3_v2
+    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
     az vm start --resource-group myResourceGroup --name myVM
     ```
    
