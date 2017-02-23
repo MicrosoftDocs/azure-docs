@@ -1,6 +1,6 @@
 ---
-title: Deploy LAMP on a Linux virtual machine | Microsoft Docs
-description: Learn how to install the LAMP stack on a Azure Linux VM
+title: Deploy LAMP on a Linux virtual machine in Azure| Microsoft Docs
+description: Learn how to install the LAMP stack on a Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: jluk
