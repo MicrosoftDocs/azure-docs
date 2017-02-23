@@ -78,8 +78,8 @@
 ### [Usage metering](logic-apps-pricing.md)
 
 # Reference
-## [Workflow Definition Language](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Workflow Actions and Triggers](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Workflow definition language](https://docs.microsoft.com/rest/api/logic/definition-language)
+## [Workflow actions and triggers](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schema History
