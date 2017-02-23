@@ -4,7 +4,7 @@ description: Learn how to create on-demand Hadoop clusters in HDInsight using Az
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: spelluru
 manager: jhubbard
 editor: cgronlun
 
@@ -14,20 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
-ms.author: jgao
+ms.date: 02/22/2017
+ms.author: spelluru
 
 ---
 # Create on-demand Hadoop clusters in HDInsight using Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-[Azure Data Factory](../data-factory/data-factory-introduction.md) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. In this article, you learn how to Azure Data Factory to create an [Azure HDInsight on-demand linked service](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service), and use the cluster to run a Hive job. Here is the high-level flow:
+[Azure Data Factory](../data-factory/data-factory-introduction.md) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. In this article, you learn how to use Azure Data Factory to create an Azure HDInsight cluster on-demand, process/transform data using a Hive script, and delete the cluster after the processing is complete.   
 
-1. Create an HDInsight cluster on-demand.
-2. Run a Hive job to read raw web log data from a source blob storage account, transform the data, and the write the output to a destination blob storage account.
-3. Delete the cluster based on the time-to-live setting.
+In Azure Data Factory, a data pipeline has one or more activities. There are two types of activities: [Data Movement Activities](../data-factory/data-factory-data-movement-activities.md) and [Data Transformation Activities](../data-factory/data-factory-data-transformation-activities.md). You use data movement activities (currently, only Copy Activity) to move data from a source data store to a destination data store. You use data transformation activities to transform/process data. You use the Hive transformation activity in this tutorial. 
 
-The Hive activity defined in the data factory pipeline calls a predefined HiveQL script. The script creates an external table that references the raw web log data stored in Azure Blob storage and then partitions the raw data by year and month.
+In this tutorial, the Hive activity in the data factory pipeline is configured to use an on-demand HDInsight linked service. Therefore, when the activity runs, here is what happens: 
+
+1. A HDInsight Hadoop cluster is automatically created for you. 
+2. The input data is processed by running a HiveQL script on the cluster. 
+3. The HDInsight Hadoop cluster is deleted after the processing is complete and the cluster is idle for configured amount of time (timeToLive setting).
+
+There are many benefits with using HDInsight with Data factory:
+
+- HDInsight clusters billing is pro-rated per minute, whether you are using them or not. Using Data Factory, the clusters are created on-demand. And the clusters are deleted automatically when the jobs are completed.  So you only pay for the job running time and the brief idle time (time-to-live).
+- You can create a workflow using Data Factory pipeline. For example, you can have the pipeline to copy data from an on-premises SQL Server to an Azure blob storage, process the data by running a Hive script and a Pig script, and copy the result data to an Azure SQL Data Warehouse for BI applications to consume.  
+- You can schedule the pipeline to run periodically (hourly, daily, weekly, monthly, etc...).       
+
+In this tutorial, the HiveQL script creates an external table that references the raw web log data stored in an Azure Blob storage, partitions the raw data by year and month, and stores the partitioned data in the Azure blob storage. 
 
 Here are the sample rows for each month in the input file.
 
@@ -35,7 +45,7 @@ Here are the sample rows for each month in the input file.
     2014-02-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
     2014-03-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
 
-The script creates three output folders based on the previous input. Each folder contains a file with entries from each month.
+The HiveQL script creates three output folders based on the previous input. Each folder contains a file with entries from each month.
 
     adfgetstarted/partitioneddata/year=2014/month=1/000000_0
     adfgetstarted/partitioneddata/year=2014/month=2/000000_0
@@ -43,19 +53,11 @@ The script creates three output folders based on the previous input. Each folder
 
 For a list of Data Factory data transformation activities in addition to Hive activity, see [Transform and analyze using Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md).
 
-There are many benefits with using HDInsight with Data factory:
-
-* HDInsight clusters billing is pro-rated per minute, whether you are using them or not. Using Data Factory, the clusters are created on-demand. And the clusters are deleted automatically when the jobs are completed.  So you only pay for the job running time and the brief idle time (time-to-live).
-* You can create a workflow using Data Factory pipeline.
-* You can schedule recursive jobs.  
-
 > [!NOTE]
 > Currently, you can only create Linux-based HDInsight cluster version 3.2 from Azure Data Factory.
->
->
+
 
 ## Prerequisites
-
 Before you begin the instructions in this article, you must have the following items:
 
 * [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -85,8 +87,6 @@ To simplify the tutorial, you use one storage account to serve the three purpose
 
 > [!IMPORTANT]
 > Write down the resource group name, the storage account name, and the storage account key used in your script.  You will need them in the next section.
->
->
 
 **To prepare the storage and copy the files using Azure CLI**
 
