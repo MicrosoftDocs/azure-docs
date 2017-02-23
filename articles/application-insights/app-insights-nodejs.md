@@ -1,10 +1,10 @@
 ---
-title: Add Application Insights SDK to monitor your Node.js app | Microsoft Docs
-description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
+title: Monitor your Node.js app with Azure Application Insights SDK  | Microsoft Docs
+description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application by using Application Insights.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 
 ---
@@ -28,7 +28,6 @@ The SDK provides automatic collection of incoming HTTP request rates and respons
 #### Before you start
 You need:
 
-* Visual Studio 2013 or later. Later is better.
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
 
 ## <a name="add"></a>Create an Application Insights resource
