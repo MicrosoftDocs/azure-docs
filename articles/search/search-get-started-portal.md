@@ -114,7 +114,7 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs give you access to new features not yet generally released. For the queries below, use the generally available version (2016-09-01) unless directed. 
 
     > [!NOTE]
-    > [Azur//e Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) and the [.NET library](search-howto-dotnet-sdk.md#core-scenarios) are fully equivalent, but **Search explorer** is only equipped to handle REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
+    > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) and the [.NET library](search-howto-dotnet-sdk.md#core-scenarios) are fully equivalent, but **Search explorer** is only equipped to handle REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
     > 
 
 4. In the search bar, enter the query strings below and click **Search**.
@@ -122,38 +122,47 @@ You now have a search index that's ready to query. **Search explorer** is a quer
   ![Search query example][7]
 
 **`search=seattle`**
+
 The `search` parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
 
 **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements. Documents are composed of all fields marked as retrievable in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
 
 **`search=seattle&$count=true&$top=100`**
+
 The `$count` parameter returns a count in the response header for the sum of all documents returned. You can see this number in the portal, but the `$count` parameter is how you get it programmatically. The `&` symbol is used to append search parameters, which can be specified in any order. The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
 
-**`search=*&facet=city`**
 The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. The faceted navigation structure is followed by the result set (50 documents, by default). There is no aggregation in Azure Search, but you can get a summary of matches by category with `facet`. 
 
 **`search=seattle&facet=beds`**
-This query is facet for beds, a text search on *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). Only filterable fields can be facted. Only retrievable fields can be returned.
+
+This query is facet for beds, on a text search for *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). Only filterable fields can be facted. Only retrievable fields can be returned.
 
 **`search=seattle&filter=bed gt 3`**
+
 The `filter` parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 **`search=granite countertops&highlight=description`**
+
 Hit highlights add formatting to text matching the keyword, given matches found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. In this case, the formatted phrase `"granite countertops"` is easier to see in the description field.
 
 **`search=mice&highlight=description`**
+
 Full text search finds word forms with similar semantics. In this case, search results contain highlighted text for "mouse", for homes that have mouse infestation, in response to a keyword search on "mice". Different forms of the same word can appear in results because of linguistic analysis. Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer. 
 
 **`search=samamish`**
+
 Misspelled words, like 'samamish' for the Samammish plateau in the Seattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
 
 **`search=samamish~&queryType=full`**
+
 Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser if you require fuzzy search, regular expressions, proximity search, or other advanced query types. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 **`search=*`**
+
 Empty searches return everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents, as described next in the geosearch example.
 
 **`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`**
+
 Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. This query filters all results for positional data, where results are less than 10 kilometers from a given point (specified as latitude and longitude coordinates). Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 Normally, filter expressions are specified as $filter with a `$` character. In Search Explorer, you should omit the `$`.
@@ -166,9 +175,9 @@ Geospatial search is useful if your search application has a 'find near me' feat
 
   To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects. To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Try the tools and steps with other data sources. The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl Azure Table storage, Blob storage, SQL Server on an Azure VM, and DocumentDB. All of these data sources are supported in the wizard. In code, you can create and populate an index easily using an *indexer*.
++ Try the tools and steps with other data sources. The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl and infer an index from flat data structures in Azure Table storage, Blob storage, SQL Server on an Azure VM, and DocumentDB. All of these data sources are supported in the wizard. In code, you can populate an index easily using an *indexer*.
 
-+ All other data sources are supported via a push model, where your code pushes new and changed rowsets in JSON to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
++ All other non-indexer data sources are supported via a push model, where your code pushes new and changed rowsets in JSON to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 Learn more about other features mentioned in this article by visiting these links:
 
