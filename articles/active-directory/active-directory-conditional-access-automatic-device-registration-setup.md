@@ -428,7 +428,7 @@ If some devices in your organizations are not Windows 10 (e.g. Windows 7 or 8.1)
 
 ### Set policy in Azure AD to enable users to register devices
 
-#### Configure on-premises federation service to issue claims to support Integrated Windows Authentication for device registration
+This section covers how to configure on-premises federation service to issue claims to support Integrated Windows Authentication for device registration.
 
 Your on-premises federation service must support issuing authenticationmehod and wiaormultiauthn claims for the following two claims when receiving an authentication request to the Azure AD relying party holding a resouce_params parameter with an encoded value as shown below:
 
