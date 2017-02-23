@@ -22,7 +22,7 @@ This article introduces how to deploy a NAT firewall using FreeBSD’s PF throug
 
 # What is PF?
 PF (Packet Filter, also written pf) is a BSD licensed stateful packet filter, a central piece of software for firewalling. PF has since evolved quickly and now has several advantages over other available firewalls. Network Address Translation (NAT) is in PF since day one, then packet scheduler and active queue management have been integrated into PF, by integrating the ALTQ and making it configurable through PF's configuration. Features such as pfsync and CARP for failover and redundancy, authpf for session authentication, and ftp-proxy to ease firewalling the difficult FTP protocol, have also extended PF.
-In short, PF is an extremely powerful and feature-rich firewall. 
+In short, PF is an powerful and feature-rich firewall. 
 
 # Get Started
 If you are interested in setting up a secure firewall in the cloud for your web servers, then let’s get started. And you also could apply the scripts used in this Azure Resource Manager template to set up your networking topology.
@@ -33,8 +33,8 @@ The Azure Resource Manager template set up a FreeBSD virtual machine that perfor
 ## Deploy through the Azure portal
 1.	Go to [azure template of pf-freebsd-setup](https://azure.microsoft.com/en-us/resources/templates/pf-freebsd-setup/) or [github link for pf-free-setup template](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup).
 2.	Click “Deploy to Azure.”
-3.	It directs you to log in in the Azure portal. 
-4.	Once you log in, you will be promoted to create or use existing resource group, key in the admin password, Network Prefix and domain Name Prefix. 
+3.	It directs you to log in the Azure portal. 
+4.	Once you log in, you are prompted to create or use existing resource group, key in the admin password, Network Prefix, and domain Name Prefix. 
 5.	Make sure checkbox “I agree to the terms and conditions stated above” is selected. 
 6.	Click “Purchase.” 
 
@@ -59,7 +59,7 @@ Then you can create a resource group and deployment the template.
 
 You will be promoted to key in the admin password, Network Prefix, and domain Name Prefix. 
 
-If you want to modify the parameters by yourself, you could download [azuredeploy.parameters.json ](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and modify the parameters. Then create below deployment with the “-TemplateParameterFile .\azuredeploy.parameters.json”.  
+If you want to modify the parameters by yourself, you could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and modify the parameters. Then create below deployment with the “-TemplateParameterFile .\azuredeploy.parameters.json.”  
 
     wget https://raw.githubusercontent.com/ostclilideng/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.parameters.json -O azuredeploy.parameters.json
     New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
@@ -96,15 +96,15 @@ After about five minutes, you will get below deployment information.
     DeploymentDebugLogLevel :  
 
 ## Deploy through Azure CLI
-After [install and configure the Azure Cross-Platform Command-Line Interface] (https://docs.microsoft.com/en-us/azure/xplat-cli-install), login your account and kick off the deployment.
+After [install and configure the Azure Cross-Platform Command-Line Interface] (https://docs.microsoft.com/en-us/azure/xplat-cli-install), log in your account and kick off the deployment.
 
     azure config mode arm
     azure login
     azure group create <my-resource-group> <location>
     azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json
 
-Then you will be promoted to key in the admin password, Network Prefix and domain Name Prefix. 
-If you want to modify the parameters by yourself, you could download [azuredeploy.parameters.json ](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and modify the parameters. Then run below command line.
+Then you are prompted to key in the admin password, Network Prefix and domain Name Prefix. 
+If you want to modify the parameters by yourself, you could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and modify the parameters. Then run below command line.
 
     azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json -e .\azuredeploy.parameters.json
 
@@ -138,7 +138,7 @@ After about five minutes, you will get below deployment information.
     info:    group deployment create command OK
 
 ## Next Step
-Do you want to set up your own NAT in Azure? Open Source, free but secure? Then PF is a good choice. By using [above Azure template](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you just need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario.
+Do you want to set up your own NAT in Azure? Open Source, free but secure? Then PF is a good choice. By using [preceding Azure template](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you just need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario.
 
 If you want to learn the offering of FreeBSD in Azure, refer to [introduction to FreeBSD on Azure](./virtual-machines-freebsd-intro-on-azure.md).
 
