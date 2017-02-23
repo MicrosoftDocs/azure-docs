@@ -22,9 +22,9 @@ ms.author: cfowler
 
 The following table includes links to bash scripts built using the Azure CLI.
 
-| | |
-|-|-|
-|**Create app**| |
+| Sample | Description|
+|---|---|
+|**Create app**||
 | [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)| Creates an Azure web app which pulls code from GitHub. |
 | [Create a web app and deploy code from a local Git repository](./scripts/app-service-cli-deploy-local-git.md) | Creates an Azure web app and configures code push from a local Git repository. |
 | [Create a web app and deploy code to a staging environment](./scripts/app-service-cli-deploy-staging-environment.md) | Creates an Azure web app with a deployment slot for staging code changes. |
@@ -36,5 +36,6 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Scale a web app worldwide with a high-availabilty architecture](./scripts/app-service-cli-scale-high-availability.md) | Creates two Azure web apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |
 |**Connect app to resources**||
 | [Connect a web app to a storage account](./scripts/app-service-cli-app-service-storage.md)| Creates an Azure web app and a storage account, then adds the storage connection string to the app settings. |
+| [Connect a web app to a SQL Database](./scripts/app-service-cli-app-service-sql.md)| Creates an Azure web app and a SQL database, then adds the database connection string to the app settings. |
 |**Monitor app**||
 | [Monitor a web app with web server logs](./scripts/app-service-cli-monitor.md) | Creates an Azure web app, enables logging for it, and downloads the logs to your local machine. |
