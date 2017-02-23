@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/22/2017
 ms.author: markvi
 
 ---
@@ -132,7 +132,7 @@ The table below lists the various risk event types and the corresponding **Azure
 | Sign-ins from anonymous IP addresses |Sign-ins from unknown sources |
 | Sign-ins from IP addresses with suspicious activity |Sign-ins from IP addresses with suspicious activity |
 | Signs in from unfamiliar locations |- |
-| Lockout events |- |
+
 
 The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD Identity Protection, and will therefore not be available through Identity Protection. These reports are still available in the Azure classic portal. However, they will be deprecated at some time in the future as they are being superseded by risk events in Identity Protection.
 

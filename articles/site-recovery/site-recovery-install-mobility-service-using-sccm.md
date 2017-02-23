@@ -80,8 +80,10 @@ This article provides you an example of how you can use System Center Configurat
 | Command line | install.bat |
 | Program can run | Whether or not a user is logged on |
 9. In the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
+
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. Complete Next twice to complete the wizard.
+
 > [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 
