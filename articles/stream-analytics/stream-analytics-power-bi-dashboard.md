@@ -28,7 +28,7 @@ In this article, you learn how create your own custom business intelligence tool
 ## Prerequisites
 * Microsoft Azure Account
 * Work or school account for Power BI
-* Completion of the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) scenario. The article you're reading now builds on the workflow that's described in [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)and adds a Power BI streaming dataset output.
+* Completion of the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) scenario. The article you're reading now builds on the workflow that's described in [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) and adds a Power BI streaming dataset output.
 
 ## Add Power BI output
 Now that an input exists for the job, an output to Power BI can be defined.
@@ -37,13 +37,13 @@ Now that an input exists for the job, an output to Power BI can be defined.
 
     ![Add output](./media/stream-analytics-power-bi-dashboard/create-pbi-output.png)
 
-2. Provide the **Output Alias**. You can use any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In this case, you refer to this output in your query. For example, let’s use the output alias value  "StreamAnalyticsRealTimeFraudPBI".
+2. Provide the **Output Alias**. You can use any output alias that is easy for you to refer to. This output alias is helpful if you decide to have multiple outputs for your job. In this case, you refer to this output in your query. For example, let’s use the output alias value "StreamAnalyticsRealTimeFraudPBI."
 
 3. Select **Authorize**.
 
     ![Add authorization](./media/stream-analytics-power-bi-dashboard/pbi-authorize.png)
 
-4. This opens a window where you can provide your Azure credentials (for a work or school account). It also provides your Azure job with access to your Power BI area.
+4. A window opens where you can provide your Azure credentials (for a work or school account). It also provides your Azure job with access to your Power BI area.
 
     ![Authorize fields](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
 
@@ -53,14 +53,14 @@ Now that an input exists for the job, an output to Power BI can be defined.
 
 6. Define them as follows:
     * **Group Workspace**: Select a workspace in your Power BI tenant under which to create the dataset.
-    * **Dataset Name**:  Provide a dataset name that you want your Power BI output to have. For example, let’s use "StreamAnalyticsRealTimeFraudPBI".
-    * **Table Name**: Provide a table name under the dataset of your Power BI output. For example, let's use "StreamAnalyticsRealTimeFraudPBI". Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset.
+    * **Dataset Name**:  Provide a dataset name that you want your Power BI output to have. For example, let’s use "StreamAnalyticsRealTimeFraudPBI."
+    * **Table Name**: Provide a table name under the dataset of your Power BI output. For example, let's use "StreamAnalyticsRealTimeFraudPBI." Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset.
 
 7. Select **Create**. Now your output configuration is complete.
 
 > [!WARNING]
-> Be aware that if Power BI already has a dataset and table that has the same name as the one in this Stream Analytics job, the existing data is overwritten.
-> Also, we recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table won't be created.
+> If Power BI already has a dataset and table that has the same name as the one in this Stream Analytics job, the existing data is overwritten.
+> Also, we recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table isn't created.
 >
 >
 
@@ -99,7 +99,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
 ## Create the dashboard in Power BI
 
-1. Go to [Powerbi.com](https://powerbi.com). and then sign in with your work or school account. If the Stream Analytics job query outputs results, you will see that your dataset is already created, as shown in the following illustration:
+1. Go to [Powerbi.com](https://powerbi.com), and then sign in with your work or school account. If the Stream Analytics job query outputs results, you see that your dataset is already created, as shown in the following illustration:
 
     ![Streaming dataset](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
 
@@ -111,7 +111,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
     ![Your streaming dataset](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-4. Create a visualization card. Then select the **fraudulentcalls** field .
+4. Create a visualization card. Then select the **fraudulentcalls** field.
 
     ![Add fraud](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
 
@@ -119,22 +119,22 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
 
     ![Fraud counter](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
 
-5. Walk through the exercise of adding a tile again. This time, however, select the line chart. Add **fraudulentcalls** as the value and the axias **windowend** We selected the last 10 minutes, as shown in the following screenshot:
+5. Walk through the exercise of adding a tile again. This time, however, select the line chart. Add **fraudulentcalls** as the value and **windowend** as the axis. We selected the last 10 minutes, as shown in the following screenshot:
 
 ![Fraud calls](./media/stream-analytics-power-bi-dashboard/fraud-calls.png)
 
 
-Note that this tutorial demonstrates how to create only one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
+This tutorial demonstrates how to create only one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
 
-For more information about configuring a Power BI output and about utilizing Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource you can use to learn more about creating dashboards with Power BI is [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+For more information about configuring a Power BI output and utilizing Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource you can use to learn more about creating dashboards with Power BI is [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## Learn about limitations and best practices
 Power BI employs both concurrency and throughput constraints as described [on this page about Power BI](https://powerbi.microsoft.com/pricing "Power BI Pricing").
 
-Currently, your Power BI can be called roughly once per second. Streaming visuals support packets of  15 KB. Beyond that, streaming visuals fail (but push continues to work).
+Currently, your Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work).
 
 Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction.
-We recommend using TumblingWindow or HoppingWindow to ensure that data push is at most one push per second, and that your query lands within the throughput requirements.
+We recommend using Tumbling Window or Hopping Window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements.
 
 You can use the following equation to compute the value to give your window in seconds:
 
@@ -164,9 +164,9 @@ This means we can change the original query to:
 
 
 ### Renew authorization
-You need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't review, you could see symptoms such as a lack of job output or an "Authenticate user error" in the operation logs.
+If its password has changed since your job was created or last authenticated, you need to re-authenticate your Power BI account if Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't review, you could see symptoms such as a lack of job output or an "Authenticate user error" in the operation logs.
 
-Similarly, if a job attempts to start after the token has expired, an error occurs and the job starts to fail. To resolve this issue, stop the job that's running and go to your Power BI output.  Select the **Renew authorization** link, and then restart your job from the **Last Stopped Time** to avoid data loss.
+Similarly, if a job attempts to start after the token has expired, an error occurs and the job starts to fail. To resolve this issue, stop the job that's running and go to your Power BI output. To avoid data loss, select the **Renew authorization** link, and then restart your job from the **Last Stopped Time**.
 
 After the authorization has been refreshed with Power BI, a green alert appears in the authorization area to reflect that the issue has been resolved.
 
