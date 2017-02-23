@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/23/2017
 ms.author: larryfr
 
 ---
@@ -29,7 +29,7 @@ Learn how to use script actions to add additional Azure storage accounts to an e
 
 This script takes the following parameters:
 
-* __Azure storage account name__: The name of the storage account to add to the HDInsight cluster. After running the script, HDInsight will be able to read and write data stored in this storage account.
+* __Azure storage account name__: The name of the storage account to add to the HDInsight cluster. After running the script, HDInsight can read and write data stored in this storage account.
 
 * __Azure storage account key__: A key that grants access to the storage account.
 
@@ -71,7 +71,7 @@ When using the information provided in the customization document, replace any e
 
 ### Storage accounts not displayed in Azure portal or tools
 
-When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ will not display storage accounts added through this script action. Azure PowerShell and Azure CLI will not display the additional storage account either.
+When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
 
 This happens because the script only modifies the core-site.xml configuration for the cluster. This information is not currently used when retrieving the cluster information using Azure management APIs.
 
@@ -97,7 +97,7 @@ If you change the key for a storage account, HDInsight will no longer be able to
 
 This happens because the key stored in the core-site.xml for the cluster is the old key.
 
-Re-running the script action will __not__ update the key, as the script checks to see if an entry for the storage account already exists. If so, it does not make any changes.
+Re-running the script action does __not__ update the key, as the script checks to see if an entry for the storage account already exists. If so, it does not make any changes.
 
 To work around this problem, you must remove the existing entry for the storage account. You can do this by using the following steps:
 
@@ -107,7 +107,7 @@ To work around this problem, you must remove the existing entry for the storage 
 
 2. From the list of services on the left of the page, select __HDFS__. Then select the __Configs__ tab in the center of the page.
 
-3. In the __Filter...__ field, enter a value of __fs.azure.account__. This will return entries for any additional storage accounts that have been added to the cluster. There are two types of entries; __keyprovider__ and __key__. Both will contain the name of the storage account as part of the key name. 
+3. In the __Filter...__ field, enter a value of __fs.azure.account__. This returns entries for any additional storage accounts that have been added to the cluster. There are two types of entries; __keyprovider__ and __key__. Both contain the name of the storage account as part of the key name. 
 
     The following are example entries for a storage account named __mystorage__:
 
