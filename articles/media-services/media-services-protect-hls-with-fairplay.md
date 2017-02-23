@@ -131,7 +131,7 @@ The following considerations apply:
 * Encryption type doesn't have to be specified in the url if only one encryption was applied to the asset.
 * Encryption type is case insensitive.
 * The following encryption types can be specified:  
-  * **cenc**:  Common encryption (Playready or Widevine)
+  * **cenc**:  Common encryption (Playready or Widevine) (NOTE: HLS+Widevine is not supported)
   * **cbcs-aapl**: Fairplay
   * **cbc**: AES envelope encryption.
 
