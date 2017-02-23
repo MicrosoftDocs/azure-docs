@@ -29,9 +29,9 @@ In this article, we will set up a solution that will allow you to visualize Netw
 
 ![scenario][scenario]
 
-### Steps
+## Steps
 
-#### Enable Network Security Group flow logging
+### Enable Network Security Group flow logging
 For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
 
