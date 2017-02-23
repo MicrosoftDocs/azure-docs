@@ -1,3 +1,7 @@
+## Specify the behavior of the IoT device
+
+The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.
+
 1. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard. Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
    
     ```

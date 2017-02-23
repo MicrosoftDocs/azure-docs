@@ -60,20 +60,19 @@ On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **
 
 Copy the files **parson.c** and **parson.h** from your local copy of the Parson repository into the **remote\_monitoring/parson** folder.
 
-The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.
-
-1. In a text editor, open the **remote\_monitoring.c** file. Add the following `#include` statements:
+In a text editor, open the **remote\_monitoring.c** file. Add the following `#include` statements:
    
-    ```
-    #include "iothubtransportmqtt.h"
-    #include "schemalib.h"
-    #include "iothub_client.h"
-    #include "serializer_devicetwin.h"
-    #include "schemaserializer.h"
-    #include "azure_c_shared_utility/threadapi.h"
-    #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
-    ```
+```
+#include "iothubtransportmqtt.h"
+#include "schemalib.h"
+#include "iothub_client.h"
+#include "serializer_devicetwin.h"
+#include "schemaserializer.h"
+#include "azure_c_shared_utility/threadapi.h"
+#include "azure_c_shared_utility/platform.h"
+#include "parson.h"
+```
+
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
 ## Call the remote\_monitoring\_run function
@@ -96,7 +95,7 @@ int main(void)
 }
 ```
 
-## Build the application
+## Build and run the application
 The following steps describe how to use *CMake* to build your client application.
 
 1. In a text editor, open the **CMakeLists.txt** file in the **remote_monitoring** folder.
@@ -150,7 +149,7 @@ The following steps describe how to use *CMake* to build your client application
         m
     )
     ```
-3. In the **remote_monitoring** folder, create a folder to store the *make* files that CMake generates and then run the **cmake** and **make** commands as follows:
+1. In the **remote_monitoring** folder, create a folder to store the *make* files that CMake generates and then run the **cmake** and **make** commands as follows:
    
     ```
     mkdir cmake

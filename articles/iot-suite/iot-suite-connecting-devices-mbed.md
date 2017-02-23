@@ -92,6 +92,10 @@ Follow these steps to add some sample code to an mbed project. You import the re
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+## Build and run the sample
+
+Add code to invoke the **remote\_monitoring\_run** function and then build and run the device application.
+
 1. Add a **main** function with following code at the end of the remote\_monitoring.c file to invoke the **remote\_monitoring\_run** function:
    
     ```
@@ -101,8 +105,6 @@ Follow these steps to add some sample code to an mbed project. You import the re
       return 0;
     }
     ```
-
-### Build and run the program
 
 1. Click **Compile** to build the program. You can safely ignore any warnings, but if the build generates errors, fix them before proceeding.
 

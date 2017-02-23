@@ -39,7 +39,7 @@ Create a starter project in Visual Studio 2015 and add the IoT Hub device client
 7. Click the **Linker** folder, then click the **Input** property page.
 8. Add **crypt32.lib** to the **Additional Dependencies** property. Click **OK** and then **OK** again to save the project property values.
 
-Add the Parson JSON library to the **RMDevice** project:
+Add the Parson JSON library to the **RMDevice** project and add the required `#include` statements:
 
 1. In a suitable folder on your computer, clone the Parson GitHub repository using the following command:
 
@@ -52,9 +52,6 @@ Add the Parson JSON library to the **RMDevice** project:
 1. In Visual Studio, right-click the **RMDevice** project, click **Add**, and then click **Existing Item**.
 
 1. In the **Add Existing Item** dialog, select the parson.h and parson.c files in the **RMDevice** project folder. Then click **Add** to add these two files to your project.
-
-## Specify the behavior of the IoT device
-The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.
 
 1. In Visual Studio, open the RMDevice.c file. Replace the existing `#include` statements with the following code:
    
@@ -74,7 +71,11 @@ The IoT Hub serializer client library uses a model to specify the format of the 
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-1. Replace the **main** function with following code to invoke the **remote_monitoring_run** function:
+## Build and run the sample
+
+Add code to invoke the **remote\_monitoring\_run** function and then build and run the device application.
+
+1. Replace the **main** function with following code to invoke the **remote\_monitoring\_run** function:
    
     ```
     int main()
