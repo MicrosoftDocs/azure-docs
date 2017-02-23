@@ -88,7 +88,7 @@ You can enable users to authenticate Box guest users with their Azure AD account
 
  c. Under **SAML Signing Certificate**, click **Create new certificate**.
 
- d. To begin configuring your Box.com tenant to use Azure AD as an identity provider, download the following metadata file and then save it to your local drive: Download metadata file (make sure to make it active).
+ d. To begin configuring your Box.com tenant to use Azure AD as an identity provider, download the metadata file and then save it to your local drive.
 
  e. Forward the metadata file to the Box support team, which will configure single sign-on for you.
 
