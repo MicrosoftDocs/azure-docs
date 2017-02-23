@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub | Microsoft Docs
-description: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub
+title: Azure CLI Script Sample - Create a web app and deploy code from GitHub | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app and deploy code from GitHub
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: azure-service-management
 
-ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
+ms.assetid: 422d12c4-dc49-40ec-b66e-c2172b0b2e7a
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
@@ -17,22 +17,19 @@ ms.date: 02/21/2017
 ms.author: cephalin
 ---
 
-# Create a web app with continuous deployment from GitHub
+# Create a web app and deploy code from GitHub
 
-This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, 
-see [Create a web app and deploy code from GitHub](app-service-cli-deploy-github.md).
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a public GitHub repository (without continuous deployment). For continuous deployment from GitHub, 
+see [Create a web app with continuous deployment from GitHub](app-service-cli-continuous-deployment-github.md).
 
-Before running this script, ensure the following:
-
-- A connection with Azure has been created using the `az login` command.
-- The application code is in a public or private GitHub repository that you own.
-- You have [created an access token in your GitHub account](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
+Before running this script, ensure that a connection with Azure has been created using the `az login` command, and that the application
+code is in a public GitHub repository.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github-continuous/deploy-github-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from GitHub")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app and deploy code from GitHub")]
 
 ## Clean up deployment 
 
