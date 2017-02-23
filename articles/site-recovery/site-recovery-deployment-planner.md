@@ -219,6 +219,9 @@ The generated Microsoft Excel report has following sheets
 * [Compatible VMs](site-recovery-deployment-planner.md#compatible-vms)
 * [Incompatible VMs](site-recovery-deployment-planner.md#incompatible-vms)
 
+![Deployment Planner](./media/site-recovery-deployment-planner/dp-report.png)
+
+
 ##Get throughput
 To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server where the tool is running (ideally a server based on the Configuration Server sizing guide).  If you have already deployed Azure Site Recovery infrastructure components on-premises, run the tool on the Configuration Server. 
 

@@ -31,6 +31,7 @@
 ### [Customize styling of page elements](api-management-customize-styles.md)
 ### [Customize system pages using templates](api-management-developer-portal-templates.md)
 ### [Authentication with AAD](api-management-howto-aad.md)
+### [Authentication with AAD B2C](api-management-howto-aad-b2c.md)
 ### [Delegated authentication](api-management-howto-setup-delegation.md)
 ### [E-mail notifications and templates](api-management-howto-configure-notifications.md)
 ### [Enable console OAuth support](api-management-howto-oauth2.md)
