@@ -238,7 +238,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [rbac]: ../active-directory/role-based-access-control-what-is.md
 [resource-group]: ../azure-resource-manager/resource-group-overview.md
 [sla]: https://azure.microsoft.com/support/legal/sla/
-[sql-audit]: ../sql-database/sql-database-auditing-get-started.md
+[sql-audit]: ../sql-database/sql-database-auditing.md
 [sql-backup]: ../sql-database/sql-database-business-continuity.md
 [sql-db]: https://azure.microsoft.com/documentation/services/sql-database/
 [sql-db-overview]: ../sql-database/sql-database-technical-overview.md

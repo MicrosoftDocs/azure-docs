@@ -5,7 +5,7 @@ services: iot-hub
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid:
 ms.service: iot-hub
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -135,8 +135,10 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Service)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Devices)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (Service)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (Devices)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (Service)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Node (Service)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Node (Devices)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDKs</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
                     </div>
