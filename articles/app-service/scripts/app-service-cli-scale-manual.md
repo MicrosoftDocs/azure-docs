@@ -24,13 +24,13 @@ In this scenario you will learn to create a resource group, app service plan and
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Scale app sample
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/scale-manual/scale-manual.sh?highlight=4,7-9 "Manual Scale")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, VM, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup

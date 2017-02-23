@@ -24,13 +24,13 @@ In this scenario you will create a resource group, two app service plans, two we
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Scale app sample
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh?highlight=7-11 "Geographic Scale")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, VM, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup

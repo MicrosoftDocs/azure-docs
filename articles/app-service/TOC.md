@@ -28,7 +28,7 @@
 ### [Marketplace app](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)	
 
-# Common examples
+# Common Examples
 ## CLI examples
 ### [Create a web app and deploy code from GitHub](./scripts/app-service-cli-deploy-github.md)
 ### [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
@@ -37,7 +37,8 @@
 ### [Create an ASP.NET Core web app in a Docker container](./scripts/app-service-cli-linux-docker-aspnetcore.md)
 ### [Map a custom domain to a web app](./scripts/app-service-cli-configure-custom-domain.md)
 ### [Scale a web app manually](./scripts/app-service-cli-scale-manual.md)
-### [Scale a web app worldwide with a high-availabilty architecture](./scripts/app-service-cli-scale-high-availability.md)
+### [Scale a web app worldwide with a high-availability architecture](./scripts/app-service-cli-scale-high-availability.md)
+### [Connect a web app to a SQL database](./scripts/app-service-cli-app-service-sql.md)
 ### [Connect a web app to a storage account](./scripts/app-service-cli-app-service-storage.md)
 ### [Monitor a web app with web server logs](./scripts/app-service-cli-monitor.md)
 

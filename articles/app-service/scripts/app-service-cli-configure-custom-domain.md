@@ -25,16 +25,16 @@ Before running this script, ensure that a connection with Azure has been created
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
-## Configure app sample
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to a web app")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
-az group delete --name $webappname
+az group delete --name myResourceGroup
 ```
 
 ## Script explanation

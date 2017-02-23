@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: azure-service-management
 
-ms.assetid: 41329e96-d76d-4dd3-bec5-ef3e05968f12
+ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -24,13 +24,13 @@ In this scenario you will learn how to create an Azure storage account and an Az
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Connect app sample
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/connect-to-storage/connect-to-storage.sh?highlight=7-10 "Azure Storage")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, VM, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup
