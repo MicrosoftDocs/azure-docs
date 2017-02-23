@@ -1,5 +1,5 @@
 ---
-title: Deploy LAMP on a Linux virtual machine in Azure| Microsoft Docs
+title: Deploy LAMP on a Linux virtual machine in Azure | Microsoft Docs
 description: Learn how to install the LAMP stack on a Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -19,20 +19,16 @@ ms.author: juluk
 
 ---
 # Deploy LAMP stack on Azure
-This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. 
-You need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
 
 There are two methods for installing LAMP covered in this article:
 
 ## Quick command summary
-* Deploy LAMP on new VM with the Azure CLI 2.0. If you prefer Azure CLI 1.0, visit [this document](virtual-machines-linux-create-lamp-stack-nodejs.md).
+* Deploy LAMP on new VM with Azure CLI 1.0. If you prefer Azure CLI 2.0, visit [this document](virtual-machines-linux-create-lamp-stack.md).
 
-1. Save and edit the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your preference on your local machine.
-2. Run two commands:
 ```
-# Two commands to create a resource group holding a VM with LAMP already on it
-$ az group create -l westus -n myRG
-$ az group deployment create -g myRG --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json --parameters @filepathToParameters.json
+# One command to create a resource group holding a VM with LAMP already on it
+$ azure group create -n uniqueResourceGroup -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json
 ```
 
 * Deploy LAMP on existing VM
@@ -44,55 +40,63 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
 ## Deploy LAMP on new VM walkthrough
+You can start by creating a [resource group](../azure-resource-manager/resource-group-overview.md) that will contain the new VM:
 
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md) to contain the new VM:
-```
-    $ az group create -l westus -n myRG
-    {
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myRG",
-        "location": "westus",
-        "managedBy": null,
-        "name": "myRG",
-        "properties": {
-            "provisioningState": "Succeeded"
-        },
-        "tags": null
-    }
-```
+    $ azure group create uniqueResourceGroup westus
+    info:    Executing command group create
+    info:    Getting resource group uniqueResourceGroup
+    info:    Creating resource group uniqueResourceGroup
+    info:    Created resource group uniqueResourceGroup
+    data:    Id:                  /subscriptions/########-####-####-####-############/resourceGroups/uniqueResourceGroup
+    data:    Name:                uniqueResourceGroup
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: null
+    data:
+    info:    group create command OK
+
 To create the VM itself, you can use an already written Azure Resource Manager template found [here on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app).
 
-2. Save the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your local machine.
-3. Edit the azuredeploy.parameters.json file to your preferred inputs
-4. Run the following cmd referencing the downloaded json file:
-```
-    $ az group deployment create -g myRG --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json --parameters @filepathToParameters.json
-```
+    $ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
 
-If successful you should see output similar to:
-```
-    {
-    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myRG/providers/Microsoft.Resources/deployments/azuredeploy",
-    "name": "azuredeploy",
-    "properties": {
-        "correlationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "debugSetting": null,
-    }
-    ...
-    "provisioningState": "Succeeded",
-    "template": null,
-    "templateLink": {
-        "contentVersion": "1.0.0.0",
-        "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json"
-        },
-        "timestamp": "2017-02-22T00:05:51.860411+00:00"
-    },
-    "resourceGroup": "myRG"
-    }
-```
+You should see a response prompting some more inputs:
+
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    storageAccountNamePrefix: lampprefix
+    location: westus
+    adminUsername: someUsername
+    adminPassword: somePassword
+    mySqlPassword: somePassword
+    dnsLabelPrefix: azlamptest
+    info:    Initializing template configurations and parameters
+    info:    Creating a deployment
+    info:    Created template deployment "uniqueLampName"
+    info:    Waiting for deployment to complete
+    data:    DeploymentName     : uniqueLampName
+    data:    ResourceGroupName  : uniqueResourceGroup
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          :
+    data:    Mode               : Incremental
+    data:    CorrelationId      : d51bbf3c-88f1-4cf3-a8b3-942c6925f381
+    data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json
+    data:    ContentVersion     : 1.0.0.0
+    data:    DeploymentParameters :
+    data:    Name                      Type          Value
+    data:    ------------------------  ------------  -----------
+    data:    storageAccountNamePrefix  String        lampprefix
+    data:    location                  String        westus
+    data:    adminUsername             String        someUsername
+    data:    adminPassword             SecureString  undefined
+    data:    mySqlPassword             SecureString  undefined
+    data:    dnsLabelPrefix            String        azlamptest
+    data:    ubuntuOSVersion           String        14.04.2-LTS
+    info:    group deployment create command OK
+
 You have now created a Linux VM with LAMP already installed on it. If you wish, you can verify the install by jumping down to [Verify LAMP Successfully Installed](#verify-lamp-successfully-installed).
 
 ## Deploy LAMP on existing VM walkthrough
-If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli). 
+If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh exampleUsername@exampleDNS`.
 
