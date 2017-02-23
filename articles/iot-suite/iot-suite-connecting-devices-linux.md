@@ -74,7 +74,6 @@ The IoT Hub serializer client library uses a model to specify the format of the 
     #include "azure_c_shared_utility/platform.h"
     #include "parson.h"
     ```
-
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
 ## Call the remote\_monitoring\_run function
