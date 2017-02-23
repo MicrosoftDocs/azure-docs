@@ -46,7 +46,6 @@ If your proxy setting does not allow Azure storage access directly, open the **A
 Append the **subscriptionid** to the friendly name while adding the source.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-
 The event XML has the metadata as shown below, including the subscription id.
 
 ![Event XML][1]
@@ -101,7 +100,8 @@ The following example is a configuration where only EventID 4624 and EventId 462
 
 After making changes, check the storage account to ensure that the correct events are collected.
 
-If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+If you run into any issues during the installation and configuration, Please open a [support request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), select 'Log Integration' as the service for which you are requesting support.
+
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
