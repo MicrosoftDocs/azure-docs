@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Connect a web app to a storage account | Microsoft Docs
-description: Azure CLI Script Sample - Connect a web app to a storage account
+title: Azure CLI Script Sample - Connect a web app to a SQL database | Microsoft Docs
+description: Azure CLI Script Sample - Connect a web app to a SQL database
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -18,9 +18,9 @@ ms.date: 02/21/2017
 ms.author: cfowler
 ---
 
-# Connect a web app to a storage account
+# Connect a web app to a SQL database
 
-In this scenario you will learn how to create an Azure storage account and an Azure web app. Then you will link the storage account to the web app using app settings.
+In this scenario you will learn how to create an Azure SQL database and an Azure web app. Then you will link the SQL database to the web app using app settings.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
@@ -38,15 +38,15 @@ az group delete --name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, storage account and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, web app, SQL database and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Creates an Azure web app within the App Service plan. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creates a storage account. This is where the static assets will be stored. |
-| [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account#show-connection-string) | |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Creates a SQL Database Server.  |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Creates a new database with the SQL Database Server. |
 | [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
 
 ## Next steps
