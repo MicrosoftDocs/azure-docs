@@ -70,6 +70,7 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
             if (err) console.log(op + ' error: ' + err.toString());
         };
     }
+    ```
 
 1. Add the following helper function to use to randomize the telemetry values:
 
@@ -91,6 +92,7 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
             'HubEnabledState': 1
         }
     };
+    ```
 
 1. Add the following definition for the device twin reported values. This definition includes descriptions of the direct methods the device supports:
 
@@ -125,6 +127,7 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
             "InitiateFirmwareUpdate--FwPackageURI-string": "Updates device Firmware. Use parameter FwPackageURI to specifiy the URI of the firmware file"
         },
     }
+    ```
 
 1. Add the following function to handle the **Reboot** direct method call:
 
@@ -142,6 +145,7 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
             }
         });
     }
+    ```
 
 1. Add the following function to handle the **InitiateFirmwareUpdate** direct method call. This direct method uses a parameter to specify the location of the firmware image to download, and initiates the firmware update on the device asynchronously:
 
@@ -160,6 +164,7 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
 
         // Add logic here to perform the firmware update asynchronously
     }
+    ```
 
 1. Add the following code to create a client instance:
 
@@ -232,6 +237,7 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
             });
         }
     });
+    ```
 
 1. Save the changes to the **remote_monitoring.js** file.
 
