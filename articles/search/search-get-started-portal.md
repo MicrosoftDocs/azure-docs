@@ -14,7 +14,7 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 02/22/2017
 ms.author: heidist
 
 ---
@@ -111,22 +111,29 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
    ![Index and API commands][6]
 
-3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs give you access to new features not yet generally released. Use the generally available version (2016-09-01) unless directed. 
+3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs give you access to new features not yet generally released. For the queries below, use the generally available version (2016-09-01) unless directed. 
 
     > [!NOTE]
-    > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) and the [.NET library](search-howto-dotnet-sdk.md#core-scenarios) are fully equivalent, but **Search explorer** is only equipped to handle REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
+    > [Azur//e Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) and the [.NET library](search-howto-dotnet-sdk.md#core-scenarios) are fully equivalent, but **Search explorer** is only equipped to handle REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
     > 
-    > **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements.
 
 4. In the search bar, enter the query strings below and click **Search**.
 
   ![Search query example][7]
 
 **`search=seattle`**
-The `search` parameter is used to input a keyword search, in this case, returning listings in King County, Washington state, containing Seattle in any searchable field in the document.
+The `search` parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
+
+**Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements. Documents are composed of all fields marked as retrievable in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
+
+**`search=seattle&$count=true&$top=100`**
+The `$count` parameter returns a count in the response header for the sum of all documents returned. You can see this number in the portal, but the `$count` parameter is how you get it programmatically. The `&` symbol is used to append search parameters, which can be specified in any order. The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
+
+**`search=*&facet=city`**
+The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. The faceted navigation structure is followed by the result set (50 documents, by default). There is no aggregation in Azure Search, but you can get a summary of matches by category with `facet`. 
 
 **`search=seattle&facet=beds`**
-The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of bedrooms, with a count of the documents or matches for each one. `"beds"` can be specified as a facet because it is marked as a filterable and facetable field in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms).  The `&` symbol is used to append search parameters.
+This query is facet for beds, a text search on *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). Only filterable fields can be facted. Only retrievable fields can be returned.
 
 **`search=seattle&filter=bed gt 3`**
 The `filter` parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
@@ -144,7 +151,7 @@ Misspelled words, like 'samamish' for the Samammish plateau in the Seattle area,
 Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. By default, the simple query parser is used because its faster, but you can opt in for the full query parser if you require fuzzy search, regular expressions, proximity search, or other advanced query types. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 **`search=*`**
-Empty searches return everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents, as described next.
+Empty searches return everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents, as described next in the geosearch example.
 
 **`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`**
 Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. This query filters all results for positional data, where results are less than 10 kilometers from a given point (specified as latitude and longitude coordinates). Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 

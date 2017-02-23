@@ -58,6 +58,8 @@ As points of comparison with other search solutions, Azure Search is strongest f
 > [!Note]
 > Non-Azure data sources are fully supported. You can pipe any JSON document collection to an Azure Search index.
 
+Use cases able to leverage the widest range of features in Azure Search include online catalogs, line of business programs, and document discovery applications.
+
 ### <a name="feature-drilldown"></a>Feature drilldown
 
 #### Full text search and text analysis
