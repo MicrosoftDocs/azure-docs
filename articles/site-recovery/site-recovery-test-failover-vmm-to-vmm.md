@@ -13,11 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/09/2017
+ms.date: 2/15/2017
 ms.author: pratshar
 
 ---
 # Test Failover (VMM to VMM) in Site Recovery
+> [!div class="op_single_selector"]
+> * [Test Failover to Azure](./site-recovery-test-failover-to-azure.md)
+> * [Test Failover (VMM to VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using a VMM managed on-premises site as the recovery site. 
 
@@ -64,6 +68,8 @@ Prepare a DNS server for the test failover as follows:
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
 
+![Test Failover](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
+
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
 1. On the **Test Failover** blade, specify how virtual machines should be connected to networks after the test failover. Look at [network options](#network-options-in-site-recovery) for more details.
 1. Track failover progress on the **Jobs** tab. 
@@ -71,7 +77,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines and networks that were created during test failover. 
 
 
-## Network options in site recovery
+## Network options in Site Recovery
 
 When you run a test failover you'll be asked to select network settings for test replica machines. You have a number of options.  
 

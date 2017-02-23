@@ -41,6 +41,7 @@ For an overview of auditing, see [SQL Database auditing](sql-database-auditing.m
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
 6. If you want to customize the audited events, you can do this via [PowerShell](sql-database-auditing-powershell.md) or the [REST API](sql-database-auditing-rest.md).
+7. Once you've configured your auditing settings, you can turn on the new Threat Detection (preview) feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Threat detection](sql-database-threat-detection.md) for more details.
 7. Click **Save**.
 
 ## Table auditing
