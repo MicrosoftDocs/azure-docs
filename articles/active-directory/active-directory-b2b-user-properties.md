@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/03/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 
 ---
@@ -90,6 +90,7 @@ Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
+* [B2B collaboration user auditing and reporting](active-directory-b2b-auditing-and-reporting.md)
 * [Delegate B2bB collaboration invitations](active-directory-b2b-delegate-invitations.md)
 * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
 * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)

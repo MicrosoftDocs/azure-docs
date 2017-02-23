@@ -34,7 +34,7 @@ The following examples use the Azure CLI 2.0. Read each article for more details
 * [Create a Linux VM using the Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * This example uses [az group create](/cli/azure/group#create) to create a resource group named `myResourceGroup`: 
-    
+-    
     ```azurecli
     az group create --name myResourceGroup --location westus
     ```
@@ -44,9 +44,9 @@ The following examples use the Azure CLI 2.0. Read each article for more details
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username azureuser \
+     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --public-ip-address-dns-name myPublicDNS \
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 5    --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \
     --location westus \
     --name myVM
@@ -70,11 +70,11 @@ The following examples use the Azure CLI 2.0. Read each article for more details
 
 * [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * The following example uses [az vm disk attach-new](/cli/azure/vm/disk#attach-new) to add a 5Gb unmanaged disk named `myDataDisk.vhd` to an existing VM named `myVM`:
+  * The following example uses [az vm disk attach-new](/cli/azure/vm/disk#attach-new) to add a 50 Gb managed disk to an existing VM named `myVM`:
   
     ```azurecli
-    az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-      --disk-size 5 --vhd https://mystorageaccount.blob.core.windows.net/vhds/myDataDisk.vhd
+    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
+    –-new --size-gb 50
     ```
 
 ## Azure portal
@@ -98,13 +98,13 @@ az vm image list-publishers --location WestUS
 List available products (offers) for a given publisher:
 
 ```azurecli
-az vm image list-offers --publisher-name Canonical --location WestUS
+az vm image list-offers --publisher Canonical --location WestUS
 ```
 
 List available SKUs (distro releases) of a given offer:
 
 ```azurecli
-az vm image list-skus --publisher-name Canonical --offer UbuntuServer --location WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
 ```
 
 List all available images for a given release:

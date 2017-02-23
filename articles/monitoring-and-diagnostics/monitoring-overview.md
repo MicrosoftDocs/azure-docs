@@ -21,8 +21,8 @@ ms.author: robb
 # Overview of Azure Monitor
 This article provides a conceptual overview of monitoring Azure resources. It provides pointers to information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
 
-Video walkthrough of Azure Monitor is available at  
-[Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Additional video explaining a scenario where you can use Azure Monitor is available at [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234).  
+A video walkthrough of Azure Monitor is available at  
+[Get Started with Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). An additional video explaining a scenario where you can use Azure Monitor is available at [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234).  
 
 Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
@@ -52,7 +52,7 @@ For other Azure services, there is not necessarily a 1:1 mapping between your re
 ### Resource - Metrics and Diagnostics Logs
 Collectable metrics vary based on the resource type. For example, Virtual Machines provides statistics on the Disk IO and Percent CPU. But those stats don't exist for a Service Bus queue, which instead provides metrics like queue size and message throughput.
 
-For compute resources you can obtain metrics on the Guest OS and diagnostics modules like Azure Diagnostics. Azure Diagnostics helps gather and route gather diagnostic data to other locations, including Azure storage.
+For compute resources you can obtain metrics on the Guest OS and diagnostics modules like Azure Diagnostics. Azure Diagnostics helps gather and route diagnostic data to other locations, including Azure storage.
 
 A list of currently collectable metrics is available at [supported metrics](monitoring-supported-metrics.md).
 
@@ -110,7 +110,7 @@ Examples include:
 * Send to Event Hubs so you can route to third-party tools to perform real-time analysis.
 
 ### Automate
-You can use monitoring data to trigger events or even whole processes
+You can use monitoring data to trigger alerts or even whole processes. 
 Examples include:
 
 * Use data to autoscale compute instances up or down based on application load.

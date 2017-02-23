@@ -56,7 +56,7 @@ Service principals allow [role-based access](../active-directory/role-based-acce
 
 
 ## Admin account
-With each registry you create, an admin account gets created automatically. By default the account is disabled, but you can enable it and manage the credentials, for example through the [portal](container-registry-get-started-portal.md#manage-registry-settings) or using the [Azure CLI 2.0 Preview commands](container-registry-get-started-azure-cli.md#manage-admin-credentials). If the account is enabled, you can pass the user name and password to the `docker login` command for basic authentication to the registry. For example:
+With each registry you create, an admin account gets created automatically. By default the account is disabled, but you can enable it and manage the credentials, for example through the [portal](container-registry-get-started-portal.md#manage-registry-settings) or using the [Azure CLI 2.0 commands](container-registry-get-started-azure-cli.md#manage-admin-credentials). If the account is enabled, you can pass the user name and password to the `docker login` command for basic authentication to the registry. For example:
 
 ```
 docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
