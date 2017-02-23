@@ -114,7 +114,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 
 	![Configure claims in the User Attributes section](./media/active-directory-saas-slack-tutorial/tutorial_slack_03.png)
 
-5. In the **Single sign-on** dialog box, in the **User Attributes** section, select **user.mail** as **User Identifier** and, for each row in the table, perform the following steps:
+5. In the **Single sign-on** dialog box, in the **User Attributes** section, select **user.mail** as **User Identifier**. For each row in the table, perform the following steps:
 
 	| Attribute name | Attribute value |
 	| --- | --- |    
