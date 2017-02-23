@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2017
+ms.date: 02/09/2017
 ms.author: johnkem; magoedte
 
 ---
@@ -27,7 +27,7 @@ Here are some of the things you can do with Diagnostic Logs:
 
 * Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 The storage account or event hub namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
@@ -173,9 +173,10 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 | Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Event Hub |No schema available. |
+| Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Stream Analytics |[Job diagnostic logs](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Service Bus |No schema available. |
-| Stream Analytics |No schema available. |
+
 
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
@@ -194,7 +195,6 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|

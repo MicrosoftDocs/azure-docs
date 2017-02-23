@@ -48,7 +48,7 @@ Event Hubs sinking in Azure Diagnostics is supported in Cloud Services, VMs, Vir
 ## Connect Azure Diagnostics to Event Hubs sink
 Azure Diagnostics always sinks logs and metrics, by default, to an Azure Storage account. An application may additionally sink to Event Hubs by adding a new **Sinks** section to the **WadCfg** element in the **PublicConfig** section of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** >  **(RoleName)** > **diagnostics.wadcfgx** file.
 
-```
+```xml
 <SinksConfig>
   <Sink name="HotPath">
     <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" />
@@ -90,7 +90,7 @@ It is important to consider how many data points should actually be transferred 
 
 The following are some example configurations.
 
-```
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
@@ -105,7 +105,7 @@ The following are some example configurations.
 
 In the following example, the sink is applied to the parent **PerformanceCounters** node in the hierarchy, which means all child **PerformanceCounters** will be sent to Event Hubs.  
 
-```
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
@@ -154,7 +154,7 @@ Note that the console application must include the [Event Processor Host Nuget p
 
 Remember to replace the values in angle brackets in the **Main** function with values for your resources.   
 
-```
+```csharp
 //Console application code for EventHub test client
 using System;
 using System.Collections.Generic;
@@ -250,7 +250,7 @@ namespace EventHubListener
 •    [Learn more about Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
 ## Appendix: Complete Azure Diagnostics configuration file (.wadcfgx) example
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -305,7 +305,7 @@ namespace EventHubListener
 
 The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like the following.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
   <Role name="MyFixIt.WorkerRole">
@@ -316,6 +316,12 @@ The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like
   </Role>
 </ServiceConfiguration>
 ```
+## Next steps
+You can learn more about Event Hubs by visiting the following links:
+
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png

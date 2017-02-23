@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 02/22/2017
 ms.author: curtand
 
 ---
@@ -56,86 +56,6 @@ AD DS is a server role on Windows Server, which means that it can be deployed on
 
 Azure AD is a multi-customer public directory service, which means that within Azure AD you can create a tenant for your cloud servers and applications such as Office 365. Users and groups are created in a flat structure without OUs or GPOs. Authentication is performed through protocols such as SAML, WS-Federation, and OAuth. It's possible to query Azure AD, but instead of using LDAP you must use a REST API called AD Graph API. These all work over HTTP and HTTPS.
 
-You can use Azure AD Connect to sync your on-premises identities with Azure AD.
-
----
-
-### Authentication and authorization details
-
-#### Azure AD
-`SAML`, `WS-Federation`, Interactive with supported credentials, OAuth 2.0, OpenID Connect 
-
-#### On-premises AD DS
-`SAML`, `WS-Federation`, NTLM, Kerberos, MD5, Basic
-
----
-
-### Object repository details
-
-#### Azure AD
-Access via Azure AD Graph and Microsoft Graph 
-
-#### On-premises AD DS
-X.500 LDAP  
-
----
-
-
-### Programmatic access details
-
-#### Azure AD
-MS/Azure AD Graph REST APIs 
-
-#### On-premises AD DS
-LDAP 
-
----
-
-### SSO to applications details
-
-#### Azure AD
-`OpenID Connect`, `SAML` 
-
-#### On-premises AD DS
-`Open-ID Connect`, `SAML`, WS-Fed 
-
----
-
-### Access management details
-
-#### Azure AD
-Resource-defined scope and role based access control, Client-define delegated and application permissions, Consent Framework (enforces proper user/admin consent, as defined/requested by resource/client) 
-
-Via app role, can be applied individually or through groups, supports: Admin managed, Self-service application access, User consent
-
-#### On-premises AD DS
-Via ACLs, can be applied individually or through groups, supports: Admin managed 
-
----
-
-### Group management details
-
-#### Azure AD
-`Admin managed`, Rule/dynamic managed, Self-service group management 
-
-#### On-premises AD DS
-`Admin managed`, External system (FIM, or other) required for Rule/dynamic managed |
-
----
-
-### Supported credentials details
-
-#### Azure AD
-`Username + password`, `Smartcard` 
-
-#### On-premises AD DS
-`Username + password`, `Smartcard` 
- 
----
-
-
-
-
 
 
 
@@ -143,7 +63,7 @@ Via ACLs, can be applied individually or through groups, supports: Admin managed
 
 **If you are an IT admin:**
 
-* [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
+* [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 day trial today and deploy your first cloud solution in under 5 minutes using this link
 
 * Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/15/2017
 ms.author: markvi
 
 ---
@@ -53,15 +53,15 @@ For more details, see the [Get-MsolDevice](https://docs.microsoft.com/en-us/powe
 **Q: Why is a device I have deleted in the Azure portal or using Windows PowerShell still listed as registered?**
 
 **A:** This is by design. The device will not have access to resources in the cloud. 
-If you want to re-register the device, a manual action needs to be taken on the device. 
+If you want to remove the device and register again, a manual action must be to be taken on the device. 
 
 For Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:
 
 1.	Open the command prompt as an administrator.
 
-2.	Type **dsregcmd.exe /leave**.
+2.	Type **dsregcmd.exe /debug /leave**
 
-3.	Type **dsregcmd.exe**.
+3.	**Sign Out and Sign In to trigger the scheduled task that registers the device again.** 
 
 For other Windows platforms that are on-premises AD domain-joined:
 
@@ -137,13 +137,19 @@ Please create a different local account before using Azure Active Directory Join
 
 ---
 
+**Q: Where can I find instructions for the setup of automatic device registration?**
+
+**A:** For detailed instructions, see [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+---
+
 **Q: Where can I find troubleshooting information about the automatic device registration?**
 
 **A:** For troubleshooting information, see:
 
-1. [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+1. [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
 
-2. [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+2. [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
  
 ---
 

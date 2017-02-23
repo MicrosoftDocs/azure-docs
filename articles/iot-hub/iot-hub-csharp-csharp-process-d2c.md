@@ -47,58 +47,54 @@ You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 ## Send interactive messages from a simulated device app
 In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
-1. In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code:
-   
-    ```
-    private static async void SendDeviceToCloudMessagesAsync()
+In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code:
+
+```
+private static async void SendDeviceToCloudMessagesAsync()
+    {
+        double avgWindSpeed = 10; // m/s
+        Random rand = new Random();
+
+        while (true)
         {
-            double avgWindSpeed = 10; // m/s
-            Random rand = new Random();
+            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
 
-            while (true)
+            var telemetryDataPoint = new
             {
-                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+                deviceId = "myFirstDevice",
+                windSpeed = currentWindSpeed
+            };
+            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+            string levelValue;
 
-                var telemetryDataPoint = new
-                {
-                    deviceId = "myFirstDevice",
-                    windSpeed = currentWindSpeed
-                };
-                var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-                string levelValue;
-
-                if (rand.NextDouble() > 0.7)
-                {
-                    messageString = "This is a critical message";
-                    levelValue = "critical";
-                }
-                else
-                {
-                    levelValue = "normal";
-                }
-                
-                var message = new Message(Encoding.ASCII.GetBytes(messageString));
-                message.Properties.Add("level", levelValue);
-                
-                await deviceClient.SendEventAsync(message);
-                Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-                await Task.Delay(1000);
+            if (rand.NextDouble() > 0.7)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
             }
-        }
-    ```
-   
-     This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+            else
+            {
+                levelValue = "normal";
+            }
+            
+            var message = new Message(Encoding.ASCII.GetBytes(messageString));
+            message.Properties.Add("level", levelValue);
+            
+            await deviceClient.SendEventAsync(message);
+            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
 
-   > [!NOTE]
-   > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.
-   > 
-   > 
-   
-   > [!NOTE]
-   > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
-   > 
-   > 
+            await Task.Delay(1000);
+        }
+    }
+```
+
+This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+
+> [!NOTE]
+> You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.
+
+> [!NOTE]
+> For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
 ## Add a queue to your IoT hub and route messages to it
 In this section, you:

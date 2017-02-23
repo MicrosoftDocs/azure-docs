@@ -122,17 +122,20 @@ In Service Fabric, a service runs inside a process created by the Service Fabric
 
 The requirement to self-host means that a Service Fabric service can't use ASP.NET MVC or ASP.NET Web Forms, because those frameworks require IIS and do not support self-hosting. Options for self-hosting include:
 
-- [ASP.NET Core][aspnet-core], self-hosted using Kestrel or WebListener.
-- [ASP.NET Web API][aspnet-webapi], self-hosted using OWIN.
+- [ASP.NET Core][aspnet-core], self-hosted using the [Kestrel][kestrel] web server. 
+- [ASP.NET Web API][aspnet-webapi], self-hosted using [OWIN][owin].
 - Third-party frameworks such as [Nancy](http://nancyfx.org/).
 
-The original Surveys application uses ASP.NET MVC, which as mentioned cannot be self-hosted in Service Fabric. We looked at the following options:
+The original Surveys application uses ASP.NET MVC. Because ASP.NET MVC cannot be self-hosted in Service Fabric, we considered the following migration options:
 
-- Migrate the web roles to ASP.NET Core, which can be self-hosted.
-- Convert the web roles into single-page applications (SPAs) that call a web API implemented using ASP.NET Web API. This would have required a complete redesign of the web front end.
+- Port the web roles to ASP.NET Core, which can be self-hosted.
+- Convert the web site into a single-page application (SPA) that calls a web API implemented using ASP.NET Web API. This would have required a complete redesign of the web front end.
 - Keep the existing ASP.NET MVC code and deploy IIS in a Windows Server container to Service Fabric. This approach would require little or no code change. However, [container support][sf-containers] in Service Fabric is currently still in preview.
 
-Based on these considerations, we selected the first option, porting to ASP.NET Core. We followed the steps described in [Migrating From ASP.NET MVC to ASP.NET Core MVC][aspnet-migration]. 
+Based on these considerations, we selected the first option, porting to ASP.NET Core. To do so, we followed the steps described in [Migrating From ASP.NET MVC to ASP.NET Core MVC][aspnet-migration]. 
+
+> [!NOTE]
+> When using ASP.NET Core with Kestrel, you should place a reverse proxy in front of Kestrel to handle traffic from the Internet, for security reasons. For more information, see [Kestrel web server implementation in ASP.NET Core][kestrel]. The section [Deploying the application](#deploying-the-application) describes a recommended Azure deployment.
 
 ### HTTP listeners
 
@@ -203,30 +206,27 @@ To support different configuration settings for multiple environments, use the f
 
 Whereas Azure Cloud Services is a managed service, Service Fabric is a runtime. You can create Service Fabric clusters in many environments, including Azure and on premises. In this article, we focus on deploying to Azure. 
 
-The original Surveys application had a single IP address, where port 80 mapped to the public site (Tailspin.Web.Survey.Public) and port 443 mapped to the administrative site (Tailspin.Web and Tailspin.Web.Survey.Public). See [DNS Names, Certificates, and SSL in the Surveys Application](https://msdn.microsoft.com/en-us/library/hh534477.aspx#sec21) for more information.
-
-For the Service Fabric version, the Service Fabric cluster is deployed to a [VM scale set][vm-scale-sets]. Scale sets are an Azure Compute resource that can be used to deploy and manage a set of identical VMs. A load balancer is placed in front of the scale set. The load balancer distributes requests from the Internet to the nodes in the cluster. 
-
-The following diagram shows the deployment:
+The following diagram shows a recommended deployment:
 
 ![](./media/guidance-service-fabric/tailspin-cluster.png)
 
-The load balancer is configured with a set of load balancer rules, which map from port 80 and port 443 on the front end, to the back-end ports that the services listen on. When a request arrives on port 80 or port 443 of one of the public IP addresses, the load balancer routes the request to the correct port on the back end.
+The Service Fabric cluster is deployed to a [VM scale set][vm-scale-sets]. Scale sets are an Azure Compute resource that can be used to deploy and manage a set of identical VMs. 
 
-The load balancer uses health probes to determine whether a VM instance should receive traffic. For each load balancer rule, create a corresponding health probe rule. Health probes ensure that the load balancer sends traffic only to nodes where the service is running and healthy.
-
-Another option is to assign two public IP addresses to the load balancer, one for each web front end. That configuration enables you to have two separate domain names for the two web sites.
-
-For more information, see [Connect and communicate with services in Service Fabric][sf-connect-and-communicate] and [Understand load balancer probes][lb-probes].
-
+As mentioned, the Kestrel web server requires a reverse proxy for security reasons. This diagram shows [Azure Application Gateway][application-gateway], which is an Azure service that offers various layer 7 load balancing capabilities. It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints. You might use a different reverse proxy solution, such as nginx.  
 
 ### Layer 7 routing
 
-The deployment shown above uses two public IP addresses. This configuration matches the original Surveys application, which had two web roles, each with its own public endpoint. Another option is to use a single IP address with layer 7 routing. In this approach, client requests are routed to different port numbers on the back end, based on the URL path of the request. 
+In the [original Surveys application](https://msdn.microsoft.com/en-us/library/hh534477.aspx#sec21), one web role listened on port 80, and the other web role listened on port 443. 
+
+| Public site | Survey management site |
+|-------------|------------------------|
+| `http://tailspin.cloudapp.net` | `https://tailspin.cloudapp.net` |
+
+Another option is to use layer 7 routing. In this approach, different URL paths get routed to different port numbers on the back end. For example, the public site might use URL paths starting with `/public/`. 
 
 Options for layer 7 routing include:
 
-- Use [Azure Application Gateway][application-gateway]. 
+- Use Application Gateway. 
 
 - Use a network virtual appliance (NVA), such as nginx.
 
@@ -234,7 +234,7 @@ Options for layer 7 routing include:
 
 Consider this approach if you have two or more services with public HTTP endpoints, but want them to appear as one site with a single domain name.
 
-> One option that we haven't discussed is allowing external clients to send requests to the Service Fabric [reverse proxy][sf-reverse-proxy]. We don't recommend this approach. The reverse proxy is intended for service-to-service communication. Although it's possible to open the reverse proxy to external clients, doing so exposes *all* services with HTTP endpoints.
+> One approach that we *don't* recommend is allowing external clients to send requests through the Service Fabric [reverse proxy][sf-reverse-proxy]. Although this is possible, the reverse proxy is intended for service-to-service communication. Opening it to external clients exposes *any* service running in the cluster that has an HTTP endpoint.
 
 ### Node types and placement constraints
 
@@ -247,7 +247,6 @@ In the deployment shown above, all the services run on all the nodes. However, y
 The following diagram shows a cluster that separates front-end and back-end services:
 
 ![](././media/guidance-service-fabric/node-placement.png)
-
 
 To implement this approach:
 
@@ -296,7 +295,9 @@ However, at this point the application does not get all the benefits of microser
 [cloud-service-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
 [cloud-service-config]: /azure/cloud-services/cloud-services-model-and-package
 [cloud-service-endpoints]: /azure/cloud-services/cloud-services-enable-communication-role-instances#worker-roles-vs-web-roles
+[kestrel]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel
 [lb-probes]: /azure/load-balancer/load-balancer-custom-probe-overview
+[owin]: https://www.asp.net/aspnet/overview/owin-and-katana
 [sf-application-model]: /azure/service-fabric/service-fabric-application-model
 [sf-aspnet-core]: /azure/service-fabric/service-fabric-add-a-web-frontend
 [sf-auto-scale]: /azure/service-fabric/service-fabric-cluster-scale-up-down

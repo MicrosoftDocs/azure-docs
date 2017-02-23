@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with PerformanceCentre
 The objective of this tutorial is to show you how to integrate PerformanceCentre with Azure Active Directory (Azure AD).  
+
 Integrating PerformanceCentre with Azure AD provides you with the following benefits: 
 
 * You can control in Azure AD who has access to PerformanceCentre 
@@ -45,10 +46,11 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of three main building blocks:
 
-1. Adding PerformanceCentre from the gallery 
-2. Configuring and testing Azure AD single sign-on
+The scenario outlined in this tutorial consists of these main building blocks:
+
+*  Adding PerformanceCentre from the gallery 
+*  Configuring and testing Azure AD single sign-on
 
 ## Adding PerformanceCentre from the gallery
 To configure the integration of PerformanceCentre into Azure AD, you need to add PerformanceCentre from the gallery to your list of managed SaaS apps.
@@ -79,9 +81,10 @@ To configure the integration of PerformanceCentre into Azure AD, you need to add
 The objective of this section is to show you how to configure and test Azure AD single sign-on with PerformanceCentre based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in PerformanceCentre to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in PerformanceCentre needs to be established.  
+
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in PerformanceCentre.
 
-To configure and test Azure AD single sign-on with PerformanceCentre, you need to complete the following building blocks:
+**To configure and test Azure AD single sign-on with PerformanceCentre, you need to complete the following building blocks:**
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
@@ -104,14 +107,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     ![Azure AD Single Sign-On][8] 
    
-     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your PerformanceCentre site (e.g.: *http://companyname.performancecentre.com/saml/SSO*).
-   
-     b. Click **Next**.
+   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your PerformanceCentre site (e.g.: *http://companyname.performancecentre.com/saml/SSO*).
+   2. Click **Next**.
 4. On the **Configure single sign-on at PerformanceCentre** page, perform the following steps:
    
     ![Azure AD Single Sign-On][9] 
    
-    a. Click **Download metadata**, and then save the file on your computer.
+  * Click **Download metadata**, and then save the file on your computer.
 5. Sign-on to your **PerformanceCentre** company site as administrator.
 6. In the tab on the left side, click **Configure**.
    
@@ -156,23 +158,20 @@ The objective of this section is to create a test user in the Azure classic port
    
     ![Creating an Azure AD test user](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_05.png)  
    
-    a. As Type Of User, select New user in your organization.
+   1. As Type Of User, select New user in your organization.
+   2. In the User Name **textbox**, type **BrittaSimon**.
+   3. Click **Next**.
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps: 
    
    ![Creating an Azure AD test user](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+   1. In the **First Name** textbox, type **Britta**.  
+   2. In the **Last Name** textbox, type, **Simon**.
+   3. In the **Display Name** textbox, type **Britta Simon**.
+   4. In the **Role** list, select **User**.
+   5. Click **Next**.
    
-   b. In the **Last Name** textbox, type, **Simon**.
-   
-   c. In the **Display Name** textbox, type **Britta Simon**.
-   
-   d. In the **Role** list, select **User**.
-   e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_07.png) 
@@ -180,9 +179,8 @@ The objective of this section is to create a test user in the Azure classic port
    
     ![Creating an Azure AD test user](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) 
    
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+    1. Write down the value of the **New Password**.
+    2. Click **Complete**.   
 
 ### Creating a PerformanceCentre test user
 The objective of this section is to create a user called Britta Simon in PerformanceCentre.
@@ -197,16 +195,14 @@ The objective of this section is to create a user called Britta Simon in Perform
    
     ![Create User][401]
    
-    a. Type the required attributes for Britta Simon into related textboxes.
-   
+   1. Type the required attributes for Britta Simon into related textboxes.
    > [!IMPORTANT]
    > Britta's User Name attribute in PerformanceCentre must be the same as the User Name in Azure AD.
    > 
    > 
-
-    b. Select **Client Administrator** as **Choose Role**. 
-
-    c. Click **Save**.   
+ 
+   2. Select **Client Administrator** as **Choose Role**.
+   3. Click **Save**.   
 
 
 ### Assigning the Azure AD test user
@@ -232,6 +228,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 ### Testing Single Sign-On
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+
 When you click the PerformanceCentre tile in the Access Panel, you should get automatically signed-on to your PerformanceCentre application.
 
 ## Additional Resources

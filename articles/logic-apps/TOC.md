@@ -23,6 +23,7 @@
 ### [Logic apps as callable endpoints](logic-apps-http-endpoint.md)
 ### [Loops, scopes, and debatching](logic-apps-loops-and-scopes.md)
 ### [Using your custom API](logic-apps-custom-hosted-api.md)
+### [Use switch statement](logic-apps-switch-case.md)
 ### [Exception handling](logic-apps-exception-handling.md)
 ### [Exception handling scenario](logic-apps-scenario-error-and-exception-handling.md)
 ### [Handling content types](logic-apps-content-type.md)

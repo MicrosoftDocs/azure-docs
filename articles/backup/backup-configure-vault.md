@@ -1,10 +1,10 @@
 ---
-title: Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Docs
+title: 'Back up Windows Server to Azure (Resource Manager) | Microsoft Docs'
 description: Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders.
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: ''
 keywords: backup vault; back up a Windows server; backup windows;
 
@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: jimpark; trinadhk; markgal
+ms.date: 2/16/2017
+ms.author: markgal;trinadhk;
 
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model

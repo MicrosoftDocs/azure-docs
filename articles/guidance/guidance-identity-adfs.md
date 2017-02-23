@@ -54,7 +54,7 @@ The diagram shows the following scenarios:
 > 
 > 
 
-[![0]][0]
+![[0]][0]
 
 * **AD DS subnet**. The AD DS servers are contained in their own subnet with network security group (NSG) rules acting as a firewall.
 

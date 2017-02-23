@@ -34,7 +34,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
-> ExpressRoute gateways and Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with a ExpressRoute or Application gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the ExpressRoute or Application gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager.
+> Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the Application gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager. You must contact support if you want to migrate ExpressRoute gateways in cases where the gateway and the ExpressRoute circuit are in the same subscription. ExpressRoute gateways connecting to ExpressRoute circuits in another subscription cannot be migrated. In such cases, remove the ExpressRoute gateway, migrate the virtual network and recreate the gateway.
 > 
 > 
 

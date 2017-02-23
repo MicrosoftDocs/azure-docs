@@ -19,13 +19,7 @@ ms.date: 07/05/2016
 ms.author: jhubbard
 
 ---
-# SQL Database tutorial: Connect Excel to an Azure SQL database and create a report
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
+# Connect Excel to an Azure SQL database and create a report
 
 Learn how to connect Excel to a SQL database in the cloud so you can import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
 

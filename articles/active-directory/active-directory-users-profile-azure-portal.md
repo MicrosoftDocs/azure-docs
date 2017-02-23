@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -23,14 +23,14 @@ This article explains how to add user profile information, such as a profile pic
 ## To change profile information
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
-   
+
    ![Opening user management](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
 3. On the **Users and groups** blade, select **Users**.
-   
+
    ![Opening the Users blade](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
 4. On the **Users and groups - Users** blade, select a user from the list.
 5. On the blade for the selected user, select **Profile**.
-   
+
     ![Opening work information](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
 6. Add or change the profile information. Then, in the command bar, select **Save**.
 
@@ -40,4 +40,3 @@ This article explains how to add user profile information, such as a profile pic
 * [Assign a user to administrator roles in Azure Active Directory preview](active-directory-users-assign-role-azure-portal.md)
 * [Add or change profile information for a user in Azure Active Directory preview](active-directory-users-work-info-azure-portal.md)
 * [Delete a user from a directory in Azure Active Directory preview](active-directory-users-delete-user-azure-portal.md)
-

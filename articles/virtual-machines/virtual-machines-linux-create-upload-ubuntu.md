@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 02/02/2017
 ms.author: szark
 
 ---
@@ -41,27 +41,37 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 ## Manual steps
 > [!NOTE]
-> Before creating your own custom Ubuntu image for Azure, please consider using the images from [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) instead.
+> Before attempting to create your own custom Ubuntu image for Azure, please consider using the pre-built and tested images from [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) instead.
 > 
 > 
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
+
 2. Click **Connect** to open the window for the virtual machine.
+
 3. Replace the current repositories in the image to use Ubuntu's Azure repos. The steps vary slightly depending on the Ubuntu version.
    
-   Before editing /etc/apt/sources.list, it is recommended to make a backup:
+	Before editing `/etc/apt/sources.list`, it is recommended to make a backup:
    
-   # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-   Ubuntu 12.04:
+		# sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+	Ubuntu 12.04:
    
-   # sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-   # sudo apt-get update
-   Ubuntu 14.04:
+		# sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+		# sudo apt-get update
+
+	Ubuntu 14.04:
    
-   # sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-   # sudo apt-get update
+		# sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+		# sudo apt-get update
+
+	Ubuntu 16.04:
+   
+		# sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+		# sudo apt-get update
+
 4. The Ubuntu Azure images are now following the *hardware enablement* (HWE) kernel. Update the operating system to the latest kernel by running the following commands:
-   
+
     Ubuntu 12.04:
    
         # sudo apt-get update
@@ -79,22 +89,42 @@ This article assumes that you have already installed an Ubuntu Linux operating s
         (recommended) sudo apt-get dist-upgrade
    
         # sudo reboot
-5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open "/etc/default/grub" in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
+
+	Ubuntu 16.04:
+   
+        # sudo apt-get update
+        # sudo apt-get install linux-generic-hwe-16.04 linux-cloud-tools-generic-hwe-16.04
+        (recommended) sudo apt-get dist-upgrade
+
+        # sudo reboot
+
+	**See also:**
+	- [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
+	- [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
+
+
+5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
-   
-    Save and close this file, and then run '`sudo update-grub`'. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
+
+    Save and close this file, and then run `sudo update-grub`. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
+
 6. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
+
 7. Install the Azure Linux Agent:
    
-   # sudo apt-get update
-   # sudo apt-get install walinuxagent
-   Note that installing the `walinuxagent` package will remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
+		# sudo apt-get update
+		# sudo apt-get install walinuxagent
+
+	>[!Note]
+	The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
+
 8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    
-   # sudo waagent -force -deprovision
-   # export HISTSIZE=0
-   # logout
+		# sudo waagent -force -deprovision
+		# export HISTSIZE=0
+		# logout
+
 9. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Next steps

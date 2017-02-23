@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2016
+ms.date: 02/06/2017
 ms.author: raynew
 
 ---
@@ -46,6 +46,9 @@ Here's what Site Recovery can do for your business:
 * **Multiple VM failover**—You can set up recovery plans that include scripts and Azure automation runbooks. Recovery plans allow you to model and customize failover and recovery of multi-tier applications that are spread over multiple VMs.
 * **Integrate with existing BCDR technologies**—Site Recovery integrates with other BCDR technologies. For example, you can use Site Recovery to protect the SQL Server backend of corporate workloads, including native support for SQL Server AlwaysOn, to manage the failover of availability groups.
 
+## Which regions are supported?
+To know more about the regions in which Azure Site Recovery is available, refer [here](https://azure.microsoft.com/en-us/regions/services/) 
+
 ## What can I replicate?
 Here's a summary of what you can replicate using Site Recovery.
 
@@ -72,4 +75,3 @@ Site Recovery provides application-aware replication, so that workloads and apps
 ## Next steps
 * Read more in [What workloads can Site Recovery protect?](site-recovery-workload.md)
 * Learn more about Site Recovery architecture in [How does Site Recovery work?](site-recovery-components.md)
-

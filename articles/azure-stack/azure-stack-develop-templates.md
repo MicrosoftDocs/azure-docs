@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 02/07/2016
 ms.author: helaw
 
 ---
@@ -35,6 +35,7 @@ Azure service versions may differ between Azure and Azure Stack. Each resource r
 | Compute |'2015-06-15' |
 | Network |'2015-06-15', '2015-05-01-preview' |
 | Storage |'2016-01-01', '2015-06-15', '2015-05-01-preview' |
+| KeyVault | '2016-06-01' |
 | App Service |'2015-08-01' |
 | MySQL |'2015-09-01' |
 | SQL |'2014-04-01-preview' |

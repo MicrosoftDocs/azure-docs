@@ -14,6 +14,7 @@
 ### [Create an Auth Provider](multi-factor-authentication-get-started-auth-provider.md)
 ### [Configure settings](multi-factor-authentication-whats-next.md)
 ### [Reports in MFA](multi-factor-authentication-manage-reports.md)
+### [Use existing network policy servers](multi-factor-authentication-nps-extension.md)
 ### Azure MFA on-premises
 #### [Install the users portal](multi-factor-authentication-get-started-portal.md)
 #### [Advanced VPN Configurations](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,7 +39,7 @@
 ### [IIS web apps](multi-factor-authentication-get-started-server-iis.md)
 ### [Remote Desktop Gateway](multi-factor-authentication-get-started-server-rdg.md)
 
-## Develop 
+## Develop
 ### [Building into Custom Apps (SDK)](multi-factor-authentication-sdk.md)
 
 ## Troubleshoot

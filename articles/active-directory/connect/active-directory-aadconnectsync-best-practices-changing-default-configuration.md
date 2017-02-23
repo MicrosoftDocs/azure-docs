@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 02/08/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect sync: Best practices for changing the default configuration
@@ -40,8 +40,6 @@ The installation wizard provides a configuration that is supposed to work for th
 
 > [!WARNING]
 > The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
-> 
-> 
 
 ### Disable an unwanted Sync Rule
 Do not delete an out-of-box sync rule. It is recreated during next upgrade.
@@ -53,6 +51,8 @@ In some cases, the installation wizard has produced a configuration that is not 
 In the picture above, the installation wizard has found an old Exchange 2003 schema in the account forest. This schema extension was added before the resource forest was introduced in Fabrikam's environment. To ensure no attributes from the old Exchange implementation are synchronized, the sync rule should be disabled as shown.
 
 ### Change an out-of-box rule
+The only time you should change an out-of-box rule is when you need to change the join rule. If you need to change an attribute flow, then you should create a sync rule with higher precedence than the out-of-box rules. The only rule you practically need to clone is the rule **In from AD - User Join**. You can override all other rules with a higher precedence rule.
+
 If you need to make changes to an out-of-box rule, then you should make a copy of the out-of-box rule and disable the original rule. Then make the changes to the cloned rule. The Sync Rule Editor is helping you with those steps. When you open an out-of-box rule, you are presented with this dialog box:  
 ![Warning out of box rule](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
@@ -66,4 +66,3 @@ On this cloned rule, make any necessary changes to scope, join, and transformati
 
 * [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

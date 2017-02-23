@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/25/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
@@ -69,7 +69,6 @@ data:    Provisioning State:  Succeeded
 data:    Tags: null
 data:
 info:    group create command OK
-
 ```
 
 The Azure CLI returns you to the prompt after only a few seconds, but your Docker host is still being created and configured by the Azure Docker VM extension. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command.

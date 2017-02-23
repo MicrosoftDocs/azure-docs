@@ -243,15 +243,31 @@ Using [device-to-cloud routes][lnk-devguide-messaging-routes], you can configure
 The route [condition][lnk-query-expressions] uses the same IoT Hub query language as conditions in twin and job queries. Route conditions are evaluated on the message properties assuming the following JSON representation:
 
         {
+            "$messageId": "",
+            "$enqueuedTime": "",
+            "$to": "",
+            "$expiryTimeUtc": "",
+            "$correlationId": "",
+            "$userId": "",
+            "$ack": "",
+            "$connectionDeviceId": "",
+            "$connectionDeviceGenerationId": "",
+            "$connectionAuthMethod": "",
+            "$content-type": "",
+            "$content-encoding": ""
+
             "userProperty1": "",
             "userProperty2": ""
         }
+
+Message system properties are prefixed with the `'$'` symbol.
+User properties are always accessed with their name. If a user property name happens to coincide with a system property (such as `$to`), the user property will be retrieved with the `$to` expression.
+You can always access the system property using brackets `{}`: for instance, you can use the expression `{$to}` to access the system property `to`. Bracketed property names always retrieve the corresponding system property.
 
 Remember that property names are case insensitive.
 
 > [!NOTE]
 > All message properties are strings. System properties, as described in the [developer guide][lnk-devguide-messaging-format], are currently not available to use in queries.
->
 >
 
 For example, if you use a `messageType` property, you might want to route all telemetry to one endpoint, and all alerts to another endpoint. You can write the following expression to route the telemetry:

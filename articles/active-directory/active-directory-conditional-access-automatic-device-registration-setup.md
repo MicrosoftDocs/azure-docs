@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/04/2016
 ms.author: markvi
 
 ---
@@ -352,5 +352,9 @@ Deploy the package by using a software distribution system like System Center Co
 The installer creates a scheduled task on the system that runs in the user’s context. The task is triggered when the user signs in to Windows. The task silently registers the device with Azure AD with the user credentials after authenticating through IWA. To see the scheduled task, go to **Microsoft** > **Workplace Join**, and then go to the Task Scheduler library.
 
 ## Next steps
-* [Azure Active Directory conditional access](active-directory-conditional-access.md)
+
+- If something went wrong during the automatic device registration, see the following troubleshooting topics for help:
+    - [For Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+    - [For Windows down-level client](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+- For answers to common questions, see the [Automatic device registration FAQ](active-directory-conditional-access-automatic-device-registration-faq.md).
 

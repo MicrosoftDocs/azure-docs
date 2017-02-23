@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with e-Builder
 The objective of this tutorial is to show the integration of Azure and e-Builder.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -27,17 +28,18 @@ After completing this tutorial, the Azure AD users you have assigned to e-Builde
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for e-Builder
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for e-Builder
+* Configuring single sign-on (SSO)
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-e-builder-tutorial/IC777378.png "Scenario")
 
-## Enabling the application integration for e-Builder
+## Enable the application integration for e-Builder
 The objective of this section is to outline how to enable the application integration for e-Builder.
 
-### To enable the application integration for e-Builder, perform the following steps:
+**To enable the application integration for e-Builder, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-e-builder-tutorial/IC700993.png "Active Directory")
@@ -58,11 +60,12 @@ The objective of this section is to outline how to enable the application integr
    
    ![e-Builder](./media/active-directory-saas-e-builder-tutorial/IC777380.png "e-Builder")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to e-Builder with their account in Azure AD using federation based on the SAML protocol.
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **e-Builder** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configure single sign-on")
@@ -80,16 +83,18 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure single sign-on](./media/active-directory-saas-e-builder-tutorial/IC777385.png "Configure single sign-on")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
 There is no action item for you to configure user provisioning to e-Builder.  
 When an assigned user tries to log into e-Builder using the access panel, e-Builder checks whether the user exists.  
-If there is no user account available yet, it is automatically created by e-Builder.
 
-## Assigning users
+* If there is no user account available yet, it is automatically created by e-Builder.
+
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to e-Builder, perform the following steps:
+**To assign users to e-Builder, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **e-Builder **application integration page, click **Assign users**.
    

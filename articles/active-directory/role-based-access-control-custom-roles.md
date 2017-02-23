@@ -51,9 +51,10 @@ The following is an example of a custom role for monitoring and restarting virtu
 }
 ```
 ## Actions
-The **Actions** property of a custom role specifies the Azure operations to which the role grants access. It is a collection of operation strings that identify securable operations of Azure resource providers. Operation strings that contain wildcards (\*) grant access to all operations that match the operation string. For instance:
+The **Actions** property of a custom role specifies the Azure operations to which the role grants access. It is a collection of operation strings that identify securable operations of Azure resource providers. Operation strings follow the format of `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Operation strings that contain wildcards (\*) grant access to all operations that match the operation string. For instance:
 
 * `*/read` grants access to read operations for all resource types of all Azure resource providers.
+* `Microsoft.Compute/*` grants access to all operations for all resource types in the Microsoft.Compute resource provider.
 * `Microsoft.Network/*/read` grants access to read operations for all resource types in the Microsoft.Network resource provider of Azure.
 * `Microsoft.Compute/virtualMachines/*` grants access to all operations of virtual machines and its child resource types.
 * `Microsoft.Web/sites/restart/Action` grants access to restart websites.

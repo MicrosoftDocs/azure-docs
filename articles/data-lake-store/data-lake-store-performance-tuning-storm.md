@@ -33,7 +33,7 @@ There are a few factors that need to be considered when tuning the performance o
 
 Better performance may be attained by increasing the concurrency of the I/O to and from Azure Data Lake Store.  
 A Storm topology has a set of configurations that determine the parallelism:
-* Number worker processes: The workers are evenly distributed across the VMs.
+* Number of worker processes: The workers are evenly distributed across the VMs.
 * Number of spout executor instances
 * Number of bolt executor instances
 * Number of spout tasks

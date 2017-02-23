@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 
 ---
@@ -32,11 +32,11 @@ We recommend that you keep the number of language variations low, for maintenanc
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
-   
+
    ![Opening user management](./media/active-directory-branding-localize-azure-portal/user-management.png)
 3. On the **Users and groups** blade, select **Company branding**.
 4. On the **Users and groups - Company branding** blade, select the **Add language** command.
-   
+
     ![Add language-specific branding elements](./media/active-directory-branding-localize-azure-portal/add-language.png)
 5. Modify the elements you want to customize. All elements are optional.
 6. Click **Save**.
@@ -45,4 +45,3 @@ It can take up to an hour for any changes you made to the sign-in page branding 
 
 ## Next steps
 [Add company branding to your sign-in page](active-directory-branding-custom-signon-azure-portal.md)
-

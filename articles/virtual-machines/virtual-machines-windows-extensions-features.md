@@ -44,7 +44,7 @@ Each virtual machine extension may have its own set of prerequisites. For instan
 ### Azure VM agent
 The Azure VM agent manages interaction between an Azure virtual machine and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images and can be installed on supported operating systems.
 
-For information on supported operating systems and installation instructions, see [Azure virtual machine agent](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For information on supported operating systems and installation instructions, see [Azure virtual machine agent](virtual-machines-windows-agent-user-guide.md).
 
 ## Discover VM extensions
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure Resource Manager PowerShell module. Make sure to specify the desired location when you're running this command.

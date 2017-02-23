@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/27/2016
+ms.date: 2/2/2017
 ms.author: johnkem
 
 ---
@@ -47,7 +47,7 @@ The storage account or event hub namespace does not have to be in the same subsc
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
 
 * Where the Activity Log should be sent (Storage Account or Event Hubs)
-* Which event categories (Write, Delete, Action) should be sent
+* Which event categories (Write, Delete, Action) should be sent. *Note that the meaning of "category" in the context of the Log Profile is different than the meaning of the "category" property in an Activity Log event. While "category" in the Log Profile represents the operation type (Write, Delete, Action), the "category" property in an Activity Log event represents the source or type of event (Administration, ServiceHealth, Alert, etc).*
 * Which regions (locations) should be exported
 * How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 

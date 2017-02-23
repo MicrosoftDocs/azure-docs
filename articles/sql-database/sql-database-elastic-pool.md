@@ -4,7 +4,7 @@ description: Manage hundreds or thousands of databases using a pool. One price f
 keywords: elastic pool,sql databases
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: ''
 
@@ -13,9 +13,9 @@ ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 02/01/2017
-ms.author: CarlRabeler
+ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---

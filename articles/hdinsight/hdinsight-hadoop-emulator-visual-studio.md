@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 
 ---
@@ -40,6 +40,7 @@ Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get
 ## Connect the tools to the sandbox
 
 1. Open Visual Studio, and select **View**, then **Server Explorer**.
+
 2. From **Server Explorer**, right click the **HDInsight** entry, and then select **Connect to HDInsight Emulator**.
 
     ![Connect to HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)

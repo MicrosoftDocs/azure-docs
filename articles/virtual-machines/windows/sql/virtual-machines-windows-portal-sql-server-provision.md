@@ -13,8 +13,9 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 09/21/2016
+
+ms.workload: infrastructure-services
+ms.date: 02/02/2017
 ms.author: jroth
 
 ---
@@ -43,14 +44,13 @@ In this tutorial, you will:
    > If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
    > 
    > 
-2. On the Azure portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Virtual Machines** group of the Marketplace.
-3. In the **New** blade, click **Virtual Machines**.
-4. To see all the available images, click **See all** on the **Virtual Machines** blade.
-   
-    ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-5. Under **Database servers**, click **SQL Server**. You might have to scroll down to locate **Database servers**. Review the available SQL Server templates.
-   
-    ![Virtual Machine Gallery SQL Images](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+2. On the Azure portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
+3. In the **New** blade, click **Compute** and then click **See all**.
+4. In the **Filter** text box type SQL Server, and press the ENTER key.
+
+   ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+
+5. Review the available SQL Server templates.
 6. Each template identifies a SQL Server version and an operating system. Select one of these images from the list. Then review the details blade that provides a description of the virtual machine image.
    
    > [!NOTE]
@@ -79,7 +79,7 @@ On the **Basics** blade, provide the following information:
 * Specify a **User name** for the local administrator account on the VM. This account is also added to the SQL Server **sysadmin** fixed server role.
 * Provide a strong **Password**.
 * If you have multiple subscriptions, verify that the subscription is correct for the new VM.
-* In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Select existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.).
+* In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Use existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.).
   
   > [!NOTE]
   > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
@@ -213,10 +213,12 @@ When you enable SQL automated backup, you can configure the following:
 * Retention period (days) for backups
 * Storage account to use for backups
 * Encryption option and password for backups
+* Backup system databases
+* Configure backup schedule
 
 To encrypt the backup, click **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate.
 
-![SQL Automated Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![SQL Automated Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
