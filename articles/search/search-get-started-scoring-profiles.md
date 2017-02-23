@@ -31,7 +31,7 @@ The sample application is written in C# using Visual Studio 2013. Try the free [
 
 You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Create a Search service in the portal](search-create-service-portal.md) for help with setting up the service.
 
-[!INCLUDE [You need an Azure account to complete this tutorial:](../../includes/free-trial-note.md)]
+[!INCLUDE [You need an Azure account to complete this tutorial](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
 
