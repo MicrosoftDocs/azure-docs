@@ -52,7 +52,7 @@ The IoT Hub client libraries use the Parson JSON parser to parse message payload
 git clone https://github.com/kgabis/parson.git
 ```
 
-## Specify the behavior of the IoT device
+## Prepare your project
 On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **remote\_monitoring** folder:
 
 - Create the four files **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, and **CMakeLists.txt**.
