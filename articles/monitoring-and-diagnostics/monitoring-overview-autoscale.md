@@ -28,25 +28,24 @@ Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azu
 >
 
 ## What is autoscale?
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources which are sitting idle. You specify a minimum and maximum number of instances to run and add or remove VMs automatically based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum limits your total possible hourly cost. You automatically scale between these two extremes using rules you create.
+Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources that are sitting idle. You specify a minimum and maximum number of instances to run and add or remove VMs automatically based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum limits your total possible hourly cost. You automatically scale between these two extremes using rules you create.
 
  ![Autoscale explained. Add and remove VMs](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
 
-When rule conditions are met, one or more autoscale actions is triggered. You can add and remove VMs, or perform other actions. The following conceptual diagram shows this process.  
+When rule conditions are met, one or more autoscale actions are triggered. You can add and remove VMs, or perform other actions. The following conceptual diagram shows this process.  
 
- ![Conceptual Autoscale Flow Diagram](./media/monitoring-overview-autoscale/Autoscale_Overview_v4.png)
+ ![Autoscale Flow Diagram](./media/monitoring-overview-autoscale/Autoscale_Overview_v4.png)
 
-## Autoscale Process Explained
-The following explanation apply to the pieces of the previous diagram.   
+The following explanation applies to the pieces of the previous diagram.   
 
-### Resource metrics
+## Resource metrics
 Resources emit metrics, which are later processed by rules. Metrics come via different methods.
 VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md).
 
-### Time
+## Time
 Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
 
-### Rules
+## Rules
 The diagram shows only one autoscale rule, but you can have many of them. You can create complex overlapping rules as needed for your situation.  Rule types include  
 
 * **Metric-based** - For example, do this action when CPU usage is above 50%.
@@ -54,12 +53,12 @@ The diagram shows only one autoscale rule, but you can have many of them. You ca
 
 Metric-based rules measure application load and add or remove VMs based on that load. Schedule-based rules allow you to scale when you see time patterns in your load and want to scale before a possible load increase or decrease occurs.  
 
-### Actions and automation
+## Actions and automation
 Rules can trigger one or more types of actions.
 
 * **Scale** - Scale VMs in or out
 * **Email** - Send email to subscription admins, co-admins, and/or additional email address you specify
-* **Automate via webhooks** - Call webhooks, which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example 3rd party URL outside Azure include services like Slack and Twilio.
+* **Automate via webhooks** - Call webhooks, which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example third-party URL outside Azure include services like Slack and Twilio.
 
 ## Autoscale Settings
 Autoscale use the following terminology and structure.
@@ -100,10 +99,10 @@ You can set up autoscale via
 | --- | --- |
 | Web Apps |[Scaling Web Apps](insights-how-to-scale.md) |
 | Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
-| Virtual Machines : Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines : Windows Scale Sets |[Scaling VM Scale Sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines : Linux Scale Sets |[Scaling VM Scale Sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Virtual Machines : Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Virtual Machines: Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Virtual Machines: Windows Scale Sets |[Scaling VM Scale Sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Virtual Machines: Linux Scale Sets |[Scaling VM Scale Sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:

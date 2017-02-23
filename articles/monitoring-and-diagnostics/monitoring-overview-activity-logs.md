@@ -18,7 +18,7 @@ ms.author: johnkem
 
 ---
 # Overview of the Azure Activity Log
-The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or those for resources that use the Classic/"RDFE" model.
+The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model.
 
 The following diagram shows a conceptual view of Azure monitoring, including the type of logs you can collect and what you can do with that data.   
 
@@ -32,7 +32,7 @@ You can retrieve events from your Activity Log using the Azure portal, CLI, Powe
 
 
 > [!WARNING]
-> The Azure Activity Log is primarily for activities that occur in Azure Resource Manager, not those using the Classic/RDFE model. Note that some Classic resource types have a proxy resource provider in Azure Resource Manager (eg. Microsoft.ClassicCompute). If a user interacts with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations will apear in the Activity Log. If a user interacts with a Classic resource type in the Classic portal or otherwise outside of the Azure Resource Manager proxies, user actions will only be recorded in the Operation Log, which is accessible only in the Classic portal.
+> The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track resources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type in the Classic portal or otherwise outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log, which is accessible only in the Classic portal.
 >
 >
 
@@ -49,15 +49,18 @@ Here are some of the things you can do with the Activity Log:
 * Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 
-The storage account or event hub namespace does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+You can use a storage account or event hub namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
 ## Export the Activity Log with Log Profiles
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
 
 * Where the Activity Log should be sent (Storage Account or Event Hubs)
-* Which event categories (Write, Delete, Action) should be sent. *Note that the meaning of "category" in the context of the Log Profile is different than the meaning of the "category" property in an Activity Log event. While "category" in the Log Profile represents the operation type (Write, Delete, Action), the "category" property in an Activity Log event represents the source or type of event (Administration, ServiceHealth, Alert, etc).*
+* Which event categories (Write, Delete, Action) should be sent. *The meaning of "category" in Log Profiles and Activity Log events is different. In the Log Profile, "Category" represents the operation type (Write, Delete, Action). In an Activity Log event, the "category" property represents the source or type of event (for example, Administration, ServiceHealth, Alert, and more).*
 * Which regions (locations) should be exported
-* How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
+* How long the Activity Log should be retained in a Storage Account.
+    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
+    - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
+    - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 

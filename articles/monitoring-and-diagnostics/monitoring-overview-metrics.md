@@ -1,7 +1,7 @@
 
 ---
 title: Overview of metrics in Microsoft Azure | Microsoft Docs
-description: Overview of metrics and their uses in Microsoft Azure
+description: Overview of metrics and their use in Microsoft Azure 
 author: kamathashwin
 manager: carolz
 editor: ''
@@ -37,7 +37,7 @@ Metrics are a valuable source of telemetry and enable you to do the following ta
 Metrics have the following characteristics:
 
 * All metrics have **one-minute frequency**. You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
-* Metrics are **available out-of-the-box. This means you don't need to opt in** or set up additional diagnostics.
+* Metrics are **available immediately**. You don't need to opt in or set up additional diagnostics.
 * You can access **30 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
 
 You can also:
@@ -48,7 +48,7 @@ You can also:
 
 * **Archive** metrics for longer or use them for offline reporting. You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
 
-* **Stream** metrics to an event hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You can do this by using diagnostic settings.
+* **Stream** metrics to an event hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up this streaming using diagnostic settings.
 
 * **Route** all metrics to Log Analytics (OMS) to unlock instant analytics, search, and custom alerting on metrics data from your resources.
 
@@ -117,7 +117,7 @@ Some Azure resources support the scaling out or in of multiple instances to hand
  ![Metrics and Autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## Learn about supported services and metrics
-Azure Monitor is a new metrics infrastructure. It provides support for the following Azure services in the Azure portal and the new version of the Azure Monitor API:
+Azure Monitor is a new metrics infrastructure. It supports the following Azure services in the Azure portal and the new version of the Azure Monitor API:
 
 * VMs (Azure Resource Manager-based)
 * Virtual machine scale sets

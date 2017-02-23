@@ -38,13 +38,13 @@ The following diagram summarizes alerts and what you can do with them in Azure M
 You can receive alerts based on:
 
 * **Metric values**: This alert triggers when the value of a specified metric crosses a threshold that you assign in either direction. That is, it triggers both when the condition is first met and then afterward when that condition is no longer being met.
-* **Activity log events**: This alert can trigger on every event or only when a certain number of events occur.
+* **Activity log events**: This alert can trigger on every event or only when a specific number of events occur.
 
 ## What can Alerts do?
-You can configure an alert to do the following:
+You can configure an alert to do the following actions:
 
 * Send email notifications to the service administrator, to co-administrators, or to additional email addresses that you specify.
-* Call a webhook, which enables you to launch additional automation actions. Examples include call an Azure Automation runbook, Azure Function, Azure Logic App or a 3rd party service. 
+* Call a webhook, which enables you to launch additional automation actions. Examples include call an Azure Automation Runbook, Azure Function, Azure Logic App, or a third-party service.
 
 
 ## Next steps
