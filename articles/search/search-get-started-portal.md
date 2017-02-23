@@ -99,13 +99,13 @@ To monitor data import, go back to the service dashboard, scroll down, and doubl
 ## <a name="query-index"></a> Query the index
 You now have a search index that's ready to query. **Search explorer** is a query tool built into the portal. It provides a search box so that you can verify whether search results are what you expect. 
 
-   ![Search explorer command][5]
-
 > [!TIP]
 > In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138), the following steps are demonstrated at 6m08s into the video.
 >
 
 1. Click **Search explorer** on the command bar.
+
+   ![Search explorer command][5]
 
 2. Click **Change index** on the command bar to switch to *realestate-us-sample*.
 
