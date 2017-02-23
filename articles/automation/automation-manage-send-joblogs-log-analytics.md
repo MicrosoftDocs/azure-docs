@@ -70,7 +70,7 @@ $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
 $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
-Set-AzureRmDiagnosticSetting -ResourceId "AzureAutomation" -WorkspaceId $workspaceId -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
 
 ```
 
