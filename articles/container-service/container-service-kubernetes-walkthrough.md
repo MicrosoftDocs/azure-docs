@@ -23,7 +23,7 @@ ms.author: anhowe
 # Azure Container Service - Kubernetes walkthrough
 
 
-The instructions in this article show how to use the Azure CLI 2.0 (Preview) commands to create a Kubernetes cluster. Then you can use the `kubectl` command-line tool to start working with containers in the cluster.
+The instructions in this article show how to use the Azure CLI 2.0 commands to create a Kubernetes cluster. Then you can use the `kubectl` command-line tool to start working with containers in the cluster.
 
 The following image shows the architecture of a container service cluster with one master and two agents. The master serves the Kubernetes REST API. The agent nodes are grouped in an Azure availability set
 and run your containers. All VMs are in the same private virtual network and are fully accessible to each other.
@@ -31,7 +31,7 @@ and run your containers. All VMs are in the same private virtual network and are
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## Prerequisites
-This walkthrough assumes that you have installed and set up the [Azure CLI v. 2.0 (Preview)](/cli/azure/install-az-cli2). You also must have an SSH RSA public key at `~/.ssh/id_rsa.pub`. If you don't have one, see the steps for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
+This walkthrough assumes that you have installed and set up the [Azure CLI v. 2.0](/cli/azure/install-az-cli2). You also must have an SSH RSA public key at `~/.ssh/id_rsa.pub`. If you don't have one, see the steps for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
 
 
 
@@ -40,7 +40,7 @@ This walkthrough assumes that you have installed and set up the [Azure CLI v. 2.
 
 ## Create your Kubernetes cluster
 
-Here are brief shell commands using the Azure CLI 2.0 (Preview) to create your cluster. For more information, see [Use the Azure CLI 2.0 (Preview) to create an Azure Container Service cluster](container-service-create-acs-cluster-cli.md).
+Here are brief shell commands using the Azure CLI 2.0 to create your cluster. For more information, see [Use the Azure CLI 2.0 to create an Azure Container Service cluster](container-service-create-acs-cluster-cli.md).
 
 ### Create a resource group
 To create your cluster, you first need to create a resource group in a specific location. Run commands similar to the following:

@@ -2,7 +2,7 @@
 title: Learn how to secure access to data in DocumentDB | Microsoft Docs
 description: Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions.
 services: documentdb
-author: kiratp
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2016
-ms.author: kipandya
+ms.date: 02/21/2017
+ms.author: mimig
 
 ---
 # Securing access to DocumentDB data

@@ -3,7 +3,7 @@
 ## [FAQ](container-service-faq.md)
 # Get Started
 ## [Deploy an ACS cluster](container-service-deployment.md)
-## [Deploy to ACS using Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md)
+## [Deploy to ACS using Azure CLI 2.0](container-service-create-acs-cluster-cli.md)
 ## [Connect with an ACS cluster](container-service-connect.md)
 ## [Scale an ACS cluster](container-service-scale.md)
 # How To
@@ -35,7 +35,7 @@
 ### [Docker and Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm continuous integration](container-service-docker-swarm-setup-ci-cd.md)
 # Reference
-## [Azure CLI 2.0 (Preview)](/cli/azure/acs)
+## [Azure CLI 2.0](/cli/azure/acs)
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
