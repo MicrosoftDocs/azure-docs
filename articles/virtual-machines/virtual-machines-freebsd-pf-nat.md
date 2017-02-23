@@ -34,17 +34,16 @@ The Azure Resource Manager template set up a FreeBSD virtual machine that perfor
 1.	Go to [azure template of pf-freebsd-setup](https://azure.microsoft.com/en-us/resources/templates/pf-freebsd-setup/) or [github link for pf-free-setup template](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup).
 2.	Click “Deploy to Azure.”
 3.	It directs you to log in the Azure portal. 
-4.	Once you log in, you are prompted to create or use existing resource group, key in the admin password, Network Prefix, and domain Name Prefix. 
+4.	Once you log in, you are prompted to create or use existing resource group, key in the Admin Password, Network Prefix, and Domain Name Prefix. 
 5.	Make sure checkbox “I agree to the terms and conditions stated above” is selected. 
 6.	Click “Purchase.” 
 
     ![pf_template_setup](./media/virtual-machines-freebsd-pf-nat/pf_template_setup.jpg)
 
-You will see the deployment is kicked off and you can get the NAT firewall and two backend virtual machines act as web servers set up in your resource group after about five minutes. Then you can access Nginx web server using the public IP of front-end VM from a browser.
+You will see the deployment is kicked off and you can get the NAT firewall and two backend virtual machines act as web servers set up in your resource group after about five minutes. Then you can access Nginx web server using the public IP of front-end VM (NAT) from a browser.
 
     ![pf_template_deploy_portal](./media/virtual-machines-freebsd-pf-nat/pf_template_deploy_portal.jpg)
-    
-
+     
 ## Deploy through Powershell
 After [install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/), log in your Azure account. 
 
@@ -52,19 +51,19 @@ After [install and configure Azure PowerShell](https://docs.microsoft.com/en-us/
 
 If you fail to load the login module, follow the instruction to check the details (such as [about_Execution_Policies](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Execution_Policies)).
 
-Then you can create a resource group and deployment the template. 
+Then you can create a resource group and deploy the template.
 
     New-AzureRmResourceGroup -Name <resource-group-name> -Location <location>
     New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json
 
-You are prompted to key in the admin password, Network Prefix, and domain Name Prefix. 
+You will be prompted to key in the Admin Password, Network Prefix, and Domain Name Prefix.
 
 If you want to modify the parameters by yourself, you could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and modify the parameters. Then create below deployment with the “-TemplateParameterFile .\azuredeploy.parameters.json.”  
 
-    wget https://raw.githubusercontent.com/ostclilideng/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.parameters.json -O azuredeploy.parameters.json
+    wget https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.parameters.json -O azuredeploy.parameters.json
     New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 
-After about five minutes, you will get below deployment information. 
+After about five minutes, you will get below deployment information. You can access Nginx web server using the public IP of front-end VM (NAT) from a browser.
 
     DeploymentName          : NATpfdeploy
     ResourceGroupName       : NATpf
@@ -103,12 +102,12 @@ After [install and configure the Azure Cross-Platform Command-Line Interface] (h
     azure group create <my-resource-group> <location>
     azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json
 
-Then you are prompted to key in the admin password, Network Prefix, and domain Name Prefix. 
+Then you will be prompted to key in the Admin Password, Network Prefix, and Domain Name Prefix. 
 If you want to modify the parameters by yourself, you could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and modify the parameters. Then run below command line.
 
     azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json -e .\azuredeploy.parameters.json
 
-After about five minutes, you will get below deployment information.
+After about five minutes, you will get below deployment information. You can access Nginx web server using the public IP of front-end VM (NAT) from a browser.
 
     data:    DeploymentName     : NATpfdeploy
     data:    ResourceGroupName  : NATpf
@@ -137,7 +136,7 @@ After about five minutes, you will get below deployment information.
     data:    _artifactsLocation            String        https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/
     info:    group deployment create command OK
 
-## Next Step
+# Next Step
 Do you want to set up your own NAT in Azure? Open Source, free but secure? Then PF is a good choice. By using [preceding Azure template](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you just need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario.
 
 If you want to learn the offering of FreeBSD in Azure, refer to [introduction to FreeBSD on Azure](./virtual-machines-freebsd-intro-on-azure.md).
