@@ -146,6 +146,8 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
+                        <p><a href="/rest/api/logic/definition-language">Workflow definition langugage</a></p>
+                        <p><a href="/rest/api/logic/actions-and-triggers">Workflow actions and triggers</a></p>
                         <p><a href="/rest/api/logic/">REST API Reference</a></p>
                     </div>
                 </div>
