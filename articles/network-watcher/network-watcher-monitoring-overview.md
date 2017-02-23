@@ -44,9 +44,9 @@ Network Watcher currently has the following capabilities:
 * **[Network subscription limits](#network-subscription-limits)** - Enables you to view network resource usage against limits.
 * **[Configuring Diagnostics Log](#diagnostic-logs)** – Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
 
-### Role-based Access Contral (RBAC) in Network Watcher
+### Role-based Access Control (RBAC) in Network Watcher
 
-Nework watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permission are required by the Network Watcher in Preview. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
+Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permission are required by the Network Watcher in Preview. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
 
 |Resource| Permission|
 |---|---|
@@ -68,7 +68,7 @@ Nework watcher uses the [Azure Role-Based Access Control (RBAC) model](../active
 |Microsoft.Insights/alertRules/ |*|
 |Microsoft.Support/| *|
 
-### Network Subscription Limits
+### Network subscription limits
 
 Network subscription limits provides you with details of the usage of each of the network resource in a subscription in a region against the maximum number of resources available.
 
@@ -94,15 +94,15 @@ Metrics are performance measurements and counters collected over a period of tim
 
 Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub, or Log Analytics. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostic logs, visit [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
 
-Diagnostic logs are available for Load Balancer, Network Security Groups, Routes, and Application Gateway.
+Diagnostic logs are available for [Load Balancer](../load-balancer/load-balancer-monitor-log.md), [Network Security Groups](../virtual-network/virtual-network-nsg-manage-log.md), Routes, and [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
 
-Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view you can enable and disable networking resources convieniently and quickly.
+Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view you can enable and disable networking resources conveniently and quickly.
 
 ![logs][logs]
 
 ### Troubleshooting
 
-The troubleshooting blade, an experience in the portal, is provided on network resources today to diagnose common problems associated with an individual resource. This experience is available for the following network resources - ExpressRoute, VPN Gateway, Application Gateway, Network Security Logs, Routes, DNS, Load Balancer and Traffic Manager. To learn more about resource level troubleshooting, visit [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
+The troubleshooting blade, an experience in the portal, is provided on network resources today to diagnose common problems associated with an individual resource. This experience is available for the following network resources - ExpressRoute, VPN Gateway, Application Gateway, Network Security Logs, Routes, DNS, Load Balancer, and Traffic Manager. To learn more about resource level troubleshooting, visit [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
 
 ![troubleshooting info][TS]
 

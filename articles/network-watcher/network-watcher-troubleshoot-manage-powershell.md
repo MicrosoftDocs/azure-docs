@@ -7,7 +7,7 @@ author: georgewallace
 manager: timlt
 editor: 
 
-ms.assetid: e4d5f195-b839-4394-94ef-a04192766e55
+ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,11 @@ ms.author: gwallace
 ---
 
 # Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher PowerShell
+
+> [!div class="op_single_selector"]
+> - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
+> - [CLI](network-watcher-troubleshoot-manage-cli.md)
+> - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
 
