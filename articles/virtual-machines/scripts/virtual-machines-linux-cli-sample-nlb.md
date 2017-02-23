@@ -26,7 +26,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
-## Create VM with network load balancer
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Quick Create VM")]
 
