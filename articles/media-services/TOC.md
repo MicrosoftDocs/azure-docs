@@ -93,7 +93,7 @@
 ##### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
 ##### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
-### [Create a task that generates fMP4 chunks](media-services-generates-fmp4-chunks.md)
+### [Create a task that generates fMP4 chunks](media-services-generate-fmp4-chunks.md)
 ### Media processors
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
