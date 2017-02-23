@@ -72,7 +72,7 @@ Each link in a VNet peering has the previous set of properties. From the portal,
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. In this example, UserA has administrative permissions to SubscriptionA, and UserB has administrative permissions to SubscriptionB. Both subscriptions must be associated to the same Azure Active Directory tenant.
+2. In this example, UserA has administrative permissions to SubscriptionA, and UserB has administrative permissions to SubscriptionB. Both subscriptions are associated to the same Azure Active Directory tenant. You cannot create a peering between subscriptions associated to different Azure Active Directory tenants.
 3. In the portal, click **Browse**, choose **Virtual networks**. Click the VNet you want to setup peering for.
 4. In the blade for the VNet you selected, click **Access control**, then click **Add**, as shown in the following picture:
 
