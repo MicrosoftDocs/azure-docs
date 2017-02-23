@@ -131,19 +131,22 @@ The `search` parameter is used to input a keyword search for full text search, i
 
 The `&` symbol is used to append search parameters, which can be specified in any order. 
 
-The `$count` parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes in the `$count`. 
+The `$count=true` parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes in the `$count=true`. 
 
 The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
 
 **`search=*&facet=city&$top=2`**
 
-The `facet` parameter returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. The faceted navigation structure is followed by the result set (50 documents, by default). There is no aggregation in Azure Search, but you can get a summary of matches by category with `facet`. `$top=2` brings back two documents.
+`search=*` is an empty search. Empty searches search over everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents.
 
-`search=*` is an empty search. Empty searches return everything. You might use an empty query to get a total document count in your index, or if you want to filter or facet over the complete set of documents, such as all of the cities in index.
+`facet` returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
+
+`$top=2` brings back two documents, illustrating that you can use `top` to both reduce or increase results.
+
 
 **`search=seattle&facet=beds`**
 
-This query is facet for beds, on a text search for *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). Only filterable fields can be facted. Only retrievable fields can be returned.
+This query is facet for beds, on a text search for *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). Only filterable fields can be faceted. Only retrievable fields can be returned.
 
 **`search=seattle&$filter=beds gt 3`**
 
@@ -151,7 +154,7 @@ The `filter` parameter returns results matching the criteria you provided. In th
 
 **`search=granite countertops&highlight=description`**
 
-Hit highlights add formatting to text matching the keyword, given matches found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. In this case, the formatted phrase `"granite countertops"` is easier to see in the description field.
+Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. In this case, the formatted phrase `"granite countertops"` is easier to see in the description field.
 
 **`search=mice&highlight=description`**
 
