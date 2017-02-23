@@ -1,7 +1,7 @@
 
 ---
 title: Overview of metrics in Microsoft Azure | Microsoft Docs
-description: Overview of metrics and their use in Microsoft Azure 
+description: Overview of metrics and their use in Microsoft Azure
 author: kamathashwin
 manager: carolz
 editor: ''
@@ -141,3 +141,4 @@ Refer to the links throughout this article. Additionally, learn about:
 
 * [Common metrics for autoscaling](insights-autoscale-common-metrics.md)
 * [How to create alert rules](insights-alerts-portal.md)
+* [Analyze logs from Azure storage with Log Analytics](../log-analytics/log-analytics-azure-storage.md)

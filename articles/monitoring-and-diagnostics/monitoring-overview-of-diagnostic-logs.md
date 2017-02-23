@@ -223,6 +223,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 
 ## Next Steps
+
 * [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change Diagnostic Settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analyze logs from Azure storage with Log Analytics](../log-analytics/log-analytics-azure-storage.md)
