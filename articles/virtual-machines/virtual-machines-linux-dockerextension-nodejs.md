@@ -1,24 +1,24 @@
 ---
-title: Use the Azure Docker VM extension | Microsoft Docs
-description: Learn how to use the Docker VM extension to quickly and securely deploy a Docker environment in Azure using Resource Manager templates and the Azure CLI 2.0
+title: Use the Azure Docker VM extension with the Azure CLI 1.0 | Microsoft Docs
+description: Learn how to use the Docker VM extension to quickly and securely deploy a Docker environment in Azure using Resource Manager templates.
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
 manager: timlt
 editor: ''
 
-ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/23/2017
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---
-# Create a Docker environment in Azure using the Docker VM extension
-Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). In Azure, there are various ways you can deploy Docker according to your needs. This article focuses on using the Docker VM extension and Azure Resource Manager templates with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0]()
+# Create a Docker environment in Azure using the Docker VM extension with the Azure CLI 1.0
+Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). In Azure, there are various ways you can deploy Docker according to your needs. This article focuses on using the Docker VM extension and Azure Resource Manager templates. 
 
 For more information about the different deployment methods, including using Docker Machine and Azure Container Services, see the following articles:
 
@@ -26,47 +26,103 @@ For more information about the different deployment methods, including using Doc
 * For larger, more stable environments, you can use the Azure Docker VM extension, which also supports [Docker Compose](https://docs.docker.com/compose/overview/) to generate consistent container deployments. This article details using the Azure Docker VM extension.
 * To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md).
 
+## CLI versions to complete the task
+You can complete the task using one of the following CLI versions:
+
+- [Azure CLI 1.0](#azure-docker-vm-extension-overview) – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model 
+
 ## Azure Docker VM extension overview
 The Azure Docker VM extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine (VM). By using the Azure Docker VM extension, you have more control and features than simply using Docker Machine or creating the Docker host yourself. These additional features, such as [Docker Compose](https://docs.docker.com/compose/overview/), make the Azure Docker VM extension suited for more robust developer or production environments.
 
 Azure Resource Manager templates define the entire structure of your environment. Templates allow you to create and configure resources such as the Docker host VMs, storage, Role-Based Access Controls (RBAC), and diagnostics. You can reuse these templates to create additional deployments in a consistent manner. For more information about Azure Resource Manager and templates, see [Resource Manager overview](../azure-resource-manager/resource-group-overview.md). 
 
 ## Deploy a template with the Azure Docker VM extension
-Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). You need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-First, create a resource group with [az group create](/cli/azure/group#create). The following examples creates a resource group named `myResourceGroup` in the `West US` location:
+You need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
 
 ```azurecli
- az group create --name myResourceGroup --location westus
+azure config mode arm
 ```
 
-Next, deploy a VM with [az group deployment create](/cli/azure/group/deployment#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own values for `newStorageAccountName`, `adminUsername`, `adminPassword`, and `dnsNameForPublicIP` as follows:
+Deploy the template using the Azure CLI, specifying the template URI. The following example creates a resource group named `myResourceGroup` in the `WestUS` location. Use your own resource group name and location as follows:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
+azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-It takes a few minutes for the deployment to finish. Once the deployment is finished, [move to next step](#deploy-your-first-nginx-container) to SSH to your VM. 
-
-Optionally, to instead return control to the prompt and let the deployment continue in the background, add the `--no-wait` flag to the preceding command. This process allows you to perform other work in the CLI while the deployment continues for a few minutes. You can then view details about the Docker host status with [az vm show](/cli/azure/vm#show). The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`:
+Answer the prompts to name your storage account, provide a username and password, and provide a DNS name. The output is similar to the following example:
 
 ```azurecli
-az vm show --resource-group myResourceGroup --name myDockerVM \
-  --query [provisioningState] --output tsv
+info:    Executing command group create
++ Getting resource group myResourceGroup
++ Updating resource group myResourceGroup
+info:    Updated resource group myResourceGroup
+info:    Supply values for the following parameters
+newStorageAccountName: mystorageaccount
+adminUsername: ops
+adminPassword: P@ssword!
+dnsNameForPublicIP: mypublicip
++ Initializing template configurations and parameters
++ Creating a deployment
+info:    Created template deployment "azuredeploy"
+data:    Id:                  /subscriptions/guid/resourceGroups/myResourceGroup
+data:    Name:                myResourceGroup
+data:    Location:            westus
+data:    Provisioning State:  Succeeded
+data:    Tags: null
+data:
+info:    group create command OK
 ```
 
-When this command returns `Succeeded`, the deployment has finished and you can SSH to the VM in the following step.
+The Azure CLI returns you to the prompt after only a few seconds, but your Docker host is still being created and configured by the Azure Docker VM extension. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command.
+
+The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:
+
+```azurecli
+azure vm show -g myResourceGroup -n myDockerVM
+```
+
+The output of the `azure vm show` command is similar to the following example:
+
+```azurecli
+info:    Executing command vm show
++ Looking up the VM "myDockerVM"
++ Looking up the NIC "myVMNicD"
++ Looking up the public ip "myPublicIPD"
+data:    Id                              :/subscriptions/guid/resourceGroups/myresourcegroup/providers/Microsoft.Compute/virtualMachines/MyDockerVM
+data:    ProvisioningState               :Succeeded
+data:    Name                            :MyDockerVM
+data:    Location                        :westus
+data:    Type                            :Microsoft.Compute/virtualMachines
+[...]
+data:
+data:    Network Profile:
+data:      Network Interfaces:
+data:        Network Interface #1:
+data:          Primary                   :true
+data:          MAC Address               :00-0D-3A-33-D3-95
+data:          Provisioning State        :Succeeded
+data:          Name                      :myVMNicD
+data:          Location                  :westus
+data:            Public IP address       :13.91.107.235
+data:            FQDN                    :mypublicip.westus.cloudapp.azure.com]
+data:
+data:    Diagnostics Instance View:
+info:    vm show command OK
+```
+
+Near the top of the output, you see the `ProvisioningState` of the VM. When this displays `Succeeded`, the deployment has finished and you can SSH to the VM.
+
+Towards the end of the output, `FQDN` displays the fully qualified domain name of your Docker host. This FQDN is what you use to SSH to your Docker host in the remaining steps.
 
 ## Deploy your first nginx container
-SSH to your new Docker host from your local computer. To view details of your VM, including the DNS name, use `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`.
+Once the deployment has finished, SSH to your new Docker host from your local computer. Enter your own username and FQDN as follows:
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh ops@mypublicip.westus.cloudapp.azure.com
 ```
 
 Once logged in to the Docker host, let's run an nginx container:
@@ -102,7 +158,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
-To see your container in action, open up a web browser and enter the DNS name of your Docker host:
+To see your container in action, open up a web browser and enter the FQDN name of your Docker host:
 
 ![Running ngnix container](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
