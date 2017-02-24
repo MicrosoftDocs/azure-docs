@@ -41,7 +41,7 @@ Our customers want the best SSO experience for their back-end applications, Shar
 
 For on-premises applications that require or use Windows authentication, you can achieve SSO by using the Kerberos authentication protocol and a feature called Kerberos constrained delegation (KCD). KCD, when configured, allows the Application Proxy connector to obtain a windows ticket/token for a user, even if the user hasn’t signed in to Windows directly. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/en-us/library/jj553400.aspx).
 
-To set this up for a SharePoint server, use the procedures in the following sections--in order.
+To set this up for a SharePoint server, use the procedures in the following sequential sections.
 
 ### Ensure that SharePoint is running under a service account
 
@@ -140,54 +140,54 @@ You can verify that the SPN was added by running the Setspn command with the -l 
 
 ### Ensure that the connector is set as a trusted delegate to SharePoint
 
-Configure the KCD so that the Azure AD Application Proxy service is capable of delegating user identities to the SharePoint service. You do this by enabling the Application Proxy connector to be able to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server will pass the context to the target application, or SharePoint in this case.
+Configure the KCD so that the Azure AD Application Proxy service can delegate user identities to the SharePoint service. You do this by enabling the Application Proxy connector to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server will pass the context to the target application, or SharePoint in this case.
 
-To configure the KCD, you will need to repeat the following steps for each connector machine:
+To configure the KCD, repeat the following steps for each connector machine:
 
-1. Login as a domain Administrator to a DC, and then open **Active Directory Users and Computers**.
-2. Find the computer that the connector is running on. In this example, it is the same server SharePoint.
-3. Double-click the computer, and then the **Delegation** tab.
-4. Ensure that the delegations settings are set to **Trust this computer for delegation to the specified services only**, and then select **Use any authentication protocol**.
+1. Log in as a domain administrator to a DC, and then open **Active Directory Users and Computers**.
+2. Find the computer that the connector is running on. In this example, it is the same SharePoint server.
+3. Double-click the computer, and then click the **Delegation** tab.
+4. Ensure that the delegation settings are set to **Trust this computer for delegation to the specified services only**, and then select **Use any authentication protocol**.
 
-  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-delegation-box.png)
+  ![Delegation settings](./media/application-proxy-remote-sharepoint/remote-sharepoint-delegation-box.png)
 
-5. Now you need to add the SPN that you created earlier for the service account. Clicking the **Add** button, then **Users or Computers**, and locate the account you created earlier.
+5. Click the **Add** button, click **Users or Computers**, and locate the service account.
 
-  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-users-computers.png)
+  ![Adding the SPN for the service account](./media/application-proxy-remote-sharepoint/remote-sharepoint-users-computers.png)
 
- You should see a list of SPNs to choose from. You need to add the one that you set above.
-6. Select that item and click **OK**. Click **OK** again to save the change.
+6. In the list of SPNs, select the one that you created earlier for the service account.
+7. Click **OK**. Click **OK** again to save the change.
 
 ## Step 2: Enable remote access to SharePoint
 
 Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're ready to set up single sign-on to SharePoint. Then from the connector, you can publish the SharePoint farm for remote access through Azure AD Application Proxy.
 
-To perform the steps below, you need to be a member of the Global Administrator Role within your organization's Azure Active Directory account.
+To perform the following steps, you need to be a member of the Global Administrator Role in your organization's Azure Active Directory account.
 
-1. Log in to the Azure Management portal https://manage.windowsazure.com and find your Azure AD Tenant.
+1. Sign in to the [Azure portal](https://manage.windowsazure.com) and find your Azure AD tenant.
 2. Click **Applications**, and then click **Add**.
 3. Select **Publish an application that will be accessible from outside your network**. If you don’t see this option, make sure that you have Azure AD Basic or Premium set up in the tenant.
-4. In the resulting box, complete each of the options as follows:
- * **Name**: Any value that you want, for example _SharePoint_.
- * **Internal URL**: This is the URL of the SharePoint site internally, such as https://SharePoint/. In this example, make sure to use https.
- * **Pre-authentication Method**: Select _Azure Active Directory_.
+4. Complete each of the options as follows:
+ * **Name**: Use any value that you want--for example, **_SharePoint_**.
+ * **Internal URL**: This is the URL of the SharePoint site internally, such as **https://SharePoint/**. In this example, make sure to use **https**.
+ * **Pre-authentication Method**: Select **_Azure Active Directory_**.
 
-  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-add-application.png)
+  ![Options for adding an application](./media/application-proxy-remote-sharepoint/remote-sharepoint-add-application.png)
 
 5. After the app is published, click the **Configure** tab.
-6. Scroll down to the option **Translate URL in Headers**. The default value is _YES_, change this to _NO_.
+6. Scroll down to the option **Translate URL in Headers**. The default value is **_YES_**. Change it to **_NO_**.
 
- SharePoint uses the _Host Header_ value to lookup the site, and also generates links based on this value. The net effect is that doing this makes sure that any link SharePoint generates is a published URL that is correctly set to use the external URL. Setting the value to _YES_ also enables the connector to forward the request to the back-end application. However, setting this to _NO_ means that the connector will not send the internal host name, and instead sends the host header as the published URL to the back-end application.
+ SharePoint uses the _Host Header_ value to lookup the site, and also generates links based on this value. The net effect is that doing this makes sure that any link SharePoint generates is a published URL that is correctly set to use the external URL. Setting the value to **_YES_** also enables the connector to forward the request to the back-end application. However, setting this to **_NO_** means that the connector will not send the internal host name, and instead sends the host header as the published URL to the back-end application.
 
  Also, to ensure that SharePoint accepts this URL, you need to complete one more configuration on the SharePoint server. You'll complete this in the next section.
 
-7. Change the **Internal Authentication Method** to _Windows Integrated_. If your Azure AD tenant uses a different UPN in the cloud to the one on-premises, then remember to update the **Delegated Login Identity** as well.
-8. Set the **Internal Application SPN** to the value we set above. For example, _http/sharepoint.demo.o365identity.us_.
-9. You can now assign the application to your target users.
+7. Change the **Internal Authentication Method** to **_Windows Integrated_**. If your Azure AD tenant uses a different UPN in the cloud to the one on-premises, then remember to update the **Delegated Login Identity** as well.
+8. Set the **Internal Application SPN** to the value that you set earlier. For example, use **_http/sharepoint.demo.o365identity.us_**.
+9. Assign the application to your target users.
 
 Your application should look similar to the following:
 
-  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-internal-application-spn.png)
+  ![Finished application](./media/application-proxy-remote-sharepoint/remote-sharepoint-internal-application-spn.png)
 
 ## Step 3: Ensure that SharePoint knows about the external URL
 
@@ -198,17 +198,17 @@ The last step you need to take is to ensure that SharePoint can find the site ba
 
  This opens the **Alternate Access Mappings** box.
 
-  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-alternate-access1.png)
+  ![Alternate Access Mappings box](./media/application-proxy-remote-sharepoint/remote-sharepoint-alternate-access1.png)
 
 3. In the drop-down list beside **Alternative Access Mapping Collections**, select **Change Alternative Access Mapping Collection**.
-4. Select your site, for example **SharePoint – 80**.
+4. Select your site--for example **SharePoint – 80**.
 
-  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-alternate-access2.png)
+  ![Selecting a site](./media/application-proxy-remote-sharepoint/remote-sharepoint-alternate-access2.png)
 
 5. You can choose to add the published URL as either an internal URL or a public URL. This example uses a **public URL** as the extranet.
-6. Click **Edit Public URLs** in the **Extranet** path, and then enter the path that you publish the application, as in the previous step. For example, _https://sharepoint-iddemo.msappproxy.net_.
+6. Click **Edit Public URLs** in the **Extranet** path, and then enter the path that you publish the application, as in the previous step. For example, enter **_https://sharepoint-iddemo.msappproxy.net_**.
 
-  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-alternate-access3.png)
+  ![Entering the path](./media/application-proxy-remote-sharepoint/remote-sharepoint-alternate-access3.png)
 
 7. Click **Save**.
 
