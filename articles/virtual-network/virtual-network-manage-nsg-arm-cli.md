@@ -1,6 +1,6 @@
 ---
-title: Manage NSGs using the Azure CLI 2.0 (Preview) | Microsoft Docs
-description: Learn how to manage existing NSGs using the Azure CLI 2.0 (Preview).
+title: Manage NSGs using the Azure CLI 2.0 | Microsoft Docs
+description: Learn how to manage existing NSGs using the Azure CLI 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: jdial
 
 ---
-# Manage NSGs using the Azure CLI 2.0 (Preview)
+# Manage NSGs using the Azure CLI 2.0
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 
@@ -39,7 +39,7 @@ You can complete the task using one of the following CLI versions:
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## Prerequisite
-If you haven't yet, install and configure the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
+If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
 
 
 ## View existing NSGs
