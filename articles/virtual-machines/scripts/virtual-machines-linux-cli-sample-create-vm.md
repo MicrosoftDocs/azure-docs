@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create a fully configured virtual machine
 
-This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. Once the script has been successfully run the virtual Machine can be accessed over SSH. 
+This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. Once the script has been successfully run, the virtual Machine can be accessed over SSH. 
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 
@@ -55,6 +55,6 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 
-For more information on the Azure CLI see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
