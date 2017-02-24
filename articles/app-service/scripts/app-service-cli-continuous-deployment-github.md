@@ -19,8 +19,7 @@ ms.author: cephalin
 
 # Create a web app with continuous deployment from GitHub
 
-This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, 
-see [Create a web app and deploy code from GitHub](app-service-cli-deploy-github.md).
+This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](app-service-cli-deploy-github.md).
 
 Before running this script, ensure the following:
 
@@ -30,11 +29,11 @@ Before running this script, ensure the following:
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
-## Sample script
+## Create app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-github-continuous/deploy-github-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from GitHub")]
 
-## Clean up deployment 
+## Clean up deployment
 
 After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 

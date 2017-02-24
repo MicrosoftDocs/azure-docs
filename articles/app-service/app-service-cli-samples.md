@@ -18,18 +18,20 @@ ms.date: 02/21/2017
 ms.author: cfowler
 
 ---
-# Azure CLI Samples - bash
+# Azure CLI Samples
 
 The following table includes links to bash scripts built using the Azure CLI.
 
 | | |
-|---|---|
+|-|-|
 |**Create app**||
-| [Create a web app and deploy code from GitHub](./scripts/app-service-cli-deploy-github.md)| Creates an Azure web app and deploys code from a public GitHub repository. |
-| [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)| Creates an Azure web app with continuous publishing from a GitHub repository you own. |
+| [Create a web app with deployment from GitHub](./scripts/app-service-cli-deploy-github.md)| Creates an Azure web app which pulls code from GitHub. |
+| [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)| Creates an Azure web app which continuously deploys code from GitHub. |
+| [Create a web app with continuous deployment from Visual Studio Team Services](./scripts/app-service-cli-continuous-deployment-vsts.md)| Creates an Azure web app which continuously deploys code from Visual Studio Team Services. |
 | [Create a web app and deploy code from a local Git repository](./scripts/app-service-cli-deploy-local-git.md) | Creates an Azure web app and configures code push from a local Git repository. |
 | [Create a web app and deploy code to a staging environment](./scripts/app-service-cli-deploy-staging-environment.md) | Creates an Azure web app with a deployment slot for staging code changes. |
-| [Create an ASP.NET Core web app in a Docker container](./scripts/app-service-cli-linux-docker-aspnetcore.md)| Creates an Azure web app on Linux and loads a Docker image from Docker Hub. |
+| [Create an ASP.NET Core web app in a Docker container from Docker Hub](./scripts/app-service-cli-linux-docker-aspnetcore.md)| Creates an Azure web app on Linux and loads a Docker image from Docker Hub. |
+| [Create an ASP.NET Core web app in a Docker container from Azure Container Registry](./scripts/app-service-cli-linux-acr-aspnetcore.md)| Creates an Azure web app on Linux and loads a Docker image from Azure Container Registry. |
 |**Configure app**||
 | [Map a custom domain to a web app](./scripts/app-service-cli-configure-custom-domain.md)| Creates an Azure web app and maps a custom domain name to it. |
 |**Scale app**||

@@ -28,7 +28,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/connect-to-storage/connect-to-storage.sh "Azure Storage")]
+[!code-azurecli[main](../../../cli_scripts/app-service/connect-to-sql/connect-to-sql.sh?highlight=9-10 "SQL Database")]
 
 ## Clean up deployment 
 
