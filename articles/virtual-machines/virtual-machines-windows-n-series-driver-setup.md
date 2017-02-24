@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/30/2016
+ms.date: 02/23/2017
 ms.author: danlep
 
 ---
 # Set up GPU drivers for N-series VMs
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server, you must install NVIDIA graphics drivers on each VM after deployment. This article is also available for [Linux VMs](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is also available for [Linux VMs](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!NOTE]
+> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website. Use of NVIDIA drivers is subject to the [License for Customer Use of NVIDIA Software](http://www.nvidia.com/content/DriverDownload-March2009/licence.php?lang=us).
+>
 
 
 
@@ -30,17 +33,24 @@ For basic specs, storage capacities, and disk details, see [Sizes for virtual ma
 
 Connect by Remote Desktop to each N-series VM. Download, extract, and install the supported driver for your Windows operating system. 
 
-### NVIDIA GRID drivers for NV VMs
+### NVIDIA Tesla drivers for NC VMs (Tesla K80)
 
-* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836843) (.zip)
 
-* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)
 
-### NVIDIA Tesla drivers for NC VMs
+| OS | Driver version |
+| -------- |------------- |
+| Windows Server 2016 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe) |
+| Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
 
-* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)
 
-* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836842) (.zip)
+### NVIDIA GRID drivers for NV VMs (Tesla M60)
+
+| OS | Driver version |
+| -------- |------------- |
+| Windows Server 2016 | [369.71](https://go.microsoft.com/fwlink/?linkid=836842) (.zip) |
+| Windows Server 2012 R2 | [369.30](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)  |
+
+
 
 
 
@@ -48,7 +58,7 @@ Connect by Remote Desktop to each N-series VM. Download, extract, and install th
 
 On Azure NV VMs, a restart is required after driver installation. On NC VMs, a restart is not required.
 
-You can verify driver installation in Device Manager. The following example shows successful configuration of the K80 card on an Azure NC VM.
+You can verify driver installation in Device Manager. The following example shows successful configuration of the Tesla K80 card on an Azure NC VM.
 
 ![GPU driver properties](./media/virtual-machines-windows-n-series-driver-setup/GPU_driver_properties.png)
 
@@ -62,6 +72,6 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
     * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
 
-* Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can also download and install the [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
+* Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can also download and install the CUDA Toolkit 8 for [Windows Server 2016](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_win10-exe) or [Windows Server 2012 R2](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_windows-exe). For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html).
 
 
