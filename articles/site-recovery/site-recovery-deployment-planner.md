@@ -103,7 +103,7 @@ Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password
  
 			Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
-			Get-virtual machine |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+			Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
 
 5.	Open the output file in Notepad. Copy the names of all virtual machines that you want to profile to another file (say ProfileVMList.txt), one virtual machine name per line. This file will be used as input to the -VMListFile parameter of the command line tool
