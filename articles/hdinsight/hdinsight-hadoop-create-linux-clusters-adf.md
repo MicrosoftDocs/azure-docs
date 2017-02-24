@@ -186,27 +186,30 @@ With the storage account, the input data, and the HiveQL script prepared, you ar
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. The template is located at https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. See the [Data Factory entities in the template](#data-factory-entities-in-the-template) section for detailed information about entities defined in the template. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Enter **DATAFACTORYNAME**, **STORAGEACCOUNTNAME**, and **STORAGEACCOUNTKEY** for the account you created in the last section, and then click **OK**. Data Factory Name must be globally unique.
-3. In **Resource Group**, select the same resource group you used in the last section. 
-4. Click **Legal terms**, and then click **Create/Purchase**. You see a tile on the Dashboard called **Deploying Template deployment**. Wait until the tile text is changed to the resource group name. It usually takes about 20 minutes to create an HDInsight cluster.
-6. Click the tile to open the resource group. Now you shall see one more data factory resource listed in addition to the storage account resource.
-7. Click the name of your data factory (value you specified for the DATAFACTORYNAME parameter).
-8. Click the **Diagram** tile. The diagram shows one activity with an input dataset, and an output dataset:
+2. Select **Use existing** option for the **Resource group** setting, and select the name of the resource group you created in the previous step (using PowerShell script). 
+3. Enter a name for the data factory (**Data Factory Name**). This name must be globally unique.
+4. Enter the **storage account name** and **store account key** you wrote down in the previous step.
+5. Select **I agree to the terms and conditions** stated above after reading through **terms and conditions**.
+6. Select **Pin to dashboard** option. 
+6. Click **Purchase/Create**. You see a tile on the Dashboard called **Deploying Template deployment**. Wait until the **Resource group** blade for your resource group opens. You can also click the tile titled as your resource group name to open the resource group blade. 
+6. Click the tile to open the resource group if the resource group blade is not already open. Now you shall see one more data factory resource listed in addition to the storage account resource.
+7. Click the name of your data factory (value you specified for the **Data Factory Name** parameter).
+8. In the Data Factory blade, click the **Diagram** tile. The diagram shows one activity with an input dataset, and an output dataset:
 
     ![Azure Data Factory HDInsight on-demand Hive activity pipeline diagram](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
     The names are defined in the Resource Manager template.
 9. Double-click **AzureBlobOutput**.
-10. On the **Recent updated slices**, you shall see one slice. If the status is **In progress**, wait until it is changed to **Ready**.
+10. On the **Recent updated slices**, you shall see one slice. If the status is **In progress**, wait until it is changed to **Ready**. It usually takes about **20 minutes** to create an HDInsight cluster. 
 
 ### Check the data factory output
 
 1. Use the same procedure in the last session to check the containers of the adfgetstarted container. There are two new containers in addition to **adfgetsarted**:
 
-   * adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: This container is the default container for the HDInsight cluster. Default container name follows the pattern: `adf<yourdatafactoryname>-linkedservicename-datetimestamp`.
+   * A container with name that follows the pattern: `adf<yourdatafactoryname>-linkedservicename-datetimestamp`. This container is the default container for the HDInsight cluster. 
    * adfjobs: This container is the container for the ADF job logs.
 
-     The data factory output is stored in afgetstarted as you configured in the Resource Manager template.
+     The data factory output is stored in **afgetstarted** as you configured in the Resource Manager template.
 2. Click **adfgetstarted**.
 3. Double-click **partitioneddata**. You see a **year=2014** folder because all the web logs are dated in year 2014.
 
@@ -475,16 +478,17 @@ The pipeline contains one activity, HDInsightHive activity. As both start and en
 ### Delete the blob containers created by on-demand HDInsight cluster
 With on-demand HDInsight linked service, an HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (timeToLive); and the cluster is deleted when the processing is done. For each cluster, Azure Data Factory creates a blob container in the Azure blob storage used as the default stroage account for the cluster. Even though HDInsight cluster is deleted, the default blob storage container and the associated storage account are not deleted. This behavior is by design. As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adfyourdatafactoryname-linkedservicename-datetimestamp`.
 
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) is used to deploy, manage, and monitor your solution as a group.  Deleting a resource group deletes all the components inside the group.  
+Delete the **adfjobs** and **adfyourdatafactoryname-linkedservicename-datetimestamp** folders. The adfjobs container contains job logs from Azure Data Factory. 
 
-### To delete the resource group
+### Delete the resource group
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) is used to deploy, manage, and monitor your solution as a group.  Deleting a resource group deletes all the components inside the group.  
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **Resource groups** on the left pane.
-3. Double-click the resource group name you created in your CLI or PowerShell script. Use the filter if you have too many resource groups listed. It opens the resource group in a new blade.
+3. Click the resource group name you created in your PowerShell script. Use the filter if you have too many resource groups listed. It opens the resource group in a new blade.
 4. On the **Resources** tile, you shall have the default storage account and the data factory listed unless you share the resource group with other projects.
 5. Click **Delete** on the top of the blade. Doing so deletes the storage account and the data stored in the storage account.
-6. Enter the resource group name, and then click **Delete**.
+6. Enter the resource group name to confirm deletion, and then click **Delete**.
 
 In case you don't want to delete the storage account when you delete the resource group, consider the following architecture by separating the business data from the default storage account. In this case, you have one resource group for the storage account with the business data, and the other resource group for the default storage account for HDInsight linked service and the data factory. When you delete the second resource group, it does not impact the business data storage account. To do so:
 
