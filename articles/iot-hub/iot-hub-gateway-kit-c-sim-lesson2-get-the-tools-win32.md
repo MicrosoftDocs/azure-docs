@@ -1,5 +1,5 @@
 ---
-title: Get your host computer and Azure IoT hub ready | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Lesson 2: Get tools (Windows) | Microsoft Docs'
 description: Install the tools and the software on your host computer running Windows, create an IoT hub and register your device in the IoT hub.
 services: iot-hub
 documentationcenter: ''

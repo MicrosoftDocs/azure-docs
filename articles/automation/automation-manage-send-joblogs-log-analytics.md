@@ -1,5 +1,5 @@
 ---
-title: Forward job status and job streams from Automation to Log Analytics (OMS) | Microsoft Docs
+title: Forward Azure Automation job data to OMS Log Analytics | Microsoft Docs
 description: This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/10/2017
+ms.date: 02/24/2017
 ms.author: magoedte
 
 ---
@@ -49,18 +49,30 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 
 ## Set up integration with Log Analytics
 1. On your computer, start **Windows PowerShell** from the **Start** screen.  
-2. Copy and paste the following PowerShell, edit the value for the `$workspaceId` and `$automationAccountId` then run it.
+2. Copy and paste the following PowerShell, and edit the value for the `$workspaceId` and `$automationAccountId`.  For the `-Environment` parameter, valid values are *AzureCloud* or *AzureUSGovernment* depending on the cloud environment you are working in.     
 
 ```powershell
-# if you are not connected to Azure run the next command to login
-Login-AzureRmAccount
+[cmdletBinding()]
+	Param
+	(
+		[Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
+	)
+
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+   }
 
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
 $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
-Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
 
 ```
 
@@ -71,10 +83,22 @@ To see the logs, run the following query:
 
 ### Verify configuration
 To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are set correctly on the Automation account using the following PowerShell:
-```powershell
-# if you are not connected to Azure run the next command to login
-Login-AzureRmAccount
 
+```powershell
+[cmdletBinding()]
+	Param
+	(
+		[Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
+	)
+
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+   }
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 

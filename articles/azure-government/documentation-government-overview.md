@@ -1,20 +1,19 @@
 ---
-title: Azure Government documentation  | Microsoft Docs
+title: Azure Government documentation overview | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: ryansoc
 manager: zakramer
-editor: ''
 
 ms.assetid: 56d84e26-947e-4f3b-8e33-18247f1c7944
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/25/2016
+ms.date: 01/10/2017
 ms.author: ryansoc
 
 ---

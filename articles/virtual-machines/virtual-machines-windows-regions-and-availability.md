@@ -1,5 +1,5 @@
 ---
-title: Regions and availability for Windows VMs | Microsoft Docs
+title: Azure regions and availability for Windows VMs | Microsoft Docs
 description: Learn about the regions and availability features for running Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/10/2017
 ms.author: iainfou
 
 ---

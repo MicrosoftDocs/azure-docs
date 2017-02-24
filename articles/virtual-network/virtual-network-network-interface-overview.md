@@ -1,10 +1,10 @@
 ---
-title: Network interfaces | Microsoft Docs
-description: Learn about Azure network interfaces in Azure Resource Manager.
+title: Network interfaces in Azure | Microsoft Docs
+description: Learn about Azure network interfaces in the Azure Resource Manager deployment model.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -18,7 +18,7 @@ ms.date: 09/23/2016
 ms.author: jdial
 
 ---
-# Network interfaces
+# Network interfaces in Azure
 A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
 
 Microsoft recommends deploying new resources using the Resource Manager deployment model, but you can also deploy VMs with network connectivity in the [classic](virtual-network-ip-addresses-overview-classic.md) deployment model. If you're familiar with the classic model, there are important differences in VM networking in the Resource Manager deployment model. Learn more about the differences by reading the [Virtual machine networking - Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) article.

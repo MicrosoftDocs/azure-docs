@@ -41,7 +41,7 @@ As mentioned before, the set of recommended actions in the Resource health blade
 Once you have logged into the Azure Portal, there are two ways to access the Resource health blade: 
 
 ### Open the Resource blade
-Open the Resource blade for a given resource. On the Settings blade that opens next to the Resource blade, click on Resource Health to open the Resource health blade. 
+Open the Resource blade for a given resource. On the left blade that opens next to the Resource blade, click on Resource Health under Support + Troubleshooting to open the Resource health blade. 
 
 ![Resource health blade](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
@@ -52,7 +52,7 @@ Open the Help and Support blade by clicking on the question mark in the upper ri
 
 ![Help + support](./media/resource-health-overview/HelpAndSupport.png)
 
-Clicking the tile opens the Resource health subscription blade which will list all of the resources in your subscription. Beside each resource, there is an icon indicating its health. Clicking on each resource will open the Resource health blade.
+On the left blade that opens next to the Help + Support blade, click on Resource Health under Support + Troubleshooting. Clicking this opens the Resource health subscription blade which will list all of the resources in your subscription. Beside each resource, there is an icon indicating its health. Clicking on each resource will open the Resource health blade.
 
 **Resource health tile**
 

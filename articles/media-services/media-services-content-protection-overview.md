@@ -1,5 +1,5 @@
 ---
-title: Protecting content overview | Microsoft Docs
+title: Protect your content with Azure Media Services | Microsoft Docs
 description: This articles give an overview of content protection with Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
@@ -86,6 +86,10 @@ The following topics demonstrate how to protect content in storage, deliver dyna
 ### Additional scenarios
 * [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 * [Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
+
+>[!NOTE]
+>A scenario in which you use an external DRM server(technology) and stream from AMS is currently not supported.
+
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Functions Documentation - Tutorials | Microsoft Docs
 description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
+services: functions
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: functions
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Azure Functions Documentation
 
@@ -100,13 +111,3 @@ Learn how to use Functions to develop and deploy small pieces of code in the lan
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Functions Documentation
-        </div>
-    </a>
-</div>

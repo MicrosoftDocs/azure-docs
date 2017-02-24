@@ -1,5 +1,5 @@
 ---
-title: Create your Azure IoT hub and register Adafruit Feather M0 WiFi | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Lesson 2: Register device | Microsoft Docs'
 description: Create a resource group, create an Azure IoT hub, and register Adafruit Feather M0 WiFi in the Azure IoT hub by using the Azure CLI.
 services: iot-hub
 documentationcenter: ''

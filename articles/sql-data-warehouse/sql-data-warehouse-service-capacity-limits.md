@@ -54,7 +54,7 @@ The following tables contain the maximum values allowed for various components o
 ## Loads
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |Bytes per row |32,768<br/><br/>Polybase loads are limited to loading rows both smaller than 32K and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).  While this limit exists today, it will be removed fairly soon.<br/><br/> |
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads are limited to loading rows both smaller than 1MB and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).<br/><br/> |
 
 ## Queries
 | Category | Description | Maximum |

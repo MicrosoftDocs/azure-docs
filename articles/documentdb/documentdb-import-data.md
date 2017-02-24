@@ -428,7 +428,7 @@ To import to a single collection, enter the name of the collection to which data
 2. You can use an abbreviated syntax: collection[3] will emit same set of collections mentioned in step 1.
 3. More than one substitution can be provided. For example, collection[0-1] [0-9] will generate 20 collection names with leading zeros (collection01, ..02, ..03).
 
-Once the collection name(s) have been specified, choose the desired throughput of the collection(s) (400 RUs to 250,000 RUs). For best import performance, choose a higher throughput. For more information about performance levels, see [Performance levels in DocumentDB](documentdb-performance-levels.md). Any import to collections with throughput >10,000 RUs will require a partition key. If you choose to have more than 250,000 RUs, see [Request increased DocumentDB account limits](documentdb-increase-limits.md).
+Once the collection name(s) have been specified, choose the desired throughput of the collection(s) (400 RUs to 250,000 RUs). For best import performance, choose a higher throughput. For more information about performance levels, see [Performance levels in DocumentDB](documentdb-performance-levels.md). Any import to collections with throughput >10,000 RUs will require a partition key. If you choose to have more than 250,000 RUs, you will need to file a request in the portal to have your account increased.
 
 > [!NOTE]
 > The throughput setting only applies to collection creation. If the specified collection already exists, its throughput will not be modified.

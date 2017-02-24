@@ -1,10 +1,10 @@
 ---
-title: Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell | Microsoft Docs
+title: 'Create and modify an ExpressRoute circuit: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 

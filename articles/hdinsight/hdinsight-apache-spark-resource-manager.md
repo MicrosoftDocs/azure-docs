@@ -1,6 +1,6 @@
 ---
-title: Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Docs
-description: Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance.
+title: Manage resources for Apache Spark cluster on Azure HDInsight| Microsoft Docs
+description: Learn how to use manage resources for Spark clusters on Azure HDInsight for better performance.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -18,7 +18,8 @@ ms.date: 01/03/2017
 ms.author: nitinme
 
 ---
-# Manage resources for the Apache Spark cluster on HDInsight Linux
+# Manage resources for Apache Spark cluster on Azure HDInsight 
+
 In this article you will learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You will also learn about how to tune the cluster configuration for optimal performance.
 
 **Prerequisites:**
@@ -26,7 +27,7 @@ In this article you will learn how to access the interfaces like Ambari UI, YARN
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## How do I launch the Ambari Web UI?
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.

@@ -6,17 +6,14 @@
 
 # Get Started
 
-## Create a SQL Data Warehouse
-### [Azure portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
 
 # How To
 
-## Back up and restore
+## Backup and restore
 
 ### [Backup Overview](sql-data-warehouse-backups.md)
 ### [Restore Overview](sql-data-warehouse-restore-database-overview.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Install Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Create
+### [Azure portal](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Develop
 
@@ -78,9 +80,9 @@
 
 ### [Overview](sql-data-warehouse-overview-load.md)
 ### [Sample data](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [BCP from SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)

@@ -1,5 +1,5 @@
 ---
-title: Playback your content  | Microsoft Docs
+title: Use existing players to playback your content - Azure | Microsoft Docs
 description: This topic lists existing players that you can use to playback your content.
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---

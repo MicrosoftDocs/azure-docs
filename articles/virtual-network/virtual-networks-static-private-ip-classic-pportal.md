@@ -1,10 +1,10 @@
 ---
-title: How to set a static private IP in classic mode using the Azure Portal| Microsoft Docs
+title: Set a static private IP address | Azure portal | Classic | Microsoft Docs
 description: Understanding static private IPs and how to manage them in classic mode using the Azure portal
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-service-management
 

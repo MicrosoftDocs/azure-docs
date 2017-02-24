@@ -1,8 +1,8 @@
 ---
-title: Repairing an Export Job | Microsoft Docs
+title: Repairing an Azure Export job | Microsoft Docs
 description: Learn  how to repair an export job that was created and run using the Azure Import-Export Service.
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 
 ---
-# Repairing an Export Job
+# Repairing an export job
 After an export job has completed, you can run the Microsoft Azure Import/Export tool on premise to:  
   
 1.  Download any files that the Azure Import/Export service was unable to export.  
@@ -79,7 +79,7 @@ The copy log file indicates that a failure occurred while the Windows Azure Impo
 ## Using RepairExport to Validate Drive Contents  
 You can also use Azure Import/Export with the **RepairExport** option to validate the contents on the drive are correct. The manifest file on each export drive contains MD5s for the contents of the drive.  
   
-The Azure Import/Export service can also save the manifest files to a storage account during the export process. The location of the manifest files is available via the [Get Job](/rest/api/storageservices/importexport/Get-Job3) operation when the job has completed. See [Import-Export Service Manifest File Format](storage-import-export-file-format-metadata-and-properties.md) for more information about the format of a drive manifest file.  
+The Azure Import/Export service can also save the manifest files to a storage account during the export process. The location of the manifest files is available via the [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation when the job has completed. See [Import-Export Service Manifest File Format](storage-import-export-file-format-metadata-and-properties.md) for more information about the format of a drive manifest file.  
   
 The following example shows how to run the Azure Import/Export tool with the **/ManifestFile** and **/CopyLogFile** parameters:  
   

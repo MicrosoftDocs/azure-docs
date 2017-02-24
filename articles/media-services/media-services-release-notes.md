@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/21/2017
 ms.author: juliako
 
 ---
@@ -31,8 +31,8 @@ These release notes summarize changes from previous releases and known issues.
 | --- | --- |
 | Several common HTTP headers are not provided in the REST API. |If you develop Media Services applications using the REST API, you find that some common HTTP header fields (including CLIENT-REQUEST-ID, REQUEST-ID, and RETURN-CLIENT-REQUEST-ID) are not supported. The headers will be added in a future update. |
 | Percent-encoding is not allowed. |Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension. |
-| The ListBlobs method that is part of the Azure Storage SDK version 3.x fails. |Media Services generates SAS URLs based on the [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) version. If you want to use Azure Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail. |
-| Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code. |For more information, see the description of the 503 HTTP status code in the [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) topic. |
+| The ListBlobs method that is part of the Azure Storage SDK version 3.x fails. |Media Services generates SAS URLs based on the [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/fileservices/Version-2012-02-12) version. If you want to use Azure Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail. |
+| Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code. |For more information, see the description of the 503 HTTP status code in the [Azure Media Services Error Codes](media-services-encoding-error-codes.md) topic. |
 | When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. |You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this](media-services-deliver-content-overview.md#known-issues) section. |
 | Azure Media Services .NET SDK objects cannot be serialized and as a result do not work with Azure Caching. |If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown. |
@@ -40,6 +40,10 @@ These release notes summarize changes from previous releases and known issues.
 
 ## <a id="rest_version_history"></a>REST API Version History
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+## Febuary 2017 Release
+
+Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. If you need to archive the job/task information, you can use the code described [here](media-services-dotnet-manage-entities.md).
 
 ## January 2017 Release
 
@@ -96,6 +100,12 @@ Encoding Reserved Units renamed to reduce confusion with Encoder names.
 The Basic, Standard, and Premium encoding reserved units are renamed to S1, S2, and S3  reserved units, respectively.  Customers using Basic Encoding RUs today will see S1 as the label in Azure Portal (and in the bill), while Standard and Premium will see the labels S2 and S3 respectively. 
 
 ## <a id="dec_changes_15"></a>December 2015 Release
+
+### Azure Media Encoder deprecation announcement
+
+Azure Media Encoder will be deprecated starting in approximately 12 months from the release of Media Encoder Standard.
+
+### Azure SDK for PHP
 The Azure SDK team published a new release of the [Azure SDK for PHP](http://github.com/Azure/azure-sdk-for-php) package that contains updates and new features for Microsoft Azure Media Services. In particular, the Azure Media Services SDK for PHP now supports the latest [content protection](media-services-content-protection-overview.md) features: dynamic encryption with AES and DRM (PlayReady and Widevine) with and without Token restriction. It also supports scaling [Encoding Units](media-services-dotnet-encoding-units.md).
 
 For more information, see:
@@ -196,7 +206,7 @@ The following are some of the customer facing updates:
 
 ## <a id="march_changes_15"></a>March 2015 Release
 ### General Media Services Updates
-* Media Services now provides Azure CDN integration. To support the integration, the **CdnEnabled** property was added to **StreamingEndpoint**.  **CdnEnabled** can be used with REST APIs starting with version 2.9 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx)).  **CdnEnabled** can be used with .NET SDK starting with version 3.1.0.2 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx)).
+* Media Services now provides Azure CDN integration. To support the integration, the **CdnEnabled** property was added to **StreamingEndpoint**.  **CdnEnabled** can be used with REST APIs starting with version 2.9 (for more information, see [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)).  **CdnEnabled** can be used with .NET SDK starting with version 3.1.0.2 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx)).
 * Announcement of **Media Encoder Premium Workflow**. For more information, see [Introducing Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
 
 ## <a id="february_changes_15"></a>February 2015 Release
@@ -218,16 +228,16 @@ This release marked the default Microsoft.WindowsAzure.MediaServices.Client.Cont
 ## <a id="december_changes_14"></a>December 2014 Release
 ### General Media Services Updates
 * Some updates and new features were added to the Azure Indexer Media processor. For more information, see [Azure Media Indexer Version 1.1.6.7 Release Notes](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
-* Added a new REST API that enables you to update encoding reserved units: [EncodingReservedUnitType with REST](http://msdn.microsoft.com/library/azure/dn859236.aspx).
+* Added a new REST API that enables you to update encoding reserved units: [EncodingReservedUnitType with REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype).
 * Added CORS support for key delivery service.
 * Performance improvements of querying authorization policy options were done.
-* In China data center, the [Key Delivery URL](http://msdn.microsoft.com/library/azure/ef4dfeeb-48ae-4596-ab28-44d6b36d8769#get_delivery_service_url) is now per customer (just like in other data centers).
+* In China data center, the [Key Delivery URL](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) is now per customer (just like in other data centers).
 * Added HLS auto target duration. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (FragmentsPerSegment) based on the keyframe interval (KeyFrameInterval ), also referred to as Group of Pictures – GOP, that is received from the Live encoder. For more information, see [Working with Azure Media Services Live Streaming].
 
 ### Media Services .NET SDK Updates
 * [Azure Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) is now version 3.1.0.0.
 * Upgraded the .Net SDK dependency to .NET 4.5 Framework.
-* Added a new API that enables you to update encoding reserved units. For more information, see [Updating Reserved Unit Type and Increasing Encoding RUs using .NET](http://msdn.microsoft.com/library/azure/jj129582.aspx).
+* Added a new API that enables you to update encoding reserved units. For more information, see [Updating Reserved Unit Type and Increasing Encoding RUs using .NET](media-services-dotnet-encoding-units.md).
 * Added JWT (JSON Web Token) support for token authentication. For more information, see [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 * Added relative offsets for BeginDate and ExpirationDate in the PlayReady license template.
 
@@ -498,7 +508,7 @@ The following functionality was new in the November release of the SDK.
 
 <!--- URLs. --->
 [Azure Media Services MSDN Forum]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
-[Azure Media Services REST API Reference]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
+[Azure Media Services REST API Reference]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services Pricing Details]: http://azure.microsoft.com/pricing/details/media-services/
 [Input Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Output Metadata]: http://msdn.microsoft.com/library/azure/dn783217.aspx

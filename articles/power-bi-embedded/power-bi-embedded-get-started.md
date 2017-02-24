@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 
 ---
@@ -38,7 +38,7 @@ Let's walk through the steps to build a **Workspace Collection** using the Azure
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Under **Data + Analytics** click **Power BI Embedded**.
-4. On the **Creation Blade**, enter the required information. For **Pricing**, see [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. On the **Workspace Collection Blade**, enter the required information. For **Pricing**, see [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Click **Create**.
@@ -66,11 +66,15 @@ While two keys are listed, only one key is needed at a particular time. The seco
 
 Now that you have an instance of Power BI for your application, and **Access Keys**, you can import a report into your own app. Before you learn how to import a report, the next section describes creating Power BI datasets and reports to embed into an app.
 
+## Working with workspaces
+
+After you have created your workspace collection, you will need to create a workspace that will house your reports and datasets. To create a workspace, you will need to use the [Post Worksapce REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx).
+
 ## Create Power BI datasets and reports to embed into an app
 Now that you have created an instance of Power BI for your application, and have **Access Keys**, you will need to create the Power BI datasets and reports that you want to embed. Datasets and reports  can be created by using **Power BI Desktop**. You can download [Power BI Desktop for free](https://go.microsoft.com/fwlink/?LinkId=521662). Or, to quickly get started, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
-> To learn more about how to use **Power BI Desktop**, see [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+> To learn more about how to use **Power BI Desktop**, see [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 With **Power BI Desktop**, you connect to your data source by importing a copy of the data into **Power BI Desktop** or connecting directly to the data source using **DirectQuery**.
 

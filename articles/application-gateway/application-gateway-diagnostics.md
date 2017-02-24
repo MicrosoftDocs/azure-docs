@@ -1,5 +1,5 @@
 ---
-title: Monitor access and performance logs and Metrics for Application Gateway | Microsoft Docs
+title: Monitor access, performance logs, backend health, and metrics for Application Gateway | Microsoft Docs
 description: Learn how to enable and manage Access and Performance logs for Application Gateway
 services: application-gateway
 documentationcenter: na
@@ -14,17 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/17/2017
 ms.author: amitsriva
 
 ---
-# Diagnostics Logging and Metrics for Application Gateway
+# Backend health, diagnostics logging and metrics for Application Gateway
 
-Azure provides the capability to monitor resource with logging and metrics
+Azure provides the capability to monitor resources with logging and metrics. Application Gateway provides these capabilities with backend health, logging, and metrics.
+
+[**Backend health**](#backend-health) - Appplication gateway provides the capability to monitor the health of the servers in the backend pools through the portal and through powershell. The health of the backend pools can also be found through the performance diagnostic logs.
 
 [**Logging**](#enable-logging-with-powershell) - Logging allows for performance, access, and other logs to be saved or consumed from a resource for monitoring purposes.
 
 [**Metrics**](#metrics) - Application gateway currently has one metric. This metric measures the throughput of the application gateway in Bytes per second.
+
+## Backend health
+
+Appplication gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and CLI. Aggregated health summary of backend pools can also be found through the performance diagnostic logs. The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the backend can be served traffic to, it is considered healthy, otherwise it is considered unhealthy.
+
+> [!important]
+> If there is a NSG on Application Gateway subnet, port ranges 65503-65534 should be opened on Application Gateway instances.
+
+### View backend health through the portal
+
+There is nothing that is needed to be done to view backend health. In an existing application gateway, navigate to **Monitoring** > **Backend health**. Each member in the backend pool is listed on this page (whether it is a NIC, IP or FQDN). Backend pool name, port, backend http settings name and health status are shown. Valid values for health status are "Healthy", "Unhealthy" and "Unknown".
+
+> [!WARNING]
+> If you see a backend health status as **Unknown**, ensure that the access to backend is not blocked by a Network Security Group (NSG) rule or by a custom DNS in the VNet.
+
+![backend health][10]
+
+### View backend health with PowerShell
+
+Backend health is also available to be retrieved through PowerShell. The following PowerShell code shows how to pull the backend health with the `Get-AzureRmApplicationGatewayBackendHealth` cmdlet.
+
+```powershell
+Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+```
+
+The results are returned, an example of the response is shown in the following snippet.
+
+```json
+{
+"BackendAddressPool": {
+    "Id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/appGatewayBackendPool"
+},
+"BackendHttpSettingsCollection": [
+    {
+    "BackendHttpSettings": {
+        "Id": "/00000000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings"
+    },
+    "Servers": [
+        {
+        "Address": "hostname.westus.cloudapp.azure.com",
+        "Health": "Healthy"
+        },
+        {
+        "Address": "hostname.westus.cloudapp.azure.com",
+        "Health": "Healthy"
+        }
+    ]
+    }
+]
+}
+```
+
+## Diagnostic logging
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and PowerBI. You can learn more about the different types of logs from the following list:
 
@@ -42,7 +97,7 @@ For Logs, there are three different options to choose for storing your logs.
 * Event hubs - Event hubs are a great option for integrating with other SEIM tools to get alerts on your resources
 * Log analytics - Log analytics is best used for general real time monitoring of your application or looking at trends.
 
-## Enable logging with PowerShell
+### Enable logging with PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, see the following steps:
 
@@ -63,9 +118,9 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 > [!TIP] 
 >Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
-## Enable logging with Azure portal
+### Enable logging with Azure portal
 
-### Step 1
+#### Step 1
 
 Navigate to your resource in the Azure portal. Click **Diagnostic logs**. If this is the first time configuring diagnostics the blade looks like the following image:
 
@@ -79,29 +134,29 @@ To start collecting data, click **Turn on diagnostics**.
 
 ![diagnostics setting blade][1]
 
-### Step 2
+#### Step 2
 
 On the **Diagnostics settings** blade, the settings for how the diagnostic logs are set. In this example, Log analytics is used to store the logs. Click **Configure** under **Log Analytics** to configure your workspace. Event hubs and a storage account can be used to save the diagnostics logs as well.
 
 ![diagnostics blade][2]
 
-### Step 3
+#### Step 3
 
 Choose an existing OMS Workspace or create a new one. For this example, an existing one is used.
 
 ![oms workspaces][3]
 
-### Step 4
+#### Step 4
 
 When complete, confirm the settings and click **Save** to save the settings.
 
 ![confirm selection][4]
 
-## Activity log
+### Activity log
 
 This log (formerly known as the "operational log") is generated by Azure by default.  The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and activity  log](../monitoring-and-diagnostics/insights-debugging-with-events.md) article.
 
-## Access log
+### Access log
 
 This log is only generated if you've enabled it on a per Application Gateway basis as detailed in the preceding steps. The data is stored in the storage account you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as seen in the following example:
 
@@ -129,7 +184,7 @@ This log is only generated if you've enabled it on a per Application Gateway bas
 }
 ```
 
-## Performance log
+### Performance log
 
 This log is only generated if you have enabled it on a per Application Gateway basis as detailed in the preceding steps. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
 
@@ -152,7 +207,10 @@ This log is only generated if you have enabled it on a per Application Gateway b
 }
 ```
 
-## Firewall log
+> [!NOTE]
+> Latency is calculated from the time first byte of the HTTP request is received to the time the last byte of the HTTP response is sent. It is sum of Application Gateway processing time plus the network cost to the backend, plus the time taken by the backend to process request.
+
+### Firewall log
 
 This log is only generated if you have enabled it on a per application gateway basis as detailed in the preceding steps. This log also requires that web application firewall is configured on an application gateway. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
 
@@ -176,7 +234,7 @@ This log is only generated if you have enabled it on a per application gateway b
 }
 ```
 
-## View and analyze the activity log
+### View and analyze the activity log
 
 You can view and analyze activity log data using any of the following methods:
 
@@ -202,19 +260,19 @@ To see a list of the current support metrics, visit [Supported metrics with Azur
 
 ![metric view][5]
 
-## Alert rules
+### Alert rules
 
 Alert rules can be started based of on metrics on a resource. This means for application gateway, an alert can call a webhook or email an administrator if the throughput of the application gateway is above, below or at a threshold for a specified period of time.
 
 The following example will walk you through creating an alert rule that sends an email to an administrator after a throughput threshold has been breached.
 
-### Step 1
+#### Step 1
 
 Click **Add metric alert** to start. This blade can also be reached from the metrics blade.
 
 ![alert rules blade][6]
 
-### Step 2
+#### Step 2
 
 In the **Add rule** blade, fill out the name, condition, and notify sections and click **OK** when done.
 
@@ -253,3 +311,4 @@ To understand more about webhooks and how you can use them with alerts, visit [C
 [7]: ./media/application-gateway-diagnostics/figure7.png
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
+[10]: ./media/application-gateway-diagnostics/figure10.png

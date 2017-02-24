@@ -13,11 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/23/2017
 ms.author: curtand
 
 ---
 # Assigning administrator roles in Azure Active Directory
+> [!div class="op_single_selector"]
+> * [Azure portal](active-directory-assign-admin-roles-azure-portal.md)
+> * [Azure classic portal](active-directory-assign-admin-roles.md)
+>
+>
+
 Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. These administrators will have access to various features in the Azure portal or Azure classic portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things. A user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure classic portal, or by using the Azure AD module for Windows PowerShell.
 
 The following administrator roles are available:
@@ -46,6 +52,8 @@ The following administrator roles are available:
   > In Microsoft Graph API, Azure AD Graph API and Azure AD PowerShell, this role is identified as "Helpdesk Administrator".
   >
   >
+* **Power BI service administrator**: Users with this role have global permissions within Microsoft Power BI, when the service is present. More information at [Making It Easier To Administer Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/).
+* **Privileged role administrator**: Users with this role can manage Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md) and update role assignments for other users.
 * **SharePoint service administrator**: Users with this role have global permissions within Microsoft SharePoint Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Service administrator**: Manages service requests and monitors service health.
 
@@ -108,6 +116,17 @@ The global administrator has access to all administrative features. By default, 
 5. Select **Allow** or **Block** to specify whether to allow the user to sign in and access services.
 6. Specify a location from the **Usage Location** drop-down list.
 7. When you have finished, click **Save**.
+
+## Deprecated roles
+
+The following roles should not be used. They been deprecated and will be removed from Azure AD in the future.
+
+* AdHoc License Administrator
+* Email Verified User Creator
+* Device Join
+* Device Managers
+* Device Users
+* Workplace Device Join
 
 ## Next steps
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)

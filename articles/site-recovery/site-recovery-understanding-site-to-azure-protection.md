@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/12/2016
+ms.date: 01/19/2017 
 ms.author: rajanaki
 
 ---

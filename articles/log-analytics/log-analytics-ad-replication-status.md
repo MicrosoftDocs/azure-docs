@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/17/2017
 ms.author: banders
 
 ---
@@ -43,7 +43,7 @@ If you don’t want to connect any of your domain controllers directly to OMS, y
 3. On that computer, set the following registry key:
 
    * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Value: **IsTarge**
+   * Value: **IsTarget**
    * Value Data: **true**
 
    > [!NOTE]

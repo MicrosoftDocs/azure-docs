@@ -1,5 +1,5 @@
 ---
-title: Docker operations on a container registry | Microsoft Docs
+title: Docker images in Azure container registry | Microsoft Docs
 description: Push and pull Docker images to an Azure container registry using the Docker CLI
 services: container-registry
 documentationcenter: ''
@@ -30,7 +30,7 @@ For more background and concepts, see [What is Azure Container Registry?](contai
 > 
 
 ## Prerequisites
-* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI 2.0 Preview](container-registry-get-started-azure-cli.md).
+* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Docker CLI** - To set up your local computer as a Docker host and access the Docker CLI commands, install [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## Log in to a registry

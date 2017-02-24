@@ -18,16 +18,7 @@ ms.author: cephalin
 
 ---
 # Deploy your first PHP web app to Azure in five minutes (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [First HTML site](app-service-web-get-started-html.md)
-> * [First .NET app](app-service-web-get-started-dotnet.md)
-> * [First PHP app](app-service-web-get-started-php.md)
-> * [First Node.js app](app-service-web-get-started-nodejs.md)
-> * [First Python app](app-service-web-get-started-python.md)
-> * [First Java app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 This tutorial helps you deploy your first PHP web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
@@ -57,7 +48,7 @@ You can complete the task using one of the following CLI versions:
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
+> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
 > it for up to an hour--no credit card required, no commitments.
 > 
 > 

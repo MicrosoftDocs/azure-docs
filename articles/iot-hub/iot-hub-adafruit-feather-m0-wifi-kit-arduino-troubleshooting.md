@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Adafruit Feather M0 WiFi Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Arduino (C) to Azure IoT - Troubleshoot | Microsoft Docs'
 description: Troubleshooting page for Adafruit Feather M0 WiFi Arduino experience
 services: iot-hub
 documentationcenter: ''
@@ -71,7 +71,7 @@ When you're installing **pip**, a permission error is thrown when older packages
 If you've successfully provisioned your Azure IoT hub with `azure-cli`, and you need a tool to manage the devices that are connecting to your IoT hub, try the following tools:
 
 ### Device Explorer
-[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer/readme.md) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
+[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
 
 * *Device identity management* to provision and manage devices registered with your IoT hub.
 * *Receive device-to-cloud* so you can monitor messages sent from your device to your IoT hub.
@@ -80,7 +80,8 @@ If you've successfully provisioned your Azure IoT hub with `azure-cli`, and you 
 Configure your `IoT hub connection string` within this tool to use all its capabilities.
 
 ### IoT hub Explorer
-[IoT hub Explorer](https://github.com/Azure/iothub-explorer/blob/master/readme.md) is a sample multiplatform CLI tool to manage device clients. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
+[IoT hub Explorer](https://github.com/Azure/iothub-explorer) is a sample multiplatform CLI tool to manage device clients. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
+
 
 To install the latest (prerelease) version of the iothub-explorer tool, run the following command in your command-line environment:
 

@@ -1,9 +1,9 @@
 ---
-title: Azure CDN Advanced HTTP Reports | Microsoft Docs
-description: Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity.
+title: Analyze usage statistics with Azure CDN advanced HTTP reports | Microsoft Docs
+description: Learn how to create advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
-# Advanced HTTP reports in Microsoft Azure CDN
+# Analyze usage statistics with Azure CDN advanced HTTP reports
 ## Overview
 This document explains advanced HTTP reporting in Microsoft Azure CDN. These reports provide detailed information on CDN activity.
 

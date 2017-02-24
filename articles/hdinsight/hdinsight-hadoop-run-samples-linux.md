@@ -1,6 +1,6 @@
 ---
-title: Run Hadoop MapReduce samples on Linux-based HDInsight | Microsoft Docs
-description: Get started using MapReduce samples with Linux-based HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs.
+title: Run Hadoop MapReduce samples on HDInsight | Microsoft Docs
+description: Get started using MapReduce samples with HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,18 +14,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
 # Run the Hadoop samples in HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Linux-based HDInsight clusters provide a set of MapReduce samples that can be used to familiarize yourself with running Hadoop MapReduce jobs. In this document, you learn about the available samples and walk through running a few of them.
+HDInsight clusters provide a set of MapReduce samples that can be used to familiarize yourself with running Hadoop MapReduce jobs. In this document, you learn about the available samples and walk through running a few of them.
 
 ## Prerequisites
-* **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+
+
 * **A Linux-based HDInsight cluster**: See [Get started using Hadoop with Hive in HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **An SSH client**: For information on using SSH with HDInsight, see the following articles:
   
   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)

@@ -21,7 +21,7 @@ ms.author: sstein
 ---
 # Use C# to create a SQL database with the SQL Database Library for .NET
 
-Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic pools, see [Create an elastic pool](sql-database-elastic-pool-create-csharp.md).
+Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic pools, see [Create an elastic pool](sql-database-elastic-pool-manage-csharp.md).
 
 The Azure SQL Database Management Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -48,9 +48,9 @@ To complete the steps in this article, you need the following:
 To create a SQL database with C#, load the required management libraries (using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. Type `Install-Package Microsoft.Azure.Management.Sql –Pre` to install the latest [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Type `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` to install the [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Type `Install-Package Microsoft.Azure.Common.Authentication –Pre` to install the [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Type `Install-Package Microsoft.Azure.Management.Sql -Pre` to install the latest [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Type `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` to install the [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Type `Install-Package Microsoft.Azure.Common.Authentication -Pre` to install the [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > The examples in this article use a synchronous form of each API request and block until completion of the REST call on the underlying service. There are async methods available.

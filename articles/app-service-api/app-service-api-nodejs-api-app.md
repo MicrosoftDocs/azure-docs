@@ -228,23 +228,29 @@ In this section you create a local Git repository that contains your server code
         git init
    
      ![New Local Git Repo](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Execute the following command to add a Git remote for your API app's repository. 
+3. If you did the first part of this tutorial and copied the `ContactList` folder, the copy likely included the `node_modules` folder. You do not want to include the `node_modules` folder in source control as it is created for you during the deployment process via the `package.json` file and `npm install`. Thus, add a `.gitignore` file by running the following command in the root of your project directory.
+
+         touch .gitignore
+      
+   Open the .gitignore file and add `node_modules` to the first line of the file. You can confirm the `node_modules` folder is being ignored by source control if you run `git status` and do not see the directory in the list. There is a (GitHub project)[https://github.com/github/gitignore/blob/master/Node.gitignore] for recommended files to ignore in a NodeJS project if you want to add more rules.
+ 
+4. Execute the following command to add a Git remote for your API app's repository. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Note**: Replace the string "YOUR_GIT_CLONE_URL_HERE" with your own Git clone URL that you copied earlier. 
-4. Execute the following commands to create a commit that contains all of your code. 
+5. Execute the following commands to create a commit that contains all of your code. 
    
         git add .
         git commit -m "initial revision"
    
     ![Git Commit Output](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Execute the command to push your code to Azure. When you're prompted for a password, enter the one that you created earlier in the Azure portal.
+6. Execute the command to push your code to Azure. When you're prompted for a password, enter the one that you created earlier in the Azure portal.
    
         git push azure master
    
     This triggers a deployment to your API app.  
-6. In your browser, navigate back to the **Deployments** blade for your API app, and you see that the deployment is occurring. 
+7. In your browser, navigate back to the **Deployments** blade for your API app, and you see that the deployment is occurring. 
    
     ![Deployment Happening](media/app-service-api-nodejs-api-app/deployment-happening.png)
    

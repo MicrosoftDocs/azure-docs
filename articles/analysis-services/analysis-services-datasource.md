@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 01/20/2017
 ms.author: owend
 
 ---
@@ -26,13 +26,18 @@ For example; if you have an in-memory or Direct Query data model that connects t
 Or, if you have a DirectQuery model connecting to on-premises data sources, if you use native providers you may see error message: **“Error creating OLE DB row set. Incorrect syntax near 'LIMIT'”**.
 
 ## Data source providers
-The following datasource providers are supported for in-memory or Direct Query data models when connecting to on-premises or cloud data sources:
+The following datasource providers are supported for in-memory or Direct Query data models when connecting to data sources in the cloud or on-premises:
 
-|  | **Datasource** | **In-memory** | **Direct Query** |
-| --- | --- | --- | --- |
-| **Cloud** |Azure SQL Data Warehouse |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server |
+### Cloud
+| **Datasource** | **In-memory** | **Direct Query** |
+|  --- | --- | --- |
+| Azure SQL Data Warehouse |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server |
 | Azure SQL Database |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
-| **On-premises** (via Gateway) |SQL Server |SQL Server Native Client 11.0 |.NET Framework Data Provider for SQL Server |
+
+### On-premises (via Gateway)
+|**Datasource** | **In-memory** | **Direct Query** |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0 |.NET Framework Data Provider for SQL Server |
 | SQL Server |Microsoft OLE DB Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
 | SQL Server |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
 | Oracle |Microsoft OLE DB Provider for Oracle |Oracle Data Provider for .NET | |
@@ -42,7 +47,7 @@ The following datasource providers are supported for in-memory or Direct Query d
 | Analytics Platform System |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
 
 > [!NOTE]
-> Ensure 64-bit providers are installed when using On-Premises Gateway.
+> Ensure 64-bit providers are installed when using On-premises gateway.
 > 
 > 
 

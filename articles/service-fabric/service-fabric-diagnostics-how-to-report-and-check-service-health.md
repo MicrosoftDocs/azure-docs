@@ -104,8 +104,8 @@ The Service Fabric project templates in Visual Studio contain sample code. The f
     if (!result.HasValue)
     {
        var replicaHealthReport = new StatefulServiceReplicaHealthReport(
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
+            this.Context.PartitionId,
+            this.Context.ReplicaId,
             new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error));
         fabricClient.HealthManager.ReportHealth(replicaHealthReport);
     }

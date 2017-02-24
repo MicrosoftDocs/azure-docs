@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 02/07/2017
 ms.author: v-shysun
 
 ---
@@ -34,6 +34,6 @@ You can change the [service tier](sql-database-service-tiers.md) of a standalone
 >
 
 ## Steps to improve database performance with more resources
-1. For standalone databases, you can [change service tiers](sql-database-scale-up.md) on-demand to improve database performance.
+1. For standalone databases, you can [change service tiers](sql-database-service-tiers.md) on-demand to improve database performance.
 2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 

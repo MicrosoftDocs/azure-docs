@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure SQL Database Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn SQL Database, a database-as-a-service in the cloud. Tutorials, videos, and other documentation show how to set up, connect, and manage a relational database.
+services: sql-database
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # SQL Database Documentation
@@ -149,11 +160,4 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download SQL Database Documentation
-        </div>
-    </a>
-</div>
+

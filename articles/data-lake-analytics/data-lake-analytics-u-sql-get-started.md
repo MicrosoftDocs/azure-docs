@@ -350,14 +350,14 @@ Create a database and two tables by using the following script:
                 ClickedUrls     string,
 
                 INDEX sl_idx CLUSTERED (UserId ASC)
-                    PARTITIONED BY HASH (UserId)
+                    DISTRIBUTED BY HASH (UserId)
     );
 
     INSERT INTO SearchLog1 SELECT * FROM master.dbo.Searchlog() AS s;
 
     CREATE TABLE SearchLog2(
         INDEX sl_idx CLUSTERED (UserId ASC)
-                PARTITIONED BY HASH (UserId)
+                DISTRIBUTED BY HASH (UserId)
     ) AS SELECT * FROM master.dbo.Searchlog() AS S; // You can use EXTRACT or SELECT here
 
 

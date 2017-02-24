@@ -27,7 +27,7 @@ There are a broad range of platforms on which the SDK has been tested (see the [
 In this article you'll be introduced to the architecture of the Azure IoT device SDK for C. We'll demonstrate how to initialize the device library, send events to IoT Hub as well as receive messages from it. The information in this article should be enough to get started using the SDK, but also provides pointers to additional information about the libraries.
 
 ## SDK architecture
-You can find the **Azure IoT device SDK for C** in the [Azure IoT SDK for C](https://github.com/azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 The latest version of the libraries can be found in the **master** branch of this repository:
 
@@ -55,13 +55,13 @@ Before you can run the samples in the Azure IoT device SDK for C you must create
 
 If you need to create an instance of Azure IoT Hub on your Azure subscription, follow the instructions [here](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md).
 
-The [readme file](https://github.com/azure/azure-iot-sdk-c) included with the SDK provides instructions for preparing your development environment and obtain device credentials.
+The [readme file](https://github.com/Azure/azure-iot-sdk-c) included with the SDK provides instructions for preparing your development environment and obtain device credentials.
 The following sections include some additional commentary on those instructions.
 
 ### Preparing your development environment
 While packages are provided for some platforms (such as NuGet for Windows or apt_get for Debian and Ubuntu) and the samples use these packages when available, the below instructions detail how to build the library and the samples directly form the code.
 
-First, you'll need to obtain a copy of the SDK from GitHub and then build the source. You should get a copy of the source from the **master** branch of the [GitHub repository](https://github.com/azure/azure-iot-sdk-c).
+First, you'll need to obtain a copy of the SDK from GitHub and then build the source. You should get a copy of the source from the **master** branch of the [GitHub repository](https://github.com/Azure/azure-iot-sdk-c).
 
 When you’ve downloaded a copy of the source, you must complete the steps described in the SDK article ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md).
 
@@ -148,7 +148,7 @@ We'll use this sample application to walk you through what’s required to use t
 
 ### Initializing the library
 > [!NOTE]
-> Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQP on Linux you must initialize the OpenSSL library. The [samples in the GitHub repository](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdk-c) to determine whether you need to include any platform initialization code in your client.
+> Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQP on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdk-c) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdk-c) to determine whether you need to include any platform initialization code in your client.
 > 
 > 
 

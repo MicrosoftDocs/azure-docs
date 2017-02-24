@@ -14,17 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/29/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
 # Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 This article shows you how to initiate failover to a secondary SQL Database using Transact-SQL. To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-transact-sql.md).
 

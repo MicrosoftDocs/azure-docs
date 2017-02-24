@@ -60,7 +60,7 @@ The following diagram highlights the important components in this architecture. 
 >
 >
 
-[![0]][0]
+![[0]][0]
 
 > [!NOTE]
 > For simplicity, this diagram only shows the connections directly related to Azure AD, and does not show protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Azure AD. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
@@ -242,8 +242,7 @@ For more information, see [Azure Active Directory conditional access][aad-condit
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premise network in Azure that you can use to test and experiment. The reference architecture can be deployed with either with Windows or Linux VMs by following the directions below:
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-identity-aad%2Fazuredeploy.json)
+1. Open [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-identity-aad%2Fazuredeploy.json) in a new tab or browser window. The link takes you to the Azure Portal. 
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
 
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-aad-onpremise-rg` in the text box.

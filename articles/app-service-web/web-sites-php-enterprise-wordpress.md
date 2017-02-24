@@ -1,5 +1,5 @@
 ---
-title: Enterprise-class WordPress on Azure App Service | Microsoft Docs
+title: Enterprise-class WordPress on Azure | Microsoft Docs
 description: Learn how to host an enterprise-class WordPress site on Azure App Service
 services: app-service\web
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 10/24/2016
 ms.author: sumuth
 
 ---
-# Enterprise-class WordPress on Azure App Service
+# Enterprise-class WordPress on Azure
 Azure App Service provides a scalable, secure, and easy-to-use environment for mission-critical, large-scale [WordPress][wordpress] sites. Microsoft itself runs enterprise-class sites such as the [Office][officeblog] and [Bing][bingblog] blogs. This article shows you how to use the Web Apps feature of Microsoft Azure App Service to establish and maintain an enterprise-class, cloud-based WordPress site that can handle a large volume of visitors.
 
 ## Architecture and planning
@@ -188,7 +188,7 @@ After the WordPress site has been created or migrated, use the following informa
 * [Tips for WordPress on Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards are required, and there are no commitments.
+> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards are required, and there are no commitments.
 >
 >
 

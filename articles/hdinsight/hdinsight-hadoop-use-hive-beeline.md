@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 
 ---
@@ -25,13 +25,15 @@ In this article, you will learn how to use Secure Shell (SSH) to connect to a Li
 
 > [!NOTE]
 > Beeline uses JDBC to connect to Hive. For more information on using JDBC with Hive, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md).
-> 
-> 
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:
 
 * A Linux-based Hadoop on HDInsight cluster.
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * An SSH client. Linux, Unix, and Mac OS should come with an SSH client. Windows users must download a client, such as [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a id="ssh"></a>Connect with SSH

@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure StorSimple Documentation - Tutorials | Microsoft Docs
 description: Learn how to use Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Azure cloud storage.
+services: storsimple
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storsimple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #StorSimple Documentation
 
@@ -134,11 +145,4 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download StorSimple Documentation
-        </div>
-    </a>
-</div>
+

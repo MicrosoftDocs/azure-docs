@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 01/30/2017
 ms.author: cephalin
 
 ---
@@ -23,28 +23,12 @@ ms.author: cephalin
 
 This article shows you how to manually map a custom domain name to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
 
-Your app already comes with a unique subdomain of azurewebsites.net. For example, if the name of your app is **contoso**, then its domain name is 
-**contoso.azurewebsites.net**. However, you can map a custom domain name to app so that its URL, such
-as `www.contoso.com`, reflects your brand.
+> [!NOTE] 
+> You can always just [buy a custom domain name directly from Azure](custom-dns-web-site-buydomains-web-app.md).
+>
+>
 
-> [!NOTE]
-> Get help from Azure experts on the [Azure forums](https://azure.microsoft.com/support/forums/). 
-> For even higher level of support, go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get Support**.
-> 
-> 
-
-[!INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
-
-## Buy a new custom domain in Azure portal
-If you haven't already purchased a custom domain name, you can buy one and manage it directly in your app's settings in the 
-[Azure portal](https://portal.azure.com). This option makes it easy to map a custom domain to your app, whether your app 
-uses [Azure Traffic Manager](web-sites-traffic-manager-custom-domain-name.md) or not. 
-
-For instructions, see [Buy a custom domain name for App Service](custom-dns-web-site-buydomains-web-app.md).
-
-## Map a custom domain you purchased externally
-If you have already purchased a custom domain from [Azure DNS](https://azure.microsoft.com/services/dns/) or from a third-party provider, 
-there are three main steps to map the custom domain to your app:
+There are three main steps to map the custom domain to your app:
 
 1. [*(A record only)* Get app's IP address](#vip).
 2. [Create the DNS records that map your domain to your app](#createdns). 
@@ -55,7 +39,7 @@ there are three main steps to map the custom domain to your app:
    * **Why**: so your app knows to respond to requests made to the custom domain name.
 4. [Verify DNS propagation](#verify).
 
-### Types of domains you can map
+## Types of domains you can map
 Azure App Service lets you map the following categories of custom domains to your app.
 
 * **Root domain** - the domain name that you reserved with the domain registrar (represented by the `@` host record, typically). 
@@ -65,7 +49,7 @@ Azure App Service lets you map the following categories of custom domains to you
 * **Wildcard domain** - [any subdomain whose leftmost DNS label is `*`](https://en.wikipedia.org/wiki/Wildcard_DNS_record) 
   (e.g. host records `*` and `*.blogs`). For example, **\*.contoso.com**.
 
-### Types of DNS records you can use
+## Types of DNS records you can use
 Depending on your need, you can use two different types of standard DNS records to map your custom domain: 
 
 * [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) - maps your custom domain name to the Azure app's virtual 
@@ -229,45 +213,10 @@ domain name (FQDN) of your custom domain to the list.
 7. Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. 
 8. Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 
-## Migrate an active domain with no downtime 
+## Migrate an active domain name
 
-When you migrate a live site and its domain name to App Service, that domain name is already serving live traffic, and you don't want any downtime in DNS resolution during
-the migration process. In this case, you need to preemptively bind the domain name to your Azure app for domain verification. To do this, follow the modified steps below:
-
-1. First, create a verification TXT record with your DNS registry by following the steps at [Step 2. Create the DNS record(s)](#createdns).
-Your additional TXT record takes on the convention that maps from &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*appname*>.azurewebsites.net.
-See the following table for examples:  
- 
-    <table cellspacing="0" border="1">
-    <tr>
-    <th>FQDN example</th>
-    <th>TXT Host</th>
-    <th>TXT Value</th>
-    </tr>
-    <tr>
-    <td>contoso.com (root)</td>
-    <td>awverify.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    <tr>
-    <td>www.contoso.com (sub)</td>
-    <td>awverify.www.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    <tr>
-    <td>\*.contoso.com (wildcard)</td>
-    <td>awverify.\*.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    </table>
-
-2. Then, add your custom domain name to your Azure app by following the steps at [Step 3. Enable the custom domain name for your app](#enable).
-
-    Your custom domain is now enabled in your Azure app. The only thing left to do is to update the DNS record with your domain registrar.
-
-3. Finally, update your domain's DNS record to point to your Azure app as is shown in [Step 2. Create the DNS record(s)](#createdns). 
-
-    User traffic should be redirected to your Azure app immediately after DNS propagation happens.
+If the domain name you want to map is already in use by an existing website, and you want to avoid downtime, see 
+[Migrate an active custom domain to App Service](app-service-custom-domain-name-migrate.md).
 
 <a name="verify"></a>
 
@@ -285,7 +234,7 @@ After you finish the configuration steps, it can take some time for the changes 
 Learn how to secure your custom domain name with HTTPS by [buying an SSL certificate in Azure](web-sites-purchase-ssl-web-site.md) or [using an SSL certificate from elsewhere](web-sites-configure-ssl-certificate.md).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

@@ -329,7 +329,8 @@ Optional. Specifies the Asset Id of the Media Services Asset which contains the 
 
 
 >[!NOTE] 
->Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
+>Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). This image is used only when the live encoder is inserting a slate due to an ad break, or has been explicitly signaled to insert a slate. The live encoder can also go into a slate mode during certain error conditions – for example if the input signal is lost. There is currently no option to use a custom image when the live encoder enters such an 'input signal lost' state. You can vote for this feature [here](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+
 
 * At most 1920x1080 in resolution.
 * At most 3 Mbytes in size.
@@ -343,7 +344,7 @@ A channel is associated with programs that enable you to control the publishing 
 
 You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
-Each program is associated with an Asset which stores the streamed content. An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as blobs in that container. To publish the program so your customers can view the stream you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
+Each program is associated with an Asset which stores the streamed content. An asset is mapped to a block blob container in the Azure Storage account and the files in the asset are stored as blobs in that container. To publish the program so your customers can view the stream you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
 
 A Channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 

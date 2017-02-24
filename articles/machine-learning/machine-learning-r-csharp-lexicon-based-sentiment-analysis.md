@@ -12,9 +12,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.date: 01/06/2017
 ms.author: pengxia
+
+ROBOTS: NOINDEX, NOFOLLOW
+#To remove completely, uncomment the following metadata
+#redirect_url: https://gallery.cortanaintelligence.com/
 
 ---
 # (deprecated) Lexicon Based Sentiment Analysis

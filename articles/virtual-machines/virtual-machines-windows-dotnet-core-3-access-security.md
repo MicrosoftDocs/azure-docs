@@ -1,5 +1,5 @@
 ---
-title: Access and Security in Azure Resource Manager Templates | Microsoft Docs
+title: Access and security in Azure templates for Windows VMs | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-windows
 documentationcenter: virtual-machines

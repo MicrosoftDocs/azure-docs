@@ -1,20 +1,19 @@
 ---
 title: Azure Government Monitoring + Management | Microsoft Docs
 description: This provides a comparison of features and guidance on developing applications for Azure Government.
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: ryansoc
 manager: zakramer
-editor: ''
 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 1/07/2017
+ms.date: 1/13/2017
 ms.author: ryansoc
 
 ---
@@ -36,14 +35,6 @@ Backup is generally available in Azure Government.
 
 For more information, see [Azure Government Backup](documentation-government-services-backup.md).
 
-### Variations
-The following Backup features are not currently available in Azure Government:
-
-* Azure Resource Manager vaults
-* Management using the Azure portal (the Azure classic portal is supported)
-
-The URLs for Backup are different in Azure Government:
-
 ## Site Recovery
 Site Recovery (ASR) is generally available in Azure Government.
 
@@ -55,14 +46,14 @@ The following Site Recovery features are not currently available in Azure Govern
 * Azure Resource Manager site recovery vaults
 * Email notification
 
-| Site Recovery | Classic | Resource Manager | 
+| Site Recovery | Classic | Resource Manager |
 | --- | --- | --- |
 | VMWare/Physical  | GA | GA |
 | Hyper-V | GA | GA |
 | Site to Site | GA | GA |
 
 >[!NOTE]
->Table applies to US Gov Virginia and US Gov Iowa. 
+>Table applies to US Gov Virginia and US Gov Iowa.
 
 The following URLs for ASR  are different in Azure Government:
 

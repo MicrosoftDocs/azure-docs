@@ -80,6 +80,7 @@ You can find good client information, including steps for installing the differe
   * Windows RT
   * Android tablets
   * iPads
+
     And the phones:
   * iPhone
   * Android Phone

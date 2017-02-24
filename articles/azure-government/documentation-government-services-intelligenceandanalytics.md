@@ -1,15 +1,14 @@
 ---
 title: 'Azure Government Intelligence + Analytics | Microsoft Docs'
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: MeganYount
 manager: zakramer
-editor: ''
 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -22,41 +21,15 @@ ms.author: MeganYount
 This article outlines the intelligence and analytics services, variations, and considerations for the Azure Government environment.
 
 ## Azure HDInsight
-HDInsight is generally available in Azure Government.
+HDInsight on Linux Standard is generally available in Azure Government. You can see a demo on how to build data-centric solutions on Azure Government using HDInsight <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>here</a>.
+
+HDInsight on Linux Premium is coming soon.
 
 ### Variations
 The following HDInsight features are not currently available in Azure Government.
 
 * HDInsight is not available on Windows.
 * Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option at this time.
-* Azure Active Directory Domain Services integration is not yet available. To create secure Hadoop clusters without Active Directory Domain Services, select one of the following setup scenarios:
-
-1. HDINSIGHT INTEGRATED WITH ACTIVE DIRECTORY RUNNING ON AZURE IAAS
-
-  This is by far the simplest architecture for integrating HDInsight with active directory. The architecture diagram is provided below. In this architecture, you will have your active directory domain controller running on a (or multiple) VMs in Azure. Usually these VMs will be within a Virtual network. You can setup a new Virtual network within which you can place your HDInsight cluster. For HDInsight to have a line of sight to the active directory, you will need to peer these virtual networks using [VNET to VNET peering] (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-vnetpeering-arm-portal). 
-  
-  Pre-requisites that need to be setup on active directory
-     * An Organizational unit must be created, within which you want to place the HDInsight cluster VMs and the service principals used by the cluster. 
-     * LDAPS must be setup for communicating with the active directory. The certificate used to setup LDAPS must be a real certificate (not a self-signed certificate).
-     * Reverse DNS zones must be created on the domain for the IP address range of the HDI Subnet.
-     * A service account, or a user account is needed, which will be used to create the HDInsight cluster. This account must have the following permissions
-        * Permissions to create service principal objects and machine objects within the organizational unit.
-        * Permissions to create reverse DNS proxy rules.
-        * Permissions to join machines to the active directory domain.
-        
-2. HDINSIGHT INTEGRATED WITH AN ON-PREMISES ACTIVE DIRECTORY VIA VPN SETUP
-  
-  This architecture is like the architecture #1. The only difference is that in this case, your active directory is on-premises and the line of sight for HDInsight to active directory is via a [VPN connection from Azure to on-premises network] (https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction). The architecture diagram for this setup is shown below. 
-  
-  Pre-requisites that need to be setup on the on-premises active directory
-     * An Organizational unit must be created, within which you want to place the HDInsight cluster VMs and the service principals used by the cluster.
-     * LDAPS must be setup for communicating with the active directory. The certificate used to setup LDAPS must be a real certificate (not a self-signed certificate).
-     * Reverse DNS zones must be created on the domain for the IP address range of the HDI Subnet.
-     * A service account, or a user account is needed, which will be used to create the HDInsight cluster. This account must have the following permissions
-        * Permissions to create service principal objects and machine objects within the organizational unit.
-        * Permissions to create reverse DNS proxy rules.
-        * Permissions to join machines to the active directory domain.
-
 
 The URLs for Log Analytics are different in Azure Government:
 
@@ -66,6 +39,19 @@ The URLs for Log Analytics are different in Azure Government:
 
 For more information, see [Azure HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
 
+## Power BI
+Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/> here</a>. 
+You can see a demo on how to build data-centric solutions on Azure Government using Power BI <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>here</a>.
+
+Power BI Embedded is coming soon.
+
+### Variations
+
+The URLs for Power BI are different in US Government:
+
+| Service Type | Power BI Commercial | Power BI US Government |
+| --- | --- | --- |
+| Power BI URL | app.powerbi.com | app.powerbigov.us |
 
 ## Next Steps
 For supplemental information and updates subscribe to the

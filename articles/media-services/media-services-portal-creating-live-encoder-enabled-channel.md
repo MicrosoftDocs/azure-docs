@@ -21,7 +21,7 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 

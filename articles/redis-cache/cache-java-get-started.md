@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 
 ---
@@ -50,6 +50,10 @@ The latest builds of [jedis](https://github.com/xetorthio/jedis) provide support
     JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
+> [!NOTE]
+> The non-SSL port is disabled for new Azure Redis Cache instances. If you are using a different client that doesn't support SSL, see [How to enable the non-SSL port](cache-configure.md#access-ports).
+> 
+> 
 
 ## Add something to the cache and retrieve it
     package com.mycompany.app;

@@ -1,6 +1,6 @@
 ---
-title: Create an VM availability set | Microsoft Docs
-description: Learn how to create an availability set for your virtual machines using Azure portal or PowerShell using the Resource Manager deployment model.
+title: Create a VM availability set in Azure | Microsoft Docs
+description: Learn how to create a managed availability set or unmanaged availability set for your virtual machines using Azure PowerShell or the portal in the Resource Manager deployment model.
 keywords: availability set
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: cynthn
 
 ---
 # Create an availability set
-When using the portal, if you want your VM to be part of an availability set, you need to create the availability set first.
+Availiability sets provide redundancy to your application. We recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+
+> [!IMPORTANT]
+> VMs must be created in the same resource group as the availability set.
+> 
+
+If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. If your VM will be using Managed Disks, the availability set must be created as a managed availability set.
 
 For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -39,24 +45,46 @@ For more information about creating and using availability sets, see [Manage the
    * **Subscription** - select the subscription to use if you have more than one.
    * **Resource group** - select an existing resource group by clicking the arrow and selecting a resource group from the drop down. You can also create a new resource group by typing in a name. The name can contain any of the following characters: letters, numbers, periods, dashes, underscores and opening or closing parenthesis. The name cannot end in a period. All of the VMs in the availability group need to be created in the same resource group as the availability set.
    * **Location** - select a location from the drop-down.
-4. When you are done entering the information, click **Create**. Once the availability group has been created, you can see it in the list after you refresh the portal.
+   * **Managed** - select *Yes* to create a managed availability set to use with VMs that use Managed Disks for storage. Select **No** if the VMs that will be in the set use unmanaged disks in a storage account.
+   
+4. When you are done entering the information, click **Create**. 
 
 ## Use the portal to create a virtual machine and an availability set at the same time
-If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set.
+If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set. If you choose to use Managed Disks for your VM, a managed availability set will be created.
 
 ![Screenshot that shows the process for creating a new availability set while you create the VM.](./media/virtual-machines-windows-create-availability-set/new-vm-avail-set.png)
 
-## Add a new VM to an existing availability set
+## Add a new VM to an existing availability set in the portal
 For each additional VM that you create that should belong in the set, make sure that you create it in the same **resource group** and then select the existing availability set in Step 3. 
 
 ![Screenshot showing how to select an existing availability set to use for your VM.](./media/virtual-machines-windows-create-availability-set/add-vm-to-set.png)
 
 ## Use PowerShell to create an availability set
-This example creates an availability set in the **RMResGroup** resource group in the **West US** location. This needs to be done before you create the first VM that will be in the set.
+This example creates an availability set named **myAvailabilitySet** in the **myResourceGroup** resource group in the **West US** location. This needs to be done before you create the first VM that will be in the set.
 
-    New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "West US"
+Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
 
-For more information, see [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
+
+If you are using managed disks for your VMs, type:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+	-Name "myAvailabilitySet" -Location "West US" -managed
+```
+
+If you are using your own storage accounts for your VMs, type:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+	-Name "myAvailabilitySet" -Location "West US" 
+```
+
+For more information, see [New-AzureRmAvailabilitySet](/powershell/new-azurermavailabilityset).
 
 ## Troubleshooting
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.

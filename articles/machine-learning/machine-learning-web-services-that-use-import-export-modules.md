@@ -1,5 +1,5 @@
 ---
-title: Deploying Azure ML web services that use Data Import and Data Export modules | Microsoft Docs
+title: Using Import/Export Data in Azure Machine Learning web services | Microsoft Docs
 description: Learn how to use the Import Data and Export Data modules to send and receive data from a web service.
 services: machine-learning
 documentationcenter: ''

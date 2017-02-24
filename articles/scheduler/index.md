@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Scheduler Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Scheduler to schedule and invoke jobs such as recurring application actions and routine maintenance. Tutorials, API references, and more.
+services: scheduler
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: scheduler
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Scheduler Documentation
 
@@ -93,11 +104,4 @@ Learn how to use Scheduler to schedule and automatically invoke recurring jobs i
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Scheduler Documentation
-        </div>
-    </a>
-</div>
+

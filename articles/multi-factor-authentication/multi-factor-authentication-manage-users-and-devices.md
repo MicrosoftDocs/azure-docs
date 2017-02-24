@@ -1,11 +1,11 @@
 ---
-title: Azure Multi-Factor Authentication Reports
+title: Admins manage users and devices - Azure MFA | Microsoft Docs
 description: This describes how to change user settings such as forcing the users to do the proof-up process again.
 documentationcenter: ''
 services: multi-factor-authentication
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 
 ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 02/23/2017
 ms.author: kgremban
 
 ---
@@ -22,7 +22,7 @@ As an administrator, you can manage the following user and device settings.
 
 * [Require selected users to provide contact methods again](#require-selected-users-to-provide-contact-methods-again)
 * [Delete users existing app passwords](#delete-users-existing-app-passwords)
-* [Restore MFA on all suspended devices for a user](#restore-mfa-on-all-suspended-devices-for-a-user)
+* [Restore MFA on all remembered devices for a user](#restore-mfa-on-all-remembered-devices-for-a-user)
 
 This is helpful if a computer or device is lost or stolen or you need to remove a users access.
 
@@ -73,4 +73,3 @@ Administrators have the ability to restore Multi-Factor Authentication on users 
    ![Delete app passwords](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png)
 9. Click save.
 10. Click close.
-

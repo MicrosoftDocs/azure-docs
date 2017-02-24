@@ -68,7 +68,7 @@ To get started by deploying sample code to a new web app in App Service, follow 
 > 
 
 > [!NOTE]
-> You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
+> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
 > it for up to an hour--no credit card required, no commitments.
 > 
 > 
