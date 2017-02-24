@@ -31,42 +31,35 @@ Before you set up continuous export, there are some alternatives you might want 
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md). 
 
-## Create a storage account
-If you don't already have a "classic" storage account, create one now.
-
-1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
-   
-    ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
-2. Create a container.
-   
-    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-telemetry/040.png)
-
-If you create the storage in a region that is different from your Application Insights resource, there may be [charges for data transfer](https://azure.microsoft.com/pricing/details/bandwidth/).
-
-## <a name="setup"></a> Set up Continuous Export
-On your application's Overview blade in the Application Insights portal, open Continuous Export: 
+## <a name="setup"></a> Create a Continuous Export
+In the Application Insights resource for your app, open Continuous Export and choose **Add**: 
 
 ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
-Add a continuous export, and choose the event types you'd like to export:
+Choose the telemetry data types you want to export.
+
+Create or select an [Azure storage account](../storage/storage-introduction.md) where you want to store the data. 
+
+> [!Warning]
+> By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
 
 ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
 
-Choose or create the [Azure storage account](../storage/storage-introduction.md) where you want to store the data:
+Create or select a container in the storage:
 
-![Click Choose event types](./media/app-insights-export-telemetry/03-types.png)
+![Click Choose event types](./media/app-insights-export-telemetry/create-container.png)
 
-Once you've created your export, it starts going. (You only get data that arrives after you create the export.) 
+Once you've created your export, it starts going. You only get data that arrives after you create the export. 
 
-There can be a delay of about an hour before data appears in the blob.
+There can be a delay of about an hour before data appears in the storage.
 
 If you want to change the event types later, just edit the export:
 
 ![Click Choose event types](./media/app-insights-export-telemetry/05-edit.png)
 
-To stop the stream, click Disable. When you click Enable again, the stream will restart with new data. You won't get the data that arrived in the portal while export was disabled.
+To stop the export, click Disable. When you click Enable again, the export will restart with new data. You won't get the data that arrived in the portal while export was disabled.
 
-To stop the stream permanently, delete the export. Doing so doesn't delete your data from storage.
+To stop the export permanently, delete it. Doing so doesn't delete your data from storage.
 
 #### Can't add or change an export?
 * To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights. [Learn about roles][roles].
@@ -78,10 +71,10 @@ Data that has been discarded by [sampling](app-insights-sampling.md) is not incl
 
 Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
-The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) you have set up. 
+The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) that you have set up. 
 
 > [!NOTE]
-> **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+> **Sampling.** If your application sends a lot of data, the sampling feature may operate and send only a fraction of the generated telemetry. [Learn more about sampling.](app-insights-sampling.md)
 > 
 > 
 
