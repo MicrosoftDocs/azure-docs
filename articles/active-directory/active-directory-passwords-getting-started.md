@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 02/23/2017
 ms.author: asteen
 
 ---
@@ -75,10 +75,12 @@ To configure user password reset policy, complete the following steps:
 4. Click the **Configure** tab.
 
    ![][003]
-5. Under the **Configure** tab, scroll down to the **user password reset policy** section.  This is where you configure every aspect of user password reset policy for a given directory.  
+
+5. Under the **Configure** tab, scroll down to the **user password reset policy** section.  This is where you configure every aspect of user password reset policy for a given directory. *If you do not see the Configure tab, make sure that you have signed up for Azure Active Directory Premium or Basic and **assigned a license** to the administrator account that is configuring this feature.*  
 
    > [!NOTE]
-   > This **policy applies only to end users in your organization, not administrators**. For security reasons, Microsoft controls the password reset policy for administrators. If you do not see this section, make sure that you have signed up for the Azure Active Directory Premium or Basic and **assigned a license** to the administrator account that is configuring this feature.
+   > **The policy you set only applies to end users in your organization, not administrators**. For security reasons, Microsoft controls the password reset policy for administrators. The current policy for administrators requires two challenges -  Mobile Phone and Email Address.
+
    >
    >
 
@@ -94,6 +96,11 @@ To configure user password reset policy, complete the following steps:
    >
 
    ![][006]
+
+   > [!NOTE]
+   > **The policy you set only applies to end users in your organization, not administrators**. For security reasons, Microsoft controls the password reset policy for administrators. The current policy for administrators requires two challenges -  Mobile Phone and Email Address.
+   >
+   >
 
 ### Step 2: Add contact data for your test user
 You have several options on how to specify data for users in your organization to be used for password reset.
