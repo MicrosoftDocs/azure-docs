@@ -49,25 +49,11 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 
 1. When you finish the monitoring configuration, select **Save**.
 
-You should start seeing monitoring data on the storage account blade and the **Metrics** blade of the services you selected to monitor after about an hour. A default set of metrics is displayed in charts for each service. You can select **Edit** on a metrics chart to configure which metrics are displayed in the chart.
+You should start seeing monitoring data in the charts on the storage account blade and the **Metrics** blade of the services you selected to monitor after about an hour. A default set of metrics is displayed in charts for each service. You can select **Edit** on any metrics chart to configure which metrics are displayed in the chart.
 
 > [!NOTE]
 > Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see [How metrics are stored](storage-analytics.md#how-metrics-are-stored).
 >
-
-## How to: Customize the dashboard for monitoring
-
-You can configure the metrics charts on your storage account dashboard to display metrics for your storage services.
-
-1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
-2. To change the metrics that are plotted on the chart, take one of the following actions:
-   
-   * To add a new metric to the chart, click the colored check box next to the metric header in the table below the chart.
-   * To hide a metric that is plotted on the chart, clear the colored check box next to the metric header.
-     
-       ![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
-3. By default, the chart shows trends, displaying only the current value of each metric (the **Relative** option at the top of the chart). To display a Y axis so you can see absolute values, select **Absolute**.
-4. To change the time range the metrics chart displays, select 6 hours, 24 hours, or 7 days at the top of the chart.
 
 ## How to: Customize the Monitor page
 
@@ -109,11 +95,27 @@ Use the following procedures to choose which storage metrics to view in the metr
    
     ![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
-## How to: Customize the metrics chart on the Monitor page
+## How to: Customize metrics charts
 
 1. On the **Monitor** page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the chart, clear the check box.
 2. To switch the chart between relative values (final value only displayed) and absolute values (Y axis displayed), select **Relative** or **Absolute** at the top of the chart.
 3. To change the time range the metrics chart displays, select **6 hours**, **24 hours**, or **7 days** at the top of the chart.
+
+## How to: Add metrics to your portal dashboard
+
+You can add Azure Storage metrics charts for any of your storage accounts to your portal dashboard.
+
+1. Select click **Edit dashboard** while viewing your dashboard in the [Azure portal](https://portal.azure.com).
+1. In the **Tile Gallery**, select **Find tiles by** > **Type**.
+1. Select **Type** > **Storage accounts**.
+1. In **Resources**, select the storage account whose metrics you wish to add to the dashboard.
+1. Select **Categories** > **Monitoring**.
+1. Drag-and-drop the chart tile onto your dashboard for the metric you'd like displayed. Repeat for all metrics you'd like displayed on the dashboard. In the following image, the "Blobs - Total requests" is highlighted as an example, but all of the charts are available for placement on your dashboard.
+1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
+
+   ![Selecting a metrics chart to add to the portal dashboard](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
+
+Once you've added charts to your dashboard, you can further customize them as described in [How to: Customize metrics charts](#how-to-customize-metrics-charts).
 
 ## How to: Configure logging
 
