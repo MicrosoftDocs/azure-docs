@@ -282,7 +282,7 @@ Every item in a search result set is assigned a relevance score, then ranked hig
 
 Scoring is part of full text search that includes analysis. Given a full text search query, you cannot turn off scoring.
 
-Scoring is not applied in unspecified queries (search=*) or in specialized query types that bypass analysis. Specifically, wildcard search, prefix, regex, and fuzzy search queries are routed through an internal query rewriting process and thus return constant scores of 1.0.  Whenever you see a constant of 1.0, you know that scoring was not applied. http://stackoverflow.com/questions/41379079/lucene-documents-scoring-ranking-with-regex-query  
+Scoring is not applied in unspecified queries (search=*) or in specialized query types that bypass analysis. Specifically, wildcard search, prefix, regex, and fuzzy search queries are routed through an internal query rewriting process and thus return constant scores of 1.0. Whenever you see a constant of 1.0, you know that scoring was not applied. 
 
 > [!Note]
 > Although scoring is not used for full-syntax-only query types (such as wildcard, fuzzy, prefix, regex searches), you can use field or tag boosting to customize rank scores. For more information, see [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
@@ -296,19 +296,15 @@ The example is meant to illustrate a range of scores. The highest score in this 
 
  ![scoring example on realestate index][5]
 
- In the results, which you can see if you run the query without the `&$select=listingID` parameter, the two highest ranking documents have a street address of *Waters Avenue South*. Different scores for the two highest ranked documents exist because of variations in the documents themselves. The description is shorter for the first document, which gives more weight to the matching term.
+In the full results, which you can see if you run the query without the `$select=listingID` parameter, the two highest ranking documents have a street address of *Waters Avenue South*. Different scores for the two highest ranked documents exist because of variations in the documents themselves. Specifically, the description is shorter for the first document, which gives more weight to the matching term.
 
- The remaining documents have identical search scores of 0.5567084. This is because the description is mostly the same for all documents (all have *water frontage* in the description. Descriptions in the sample dataset include generated strings that are reused multiple times).
+All remaining documents have identical search scores of 0.5567084. This is because the description is mostly the same for all documents (*water frontage* in virtually identical descriptions). Descriptions in the sample dataset include generated strings that are reused multiple times.
 
-### Search score computation
+### Search score computation and ranking
 
 The score is computed based on statistical properties of the data and the query, with the scoring formula derived from [TF-IDF (term frequency-inverse document frequency)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Base relevance is computed using term frequencies, but proximity of terms (within the same document, or across different documents) are also factors.  
 
-### Ranking
-
 Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 0.9, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first. 
-
-Also, the score value is not normalized, the score values represent the relative relevance of documents and can't be compared across queries. 
 
 ## Next steps
 
