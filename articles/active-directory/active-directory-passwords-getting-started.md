@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/23/2017
+ms.date: 02/23/2017
 ms.author: asteen
 
 ---
@@ -26,7 +26,7 @@ ms.author: asteen
 
 Enabling your users to manage their own cloud Azure Active Directory or on-premises Active Directory passwords takes just a few simple steps. After ensuring that you've met a few simple prerequisites, you'll have password change and reset enabled for your entire organization before you know it. This article will walk you through the following concepts:
 
-* [**How to enable users to reset their cloud Azure Active Directory passwords**](#enable-users-to-reset-their-azure-ad-passwords)
+* [**How to enable users to reset their Azure Active Directory passwords**](#enable-users-to-reset-their-azure-ad-passwords)
   * [Self-service password reset prerequisites](#prerequisites)
   * [Step 1: Configure password reset policy](#step-1-configure-password-reset-policy)
   * [Step 2: Add contact data for your test user](#step-2-add-contact-data-for-your-test-user)
@@ -75,10 +75,12 @@ To configure user password reset policy, complete the following steps:
 4. Click the **Configure** tab.
 
    ![][003]
+
 5. Under the **Configure** tab, scroll down to the **user password reset policy** section.  This is where you configure every aspect of user password reset policy for a given directory. *If you do not see the Configure tab, make sure that you have signed up for Azure Active Directory Premium or Basic and **assigned a license** to the administrator account that is configuring this feature.*  
 
    > [!NOTE]
    > **The policy you set only applies to end users in your organization, not administrators**. For security reasons, Microsoft controls the password reset policy for administrators. The current policy for administrators requires two challenges -  Mobile Phone and Email Address.
+
    >
    >
 
@@ -344,11 +346,9 @@ Now that Password Writeback has been enabled, you can test that it works by rese
 
    ![][031]
 
-<br/>
-<br/>
-<br/>
 
-## Links to password reset documentation
+
+## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
 * **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
