@@ -1,6 +1,6 @@
 ---
 title: What is Azure Backup? | Microsoft Docs
-description: Using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows computers, System Center DPM servers and Azure virtual machines.
+description: Using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers and workstations, System Center DPM servers and workloads, and Azure virtual machines.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 2/23/2017
 ms.author: markgal;trinadhk
 
 ---
@@ -134,8 +134,6 @@ The Backup vault is the preferred storage target across all components. System C
 #### Compression
 Backups are compressed to reduce the required storage space. The only component that does not use compression is the VM extension. The VM extension copies all backup data from your storage account to the Backup vault in the same region. No compression is used when transferring the data. Transferring the data without compression slightly inflates the storage used. However, storing the data without compression allows for faster restoration, should you need that recovery point.
 
-#### Incremental backup
-Every component supports incremental backup regardless of the target storage (disk, tape, backup vault). Incremental backup ensures that backups are storage and time efficient, by transferring only those changes made since the last backup.
 
 #### Disk Deduplication
 You can take advantage of deduplication when you deploy System Center DPM or Azure Backup Server [on a Hyper-V virtual machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server performs data deduplication (at the host level) on virtual hard disks (VHDs) that are attached to the virtual machine as backup storage.
@@ -144,6 +142,21 @@ You can take advantage of deduplication when you deploy System Center DPM or Azu
 > Deduplication is not available in Azure for any Backup component. When System Center DPM and Backup Server are deployed in Azure, the storage disks attached to the VM cannot be deduplicated.
 >
 >
+
+### Incremental backup explained
+Every Azure Backup component supports incremental backup regardless of the target storage (disk, tape, backup vault). Incremental backup ensures that backups are storage and time efficient, by transferring only those changes made since the last backup.
+
+#### Comparing Full, Differential and Incremental backup
+
+Storage consumption, recovery time objective (RTO), and network consumption varies for each type of backup method. To keep the backup total cost of ownership (TCO) down, you need to understand how to choose the best backup solution. The following image compares Full Backup, Differential Backup, and Incremental Backup. In the image, data source A is comprised of 10 storage blocks A1-A10, which are backed up monthly. Blocks A2, A3, A4, and A9 change in the first month, and block A5 changes in the next month.
+
+![image showing comparisons of backup methods](./media/backup-introduction-to-azure-backup/backup-method-comparison.png)
+
+With **Full Backup**, each backup copy contains the entire data source. This consumes a large amount of network bandwidth and storage, each time a backup copy is transferred.
+
+**Differential backup** stores only the blocks that changed since the initial full backup, which results in a smaller amount of network and storage consumption. Differential backups do not retain redundant copies of unchanged data, but differential backups are somewhat inefficient since the data blocks that remain unchanged between subsequent backups are transferred and stored. In the second month, changed blocks A2, A3, A4, and A9 are backed up. In the third month, these same blocks are backed up again, along with changed block A5. The changed blocks continue to be backed up until the next full backup happens.
+
+**Incremental Backup** achieves high storage and network efficiency by storing only the blocks of data that changed since the previous backup. With incremental backup there is no need to take regular full backups. In the example, after the full backup is taken for the first month, changed blocks A2, A3, A4, and A9 are marked as changed and transferred for the second month. In the third month, only changed block A5 is marked and transferred. Moving less data saves storage and network resources, which decreases TCO.   
 
 ### Security
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
