@@ -76,7 +76,7 @@ Switch back to the publisher portal and paste the key into the **Client Secret**
 
 ![App Key][api-management-howto-aad-b2c-client-secret]
 
-Specify the domain name of the AAD B2C tenant in the **Allowed Tenant** field.
+Specify the **Allowed Tenant** field with the domain name of the Azure Active Directory B2C tenant.
 
 ![Allowed Tenant][api-management-howto-aad-b2c-allowed-tenant]
 
