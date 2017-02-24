@@ -38,7 +38,7 @@ The workflow engine relies on the `Content-Type` header from HTTP calls to deter
 could be parsed in a workflow with an expression like `@body('myAction')['foo'][0]` to get a value (in this case, `bar`).  No additional casting is needed.  If you are working with data that is JSON but didn't have a header specified, you can manually cast it to JSON using the `@json()` function (for example: `@json(triggerBody())['foo']`).
 
 ### Schema and Schema Generator
-Requuest trigger allows you to enter a JSON schema for the payload you expected to receive. This allows the designer to generate tokens to help you consume the content of the request. If you do not have a schema ready, select `Use sample payload to generate schema` to generate a JSON schema from a sample payload.
+Request trigger allows you to enter a JSON schema for the payload you expected to receive. This allows the designer to generate tokens to help you consume the content of the request. If you do not have a schema ready, select `Use sample payload to generate schema` to generate a JSON schema from a sample payload.
 
 ![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
 
@@ -48,7 +48,7 @@ Requuest trigger allows you to enter a JSON schema for the payload you expected 
 ![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
 
 ## Text/plain
-Similar to `application/json`, HTTP messages recieved with the `Content-Type` header of `text/plain` will be stored in it's raw form.  In addition, if included in a subsequent actions without any casting the request will go out with a `Content-Type`: `text/plain` header.  For example, if working with a flat file you may recieve the following HTTP content:
+Similar to `application/json`, HTTP messages received with the `Content-Type` header of `text/plain` will be stored in it's raw form.  In addition, if included in subsequent actions without any casting the request will go out with a `Content-Type`: `text/plain` header.  For example, if working with a flat file you may receive the following HTTP content:
 
 ```
 Date,Name,Address
@@ -58,7 +58,7 @@ Oct-1,Frank,123 Ave.
 as `text/plain`.  If in the next action you sent it as the body of another request (`@body('flatfile')`), the request would have a `text/plain` Content-Type header.  If you are working with data that is plain text but didn't have a header specified, you can manually cast it to text using the `@string()` function (for example: `@string(triggerBody())`)
 
 ## Application/xml and Application/octet-stream and Converter Functions
-The Logic App Engine will always preserve the `Content-Type` that was recieved on the HTTP request or response.  What this means is if a content is recieved with `Content-Type` of `application/octet-stream`, including that in a subsequent action with no casting will result in an outgoing request with `Content-Type`: `application/octet-stream`.  In this way the engine can guaruntee data will not be lost as it moves throughout the workflow.  However, the action state (inputs and outputs) are stored in a JSON object as it flows throughout the workflow.  This means in order to preserve some data-types, the engine will convert the content to a binary base64 encoded string with appropriate metadata that preserves both `$content` and `$content-type` - which will automatically be converted.  You can also manually convert between content-types using built in converter functions:
+The Logic App Engine will always preserve the `Content-Type` that was received on the HTTP request or response.  What this means is if a content is received with `Content-Type` of `application/octet-stream`, including that in a subsequent action with no casting will result in an outgoing request with `Content-Type`: `application/octet-stream`.  In this way the engine can guarantee data will not be lost as it moves throughout the workflow.  However, the action states (inputs and outputs) are stored in a JSON object as it flows throughout the workflow.  This means in order to preserve some data-types, the engine will convert the content to a binary base64 encoded string with appropriate metadata that preserves both `$content` and `$content-type` - which will automatically be converted.  You can also manually convert between content-types using built in converter functions:
 
 * `@json()` - casts data to `application/json`
 * `@xml()` - casts data to `application/xml`
@@ -70,7 +70,7 @@ The Logic App Engine will always preserve the `Content-Type` that was recieved o
 * `@encodeDataUri()` - encodes a string as a dataUri byte array
 * `@decodeDataUri()` - decodes a dataUri into a byte array
 
-For example, if you recieved an HTTP request with `Content-Type`: `application/xml` of:
+For example, if you received an HTTP request with `Content-Type`: `application/xml` of:
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>

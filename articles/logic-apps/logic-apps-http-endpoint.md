@@ -170,7 +170,7 @@ This functionality is available through **API management**:
 | Configure basic or OAuth authentication |via API management |
 | Configure HTTP method |via API management |
 | Configure relative path |via API management |
-| Reference the incoming body via  `@triggerOutputs().body.Content` |Reference via `@triggerOutputs().body` |
+| Reference the incoming body via `@triggerOutputs().body.Content` |Reference via `@triggerOutputs().body` |
 | **Send HTTP response** action on the HTTP Listener |Click on **Respond to HTTP request** (no API app required) |
 
 [1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
