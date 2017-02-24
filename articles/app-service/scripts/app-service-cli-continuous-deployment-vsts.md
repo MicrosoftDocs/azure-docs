@@ -1,45 +1,39 @@
 ---
-title: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub | Microsoft Docs
-description: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub
+title: Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services
 services: app-service\web
 documentationcenter: 
-author: cephalin
+author: syntaxc4
 manager: erikre
 editor: 
 tags: azure-service-management
 
-ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
+ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
-ms.author: cephalin
+ms.author: cfowler
 ---
 
-# Create a web app with continuous deployment from GitHub
+# Create a web app with continuous deployment from Visual Studio Team Services
 
 This sample script does the following using Azure CLI 2.0: 
 
 * Create a web app in Azure App Service in the West Europe Azure region. 
-* Deploy your web app code from GitHub.
+* Deploy your web app code from Visual Studio Team Services.
 * Display the deployed Azure web app in the browser.
 
 ## Prerequisites
 
 * Run `az login` to log in to Azure.
-* Put your web app code in a GitHub repository.
-* For a GitHub repository you own, [create an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
-
-> [!NOTE]
-> If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
-> cannot set up the SSH key and webhooks necessary for continuous deployment.
->
->
+* Put your web app code in a Visual Studio Team Services repository.
+* For a Visual Studio Team Services repository you own, [create an access token](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
 
 ## Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github-continuous/deploy-github-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from GitHub")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
 
 ## Clean up deployment 
 
