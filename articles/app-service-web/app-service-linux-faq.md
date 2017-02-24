@@ -18,6 +18,7 @@ ms.date: 02/14/2017
 ms.author: aelnably
 
 ---
+
 # Azure App Service web apps on Linux FAQ
 
 With the release of Azure App Service on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are a number of frequently asked questions (FAQs) that our customers have been asking us over the last months.
