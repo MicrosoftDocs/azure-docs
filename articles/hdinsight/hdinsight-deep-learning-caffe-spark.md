@@ -300,7 +300,6 @@ Feel free to drop any comments and feedbacks to xiaoyzhu at microsoft dot com, a
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
