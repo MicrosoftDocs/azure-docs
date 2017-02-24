@@ -50,7 +50,7 @@ Connect-ServiceFabricCluster
 For examples of connecting to a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md).
 
 ## Upload the application package
-Uploading the application package puts it in a location that's accessible by internal Service Fabric components.  The [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command uploads the application package to the cluster image store. The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run:
+Uploading the application package puts it in a location that's accessible by internal Service Fabric components. If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet.  The [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command uploads the application package to the cluster image store. The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run:
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
@@ -65,25 +65,25 @@ PS C:\temp> tree /f 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyAppli
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
-³   ApplicationManifest.xml
-³   
-----Stateless1Pkg
-    ³   ServiceManifest.xml
-    ³   
-    ----Code
-    ³       Microsoft.ServiceFabric.Data.dll
-    ³       Microsoft.ServiceFabric.Data.Interfaces.dll
-    ³       Microsoft.ServiceFabric.Internal.dll
-    ³       Microsoft.ServiceFabric.Internal.Strings.dll
-    ³       Microsoft.ServiceFabric.Services.dll
-    ³       ServiceFabricServiceModel.dll
-    ³       Stateless1.exe
-    ³       Stateless1.exe.config
-    ³       Stateless1.pdb
-    ³       System.Fabric.dll
-    ³       System.Fabric.Strings.dll
-    ³       
-    ----Config
+│   ApplicationManifest.xml
+│
+└───Stateless1Pkg
+    │   ServiceManifest.xml
+    │
+    ├───Code
+    │       Microsoft.ServiceFabric.Data.dll
+    │       Microsoft.ServiceFabric.Data.Interfaces.dll
+    │       Microsoft.ServiceFabric.Internal.dll
+    │       Microsoft.ServiceFabric.Internal.Strings.dll
+    │       Microsoft.ServiceFabric.Services.dll
+    │       ServiceFabricServiceModel.dll
+    │       Stateless1.exe
+    │       Stateless1.exe.config
+    │       Stateless1.pdb
+    │       System.Fabric.dll
+    │       System.Fabric.Strings.dll
+    │
+    └───Config
             Settings.xml
 ```
 
@@ -99,7 +99,7 @@ If you do not specify the *-ApplicationPackagePathInImageStore* parameter, the a
 See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the image store and image store connection string.
 
 ## Register the application package
-The application type and version declared in the application manifest becomes available for use when the app package is registered. The system reads the package uploaded in the previous step, verifies the package, processes the package contents, and copies the processed package to an internal system location.  If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/servicefabric/test-servicefabricapplicationpackage) cmdlet.
+The application type and version declared in the application manifest becomes available for use when the app package is registered. The system reads the package uploaded in the previous step, verifies the package, processes the package contents, and copies the processed package to an internal system location.  
 
 Run the [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet to register the application type in the cluster and make it available for deployment:
 
@@ -112,7 +112,7 @@ Register application type succeeded
 
 The [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) command returns only after the system has successfully registered the application package. How long registration takes depends on the size and contents of the application package. If needed, the **-TimeoutSec** parameter can be used to supply a longer timeout (the default timeout is 60 seconds).  If it is a large app package and you are experiencing timeouts, use the **-Async** parameter.
 
-The [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) command lists all successfully registered application type versions.
+The [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) command lists all successfully registered application type versions and their registration status.
 
 ```powershell
 PS D:\temp> Get-ServiceFabricApplicationType
