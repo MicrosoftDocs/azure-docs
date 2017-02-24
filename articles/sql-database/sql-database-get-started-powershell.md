@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 02/17/2016
+ms.date: 02/23/2016
 ms.author: sstein
 
 ---
@@ -232,7 +232,7 @@ $databaseEdition = "Basic"
 $databaseServiceLevel = "Basic"
 
 $storageKeyType = "SharedAccessKey"
-$storageUri = "https://sqldbtutorial.blob.core.windows.net/sqldbbacpacs/AdventureWorksLT.bacpac"
+$storageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
 $storageKey = "?"
 
 $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
@@ -356,7 +356,7 @@ $myDatabaseServiceLevel = "Basic"
 # and accessing the sample .bacpac 
 # Do Not Edit for this tutorial
 $myStorageKeyType = "SharedAccessKey"
-$myStorageUri = "https://sqldbtutorial.blob.core.windows.net/sqldbbacpacs/AdventureWorksLT.bacpac"
+$myStorageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
 $myStorageKey = "?"
 
 
