@@ -13,17 +13,16 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/19/2017
 ms.author: raynew
 
 ---
 # Replicate Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery by using SAN
 
 
-Use this article if you want to deploy [Azure Site Recovery](site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site.
+Use this article if you want to deploy [Azure Site Recovery](site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site, using Azure Site Recovery in the classic portal. This scenario isn't available in the new Azure portal.
 
 
-This article includes a scenario overview, instructions for configuring SAN storage in VMM, and guidance for setting up replication in the Site Recovery portal. It finishes by testing failover to make sure everything's working as expected.
 
 Post any comments at the end of this article. Get answers to technical questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -63,7 +62,7 @@ Note that:
 **VMM** | You can use a single VMM server and replicate between different clouds, but we recommend one VMM in the primary site and one in the secondary site. A VMM can be deployed as a physical or virtual standalone server, or as a cluster. <br/><br/>The VMM server should be running System Center 2012 R2 or later with the latest cumulative updates.<br/><br/> You need at least one cloud configured on the primary VMM server you want to protect and one cloud configured on the secondary VMM server you want to use for failover.<br/><br/> The source cloud must contain one or more VMM host groups.<br/><br/> All VMM clouds must have the Hyper-V Capacity profile set.<br/><br/> For more about setting up VMM clouds, see [Deploy a private VM cloud](https://technet.microsoft.com/en-us/system-center-docs/vmm/scenario/cloud-overview).
 **Hyper-V** | You need one or more Hyper-V clusters in primary and secondary VMM clouds.<br/><br/> The source Hyper-V cluster must contain one or more VMs.<br/><br/> The VMM host groups in the primary and secondary sites must contain at least one of the Hyper-V clusters.<br/><br/>The host and target Hyper-V servers must be running Windows Server 2012 or later with the Hyper-V role and the latest updates installed.<br/><br/> If you're running Hyper-V in a cluster and have a static IP address-based cluster, cluster broker isn't created automatically. You must configure it manually. For more information, see [Preparing host clusters for Hyper-V replica](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
 **SAN storage** | You can replicate guest-clustered virtual machines with iSCSI or channel storage, or by using shared virtual hard disks (vhdx).<br/><br/> You need two SAN arrays: one in the primary site, and one in the secondary site.<br/><br/> A network infrastructure should be set up between the arrays. Peering and replication should be configured. Replication licenses should be set up in accordance with the storage array requirements.<br/><br/>Set up networking between the Hyper-V host servers and the storage array so that hosts can communicate with storage LUNs by using iSCSI or Fibre Channel.<br/><br/> Check [supported storage arrays](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> SMI-S providers from storage array manufacturers should be installed, and the SAN arrays should be managed by the provider. Set up the Provider according to manufacturer instructions.<br/><br/>Make sure that the array's SMI-S provider is on a server that the VMM server can access over the network with an IP address or FQDN.<br/><br/> Each SAN array should have one or more available storage pools.<br/><br/> The primary VMM server should manage the primary array, and the secondary VMM server should manage the secondary array.
-**Network mapping** | Set up network mapping so that replicated virtual machines are optimally placed on secondary Hyper-V host servers after failover, and so that they're connected to appropriate VM networks. If you don't configure network mapping, replica VMs won't be connected to any network after failover.<br/><br/> Make sure that VMM networks are configured correctly so that you can set up network mapping during Site Recovery deployment. In VMM, the VMs on the source Hyper-V host should be connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.<br/><br/> The target cloud should have a corresponding VM network, and it in turn should be linked to a corresponding logical network that is associated with the target cloud.<br/><br/>For more about network mapping, see [Site recovery network mapping](site-recovery-network-mapping.md).
+**Network mapping** | Set up network mapping so that replicated virtual machines are optimally placed on secondary Hyper-V host servers after failover, and so that they're connected to appropriate VM networks. If you don't configure network mapping, replica VMs won't be connected to any network after failover.<br/><br/> Make sure that VMM networks are configured correctly so that you can set up network mapping during Site Recovery deployment. In VMM, the VMs on the source Hyper-V host should be connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.<br/><br/> The target cloud should have a corresponding VM network, and it in turn should be linked to a corresponding logical network that is associated with the target cloud.<br/><br/>.
 
 ## Step 1: Prepare the VMM infrastructure
 To prepare your VMM infrastructure, you need to:
@@ -138,7 +137,7 @@ Create a replication group that includes all the LUNs that will need to replicat
 
 If you want to configure network mapping, do the following:
 
-1. See [Site Recovery network mapping](site-recovery-network-mapping.md).
+1. See Site Recovery network mapping.
 2. Prepare VM networks in VMM:
 
    * [Set up logical networks](https://technet.microsoft.com/en-us/system-center-docs/vmm/manage/manage-network-logical-networks).
@@ -187,7 +186,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
    * If you want to use a custom proxy, set it up before you install the Provider. When you configure custom proxy settings, a test runs to check the proxy connection.
    * If you do use a custom proxy, or if your default proxy requires authentication, you should enter the proxy details, including the address and port.
-   * These [URLs](site-recovery-best-practices.md#url-access) should be accessible from the VMM server.
+   * The required URLs should be accessible from the VMM server.
    * If you use a custom proxy, a VMM Run As account (DRAProxyAccount) is created automatically by using the specified proxy credentials. Configure the proxy server so that this account can authenticate. You can modify the Run As account settings in the VMM console (**Settings** > **Security** > **Run As Accounts** > **DRAProxyAccount**). You must restart the VMM service for the change to take effect.
 10. In **Registration Key**, select the key that you downloaded from the portal and copied to the VMM server.
 11. In **Vault name**, verify the name of the vault in which the server will be registered.
@@ -318,7 +317,7 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
     ![Select virtual machines](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. After the recovery plan is created, it appears in the list on the **Recovery Plans** tab. Select the plan and choose **Test Failover**.
-5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](site-recovery-failover.md#run-a-test-failover).
+5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](site-recovery-failover.md).
 
     ![Select test network](./media/site-recovery-vmm-san/test-fail1.png)
 

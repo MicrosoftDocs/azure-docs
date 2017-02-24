@@ -1,5 +1,5 @@
 ---
-title: Create an access change history report | Microsoft Docs
+title: Access reporting - Azure RBAC | Microsoft Docs
 description: Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 
 ---
@@ -56,7 +56,7 @@ To save the report, or manipulate the data, export the access changes into a .cs
 
 ![Changelog viewed as spreadsheet - screenshot](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## See also
-* Get started with [Azure Role-Based Access Control](role-based-access-control-configure.md)
+## Next steps
 * Work with [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
+* Learn how to manage [Azure RBAC with powershell](role-based-access-control-manage-access-powershell.md)
 
