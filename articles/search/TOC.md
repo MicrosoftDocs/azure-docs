@@ -49,16 +49,21 @@
 ### [Index JSON blobs](search-howto-index-json-blobs.md)
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
-##  Search experience
-### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-### [Lucene syntax query examples](search-query-lucene-examples.md)
-### [Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+##  Search 
+### [How full text search works](search-lucene-query-architecture.md)
+### Query Construction
+#### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+#### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+#### [Lucene syntax query examples](search-query-lucene-examples.md)
+#### [Filter expression syntax]
+(https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### Default Search
+### Custom Search
+#### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
+#### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Faceted navigation](search-faceted-navigation.md)
-### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
-### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Reference
 ## [.NET](/dotnet/api/microsoft.azure.search)

@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/16/2017
+ms.date: 02/24/2017
 ms.author: jlembicz
 ---
 
@@ -278,25 +278,43 @@ On the whole, for the query in question, the documents that match are 1, 2.
 
 ## Stage 4: Scoring  
 
-(warning: random links, notes, thoughts -- including them as triggers for things to cover. I think its fine to drop the 3 document example, which is not realistic for scoring, and go with abstract or hypothetical descriptions.)
+(warning: random links, notes, thoughts -- including them as triggers for things to cover. I think its fine to drop the 3 document example introduced in the previous section, which is not realistic for scoring, and go with abstract or hypothetical descriptions.)
 
-+ What is scoring
-+ How is the score generated
-+ When is scoring not supported (and what is the alternative)
-+ How to boost a search score
-+ How to return matches with higher scores
+(for the writers -- recall that our focus is "how things work". These sections are not meant to be all-inclusive)
++ (in-scope) What is scoring
++ (in-scope) How is the score generated
++ (in-scope) Typical and atypical ranges (1-6.0000 ?)
++ (in-scope) When is scoring not supported (and what is the alternative)
++ (out of scope) How to boost a search score
++ (out of scope) How to return matches with higher scores
 
 Every item in a search result set is assigned a relevance score, then ranked highest to lowest. Assuming no custom sort, results are ranked by search score. If `$top` is not specified, 50 items having the highest search score are returned to the calling application.
 
-Scoring is part of full text search that includes analysis. In Azure Search, wildcard search queries like prefix, regex, and fuzzy search queries are routed through an internal query rewriting process and thus return constant scores of 1.0.   http://stackoverflow.com/questions/41379079/lucene-documents-scoring-ranking-with-regex-query  
+Scoring is part of full text search that includes analysis. Given full text search, you cannot actually turn off scoring. For example if you have scenarios (like this one... http://stackoverflow.com/questions/41094873/can-i-ignore-term-frequency-and-its-affect-on-relevance-in-azure-search   ... which I don't understand)
 
-Although scoring is not supported for full-syntax query types (like fuzzy, prefix, regex), you can use field or tag boosting. (http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service)
+Scoring is not applied in unspecified queries (search=*) or in specialized query types that bypass analysis. Specifically, wildcard search, prefix, regex, and fuzzy search queries are routed through an internal query rewriting process and thus return constant scores of 1.0.  Whenever you see a constant of 1.0, you know that scoring was not applied. http://stackoverflow.com/questions/41379079/lucene-documents-scoring-ranking-with-regex-query  
 
-Given full text search, you cannot actually turn off scoring. For example if you have scenarios (like this one... http://stackoverflow.com/questions/41094873/can-i-ignore-term-frequency-and-its-affect-on-relevance-in-azure-search   ... which I don't understand)
+> [!Note}
+> Although scoring is not supported for full-syntax query types (like fuzzy, prefix, regex), you can use field or tag boosting. (http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service)
+>
+
+### Scoring example
+
+The following example shows scores on results from the [built-in realestate-us-sample index](search-get-started-portal.md#query-index), on a search term of *water*. For brevity, the results are the top 5 out of a total of 367 matches, limited to the listingId field and search score (query is "search=water&$select=listingId&$count=true&$top=5").
+
+The example is meant to illustrate a range of scores. The highest score in this case is 0.8197428. 
+
+ ![scoring example on realestate index][5]
+
+ In the results, which you can see if you run the query without the `&$select=listingID` parameter, the two highest ranking documents have a street address of *Waters Avenue South*, and the remaining have *water frontage* in the description. 
+ 
+ Different scores for the two highest ranked documents exist due to variation in the documents themselves (the description is shorter for the first document, which gives more weight to the matching term).
+
+ All of the remaining documents have identical search scores of 0.5567084, because the description is mostly the same for all documents (descriptions in the dataset include generated strings, which are reused multiple times).
 
 ### Search score computation
 
-The score is computed based on statistical properties of the data and the query. Base relevance is computed using term frequencies, but proximity of terms (within the same document, or across different documents) are also factors. For example, identical term combinations in two different documents could have different scores due to variations in the documents themselves (http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service). 
+The score is computed based on statistical properties of the data and the query. Base relevance is computed using term frequencies, but proximity of terms (within the same document, or across different documents) are also factors. For example, identical term combinations found in two different documents will likely have different scores due to variations in the documents themselves (http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service). 
 
 Also known as TF-IDF (term frequency-inverse document frequency). More specifically, the Lucene scoring formula is used: https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html 
 
@@ -316,7 +334,7 @@ How are scores aggregated, run _explain on the example from above
 You can get more differentiation in scores if …. 
 (Explain that scoring is not performed when orderBy is used for performance reasons )
 
-### Boosting
+### Boosting (MOVE TO ANOTHER ARTICLE)
 
 In Azure Search, you can’t change the scoring logic, but you can apply logic to increase the score for documents that meet additional criteria.
 
@@ -332,7 +350,7 @@ document 2 : base_search_score(0.2) * boost_factor (1000) * (weight (0.5419) - m
 
 For field weights in a scoring profile, field weight is already factored in in the base score, before additional boosting is applied.
 
-### Options for custom rankings
+### Options for custom rankings (MOVE TO ANOTHER ARTICLE)
 
 The following list summarizes the approaches you can use to modulate search scores:
 
@@ -343,7 +361,11 @@ The following list summarizes the approaches you can use to modulate search scor
 
 ## Next steps
 
-+ Opt in for the full query parser to use additional operators and query types (fuzzy search, proximity search, wildcard search, regular expressions, and so on). For small indexes with lean documents, you can use the **Search explorer** tool in the portal to evaluate query behaviors. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
++ Build the sample index, try out different queries and review results. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
+
++ Try additional queries from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section.
+
++ Review [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) if you want to impose custom ranking logic.
 
 + [Choose a different language analyzer](https://docs.microsoft.com/rest/api/searchservice/language-support) for non-English linguistic analysis.
 
@@ -364,3 +386,4 @@ The following list summarizes the approaches you can use to modulate search scor
 [2]: ./media/search-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-query-architecture/azSearch-queryparsing-spacious2.png
+[5]: ./media/search-query-architecture/azSearch-scores-realestate.png
