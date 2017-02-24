@@ -3,7 +3,7 @@ title: Connect domain-joined devices to Azure AD for Windows 10 experiences | Mi
 description: Explains how administrators can configure Group Policy to enable devices to be domain-joined to the enterprise network.
 services: active-directory
 documentationcenter: ''
-author: markvi
+author: MarkusVi
 manager: femila
 editor: ''
 tags: azure-classic-portal
