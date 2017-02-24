@@ -1,6 +1,6 @@
 ---
-title: Mount Azure File storage on Linux VMs by using SMB with Azure CLI 2.0 Preview | Microsoft Docs
-description: How to mount Azure File storage on Linux VMs using SMB with Azure CLI 2.0 Preview
+title: Mount Azure File Storage on Linux VMs using SMB | Microsoft Docs
+description: How to mount Azure File Storage on Linux VMs using SMB with the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -18,25 +18,14 @@ ms.author: v-livech
 
 ---
 
-# Mount Azure File storage on Linux VMs using SMB with Azure CLI 2.0 Preview
+# Mount Azure File Storage on Linux VMs using SMB
 
-This article shows how to mount Azure File storage on a Linux VM by using the server message block (SMB) protocol. File storage offers file shares in the cloud via the standard SMB protocol. The requirements are:
+This article shows you how to utilize the Azure File Storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The requirements are:
 
-* An [Azure account](https://azure.microsoft.com/pricing/free-trial/)
-* [Secure Shell (SSH) public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
+- [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
+- [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
 
-## CLI versions to use
-You can complete the task by using one of the following command-line interface (CLI) versions:
-
-* Azure CLI 1.0: The CLI for the classic and Azure Resource Manager deployment models.
-* [Azure CLI 2.0 Preview](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): The next-generation CLI for the Resource Manager deployment model.
-
-
-## Quick commands
-
-To accomplish the task quickly, follow the steps in this section. For more detailed information and context, begin at the ["Detailed walkthrough"](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) section.
-
-### Prerequisites
+## Quick Commands
 
 * A resource group
 * An Azure virtual network

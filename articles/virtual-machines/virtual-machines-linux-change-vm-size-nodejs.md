@@ -30,7 +30,7 @@ This article shows how to resize a Linux VM using the [Azure CLI][azure-cli].
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#resize-a-linux-vm) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Resize a Linux VM
