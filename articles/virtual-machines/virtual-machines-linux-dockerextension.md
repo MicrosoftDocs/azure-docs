@@ -31,7 +31,7 @@ For more information about the different deployment methods, including using Doc
 ## Deploy a template with the Azure Docker VM extension
 Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). You need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
-First, create a resource group with [az group create](/cli/azure/group#create). The following examples creates a resource group named `myResourceGroup` in the `West US` location:
+First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `West US` location:
 
 ```azurecli
  az group create --name myResourceGroup --location westus
@@ -60,7 +60,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 When this command returns `Succeeded`, the deployment has finished and you can SSH to the VM in the following step.
 
 ## Deploy your first nginx container
-SSH to your new Docker host from your local computer. To view details of your VM, including the DNS name, use `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`.
+To view details of your VM, including the DNS name, use `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. SSH to your new Docker host from your local computer as follows:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
