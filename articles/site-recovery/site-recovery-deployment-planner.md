@@ -226,6 +226,7 @@ The generated Microsoft Excel report has following sheets
 To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server where the tool is running (ideally a server based on the Configuration Server sizing guide).  If you have already deployed Azure Site Recovery infrastructure components on-premises, run the tool on the Configuration Server. 
 
 Open a command line console and go to ASR deployment planning tool folder.  Run ASRDeploymentPlanner.exe with following parameters. Parameters in [] are optional.
+
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 
 |Parmeter Name | Description |
@@ -367,6 +368,7 @@ Total number of disks across all compatible virtual machines  is the total numbe
 
 
 ##VM-Storage placement
+
 ![Deployment Planner](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
 **Disk Storage Type** is either ‘Standard’ or ‘Premium’ Azure Storage account used to replicate all the corresponding virtual machines mentioned in the ‘VMs to Place’ column.
