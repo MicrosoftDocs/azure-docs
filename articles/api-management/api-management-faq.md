@@ -41,7 +41,7 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
-* [Are there restrictions on or known issues with importing my API?](#api-management-api-import-restrictions)
+* [Are there restrictions on or known issues with importing my API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### How can I ask the Microsoft Azure API Management team a question?
 You can contact us by using one of these options:

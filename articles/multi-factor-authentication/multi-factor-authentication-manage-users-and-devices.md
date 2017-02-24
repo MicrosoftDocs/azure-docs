@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/23/2017
 ms.author: kgremban
 
 ---
@@ -22,7 +22,7 @@ As an administrator, you can manage the following user and device settings.
 
 * [Require selected users to provide contact methods again](#require-selected-users-to-provide-contact-methods-again)
 * [Delete users existing app passwords](#delete-users-existing-app-passwords)
-* [Restore MFA on all suspended devices for a user](#restore-mfa-on-all-suspended-devices-for-a-user)
+* [Restore MFA on all remembered devices for a user](#restore-mfa-on-all-remembered-devices-for-a-user)
 
 This is helpful if a computer or device is lost or stolen or you need to remove a users access.
 

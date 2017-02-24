@@ -95,7 +95,7 @@ If you still don’t see the events, then:
 2. Connect to the storage account added in the command **azlog source add**.
 3. In Microsoft Azure Storage Explorer, browse to table **WADWindowsEventLogsTable** to see if there is any data. If not, then diagnostics in the VM is not configured correctly.
 
-## Integrate Azure audit logs and Security Center alerts
+## Integrate Azure activity logs and Security Center alerts
 1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 2. Run the command
 

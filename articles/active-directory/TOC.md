@@ -57,7 +57,7 @@
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
-## [View activity and security reports](active-directory-view-access-usage-reports.md)
+## [View activity reports](active-directory-view-access-usage-reports.md)
 ### [Azure AD reporting](active-directory-reporting-getting-started.md)
 ### [Sign-ins](active-directory-reporting-activity-sign-ins.md)
 ### [Audit logs](active-directory-reporting-activity-audit-logs.md)
@@ -283,7 +283,7 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Deploy on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
+## [Deploy AD DS on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)
 ### [Replica domain controller in an Azure virtual network](active-directory-install-replica-active-directory-domain-controller.md)
 ### [New forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
