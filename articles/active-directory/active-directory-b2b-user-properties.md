@@ -56,7 +56,8 @@ This property indicates the relationship of the user to the host tenancy. This c
   > [!NOTE]
   > The UserType has no relation to how the user signs in, the directory role of the user, and so on. This property simply indicates the user's relationship to the host organization and allows the organization to enforce policies that depend on this property.
 
-### SourceThis property indicates how the user signs in.
+### Source
+This property indicates how the user signs in.
 
 - Invited User: This user has been invited but has not yet redeemed an invitation.
 
