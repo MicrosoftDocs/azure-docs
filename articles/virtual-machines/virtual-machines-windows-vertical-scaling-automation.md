@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2016
-ms.author: singhkay
+ms.author: kasing
 
 ---
 # Vertically scale Azure virtual machines with Azure Automation
