@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 02/23/2017
 ms.author: magoedte
 
 ---
@@ -197,9 +197,18 @@ The steps below will walk you through the process of executing the script.
    
         [Parameter(Mandatory=$false)]
         [int] $NoOfMonthsUntilExpired = 12
+
+        [Parameter(Mandatory=$true)]
+        [bool]$GovCloud = $False
         )
    
-        Login-AzureRmAccount
+        #Check to see if we need to log into Commercial or Government cloud.
+        If ($GovCloud -eq $False) {
+           Login-AzureRmAccount
+        }Else{
+           Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
+        }
+
         Import-Module AzureRM.Resources
         Select-AzureRmSubscription -SubscriptionId $SubscriptionId
    
@@ -255,11 +264,8 @@ The steps below will walk you through the process of executing the script.
         $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
         New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 
-    > [!NOTE]
-    > If you are creating the Run As account in Azure Government cloud, you will need to replace the line `Login-AzureRMAccount` with `Login-AzureRmAccount -EnvironmentName AzureUSGovernment`.  This statement is immediately after the parameter declaration section at the beginning of the script.
-    > 
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
+3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, *-CertPlainPassword* , and *-GovCloud*.<br>
    
    > [!NOTE]
    > You will be prompted to authenticate with Azure after you execute the script. You must log in with an account that is a member of the Subscription Admins role and co-admin of the subscription.
@@ -270,7 +276,7 @@ The steps below will walk you through the process of executing the script.
         -AutomationAccountName <NameofAutomationAccount> `
         -ApplicationDisplayName <DisplayNameofAutomationAccount> `
         -SubscriptionId <SubscriptionId> `
-        -CertPlainPassword "<StrongPassword>"  
+        -CertPlainPassword "<StrongPassword> -GovCloud <$True if you are creating the Run As account in Azure Government cloud>"  
    <br>
 
 After the script completes successfully, refer to the [sample code](#sample-code-to-authenticate-with-resource-manager-resources) below to authenticate with Resource Manager resources and validate credential configuration.
