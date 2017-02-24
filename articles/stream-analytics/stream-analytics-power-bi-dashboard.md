@@ -26,8 +26,8 @@ Use [Microsoft Power BI](https://powerbi.com/) to build a live dashboard quickly
 In this article, you learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to utilize a real-time dashboard.
 
 ## Prerequisites
-* Microsoft Azure Account
-* Work or school account for Power BI
+* Microsoft Azure Account.
+* Work or school account for Power BI.
 * Completion of the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) scenario. The article you're reading now builds on the workflow that's described in [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) and adds a Power BI streaming dataset output.
 
 ## Add Power BI output
@@ -74,7 +74,7 @@ For more information about Power BI datasets, see the [Power BI REST API](https:
 
 
 ## Write query
-Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be similar to the following SQL query to catch SIM fraud in the telecommunications industry:
+Go to the **Query** tab of your job. Write your query, the output of which you want in Power BI. For example, it could be similar to the following SQL query to catch SIM fraud in the telecommunications industry:
 
 
 ```
@@ -131,7 +131,7 @@ For more information about configuring a Power BI output and utilizing Power BI 
 ## Learn about limitations and best practices
 Power BI employs both concurrency and throughput constraints as described [on this page about Power BI](https://powerbi.microsoft.com/pricing "Power BI Pricing").
 
-Currently, your Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work).
+Currently, Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work).
 
 Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction.
 We recommend using Tumbling Window or Hopping Window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements.
@@ -166,7 +166,7 @@ This means we can change the original query to the following:
 
 
 ### Renew authorization
-If its password has changed since your job was created or last authenticated, you need to re-authenticate your Power BI account. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an "Authenticate user error" in the operation logs.
+If the password has changed since your job was created or last authenticated, you need to re-authenticate your Power BI account. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an "Authenticate user error" in the operation logs.
 
 Similarly, if a job attempts to start after the token has expired, an error occurs and the job starts to fail. To resolve this issue, stop the job that's running and go to your Power BI output. To avoid data loss, select the **Renew authorization** link, and then restart your job from the **Last Stopped Time**.
 
