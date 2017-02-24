@@ -62,14 +62,18 @@ Use the following procedure to choose which storage metrics to view in metrics c
 * If your storage account has **aggregate** monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.
 * If your storage account has **per API** monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.
 
-## How to: Add metrics charts the storage account blade
+TODO
+
+## How to: Add metrics charts to the storage account blade
 
 A default set of metrics charts are displayed on the storage account blade. Use the following procedure to choose which storage metrics charts to display on your storage account blade.
 
 1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
-1. Select TODO.
+1. Select 
 
-## How to: Add metrics to the portal dashboard
+TODO
+
+## How to: Add metrics charts to the portal dashboard
 
 You can add Azure Storage metrics charts for any of your storage accounts to your portal dashboard.
 
@@ -89,10 +93,6 @@ Once you've added charts to your dashboard, you can further customize them as de
 
 For each of the storage services available with your storage account (blob, table, and queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.
 
-> [!NOTE]
-> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
->
-
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
 1. Open the **Diagnostic blade**--scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
 1. Select the **services** for which you'd like to enable logging.
@@ -102,8 +102,8 @@ For each of the storage services available with your storage account (blob, tabl
 
 The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-> [NOTE!]
-> Logging is currently supported for the Blob, Table, and Queue services. The File service does not yet support logging.
+> [!NOTE]
+> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
 >
 
 ## Next steps
