@@ -1,5 +1,5 @@
 ---
-title: Working with VM artifacts in Azure DevTest Labs | Microsoft Docs
+title: Manage VM artifacts in Azure DevTest Labs | Microsoft Docs
 description: Learn how to manage VM artifacts in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 02/24/2017
 ms.author: tarcher
 
 ---
-# Working with VM artifacts in Azure DevTest Labs
+# Manage VM artifacts in Azure DevTest Labs
 Azure DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is provisioned. 
 
 Artifact actions can perform procedures such as running Windows PowerShell scripts, running Bash commands, and installing software. 
