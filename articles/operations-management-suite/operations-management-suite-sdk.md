@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 02/22/2017
 ms.author: bwren
 
 ---
@@ -34,6 +34,7 @@ ms.author: bwren
 
 ## Log Analytics
 * [Log Analytics documentation](http://azure.microsoft.com/documentation/services/log-analytics)
+* [Log Analytics REST API](/rest/api/loganalytics)
 * [Log Analytics HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md)
 * [Log Search API](../log-analytics/log-analytics-log-search-api.md)
 * [Alert API](../log-analytics/log-analytics-api-alerts.md)
