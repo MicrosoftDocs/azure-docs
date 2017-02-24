@@ -278,92 +278,43 @@ On the whole, for the query in question, the documents that match are 1, 2.
 
 ## Stage 4: Scoring  
 
-(warning: random links, notes, thoughts -- including them as triggers for things to cover. I think its fine to drop the 3 document example introduced in the previous section, which is not realistic for scoring, and go with abstract or hypothetical descriptions.)
-
-(for the writers -- recall that our focus is "how things work". These sections are not meant to be all-inclusive)
-+ (in-scope) What is scoring
-+ (in-scope) How is the score generated
-+ (in-scope) Typical and atypical ranges (1-6.0000 ?)
-+ (in-scope) When is scoring not supported (and what is the alternative)
-+ (out of scope) How to boost a search score
-+ (out of scope) How to return matches with higher scores
-
 Every item in a search result set is assigned a relevance score, then ranked highest to lowest. Assuming no custom sort, results are ranked by search score. If `$top` is not specified, 50 items having the highest search score are returned to the calling application.
 
-Scoring is part of full text search that includes analysis. Given full text search, you cannot actually turn off scoring. For example if you have scenarios (like this one... http://stackoverflow.com/questions/41094873/can-i-ignore-term-frequency-and-its-affect-on-relevance-in-azure-search   ... which I don't understand)
+Scoring is part of full text search that includes analysis. Given a full text search query, you cannot turn off scoring.
 
 Scoring is not applied in unspecified queries (search=*) or in specialized query types that bypass analysis. Specifically, wildcard search, prefix, regex, and fuzzy search queries are routed through an internal query rewriting process and thus return constant scores of 1.0.  Whenever you see a constant of 1.0, you know that scoring was not applied. http://stackoverflow.com/questions/41379079/lucene-documents-scoring-ranking-with-regex-query  
 
-> [!Note}
-> Although scoring is not supported for full-syntax query types (like fuzzy, prefix, regex), you can use field or tag boosting. (http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service)
+> [!Note]
+> Although scoring is not used for full-syntax-only query types (such as wildcard, fuzzy, prefix, regex searches), you can use field or tag boosting to customize rank scores. For more information, see [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 >
 
 ### Scoring example
 
-The following example shows scores on results from the [built-in realestate-us-sample index](search-get-started-portal.md#query-index), on a search term of *water*. For brevity, the results are the top 5 out of a total of 367 matches, limited to the listingId field and search score (query is "search=water&$select=listingId&$count=true&$top=5").
+The following example illustrates scoring on results from the [built-in realestate-us-sample index](search-get-started-portal.md#query-index), on a search term of *water*. For brevity, the results are the top 5 out of a total of 376 matches, limited to the listingId field and search score (query is "search=water&$select=listingId&$count=true&$top=5").
 
 The example is meant to illustrate a range of scores. The highest score in this case is 0.8197428. 
 
  ![scoring example on realestate index][5]
 
- In the results, which you can see if you run the query without the `&$select=listingID` parameter, the two highest ranking documents have a street address of *Waters Avenue South*, and the remaining have *water frontage* in the description. 
- 
- Different scores for the two highest ranked documents exist due to variation in the documents themselves (the description is shorter for the first document, which gives more weight to the matching term).
+ In the results, which you can see if you run the query without the `&$select=listingID` parameter, the two highest ranking documents have a street address of *Waters Avenue South*. Different scores for the two highest ranked documents exist because of variations in the documents themselves. The description is shorter for the first document, which gives more weight to the matching term.
 
- All of the remaining documents have identical search scores of 0.5567084, because the description is mostly the same for all documents (descriptions in the dataset include generated strings, which are reused multiple times).
+ The remaining documents have identical search scores of 0.5567084. This is because the description is mostly the same for all documents (all have *water frontage* in the description. Descriptions in the sample dataset include generated strings that are reused multiple times).
 
 ### Search score computation
 
-The score is computed based on statistical properties of the data and the query. Base relevance is computed using term frequencies, but proximity of terms (within the same document, or across different documents) are also factors. For example, identical term combinations found in two different documents will likely have different scores due to variations in the documents themselves (http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service). 
-
-Also known as TF-IDF (term frequency-inverse document frequency). More specifically, the Lucene scoring formula is used: https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html 
-
-* Find documents containing terms in the query string (some or all, depending on `searchMode`). 
-* Increase the score any documents containing multiple instances of the search term.  
-* Further increase the score if the term is rare across the data corpus, but common within the document. 
-
-http://stackoverflow.com/questions/38839185/the-implication-of-search-score-in-azure-search-service
+The score is computed based on statistical properties of the data and the query, with the scoring formula derived from [TF-IDF (term frequency-inverse document frequency)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Base relevance is computed using term frequencies, but proximity of terms (within the same document, or across different documents) are also factors.  
 
 ### Ranking
 
-Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first. 
+Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 0.9, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first. 
 
-Also, the score value is not normalized, the score values represent relative relevance of documents and can't be compared between different queries. 
-
-How are scores aggregated, run _explain on the example from above 
-You can get more differentiation in scores if …. 
-(Explain that scoring is not performed when orderBy is used for performance reasons )
-
-### Boosting (MOVE TO ANOTHER ARTICLE)
-
-In Azure Search, you can’t change the scoring logic, but you can apply logic to increase the score for documents that meet additional criteria.
-
-The boosting factor in a scoring profile is multiplied to the base relevance scores.(http://stackoverflow.com/questions/41427940/how-do-scoring-profiles-generate-scores-in-azure-search )
-
-For example, suppose that the base scores, given in @search.score in the response payload, of the two documents were 0.5 and 0.2 and the values in the weight column were 0.5465 and 0.5419 respectively. With the scoring profile configuration given above, with starting value of 0, ending value of 1, linear interpolation, and the boost factor of 1000. The final score you get for each document is computed as the following :
-
-~~~~
-document 1 : base search_score(0.5) * boost_factor (1000) * (weight (0.5465) - min(0)) / max - min (1) = final_search_score(273.25)
-
-document 2 : base_search_score(0.2) * boost_factor (1000) * (weight (0.5419) - min(0)) / max - min (1) = final_search_score(108.38)
-~~~~
-
-For field weights in a scoring profile, field weight is already factored in in the base score, before additional boosting is applied.
-
-### Options for custom rankings (MOVE TO ANOTHER ARTICLE)
-
-The following list summarizes the approaches you can use to modulate search scores:
-
-+ Apply term boosting within a field ([Lucene full syntax only]((https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)). 
-
-+ Create [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)to redefine the relative importance of fields in the index, for example to boost a match found in a name field over a description field.
-
+Also, the score value is not normalized, the score values represent the relative relevance of documents and can't be compared across queries. 
 
 ## Next steps
 
 + Build the sample index, try out different queries and review results. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
 
-+ Try additional queries from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section.
++ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 
 + Review [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) if you want to impose custom ranking logic.
 
