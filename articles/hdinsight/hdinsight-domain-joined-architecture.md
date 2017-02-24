@@ -51,7 +51,7 @@ Prerequisites for Azure AD:
     - Permissions to create reverse DNS proxy rules
     - Permissions to join machines to the Active Directory domain
 
-**HDInsight integrated with a cloud-only Azure AD**
+**HDInsight integrated with cloud-only Azure AD**
 
 For cloud-only Azure AD, configure a domain controller so that HDInsight can be integrated with Azure AD. This is achieved by using [Azure Active Directory Domain Dervices](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). Azure AD DS creates domain controller machines on the cloud and provides IP addresses for them. It creates two domain controllers for high availability.
 
@@ -96,7 +96,7 @@ Prerequisites for Azure AD:
 
 **HDInsight integrated with an on-premises Active Directory synced to Azure AD**
 
-This architecture is similar to HDInsight integrated with a cloud-only Azure AD. The only difference is that the on-premises Active Directory is synced to the Azure AD. Configure a domain controller in the cloud so that HDInsight can be integrated with Azure AD. This is achieved by using [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). Azure AD DS creates domain controller machines in the cloud and provides IP addresses for them. It creates two domain controllers for high availability.
+This architecture is similar to HDInsight integrated with cloud-only Azure AD. The only difference is that the on-premises Active Directory is synced to the Azure AD. Configure a domain controller in the cloud so that HDInsight can be integrated with Azure AD. This is achieved by using [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). Azure AD DS creates domain controller machines in the cloud and provides IP addresses for them. It creates two domain controllers for high availability.
 
 Currently, Azure AD DS exists only in classic virtual networks. It is only accessible by using the Azure classic portal. The HDInsight virtual network exists in the Azure portal, which needs to be peered with the classic virtual network by using VNet-to-VNet peering.
 
@@ -119,7 +119,7 @@ Prerequisites for Azure AD:
 
 **HDInsight integrated with a non-default Azure AD (recommended only for testing and development)**
 
-This architecture is similar to HDInsight integrated with a cloud-only Azure AD. For most companies, the admin access to Azure AD is restricted to certain individuals. Thus, when you want to do a proof-of-concept or try out creating a domain-joined cluster, it may be beneficial to create an Azure AD instance in the subscription instead of waiting for an admin to configure prerequisites on Azure AD. Because this is an Azure AD instance that you created, you have full permissions to Azure AD to configure Azure AD DS.
+This architecture is similar to HDInsight integrated with cloud-only Azure AD. For most companies, the admin access to Azure AD is restricted to certain individuals. Thus, when you want to do a proof-of-concept or try out creating a domain-joined cluster, it may be beneficial to create an Azure AD instance in the subscription instead of waiting for an admin to configure prerequisites on Azure AD. Because this is an Azure AD instance that you created, you have full permissions to Azure AD to configure Azure AD DS.
 
 Azure AD DS creates domain controller machines on the cloud and provides IP addresses for them. It creates two domain controllers for high availability.
 
