@@ -42,7 +42,7 @@ The following snippet shows the easiest authentication by the user providing cre
     var _TenantID = "<Tenant ID>"; // Replace this string with the user's Azure Active Directory tenant ID.
     var _clientId = "1950a258-227b-4e31-a9cf-717495945fc2"; // Microsoft provides this specific GUID for developers.
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(_TenantID, activeDirectoryClientSettings).Result;
 
 If you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD domain, client ID, and redirect URI for the application you created.
 
@@ -65,7 +65,7 @@ If you do want to use your own Azure AD domain and application client ID, you mu
 
 
     // Interactive logon
-    public static ServiceClientCredentials AuthenticateAzure(string domainName, string clientID)
+    public static ServiceClientCredentials AuthenticateAzure(string tenantID, string clientID)
     {
         // User login via interactive popup
         SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
@@ -73,7 +73,7 @@ If you do want to use your own Azure AD domain and application client ID, you mu
         // Use the client ID of an existing AAD "Native Client" application.
         var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(clientID, new Uri("urn:ietf:wg:oauth:2.0:oob"));
         
-        return UserTokenProvider.LoginWithPromptAsync(domainName, activeDirectoryClientSettings).Result;
+        return UserTokenProvider.LoginWithPromptAsync(tenantID, activeDirectoryClientSettings).Result;
     }
 
 
@@ -83,11 +83,11 @@ You can use the following snippet to authenticate your application non-interacti
     // Service principal / appplication authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "<AAD-directory-domain>";
+    var tenantID = "<Azure tennant ID>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
-    var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
+    var creds = ApplicationTokenProvider.LoginSilentAsync(tenantID, clientCredential).Result;
 
 ### Non-interactive with a service principal
 As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
@@ -95,11 +95,11 @@ As a third option, the following snippet can be used to authenticate your applic
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "<AAD-directory-domain>";
+    var tenantID = "<Azure tennant ID>";
     var webApp_clientId = "<AAD-application-clientid>";
     System.Security.Cryptography.X509Certificates.X509Certificate2 clientCert = <AAD-application-client-certificate>
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
-    var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
+    var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(tenantID, clientAssertionCertificate).Result;
 
 ## Client management objects
 The Azure Data Lake Analytics and Azure Data Lake Store APIs include sets of client management objects from which you do most of your programming. These objects are in these two namespaces:
@@ -114,7 +114,7 @@ The following table shows the client management objects, with variables that use
 | DataLakeAnalyticsAccountManagementClient  | _adlaClient           |
 | DataLakeStoreFileSystemManagementClient   | _adlsFileSystemClient |
 | DataLakeAnalyticsCatalogManagementClient  | _adlaCatalogClient    |
-| DataLakeAnalyticsJobManagementClient      | _adlaJobsClient       |
+| DataLakeAnalyticsJobManagementClient      | _adlaJobClient       |
 
 ### Data Lake Store management client objects:
 * DataLakeStoreAccountManagementClient - Use to create and manage Data Lake Store accounts.
@@ -161,30 +161,23 @@ The following code shows how to create a Data Lake Analytics account, using the 
 
 For any Data Lake Analytics account, you only need to include the Data Lake Store accounts that you need to perform the needed analytics. One of these Data Lake Store accounts, must be the default Data Lake Store account.
 
-    // create analytics account
-    private void NewADLA_Click(object sender, RoutedEventArgs e)
+    try
     {
-        try
+        var adlaAccount = new DataLakeAnalyticsAccount()
         {
-            var adlaAccount = new DataLakeAnalyticsAccount()
-            {
-                DefaultDataLakeStoreAccount = “Accounting”,
-                Location = _location,
-                DataLakeStoreAccounts = new DataLakeStoreAccountInfo[]{
-                   new DataLakeStoreAccountInfo(“Expenditures”), 
-                   new DataLakeStoreAccountInfo(“Accounting”)
-                }
-            };
- 
-            _adlaClient.Account.Create(_resourceGroupName, newAccountName, adlaAccount);
-
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show(ex.Message);
-        }
+            DefaultDataLakeStoreAccount = “Accounting”,
+            Location = _location,
+            DataLakeStoreAccounts = new DataLakeStoreAccountInfo[]{
+                new DataLakeStoreAccountInfo(“Expenditures”), 
+                new DataLakeStoreAccountInfo(“Accounting”)
+            }
+        }; 
+        _adlaClient.Account.Create(_resourceGroupName, newAccountName, adlaAccount);
     }
-
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
 
 ## Manage accounts
 
@@ -272,12 +265,10 @@ created an Analytics account, you can add additional Data Lake Store and links t
 ### Link to an Azure Storage account from a Data Lake Analytics account
 You can create links to Azure Storage accounts. 
 
-    string storageKey = "<paste the key value here>";
-
-    AddStorageAccountParameters addParams = new AddStorageAccountParameters(storageKey);            
+    AddStorageAccountParameters addParams = new AddStorageAccountParameters(<storage key value>);            
     _adlaClient.StorageAccounts.Add(_resourceGroupName, _adlaAccountName, "<Azure Storage Account Name>", addParams);
 
-### List Data Lake Analytics data sources
+### List Data Lake Store data sources
 The following code lists the Data Lake Store accounts and the Azure Storage accounts used for a specified Data Lake Analytics account.
 
     var sAccnts = _adlaClient.StorageAccounts.ListByAccount(_resourceGroupName, acctName);
@@ -419,7 +410,7 @@ The following code shows how to access the database with a Data Lake Analytics C
         var jobId = Guid.NewGuid();
         var properties = new USqlJobProperties(scriptTxt);
         var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
-        var jobInfo = _adlaJobsClient.Job.Create(_adlaAnalyticsAccountTest, jobId, parameters);
+        var jobInfo = _adlaJobClient.Job.Create(_adlaAnalyticsAccountTest, jobId, parameters);
         Console.WriteLine($"Job {jobName} submitted.");
 
     }
@@ -432,7 +423,7 @@ The following code shows how to access the database with a Data Lake Analytics C
 ### List failed jobs
 The following code lists information about jobs that failed.
 
-    var jobs = _adlaJobsClient.Job.List(_adlaClient, 
+    var jobs = _adlaJobClient.Job.List(_adlaClient, 
         new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" });
     foreach (var j in jobs)
     {
