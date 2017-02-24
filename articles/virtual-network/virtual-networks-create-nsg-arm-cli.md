@@ -1,6 +1,6 @@
 ---
-title: How to create NSGs in ARM mode using the Azure CLI 2.0 (Preview)| Microsoft Docs
-description: Learn how to create and deploy NSGs in ARM using the Azure CLI 2.0 (Preview)
+title: How to create NSGs in ARM mode using the Azure CLI 2.0| Microsoft Docs
+description: Learn how to create and deploy NSGs in ARM using the Azure CLI 2.0
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -18,7 +18,7 @@ ms.date: 02/17/2017
 ms.author: jdial
 
 ---
-# How to create NSGs in the Azure CLI 2.0 (Preview)
+# How to create NSGs in the Azure CLI 2.0
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 ## CLI versions to complete the task 
@@ -26,7 +26,7 @@ ms.author: jdial
 You can complete the task using one of the following CLI versions: 
 
 - [Azure CLI 1.0](virtual-networks-create-nsg-arm-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0 (Preview)](#how-to-create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
+- [Azure CLI 2.0](#how-to-create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
@@ -38,7 +38,7 @@ The sample Azure CLI 2.0 commands following expect a simple environment already 
 
 To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow the steps following.
 
-1. If you haven't yet, install and configure the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
 
 2. Create an NSG using the [az network nsg create](/cli/azure/network/nsg#create) command. 
 

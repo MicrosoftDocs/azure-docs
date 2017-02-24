@@ -26,7 +26,7 @@ ms.author: jdial
 You can complete the task using one of the following CLI versions: 
 
 - [Azure CLI 1.0](#how-to-create-the-nsg-for-the-front-end-subnet) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-networks-create-nsg-arm-cli.md) - our next-generation CLI for the resource management deployment model 
+- [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md) - our next-generation CLI for the resource management deployment model 
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
