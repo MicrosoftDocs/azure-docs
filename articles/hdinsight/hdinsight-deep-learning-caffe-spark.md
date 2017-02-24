@@ -1,6 +1,6 @@
 ---
-title: Use Caffe on Azure HDInsgiht Spark for distributed deep learning | Microsoft Docs
-description: Use Caffe on Azure HDInsgiht Spark for distributed deep learning
+title: Use Caffe on Azure HDInsight Spark for distributed deep learning | Microsoft Docs
+description: Use Caffe on Azure HDInsight Spark for distributed deep learning
 services: hdinsight
 documentationcenter: ''
 author: xiaoyongzhu
@@ -18,7 +18,7 @@ ms.date: 02/17/2017
 ms.author: xiaoyzhu
 
 ---
-# Use Caffe on Azure HDInsgiht Spark for distributed deep learning
+# Use Caffe on Azure HDInsight Spark for distributed deep learning
 
 
 ## Introduction
@@ -31,7 +31,7 @@ There are [many popular frameworks](https://en.wikipedia.org/wiki/Comparison_of_
 
 Some users are asking us about how to use deep learning on HDInsight, which is Microsoft's PaaS Hadoop product. We will have more to share in the future, but today we want to summarize a technical blog on how to use Caffe on HDInsight Spark.
 
-If you have installed Caffe before, you will notice that installing this framework is a little bit challenging. In this blog, we will first illustrate how to install [Caffe on Spark](https://github.com/yahoo/CaffeOnSpark) for an HDInsight cluster, then use the built-in MNIST demo to demostrate how to use Distributed Deep Learning using HDInsgiht Spark on CPUs.
+If you have installed Caffe before, you will notice that installing this framework is a little bit challenging. In this blog, we will first illustrate how to install [Caffe on Spark](https://github.com/yahoo/CaffeOnSpark) for an HDInsight cluster, then use the built-in MNIST demo to demostrate how to use Distributed Deep Learning using HDInsight Spark on CPUs.
 
 There are four major steps to get it work on HDInsight.
 
@@ -198,7 +198,7 @@ For the purpose of this blog, we just use this simple MNIST example. You should 
 
 Basically it distributes the required files (lenet_memory_solver.prototxt and lenet_memory_train_test.prototxt) to each YARN container, and also set the relevant PATH of each Spark driver/executor to LD_LIBRARY_PATH, which is defined in the previous code snippet and points to the location that has CaffeOnSpark libraries. 
 
-## Monitoring and Troubleshooting
+## Monitoring and troubleshooting
 
 Since we are using YARN cluster mode, in which case the Spark driver will be scheduled to an arbitrary container (and an arbitrary worker node) you should only see in the console outputting something like:
 
@@ -290,10 +290,7 @@ The SampleID represents the ID in the MNIST dataset, and the label is the number
 
 ## Conclusion
 
-In this blog, I walk you through installing CaffeOnSpark and we run a simple example. HDInsight is a full managed cloud distributed compute platform, and is the best place for running machine learning and advanced analytics workloads on large data set, such as [R Server on HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/r-server/), [Spark ML](https://blogs.technet.microsoft.com/machinelearning/2016/06/09/end-to-end-data-science-using-spark-on-azure-hdinsight/), etc. For Distributed Deep Learning, we just demonstrated the ability to run Caffe on HDInsgiht Spark, and we will have more to share in the future.
-
-Feel free to drop any comments and feedbacks to xiaoyzhu at microsoft dot com, and pull requests for this blog is welcome!
-
+In this documentation, you have tried to install CaffeOnSpark with running a simple example. HDInsight is a full managed cloud distributed compute platform, and is the best place for running machine learning and advanced analytics workloads on large data set, and for distributed deep learning, you can use Caffe on HDInsight Spark to perform deep learning tasks.
 
 
 ## <a name="seealso"></a>See also
