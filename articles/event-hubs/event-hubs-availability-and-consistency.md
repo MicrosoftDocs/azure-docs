@@ -33,7 +33,7 @@ Brewer's theorem defines consistency and availability as follows:
 Event Hubs is built on top of a partitioned model. You may configure the number of partitions in your Event Hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
 
 ## Availability
-The simplest way to get started with Event Hubs is to use the default behavior. If you create an new `EventHubClient` and use the send function, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of uptime.
+The simplest way to get started with Event Hubs is to use the default behavior. If you create a new `EventHubClient` and use the send function, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of uptime.
 
 For use cases that require maximum uptime, this model is preferred.
 
