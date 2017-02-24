@@ -18,18 +18,15 @@ ms.author: iainfou
 
 ---
 # Create a Docker environment in Azure using the Docker VM extension
-Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). In Azure, there are various ways you can deploy Docker according to your needs. This article focuses on using the Docker VM extension and Azure Resource Manager templates with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0]()
-
-For more information about the different deployment methods, including using Docker Machine and Azure Container Services, see the following articles:
-
-* To quickly prototype an app, you can create a single Docker host using [Docker Machine](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* For larger, more stable environments, you can use the Azure Docker VM extension, which also supports [Docker Compose](https://docs.docker.com/compose/overview/) to generate consistent container deployments. This article details using the Azure Docker VM extension.
-* To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md).
+Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). In Azure, there are various ways you can deploy Docker according to your needs. This article focuses on using the Docker VM extension and Azure Resource Manager templates with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-dockerextension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Azure Docker VM extension overview
 The Azure Docker VM extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine (VM). By using the Azure Docker VM extension, you have more control and features than simply using Docker Machine or creating the Docker host yourself. These additional features, such as [Docker Compose](https://docs.docker.com/compose/overview/), make the Azure Docker VM extension suited for more robust developer or production environments.
 
-Azure Resource Manager templates define the entire structure of your environment. Templates allow you to create and configure resources such as the Docker host VMs, storage, Role-Based Access Controls (RBAC), and diagnostics. You can reuse these templates to create additional deployments in a consistent manner. For more information about Azure Resource Manager and templates, see [Resource Manager overview](../azure-resource-manager/resource-group-overview.md). 
+For more information about the different deployment methods, including using Docker Machine and Azure Container Services, see the following articles:
+
+* To quickly prototype an app, you can create a single Docker host using [Docker Machine](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md).
 
 ## Deploy a template with the Azure Docker VM extension
 Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). You need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
