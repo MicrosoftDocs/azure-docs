@@ -26,7 +26,7 @@ This article shows how to mount Azure File storage on a Linux VM by using the se
 * [Secure Shell (SSH) public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## CLI versions to use
-You can complete the task using one of the following command-line interface (CLI) versions:
+You can complete the task by using one of the following command-line interface (CLI) versions:
 
 * Azure CLI 1.0: The CLI for the classic and Azure Resource Manager deployment models.
 * [Azure CLI 2.0 Preview](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): The next-generation CLI for the Resource Manager deployment model.
@@ -39,11 +39,11 @@ To accomplish the task quickly, follow the steps in this section. For more detai
 ### Prerequisites
 
 * A resource group
-* An Azure Virtual Network
+* An Azure virtual network
 * A network security group with an SSH inbound
 * A subnet
-* An Azure Storage account
-* Azure Storage account keys
+* An Azure storage account
+* Azure storage account keys
 * An Azure File storage share
 * A Linux VM
 
@@ -55,7 +55,7 @@ Replace any examples with your own settings.
 mkdir -p /mnt/mymountpoint
 ```
 
-### Mount the File storage SMB share to the mountpoint
+### Mount the File storage SMB share to the mount point
 
 ```bash
 sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -84,7 +84,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     az group create --name myResourceGroup --location westus
     ```
 
-2. Create an Azure Storage account with [az storage account create](/cli/azure/storage/account#create) to store the actual files.
+2. Create an Azure storage account with [az storage account create](/cli/azure/storage/account#create) to store the actual files.
 
     To create a storage account named mystorageaccount by using the Standard_LRS storage SKU, use the following example:
 
@@ -95,11 +95,11 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
         --sku Standard_LRS
     ```
 
-3. Show the Storage account keys.
+3. Show the storage account keys.
 
-    When you create a Storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New Storage account keys are always created in pairs, ensuring that you always have at least one unused Storage account key ready to switch to.
+    When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, ensuring that you always have at least one unused storage account key ready to switch to.
 
-    View the Storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#list). The Storage account keys for the named `mystorageaccount` are listed in the following example:
+    View the storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#list). The storage account keys for the named `mystorageaccount` are listed in the following example:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -114,7 +114,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
         --query '[0].{Key:value}' --output tsv
     ```
 
-4. Create the File Storage share.
+4. Create the File storage share.
 
     The File storage share contains the SMB share with [az storage share create](/cli/azure/storage/share#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
 
@@ -125,7 +125,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
         --account-key nPOgPR<--snip-->4Q==
     ```
 
-5. Create a mountpoint directory.
+5. Create a mount-point directory.
 
     Create a local directory in the Linux file system to mount the SMB share to. Anything written or read from the local mount directory is forwarded to the SMB share that's hosted on File storage. To create a local directory at /mnt/mymountdirectory, use the following example:
 
