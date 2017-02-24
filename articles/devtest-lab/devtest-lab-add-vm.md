@@ -46,6 +46,6 @@ You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-
 
 ## Next steps
 * Once the VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
-* Explore the [DevTest Labs ARM QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
 
