@@ -57,7 +57,7 @@
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
-## [View activity and security reports](active-directory-view-access-usage-reports.md)
+## [View activity reports](active-directory-view-access-usage-reports.md)
 ### [Azure AD reporting](active-directory-reporting-getting-started.md)
 ### [Sign-ins](active-directory-reporting-activity-sign-ins.md)
 ### [Audit logs](active-directory-reporting-activity-audit-logs.md)
