@@ -594,12 +594,12 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 To use PolyBase, it requires the user being used to load data into SQL Data Warehouse has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### Row size and data type limitation
-Polybase loads are limited to loading rows both smaller than **1MB** and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).
+Polybase loads are limited to loading rows both smaller than **1MB** and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX). Refer to [here](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits#loads).
 
-If you have source data with rows of size greater than 32 KB, you may want to split the source tables vertically into several small ones where the largest row size of each of them does not exceed the limit. The smaller tables can then be loaded using PolyBase and merged together in Azure SQL Data Warehouse.
+If you have source data with rows of size greater than 1MB, you may want to split the source tables vertically into several small ones where the largest row size of each of them does not exceed the limit. The smaller tables can then be loaded using PolyBase and merged together in Azure SQL Data Warehouse.
 
 ### SQL Data Warehouse resource class
-To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example).
+To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example).
 
 ### tableName in Azure SQL Data Warehouse
 The following table provides examples on how to specify the **tableName** property in dataset JSON for various combinations of schema and table name.
