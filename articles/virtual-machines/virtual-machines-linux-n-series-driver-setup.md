@@ -108,14 +108,14 @@ rm -f /tmp/${CUDA_REPO_PKG}
 
 sudo apt-get update
 
-sudo apt-get install cuda
+sudo apt-get install cuda-drivers
 ```
 The installation can take several minutes.
 
-To install only the CUDA drivers, type:
+To install the complete cuda toolkit, type:
 
 ```bash
-sudo apt-get install cuda-drivers
+sudo apt-get install cuda
 ```
 
 ### CUDA driver updates
