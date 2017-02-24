@@ -59,7 +59,14 @@ You should start seeing monitoring data in the charts on the storage account bla
 
 Use the following procedure to choose which storage metrics to view in metrics charts. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account, only the viewing of the metrics data.
 
+1. Select anywhere within the chart you wish to customize. In this walk-through, we use the default Metric chart for storage account "mystorageaccount."
+1. Select **Edit chart** to open the **Edit Chart** blade.
+1. Select the **Time Range** of the metrics to display in the chart.
+1. For each service you wish to display metrics (blob, queue, table, file), select it from the drop-down and check all metrics for that service you wish to display.
 
+TODO
+
+The metrics you selected in the Diagnostics settings determines the resolution of the metrics that are available for your account:
 
 * If your storage account has **aggregate** monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.
 * If your storage account has **per API** monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.
