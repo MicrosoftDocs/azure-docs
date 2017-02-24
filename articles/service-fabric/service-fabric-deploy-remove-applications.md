@@ -44,7 +44,7 @@ If you use [Visual Studio for deploying and debugging applications](service-fabr
 Before you run any PowerShell commands in this article, always start by using [Connect-ServiceFabricCluster](/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to the Service Fabric cluster. To connect to the local development cluster, run the following:
 
 ```powershell
-Connect-ServiceFabricCluster
+PS C:\>Connect-ServiceFabricCluster
 ```
 
 For examples of connecting to a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md).
@@ -61,7 +61,7 @@ Suppose you build and package an app named *MyApplication* in Visual Studio. By 
 The following command lists the contents of the application package:
 
 ```powershell
-PS C:\temp> tree /f 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> tree /f 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
@@ -104,7 +104,7 @@ The application type and version declared in the application manifest becomes av
 Run the [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet to register the application type in the cluster and make it available for deployment:
 
 ```powershell
-PS D:\temp> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
 Register application type succeeded
 ```
 
@@ -115,7 +115,7 @@ The [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/re
 The [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) command lists all successfully registered application type versions and their registration status.
 
 ```powershell
-PS D:\temp> Get-ServiceFabricApplicationType
+PS C:\> Get-ServiceFabricApplicationType
 
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
@@ -127,7 +127,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 You can instantiate an application from any application type version that has been registered successfully by using the [New-ServiceFabricApplication](/powershell/servicefabric/vlatest/new-servicefabricapplication) cmdlet. The name of each application must start with the *fabric:* scheme and be unique for each application instance. Any default services defined in the application manifest of the target application type are also created.
 
 ```powershell
-PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
+PS C:\> New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
 
 ApplicationName        : fabric:/MyApp
 ApplicationTypeName    : MyApplicationType
@@ -139,7 +139,7 @@ Multiple application instances can be created for any given version of a registe
 To see which named apps and services are running in the cluster, run the [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) and [Get-ServiceFabricService](/powershell/servicefabric/vlatest/get-servicefabricservice) cmdlets:
 
 ```powershell
-PS D:\temp> Get-ServiceFabricApplication  
+PS C:\> Get-ServiceFabricApplication  
 
 ApplicationName        : fabric:/MyApp
 ApplicationTypeName    : MyApplicationType
@@ -148,7 +148,7 @@ ApplicationStatus      : Ready
 HealthState            : Ok
 ApplicationParameters  : {}
 
-PS D:\temp> Get-ServiceFabricApplication | Get-ServiceFabricService
+PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService
 
 ServiceName            : fabric:/MyApp/Stateless1
 ServiceKind            : Stateless
@@ -163,15 +163,14 @@ HealthState            : Ok
 When an application instance is no longer needed, you can permanently remove it by name using the [Remove-ServiceFabricApplication](/powershell/servicefabric/vlatest/remove-servicefabricapplication) cmdlet. [Remove-ServiceFabricApplication](/powershell/servicefabric/vlatest/remove-servicefabricapplication) automatically removes all services that belong to the application as well, permanently removing all service state. This operation cannot be reversed, and application state cannot be recovered.
 
 ```powershell
-PS D:\temp> Remove-ServiceFabricApplication fabric:/MyApp
+PS C:\> Remove-ServiceFabricApplication fabric:/MyApp
 
 Confirm
 Continue with this operation?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 Remove application instance succeeded
 
-PS D:\temp> Get-ServiceFabricApplication
-PS D:\temp>
+PS C:\> Get-ServiceFabricApplication
 ```
 
 ## Unregister an application type
@@ -180,7 +179,7 @@ When a particular version of an application type is no longer needed, you should
 Run [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) to see the application types currently registered in the cluster:
 
 ```powershell
-PS D:\temp> Get-ServiceFabricApplicationType
+PS C:\> Get-ServiceFabricApplicationType
 
 ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
@@ -191,21 +190,21 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 Run [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) to unregister a specific application type:
 
 ```powershell
-PS D:\temp> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
+PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 ## Remove an application package from the image store
 When an application package is no longer needed, you can delete it from the image store to free up system resources.
 
 ```powershell
-Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
+PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
 ```
 
 ## Troubleshooting
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
-The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value that the Service Fabric cluster is using. You can find the ImageStoreConnectionString in the cluster manifest, retrieved using the [Get-ServiceFabricClusterManifest](/powershell/servicefabric/vlatest/get-servicefabricclustermanifest) command:
+The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value that the Service Fabric cluster is using. You can find the ImageStoreConnectionString in the cluster manifest, retrieved using the [Get-ServiceFabricClusterManifest](/powershell/servicefabric/vlatest/get-servicefabricclustermanifest) commanC:
 
 ```powershell
-PS D:\temp> Get-ServiceFabricClusterManifest
+PS C:\> Get-ServiceFabricClusterManifest
 ```
 
 The ImageStoreConnectionString is found in the cluster manifest:
