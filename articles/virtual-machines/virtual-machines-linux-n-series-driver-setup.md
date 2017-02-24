@@ -21,15 +21,16 @@ ms.author: danlep
 # Set up GPU drivers for N-series VMs
 To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is also available for [Windows VMs](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-> [!NOTE]
-> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website. Use of NVIDIA drivers is subject to the [License for Customer Use of NVIDIA Software](http://www.nvidia.com/content/DriverDownload-March2009/licence.php?lang=us).
->
+> [!IMPORTANT]
 > Currently, Linux GPU support is only available on Azure NC VMs.
->
+> 
+
+For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). See also [General considerations for N-series VMs](#general-considerations-for-n-series-vms).
+
+
 
 ## Supported GPU drivers
+
 
 
 ### NVIDIA Tesla drivers for NC VMs (Tesla K80)
@@ -39,11 +40,14 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 | Ubuntu 16.04 LTS | [375.39](http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run) (.run) |
 | CentOS 7.3 | [375.39](http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run) (.run) |
 
+> [!NOTE]
+> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website. 
+>
 
 
 ## Tesla driver installation
 
-Following are sample driver installation steps on Ubuntu 16.04 LTS. Follow similar steps on other Linux distributions.
+Following are sample driver installation steps on Ubuntu 16.04 LTS. Follow comparable steps on other Linux distributions.
 
 1. Make an SSH connection to the Azure N-series VM.
 
@@ -72,12 +76,12 @@ Following are sample driver installation steps on Ubuntu 16.04 LTS. Follow simil
     sudo apt install make
     ```
 
-4. Change to the directory containing the driver installer and run commands similar to the following:
+4. Run commands similar to the following:
 
     ```bash
-    chmod +x NVIDIA-Linux-x86_64-375.39.run
+    chmod +x /tmp/NVIDIA-Linux-x86_64-375.39.run
     
-    sudo sh ./NVIDIA-Linux-x86_64-375.39.run
+    sudo sh /tmp/NVIDIA-Linux-x86_64-375.39.run
     ```
 
 ## Verify driver installation
@@ -89,9 +93,9 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 ## Optional installation of NVIDIA CUDA Toolkit 8
 
-You can optionally install NVIDIA CUDA Toolkit 8.0 on Linux NC VMs. In addition to GPU drivers, the Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.
+You can optionally install drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. In addition to GPU drivers, the Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.
 
-Following are sample commands to install the CUDA Toolkit on Ubuntu 16.04 LTS. Follow similar steps on other Linux distributions. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+Following are sample commands to install the CUDA Toolkit on Ubuntu 16.04 LTS. Follow comparable steps on other Linux distributions. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 ```bash
 CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
@@ -108,11 +112,29 @@ sudo apt-get install cuda
 ```
 The installation can take several minutes.
 
-To install or update only the CUDA drivers, type:
+To install only the CUDA drivers, type:
 
 ```bash
 sudo apt-get install cuda-drivers
 ```
+
+### CUDA driver updates
+
+To update CUDA drivers manually after deployment, run commands similar to the following for Ubuntu 16.04 LTS:
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+```
+
+After the update completes, restart the VM.
+
+[!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
 
 ## Next steps
 

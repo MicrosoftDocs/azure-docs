@@ -49,7 +49,7 @@ Connect by Remote Desktop to each N-series VM. Download, extract, and install th
 | Windows Server 2012 R2 | [369.30](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)  |
 
 > [!NOTE]
-> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website. Use of NVIDIA drivers is subject to the [License for Customer Use of NVIDIA Software](http://www.nvidia.com/content/DriverDownload-March2009/licence.php?lang=us).
+> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website.
 >
 
 ## Verify GPU driver installation
