@@ -1,6 +1,6 @@
 ---
-title: Use cloud-init to customize a Linux VM with the Azure CLI 2.0 (Preview) | Microsoft Docs
-description: How to use cloud-init to customize a Linux VM during creation with the Azure CLI 2.0 (Preview)
+title: Use cloud-init to customize a Linux VM | Microsoft Docs
+description: How to use cloud-init to customize a Linux VM during creation with the Azure CLI 2.0 Preview
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -19,15 +19,9 @@ ms.author: iainfou
 
 ---
 # Use cloud-init to customize a Linux VM during creation
-This article shows how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts with the Azure CLI 2.0 (Preview).  The cloud-init scripts are called during the VM creation from Azure CLI.
+This article shows you how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts with the Azure CLI 2.0.  The cloud-init scripts are called when you create a VM from Azure CLI.  You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-using-cloud-init-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
-
-- [Azure CLI 1.0](virtual-machines-linux-using-cloud-init-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](#quick-commands) - our next generation CLI for the resource management deployment model (this article)
-
-## Quick Commands
+## Quick commands
 Create a cloud-init.txt script that sets the hostname, updates all packages, and adds a sudo user to Linux.
 
 ```sh
@@ -95,7 +89,7 @@ To inject scripts at any time after boot:
 
 Microsoft is working with our partners to get cloud-init included and working in the images that they provide to Azure.
 
-## Adding a cloud-init script to the VM creation with the Azure CLI
+## Add a cloud-init script to the VM creation with the Azure CLI
 To launch a cloud-init script when creating a VM in Azure, specify the cloud-init file using the Azure CLI `--custom-data` switch.
 
 Create a resource group to launch VMs into.
@@ -118,7 +112,7 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-## Creating a cloud-init script to set the hostname of a Linux VM
+## Create a cloud-init script to set the hostname of a Linux VM
 One of the simplest and most important settings for any Linux VM would be the hostname. We can easily set this using cloud-init with this script.  
 
 ### Example cloud-init script named `cloud_config_hostname.txt`.
@@ -147,7 +141,7 @@ hostname
 myservername
 ```
 
-## Creating a cloud-init script to update Linux
+## Create a cloud-init script to update Linux
 For security, you want your Ubuntu VM to update on the first boot.  Using cloud-init we can do that with the follow script, depending on the Linux distribution you are using.
 
 ### Example cloud-init script `cloud_config_apt_upgrade.txt` for the Debian Family
@@ -182,7 +176,7 @@ The following packages have been kept back:
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
-## Creating a cloud-init script to add a user to Linux
+## Create a cloud-init script to add a user to Linux
 One of the first tasks on any new Linux VM is to add a user for yourself or to avoid using `root`. SSH keys are best practice for security and for usability and they are added to the `~/.ssh/authorized_keys` file with this cloud-init script.
 
 ### Example cloud-init script `cloud_config_add_users.txt` for Debian Family
@@ -226,7 +220,7 @@ sudo:x:27:myCloudInitAddedAdminUser
 myCloudInitAddedAdminUser:x:1000:
 ```
 
-## Next Steps
+## Next steps
 Cloud-init is becoming one standard way to modify your Linux VM on boot. Azure also has VM extensions, which allow you to modify your LinuxVM on boot or while it is running. For example, you can use the Azure VMAccessExtension to reset SSH or user information while the VM is running. With cloud-init, you would need a reboot to reset the password.
 
 [About virtual machine extensions and features](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
