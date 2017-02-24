@@ -273,6 +273,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>ExpressRoute</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Network Watcher</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Intelligence + Analytics</h3>
                                     <ul>
@@ -997,6 +1003,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Dedicated private network fiber connections to Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Network Watcher</h3>
+                                                    <p>Monitor and diagnose conditions at a network scenario level</p>
                                                 </div>
                                             </div>
                                         </div>

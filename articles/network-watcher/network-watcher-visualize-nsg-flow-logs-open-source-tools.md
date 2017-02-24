@@ -29,9 +29,9 @@ In this article, we will set up a solution that will allow you to visualize Netw
 
 ![scenario][scenario]
 
-### Steps
+## Steps
 
-#### Enable Network Security Group flow logging
+### Enable Network Security Group flow logging
 For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
 
@@ -44,7 +44,6 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 1. Download the correct binary package for your system:
 
     ```
-    sudo apt-get install openjdk-8-jre
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -52,7 +51,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
     Other installation methods can be found at [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-1. Verify that elastic search is running with the command:
+1. Verify that Elasticsearch is running with the command:
 
     ```
     curl http://127.0.0.1:9200
