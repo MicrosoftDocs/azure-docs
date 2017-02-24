@@ -31,7 +31,7 @@ The article assumes that you have already created:
 - A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
 - A virtual machine on which to install the configuration server.
 
-### Configuration server minimum requirements
+## Configuration server minimum requirements
 The configuration server software should be deployed on a highly available VMware virtual machine. The following table lists the minimum hardware, software, and network requirements for a configuration server.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 

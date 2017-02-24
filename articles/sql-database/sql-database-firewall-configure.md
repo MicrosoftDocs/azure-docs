@@ -13,7 +13,7 @@ ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017

@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: heidist
-
+experimental: true
+experiment_id: "heidist-20170221"
 ---
 # What is Azure Search?
 
@@ -24,7 +25,7 @@ Azure Search offers a dedicated and programmable search engine with intelligent 
 
 Having a solid search experience is a necessity for most web and mobile apps. Full text search with auto-completed query terms, spelling corrections, and matches based on semantically identical but superficially different inputs ("car" and "auto") is almost the minimum bar, despite the technical complexity backing the experience. Equally important are operational requirements for scale, reliability, and synchronization between search and backend data stores. 
 
-Azure Search provides a comprehensive range of capabilities so you can meet both search and operational requirements.
+Azure Search provides comprehensive functionality so you can meet both search and operational requirements.
 
 ![Search bar and custom search page with typical search features](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -37,7 +38,7 @@ To use Azure Search, provision a free or paid service in your Azure subscription
 |[Free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) | A shared service that can be provisioned quickly and used for small workloads, typical for learning and evaluation scenarios. |
 |[Billable](search-sku-tier.md) | A dedicated service at graduated levels of capacity, from Basic to Standard High Density; accommodating a wide range of deployment configurations at different pricing tiers.|
 
-Azure Search runs in the cloud as a managed service from Microsoft, and can be integrated with custom code on any application platform. Your fully managed service and private content is globally available, programmable, scalable, and recoverable. 
+Azure Search runs in the cloud as a managed service from Microsoft. It can be integrated with custom code on any application platform. Your fully managed service and private content is globally available, programmable, scalable, and recoverable. 
 
 Dedicated services run 24-7 at scale with [99.9% service level agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/) backed by Microsoft Azure.
 
@@ -46,50 +47,46 @@ Dedicated services run 24-7 at scale with [99.9% service level agreements](https
 Several cloud service providers offer custom search engines with features that power a search bar in custom apps. 
 Some offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](#feature-drilldown), or the ease and overall simplicity of APIs, tools, and management that determines the best fit.
 
-Key strengths of Azure Search include:
+As points of comparison with other search solutions, Azure Search is strongest for full text search workloads over content stores and databases on Azure, with an additional layer of functionality necessary for apps that rely primarily on search for information retrieval and content navigation. 
 
-+ Language and custom analysis in the query processing pipeline. It's not unusual to support multiple languages, or to require different levels of processing on a field by field basis. Some fields might need full text search, but others might need minimal or specialized processing based on field contents.
++ Azure data integration (crawlers) at the indexing layer
++ Azure portal for central management
++ Azure scale, reliability, and world-class availability
++ Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
++ Core features common to search-centric apps, including relevance, faceting, suggestions, synonyms, geo-search, and more (listed next).
 
-+ Solid user experience features for intuitive search. Superficially simple, but backed by powerful query parsers and analyzers with the ability to structure interesting and complex queries. Well-designed APIs reduce much of the complexity.
+> [!Note]
+> Non-Azure data sources are fully supported. You can pipe any JSON document collection to an Azure Search index.
 
-+ Deep integration with other Azure services (especially at the data layer) with precision control over searchable data. 
-
-  At the data layer, Azure Search provides automated indexing on Azure table storage, blob storage, DocumentDB, SQL Database, SQL Server on Azure VMs. You have full programmatic control over data ingestion. Synchronization between search and inventory databases, for example during high-traffic promotional events like Black Friday, is a business requirement that's not easily met by every vendor.
-
-  Developers already using other Azure services, such as App Service or Application Insights, find it easy to incrementally add additional capability like search into custom apps that leverage other services on Microsoft's cloud platform.
-  
-  The Azure portal offers centralized oversight for all services. You can monitor and scale your service in the same tool used to manage all of your cloud services. In Azure Search, the portal includes an index designer, Import Data wizard, and Search Explorer. This enable fast prototyping, testing, and query validation without code.
-
-> [!NOTE]
-> It's common for a search technology to store searchable data in an index. On the surface, it looks like duplication of storage, but indexes are typically much smaller than the external data stores used by applications, storing only the fields and metadata directly applicable in a query operation. It is rare to store a fully redundant copy of existing data. Storing data with the service offers the most reliable and high-performance throughput, with no impact on transactional data stores. 
+Use cases able to leverage the widest range of features in Azure Search include online catalogs, line of business programs, and document discovery applications.
 
 ### <a name="feature-drilldown"></a>Feature drilldown
 
 #### Full text search and text analysis
 
-Queries can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
+Queries can be formulated using the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
 
 #### Language support
 
-Azure Search supports lexical analyzers for [56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
+Azure Search supports lexical analyzers for [56 different languages](https://docs.microsoft.com/rest/api/searchservice/language-support). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
 
 #### Data integration
 
-You can push JSON data structures to populate an Azure Search index. Additionally, for supported data sources, you can use [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
+You can push JSON data structures to populate an Azure Search index. Additionally, for supported data sources, you can use [indexers](search-indexer-overview.md) to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
 
 **Document cracking** enables [indexing of major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office, PDF, and HTML documents.
 
 #### Search experience
 
-+ **Search suggestions** can be enabled for auto-completed search bars and type-ahead queries. [Actual documents in your index are suggested](https://msdn.microsoft.com/library/azure/dn798936.aspx) as users enter partial search input.
++ **Search suggestions** can be enabled for auto-completed search bars and type-ahead queries. [Actual documents in your index are suggested](https://docs.microsoft.com/rest/api/searchservice/suggesters) as users enter partial search input.
 
-+ **Faceted navigation** is enabled through a [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx). Azure Search returns a faceted navigation structure for your app's UI, for self-directed filtering (for example, to filter catalog items by price-range or brand).
++ **Faceted navigation** is enabled through a [just a single query parameter](https://docs.microsoft.com/azure/search/search-faceted-navigation). Azure Search returns a faceted navigation structure you can use as the code behind a categories list, for self-directed filtering (for example, to filter catalog items by price-range or brand).
 
-+ **Filters** can be used to incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
++ **Filters** can be used to incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create filters using the [OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-+ **Hit highlighting** [applies visual formatting to a matching keyword in search results](https://msdn.microsoft.com/library/azure/dn798927.aspx). You can choose which fields return highlighted snippets.
++ **Hit highlighting** [applies visual formatting to a matching keyword in search results](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). You can choose which fields return highlighted snippets.
 
-+ **Simple scoring** is a key benefit of Azure Search. [Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are used to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.
++ **Simple scoring** is a key benefit of Azure Search. [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) are used to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.
 
 + **Sorting** is offered for multiple fields via the index schema and then toggled at query-time with a single search parameter.
 
@@ -111,9 +108,9 @@ Azure Search intelligently processes, filters, and displays geographic locations
 
 + Metrics on queries per second, latency, and throttling are captured and reported in portal pages with no additional configuration required. You can also easily monitor index and document counts so that you can adjust capacity as needed. 
 
-#### Tools for quick tasks and prototyping
+#### Tools for prototyping and inspection
 
-In the portal, you can use the **Import data** wizard to configure indexers, index designer to stand up an index, and **Search explorer** to issue queries against all of your indexes right from your account's Azure portal so you can test queries and refine scoring profiles.
+In the portal, you can use the **Import data** wizard to configure indexers, index designer to stand up an index, and **Search explorer** to issue queries against all of your indexes right from your account's Azure portal so you can test queries and refine scoring profiles. You can also open any index to view its schema.
 
 ## How to get started
 
@@ -142,7 +139,7 @@ While a number of tasks can be performed in the portal, Azure Search is intended
 
 ## Watch a short video
 
-Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Search makes it simple, while giving you capabilities similar to how search is experienced on large commercial web sites. This 9-minute video from program manager Liam Cavanagh explains how a search engine can help, key features, and a typical workflow in Azure Search. 
+Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Search gives you tools for creating a search experience similar to those on large commercial web sites. This 9-minute video from program manager Liam Cavanagh explains how integrating a search engine can benefit your app, key features in Azure Search, and what a typical workflow looks like. 
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
  
