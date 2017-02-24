@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/15/2017
 ms.author: markvi
 
 ---
@@ -137,13 +137,19 @@ Please create a different local account before using Azure Active Directory Join
 
 ---
 
+**Q: Where can I find instructions for the setup of automatic device registration?**
+
+**A:** For detailed instructions, see [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+---
+
 **Q: Where can I find troubleshooting information about the automatic device registration?**
 
 **A:** For troubleshooting information, see:
 
-1. [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+1. [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
 
-2. [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+2. [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
  
 ---
 

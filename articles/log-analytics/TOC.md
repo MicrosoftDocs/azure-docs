@@ -16,7 +16,7 @@
 #### [Windows agents](log-analytics-windows-agents.md)
 #### [Linux agents](log-analytics-linux-agents.md)
 #### [Azure virtual machines](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+#### [Azure resources](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
@@ -31,6 +31,7 @@
 ## Query data
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
+#### [Regular expressions](log-analytics-log-searches-regex.md)
 ### [Computer groups](log-analytics-computer-groups.md)
 ### [Alerts](log-analytics-alerts.md)
 ## Analyze data
@@ -42,6 +43,7 @@
 #### [AD Assessment](log-analytics-ad-assessment.md)
 #### [AD Replication Status](log-analytics-ad-replication-status.md)
 #### [Alert management](log-analytics-solution-alert-management.md)
+#### [Azure SQL Analytics](log-analytics-azure-sql.md)
 #### [Capacity Management](log-analytics-capacity.md)
 #### [Change Tracking](log-analytics-change-tracking.md)
 #### [Containers](log-analytics-containers.md)
@@ -69,6 +71,7 @@
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
 # Resources
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)

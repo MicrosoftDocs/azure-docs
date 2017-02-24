@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -27,10 +27,9 @@ The preview experience enables you to manage many directory resources such as us
 The preview experience reads and writes to the same Azure Active Directory tenant as the classic portal and the Office 365 Admin center. Changes that are made in any of these portals are reflected in all the other portals.
 
 ## Use the same authorization logic
-The preview experience uses the same authorization logic as existing Active Directory clients. Users are authorized to make changes to directory resources based on their directory role, such as global administrator, user administrator, and password administrator. Having a role on Azure resources or an Azure subscription doesn't give users the authorization to manage directory resources. For more information about Azure AD management roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md). 
+The preview experience uses the same authorization logic as existing Active Directory clients. Users are authorized to make changes to directory resources based on their directory role, such as global administrator, user administrator, and password administrator. Having a role on Azure resources or an Azure subscription doesn't give users the authorization to manage directory resources. For more information about Azure AD management roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
 The preview experience is optimized for global administrators. If you use the preview experience while signed in as a user that is not a global administrator, you might have a degraded experience. For example, you might be able to select a button that lets you begin a task that you can't complete in the directory. We will be improving this experience soon.
 
-## Tell us what you think
+## Next steps
 You can provide feedback on the preview experience in the admin portal section of the [Azure AD feedback forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
-

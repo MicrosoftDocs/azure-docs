@@ -45,10 +45,10 @@
 ## [Azure Diagnostics Schema](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
 ### [Diagnostics Schema 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
 ### [Diagnostics Schema 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
-### [Diagnostics Schema 1.3 to 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+### [Diagnostics Schema 1.3 to 1.7](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
 
 
 # Resources
 ## [PowerShell Samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI 2.0 (Preview) Samples](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Azure CLI 1.0 Samples](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [List of supported metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md)

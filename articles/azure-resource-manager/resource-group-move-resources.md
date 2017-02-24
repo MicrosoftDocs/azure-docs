@@ -25,7 +25,7 @@ When moving resources, both the source group and the target group are locked dur
 You cannot change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that does not change the location of the resource.
 
 > [!NOTE]
-> This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switch your Azure subscription to another offer](../billing-how-to-switch-azure-offer.md). 
+> This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md). 
 > 
 > 
 
@@ -40,7 +40,7 @@ There are some important steps to perform before moving a resource. By verifying
   (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
   ```
 
-  For Azure CLI 2.0 (Preview), use:
+  For Azure CLI 2.0, use:
 
   ```azurecli
   az account show --subscription "Example Subscription" --query tenantId
@@ -317,7 +317,7 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## Use Azure CLI 2.0 (Preview)
+## Use Azure CLI 2.0
 To move existing resources to another resource group or subscription, use the `az resource move` command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
 
 ```azurecli

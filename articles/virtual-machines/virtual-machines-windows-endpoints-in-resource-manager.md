@@ -1,6 +1,6 @@
 ---
-title: Understand endpoints for Windows VM in Azure | Microsoft Docs
-description: Understand how endpoints from the Classic deployment model are now implemented in Resource Manager using Network Security Groups and ACL rules
+title: Understand endpoints for Windows VMs in Azure | Microsoft Docs
+description: Learn how endpoints from the Classic deployment model are now implemented in Resource Manager using Network Security Groups and ACL rules
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 
 ---

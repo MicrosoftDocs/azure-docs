@@ -35,9 +35,13 @@ SSE works by encrypting the data when it is written to Azure Storage, and can be
 
 Storage Service Encryption – Files Preview
 SSE is now available for encrypting your data in File Storage. This is currently in preview. Given below is the list of regions where SSE for File Storage is available.
+
+To participate in the SSE Files Preview please contact ssdiscussions@microsoft.com.
+
 To learn more, please refer to the FAQ.
 Availability for File Storage
-Storage Service Encryption for File Storage is currently available in Asia- region.
+Storage Service Encryption for File Storage is currently available in East Asia, North Europe and East US 2 regions.
+
 
 To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://azure.portal.com) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
 
@@ -64,7 +68,8 @@ Storage Service Encryption can be enabled at a storage account level. It support
 SSE has the following limitations:
 
 * Encryption of classic storage accounts is not supported.
-* Encryption of classic storage accounts migrated to Resource Manager storage accounts is not supported.
+* Encryption of classic storage accounts migrated to Resource Manager storage accounts is supported for encryption for the Blob Service, but not for the File Service.
+* Encryption for File Storage is supported only for newly created storage accounts.
 * Existing Data - SSE only encrypts newly created data after the encryption is enabled. If for example you create a new Resource Manager storage account but don’t turn on encryption, and then you upload blobs or archived VHDs to that storage account and then turn on SSE, those blobs will not be encrypted unless they are rewritten or copied.
 * Marketplace Support - Enable encryption of VMs created from the Marketplace using the [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI. The VHD base image will remain unencrypted; however, any writes done after the VM has spun up will be encrypted.
 * Table and Queues data will not be encrypted.
@@ -88,7 +93,8 @@ AzCopy is a Windows command-line utility designed for copying data to and from M
 To learn more, please visit [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 #### Using SMB
-Azure File storage offers file shares in the cloud using the standard SMB protocol. You can mount a file share from an on-premises application that supports SMB 3.0. Learn [how to mount Azure Fileshare on Windows](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) and [how to mount Azure File share on Linux](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share). Once mounted, any regular copy command, tool like robocopy or simple explorer drag and drop mechanism can be used to copy files.
+Azure File storage offers file shares in the cloud using the standard SMB protocol. You can mount a file share from a client on premises or in Azure. Once mounted, tools such as Robocopy can be used to copy files over to Azure File shares. For more information, see [how to mount Azure Fileshare on Windows](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) and [how to mount Azure File share on Linux](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share).
+
 
 #### Using the Storage Client Libraries
 You can copy blob or file data to and from blob storage or between storage accounts using our rich set of Storage Client Libraries including .NET, C++, Java, Android, Node.js, PHP, Python, and Ruby.
@@ -123,7 +129,7 @@ A: No, SSE is only supported on Resource Manager storage accounts.
 
 A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing classic storage account to your newly created Resource Manager storage account. 
 
-Another option is to migrate your classic storage account to a Resource Manage storage account. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Please note that this is supported only for Blob Storage. For the File Storage Preview, users must create new Resource Manager storage accounts.
+If you migrate your classic storage account to a Resource Manage storage account, the data will not be encrypted during migration. However, if you migrate the storage account and then enable encryption, any new data written to the storage account will be encrypted. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Please note that this is supported only for Blob Storage. For the File Storage Preview, users must create new Resource Manager storage accounts.
 
 **Q: I have an existing Resource Manager storage account. Can I enable SSE on it?**
 

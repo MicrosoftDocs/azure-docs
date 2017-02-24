@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect: Enabling device writeback | Microsoft Docs'
 description: This document details how to enable device writeback using Azure AD Connect
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 02/07/2017
 ms.author: billmath
 
 ---

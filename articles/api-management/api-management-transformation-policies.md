@@ -469,11 +469,11 @@ This topic provides a reference for the following API Management policies. For i
   
 > [!NOTE]
 >  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.  
-  
+
 ### Policy statement  
   
 ```xml  
-<rewrite-uri template="uri template" />  
+<rewrite-uri template="uri template" copy-unmatched-params="true | false" />  
 ```  
   
 ### Example  
@@ -526,7 +526,7 @@ This topic provides a reference for the following API Management policies. For i
   
 |Attribute|Description|Required|Default|  
 |---------------|-----------------|--------------|-------------|  
-|template|The actual web service URL with any query string parameters.|Yes|N/A|  
+|template|The actual web service URL with any query string parameters. When using expressions, the whole value must be an expression.|Yes|N/A|  
 |copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the re-write template|No|true|  
   
 ### Usage  

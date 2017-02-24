@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## Disk Storage 
+### [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Create a Linux VM using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
 ## Use blobs
@@ -62,13 +70,21 @@
 ### [Overview](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Use Virtual Machine Disks
+## Use disks
+### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
+### [Disks and VHDs for Linux VMs](storage-about-disks-and-vhds-linux.md)
+### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
+### [Migrate Azure VMs to Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [Migrate from AWS and other platforms to Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
-#### [High-performance storage for VM workloads](storage-premium-storage.md)
-#### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
+#### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
 ### Standard Storage
-#### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
+#### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
+### Using unmanaged disks
+#### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
+#### [Back up unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md)
 ## Plan and design
 ### [Replication](storage-redundancy.md)
 ### [Scalability and performance targets](storage-scalability-targets.md)
@@ -155,7 +171,7 @@
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
 ### [Data movement](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobs, Queues, Tables, and Files](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-## [Java](/java/api/)
+## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)

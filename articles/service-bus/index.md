@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Service Bus Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.  Tutorials, videos, API references, and more.
+services: service-bus
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date:  01/23/2017
+ms.author: carolz
 ---
 #Service Bus Documentation
 

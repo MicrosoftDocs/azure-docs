@@ -1,16 +1,12 @@
 ---
-layout: LandingPage
+title: Azure Linux Virtual Machine Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
-
-
-title: Azure Virtual Machines for Linux Documentation, Tutorials and API Reference | Microsoft Docs
-services: virtual-machines-linux
+services: virtual-machines\linux
 author: carolz
 manager: carolz
 layout: LandingPage
-
-ms.assetid: 
-ms.service: virtual-machines-linux
+ms.assetid: 
+ms.service: virtual-machines\linux
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

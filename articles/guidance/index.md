@@ -1,22 +1,17 @@
 ---
-title: Azure Guidance | Microsoft Docs
+title: Azure Guidance Documentation - Tutorials | Microsoft Docs
 description: Best practices and guidance for Azure
-services: ''
-documentationcenter: na
-author: bennage
-manager: marksou
-editor: ''
-tags: ''
-
-ms.assetid: de94c74a-fea7-4815-8484-553e421a7490
+services: guidance
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: guidance
-ms.devlang: na
-ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/17/2016
-ms.author: christb
-
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Azure Guidance
 [!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]

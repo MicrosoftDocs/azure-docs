@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2017
+ms.date: 02/20/2017
 ms.author: arramac
 
 ---
@@ -209,7 +209,7 @@ DocumentDB offers a 99.99% uptime availability SLA for each of the data and cont
 Availability’s relationship with consistency, latency, and throughput is described in  [Consistency's relationship with availability](#ConsistencyAndAvailability), [Latency's relationship with availability](#LatencyAndAvailability) and [Throughput's relationship with availability](#ThroughputAndAvailability). 
 
 ## <a id="GuaranteesAgainstDataLoss"></a>Guarantees and system behavior for "data loss"
-In DocumentDB, each partition (of a collection) is made highly available by a number of replicas, which are spread across at least 10-20 fault domains. All writes are synchronously and durably committed by a majority quorum of replicas before they are acknowledged to the client. Asynchronous replication is applied with coordination across partitions spread across multiple regions. DocumentDB guarantees that there is no data loss for a tenant-initiated manual failover. During automatic failover, DocumentDB guarantees an upper bound of 5 seconds on the data loss window as part of its SLA.
+In DocumentDB, each partition (of a collection) is made highly available by a number of replicas, which are spread across at least 10-20 fault domains. All writes are synchronously and durably committed by a majority quorum of replicas before they are acknowledged to the client. Asynchronous replication is applied with coordination across partitions spread across multiple regions. DocumentDB guarantees that there is no data loss for a tenant-initiated manual failover. During automatic failover, DocumentDB guarantees an upper bound of the configured bounded staleness interval on the data loss window as part of its SLA.
 
 ## <a id="CustomerFacingSLAMetrics"></a>Customer facing SLA Metrics
 DocumentDB transparently exposes the throughput, latency, consistency and availability metrics. These metrics are accessible programmatically and via the Azure portal (see following figure). You can also set up alerts on various thresholds using Azure Application Insights.
