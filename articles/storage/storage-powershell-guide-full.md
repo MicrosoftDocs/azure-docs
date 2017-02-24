@@ -35,7 +35,7 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 
 **After creating a Microsoft Azure subscription and account:**
 
-1. Download and install [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+1. Download and install the latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest).
 2. Start Windows PowerShell Integrated Scripting Environment (ISE): In your local computer, go to the **Start** menu. Type **Administrative Tools** and click to run it. In the **Administrative Tools** window, right-click **Windows PowerShell ISE**, click **Run as Administrator**.
 3. In **Windows PowerShell ISE**, click **File** > **New** to create a new script file.
 4. Now, we’ll give you a simple script that shows basic PowerShell commands to access Azure Storage. The script will first ask your Azure account credentials to add your Azure account to the local PowerShell environment. Then, the script will set the default Azure subscription and create a new storage account in Azure. Next, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.

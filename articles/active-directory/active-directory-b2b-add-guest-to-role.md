@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/03/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 
 ---
@@ -25,34 +25,15 @@ While Azure Active Directory (Azure AD) B2B collaboration users are added as gue
 
 ## Default Role
 
-![default role](media/active-directory-b2b-add-guest-to-role/default-role.png)
+![default role](./media/active-directory-b2b-add-guest-to-role/default-role.png)
 
 ## Global Administrator Role
 
-![global admin role](media/active-directory-b2b-add-guest-to-role/global-admin-role.png)
+![global admin role](./media/active-directory-b2b-add-guest-to-role/global-admin-role.png)
 
 ## Limited Administrator Role
 
-![limited admin role](media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
-
-## Auditing and reporting
-With guest users, you now get auditing capabilities on par with member users. Here's an example below of the invitation and redemption history of the just invited Sam Oogle:
-
-![audit log](media/active-directory-b2b-add-guest-to-role/audit-log.png)
-
-You can dive into each of these events to get the details. For example, let's look at the acceptance details.
-
-![activity details](media/active-directory-b2b-add-guest-to-role/activity-details.png)
-
-You can also export these logs from Azure AD and use the reporting tool of your choice in order to get customized reports.
-
-## Resending Invitations
-It is now possible to go to a B2B collaboration user's profile page and resend invitations to not-yet-redeemed guest users for any reason:
-
-![resend invitation](media/active-directory-b2b-add-guest-to-role/resend-invitation.png)
-
-> ![NOTE]
-> This will resend an invitation from the signed-in user and invite the user to the directory, even if the original invitation was to a specific app or group.
+![limited admin role](./media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
 
 ## Next steps
 
