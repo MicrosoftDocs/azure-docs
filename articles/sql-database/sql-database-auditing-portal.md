@@ -3,8 +3,7 @@ title: 'Azure portal: Manage SQL Database Auditing | Microsoft Docs'
 description: Configure Azure SQL Database auditing in the Azure portal to track database events and write them to an audit log in your Azure Storage account.
 services: sql-database
 documentationcenter: ''
-author: ronitr
-manager: jhubbard
+author: ronitrmanager: jhubbard
 editor: giladm
 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
@@ -43,6 +42,7 @@ For an overview of auditing, see [SQL Database auditing](sql-database-auditing.m
 6. If you want to customize the audited events, you can do this via [PowerShell](sql-database-auditing-powershell.md) or the [REST API](sql-database-auditing-rest.md).
 7. Once you've configured your auditing settings, you can turn on the new Threat Detection (preview) feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Threat detection](sql-database-threat-detection.md) for more details.
 8. Click **Save**.
+
 
 ## Table auditing
 
