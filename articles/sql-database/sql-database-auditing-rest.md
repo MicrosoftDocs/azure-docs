@@ -20,9 +20,9 @@ ms.author: ronitr; giladm
 ---
 # Configure and manage SQL database auditing using the REST API
 
-This topic describes how to configure and manage auditing using the REST API. To configure and manage auditing using the Azure portal, see [Configuring auditing using the Azure portal](sql-database-auditing-portal.md). To configure and manage auditing using PowerShell, see [Configuring auditing using PowerShell](sql-database-auditing-powershell.md).
+This topic describes how to configure and manage auditing using the REST API. To configure and manage auditing using the Azure portal, see [Configure auditing in the Azure portal](sql-database-auditing-portal.md). To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](sql-database-auditing-powershell.md).
 
-For an overview of auditing, see [SQL Database auditing](sql-database-auditing-get-started.md).
+For an overview of auditing, see [SQL Database auditing](sql-database-auditing.md).
 
 ## REST API - Blob auditing
 
@@ -42,6 +42,6 @@ For an overview of auditing, see [SQL Database auditing](sql-database-auditing-g
 
 ## Next steps
 
-* To configure and manage auditing using the Azure portal, see [Configuring auditing using the Azure portal](sql-database-auditing-portal.md). 
-* To configure and manage auditing using PowerShell, see [Configuring auditing using PowerShell](sql-database-auditing-powershell.md).
-* For an overview of auditing, see [SQL Database auditing](sql-database-auditing-get-started.md).
+* To configure and manage auditing using the Azure portal, see [Configure database auditing in the Azure portal](sql-database-auditing-portal.md). 
+* To configure and manage auditing using PowerShell, see [Configure database auditing with PowerShell](sql-database-auditing-powershell.md).
+* For an overview of auditing, see [Database auditing](sql-database-auditing.md).

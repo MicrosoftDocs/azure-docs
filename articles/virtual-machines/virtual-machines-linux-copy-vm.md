@@ -1,6 +1,6 @@
 ---
-title: Copy a Linux virtual machine by using Azure CLI 2.0 Preview | Microsoft Docs
-description: Learn how to create a copy of an Azure Linux virtual machine in the Resource Manager deployment model by using Azure CLI 2.0 Preview.
+title: Copy a Linux VM by using Azure CLI 2.0 | Microsoft Docs
+description: Learn how to create a copy of your Azure Linux VM in the Resource Manager deployment model by using Azure CLI 2.0 (Preview).
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -17,42 +17,42 @@ ms.date: 02/02/2017
 ms.author: cynthn
 
 ---
-# Create a copy of a Linux virtual machine by using Azure CLI 2.0 Preview
-This article shows you how to create a copy of your Azure virtual machine running Linux by using the Azure Resource Manager deployment model.
+# Create a copy of a Linux VM by using Azure CLI 2.0 (Preview)
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux by using the Azure Resource Manager deployment model.
 
-First you copy the operating system and data disks to a new container, and then you set up the network resources and create the virtual machine.
+Copy the operating system and data disks to a new container, and then set up the network resources and create the VM.
 
-You can also [upload and create a virtual machine from a custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also [upload and create a VM from a custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## CLI versions to use
+## CLI versions
 You can complete the task by using either of the following command-line interface (CLI) versions:
 
-* [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): The CLI for the classic and Azure Resource Manager deployment models.
-* Azure CLI 2.0 Preview: The next-generation CLI for the Resource Manager deployment model, which this article discusses.
+* [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): For classic and resource management deployment models.
+* Azure CLI 2.0 (Preview): The next-generation CLI for the resource management deployment model, which this article covers.
 
 ## Prerequisites
-* [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2), installed and signed in to an Azure account with [az login](/cli/azure/#login).
-* An Azure virtual machine to use as the source for your copy.
+* [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2), installed and signed in to an Azure account with [az login](/cli/azure/#login).
+* An Azure VM to use as the source for your copy.
 
-## Step 1: Stop the source virtual machine
-Deallocate the source virtual machine by using [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the virtual machine `myVM` in the resource group `myResourceGroup`:
+## Step 1: Stop the source VM
+Deallocate the source VM by using [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM `myVM` in the resource group `myResourceGroup`:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-## Step 2: Copy the source virtual machine
-To copy a virtual machine, you create a copy of the underlying virtual hard disk. Through this process, you create a specialized virtual machine that contains the same configuration and settings as the source virtual machine.
+## Step 2: Copy the source VM
+To copy a VM, you create a copy of the underlying virtual hard disk. Through this process, you create a specialized VM that contains the same configuration and settings as the source VM.
 
-The process of copying a virtual disk differs between Azure Managed Disks and unmanaged disks. Managed disks are handled by the Azure platform and require no preparation or location to store them. Because managed disks are a top-level resource, they are easier to work with. For example, you can make a direct copy of the disk resource.
+The process of copying a virtual disk differs between Azure Managed Disks and unmanaged disks. Managed disks are handled by the Azure platform and require no preparation or location to store them. Because managed disks are a top-level resource, they are easier to work with. That is, you can make a direct copy of the disk resource.
 
 For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md).
 
-Depending on the storage type of your source virtual machine, follow the instructions in either of the next two sections, and then go to "Step 3: Set up a virtual network."
+Depending on the storage type of your source VM, follow the instructions in either of the next two sections, and then go to "Step 3: Set up a virtual network."
 
 ### Managed disks
 
-1. List each virtual machine and the name of its OS-managed disk with [az vm list](/cli/azure/vm#list). The following example lists all virtual machines in the resource group `myResourceGroup`:
+1. List each VM and the name of its OS-managed disk with [az vm list](/cli/azure/vm#list). The following example lists all VMs in the resource group `myResourceGroup`:
 
     ```azurecli
     az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
@@ -83,7 +83,9 @@ Depending on the storage type of your source virtual machine, follow the instruc
 
 ### Unmanaged disks
 
-1. To create a copy of a virtual hard disk, you need the Azure storage account keys and the URI of the disk. To view the storage account keys, use [az storage account keys list](/cli/azure/storage/account/keys#list). The following example lists the keys for the storage account `mystorageaccount` in the resource group `myResourceGroup`:
+1. To create a copy of a virtual hard disk, you need the Azure storage account keys and the URI of the disk. To view the storage account keys, use [az storage account keys list](/cli/azure/storage/account/keys#list).
+
+The following example lists the keys for the storage account `mystorageaccount` in the resource group `myResourceGroup`:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -99,7 +101,7 @@ Depending on the storage type of your source virtual machine, follow the instruc
     key2       Full           UMoyQjWuKCBUAVDr1ANRe/IWTE2o0ZdmQH2JSZzXKNmDKq83368Fw9nyTBcTEkSKI9cm5tlTL8J15ArbPMo8eA==
     ```
 
-2. To view a list of virtual machines and their URIs, use [az vm list](/cli/azure/vm#list). The following example lists the virtual machines in the resource group `myResourceGroup`:
+2. To view a list of VMs and their URIs, use [az vm list](/cli/azure/vm#list). The following example lists the VMs in the resource group `myResourceGroup`:
 
     ```azurecli
     az vm list -g myResourceGroup --query '[].{Name:name,URI:storageProfile.osDisk.vhd.uri}' --output table
@@ -126,11 +128,11 @@ Depending on the storage type of your source virtual machine, follow the instruc
 ## Step 3: Set up a virtual network
 The following optional steps create a new virtual network, subnet, public IP address, and virtual network interface card (NIC).
 
-If you are copying a virtual machine for troubleshooting purposes or additional deployments, you might not want to use a virtual machine in an existing virtual network.
+If you are copying a VM for troubleshooting purposes or additional deployments, you might not want to use a VM in an existing virtual network.
 
-If you want to create a virtual network infrastructure for your copied virtual machines, follow the next few steps. If you don't want to create a virtual network, skip to ["Step 4: Create a virtual machine](#create-a-vm)."
+If you want to create a virtual network infrastructure for your copied VMs, follow the next few steps. If you don't want to create a virtual network, skip to ["Step 4: Create a VM](#create-a-vm)."
 
-1. Create the virtual network by using [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network `myVnet` and subnet `mySubnet`:
+1. Create the virtual network by using [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network `myVnet` and a subnet `mySubnet`:
 
     ```azurecli
     az network vnet create --resource-group myResourceGroup --location westus --name myVnet \
@@ -151,11 +153,11 @@ If you want to create a virtual network infrastructure for your copied virtual m
         --vnet-name myVnet --subnet mySubnet
     ```
 
-## Step 4: Create a virtual machine
-You can now create a virtual machine by using [az vm create](/cli/azure/vm#create). As when you copy a disk, the process differs slightly between managed disks and unmanaged disks. Depending on the storage type of your source virtual machine, follow the instructions in either of the next two sections.
+## Step 4: Create a VM
+You can now create a VM by using [az vm create](/cli/azure/vm#create). As when you copy a disk, the process differs slightly between managed disks and unmanaged disks. Depending on the storage type of your source VM, follow the instructions in either of the next two sections.
 
 ### Managed disks
-1. Create a virtual machine by using [az vm create](/cli/azure/vm#create).
+1. Create a VM by using [az vm create](/cli/azure/vm#create).
 2. Specify the copied managed disk to use as the OS disk (`--attach-os-disk`), as follows:
 
     ```azurecli
@@ -167,7 +169,7 @@ You can now create a virtual machine by using [az vm create](/cli/azure/vm#creat
     ```
 
 ### Unmanaged disks
-1. Create a virtual machine with [az vm create](/cli/azure/vm#create).
+1. Create a VM with [az vm create](/cli/azure/vm#create).
 2. Specify the storage account, container name, and virtual hard disk that you used when you created the copied disk with `az storage blob copy start` (`--image`), as follows:
 
     ```azurecli
@@ -179,4 +181,4 @@ You can now create a virtual machine by using [az vm create](/cli/azure/vm#creat
     ```
 
 ## Next steps
-To learn how to use Azure CLI to manage your new virtual machine, see [Azure CLI commands for the Azure Resource Manager](azure-cli-arm-commands.md).
+To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for the Azure Resource Manager](azure-cli-arm-commands.md).

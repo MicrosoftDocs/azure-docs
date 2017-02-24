@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: jimpark;trinadhk;pullabhk; markgal
+ms.author: masaran;trinadhk;pullabhk;markgal
 
 ---
 # Preparing to back up workloads using Azure Backup Server

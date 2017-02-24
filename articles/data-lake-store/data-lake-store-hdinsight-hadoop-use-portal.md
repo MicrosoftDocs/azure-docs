@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2017
+ms.date: 02/16/2017
 ms.author: nitinme
 
 ---
@@ -52,12 +52,6 @@ Before you begin this tutorial, you must have the following:
 
     **If you are not an Azure AD administrator**, you will not be able to perform the steps required to create a service principal. In such a case, your Azure AD administrator must first create a service principal before you can create an HDInsight cluster with Data Lake Store. Also, the service principal must be created using a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
-## Do you learn faster with videos?
-Watch the following videos to understand how to provision HDInsight clusters with access to Data Lake Store.
-
-* [Create an HDInsight cluster with access to Data Lake Store](https://mix.office.com/watch/l93xri2yhtp2)
-* Once the cluster is set up, [Access data in Data Lake Store using Hive and Pig scripts](https://mix.office.com/watch/1n9g5w0fiqv1q)
-
 ## Create an HDInsight cluster with access to Azure Data Lake Store
 In this section, you create an HDInsight Hadoop cluster that uses the Data Lake Store as an additional storage. In this release, for a Hadoop cluster, Data Lake Store can only be used as an additional storage for the cluster. The default storage will still be the Azure storage blobs (WASB). So, we'll first create the storage account and storage containers required for the cluster.
 
@@ -65,9 +59,11 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 2. Follow the steps at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-provision-clusters.md) to start provisioning an HDInsight cluster.
 
-3. On the **Data Source** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage. If you wan to use Azure Data Lake Store as default storage, skip to next step.
+3. On the **Storage** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage. If you want to use Azure Data Lake Store as default storage, skip to next step.
 
-	If you want to use Azure Storage Blobs as default storage, for **Primary Storage Type**, click **Azure Storage**. Specify the details for the storage account and storage container, specify **Location** as **East US 2**, and then click **Data Lake Store access**.
+	If you want to use Azure Storage Blobs as default storage, for **Primary Storage Type**, click **Azure Storage**. After that, for **Selection method**, you can choose **My subscriptions** if you want to specify a storage account that is part of your Azure subscription and then select the storage account. Otherwise, click **Access key** and provide the information for the storage account that you want to choose from outside your Azure subscription. For **Default container**, you can choose to go with the default container name suggested by the portal or specify your own. 
+
+	When you are using Azure Storage Blobs as default storage, you can still use Azure Data Lake Store as additional storage for the cluster. To do so, click **Data Lake Store access**, and then skip to Step 5.
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
 

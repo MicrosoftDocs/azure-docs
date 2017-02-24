@@ -11,6 +11,7 @@
 
 ## Deploy
 ### [Scale set using the portal](virtual-machine-scale-sets-portal-create.md)
+### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Scale set using Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Scale set using PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
@@ -20,6 +21,7 @@
 ### [Use data disks with scale sets](virtual-machine-scale-sets-attached-disks.md)
 ### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
 ### [Convert a scale set template to use managed disk](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 
 ## Manage
