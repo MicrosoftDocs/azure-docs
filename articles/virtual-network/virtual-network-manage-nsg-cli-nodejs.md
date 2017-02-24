@@ -20,8 +20,6 @@ ms.author: jdial
 ---
 # Manage NSGs using the Azure CLI 1.0
 
-[!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
 ## CLI versions to complete the task 
 
 You can complete the task using one of the following CLI versions: 

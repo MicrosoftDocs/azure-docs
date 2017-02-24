@@ -19,7 +19,7 @@ ms.author: jdial
 
 ---
 # How to set a static private IP address in Azure CLI
-[!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
+
 
 ## CLI versions to complete the task 
 
