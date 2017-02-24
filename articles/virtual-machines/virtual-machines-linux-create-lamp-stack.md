@@ -33,7 +33,7 @@ az group deployment create -g myResourceGroup \
     --parameters @filepathToParameters.json
 ```
 
-* Deploy LAMP on existing VM
+### Deploy LAMP on existing VM
 The following commands updates packages, then installs Apache, MySQL, and PHP:
 
 ```bash
