@@ -33,7 +33,7 @@ Brewer's theorem defines consistency and availability as follows:
 Event Hubs is built on top of a partitioned model. You may configure the number of partitions in your Event Hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
 
 ## Availability
-The simplest way to get started with Event Hubs is the default behavior. If you create an new `EventHubClient` and use the send function, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of uptime.
+The simplest way to get started with Event Hubs is to use the default behavior. If you create an new `EventHubClient` and use the send function, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of uptime.
 
 For use cases that require maximum uptime, this model is preferred.
 
@@ -42,7 +42,7 @@ In particular scenarios, the ordering of events can be important. For example, y
 
 With this type of configuration, you must keep in mind that if the particular partition that you are sending to is unavailable, you will receive an error response. As a point of comparison, if you did not have an affinity to a single partition, the Event Hubs service would send your event to the next available partition.
 
-One possible solution to ensure ordering, while also maximizing uptime would be to aggregate events as a part of your event processing applicaton. The easiest way to accomplish this would be to stamp your event with a custom sequence number property. The following is an example of such:
+One possible solution to ensure ordering, while also maximizing uptime would be to aggregate events as a part of your event processing application. The easiest way to accomplish this would be to stamp your event with a custom sequence number property. The following is an example of such:
 
 ```csharp
 // Get the latest sequence number from your application
@@ -55,7 +55,7 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-The preceeding example would send your event to one of the available partitions in your Event Hub, and set the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but would give your senders an endpoint that is more likely to be available.
+The preceding example would send your event to one of the available partitions in your Event Hub, and set the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but would give your senders an endpoint that is more likely to be available.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
