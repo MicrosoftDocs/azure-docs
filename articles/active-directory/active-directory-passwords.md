@@ -1,5 +1,5 @@
 ---
-title: Azure AD Password Reset | Microsoft Docs
+title: Azure Active Directory password reset | Microsoft Docs
 description: Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,27 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---
-# Azure AD Password Reset for IT Administrators
+# Azure Active Directory password reset for IT administrators
 > [!IMPORTANT]
 > Are you here because you want to reset your Azure or O365 password?  If so, please [skip to this section](#users-how-to-manage-your-own-password).
-> 
-> 
+>
+>
 
-Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises. Azure AD sets itself apart from these offerings by providing some of the easiest to use and most powerful self-service capabilities available today.
+Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises. Azure Active Directory (Azure AD) sets itself apart from other offerings by providing some of the easiest to use and most powerful self-service capabilities available today.
 
 **Azure AD Password Management** is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.
 
-## ADMINS: Learn about how to get started with Azure AD Password Reset
-If you're an admin who wants to enable Azure AD Password Reset, or just learn more about it, start with the links below to get to what you're interested in.
+## ADMINS: Learn about how to get started with Azure AD password reset
+If you're an admin who wants to enable Azure AD password reset, or just learn more about it, start with the links below to get to what you're interested in.
 
 | Topic |  |
 | --- | --- |
-| Supported scenarios |[What is possible with Azure AD Password Reset?](#what-is-possible-with-azure-ad-password-reset) |
-| Why use it? |[Why use Azure AD Password Reset?](#why-use-azure-ad-password-reset) |
+| Supported scenarios |[What is possible with Azure AD password reset?](#what-is-possible-with-azure-ad-password-reset) |
+| Why use it? |[Why use Azure AD password reset?](#why-use-azure-ad-password-reset) |
 | Pricing and availability |[Pricing and availability](#pricing-and-availability) |
 | Enable password reset |[Enable password reset for your users](#enable-password-reset-for-your-users) |
 | Customize how it works |[Customize password reset behavior](#customize-password-reset-behavior) |
@@ -47,7 +47,7 @@ If you're an admin who wants to enable Azure AD Password Reset, or just learn mo
 | Newly released features |[Recent service updates](#recent-service-updates) |
 | Links to other documentation |[Links to password reset documentation](#links-to-password-reset-documentation) |
 
-### What is possible with Azure AD Password Reset?
+### What is possible with Azure AD password reset?
 Here are some of the things you can do with Azure AD's password management capabilities.
 
 * **Self-service password change** allows end users or administrators to change their expired or non-expired passwords without calling an administrator or helpdesk for support.
@@ -56,7 +56,7 @@ Here are some of the things you can do with Azure AD's password management capab
 * **Password management activity reports** give administrators insights into password reset and registration activity occurring in their organization.
 * **Password Writeback** allows management of on-premises passwords from the cloud so all of the above scenarios can be performed by, or on the behalf of, federated or password synchronized users. Password Writeback requires Azure AD Premium. For more information, see Getting started with Azure AD Premium.
 
-### Why use Azure AD Password Reset?
+### Why use Azure AD password reset?
 Here are some of the reasons you should use Azure AD's password management capabilities
 
 * **Reduce costs** - support-assisted password reset is typically 20% of organization's IT spend
@@ -65,7 +65,7 @@ Here are some of the reasons you should use Azure AD's password management capab
 * **Enable mobility** - users can reset their passwords from wherever they are
 
 ### Pricing and availability
-Azure AD Password Reset is available in 3 tiers, depending on which subscription you have:
+Azure AD password reset is available in 3 tiers, depending on which subscription you have:
 
 * **Azure AD Free** - cloud-only administrators can reset their own passwords
 * **Azure AD Basic or any Paid O365 Subscription** - cloud-only users and cloud-only administrators can reset their own passwords
@@ -163,40 +163,40 @@ For more information on Azure AD Premium or Basic pricing, visit the [Active Dir
 | I want to learn about what data is used by password reset |[What data is used by password reset?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
 
 ## Recent service updates
-#### Enforce Password Reset Registration at Sign-In to Office 365 Apps - November 2015
+#### Enforce password reset registration at sign-in to Office 365 apps - November 2015
 * Now, after enabling the [enforced registration](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) feature, your users will be required to register from anywhere they sign in with a work or school account.  This dramatically increases the speed at which many organizations can onboard to password reset.  With this new feature we've seen large organizations onboarding in as little as 2 weeks!
 
-#### Support for Unlocking Active Directory Accounts without Resetting a Password - November 2015
-* Unlock only (without reset) is a huge helpdesk driver these days.  In fact, many organizations spend up to 70% of their password reset budget unlocking accounts!  To meet this demand, now with Azure AD Password reset, you can enable a feature to let your users unlock AD accounts separately from password reset.  Check out how to turn it on here: [Setting: enable users to unlock their AD accounts without resetting a password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
+#### Support for unlocking on-premises AD Accounts without resetting a password - November 2015
+* Unlock only (without reset) is a huge helpdesk driver these days.  In fact, many organizations spend up to 70% of their password reset budget unlocking accounts!  To meet this demand, now with Azure AD password reset, you can enable a feature to let your users unlock on-premises AD accounts separately from password reset.  Check out how to turn it on here: [Setting: enable users to unlock their on-premises AD accounts without resetting a password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
 
-#### Usability updates to Registration Page - October 2015
+#### Usability updates to registration page - October 2015
 * Now, when a user has data already registered, he or she can just click "looks good" to update the data without needing to re-send the email or phone call.
 
-#### Improved Reliability of Password Writeback - September 2015
+#### Improved reliability of password writeback - September 2015
 * As of the September release of Azure AD Connect, the password writeback agent will now more aggressively retry connections and additional, more robust, failover capabilities.
 
-#### API for Retrieving Password Reset Reporting Data - August 2015
+#### API for retrieving password reset reporting data - August 2015
 * Now, the data behind the password reset reports can be retrieved directly from the [Azure AD Reports and Events API](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
 
-#### Support for Azure AD Password Reset During Cloud Domain Join - August 2015
+#### Support for Azure AD password reset during cloud domain join - August 2015
 * Now, any cloud user can reset his or her password right from the Windows 10 sign in screen during the cloud domain join onboarding experience.  Note, this is not yet exposed on the Windows 10 sign in screen.
 
-#### Enforce Password Reset Registration at Sign-In to Azure and Federated Apps - July 2015
+#### Enforce password reset registration at sign-in to Azure and federated apps - July 2015
 * In addition to enforcing registration when signing into myapps.microsoft.com, we now support enforcing registration during sign ins to the Azure Management Portal and any of your federated single-sign on applications
 
-#### Security Question Localization Support - May 2015
+#### Security question localization support - May 2015
 * Now, you have the option to select pre-defined security questions which are localized in the full O365 language set when configuring Security Questions for password reset.
 
-#### Account Unlock Support during Password Reset - June 2015
+#### Account unlock support during password reset - June 2015
 * If you're using password writeback and you reset your password when your account is locked, we'll automatically unlock your Active Directory account!
 
-#### Branded SSPR Registration - April 2015
+#### Branded self-service password reset (SSPR) registration - April 2015
 * The password reset registration page is now branded with your company logo!
 
-#### Security Questions - March 2015
+#### Security questions - March 2015
 * We released security questions to GA!
 
-#### Account Unlock - March 2015
+#### Account unlock - March 2015
 * Now users can unlock their accounts when password reset occurs
 
 ## Coming soon
@@ -206,8 +206,8 @@ Below are some of the cool features we're working on right now!
 
 * Today, we support reminding users to update their registered data when accessing myapps.microsoft.com, but we're working on the ability to do so for all sign ins.
 
-## Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages:
+## Next steps
+Below are links to all of the Azure AD password reset documentation pages:
 
 * **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
@@ -218,4 +218,3 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 * [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
 * [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
 * [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
-
