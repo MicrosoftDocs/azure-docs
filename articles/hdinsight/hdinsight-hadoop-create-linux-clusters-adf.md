@@ -96,77 +96,79 @@ To simplify the tutorial, you use one storage account to serve the three purpose
 > Specify names for the Azure resource group and the Azure storage account that will be created by the script.
 > Write down **resource group name**, **storage account name**, and **storage account key** outputted by the script. You need them in the next section.
 
-    $resourceGroupName = "<Azure Resource Group Name>"
-    $storageAccountName = "<Azure Storage Account Name>"
-    $location = "East US 2"
+```powershell
+$resourceGroupName = "<Azure Resource Group Name>"
+$storageAccountName = "<Azure Storage Account Name>"
+$location = "East US 2"
 
-    $sourceStorageAccountName = "hditutorialdata"  
-    $sourceContainerName = "adfhiveactivity"
+$sourceStorageAccountName = "hditutorialdata"  
+$sourceContainerName = "adfhiveactivity"
 
-    $destStorageAccountName = $storageAccountName
-    $destContainerName = "adfgetstarted" # don't change this value.
+$destStorageAccountName = $storageAccountName
+$destContainerName = "adfgetstarted" # don't change this value.
 
-    ####################################
-    # Connect to Azure
-    ####################################
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
-    #endregion
+####################################
+# Connect to Azure
+####################################
+#region - Connect to Azure subscription
+Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+try{Get-AzureRmContext}
+catch{Login-AzureRmAccount}
+#endregion
 
-    ####################################
-    # Create a resource group, storage, and container
-    ####################################
+####################################
+# Create a resource group, storage, and container
+####################################
 
-    #region - create Azure resources
-    Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
+#region - create Azure resources
+Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmStorageAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $destStorageAccountName `
-        -type Standard_LRS `
-        -Location $location
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzureRmStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $destStorageAccountName `
+    -type Standard_LRS `
+    -Location $location
 
-    $destStorageAccountKey = (Get-AzureRmStorageAccountKey `
-        -ResourceGroupName $resourceGroupName `
-        -Name $destStorageAccountName)[0].Value
+$destStorageAccountKey = (Get-AzureRmStorageAccountKey `
+    -ResourceGroupName $resourceGroupName `
+    -Name $destStorageAccountName)[0].Value
 
-    $sourceContext = New-AzureStorageContext `
-        -StorageAccountName $sourceStorageAccountName `
-        -Anonymous
-    $destContext = New-AzureStorageContext `
-        -StorageAccountName $destStorageAccountName `
-        -StorageAccountKey $destStorageAccountKey
+$sourceContext = New-AzureStorageContext `
+    -StorageAccountName $sourceStorageAccountName `
+    -Anonymous
+$destContext = New-AzureStorageContext `
+    -StorageAccountName $destStorageAccountName `
+    -StorageAccountKey $destStorageAccountKey
 
-    New-AzureStorageContainer -Name $destContainerName -Context $destContext
-    #endregion
+New-AzureStorageContainer -Name $destContainerName -Context $destContext
+#endregion
 
-    ####################################
-    # Copy files
-    ####################################
-    #region - copy files
-    Write-Host "`nCopying files ..." -ForegroundColor Green
+####################################
+# Copy files
+####################################
+#region - copy files
+Write-Host "`nCopying files ..." -ForegroundColor Green
 
-    $blobs = Get-AzureStorageBlob `
-        -Context $sourceContext `
-        -Container $sourceContainerName
+$blobs = Get-AzureStorageBlob `
+    -Context $sourceContext `
+    -Container $sourceContainerName
 
-    $blobs|Start-AzureStorageBlobCopy `
-        -DestContext $destContext `
-        -DestContainer $destContainerName
+$blobs|Start-AzureStorageBlobCopy `
+    -DestContext $destContext `
+    -DestContainer $destContainerName
 
-    Write-Host "`nCopied files ..." -ForegroundColor Green
-    Get-AzureStorageBlob -Context $destContext -Container $destContainerName
-    #endregion
+Write-Host "`nCopied files ..." -ForegroundColor Green
+Get-AzureStorageBlob -Context $destContext -Container $destContainerName
+#endregion
 
-    Write-host "`nYou will use the following values:" -ForegroundColor Green
-    write-host "`nResource group name: $resourceGroupName"
-    Write-host "Storage Account Name: $destStorageAccountName"
-    write-host "Storage Account Key: $destStorageAccountKey"
+Write-host "`nYou will use the following values:" -ForegroundColor Green
+write-host "`nResource group name: $resourceGroupName"
+Write-host "Storage Account Name: $destStorageAccountName"
+write-host "Storage Account Key: $destStorageAccountKey"
 
-    Write-host "`nScript completed" -ForegroundColor Green
+Write-host "`nScript completed" -ForegroundColor Green
+```
 
 If you need help with the PowerShell script, see [Using the Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md). If you like to use Azure CLI instead, see the [Appendix](#appendix) section for the Azure CLI script.
 
@@ -222,28 +224,30 @@ With the storage account, the input data, and the HiveQL script prepared, you ar
 ## Data Factory entities in the template
 Here is how the top-level Resource Manager template for a data factory looks like: 
 
-    {
-        "contentVersion": "1.0.0.0",
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "parameters": { ...
-        },
-        "variables": { ...
-        },
-        "resources": [
-            {
-                "name": "[parameters('dataFactoryName')]",
-                "apiVersion": "[variables('apiVersion')]",
-                "type": "Microsoft.DataFactory/datafactories",
-                "location": "westus",
-                "resources": [
-                    { ... },
-                    { ... },
-                    { ... },
-                    { ... }
-                ]
-            }
-        ]
-    }
+```json
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "parameters": { ...
+    },
+    "variables": { ...
+    },
+    "resources": [
+        {
+            "name": "[parameters('dataFactoryName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "type": "Microsoft.DataFactory/datafactories",
+            "location": "westus",
+            "resources": [
+                { ... },
+                { ... },
+                { ... },
+                { ... }
+            ]
+        }
+    ]
+}
+```
 
 ### Define data factory
 You define a data factory in the Resource Manager template as shown in the following sample:  
