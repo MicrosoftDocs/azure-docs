@@ -52,7 +52,7 @@ To create the VM itself, you can use an already written Azure Resource Manager t
 
 2. Save the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your local machine.
 3. Edit the **azuredeploy.parameters.json** file to your preferred inputs.
-4. Deploy the template with [az group deployment create](/cli/azure/group/deployment#create) referencing the downloaded json file:
+4. Deploy the template with [az group deployment create] referencing the downloaded json file:
 
 ```azurecli
 az group deployment create -g myResourceGroup \
@@ -60,7 +60,7 @@ az group deployment create -g myResourceGroup \
     --parameters @filepathToParameters.json
 ```
 
-If successful you should see output similar to:
+The output is similar to the following example:
 
 ```json
 {
@@ -93,7 +93,7 @@ If you have an SSH key already, go ahead and SSH from your command line into you
 Now that you are working within your Linux VM, we can walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
 
 #### Installing on Debian/Ubuntu
-You need the following packages installed: `apache2`, `mysql-server`, `php5`, and `php5-mysql`. You can install these packages by directly grabbing these packages or using Tasksel. Instructions for both options are listed below.
+You need the following packages installed: `apache2`, `mysql-server`, `php5`, and `php5-mysql`. You can install these packages by directly grabbing these packages or using Tasksel.
 Before installing you need to download and update package lists.
 
 ```bash
@@ -115,7 +115,7 @@ sudo apt-get install tasksel
 sudo tasksel install lamp-server
 ```
 
-After running either of the previous options, you will be prompted to install these packages and various other dependencies. Press 'y' and then 'Enter' to continue, and follow any other prompts to set an administrative password for MySQL. This installs the minimum required PHP extensions needed to use PHP with MySQL. 
+After running either of the previous options, you will be prompted to install these packages and various other dependencies. To set an administrative password for MySQL, press 'y' and then 'Enter' to continue, and follow any other prompts. This process installs the minimum required PHP extensions needed to use PHP with MySQL. 
 
 ![][1]
 
@@ -155,7 +155,7 @@ Now you can check the PHP info page you created by opening a browser and going t
 
 ![][2]
 
-You can check your Apache installation by viewing the Apache2 Ubuntu Default Page by going to you http://youruniqueDNS/. You should see something like this image.
+You can check your Apache installation by viewing the Apache2 Ubuntu Default Page by going to you http://youruniqueDNS/. The output is similar to the following example:
 
 ![][3]
 
