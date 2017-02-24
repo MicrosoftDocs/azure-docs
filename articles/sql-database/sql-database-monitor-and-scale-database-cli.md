@@ -45,12 +45,12 @@ This script uses the following commands to create a resource group, logical serv
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az sql server create](https://docs.microsoft.com/en-us/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
 | [az sql db show-usage](https://docs.microsoft.com/en-us/cli/azure/sql/db#show-usage) | Shows the size usage information for the database. |
-| [az sql db update](https://docs.microsoft.com/en-us/cli/azure/sql/db#update) | Updates the SQL Database, in this example changes the performance level. |
+| [az sql db update](https://docs.microsoft.com/en-us/cli/azure/sql/db#update) | Updates the SQL Database. |
 | [az group delete](https://docs.microsoft.com/en-us/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database CLI scripts](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/sql-database).
 
