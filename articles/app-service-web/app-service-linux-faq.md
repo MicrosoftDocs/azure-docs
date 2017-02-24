@@ -19,18 +19,18 @@ ms.author: aelnably
 
 ---
 
-# Azure App Service web apps on Linux FAQ #
+# Azure App Service web apps on Linux FAQ
 
 With the release of Azure App Service on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are a number of frequently asked questions (FAQs) that our customers have been asking us over the last months.
 If you have a question, please comment on the article and we'll answer it as soon as possible.
 
-## Built-in images ##
+## Built-in images
 
 **Q:** I want to fork the built-in Docker containers that the platform provides. Where can I find those files?
 
 **A:** You can find all Docker files on GitHub: https://github.com/azure-app-service. You can find all Docker containers on Docker Hub: https://hub.docker.com/u/appsvc/.
 
-## Management ##
+## Management
 
 **Q:** I press the restart button in the Azure portal, but my web app didn't restart. How come?
 
@@ -42,25 +42,25 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **A:** No. We'll be providing a way to use SSH to connect to your app container in a future release.
 
-## Continuous integration/Deployment ##
+## Continuous integration/Deployment
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
 **A:** You can refresh the container by stopping and then starting your web app. Or you can change/add a dummy application setting to force a refresh of your container. We're planning to have a continuous integration/deployment feature for custom containers in a future release.
 
-## Language support ##
+## Language support
 
 **Q:** Do you support uncompiled .NET Core apps?
 
 **A:** No. You need to deploy the compiled .NET Core app with all the dependencies. A full deployment and build experience will be coming in a future release.
 
-## Built-in images ##
+## Built-in images
 
 **Q:** What are the expected values for the Startup File section when I configure the runtime stack?
 
 **A:** For Node.Js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name. For Ruby, you can specify the Ruby script that you want to initialize your app with.
 
-## Custom containers ##
+## Custom containers
 
 **Q:** I'm using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content by using the SCM site or an FTP client. Where are my files?
 
@@ -82,13 +82,13 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **A:** You can specify an application setting called **PORT**, and give it the value of the expected port number.
 
-## Pricing and SLA ##
+## Pricing and SLA
 
 **Q:** What's the pricing while you're using the public preview?
 
 **A:** You'll be charged half the number of hours that your app runs, with the normal Azure App Service pricing. This means that you get a 50 percent discount on normal Azure App Service pricing.
 
-## Other ##
+## Other 
 
 **Q:** What are the supported characters in application settings names?
 
