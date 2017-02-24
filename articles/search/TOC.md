@@ -57,7 +57,6 @@
 #### [Lucene syntax query examples](search-query-lucene-examples.md)
 #### [Filter expression syntax]
 (https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Default Search
 ### Custom Search
 #### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
