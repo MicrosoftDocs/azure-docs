@@ -5,7 +5,7 @@ keywords: database options,database performance
 services: sql-database
 documentationcenter: ''
 author: janeng
-emanager: jhubbard
+manager: jhubbard
 editor: ''
 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
