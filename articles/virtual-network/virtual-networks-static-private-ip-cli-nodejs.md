@@ -1,5 +1,5 @@
 ---
-title: How to set a static private IP in ARM mode using the CLI| Microsoft Docs
+title: How to set a static private IP in ARM mode using the Azure CLI| Microsoft Docs
 description: Understanding static IPs (DIPs) and how to manage them in ARM mode using the CLI
 services: virtual-network
 documentationcenter: na
