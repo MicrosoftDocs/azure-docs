@@ -30,7 +30,7 @@ D-series VMs are designed to run applications that demand higher compute power a
 Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
 
-[!INCLUDE [virtual-machines-common-sizes-general](../../includes/virtual-machines-common-sizes-memory.md)]
+[!INCLUDE [virtual-machines-common-sizes-general](../../includes/virtual-machines-common-sizes-general.md)]
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
