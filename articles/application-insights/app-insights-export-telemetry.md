@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/23/2017
 ms.author: awills
 
 ---
@@ -25,43 +25,47 @@ Before you set up continuous export, there are some alternatives you might want 
 
 * [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
 
-* [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry, and also can export results.
+* [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically. 
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md). 
 
 ## <a name="setup"></a> Create a Continuous Export
-In the Application Insights resource for your app, open Continuous Export and choose **Add**: 
+1. In the Application Insights resource for your app, open Continuous Export and choose **Add**: 
 
-![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
+    ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
-Choose the telemetry data types you want to export.
+2. Choose the telemetry data types you want to export.
 
-Create or select an [Azure storage account](../storage/storage-introduction.md) where you want to store the data. 
+3. Create or select an [Azure storage account](../storage/storage-introduction.md) where you want to store the data. 
 
-> [!Warning]
-> By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
+    > [!Warning]
+    > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
 
-![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
+    ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
 
-Create or select a container in the storage:
+4. Create or select a container in the storage:
 
-![Click Choose event types](./media/app-insights-export-telemetry/create-container.png)
+    ![Click Choose event types](./media/app-insights-export-telemetry/create-container.png)
 
 Once you've created your export, it starts going. You only get data that arrives after you create the export. 
 
 There can be a delay of about an hour before data appears in the storage.
 
+### To edit continuous export
+
 If you want to change the event types later, just edit the export:
 
 ![Click Choose event types](./media/app-insights-export-telemetry/05-edit.png)
+
+### To stop continuous export
 
 To stop the export, click Disable. When you click Enable again, the export will restart with new data. You won't get the data that arrived in the portal while export was disabled.
 
 To stop the export permanently, delete it. Doing so doesn't delete your data from storage.
 
-#### Can't add or change an export?
+### Can't add or change an export?
 * To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights. [Learn about roles][roles].
 
 ## <a name="analyze"></a> What events do you get?
