@@ -1,6 +1,3 @@
----
-title: U-SQL Programmability Guide for Azure Data Lake Aanlytics | Microsoft Docs
-description: 'U-SQL Programmability Guide'
 services: data-lake-analytics
 documentationcenter: ''
 author: MikeRys
@@ -16,19 +13,19 @@ ms.date: 11/15/2016
 ms.author: mrys
 
 ---
-# U-SQL Programmability Guide
+# U-SQL programmability guide
 ## Azure Data Lake
-Azure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape and speed, and do all types of processing and analytics across platforms and languages. It removes the complexities of ingesting and storing all your data while making it faster to get up and running with batch, streaming, and interactive analytics.
+Azure Data Lake includes capabilities that make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed. It also enables developers to many types of processing and analytics across platforms and languages. It removes the complexities of ingesting and storing all your data while making it faster to use batches, streaming, and interactive analytics.
 
-Azure Data Lake is a set of services that work together to provide a cloud-based Big Data platform:
+Azure Data Lake is a set of services that work together to provide a cloud-based big data platform. These services include:
 
 - HDInsight
 - Azure Data Lake Store
 - Azure Data Lake Analytics
 
-U-SQL is a query language specifically designed for big data type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability provided by C#. It also allows the ability to access and manipulate schema metadata, and to create custom components such as data processors and reducers.
+U-SQL is a query language that's specifically designed for big data type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#. It also providesthe ability to access and manipulate schema metadata, and to create custom components such as data processors and reducers.
 
-In this guide, we concentrate on the U-SQL language’s extensibility and programmability enabled by C#.
+In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.
 
 ## Requirements
 To begin with ADL development, you need to download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
@@ -84,7 +81,7 @@ Expressions can use operators that use other expressions as parameters, or metho
 ```
 
 U-SQL language allows usage of standard C# expressions from build-in name spaces.  
- 
+
 ```c#
 	Microsoft.Analytics.Interfaces;  
 	Microsoft.Analytics.Types.Sql;  
@@ -821,7 +818,7 @@ This example demonstrates a more complicated use case scenario when we use a Glo
 ## Using User-Defined Types - UDT
 User-Defined Types or UDT is another programmability feature of U-SQL. U-SQL UDT acts like a regular C# user-defined type. C# is a strongly typed language that allows the use of built-in and custom user-defined types.
 
-U-SQL cannot implicitly serialize/de-serialize arbitrary UDTs while the UDT is passed between vertices in rowsets. Thus the user has to provide an explicit formatter using the IFormatter interface. This will provide U-SQL with the serialize and de-serialize methods for the UDT. 
+U-SQL cannot implicitly serialize/de-serialize arbitrary UDTs while the UDT is passed between vertices in rowsets. Thus the user has to provide an explicit formatter using the IFormatter interface. This will provide U-SQL with the serialize and de-serialize methods for the UDT.
 
 > [!NOTE]
 > U-SQL’s built-in extractors and outputters currently cannot serialize/de-serialize UDT data to/from files even with the IFormatter set.  Thus when writing UDT data to a file with the OUTPUT statement or reading it with an extractor, the user has to pass it as a string or byte array and call the serialization and deserialization code (e.g., the UDT’s ToString() method) explicitly. User-defined extractors and outputters on the other hand can read and write UDTs.
@@ -933,8 +930,8 @@ The constructor of the class
 
 `MyType` instance – instance of the type  
 `IColumnWriter` writer / `IColumnReader` reader – the underlying column stream.  
-`ISerializationContext` context – enum that defines a set of flags that specifies the source or destination context for the stream during serialization. 
- 
+`ISerializationContext` context – enum that defines a set of flags that specifies the source or destination context for the stream during serialization.
+
    * *Intermediate* - specifies that the source or destination context is not a persisted store
 
    * *Persistence* - specifies that the source or destination context is a persisted store
@@ -1119,7 +1116,7 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
-	   
+
 	   // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
