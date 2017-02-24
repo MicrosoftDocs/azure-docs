@@ -19,15 +19,12 @@ ms.tgt_pltfrm: NA
 
 ---
 # Copy an Azure SQL database using PowerShell
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-copy.md)
-> * [Azure portal](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-This article shows how to copy a SQL database with PowerShell to the same server, to a different server, or copy a database into an [elastic database pool](sql-database-elastic-pool.md). The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx) cmdlet. 
+This article shows how to copy a SQL database with PowerShell to the same server, to a different server, or copy a database into an [elastic pool](sql-database-elastic-pool.md). The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx) cmdlet. 
+
+> [!NOTE]
+> You can also copy a SQL database using the [Azure portal](sql-database-copy-portal.md) or [Transact-SQL](sql-database-copy-transact-sql.md).
+>
 
 To complete this article, you need the following:
 
@@ -52,7 +49,7 @@ To create the copy on a different server, include the `-CopyServerName` paramete
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -CopyServerName "server2" -CopyDatabaseName "database1_copy"
 
 
-## Copy a SQL database into an elastic database pool
+## Copy a SQL database into an elastic pool
 To create a copy of a SQL database in a pool, set the `-ElasticPoolName` parameter to an existing pool.
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegoup1" -ServerName "server1" -DatabaseName "database1" -CopyResourceGroupName "poolResourceGroup" -CopyServerName "poolServer1" -CopyDatabaseName "database1_copy" -ElasticPoolName "poolName"
@@ -91,7 +88,7 @@ The following script assumes all resource groups, servers, and the pool already 
     # -------------------------------------
     New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceDbResourceGroupName -ServerName $sourceDbServerName -DatabaseName $sourceDbName -CopyResourceGroupName $copyDbResourceGroupName -CopyServerName $copyDbServerName -CopyDatabaseName $copyDbName
 
-    # Copy a database into an elastic database pool
+    # Copy a database into an elastic pool
     # ---------------------------------------------
     $poolName = "pool1"
 
@@ -102,10 +99,10 @@ The following script assumes all resource groups, servers, and the pool already 
 
 
 ## Next steps
-* See [Copy an Azure SQL database](sql-database-copy.md) for an overview of copying an Azure SQL Database.
-* See [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
-* See [Copy an Azure SQL database using T-SQL](sql-database-copy-transact-sql.md) to copy a database using Transact-SQL.
-* See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
+* To learn about managing users and logins when copying a database to a different logical server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+* To export a database to a BACPAC file using PowerShell, see [Export the database to a BACPAC using PowerShell](sql-database-export-powershell.md).
+* [Business Continuity Overview](sql-database-business-continuity.md)
+* [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
 
 ## Additional resources
 * [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx)

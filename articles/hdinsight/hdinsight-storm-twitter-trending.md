@@ -14,19 +14,19 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 
 ---
 # Determine Twitter trending topics with Apache Storm on HDInsight
+
 Learn how to use Trident to create a Storm topology that determines trending topics (hash tags) on Twitter.
 
 Trident is a high-level abstraction that provides tools such as joins, aggregations, grouping, functions, and filters. Additionally, Trident adds primitives for doing stateful, incremental processing. This example demonstrates how you can build a topology using a custom spout, function, and several built-in functions provided by Trident.
 
 > [!NOTE]
 > This example is heavily based on the [Trident Storm](https://github.com/jalonsoramos/trident-storm) example by Juan Alonso.
-> 
-> 
+
 
 ## Requirements
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java and the JDK 1.7</a>
@@ -46,8 +46,7 @@ The topology for this example is as follows:
 
 > [!NOTE]
 > This is a simplified view of the topology. Multiple instances of the components will be distributed across the nodes in the cluster.
-> 
-> 
+
 
 The Trident code that implements the topology is as follows:
 

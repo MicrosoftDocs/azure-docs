@@ -1,5 +1,5 @@
 ---
-title: Injecting Custom Data into Virtual Machines | Microsoft Docs
+title: Inject data into Linux VMs on Azure | Microsoft Docs
 description: This topic describes how to inject custom data into an Azure virtual machine when the instance is created and how to locate the custom data on either Windows or Linux.
 services: virtual-machines-linux
 documentationcenter: ''

@@ -4,7 +4,7 @@ description: This document helps to understand the type of security alerts avail
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 02/06/2017
 ms.author: yurid
 
 ---
@@ -22,8 +22,8 @@ This document helps you to understand the different types of security alerts ava
 
 > [!NOTE]
 > To enable advanced detections, upgrade to Azure Security Center Standard. A free 90-day trial is available. To upgrade, select Pricing Tier in the [Security Policy](security-center-policies.md). See the [pricing page](https://azure.microsoft.com/pricing/details/security-center/) to learn more.
-> 
-> 
+>
+>
 
 ## What type of alerts are available?
 Azure Security Center provides a variety of alerts that align with the stages of the cyber kill chain. The figure below provides some examples of various alerts as they relate to some of these stages.
@@ -62,8 +62,8 @@ Azure Security Center can use behavioral analytics to identify compromised resou
 
 > [!NOTE]
 > For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
-> 
-> 
+>
+>
 
 ### Crash analysis
 Crash dump memory analysis is a method used to detect sophisticated malware that is able to evade traditional security solutions. Various forms of malware try to reduce the chance of being detected by anti-virus products by never writing to disk or by encrypting software components written to disk. This makes the malware difficult to detect using traditional antimalware approaches. However, such malware can be detected using memory analysis, as malware must leave traces in memory in order to function.
@@ -85,7 +85,7 @@ This alert provides the following additional field:
 
 This is an example of this type of alert:
 
-![Shellcode alert](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
+![Shellcode alert](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
 ### Module hijacking discovered
 Windows relies on Dynamic Link Libraries (DLLs) to allow software to utilize common Windows system functionality. DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates the crash dump analysis has detected a similarly named module is loaded from two different paths, where one of the loaded paths comes from a common Windows system binary location.
@@ -101,7 +101,7 @@ In addition to the common fields described in the “Shellcode Discovered” sec
 
 This is an example of this type of alert:
 
-![Module hijacking alert](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
+![Module hijacking alert](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
 ### Masquerading Windows module detected
 Malware may use common names of Windows system binaries (e.g., SVCHOST.EXE) or modules (e.g., NTDLL.DLL) in order to “blend-in” and obscure the nature of the malicious software from system administrators. This alert indicates the crash dump analysis has detected that the crash dump file contains modules that use Windows system module names, but do not satisfy other criteria that are typical of Windows modules. Analyzing the on disk copy of the masquerading module may provide more information as to the legitimate or malicious nature of this module. Analysis may include:
@@ -120,7 +120,7 @@ This alert also extracts and displays the certain fields, from the module’s PE
 
 This is an example of this type of alert:
 
-![Masquerading Windows alert](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
+![Masquerading Windows alert](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
 ### Modified system binary discovered
 Malware may modify core system binaries in order to covertly access data or surreptitiously persist on a compromised system. This alert indicates the crash dump analysis has detected that core Windows OS binaries have been modified in memory or on disk.
@@ -133,7 +133,7 @@ In addition to the common fields described in the “Shellcode Discovered” sec
 
 This is an example of this type of alert:
 
-![System binary alert](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
+![System binary alert](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### Suspicious process executed
 Security Center identifies suspicious process in execution in the target virtual machine and trigger an alert. The detection doesn’t look for the specific name, but by its parameter, therefore even if the attacker renames the executable, Security Center still be able to detect.
@@ -155,7 +155,7 @@ Security Center network threat detection works by automatically collecting secur
 ### Suspicious outgoing traffic detected
 Network devices can be discovered and profiled in much the same way as other types of systems. Attackers usually start with port scanning / port sweeping. In the example below you have a suspicious SSH traffic from a VM that can be performing a SSH brute force or port sweeping attack against an external resource.
 
-![Suspicious outgoing traffic alert](./media/security-center-alerts-type/security-center-alerts-type-fig8.png) 
+![Suspicious outgoing traffic alert](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 This alert gives information that enables you to identify the resource that was used to initiate this attack, the compromised machine, the detection time, the protocol and port that was used. This blade also gives you a list of remediation steps that can be used to mitigate this issue.
 
@@ -166,7 +166,10 @@ By leveraging Microsoft threat intelligence feeds, Azure Security Center can det
 
 This alert gives information that enables you to identify the resource that was used to initiate this attack, the attacked resource, the victim IP, the attacker IP and the detection time.
 
-[AZURE.NOTE] Live IP addresses were removed from this screenshot for privacy purpose.
+> [!NOTE]
+> Live IP addresses were removed from this screenshot for privacy purpose.
+>
+>
 
 ### Possible outgoing denial-of-service attack detected
 Anomalous network traffic originated from one virtual machine can lead Security Center to trigger a potential denial-of-service type of attack.
@@ -176,13 +179,13 @@ This is an example of this type of alert:
 ![Outgoing DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## Resource analysis
-Security Center resource analysis focuses in PaaS services, such as the integration with [Azure SQL Db Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) feature. Based on the analysis’s results from these areas, Security Center triggers a resource related alert.
+Security Center resource analysis focuses in PaaS services, such as the integration with [Azure SQL Database Threat Detection](../sql-database/sql-database-threat-detection.md) feature. Based on the analysis’s results from these areas, Security Center triggers a resource related alert.
 
 ### Potential SQL injection
 SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server executes all syntactically valid queries that it receives. SQL Threat Detection uses machine learning, behavioral analysis and anomaly detection to determine suspicious events that might be taking place in your Azure SQL Databases. For example:
 
-* Attempted database access by a former employee 
-* SQL injection attacks 
+* Attempted database access by a former employee
+* SQL injection attacks
 * Unusual access to production database from a user at home
 
 ![Potential SQL Injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
@@ -207,4 +210,3 @@ In this document, you learned about the different types of security alerts in Se
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
-

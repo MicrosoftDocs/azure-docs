@@ -1,4 +1,3 @@
-
 ---
 title: Troubleshoot creating RemoteApp hybrid collections | Microsoft Docs
 description: Learn how to troubleshoot RemoteApp hybrid collection creation failures

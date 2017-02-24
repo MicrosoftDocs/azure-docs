@@ -1,5 +1,5 @@
----
-title: List Azure Storage Resources with the Microsoft Azure Storage Client Library for C++ | Microsoft Docs
+﻿---
+title: List Azure Storage resources with the Storage Client Library for C++ | Microsoft Docs
 description: Learn how to use the listing APIs in Microsoft Azure Storage Client Library for C++ to enumerate containers, blobs, queues, tables, and entities.
 documentationcenter: .net
 services: storage
@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: dineshm
 
 ---
-# List Azure Storage Resources in C++
+# List Azure Storage resources in C++
 Listing operations are key to many development scenarios with Azure Storage. This article describes how to most efficiently enumerate objects in Azure Storage using the listing APIs provided in the Microsoft Azure Storage Client Library for C++.
 
 > [!NOTE]

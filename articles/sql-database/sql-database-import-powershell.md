@@ -9,34 +9,20 @@ editor: ''
 
 ms.assetid: 8d78da13-43fe-4447-92e0-0a41d0321fd4
 ms.service: sql-database
-ms.custom: migrate and move; how to
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 08/31/2016
+ms.date: 02/07/2017
 ms.author: sstein
 
 ---
 # Import a BACPAC file to create an Azure SQL database by using PowerShell
-**Single database**
-
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-import.md)
-> * [PowerShell](sql-database-import-powershell.md)
-> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-> 
-> 
 
 This article provides directions for creating an Azure SQL database by importing a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file with PowerShell.
 
-The database is created from a BACPAC file (.bacpac) imported from an Azure Storage blob container. If you don't have a BACPAC file in Azure Storage, see [Archive an Azure SQL database to a BACPAC file by using PowerShell](sql-database-export-powershell.md). If you already have a BACPAC file that is not in Azure Storage, [use AzCopy to easily upload it to your Azure Storage account](../storage/storage-use-azcopy.md#blob-upload).
-
-> [!NOTE]
-> Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [SQL Database automated backups](sql-database-automated-backups.md).
-> 
-> 
+## Prequisites
 
 To import a SQL database, you need the following:
 
@@ -48,7 +34,7 @@ To import a SQL database, you need the following:
 ## Set up the variables for your environment
 There are a few variables where you need to replace the example values with the specific values for your database and your storage account.
 
-The server name should be a server that currently exists in the subscription selected in the previous step. It should be the server you want the database to be created in. Importing a database directly into an elastic pool is not supported. But you can first import into a single database, and then move the database into a pool.
+The server name should be a server that currently exists in the subscription selected in the previous step. It should be the server you want the database to be created in. Importing a database directly into an elastic pool is not supported. But you can first import as a single database, and then move the database into a pool.
 
 The database name is the name you want for the new database.
 
@@ -75,7 +61,7 @@ Running the [Get-Credential](https://msdn.microsoft.com/library/azure/hh849815\(
 ## Import the database
 This command submits an import database request to the service. Depending on the size of your database, the import operation may take some time to complete.
 
-    $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
+    $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -StorageKeytype $StorageKeyType -StorageKey $StorageKey -StorageUri $StorageUri -AdministratorLogin $credential.UserName -AdministratorLoginPassword $credential.Password -Edition Standard -ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
 
 ## Monitor the progress of the operation
@@ -97,12 +83,15 @@ After running [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/library/
 
     $credential = Get-Credential
 
-    $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
+    $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -StorageKeytype $StorageKeyType -StorageKey $StorageKey -StorageUri $StorageUri -AdministratorLogin $credential.UserName -AdministratorLoginPassword $credential.Password -Edition Standard -ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 
 
 
 ## Next steps
-* To learn to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
+* To learn to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
+* For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* For a discussion of the entire SQL Server database migration process, including performance recommendations, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
+
 

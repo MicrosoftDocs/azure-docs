@@ -124,9 +124,18 @@ To remove access for users, groups, and applications, use:
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## Create a custom role
-To create a custom role, use the `New-AzureRmRoleDefinition` command.
+To create a custom role, use the ```New-AzureRmRoleDefinition``` command. There are two methods of structuring the role, using PSRoleDefinitionObject or a JSON template. 
 
-When you create a custom role by using PowerShell, you need to start with one of the [built-in roles](role-based-access-built-in-roles.md). Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
+## Get Actions from Particular Resource Provider
+When You are creating custom roles from scratch it is important to know all the possible operations from the resource providers.
+This can be achieve by using ```Get-AzureRMProviderOperation``` command. 
+For example, if you want to check all the available operations for virtual Machine then the command will be as mentioned below:
+
+```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
+
+
+### Create role with PSRoleDefinitionObject
+When you create a custom role by using PowerShell, you can start from scratch or use one of the [built-in roles](role-based-access-built-in-roles.md) as a starting point, the latter being used in this example. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
 
 The following example starts with the *Virtual Machine Contributor* role and uses that to create a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
 
@@ -153,7 +162,37 @@ New-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
+### Create role with JSON template
+A JSON template can be used as the source definition for the custom role. The following example creates a custom role that allows read access to storage and compute resources, access to support and adds that role to two subscriptions. Create a new file `C:\CustomRoles\customrole1.json` with the following contents. Note that the Id should be set to `null` on intial role creation as a new ID will be generated. 
+
+```
+{
+  "Name": "Custom Role 1",
+  "Id": null,
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+  ]
+}
+```
+To add the role to the subscriptions, run the following PowerShell command:
+```
+New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
+
 ## Modify a custom role
+Similar to creating a custom role, you can modify an existing custom role using either the PSRoleDefinitionObject or a JSON template.
+
+### Modify role with PSRoleDefinitionObject
 To modify a custom role, first, use the `Get-AzureRmRoleDefinition` command to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use the `Set-AzureRmRoleDefinition` command to save the modified role definition.
 
 The following example adds the `Microsoft.Insights/diagnosticSettings/*` operation to the *Virtual Machine Operator* custom role.
@@ -172,11 +211,40 @@ The following example adds an Azure subscription to the assignable scopes of the
 Get-AzureRmSubscription - SubscriptionName Production3
 
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
-$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2"
-Set-AzureRmRoleDefinition -Role $role)
+$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2")
+Set-AzureRmRoleDefinition -Role $role
 ```
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
+
+### Modify role with JSON template
+Using the previous JSON template, you can easily modify an existing custom role to add or remove Actions. Update the JSON template and add the read action for networking as shown below. Note that the definitions listed in the template are not cumulatively applied to an existing definition, meaning that the role will appear exactly as you specify in the template. Als note that you also need to update the Id with the ID of the role. If you aren't sure what this value is, you can use the `Get-AzureRmRoleDefinition` cmdlet to get this information.
+
+```
+{
+  "Name": "Custom Role 1",
+  "Id": "acce7ded-2559-449d-bcd5-e9604e50bad1",
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+  ]
+}
+```
+
+To update the existing role, run the following PowerShell command:
+```
+Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
 
 ## Delete a custom role
 To delete a custom role, use the `Remove-AzureRmRoleDefinition` command.

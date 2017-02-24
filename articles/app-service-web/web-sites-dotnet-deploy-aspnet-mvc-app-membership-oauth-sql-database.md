@@ -38,7 +38,7 @@ You'll learn:
 > [!NOTE]
 > This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](web-sites-dotnet-get-started.md). For troubleshooting info, see the [Troubleshooting](#troubleshooting) section.
 > 
-> Or if you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Or if you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 
@@ -101,10 +101,10 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
     ![_Layout.cshtml in Solution Explorer][newapp004]
 2. Replace the ActionLink in the *Layout.cshtml* file with the following code.
 
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-
-
-    Make sure you change the third parameter from "Home" to "Contacts". The markup above will create a "Contacts" link on each page to the Index method of the Contacts controller. Change the application name in the header and the footer from "My ASP.NET Application" and "Application name" to "Contact Manager" and "CM Demo". 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   Make sure you change the third parameter from "Home" to "Contacts". The markup above will create a "Contacts" link on each page to the Index method of the Contacts controller. Change the application name in the header and the footer from "My ASP.NET Application" and "Application name" to "Contact Manager" and "CM Demo". 
 
 ### Run the application locally
 1. Press CTRL+F5 to run the app.
@@ -440,7 +440,7 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/library/syst
           }
    
     If you do a global search for *AllowAnonymous*, you'll see that it is used in the login and registration methods of the Account controller.
-3. In *CmController.cs*, add `[Authorize(Roles = "canEdit")]` to the HttpGet and HttpPost methods that change data (Create, Edit, Delete, every action method except Index and Details) in the *Cm* controller. A portion of the completed code is shown below: 
+3. In *ContactsController.cs*, add `[Authorize(Roles = "canEdit")]` to the HttpGet and HttpPost methods that change data (Create, Edit, Delete, every action method except Index and Details) in the *Cm* controller. A portion of the completed code is shown below: 
    
         // GET: Cm/Create
         [Authorize(Roles = "canEdit")]

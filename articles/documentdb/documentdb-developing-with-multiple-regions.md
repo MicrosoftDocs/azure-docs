@@ -3,7 +3,7 @@ title: Developing with multiple regions in DocumentDB | Microsoft Docs
 description: Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service.
 services: documentdb
 documentationcenter: ''
-author: kiratp
+author: mimig1
 manager: jhubbard
 editor: ''
 
@@ -13,15 +13,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
-ms.author: kipandya
+ms.date: 02/09/2017
+ms.author: mimig
 
 ---
 # Developing with multi-region DocumentDB accounts
-> [!NOTE]
-> Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
->
->
+
+Learn about multi-region DocumentDB accounts in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+
+## Introduction
 
 In order to take advantage of [global distribution](documentdb-distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations.
 
@@ -52,6 +54,8 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
     string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+    
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
     //Setting read region selection preference
     connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
@@ -147,7 +151,6 @@ Learn more about the distributing data globally with DocumentDB in the following
 
 * [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
 * [Consistency levels](documentdb-consistency-levels.md)
-* [How throughput works with multiple regions](documentdb-manage.md)
 * [Add regions using the Azure portal](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/

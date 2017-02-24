@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumudd
+ms.author: kumud
 ---
 # Advisor Security recommendations
 
@@ -35,7 +35,7 @@ For more information about security recommendations, see [Managing security reco
 3. On the Advisor dashboard, click the **Security** tab, and select the subscription for which you’d like to receive recommendations.
 
 > [!NOTE]
-> Advisor generates recommendations for subscriptions where you have been assigned the role of **Owner, Contributor, or Reader**.  
+> To access Advisor recommendations, you must first **register** your subscription with Advisor. A subscription is registered when a **subscription Owner** launches the Advisor dashboard and clicks on the **Get recommendations** button. This is a **one-time operation**. Once a subscription is registered, Advisor recommendations can be accessed by **Owner**s, **Contributor**s, or **Reader**s for a subscription, resource group or a specific resource.
 
 ## Next steps
 

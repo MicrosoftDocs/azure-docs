@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
@@ -13,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: markvi
 
 ---
 # Automatic device registration with Azure Active Directory for Windows domain-joined devices
 As an IT Administrator, you can choose to automatically and silently register your domain-joined Windows devices with Azure Active Directory (Azure AD). This can be useful if you have configured device based conditional access polices to Office365 applications or applications managed on-premises by AD FS. You can learn more about the device registration scenarios by reading the [Azure Active Directory Device Registration Overview](active-directory-conditional-access-device-registration-overview.md).
 
-> AZURE.NOTE For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+> [!NOTE]
+>  For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 > 
 > 
 
@@ -28,7 +28,6 @@ Automatic Device Registration with Azure Active Directory is available for Windo
 
 To begin registering your domain joined Windows devices with Azure AD, follow the prerequisites below. Once you complete the prerequisites, configure automatic device registration for your domain joined Windows devices.
 
-## Prerequisites for Automatic device registration of domain joined Windows devices with Azure Active Directory
 ## Deploy AD FS and connect to Azure Active Directory using Azure Active Directory Connect
 1. Use Azure Active Directory Connect to deploy Active Directory Federation Services (AD FS) with Windows Server 2012 R2 and set up a federation relationship with Azure Active Directory.
 2. Configure an additional Azure Active Directory relying party trust claim rule.

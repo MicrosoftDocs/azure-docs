@@ -1,5 +1,5 @@
 ---
-title: Deploy your first Java web app to Azure in five minutes | Microsoft Docs
+title: Deploy your first Java web app to Azure in five minutes (CLI 2.0 Preview) | Microsoft Docs
 description: Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately.
 services: app-service\web
 documentationcenter: ''
@@ -13,11 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 
 ---
-# Deploy your first Java web app to Azure in five minutes
+# Deploy your first Java web app to Azure in five minutes (CLI 2.0 Preview)
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
+
 This tutorial helps you deploy a simple Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
 and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -35,7 +37,7 @@ You will:
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
+> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
 > it for up to an hour--no credit card required, no commitments.
 > 
 > 
@@ -75,7 +77,7 @@ Now, let's deploy a Java app to Azure using FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. In **Java version**, select **Java 8** and click **Save**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     When you get the notification **Successfully updated web app settings**, navigate to http://*&lt;appname>*.azurewebsites.net 
     to see the default JSP servlet in action.

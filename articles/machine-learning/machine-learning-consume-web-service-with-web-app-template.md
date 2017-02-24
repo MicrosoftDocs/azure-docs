@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/06/2017
 ms.author: garye;raymondl
 
 ---
@@ -116,10 +116,10 @@ To learn more about...
 * how to deploy your machine learning experiment as a web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
 * other ways to access your web service, see [How to consume an Azure Machine Learning web service](machine-learning-consume-web-services.md)
 
-[image1]: media\machine-learning-consume-web-service-with-web-app-template\rrs-web-template-flow.png
-[image2]: media\machine-learning-consume-web-service-with-web-app-template\bes-web-template-flow.png
-[image3]: media\machine-learning-consume-web-service-with-web-app-template\api-key.png
-[image4]: media\machine-learning-consume-web-service-with-web-app-template\post-uri.png
-[image5]: media\machine-learning-consume-web-service-with-web-app-template\create-web-app.png
-[image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
-[image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
+[image1]: media/machine-learning-consume-web-service-with-web-app-template/rrs-web-template-flow.png
+[image2]: media/machine-learning-consume-web-service-with-web-app-template/bes-web-template-flow.png
+[image3]: media/machine-learning-consume-web-service-with-web-app-template/api-key.png
+[image4]: media/machine-learning-consume-web-service-with-web-app-template/post-uri.png
+[image5]: media/machine-learning-consume-web-service-with-web-app-template/create-web-app.png
+[image6]: media/machine-learning-consume-web-service-with-web-app-template/web-service-info.png
+[image7]: media/machine-learning-consume-web-service-with-web-app-template/storage.png

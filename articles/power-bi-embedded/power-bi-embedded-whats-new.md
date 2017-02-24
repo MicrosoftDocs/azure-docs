@@ -14,12 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 
 ---
 # What's new in Power BI Embedded
 Updates to **Power BI Embedded** are released on a regular basis. However, not every release includes new user-facing features; some releases are focused on back-end service capabilities. We’ll highlight new user-facing capabilities here. Be sure to check back often.
+
+## December 2016
+
+* [New JavaScript embed sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+
+## October 2016
+
+* [Advanced Analytics with Power BI Embedded and R](https://powerbi.microsoft.com/blog/r-in-pbie/)
 
 ## August 31st, 2016
 Included in this release:

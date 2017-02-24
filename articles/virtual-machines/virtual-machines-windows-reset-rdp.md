@@ -21,7 +21,7 @@ ms.author: iainfou
 # How to reset the Remote Desktop service or its login password in a Windows VM
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure you have the latest PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure you have the latest PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!TIP]
 > You can check the version of PowerShell that you have installed by using:
@@ -41,7 +41,11 @@ For VMs created using the Classic deployment model:
 - [Reset using Azure PowerShell](#vmaccess-extension-and-powershell---classic)
 
 ## Azure portal - Resource Manager
-Select your VM by clicking **Browse** > **Virtual machines** > *your Windows virtual machine* > **All settings** > **Reset password**. The password reset blade is displayed:
+To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines**:
+
+![Browse for your Azure VM](./media/virtual-machines-windows-reset-rdp/Portal-Select-VM.png)
+
+Select your Windows virtual machine then click **Support + Troubleshooting** > **Reset password**. The password reset blade is displayed:
 
 ![Password reset page](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -97,11 +101,15 @@ If you still can't connect remotely to your virtual machine, see more steps to t
 
 
 ## Azure portal - Classic
-For virtual machines created using the classic deployment model, you can use the [Azure portal](https://portal.azure.com) to reset the Remote Desktop service. Click: **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote...**. The following page appears.
+For virtual machines created using the classic deployment model, you can use the [Azure portal](https://portal.azure.com) to reset the Remote Desktop service. To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines (classic)**:
+
+![Browse for your Azure VM](./media/virtual-machines-windows-reset-rdp/Portal-Select-Classic-VM.png)
+
+Select your Windows virtual machine and then click **Reset Remote...**. The following dialog appears to reset the Remote Desktop configuration:
 
 ![Reset RDP configuration page](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
-You can also try resetting the name and password of the local administrator account. Click: **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **All settings** > **Reset password**. The following page appears.
+You can also reset the username and password of the local administrator account. From your VM, click **Support + Troubleshooting** > **Reset password**. The password reset blade is displayed:
 
 ![Password reset page](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 

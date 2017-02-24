@@ -1,5 +1,5 @@
 ---
-title: Continuous Integration and Deployment of Multi-Container Docker Applications to Azure Container Service | Microsoft Docs
+title: CI/CD with Azure Container Service and DC/OS | Microsoft Docs
 description: How to fully automate building and deploying a multi-container Docker app to an Azure Container Service cluster running DC/OS.
 services: container-service
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
-ms.author: johnstallo
+ms.author: johnsta
 
 ---
 
@@ -26,7 +26,7 @@ In this tutorial, we cover how to fully automate building and deploying a multi-
 ## Get started
 You can run this walkthrough on OS X, Windows, or Linux.
 - You need an Azure subscription. If you don't have one, you can [sign up for an account](https://azure.microsoft.com/).
-- Install the [Azure Command-line tools](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Install the [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 ## What we'll create
 Let's touch on some key aspects of the app and its deployment flow that we are setting up:
@@ -44,7 +44,8 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 ## Create an Azure Container Service cluster configured with DC/OS
 
 >[!IMPORTANT]
-> To create a secure cluster you pass your SSH public key file to pass when you call `az acs create` . Either you can have the Azure CLI 2.0 generate the keys for you and pass them at the same time using the `--generate-ssh-keys` option, or you can pass the path to your keys using the `--ssh-key-value` option (the default location on Linux is `~/.ssh/id_rsa.pub` and on Windows `%HOMEPATH%\.ssh\id_rsa.pub`, but this can be changed). 
+> To create a secure cluster you pass your SSH public key file to pass when you call `az acs create` . Either you can have the Azure CLI 2.0 generate the keys for you and pass them at the same time using the `--generate-ssh-keys` option, or you can pass the path to your keys using the `--ssh-key-value` option (the default location on Linux is `~/.ssh/id_rsa.pub` and on Windows `%HOMEPATH%\.ssh\id_rsa.pub`, but this can be changed).
+<!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
 > To create SSH public and private key files on Linux, see [Create SSH keys on Linux and Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 > To create SSH public and private key files on Windows, see [Create SSH keys on Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
@@ -52,9 +53,9 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 	`az login`
 
-1. Create a resource group in which we place our cluster using [az resource group create](/cli/azure/resource/group#create):
+1. Create a resource group in which we place our cluster using [az group create](/cli/azure/group#create):
 	
-	`az resource group create --name myacs-rg --location westus`
+	`az group create --name myacs-rg --location westus`
 
 	You may want to specify the [Azure datacenter region](https://azure.microsoft.com/regions) closest to you. 
 
@@ -325,19 +326,20 @@ Delete the ACS cluster:
 1. Open the resource group's blade UI, and click **Delete** in the blade's command bar.
 
 Delete the Azure Container Registry:
-1. In the Azure portal, search for the Azure Container Registry, and delete it. 
+In the Azure portal, search for the Azure Container Registry, and delete it. 
 
 The [Visual Studio Team Services account offers free Basic Access Level for the first five users](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), but you can delete the build and release definitions.
-1. Delete the VSTS Build Definition:
+
+Delete the VSTS Build Definition:
 		
-	* Open the Build Definition URL in your browser, then click on the **Build Definitions** link (next to the name of the build definition you are currently viewing).
-	* Click the action menu beside the build definition you want to delete, and select **Delete Definition**
+1. Open the Build Definition URL in your browser, then click on the **Build Definitions** link (next to the name of the build definition you are currently viewing).
+2. Click the action menu beside the build definition you want to delete, and select **Delete Definition**
 
-	![Delete VSTS Build Definition](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
+`![Delete VSTS Build Definition](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
-1. Delete the VSTS Release Definition:
+Delete the VSTS Release Definition:
 
-	* Open the Release Definition URL in your browser.
-	* In the Release Definitions list on the left-hand side, click the drop-down beside the release definition you want to delete, and select **Delete**.
+1. Open the Release Definition URL in your browser.
+2. In the Release Definitions list on the left-hand side, click the drop-down beside the release definition you want to delete, and select **Delete**.
 
-	![Delete VSTS Release Definition](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
+`![Delete VSTS Release Definition](media/container-service-setup-ci-cd/vsts-delete-release-def.png)

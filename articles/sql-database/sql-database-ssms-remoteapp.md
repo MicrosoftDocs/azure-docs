@@ -8,7 +8,7 @@ manager: jhubbard
 
 ms.assetid: 1052c83c-e7f5-4736-922f-216194d8874b
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.workload: data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -38,8 +38,8 @@ SSMS running in Azure RemoteApp gives you the same experience as running SSMS lo
 ## Benefits
 There are many benefits to using SSMS in Azure RemoteApp, including:
 
-* Port 1433 on Azure SQL Server does not have to be exposed externally (outside of Azure).
-* No need to keep adding and removing IP addresses in the Azure SQL Server firewall.
+* Port 1433 on Azure SQL server does not have to be exposed externally (outside of Azure).
+* No need to keep adding and removing IP addresses in the Azure SQL server firewall.
 * All Azure RemoteApp connections occur over HTTPS on port 443 using encrypted Remote Desktop protocol
 * It is multi-user and can scale.
 * There is a performance gain from having SSMS in the same region as the SQL Database.
@@ -96,7 +96,7 @@ On the User Access tab you can select the users that will have access to this Az
 ### 9. Install the Azure RemoteApp client application
 You can download and install a Azure RemoteApp client here: [Download | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx)
 
-## Configure Azure SQL Server
+## Configure Azure SQL server
 The only configuration needed is to ensure that Azure Services is enabled for the firewall. If you use this solution, then you do not need to add any IP addresses to open the firewall. The network traffic that is allowed to the SQL Server is from other Azure services.
 
 ![Azure Allow][4]
@@ -112,7 +112,7 @@ If you do not have Azure AD Premium, then you have to turn it on in the Licenses
 When you go to a user in your Azure Active Directory, you can then go to the Activity tab to see login information to Azure RemoteApp.
 
 ## Next steps
-After completing all the above steps, you will be able to run the Azure RemoteApp client and log-in with an assigned user. You will be presented with SSMS as one of your applications, and you can run it as you would if it were installed on your computer with access to Azure SQL Server.
+After completing all the above steps, you will be able to run the Azure RemoteApp client and log-in with an assigned user. You will be presented with SSMS as one of your applications, and you can run it as you would if it were installed on your computer with access to Azure SQL server.
 
 For more information on how to make the connection to SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
 

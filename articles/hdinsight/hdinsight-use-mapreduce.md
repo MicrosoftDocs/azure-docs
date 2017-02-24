@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
@@ -164,6 +164,9 @@ HDInsight can run HiveQL jobs by using a variety of methods. Use the following t
 | [Curl](hdinsight-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
 | [Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a id="nextsteps"></a>Next steps
 

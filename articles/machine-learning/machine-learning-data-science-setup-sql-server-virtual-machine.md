@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 
 ---
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
-This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
+This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer, and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
 
 The Azure virtual machine gallery includes several images that contain Microsoft SQL Server. Select an SQL Server VM image that is suitable for your data needs. Recommended images are:
 
@@ -31,10 +31,10 @@ The Azure virtual machine gallery includes several images that contain Microsoft
   > 
 
 ## <a name="Provision"></a>Connect to the Azure Classic Portal and provision an SQL Server virtual machine
-1. Log in to the [Azure Classic Portal](http://manage.windowsazure.com/) using your account.
+1. Log in to the [Azure Classic portal](http://manage.windowsazure.com/) using your account.
    If you do not have an Azure account, visit [Azure free
    trial](https://azure.microsoft.com/pricing/free-trial/).
-2. On the Azure Classic Portal, at the bottom left of the web page,
+2. On the Azure Classic portal, at the bottom left of the web page,
    click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and
    then click **FROM GALLERY**.
 3. On the **Create a Virtual Machine** page, select a virtual machine
@@ -326,7 +326,7 @@ In later stages of the Team Data Science Process, you will use the [Azure Machin
 3. Enter the SQL user name in the **Server user account name** text box.
 4. Enter the sql user's password in the **Server user account password** text box.
    
-   ![Azure ML Import Data][13]
+   ![Azure Machine Learning Import Data][13]
 
 ## <a name="shutdown"></a>Shutdown and deallocate virtual machine when not in use
 Azure Virtual Machines are priced as **pay only for what you use**. To ensure that you are not being billed when not using your virtual machine, it has to be in the **Stopped (Deallocated)** state.

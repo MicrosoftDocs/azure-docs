@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sashan;carlrab
+ms.author: sashan
 
 ---
 # Overview: SQL Database Active Geo-Replication
@@ -23,28 +23,13 @@ Active Geo-Replication enables you to configure up to four readable secondary da
 
 > [!NOTE]
 > Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
-> 
-> 
+>  
 
  You can configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md), or the [REST API - Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
-> [!div class="op_single_selector"]
-> * [Configure: Azure portal](sql-database-geo-replication-portal.md)
-> * [Configure: PowerShell](sql-database-geo-replication-powershell.md)
-> * [Configure: T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can *failover* to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
 You can failover to a secondary using the [Azure portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), the [REST API - Planned Failover](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx), or [REST API - Unplanned Failover](https://msdn.microsoft.com/library/azure/mt582027.aspx).
-
-> [!div class="op_single_selector"]
-> * [Failover: Azure portal](sql-database-geo-replication-failover-portal.md)
-> * [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
@@ -75,7 +60,7 @@ The Active Geo-Replication feature provides the following essential capabilities
 > 
 > 
 
-* **Active geo-replication of elastic pool databases**: Active Geo-Replication can be configured for any database in any elastic database pool. The secondary database can be in another elastic database pool. For regular databases, the secondary can be an elastic database pool and vice versa as long as the service tiers are the same. 
+* **Active geo-replication of elastic pool databases**: Active Geo-Replication can be configured for any database in any elastic pool. The secondary database can be in another elastic pool. For regular databases, the secondary can be an elastic pool and vice versa as long as the service tiers are the same. 
 * **Configurable performance level of the secondary database**: A secondary database can be created with lower performance level than the primary. Both primary and secondary databases are required to have the same service tier. This option is not recommended for applications with high database write activity because the increased replication lag increases the risk of substantial data loss after a failover. In addition, after failover the application’s performance is impacted until the new primary is upgraded to a higher performance level. The log IO percentage chart on Azure portal provides a good way to estimate the minimal performance level of the secondary that is required to sustain the replication load. For example, if your Primary database is P6 (1000 DTU) and its log IO percent is 50% the secondary needs to be at least P4 (500 DTU). You can also retrieve the log IO data using [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) or [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) database views.  For more information on the SQL Database performance levels, see [SQL Database options and performance](sql-database-service-tiers.md). 
 * **User-controlled failover and failback**: A secondary database can explicitly be switched to the primary role at any time by the application or the user. During a real outage the “unplanned” option should be used, which immediately promotes a secondary to be the primary. When the failed primary recovers and is available again, the system automatically marks the recovered primary as a secondary and bring it up-to-date with the new primary. Due to the asynchronous nature of replication, a small amount of data can be lost during unplanned failovers if a primary fails before it replicates the most recent changes to the secondary. When a primary with multiple secondaries fails over, the system automatically reconfigures the replication relationships and links the remaining secondaries to the newly promoted primary without requiring any user intervention. After the outage that caused the failover is mitigated, it may be desirable to return the application to the primary region. To do that, the failover command should be invoked with the “planned” option. 
 * **Keeping credentials and firewall rules in sync**: We recommend using [database firewall rules](sql-database-firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../active-directory/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.

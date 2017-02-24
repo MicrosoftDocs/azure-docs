@@ -1,10 +1,10 @@
 ---
-title: Network Security Groups | Microsoft Docs
+title: Network security groups in Azure | Microsoft Docs
 description: Learn how to isolate and control traffic flow within your virtual networks using the distributed firewall in Azure using Network Security Groups.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
@@ -17,7 +17,7 @@ ms.date: 02/11/2016
 ms.author: jdial
 
 ---
-# Network security groups
+# Control network traffic flow with network security groups
 
 A network security group (NSG) contains a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
@@ -117,17 +117,11 @@ You can implement NSGs in the classic or Resource Manager deployment models usin
 
 | Deployment tool | Classic | Resource Manager |
 | --- | --- | --- |
-| Classic portal |![No](./media/virtual-network-nsg-overview/red.png) |![No](./media/virtual-network-nsg-overview/red.png) |
-| Azure portal |![Yes](./media/virtual-network-nsg-overview/green.png) |[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell |[![Yes][green]](virtual-networks-create-nsg-classic-ps.md) |[![Yes][green]](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI |[![Yes][green]](virtual-networks-create-nsg-classic-cli.md) |[![Yes][green]](virtual-networks-create-nsg-arm-cli.md) |
-| ARM template |![No](./media/virtual-network-nsg-overview/red.png) |[![Yes][green]](virtual-networks-create-nsg-arm-template.md) |
-
-**Key**
-
-![Yes](./media/virtual-network-nsg-overview/green.png) Supported.
-
-![No](./media/virtual-network-nsg-overview/red.png) Not Supported.
+| Classic portal | No  | No |
+| Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
+| Azure CLI      | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-arm-cli.md) |
+| ARM template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
 
 ## Planning
 Before implementing NSGs, you need to answer the following questions:
@@ -261,7 +255,3 @@ Since some of the NSGs above need to be associated to individual NICs, you need 
 * [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 * [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [Manage NSG logs](virtual-network-nsg-manage-log.md).
-
-[green]: ./media/virtual-network-nsg-overview/green.png
-[yellow]: ./media/virtual-network-nsg-overview/yellow.png
-[red]: ./media/virtual-network-nsg-overview/red.png

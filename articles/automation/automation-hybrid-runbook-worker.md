@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/12/2017
 ms.author: bwren
 
 ---
@@ -29,8 +29,8 @@ You can designate one or more computers in your data center to act as a Hybrid R
 There are no inbound firewall requirements to support Hybrid Runbook Workers. The agent on the local computer initiates all communication with Azure Automation in the cloud. When a runbook is started, Azure Automation creates an instruction that is retrieved by agent. The agent then pulls down the runbook and any parameters before running it.  It will also retrieve any [assets](http://msdn.microsoft.com/library/dn939988.aspx) that are used by the runbook from Azure Automation.
 
 > [!NOTE]
-> Hybrid Runbook Workers do not currently support having [DSC Configurations](automation-dsc-overview.md) applied to the computer hosting this role.
-><br><br>
+> In order to manage the configuration of your servers supporting the Hybrid Runbook Worker role with Desired State Configuration (DSC), you will need to add them as DSC nodes.  For further information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).           
+><br>
 >Currently if you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your OMS workspace will be automatically configured as a Hybrid Runbook Worker in order to support runbooks that are part of this solution.  However, it is not registered with any Hybrid Worker groups you have created in your Automation account, and you cannot add it to a Hybrid Worker group to run your own runbooks.  If a Windows computer is already designated as a Hybrid Runbook Worker and connected to the OMS workspace, you will need to remove it from the OMS workspace before adding the solution in order to prevent your runbooks from failing to function as expected.  
 
 
@@ -53,7 +53,7 @@ Consider the following recommendations for hybrid workers:
 * Consider using a computer physically located in or near the region of your Automation account since the job data is sent back to Azure Automation when a job completes.
 
 ### Configure proxy and firewall settings
-For the on-premise Hybrid Runbook Worker to connect to and register with the Microsoft Operations Management Suite (OMS) service, it must have access to the port number and the URLs described below.  This is in addition to the  [ports and URLs required for the Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent) to connect to OMS. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access.
+For the on-premise Hybrid Runbook Worker to connect to and register with the Microsoft Operations Management Suite (OMS) service, it must have access to the port number and the URLs described below.  This is in addition to the  [ports and URLs required for the Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) to connect to OMS. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access.
 
 The information below list the port and URLs that are required for the Hybrid Runbook Worker to communicate with Automation.
 
@@ -243,5 +243,5 @@ You can use the following criteria to determine whether Azure Automation with Hy
 * Azure Automation has advanced features such as graphical runbooks that are not available in SMA.
 
 ## Next steps
-* To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
+* To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).  
 * To understand the different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)

@@ -9,12 +9,12 @@ editor: genemi
 
 ms.assetid: 08fc49b1-cd48-4dcc-a293-ff22a4d2d62c
 ms.service: sql-database
-ms.custom: app development
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/03/2017
 ms.author: lbosq
 
 ---
@@ -24,7 +24,7 @@ ms.author: lbosq
 This topic presents a Java code sample that you can use to connect to Azure SQL Database. The Java sample relies on the Java Development Kit (JDK) version 1.8. The sample connects to an Azure SQL Database by using the JDBC driver.
 
 ## Step 1:  Configure Development Environment
-[Configure development environment for Java development](https://msdn.microsoft.com/library/mt720658.aspx)
+[Configure development environment for Java development](https://docs.microsoft.com/sql/connect/jdbc/step-1-configure-development-environment-for-java-development/)
 
 ## Step 2: Create a SQL database
 See the [getting started page](sql-database-get-started.md) to learn how to create a database.  
@@ -38,12 +38,12 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 > 
 
 ## Step 4: Run sample code
-* [Proof of concept connecting to SQL using Java](https://msdn.microsoft.com/library/mt720656.aspx)
+* [Proof of concept connecting to SQL using Java](https://docs.microsoft.com/sql/connect/jdbc/step-3-proof-of-concept-connecting-to-sql-using-java/)
 
 ## Next steps
 * Visit the [Java Developer Center](/develop/java/).
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft JDBC Driver for SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
+* More information on the [Microsoft JDBC Driver for SQL Server](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/)
 
 ## Additional resources
 * [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)

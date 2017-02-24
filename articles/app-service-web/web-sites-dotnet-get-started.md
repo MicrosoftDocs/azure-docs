@@ -1,5 +1,5 @@
 ---
-title: Deploy an ASP.NET app to Azure App Service using Visual Studio | Microsoft Docs
+title: Deploy an ASP.NET app to Azure using Visual Studio | Microsoft Docs
 description: Learn how to deploy an ASP.NET web project to a new web app in Azure App Service, using Visual Studio.
 services: app-service\web
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 
 ---
@@ -44,7 +44,7 @@ Apart from the time required to install the Azure SDK for .NET, this tutorial wi
 * The tutorial assumes you have worked with ASP.NET MVC and Visual Studio. If you need an introduction, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 * You need an Azure account. You can [open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There you can create a short-lived starter app in App Service — no credit card required, and no commitments.
+    If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/). There you can create a short-lived starter app in App Service — no credit card required, and no commitments.
 
 ## <a name="setupdevenv"></a>Set up the development environment
 The tutorial is written for Visual Studio 2015 with the [Azure SDK for .NET](../dotnet-sdk.md) 2.9 or later. 
@@ -58,8 +58,8 @@ The tutorial is written for Visual Studio 2015 with the [Azure SDK for .NET](../
 
 If you have Visual Studio 2013 and prefer to use that, you can [download the latest Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Some screens may look different from the illustrations.
 
-## Configure a new web project
-Your next step is to create a web project in Visual Studio and a web app in Azure App Service. In this section of the tutorial you configure the new web project. 
+## Create a web application
+Your next step is to create a web application project in Visual Studio and a web app in Azure App Service. In this section of the tutorial you configure the new web project. 
 
 1. Open Visual Studio 2015.
 2. Click **File > New > Project**.
@@ -86,7 +86,7 @@ Your next step is to create a web project in Visual Studio and a web app in Azur
     These settings direct Visual Studio to create an Azure web app for your web project.
 10. Click **OK**
 
-## Configure Azure resources for a new web app
+## Create the Azure resources
 Now you tell Visual Studio about the Azure resources that you want it to create.
 
 1. In the **Create App Service** dialog, click **Add an account**, and then sign in to Azure with the ID and password of the account that you use to manage your Azure subscription.
@@ -125,14 +125,14 @@ Now you tell Visual Studio about the Azure resources that you want it to create.
 8. In the **Configure App Service Plan** dialog, click **OK**.
 9. In the **Create App Service** dialog box, click **Create**.
 
-## Visual Studio creates the project and web app
+## Inspect the Azure resources in Visual Studio
 In a short time, usually less than a minute, Visual Studio creates the web project and the web app.  
 
 The **Solution Explorer** window shows the files and folders in the new project.
 
 ![Solution Explorer](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-The **Azure App Service Activity** window shows that the web app has been created.
+The **Azure App Service Activity** window shows that the App Service resources have been created in Azure. You can click on the link here to start publishing your new project immediately. Later, however, the tutorial shows you how to publish your files anytime.
 
 ![Web app created in Azure App Service Activity window](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -140,8 +140,8 @@ The **Cloud Explorer** window lets you view and manage Azure resources, includin
 
 ![Web app created in Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Deploy the web project to the Azure web app
-In this section, you deploy the web project to the web app.
+## Deploy the web project to Azure
+In this section, you deploy the web project to the web app resource you created in Azure App Service.
 
 1. In **Solution Explorer**, right-click the project, and choose **Publish**.
    
@@ -149,7 +149,10 @@ In this section, you deploy the web project to the web app.
    
     In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app.
    
-    The publish profile includes a user name and password for deployment.  These credentials have been generated for you, and you don't have to enter them. The password is encrypted in a hidden user-specific file in the `Properties\PublishProfiles` folder.
+    > [!TIP] 
+    > The publish profile includes a user name and password for deployment.  These credentials have been generated for you, and you don't have to enter them. The password is encrypted in a hidden user-specific file in the `Properties\PublishProfiles` folder.
+    >
+    >
 2. On the **Connection** tab of the **Publish Web** wizard, click **Next**.
    
     ![Click Next on Connection tab of Publish Web wizard](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -210,6 +213,6 @@ In this tutorial, you've seen how to create a simple web application and deploy 
   * [Enable HTTPS for an Azure website](web-sites-configure-ssl-certificate.md)
 * Delete the resource group that contains your web app and any related Azure resources when you're done with them.
   
-    For information about how to work with resource groups in the Azure portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).   
+    For information about how to work with resource groups in the Azure portal, see [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * For more examples of creating an ASP.NET Web App in App Service, see [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) and [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 

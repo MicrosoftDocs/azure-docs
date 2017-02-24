@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 
 ---
@@ -22,10 +22,10 @@ ms.author: dobett
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Build and run the node.js sample solution
-1. To clone the *Azure IoT SDKs* GitHub repository and install the *Microsoft Azure IoT device SDK for Node.js* in your desktop environment, follow the [Prepare your development environment][lnk-github-prepare] instructions.
-2. From your local copy of the [azure-iot-sdks][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to a folder on your device:
+1. To clone the *Microsoft Azure IoT SDK for Node.js* GitHub repository and install it in your desktop environment, follow the [Prepare your development environment][lnk-github-prepare] instructions.
+2. From your local copy of the [azure-iot-sdk-node][lnk-github-repo] repository, copy the following two files from the device/samples folder to a folder on your device:
    
-   * packages.json
+   * package.json
    * remote_monitoring.js
 3. Open the remote_monitoring.js file and look for the following variable:
    
@@ -52,5 +52,5 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-[lnk-github-repo]: https://github.com/azure/azure-iot-sdks
-[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-github-repo]: https://github.com/azure/azure-iot-sdk-node
+[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md

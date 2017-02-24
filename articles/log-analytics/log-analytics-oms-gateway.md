@@ -4,16 +4,15 @@ description: Connect your OMS-managed devices and Operations Manager-monitored c
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2016
+ms.date: 02/10/2017
 ms.author: banders
 
 ---
@@ -26,7 +25,7 @@ As an example, your enterprise or large organization might have servers with net
 
 Instead of each individual agent sending data directly to OMS and requiring a direct Internet connection, all agent data is instead sent through a single computer that has an Internet connection. That computer is where you install and use the gateway. In this scenario, you can install agents on any computers where you want to collect data. The gateway then transfers data from the agents to OMS directly—the gateway does not analyze any of the data that is transferred.
 
-To monitor the OMS Gateway and analyze performance or event data for the server where it is installed, you must install the OMS agent on the computer where the gateway is also installed.
+You must install the OMS agent on the computer where the gateway is also installed. Doing so allows you to monitor the OMS Gateway and analyze performance or event data for the server where it is installed. Additionally, the agent helps the OMS Gateway identify the service end points that it needs to communicate with.
 
 The gateway must have access to the Internet to upload data to OMS. Each agent must also have network connectivity to its gateway so that agents can automatically transfer data to and from the gateway. For best results, do not install the gateway on a computer that is also a domain controller.
 
@@ -38,26 +37,72 @@ Here's a diagram that shows data flow from Operations Manager to OMS.
 
 ![Operations Manager diagram](./media/log-analytics-oms-gateway/scom-mgt-server.png)
 
+## Language availability
+
+The OMS Gateway is available in the following languages:
+
+- Chinese (Simplified)
+- Chinese (Traditional)
+- Czech
+- Dutch
+- English
+- French
+- German
+- Hungarian
+- Italian
+- Japanese
+- Korean
+- Polish
+- Portuguese (Brazil)
+- Portuguese (Portugal)
+- Russian
+- Spanish (International)
+
+## Download the OMS Gateway
+
+There are three ways to get the OMS Gateway Setup file.
+
+### Microsoft Download Center
+
+- Download the latest version of the OMS Gateway from the [Microsoft Download Center](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi).
+
+### OMS portal
+
+1.	Log into your OMS workspace.
+2.	Select **Settings** > **Connected Sources** > **Windows Servers**.
+3.	Click **Download OMS Gateway**.
+
+
+### Azure portal
+
+1. Go to the [Azure portal](https://portal.azure.com) and sign in, browse the list of services, and then select **Log Analytics**.
+2. Select a workspace.
+3. In your workspace blade under **General**, click **Quick Start**.
+4. Under **Choose a data source to connect to the workspace**, click **Computers**.
+4. In the **Direct Agent** blade, click **Download OMS Gateway**.  
+    ![download OMS Gateway](./media/log-analytics-oms-gateway/download-gateway.png)
+
+
 ## Install the OMS Gateway
 Installing this Gateway replaces previous versions of the Gateway that you have installed (Log Analytics Forwarder).
 
 Prerequisites: .Net Framework 4.5, Windows Server 2012 R2 SP1 and above
 
-1. Download the latest version of the OMS Gateway from the [Microsoft Download Center](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi).
-2. To start the installation, double-click **OMS Gateway.msi**.
-3. On the Welcome page, **Next**.  
+
+1. To start the installation, double-click **OMS Gateway.msi**.
+2. On the Welcome page, **Next**.  
     ![Gateway Setup wizard](./media/log-analytics-oms-gateway/gateway-wizard01.png)
-4. On the License Agreement page, select **I accept the terms in the License Agreement** to agree to the EULA and then **Next**.
-5. On the port and proxy address page:
+3. On the License Agreement page, select **I accept the terms in the License Agreement** to agree to the EULA and then **Next**.
+4. On the port and proxy address page:
    1. Type the TCP port number to be used for the gateway. Setup opens this port number from Windows firewall. The default value is 8080.
       The valid range of the port number is 1 - 65535. If the input does not fall into this range, an error message appears.
-   2. Optionally, if the server where the gateway is installed needs to use a proxy, type the proxy address where the gateway needs to connect. For example, `http://myorgname.corp.contoso.com:80` If blank, the gateway will try to connect to the Internet directly. Otherwise, the gateway connects to the proxy. If your proxy server requires authentication, type your username and password.
+   2. Optionally, if the server where the gateway is installed needs to use a proxy, type the proxy address where the gateway needs to connect. For example, `http://myorgname.corp.contoso.com:80` If blank, the gateway will try to connect to the Internet directly. Otherwise, the gateway connects to the proxy. If your proxy server requires authentication, type your username and password.  
        ![Gateway Wizard proxy configuration](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. Click **Next**
-6. If you do not have Microsoft Updates enabled, the Microsoft Update page appears where you can choose to enable Microsoft Updates. Make a selection and then click **Next**. Otherwise, continue to the next step.
-7. On the Destination Folder page, either leave the default folder **%ProgramFiles%\OMS Gateway** or type the location where you want to install gateway and then click **Next**.
-8. On the Ready to install page, click **Install**. A User Account Control might appear requesting permission to install. If so, click **Yes**.
-9. After Setup completes, click **Finish**. You can verify that the service is running by opening the services.msc snap-in and verify that **OMS Gateway** appears in the list of services.  
+5. If you do not have Microsoft Updates enabled, the Microsoft Update page appears where you can choose to enable Microsoft Updates. Make a selection and then click **Next**. Otherwise, continue to the next step.
+6. On the Destination Folder page, either leave the default folder c:\ProgramFiles\OMS Gateway or type the location where you want to install gateway and then click **Next**.
+7. On the Ready to install page, click **Install**. A User Account Control might appear requesting permission to install. If so, click **Yes**.
+8. After Setup completes, click **Finish**. You can verify that the service is running by opening the services.msc snap-in and verify that **OMS Gateway** appears in the list of services.  
     ![Services – OMS Gateway](./media/log-analytics-oms-gateway/gateway-service.png)
 
 ## Install an agent on devices
@@ -169,7 +214,7 @@ Cmdlets can help you complete tasks that are needed to update the OMS Gateway's 
 4. If no error occurred in the previous step, the module was successfully imported, and the cmdlets can be used. Type `Get-Module OMSGateway`
 5. After you make changes by using the cmdlets, ensure that you restart the Gateway service.
 
-If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: C:\Program File\Microsoft OMS Gateway\PowerShell.
+If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: C:\Program Files\Microsoft OMS Gateway\PowerShell.
 
 | **Cmdlet** | **Parameters** | **Description** | **Examples** |
 | --- | --- | --- | --- |
@@ -185,7 +230,7 @@ If you get an error in step 3, the module wasn't imported. The error might occur
 | `Get-OMSGatewayAllowedClientCertificate` | |Gets the  currently allowed client certificate subjects (only the locally configured allowed subjects, do not include automatically downloaded allowed subjects) |`Get-OMSGatewayAllowedClientCertificate` |
 
 ## Troubleshoot
-We recommend that you install the OMS agent on computers that have the gateway installed. You can then use the agent to collect the events that are logged by the gateway.
+You must install the OMS agent on computers that have the gateway installed. You can then use the agent to collect the events that are logged by the gateway.
 
 ![Event Viewer – OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
 

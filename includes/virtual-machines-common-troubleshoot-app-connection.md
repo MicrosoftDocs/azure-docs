@@ -75,7 +75,7 @@ If you cannot access the application, verify the following settings:
 
 * The host firewall on the target VM is allowing the inbound request and outbound response traffic.
 * Intrusion detection or network monitoring software running on the target VM is allowing the traffic.
-* Cloud Services endpoints or Network Security Groups are allowing the traffic
+* Cloud Services endpoints or Network Security Groups are allowing the traffic:
   * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * A separate component running in your VM in the path between the test VM and your VM, such as a load balancer or firewall, is allowing the traffic.
@@ -93,13 +93,13 @@ If you cannot access the application, verify the following settings:
 
 * For VMs created using the classic deployment model:
   
-  * That the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
-  * That access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.
+  * Verify that the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
+  * Verify that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.
   * For more information, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * For VMs created using the Resource Manager deployment model:
   
-  * That the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
-  * That Network Security Groups are allowing the inbound request and outbound response traffic.
+  * Verify that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
+  * Verify that Network Security Groups are allowing the inbound request and outbound response traffic.
   * For more information, see [What is a Network Security Group (NSG)?](../articles/virtual-network/virtual-networks-nsg.md)
 
 If the virtual machine or endpoint is a member of a load-balanced set:
@@ -107,7 +107,7 @@ If the virtual machine or endpoint is a member of a load-balanced set:
 * Verify that the probe protocol (TCP or UDP) and port number are correct.
 * If the probe protocol and port is different than the load-balanced set protocol and port:
   * Verify that the application is listening on the probe protocol (TCP or UDP) and port number (use **netstat –a** on the target VM).
-  * The host firewall on the target VM is allowing the inbound probe request and outbound probe response traffic.
+  * Verify that the host firewall on the target VM is allowing the inbound probe request and outbound probe response traffic.
 
 If you can access the application, ensure that your Internet edge device is allowing:
 

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 
 ---
@@ -50,35 +50,35 @@ Your app token can contain the following claims:
 
 A sample app token will look like this:
 
-![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-coded.png)
+![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-coded.png)
 
 When decoded, it will look like this:
 
-![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-decoded.png)
+![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-decoded.png)
 
 ## Here's how the flow works
 1. Copy the API keys to your application. You can get the keys in **Azure Portal**.
    
-    ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
+    ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
 2. Token asserts a claim and has an expiration time.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-2.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-2.png)
 3. Token gets signed with an API access keys.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-3.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-3.png)
 4. User requests to view a report.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-4.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-4.png)
 5. Token is validated with an API access keys.
    
-   ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-5.png)
+   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-5.png)
 6. Power BI Embedded sends a report to user.
    
-   ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-6.png)
+   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-6.png)
 
 After **Power BI Embedded** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like this:
 
-![](media\\powerbi-embedded-get-started-sample\\sample-web-app.png)
+![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## See Also
 * [Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md)

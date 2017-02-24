@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 
 ---
@@ -60,19 +60,25 @@ To configure the integration of FileCloud into Azure AD, you need to add FileClo
 1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**. 
    
     ![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Applications][2]
+
 4. Click **Add** at the bottom of the page.
    
     ![Applications][3]
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
     ![Applications][4]
+
 6. In the search box, type **FileCloud**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_01.png)
+
 7. In the results panel, select **FileCloud**, and then click **Complete** to add the application.
    
     ![Selecting the app in the gallery](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_0001.png)
@@ -100,9 +106,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 1. In the classic portal, on the **FileCloud** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][6] 
+
 2. On the **How would you like users to sign on to FileCloud** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_03.png)
+
 3. On the **Configure App Settings** dialog page, perform the following steps and click **Next**:
    
     ![Configure Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_04.png)
@@ -113,10 +121,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
     c. Click **Next**
    
-   > [!NOTE]
-   > Please note that you have to update these values with the actual Sign On URL and Identifier. To get these values, contact FileCloud support team via <mailto:support@codelathe.com>.
-   > 
-   > 
+    > [!NOTE]
+    > Please note that you have to update these values with the actual Sign On URL and Identifier. To get these values, contact FileCloud support team via <mailto:support@codelathe.com>.
+    > 
+    > 
+
 4. On the **Configure single sign-on at FileCloud** page, perform the following steps and click **Next**:
    
     ![Configure Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_05.png)
@@ -124,26 +133,35 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     a. Click **Download metadata**, and then save the file on your computer.
    
     b. Click **Next**.
+
 5. In a different web browser window, sign-on to your FileCloud tenant as an administrator.
+
 6. On the left navigation pane, click **Settings**. 
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+
 7. Click **SSO** tab on Settings section. 
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+
 8. Select **SAML** as **Default SSO Type** on **Single Sign On (SSO) Settings** panel.
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+
 9. In the **IdP End Point URL** textbox put the value of **Entity ID** from Azure AD application configuration wizard on **SAML Settings** panel.
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+
 10. Open your downloaded metadata file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Meta Data** textbox on **SAML Settings** panel.
     
     ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+
 11. Click **Save** button.
+
 12. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
     ![Azure AD Single Sign-On][10]
+
 13. On the **Single sign-on confirmation** page, click **Complete**.  
     
     ![Azure AD Single Sign-On][11]
@@ -158,13 +176,17 @@ The objective of this section is to create a test user in the classic portal cal
 1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/create_aaduser_09.png)
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/create_aaduser_03.png)
+
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/create_aaduser_04.png)
+
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/create_aaduser_05.png)
@@ -174,22 +196,25 @@ The objective of this section is to create a test user in the classic portal cal
     b. In the User Name **textbox**, type **BrittaSimon**.
    
     c. Click **Next**.
+
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/create_aaduser_06.png)
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type **Simon**.
+    b. In the **Last Name** textbox, type **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/create_aaduser_07.png)
+
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-filecloud-tutorial/create_aaduser_08.png)
@@ -218,13 +243,17 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign User][201]
+
 2. In the applications list, select **FileCloud**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_50.png)
+
 3. In the menu on the top, click **Users**.
    
     ![Assign User][203]
+
 4. In the Users list, select **Britta Simon**.
+
 5. In the toolbar on the bottom, click **Assign**.
    
     ![Assign User][205]

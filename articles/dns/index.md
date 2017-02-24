@@ -1,9 +1,21 @@
 ---
+title: Azure DNS Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to manage your DNS records using Azure Domain Name System. Documentation shows how to set up and manage DNS zones and records for domain names.
+services: dns
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#DNS Documentation
+# DNS Documentation
 
-Azure DNS (Domain Name System) is a service for DNS domains provide name resolution using Microsoft Azure infrastructure.  By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+Learn how to manage your DNS records using Azure Domain Name System, a hosting service. Tutorials, API references, and other documentation show you how to set up and manage DNS zones and records for domain names.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -84,7 +96,8 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
 
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
-<li><div class="cardSize">
+<li>
+	<div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -97,7 +110,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -113,7 +126,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -126,11 +139,4 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
 </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download DNS Documentation
-        </div>
-    </a>
-</div>
+

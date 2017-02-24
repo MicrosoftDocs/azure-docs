@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -214,28 +214,18 @@ For example, how many unique make of cars passed through the toll booth in a 2 s
 
 **Solution:**
 
-    WITH Makes AS (
-        SELECT
-            Make,
-            COUNT(*) AS CountMake
-        FROM
-            Input TIMESTAMP BY Time
-        GROUP BY
-              Make,
-              TumblingWindow(second, 2)
-    )
-    SELECT
-        COUNT(*) AS Count,
-        System.TimeStamp AS Time
-    FROM
-        Makes
-    GROUP BY
-        TumblingWindow(second, 1)
+````
+SELECT
+     COUNT(DISTINCT Make) AS CountMake,
+     System.TIMESTAMP AS TIME
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
+````
 
 
 **Explanation:**
-We do an initial aggregation to get unique makes with their count over the window.
-We then do an aggregation of how many makes we got – given all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.
+COUNT(DISTINCT Make) returns the number of distinct values of the “Make” column within a time window.
 
 ## Query example: Determine if a value has changed
 **Description**: Look at a previous value to determine if it is different than the current value

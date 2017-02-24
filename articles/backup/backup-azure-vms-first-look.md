@@ -4,7 +4,7 @@ description: Protect Azure VMs with Backup vault. Tutorial explains create vault
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: ''
 
 ms.assetid: 722820dc-b65f-425c-a9e5-c1946e896a87
@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/15/2016
-ms.author: markgal; jimpark
+ms.date: 1/10/2017
+ms.author: markgal;
 
 ---
 # First look: Backing up Azure virtual machines

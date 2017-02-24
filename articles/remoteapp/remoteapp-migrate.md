@@ -1,4 +1,3 @@
-
 ---
 title: Migrate user data from Azure RemoteApp | Microsoft Docs
 description: Learn how to migrate your user data in and out of Azure RemoteApp.

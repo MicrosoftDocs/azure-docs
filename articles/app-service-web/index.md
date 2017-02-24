@@ -1,9 +1,21 @@
 ---
+title: Azure Web Apps Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and more.
+services: app-service
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Azure Web Apps Documentation
 
-App Service Web Apps is a fully managed compute platform that is optimized for hosting websites and web applications. This platform-as-a-service (PaaS) offering of Microsoft Azure lets you focus on your business logic while Azure takes care of the infrastructure to run and scale your apps.
+Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and other documentation show you how to develop on this fully manage compute platform.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +37,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/get-started/">
+        <a href="https://azure.microsoft.com/get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +55,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=web-sites">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=web-sites">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +73,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +91,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
         </a>
     </li> 
      <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-java">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +109,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +127,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-python-ptvs-django-mysql">
+        <a href="/azure/app-service-web/app-service-web-get-started-python">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -134,7 +146,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
     </li>
    
      <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -182,14 +194,14 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/">Azure CLI</a></p>
+                        <p><a href="/cli/azure/appservice">Azure CLI 2​.0 preview</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -202,7 +214,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -215,11 +227,4 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Web Apps Documentation
-        </div>
-    </a>
-</div>
+

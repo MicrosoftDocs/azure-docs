@@ -4,7 +4,7 @@ description: Storage Analytics enables you to track metrics data for all storage
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager:  timlt
 editor: tysonn
 
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---

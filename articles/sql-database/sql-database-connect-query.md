@@ -10,22 +10,16 @@ editor: ''
 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: how to
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: stevestein
+ms.author: sstein
 
 ---
 # Connect to a SQL Database with Visual Studio
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
 
 Learn how to connect to an Azure SQL database in Visual Studio. 
 

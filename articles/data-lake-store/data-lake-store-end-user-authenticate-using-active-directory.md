@@ -1,6 +1,6 @@
 ---
-title: Authenticate with Data Lake Store using Active Directory | Microsoft Docs
-description: Learn how to authenticate with Data Lake Store using Active Directory
+title: 'End-user authentication: Data Lake Store with Azure Active Directory | Microsoft Docs'
+description: Learn how to achieve end-user authentication with Data Lake Store using Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 
 ---
@@ -26,8 +26,8 @@ ms.author: nitinme
 
 Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store or Azure Data Lake Analytics, you must first decide how you would like to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
 
-* End-user authentication, and 
-* Service-to-service authentication. 
+* End-user authentication (this article)
+* Service-to-service authentication
 
 Both these options result in your application being provided with an OAuth 2.0 token, which gets attached to each request made to Azure Data Lake Store or Azure Data Lake Analytics.
 
@@ -72,7 +72,7 @@ In this section we learn about how to create and configure an Azure AD web appli
 
 ### Step 1: Create an Azure Active Directory application
 > [!NOTE]
-> The steps below use the Azure Portal. You can also create an Azure AD application using [Azure PowerShell](../resource-group-authenticate-service-principal.md) or [Azure CLI](../resource-group-authenticate-service-principal-cli.md).
+> The steps below use the Azure Portal. You can also create an Azure AD application using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) or [Azure CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md).
 > 
 > 
 

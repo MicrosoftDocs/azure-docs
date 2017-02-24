@@ -12,11 +12,11 @@ ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
-ms.author: rick.byham@microsoft.com
+ms.date: 02/22/2017
+ms.author: rickbyh
 
 ---
 # Azure SQL Database Transact-SQL differences   
@@ -25,23 +25,16 @@ Most of the Transact-SQL features that applications depend on are supported in b
 ## Why some Transact-SQL is not supported
 Azure SQL Database is designed to isolate features from dependencies on the master database and the operating system. As a consequence many server-level activities are inappropriate for SQL Database. Transact-SQL statements are usually not available if they configure server-level options, operating system components, or specify file system configuration. When features that are outside of the user database are necessary, an appropriate alternative is often available in some other way from SQL Database or from another Azure feature or service. 
 
-For example, Always On is replaced with Active Geo-replication. For that reason, any Transact-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are not supported.  
+For example, Always On does not apply to Azure SQL Database, since high availability is built into the service - every database is highly available. For that reason, any Transact-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are not supported.  
 
 For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database considerations, guidelines and features](sql-database-features.md).
 
-Syntax that is deprecated in SQL Server is generally not supported in SQL Database.
 
 ## Transact-SQL syntax partially supported in SQL Database
-SQL Database supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the `CREATE PROCEDURE` statement is available however all the options of `CREATE PROCEDURE` are not available. Describing the full syntax here would be confusing and redundant. Refer to the linked syntax topics for details about the supported areas of each statement.
+SQL Database supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements for managing databases and logins. For example, the `CREATE DATABASE` statement is available in Azure SQL Database, and not all the options supported in SQL Server are supported in Azure SQL Database, and vice versa. Refer to the linked syntax topics for details about the supported areas of each statement.
 
-- Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/ms174269.aspx)   
-- Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)   
+- Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/mt574871.aspx)   
 - Logins: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)   
-- Stored procedures: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)   
-- Tables: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)   
-- Types (custom): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)   
-- Users: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)   
-- Views: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)   
 
 ## Transact-SQL syntax not supported in SQL Database   
 In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database considerations, guidelines and features](sql-database-features.md), the following statements and groups of statements, are not supported.

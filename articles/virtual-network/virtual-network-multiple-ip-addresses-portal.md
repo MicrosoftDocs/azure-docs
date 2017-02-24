@@ -1,5 +1,5 @@
 ---
-title: Multiple IP addresses for virtual machines - Portal | Microsoft Docs
+title: Multiple IP addresses for Azure virtual machines - Portal | Microsoft Docs
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure portal | Resource Manager.
 services: virtual-network
 documentationcenter: na
@@ -20,34 +20,13 @@ ms.author: annahar
 ---
 # Assign multiple IP addresses to virtual machines using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-network-multiple-ip-addresses-portal.md)
-> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
+>[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 >
-
-An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it. Assigning multiple IP addresses to a VM enables the following capabilities:
-
-* Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
-* Serve as a network virtual appliance, such as a firewall or load balancer.
-* The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. To learn more about how to load balance multiple IP configurations, read the [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md) article.
-
-Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. A public IP address resource has either a dynamic or static IP address assigned to it. To learn more about IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article.
-
-This article explains how to use the Azure portal to assign multiple IP addresses to a VM created through the Azure Resource Manager deployment model. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure portal. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-## Scenario
-A VM with a single NIC is created and connected to a virtual network. The VM requires three different *private* IP addresses and two *public* IP addresses. The IP addresses are assigned to the following IP configurations:
-
-* **IPConfig-1:** Assigns a *dynamic* private IP address (default) and a *static* public IP address.
-* **IPConfig-2:** Assigns a *static* private IP address and a *static* public IP address.
-* **IPConfig-3:** Assigns a *dynamic* private IP address and no public IP address.
-  
-	![Multiple IP addresses](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
-
-The IP configurations are associated to the NIC when the NIC is created and the NIC is attached to the VM when the VM is created. The types of IP addresses used for the scenario are for illustration. You can assign whatever IP address and assignment types you require.
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
@@ -57,14 +36,28 @@ If you want to create a VM with multiple IP addresses, you must create it using 
 
 You can add private and public IP addresses to a NIC by completing the steps that follow. The examples in the following sections assume that you already have a VM with the three IP configurations described in the [scenario](#Scenario) in this article, but it's not required that you do.
 
-> [!NOTE]
-> Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a VM. To learn how to create a VM with multiple NICs, read the [Create a VM with multiple NICs](virtual-network-deploy-multinic-arm-ps.md) article.
-
 ### <a name="coreadd"></a>Core steps
 
-1. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
-	- Until you receive an e-mail notifying you that you've been accepted into the preview
-	- Without following the instructions in the email you receive
+1. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
+	```
+	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+	
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+	```
+	Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+		
+	```powershell
+	FeatureName                            ProviderName      RegistrationState
+	-----------                            ------------      -----------------      
+	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+	```
+		
+	>[!NOTE] 
+	>This may take a few minutes.
+	
 2. Browse to the Azure portal at https://portal.azure.com and sign into it, if necessary.
 3. In the portal, click **More services** > type *virtual machines* in the filter box, and then click **Virtual machines**.
 4. In the **Virtual machines** blade, click the VM you want to add IP addresses to. Click **Network interfaces** in the virtual machine blade that appears, and then select the network interface you want to add the IP addresses to. In the example shown in the following picture, the NIC named *myNIC* from the VM named *myVM* is selected:

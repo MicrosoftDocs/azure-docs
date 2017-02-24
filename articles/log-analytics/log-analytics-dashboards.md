@@ -4,16 +4,15 @@ description: This guide helps you understand how Log Analytics Dashboards can vi
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -80,4 +79,3 @@ To remove a tile, navigate to the My Dashboard view and click **Customize** to e
 
 ## Next steps
 * Create [alerts](log-analytics-alerts.md) in Log Analytics to generate notifications and to remediate problems.
-

@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 12/16/2016
 ms.author: helaw
 
 ---
 # Install and configure Azure Stack CLI
-In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms. 
+In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms.
 
 ## Install Node.js and npm
 As a prerequisite, install version 4.6.2 of Node.js. On Linux, installation can be done with the following command:
+
 ```
 wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash -
 sudo apt-get install nodejs
@@ -30,15 +31,18 @@ sudo apt-get install nodejs
 ## Install Azure Stack CLI
 If you’re on Mac or Linux, you can get the CLI by using the following command:
 
-    `npm install -g azure-cli@0.10.4`.
+```
+npm install -g azure-cli@0.10.4
+```
 
 
 ## Connect to Azure Stack
 In the following steps, you configure Azure CLI to connect to Azure Stack. Then you sign in and retrieve subscription information.
 
 1. Retrieve the value for active-directory-resource-id by executing this PowerShell:
-   
-         (Invoke-RestMethod -Uri https://api.azurestack.local/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```PowerShell
+    (Invoke-RestMethod -Uri https://api.azurestack.local/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
 2. Use the following CLI command to add the Azure Stack environment, making sure to update *--active-directory-resource-id* with the data URL retrieved in the previous step:
    
           azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"

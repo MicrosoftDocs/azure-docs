@@ -1,19 +1,18 @@
 ---
 title: Optimize your environment with the SQL Assessment solution in Log Analytics | Microsoft Docs
-description: You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval.
+description: With Azure Log Analytics, you can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 02/17/2017
 ms.author: banders
 
 ---
@@ -38,7 +37,8 @@ SQL Assessment works with all currently supported versions of SQL Server for the
 Use the following information to install and configure the solution.
 
 * Agents must be installed on servers that have SQL Server installed.
-* The SQL Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
+* The SQL Assessment solution requires a supported version of .NET Framework 4 installed on each computer that has an OMS agent.
+* In order to install the solution, the user must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, the user must be a member of the OMS workspace contributor or administrator role in the OMS portal.
 * When using the Operations Manager agent with SQL Assessment, you'll need to use an Operations Manager Run-As account. See [Operations Manager run-as accounts for OMS](#operations-manager-run-as-accounts-for-oms) below for more information.
 
   > [!NOTE]
@@ -49,8 +49,6 @@ Use the following information to install and configure the solution.
 
 > [!NOTE]
 > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
->
->
 
 ## SQL Assessment data collection details
 SQL Assessment collects WMI data, registry data, performance data, and SQL Server dynamic management view results using the agents that you have enabled.

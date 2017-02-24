@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/09/2017
 ms.author: yurid
 
 ---
@@ -36,4 +36,3 @@ Learn more about services provided by Microsoft Services:
 * [Incident Response and Recovery](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [Learn more](https://aka.ms/cyberserv) about Microsoft Services Security consulting services.
-

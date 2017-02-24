@@ -1,9 +1,21 @@
 ---
+title: Azure Batch Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Batch to run large-scale parallel and high-performance computing applications efficiently. Tutorials, API references, and other documentation.
+services: batch
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Batch Documentation
 
-Azure Batch lets you run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. With the Batch service, you define Azure compute resources to execute your applications in parallel and at scale. You can run on-demand or scheduled jobs without worrying about manually creating or managing the infrastructure.
+Learn how to use Batch to run large-scale parallel and high-performance computing applications efficiently in the cloud. Tutorials, API references, and other documentation show you how to define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -108,34 +120,34 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">PowerShell cmdlets</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.batch">.NET API</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python SDK</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/batchservice">REST API</a></p>
+                        <p><a href="/rest/api/batchservice">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
@@ -143,11 +155,4 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Batch Documentation
-        </div>
-    </a>
-</div>
+

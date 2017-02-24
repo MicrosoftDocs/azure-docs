@@ -376,25 +376,19 @@ To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, complete the f
 ### Dissociate an NSG from a NIC
 To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete the following steps:
 
-1. Run the following command to retrieve the existing NSG and store it in a variable:
-
-	```powershell
-	$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-	```
-
-2. Run the following command to retrieve the existing NIC and store it in a variable:
+1. Run the following command to retrieve the existing NIC and store it in a variable:
 
 	```powershell
 	$nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
 	```
 
-3. Set the **NetworkSecurityGroup** property of the **NIC** variable to **$null** by running the following command:
+2. Set the **NetworkSecurityGroup** property of the **NIC** variable to **$null** by running the following command:
 
 	```powershell
 	$nic.NetworkSecurityGroup = $null
 	```
 
-4. To save the changes made to the NIC, run the following command:
+3. To save the changes made to the NIC, run the following command:
 
 	```powershell
 	Set-AzureRmNetworkInterface -NetworkInterface $nic

@@ -1,9 +1,21 @@
 ---
+title: Azure Backup Documentation - Tutorials, API Reference | Microsoft Docs
+description: Use Backup documentation to learn how to back up to the cloud. See tutorials and videos for application, Windows server, and Azure virtual machine backup.
+services: backup
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Backup Documentation
 
-Azure Backup is cloud service you can use to back up (or protect) and restore your data in the Microsoft cloud.  Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.  
+Learn how to use Azure Backup in the cloud to protect data for long-term retention and recovery. Tutorials, videos, and other documentation show you how to back up data, applications, Windows servers, and Azure virtual machines.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -115,12 +127,12 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.backupservices">/dotnet/api/microsoft.azure.management.backupservices</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -129,12 +141,3 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
 </ul>
 
 
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Backup Documentation
-        </div>
-    </a>
-</div>

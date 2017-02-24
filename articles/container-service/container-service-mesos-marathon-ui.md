@@ -1,5 +1,5 @@
 ---
-title: Manage an Azure Container Service cluster with Marathon UI | Microsoft Docs
+title: Manage Azure DC/OS cluster with Marathon UI | Microsoft Docs
 description: Deploy containers to an Azure Container Service cluster service by using the Marathon web UI.
 services: container-service
 documentationcenter: ''
@@ -12,11 +12,11 @@ keywords: Docker, Containers, Micro-services, Mesos, Azure
 ms.assetid: d148ed1e-b582-4d51-944f-1ac7ae3c4fd6
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
-ms.author: timlt
+ms.author: danlep
 
 ---
 # Manage an Azure Container Service DC/OS cluster through the Marathon web UI

@@ -1,19 +1,18 @@
 ---
-title: Connect Linux computers to Log Analytics | Microsoft Docs
+title: Connect Linux computers to Azure Log Analytics | Microsoft Docs
 description: Using Log Analytics, you can collect and act on data generated from Linux computers.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/22/2017
 ms.author: banders
 
 ---
@@ -84,8 +83,8 @@ The following table shows data collection methods and other details about how da
 
 > [!NOTE]
 > Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
-> 
-> 
+>
+>
 
 ## Quick install
 Run the following commands to download the omsagent, validate the checksum, then  install and onboard the agent. Commands are for 64-bit. The Workspace ID and Primary Key are found in the OMS portal under **Settings** on the **Connected Sources** tab.
@@ -93,9 +92,7 @@ Run the following commands to download the omsagent, validate the checksum, then
 ![workspace details](./media/log-analytics-linux-agents/oms-direct-agent-primary-key.png)
 
 ```
-wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.1.0-28/omsagent-1.1.0-28.universal.x64.sh
-sha256sum ./omsagent-1.1.0-28.universal.x64.sh
-sudo sh ./omsagent-1.1.0-28.universal.x64.sh --upgrade -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
 ```
 
 There are a variety of other methods to install the agent and upgrade it. You can read more about them at [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux).
@@ -212,8 +209,8 @@ To define a default user account for the MySQL server on localhost, use the foll
 
 > [!NOTE]
 > The credentials file must be readable by the omsagent account. Running the mycimprovauth command as omsgent is recommended.
-> 
-> 
+>
+>
 
 ```
 sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
@@ -279,8 +276,8 @@ The default OMS agent syslog configuration uploads syslog events from all facili
 
 > [!NOTE]
 > If you edit the syslog configuration, you must restart the syslog daemon for the changes to take effect.
-> 
-> 
+>
+>
 
 The default syslog configuration for the OMS Agent for Linux for OMS is:
 
@@ -330,12 +327,12 @@ If you use Nagios or Zabbix to manage your Linux machines, then OMS can receive 
 To collect alerts from a Nagios server, you need to make the following configuration changes.
 
 1. Grant the user **omsagent** read access to the Nagios log file (i.e. /var/log/nagios/nagios.log/var/log/nagios/nagios.log). Assuming the nagios.log file is owned by the group **nagios** , you can add the user **omsagent** to the **nagios** group.
-   
+
     ```
     sudo usermod –a -G nagios omsagent
     ```
 2. Modify the omsagent.confconfiguration file (/etc/opt/microsoft/omsagent/conf/omsagent.conf). Ensure the following entries are present and not commented out:
-   
+
     ```
     <source>
     type tail
@@ -344,13 +341,13 @@ To collect alerts from a Nagios server, you need to make the following configura
     format none
     tag oms.nagios
     </source>
-   
+
     <filter oms.nagios>
     type filter_nagios_log
     </filter>
     ```
 3. Restart the omsagent daemon:
-   
+
     ```
     sudo service omsagent restart
     ```
@@ -382,7 +379,7 @@ Type=Alert
 #### To view all Nagios alerts with Log Analytics
 1. In the Operations Management Suite portal, click the **Log Search** tile.
 2. In the query bar, type the following search query
-   
+
     ```
     Type=Alert SourceSystem=Nagios
     ```
@@ -393,7 +390,7 @@ After you see the search results, you can drill into additional details such as 
 ### To view all Zabbix alerts with Log Analytics
 1. In the Operations Management Suite portal, click the **Log Search** tile.
 2. In the query bar, type the following search query
-   
+
     ```
     Type=Alert SourceSystem=Zabbix
     ```
@@ -406,14 +403,14 @@ The OMS Agent for Linux shares agent binaries with the System Center Operations 
 
 > [!NOTE]
 > If the OMS Agent for Linux is installed to a computer that is not currently managed by Operations Manager, and you later want to manage the computer with Operations Manager, you must modify the OMI configuration before you discover the computer. **This step is not needed if the Operations Manager agent is installed before the OMS Agent for Linux.**
-> 
-> 
+>
+>
 
 ### To enable the OMS Agent for Linux to communicate with Operations Manager
 1. Edit the file /etc/opt/omi/conf/omiserver.conf
 2. Ensure that the line beginning with **httpsport=** defines the port 1270. Such as `httpsport=1270`
 3. Restart the OMI server:
-   
+
     ```
     service omiserver restart or systemctl restart omiserver
     ```
@@ -540,8 +537,8 @@ If none of the troubleshooting information in this section helps you, you can al
 
 > [!NOTE]
 > Editing configuration files for performance counters and syslog are overwritten if OMS Portal Configuration is enabled. You can disable configuration in the OMS Portal (for all nodes) or for single nodes by running the following:
-> 
-> 
+>
+>
 
 ```
 sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
@@ -700,11 +697,11 @@ This is a known issue that occurs during the first upload of Linux data into an 
 
 * In some cases, the OMS Agent for Linux configuration agent might not be able to communicate with the portal configuration service resulting in latest configuration not being applied.
 * Verify that the `omsconfig` agent is installed with the following:
-  
+
   * `dpkg --list omsconfig` or `rpm -qi omsconfig`
   * If not installed, reinstall the latest version of the OMS Agent for Linux
 * Verify that the `omsconfig` agent can communicate with the OMS service
-  
+
   * Run the `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` command
     * The command above returns the configuration that agent retrieves from the portal, including Syslog settings, Linux performance counters, and custom logs
     * If the command above fails, run the `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` command. This command forces the omsconfig agent to communicate with the OMS service to retrieve the latest configuration.
@@ -725,7 +722,7 @@ This is a known issue that occurs during the first upload of Linux data into an 
 * In the OMS Portal, under **Settings** on the **Data** tab, ensure that the **Apply the following configuration to my Linux Servers** setting is selected  
   ![apply configuration](./media/log-analytics-linux-agents/customloglinuxenabled.png)
 * Verify that the `omsconfig` agent can communicate with the OMS service
-  
+
   * Run the `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` command
   * The command above returns the configuration that agent retrieves from the Portal, including Syslog settings, Linux performance counters, and custom Logs
   * If the command above fails, run the `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` command. This command forces the omsconfig agent to communicate with OMS service and retrieve the latest configuration.
@@ -781,4 +778,3 @@ Either rsyslog or syslog-ng are required to collect syslog messages. The default
 * [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
 * Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
 * Use [dashboards](log-analytics-dashboards.md) to save and display your own custom searches.
-

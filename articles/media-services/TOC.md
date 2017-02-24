@@ -4,6 +4,12 @@
 # Get started
 ## [Create and manage account](media-services-portal-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Connect programmatically
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Deliver video on demand
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
@@ -15,17 +21,18 @@
 
 # How To
 ## Manage
-### Manage accounts
+### Accounts
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Manage entities
+### Entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Connect programmatically
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Manage streaming endpoints in the portal](media-services-portal-manage-streaming-endpoints.md)
-### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
+### [Streaming endpoints](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
+### Storage
+#### [Update Media Services after rolling storage access keys](media-services-roll-storage-access-keys.md)
+#### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 
 ## Upload content
@@ -33,6 +40,7 @@
 #### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Upload large files with Aspera](media-services-upload-files-with-aspera.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
 
 ## [Encode content](media-services-encode-asset.md)
@@ -40,11 +48,19 @@
 ### [Error codes](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
+#### Encode with Media Encoder Standard
+##### [Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Advanced encoding with MES](media-services-advanced-encoding-with-mes.md)
+##### [Customize Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
+##### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
 #### MES Schemas
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)
 ##### [Output metadata](media-services-output-metadata-schema.md)
-#### MES Presets 
+#### [MES Presets](media-services-mes-presets-overview.md) 
 ##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -70,13 +86,6 @@
 ##### [H264 Single Bitrate 720p for Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264 Single Bitrate High Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Encode with Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Advanced encoding with MES](media-services-advanced-encoding-with-mes.md)
-##### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
 ### Media Encoder Premium Workflow
 #### [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
 #### Encode with Media Encoder Premium Workflow
@@ -92,8 +101,10 @@
 
 ## [Stream live](media-services-manage-channels-overview.md)
 ### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
-### Cloud encoder tutorials
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configure on-premises encoders for use with cloud encoder](media-services-live-encoders-overview.md)
@@ -109,11 +120,14 @@
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
 ### [Encrypting your Content with Storage Encryption using AMS REST API](media-services-rest-storage-encryption.md)
 ### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
+### [Widevine license template overview](media-services-widevine-license-template-overview.md)
 ### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
 ### [Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
 ### [Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
 ### [CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+### [Using Axinom to deliver Widevine licenses to Azure Media Services  ](media-services-axinom-integration.md)
+### [Using castLabs to deliver Widevine licenses to Azure Media Services](media-services-castlabs-integration.md)
 
 ### Asset delivery
 #### Configure asset delivery policies
@@ -134,8 +148,8 @@
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
-### [Process with Face redaction](media-services-face-redaction.md)
-#### [Face redaction walkthrough](media-services-redactor-walkthrough.md)
+### [Process with Face Redactor](media-services-face-redaction.md)
+#### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
 
@@ -147,16 +161,16 @@
 ### [Media Processing](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Streaming Endpoints
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Deliver content](media-services-deliver-content-overview.md)
 ### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
 ### [Filters and dynamic manifests overview](media-services-dynamic-manifest-overview.md)
-### Create filters
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Create filters with .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Create filters with REST](media-services-rest-dynamic-manifest.md)
+### [CDN Caching Policy in Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publish content
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -172,21 +186,18 @@
 #### [HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework players](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
+### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
-### [CDN Caching Policy in Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licensing Microsoft†" Smooth Streaming Client Porting Kit](media-services-sspk.md)
-### [Manage assets across multiple Storage accounts](meda-services-managing-multiple-storage-accounts.md)
-### [Using Axinom to deliver Widevine licenses to Azure Media Services  ](media-services-axinom-integration.md)
-### [Using castLabs to deliver Widevine licenses to Azure Media Services](media-services-castlabs-integration.md)
-### [Widevine License Template Overview](media-services-widevine-license-template-overview.md)
+### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
 ## Monitor
 ### Check job progress
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Queue storage to monitor job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitor job notifications with queue storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitor job notifications with webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Troubleshoot
 ### [Frequently asked questions](media-services-frequently-asked-questions.md)

@@ -18,13 +18,13 @@ ms.date: 09/27/2016
 ms.author: davidmu
 
 ---
-# Manage Azure Virtual Machines using Azure Resource Manager and C
+# Manage Azure Virtual Machines using Azure Resource Manager and C# #
 The tasks in this article show you how to manage virtual machines, such as starting, stopping, and updating. A virtual machine must exist in a resource group to complete the tasks in this article.
 
 To complete the tasks in this article, you need:
 
 * [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-* [An authentication token](../resource-group-authenticate-service-principal.md)
+* [An authentication token](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## Create a Visual Studio project and install packages
 NuGet packages are the easiest ways to install the libraries that you need to finish the tasks in this article. The libraries that you install for this article are the Azure Active Directory Authentication Library and the Compute Resource Provider Library. Complete these steps to get the libraries in Visual Studio:
@@ -432,5 +432,5 @@ This example shows you how to add a data disk to a running virtual machine.
 5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
 ## Next Steps
-If there were issues with a deployment, you might look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
+If there were issues with a deployment, you might look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

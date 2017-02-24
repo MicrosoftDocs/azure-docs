@@ -199,7 +199,8 @@ Move the message to a separate queue. Run a separate process to examine the mess
 
 Consider using Azure Service Bus Messaging queues, which provides a [dead-letter queue][sb-dead-letter-queue] functionality for this purpose.
 
-Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides built-in poison message handling. See [How to use Azure queue storage with the WebJobs SDK][sb-poison-message].
+> [!NOTE]
+> If you are using Storage queues with WebJobs, the WebJobs SDK provides built-in poison message handling. See [How to use Azure queue storage with the WebJobs SDK][sb-poison-message].
 
 **Diagnostics**. Use application logging.
 
@@ -473,7 +474,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [resilience-by-design-pdf]: http://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
-[rm-locks]: ../resource-group-lock-resources.md
+[rm-locks]: ../azure-resource-manager/resource-group-lock-resources.md
 [sb-dead-letter-queue]: ../service-bus-messaging/service-bus-dead-letter-queues.md
 [sb-georeplication-sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/GeoReplication
 [sb-messagingexception-class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
@@ -485,7 +486,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [search-sdk]: https://msdn.microsoft.com/library/dn951165.aspx
 [scheduler-agent-supervisor]: https://msdn.microsoft.com/library/dn589780.aspx
 [search-analytics]: ../search/search-traffic-analytics.md
-[sql-db-audit]: ../sql-database/sql-database-auditing-get-started.md
+[sql-db-audit]: ../sql-database/sql-database-auditing.md
 [sql-db-errors]: ../sql-database/sql-database-develop-error-messages.md#resource-governance-errors
 [sql-db-failover]: ../sql-database/sql-database-geo-replication-failover-portal.md
 [sql-db-limits]: ../sql-database/sql-database-resource-limits.md

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 12/19/2016
 ms.author: garye;haining
 
 ---
@@ -22,6 +22,9 @@ ms.author: garye;haining
 The PowerShell module for Azure Machine Learning is a powerful tool that allows you to use Windows PowerShell to manage workspaces, experiments, datasets, web serivces, and more.
 
 You can view the documentation and download the module, along with the full source code, at [https://aka.ms/amlps](https://aka.ms/amlps). 
+
+> [!NOTE]
+> The Azure Machine Learning PowerShell module is currently in preview mode. The module will continue to be improved and expanded during this preview period. Keep an eye on the [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) for news and information.
 
 ## What is the Machine Learning PowerShell module?
 The Machine Learning PowerShell module is a .NET-based DLL module that allows you to fully manage Azure Machine Learning workspaces, experiments, datasets, web services, and web service endpoints from Windows PowerShell. 
@@ -47,8 +50,12 @@ Here's a quick example of using PowerShell to run an existing experiment:
 For a more in-depth use case, see this article on using the PowerShell module to automate a very commonly-requested task: [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
 
 ## How do I get started?
-To get started with Machine Learning PowerShell, download the [release package](https://github.com/hning86/azuremlps/releases) from GitHub and follow the [instructions for installation](https://github.com/hning86/azuremlps/blob/master/README.md). You'll need to unblock the downloaded/unzipped DLL and then import it into your PowerShell environment. Most of the cmdlets require that you supply the workspace ID, the workspace authorization token, and the Azure region that the workspace is in. The simplest way to provide these is through a default config.json file, which is covered in detail in the installation instructions. Of course, you can also clone the git tree and modify/compile the code locally using Visual Studio.
+To get started with Machine Learning PowerShell, download the [release package](https://github.com/hning86/azuremlps/releases) from GitHub and follow the [instructions for installation](https://github.com/hning86/azuremlps/blob/master/README.md). The instructions explain how to unblock the downloaded/unzipped DLL and then import it into your PowerShell environment. 
+Most of the cmdlets require that you supply the workspace ID, the workspace authorization token, and the Azure region that the workspace is in. The simplest way to provide these is through a default config.json file. The instructions also explain how to configure this file. 
+
+And if you want, you can clone the git tree, modify the code, and compile it locally using Visual Studio.
 
 ## Next steps
-The PowerShell module will continue to be improved and expanded during this preview period. Keep an eye on the [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) for more news and information.
+You can find the full documentation for the PowerShell module at [https://aka.ms/amlps](https://aka.ms/amlps). 
 
+For an extended example of how to use the module in a real-world scenario, check out the in-depth use case, [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).

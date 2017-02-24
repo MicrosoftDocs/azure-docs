@@ -52,7 +52,7 @@ The following diagram builds on the architecture shown in [Running Windows VMs f
 > 
 > 
 
-[![0]][0] 
+![[0]][0] 
 
 * **Primary and secondary regions**. Use two regions to achieve higher availability. One is the primary region. The other region is for failover. 
 * **Azure Traffic Manager**. [Traffic Manager][traffic-manager] routes incoming requests to one of the regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](#traffic manager-configuration).
@@ -197,7 +197,7 @@ This series has focused on pure cloud deployments. Enterprise scenarios often re
 [install-azure-cli]: ../xplat-cli-install.md
 [regional-pairs]: ../best-practices-availability-paired-regions.md
 [resource groups]: ../azure-resource-manager/resource-group-overview.md
-[resource-group-links]: ../resource-group-link-resources.md
+[resource-group-links]: ../azure-resource-manager/resource-group-link-resources.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [sql-always-on]: https://msdn.microsoft.com/en-us/library/hh510230.aspx
 [tablediff]: https://msdn.microsoft.com/en-us/library/ms162843.aspx

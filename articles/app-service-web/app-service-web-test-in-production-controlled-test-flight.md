@@ -67,7 +67,7 @@ In this tutorial, you will learn how to bring the following scenarios together t
 > * You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 > * You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) - Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 >
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 >
 >
 
@@ -362,7 +362,7 @@ Azure App Service makes it easy for small- to medium-sized businesses to test th
 * [Agile software development with Azure App Service](app-service-agile-software-development.md)
 * [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
 * [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
-* [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
+* [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - The JSON Validator](http://jsonlint.com/)
 * [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)

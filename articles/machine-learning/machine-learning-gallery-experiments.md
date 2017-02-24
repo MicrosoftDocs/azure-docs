@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 
 ---
@@ -43,9 +43,9 @@ that have been developed in [Azure Machine Learning Studio](https://studio.azure
 experiments.
  Click **See all** to view all
 experiments.
- From this page you can browse all the
+ From this page, you can browse all the
 experiments
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 experiment
@@ -57,9 +57,9 @@ experiment
 experiment
  to invite other users to view the page.
 
-![Share this item with friends](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## Download
 You can download a copy of any experiment from the Gallery into your Studio workspace and then modify your copy to create your own solutions.
@@ -74,7 +74,7 @@ To download a copy of an experiment from the Gallery:
 1. Open the experiment's details page in the Gallery
 2. Click **Open in Studio**
    
-    ![Open experiment from the Gallery](media\\machine-learning-gallery-experiments\\open-experiment-from-gallery.png)
+    ![Open experiment from the Gallery](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
 When you click **Open in Studio**, the experiment is loaded into your Machine Learning Studio workspace and opened (if you're not already signed in to Studio, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace).
 
@@ -85,11 +85,11 @@ You can also open the same sample experiments while you're working in Machine Le
 2. Select **Experiment** - you can choose from a list of Gallery experiments contributed by Microsoft, or you can find a specific experiment using the search box
 3. Point your mouse at an experiment and select **Open in Studio** - the experiment is copied to your workspace and opened (to see information about the experiment, select **View in Gallery** which takes you to the details page for the experiment in the Gallery)
    
-    ![Open Gallery experiment from inside Machine Learning Studio](media\\machine-learning-gallery-experiments\\open-experiment-from-studio.png)
+    ![Open Gallery experiment from inside Machine Learning Studio](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
 You can now customize, iterate, and deploy this experiment like any other experiment you create in Machine Learning Studio.
 
-![Experiment opened in Studio](media\\machine-learning-gallery-experiments\\experiment-open-in-studio.png)
+![Experiment opened in Studio](media/machine-learning-gallery-experiments/experiment-open-in-studio.png)
 
 ## Contribute
 When you sign in to the Gallery you become a member of the Gallery community. This allows you to contribute your own experiments so that others can benefit from the solutions you've discovered.
@@ -101,10 +101,10 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
 2. Create your experiment and run it.
 3. When you’re ready to publish your experiment to the Gallery, click **Publish to Gallery** below the experiment canvas.
    
-    ![Click "Publish to Gallery"](media\\machine-learning-gallery-experiments\\publish-experiment-to-gallery.png)
+    ![Click "Publish to Gallery"](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
 4. Fill out the title and tags fields. Keep them descriptive, highlighting the techniques used or the real-world problem being solved, for instance, “Binary Classification: Twitter Sentiment Analysis”.
    
-    ![Fill out title and tag fields when publishing](media\\machine-learning-gallery-experiments\\experiment-description.png)
+    ![Fill out title and tag fields when publishing](media/machine-learning-gallery-experiments/experiment-description.png)
 5. Write a summary of what your content covers. Briefly describe the problem being solved and how you approached it.
 6. Use the detailed description box to step through the different parts of your experiment. Some useful topics to include here are:
    
@@ -118,7 +118,7 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
      </br>
      You can use Markdown to format as needed. Click the **Preview** icon to see how things will look when published.
      </br>
-     ![Click "Preview" to see what your text will look like](media\\machine-learning-gallery-experiments\\preview-markdown-text.png)
+     ![Click "Preview" to see what your text will look like](media/machine-learning-gallery-experiments/preview-markdown-text.png)
      
      <!-- -->
      > [!TIP]
@@ -127,10 +127,10 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
      > 
 7. Upload a thumbnail image for your gallery item. This will appear at the top of the item page and in the item tile when browsing the gallery. You can choose an image from your computer or select one of the stock images.
     </br>
-    ![Upload or select an image for the Gallery](media\\machine-learning-gallery-experiments\\select-gallery-image.png)
+    ![Upload or select an image for the Gallery](media/machine-learning-gallery-experiments/select-gallery-image.png)
 8. Choose whether to publish your content publicly, or have it only accessible to people with the link.
    
-    ![Choose whether to publish publicly or as unlisted](media\\machine-learning-gallery-experiments\\choose-public-or-unlisted.png)
+    ![Choose whether to publish publicly or as unlisted](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
    
     <!-- -->
    
@@ -140,7 +140,7 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
    > 
 9. Click the **OK** checkmark to publish the experiment to the Gallery.
    
-    ![Click the OK checkmark to publish the experiment](media\\machine-learning-gallery-experiments\\ok-checkmark.png)
+    ![Click the OK checkmark to publish the experiment](media/machine-learning-gallery-experiments/ok-checkmark.png)
 
 See the section below, **Suggestions for publishing and for quality documentation**, for tips on how to publish a quality Gallery experiment.
 
@@ -150,7 +150,7 @@ You can now view your experiment in the Gallery and share the link with others. 
 
 To see the list of your contributions, click your image in the upper-right corner of any Gallery page and then click your name to open your account page.
 
-![Click your account name](media\\machine-learning-gallery-experiments\\click-account-name.png)
+![Click your account name](media/machine-learning-gallery-experiments/click-account-name.png)
 
 ### Update your experiment
 If you need to make changes to the workflow (modules, parameters, etc.) in an experiment you published to the Gallery,
@@ -172,22 +172,22 @@ These changes can be made in the Gallery from the experiment's details page or f
 #### From your experiment's details page
 From the experiment's details page, click "edit" to change the details for your experiment.
 
-![Click "Edit" to edit your experiment](media\\machine-learning-gallery-experiments\\edit-button.png)
+![Click "Edit" to edit your experiment](media/machine-learning-gallery-experiments/edit-button.png)
 
 The details page enters edit mode, and you can click "Edit" next to the experiment name, summary, tags, etc., to make changes to them. When you've finished making changes, click "Done".
 
-![Click "Edit" to edit details, click "Done" when finished](media\\machine-learning-gallery-experiments\\edit-details-page.png)
+![Click "Edit" to edit details, click "Done" when finished](media/machine-learning-gallery-experiments/edit-details-page.png)
 
 You can also select the settings icon to change visibility of the experiment (public or unlisted) or you can delete the experiment from the Gallery.
 
-![Click settings to change visibility or delete the experiment](media\\machine-learning-gallery-experiments\\settings-button.png)
+![Click settings to change visibility or delete the experiment](media/machine-learning-gallery-experiments/settings-button.png)
 
 #### From your profile page
 From your profile page, you can click the down arrow on the experiment and select "Edit". This takes you to the details page for your experiment in edit mode. When you have finished making changes, click "Done".
 
 You can also click "Delete" to delete the experiment from the Gallery.
 
-![Click "Edit" or "Delete"](media\\machine-learning-gallery-experiments\\edit-delete-buttons.png)
+![Click "Edit" or "Delete"](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
 
 ### Suggestions for publishing and for quality documentation
 * While you can assume that the reader has prior data science experience, it still helps to simplify your language and explain things in detail wherever possible.

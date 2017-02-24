@@ -4,16 +4,15 @@ description: The Active Directory Replication Status solution pack regularly mon
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/17/2017
 ms.author: banders
 
 ---
@@ -42,15 +41,15 @@ If you don’t want to connect any of your domain controllers directly to OMS, y
 1. Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
 2. [Connect the Windows computer to OMS](log-analytics-windows-agents.md) or [connect it using your existing Operations Manager environment to OMS](log-analytics-om-agents.md), if it is not already connected.
 3. On that computer, set the following registry key:
-   
+
    * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Value: **IsTarge**
+   * Value: **IsTarget**
    * Value Data: **true**
-   
+
    > [!NOTE]
    > These changes will not take effect until your restart the Microsoft Monitoring Agent service (HealthService.exe).
-   > 
-   > 
+   >
+   >
 
 ## Understanding replication errors
 Once you have AD replication status data sent to OMS, you’ll see a tile similar to the following on the OMS dashboard indicating how many replication errors you currently have.  
@@ -94,8 +93,8 @@ As noted earlier, the dashboard tile for the AD Replication Status solution show
 
 > [!NOTE]
 > All the tombstone lifetime percentage calculations are based on the actual tombstone lifetime for your Active Directory forest, so you can trust that those percentages are accurate, even if you have a custom tombstone lifetime value set.
-> 
-> 
+>
+>
 
 ### AD Replication status details
 When you click any item in one of the lists, you’ll see additional details about it using Log Search. The results are filtered to show only the errors related to that item. For example, if you click on the first domain controller listed under **Destination Server Status (ADDC02)**, you’ll see search results filtered to show errors with that domain controller listed as the destination server:
@@ -147,4 +146,3 @@ If you don’t want to connect any of your domain controllers directly to OMS or
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Active Directory Replication status data.
-

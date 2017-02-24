@@ -4,7 +4,7 @@ description: Details the many methods of securing Azure Storage, including but n
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---
@@ -325,34 +325,41 @@ For the encryption itself, you can generate and manage your own encryption keys.
   This article gives an explanation of client-side encryption, and provides examples of using the storage client library to encrypt and decrypt resources from the four storage services. It also talks about Azure Key Vault.
 
 ### Using Azure Disk Encryption to encrypt disks used by your virtual machines
-Azure Disk Encryption is a new feature that is currently in preview. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys.
+Azure Disk Encryption is a new feature. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys.
 
-The Azure Disk Encryption solution supports the following three customer encryption scenarios:
-
-* Enable encryption on new IaaS VMs created from customer-encrypted VHD files and customer-provided encryption keys, which are stored in Azure Key Vault.
-* Enable encryption on new IaaS VMs created from the Azure Marketplace.
-* Enable encryption on existing IaaS VMs already running in Azure.
-
-> [!NOTE]
-> For Linux VMs already running in Azure, or new Linux VMs created from images in the Azure Marketplace, encryption of the OS disk is not currently supported. Encryption of the OS Volume for Linux VMs is supported only for VMs that were encrypted on-premises and uploaded to Azure. This restriction only applies to the OS disk; encryption of data volumes for a Linux VM is supported.
-> 
-> 
-
-The solution supports the following for IaaS VMs for public preview release when enabled in Microsoft
-Azure:
+The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
 
 * Integration with Azure Key Vault
-* Standard [A, D and G series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Enable encryption on IaaS VMs created using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model
-* All Azure public [regions](https://azure.microsoft.com/regions/)
+* Standard tier VMs: [A, D, DS, G, GS, and so forth series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Enabling encryption on Windows and Linux IaaS VMs
+* Disabling encryption on OS and data drives for Windows IaaS VMs
+* Disabling encryption on data drives for Linux IaaS VMs
+* Enabling encryption on IaaS VMs that are running Windows client OS
+* Enabling encryption on volumes with mount paths
+* Enabling encryption on Linux VMs that are configured with disk striping (RAID) by using mdadm
+* Enabling encryption on Linux VMs by using LVM for data disks
+* Enabling encryption on Windows VMs that are configured by using storage spaces
+* All Azure public regions are supported
+
+The solution does not support the following scenarios, features, and technology in the release:
+
+* Basic tier IaaS VMs
+* Disabling encryption on an OS drive for Linux IaaS VMs
+* IaaS VMs that are created by using the classic VM creation method
+* Integration with your on-premises Key Management Service
+* Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
+
+
+> [!NOTE]
+> Linux OS disk encryption is currently supported on the following Linux distributions: RHEL 7.2, CentOS 7.2n, and Ubuntu 16.04.
+> 
+> 
 
 This feature ensures that all data on your virtual machine disks is encrypted at rest in Azure Storage.
 
 #### Resources
-* [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
   
-  This article discusses the preview release of Azure Disk Encryption and provides a link to download the white paper.
-
 ### Comparison of Azure Disk Encryption, SSE, and Client-Side Encryption
 #### IaaS VMs and their VHD files
 For disks used by IaaS VMs, we recommend using Azure Disk Encryption. You can turn on SSE to encrypt the VHD files that are used to back those disks in Azure Storage, but it only encrypts newly written data. This means if you create a VM and then enable SSE on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.

@@ -1,6 +1,6 @@
 ---
 title: Create a record set and records for a DNS zone using PowerShell | Microsoft Docs
-description: How to create host records for Azure DNS.Setting up record sets and records using PowerShell
+description: How to create host records for Azure DNS. Setting up record sets and records using PowerShell
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -12,139 +12,103 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/05/2016
 ms.author: gwallace
 ---
 
 # Create DNS record sets and records by using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-getstarted-create-recordset-portal.md)
+> * [Azure portal](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
-This article walks you through the process of creating records and records sets by using Windows PowerShell. After creating your DNS zone, you add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
+This article walks you through the process of creating records and records sets by using Azure PowerShell.
+
+## Introduction
+
+Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## Verify that you have the latest version of PowerShell
-
-Verify that you have installed the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
+For more information about DNS records in Azure DNS, see [DNS zones and records](dns-zones-records.md).
 
 ## Create a record set and record
 
-This section describes how to create a record set and record.
+This section describes how to create DNS records in Azure DNS. The examples assume you have already [installed Azure PowerShell, signed in, and created a DNS zone](dns-getstarted-create-dnszone.md).
 
-### 1. Connect to your subscription
+The examples on this page all use the 'A' DNS record type. For other record types and further details on how to manage DNS records and record sets, see [Manage DNS records and record sets by using PowerShell](dns-operations-recordsets.md).
 
-Open your PowerShell console and connect to your account. Use the following sample to help you connect:
+If your new record has the same name and type as an existing record, you need to [add it to the existing record set](#add-a-record-to-an-existing-record-set). If your new record has a different name and type to all existing records, you need to [create a new record set](#create-records-in-a-new-record-set). 
 
-```powershell
-Login-AzureRmAccount
-```
+### Create records in a new record set
 
-Check the subscriptions for the account.
-
-```powershell
-Get-AzureRmSubscription
-```
-
-Specify the subscription that you want to use.
-
-```powershell
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-```
-
-For more information about working with PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
-
-### 2. Create a record set
-
-You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. When creating a record set, you need to specify the record set name, the zone, the time to live (TTL), and the record type.
+You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. When creating a record set, you need to specify the record set name, the zone, the time to live (TTL), the record type, and the records to be created.
 
 To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "@", including the quotation marks. This is a common DNS convention.
 
-The following example creates a record set with the relative name "www" in the DNS Zone "contoso.com". The fully-qualified name of the record set is "www.contoso.com". The record type is "A", and the TTL is 60 seconds. After completing this step, you will have an empty "www" record set that is assigned to the variable *$rs*.
+The following example creates a new record set with the relative name "www" in the DNS Zone "contoso.com". The fully-qualified name of the record set is "www.contoso.com". The record type is "A", and the TTL is 3600 seconds. The record set contains a single record, with IP address "1.2.3.4"
 
 ```powershell
-$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
 
-#### If a record set already exists
-
-If a record set already exists, the command fails unless the *-Overwrite* switch is used. The *-Overwrite* option triggers a confirmation prompt, which can be suppressed by using the *-Force* switch.
+If you need to create a new record set containing more than one record, you first need to create a local array containing the records to be added.  This is passed to `New-AzureRmDnsRecordSet` as follows:
 
 ```powershell
-$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
+$aRecords = @()
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4"
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "2.3.4.5"
+New-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
-In this example, you specify the zone by using the zone name and resource group name. Alternatively, you can specify a zone object, as returned by `Get-AzureRmDnsZone` or `New-AzureRmDnsZone`.
+### Add a record to an existing record set
 
-```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -Zone $zone [-Tag $tags] [-Overwrite] [-Force]
+To add a record to an existing record set, follow the following three steps:
+
+1. Get the existing record set
+
+    ```powershell
+    $rs = Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    ```
+
+2. Add the new record to the local record set. This is an off-line operation.
+
+    ```powershell
+    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    ```
+
+3. Commit the change back to the Azure DNS service 
+
+    ```powershell
+    Set-AzureRmDnsRecordSet -RecordSet $rs
+    ```
+
+### Verify name resolution
+
+You can test your DNS records are present on the Azure DNS name servers by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
+
+If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the following example:
+
 ```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-`New-AzureRmDnsRecordSet` returns a local object that represents the record set that was created in Azure DNS.
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-### 3. Add a record
-
-To use the newly created "www" record set, you need to add records to it. You can add IPv4 *A* records to the "www" record set by using the following example. This example relies on the variable *$rs* that you set in the previous step.
-
-Adding records to a record set by using `Add-AzureRmDnsRecordConfig` is an offline operation. Only the local variable *$rs* is updated.
-
-```powershell
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+Name:    www.contoso.com
+Address:  1.2.3.4
 ```
-
-### 4. Commit the changes
-
-Commit the changes to the record set. Use `Set-AzureRmDnsRecordSet` to upload the changes to the record set to Azure DNS.
-
-```powershell
-Set-AzureRmDnsRecordSet -RecordSet $rs
-```
-
-### 5. Retrieve the record set
-
-You can retrieve the record set from Azure DNS by using `Get-AzureRmDnsRecordSet` as shown in the following example.
-
-    Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-
-
-    Name              : www
-    ZoneName          : contoso.com
-    ResourceGroupName : MyAzureResourceGroup
-    Ttl               : 3600
-    Etag              : 68e78da2-4d74-413e-8c3d-331ca48246d9
-    RecordType        : A
-    Records           : {134.170.185.46, 134.170.188.221}
-    Tags              : {}
-
-
-You can also use the nslookup tool or other DNS tools to query the new record set.
-
-If you have not yet delegated the domain to the Azure DNS name servers, you need to explicitly specify the name, server, and address for your zone.
-
-    nslookup www.contoso.com ns1-01.azure-dns.com
-
-    Server: ns1-01.azure-dns.com
-    Address:  208.76.47.1
-
-    Name:    www.contoso.com
-    Addresses:  134.170.185.46
-                134.170.188.221
-
-## Create a record set of each type with a single record
-
-The following examples show how to create a record set of each record type. Each record set contains a single record.
-
-[!INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)]
 
 ## Next steps
 
-[How to manage DNS zones using PowerShell](dns-operations-dnszones.md)
+Learn how to [delegate your domain name to the Azure DNS name servers](dns-domain-delegation.md)
 
-[Manage DNS records and record sets by using PowerShell](dns-operations-recordsets.md)
+Learn how to [manage DNS zones by using PowerShell](dns-operations-dnszones.md).
 
-[Automate Azure operations with .NET SDK](dns-sdk.md)
+Learn how to [manage DNS records and record sets by using PowerShell](dns-operations-recordsets.md).
+
+

@@ -3,8 +3,8 @@ title: How to use Azure Table Storage from Ruby | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: ''
 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use Azure Table Storage from Ruby
@@ -54,24 +54,24 @@ Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
 ```
 
-To obtain these values from a classic or Resource Manager storage account in the Azure Portal:
+To obtain these values from a classic or Resource Manager storage account in the Azure portal:
 
-1. Log in to the [Azure Portal](https://portal.azure.com).
+1. Log in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
 3. In the Settings blade on the right, click **Access Keys**.
-4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these. 
-5. Click the copy icon to copy the key to the clipboard. 
+4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
+5. Click the copy icon to copy the key to the clipboard.
 
 To obtain these values from a classic storage account in the classic Azure portal:
 
-1. Log in to the [classic Azure portal](https://manage.windowsazure.com).
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
-4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one. 
+4. In the pop-up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
 5. Click the copy icon to copy the key to the clipboard.
 
 ## Create a table
-The **Azure::TableService** object lets you work with tables and entities. To create a table, use the **create\_table()** method. The following example creates a table or print out the error if there is any.
+The **Azure::TableService** object lets you work with tables and entities. To create a table, use the **create\_table()** method. The following example creates a table or prints the error if there is any.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -140,8 +140,8 @@ result, token = azure_table_service.query_entities("testtable", query)
 
 > [!NOTE]
 > If the result set is too large for a single query to return, a continuation token will be returned which you can use to retrieve subsequent pages.
-> 
-> 
+>
+>
 
 ## Query a subset of entity properties
 A query to a table can retrieve just a few properties from an entity. This technique, called "projection", reduces bandwidth and can improve query performance, especially for large entities. Use the select clause and pass the names of the properties you would like to bring over to the client.

@@ -3,29 +3,22 @@ title: Configure geo-replication for Azure SQL Database with the Azure portal | 
 description: Configure geo-replication for Azure SQL Database by using the Azure portal
 services: sql-database
 documentationcenter: ''
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 
 ---
-# Configure geo-replication for Azure SQL Database with the Azure portal
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-geo-replication-overview.md)
-> * [Azure portal](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
+# Configure active geo-replication for Azure SQL Database with the Azure portal
 
 This article shows you how to configure active geo-replication for SQL Database with the [Azure portal](http://portal.azure.com).
 
@@ -36,7 +29,7 @@ To initiate failover with the Azure portal, see [Initiate a planned or unplanned
 > 
 > 
 
-To configure geo-replication by using the Azure portal, you need the following resource:
+To configure active geo-replication by using the Azure portal, you need the following resource:
 
 * An Azure SQL database: The primary database that you want to replicate to a different geographical region.
 
@@ -48,7 +41,7 @@ The following steps create a new secondary database in a geo-replication partner
 
 To add a secondary database, you must be the subscription owner or co-owner.
 
-The secondary database has the same name as the primary database and has, by default, the same service level. The secondary database can be a single database or an elastic database. For more information, see [Service tiers](sql-database-service-tiers.md).
+The secondary database has the same name as the primary database and has, by default, the same service level. The secondary database can be a single database or a database in an elastic pool. For more information, see [Service tiers](sql-database-service-tiers.md).
 After the secondary is created and seeded, data begins replicating from the primary database to the new secondary database.
 
 > [!NOTE]
@@ -64,7 +57,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 3. Select or configure the server and pricing tier for the secondary database.
    
     ![Configure secondary](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. Optionally, you can add a secondary database to an elastic database pool. To create the secondary database in a pool, click **Elastic database pool** and select a pool on the target server. A pool must already exist on the target server. This workflow does not create a pool.
+4. Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, click **elastic pool** and select a pool on the target server. A pool must already exist on the target server. This workflow does not create a pool.
 5. Click **Create** to add the secondary.
 6. The secondary database is created and the seeding process begins.
    
@@ -85,6 +78,6 @@ This operation permanently terminates the replication to the secondary database,
 5. A confirmation window opens. Click **Yes** to remove the database from the geo-replication partnership. (Set it to a read-write database not part of any replication.)
 
 ## Next steps
-* To learn more about active geo-replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
+* To learn more about active geo-replication, see [Active geo-replication](sql-database-geo-replication-overview.md).
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
 

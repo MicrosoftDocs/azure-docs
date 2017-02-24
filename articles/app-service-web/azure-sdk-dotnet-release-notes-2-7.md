@@ -1,4 +1,3 @@
-
 ---
 title: Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes
 description: Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes

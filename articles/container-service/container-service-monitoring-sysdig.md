@@ -3,7 +3,7 @@ title: Monitor an Azure Container Service cluster with Sysdig | Microsoft Docs
 description: Monitor an Azure Container Service cluster with Sysdig.
 services: container-service
 documentationcenter: ''
-author: rbitia
+author: sauryadas
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
@@ -12,11 +12,11 @@ keywords: Containers, DC/OS, Azure
 ms.assetid: 91d9a28a-3a52-4194-879e-30f2fa3d946b
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2016
-ms.author: t-ribhat
+ms.author: saudas
 
 ---
 # Monitor an Azure Container Service cluster with Sysdig
@@ -51,3 +51,5 @@ Now set the instances to 10000000 so whenever a new node is added to the cluster
 
 Once you've installed the package navigate back to the Sysdig UI and you'll be able to explore the different usage metrics for the containers within your cluster. 
 
+You can also install Mesos and Marathon specific dashboards via the
+[new dashboard wizard](https://app.sysdigcloud.com/#/dashboards/new).

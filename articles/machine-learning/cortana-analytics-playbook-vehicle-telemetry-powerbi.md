@@ -1,5 +1,5 @@
 ---
-title: Vehicle telemetry analytics solution template Power BI Dashboard setup instructions | Microsoft Docs
+title: Power BI Dashboard for vehicle health and driving habits - Azure | Microsoft Docs
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 
 ---
@@ -62,7 +62,8 @@ Now, you are ready to configure the Power BI dashboard with rich visualizations 
 ### Setup Power BI Real-Time Dashboard
 **Generate simulated data**
 
-1. On your local machine, go to the folder where you extracted the Vehicle Telematics Simulator package ![Simulator folder](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
+1. On your local machine, go to the folder where you extracted the Vehicle Telematics Simulator package.
+  ![Simulator folder](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
 2. Execute the application ***CarEventGenerator.exe***.
 3. It emits diagnostic information and signals corresponding to the state of the vehicle and driving pattern at a given point in time. This is published to an Azure Event Hub instance that is configured as part of your deployment.
 

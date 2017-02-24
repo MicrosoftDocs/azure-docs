@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 12/23/2016
 ms.author: tarcher
 
 ---
@@ -22,195 +22,557 @@ ms.author: tarcher
 
 ## Overview
 
-Azure queue storage is a service for storing large amounts of unstructured data that can be accessed via HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain an unlimited number of messages, up to the total capacity limit of a storage account.
+Azure queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
 
-This article describes how to programmatically manage Azure queue storage entities, performing
-common tasks such as creating an Azure queue, and adding, modifying, reading and removing queue messages.
+This tutorial shows how to write ASP.NET code for some common scenarios using Azure queue storage entities. These scenarios include common tasks such as creating an Azure queue, and adding, modifying, reading, and removing queue messages.
+
+##Prerequisites
+
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
+
+[!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
+
+[!INCLUDE [storage-create-account-include](../../includes/vs-storage-aspnet-getting-started-create-azure-account.md)]
+
+[!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
+
+### Create an MVC controller 
+
+1. In the **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add->Controller**.
+
+	![Add a controller to an ASP.NET MVC app](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
+
+1. On the **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.
+
+	![Specify MVC controller type](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
+
+1. On the **Add Controller** dialog, name the controller *QueuesController*, and select **Add**.
+
+	![Name the MVC controller](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
+
+1. Add the following *using* directives to the `QueuesController.cs` file:
+
+    ```csharp
+	using Microsoft.Azure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Auth;
+    using Microsoft.WindowsAzure.Storage.Queue;
+	```
+## Create a queue
+
+The following steps illustrate how to create a queue:
 
 > [!NOTE]
 > 
-> The code sections in this article assume that you have already connected to an Azure storage account using Connected Services. Connected Services is configured by opening the Visual Studio Solution Explorer, right-clicking the project, and from the context menu, selecting the **Add->Connected Service** option. From there, follow the dialog's instructions to connect to the desired Azure storage account.      
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
 
-## Create a queue
+1. Open the `QueuesController.cs` file. 
 
-The following steps illustrate how to programmatically create a queue. In an ASP.NET MVC app, the code would go in a controller.
+1. Add a method called **CreateQueue** that returns an **ActionResult**.
 
-1. Add the following *using* directives:
+    ```csharp
+    public ActionResult CreateQueue()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+
+1. Within the **CreateQueue** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
+1. Get a **CloudQueue** object that represents a reference to the desired queue name. The **CloudQueueClient.GetQueueReference** method does not make a request against queue storage. The reference is returned whether or not the queue exists. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Call the **CloudQueue.CreateIfNotExists** method to create the queue if it does not yet exist. The **CloudQueue.CreateIfNotExists** method returns **true** if the queue does not exist, and is successfully created. Otherwise, **false** is returned.    
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+    ```csharp
+	ViewBag.Success = queue.CreateIfNotExists();
+    ```
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+1. Update the **ViewBag** with the name of the queue.
 
-4. Get a **CloudQueue** object that represents a reference to the desired queue name. (Change *<queue-name>* to the name of the queue you want to create.)
+    ```csharp
+	ViewBag.QueueName = queue.Name;
+    ```
 
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-5. Call the **CloudQueue.CreateIfNotExists** method to create the queue if it does not yet exist. 
+1. On the **Add View** dialog, enter **CreateQueue** for the view name, and select **Add**.
 
-	    queue.CreateIfNotExists();
+1. Open `CreateQueue.cshtml`, and modify it so that it looks like the following code snippet:
 
+    ```csharp
+	@{
+	    ViewBag.Title = "Create Queue";
+	}
+	
+	<h2>Create Queue results</h2>
+
+	Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
+    ```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
+    ```
+
+1. Run the application, and select **Create queue** to see results similar to the following screen shot:
+  
+	![Create queue](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
+
+	As mentioned previously, the **CloudQueue.CreateIfNotExists** method returns **true** only when the queue doesn't exist and is created. Therefore, if you run the app when the queue exists, the method returns **false**. To run the app multiple times, you must delete the queue before running the app again. Deleting the queue can be done via the **CloudQueue.Delete** method. You can also delete the queue using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add a message to a queue
 
-The following steps illustrate how to programmatically add a message to a queue. In an ASP.NET MVC app, the code would go in a controller.
+Once you've [created a queue](#create-a-queue), you can add messages to that queue. This section walks you through adding a message to a queue *test-queue*. 
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
+
+1. Open the `QueuesController.cs` file.
+
+1. Add a method called **AddMessage** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult AddMessage()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+ 
+1. Within the **AddMessage** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+   
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueContainer** object that represents a reference to the queue. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Create the **CloudQueueMessage** object representing the message you want to add to the queue. A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+    ```csharp
+	CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
+    ```
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+1. Call the **CloudQueue.AddMessage** method to add the messaged to the queue.
 
-4. Get a **CloudQueue** object that represents a reference to the desired queue name. (Change *<queue-name>* to the name of the queue to which you want to add the message.)
+    ```csharp
+	queue.AddMessage(message);
+    ```
 
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+1. Create and set a couple of **ViewBag** properties for display in the view.
 
-5. Create the **CloudQueueMessage** object representing the message you want to add to the queue. A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array. (Change *<queue-message>* to the message you want to add.
+    ```csharp
+    ViewBag.QueueName = queue.Name;
+    ViewBag.Message = message.AsString;
+    ```
 
-		CloudQueueMessage message = new CloudQueueMessage(<queue-message>);
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-6. Call the **CloudQueue.AddMessage** method to add the messaged to the queue.
+1. On the **Add View** dialog, enter **AddMessage** for the view name, and select **Add**.
 
-    	queue.AddMessage(message);
+1. Open `AddMessage.cshtml`, and modify it so that it looks like the following code snippet:
+
+    ```csharp
+	@{
+	    ViewBag.Title = "Add Message";
+	}
+	
+	<h2>Add Message results</h2>
+	
+	The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
+    ```
+
+1. Run the application, and select **Add message** to see results similar to the following screen shot:
+  
+	![Add  message](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
+
+The two sections - [Read a message from a queue without removing it](#read-a-message-from-a-queue-without-removing-it) and [Read and remove a message from a queue](#read-and-remove-a-message-from-a-queue) - illustrate how to read messages from a queue. 	
 
 ## Read a message from a queue without removing it
 
-The following steps illustrate how to programmatically peek at a queued message (read the first message without removing it). In an ASP.NET MVC app, the code would go in a controller. 
+This section illustrates how to peek at a queued message (read the first message without removing it).  
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
+
+1. Open the `QueuesController.cs` file.
+
+1. Add a method called **PeekMessage** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult PeekMessage()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+ 
+1. Within the **PeekMessage** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+   
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueContainer** object that represents a reference to the queue. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Call the **CloudQueue.PeekMessage** method to read the first message in the queue without removing it from the queue. 
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+    ```csharp
+	CloudQueueMessage message = queue.PeekMessage();
+    ```
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+1. Update the **ViewBag** with two values: the queue name and the message that was read. The **CloudQueueMessage** object exposes two properties for getting the object's value: **CloudQueueMessage.AsBytes** and **CloudQueueMessage.AsString**. **AsString** (used in this example) returns a string, while **AsBytes** returns a byte array.
 
-4. Get a **CloudQueue** object that represents a reference to the queue. (Change *<queue-name>* to the name of the queue from which you want to read a message.)
+    ```csharp
+    ViewBag.QueueName = queue.Name;	
+	ViewBag.Message = (message != null ? message.AsString : "");
+    ```
 
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-5. Call the **CloudQueue.PeekMessage** method to read the message at the front of a queue without removing it from the queue.
+1. On the **Add View** dialog, enter **PeekMessage** for the view name, and select **Add**.
 
-    	CloudQueueMessage message = queue.PeekMessage();
+1. Open `PeekMessage.cshtml`, and modify it so that it looks like the following code snippet:
 
-6. Access the **CloudQueueMessage** object's value using either the **CloudQueueMessage.AsBytes** or **CloudQueueMessage.AsString** property.
+    ```csharp
+	@{
+	    ViewBag.Title = "PeekMessage";
+	}
+	
+	<h2>Peek Message results</h2>
+	
+	<table border="1">
+	    <tr><th>Queue</th><th>Peeked Message</th></tr>
+	    <tr><td>@ViewBag.QueueName</td><td>@ViewBag.Message</td></tr>
+	</table>	
+	```
 
-		string messageAsString = message.AsString;
-		byte[] messageAsBytes = message.AsBytes;
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
+    ```
+
+1. Run the application, and select **Peek message** to see results similar to the following screen shot:
+  
+	![Peek message](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
 ## Read and remove a message from a queue
 
-The following steps illustrate how to programmatically read a queued message, and then delete it. In an ASP.NET MVC app, the code would go in a controller. 
+In this section, you learn how to read and remove a message from a queue. 	
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
+
+1. Open the `QueuesController.cs` file.
+
+1. Add a method called **ReadMessage** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult ReadMessage()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+ 
+1. Within the **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+   
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueContainer** object that represents a reference to the queue. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Call the **CloudQueue.GetMessage** method to read the first message in the queue. The **CloudQueue.GetMessage** method makes the message invisible for 30 seconds (by default) to any other code reading messages so that no other code can modify or delete the message while your processing it. To change the amount of time the message is invisible, modify the **visibilityTimeout** parameter being passed to the **CloudQueue.GetMessage** method.
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+    ```csharp
+	// This message will be invisible to other code for 30 seconds.
+	CloudQueueMessage message = queue.GetMessage();     
+    ```
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+1. Call the **CloudQueueMessage.Delete** method to delete the message from the queue.
 
-4. Get a **CloudQueue** object that represents a reference to the queue. (Change *<queue-name>* to the name of the queue from which you want to read a message.)
+    ```csharp
+    queue.DeleteMessage(message);
+    ```
 
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+1. Update the **ViewBag** with the message deleted, and the name of the queue.
 
-5. Call the **CloudQueue.GetMessage** method to read the first message in the queue. The **CloudQueue.GetMessage** method makes the message invisible for 30 seconds (by default) to any other code reading messages so that no other code can modify or delete the message while your processing it. To change the amount of time the message is invisible, modify the **visibilityTimeout** parameter being passed to the **CloudQueue.GetMessage** method.
+    ```csharp
+    ViewBag.QueueName = queue.Name;
+    ViewBag.Message = message.AsString;
+    ```
+ 
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-		// This message will be invisible to other code for 30 seconds.
-		CloudQueueMessage message = queue.GetMessage();     
+1. On the **Add View** dialog, enter **ReadMessage** for the view name, and select **Add**.
 
-6. Call the **CloudQueueMessage.Delete** method to delete the message from the queue.
+1. Open `ReadMessage.cshtml`, and modify it so that it looks like the following code snippet:
 
-	    queue.DeleteMessage(message);
+    ```csharp
+	@{
+	    ViewBag.Title = "ReadMessage";
+	}
+	
+	<h2>Read Message results</h2>
+	
+	<table border="1">
+	    <tr><th>Queue</th><th>Read (and Deleted) Message</th></tr>
+	    <tr><td>@ViewBag.QueueName</td><td>@ViewBag.Message</td></tr>
+	</table>
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
+    ```
+
+1. Run the application, and select **Read/Delete message** to see results similar to the following screen shot:
+  
+	![Read and delete message](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
 ## Get the queue length
 
-The following steps illustrate how to programmatically get the queue length (number of messages). In an ASP.NET MVC app, the code would go in a controller. 
+This section illustrates how to get the queue length (number of messages). 
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
+
+1. Open the `QueuesController.cs` file.
+
+1. Add a method called **GetQueueLength** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult GetQueueLength()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+ 
+1. Within the **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+   
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueContainer** object that represents a reference to the queue. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Call the **CloudQueue.FetchAttributes** method to retrieve the queue's attributes (including its length). 
 
-3. Get a **CloudQueueClient** object represents a queue service client.
-
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-4. Get a **CloudQueue** object that represents a reference to the queue. (Change *<queue-name>* to the name of the queue whose length you are querying.)
-
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
-
-5. Call the **CloudQueue.FetchAttributes** method to retrieve the queue's attributes (including its length). 
-
-		queue.FetchAttributes();
+    ```csharp
+	queue.FetchAttributes();
+    ```
 
 6. Access the **CloudQueue.ApproximateMessageCount** property to get the queue's length.
  
-		int? nMessages = queue.ApproximateMessageCount;
+    ```csharp
+	int? nMessages = queue.ApproximateMessageCount;
+    ```
+
+1. Update the **ViewBag** with the name of the queue, and its length.
+
+    ```csharp
+    ViewBag.QueueName = queue.Name;
+    ViewBag.Length = nMessages;
+    ```
+ 
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
+
+1. On the **Add View** dialog, enter **GetQueueLength** for the view name, and select **Add**.
+
+1. Open `GetQueueLengthMessage.cshtml`, and modify it so that it looks like the following code snippet:
+
+    ```csharp
+	@{
+	    ViewBag.Title = "GetQueueLength";
+	}
+	
+	<h2>Get Queue Length results</h2>
+	
+	The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
+    ```
+
+1. Run the application, and select **Get queue length** to see results similar to the following screen shot:
+  
+	![Get queue length](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
+
 
 ## Delete a queue
-The following steps illustrate how to programmatically delete a queue. 
+This section illustrates how to delete a queue. 
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
+
+1. Open the `QueuesController.cs` file.
+
+1. Add a method called **DeleteQueue** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult DeleteQueue()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+ 
+1. Within the **DeleteQueue** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+   
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueContainer** object that represents a reference to the queue. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Call the **CloudQueue.Delete** method to delete the queue represented by the **CloudQueue** object.
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+    ```csharp
+    queue.Delete();
+    ```
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+1. Update the **ViewBag** with the name of the queue, and its length.
 
-4. Get a **CloudQueue** object that represents a reference to the queue. (Change *<queue-name>* to the name of the queue whose length you are querying.)
+    ```csharp
+    ViewBag.QueueName = queue.Name;
+    ```
+ 
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+1. On the **Add View** dialog, enter **DeleteQueue** for the view name, and select **Add**.
 
-5. Call the **CloudQueue.Delete** method to delete the queue represented by the **CloudQueue** object.
+1. Open `DeleteQueue.cshtml`, and modify it so that it looks like the following code snippet:
 
-	    messageQueue.Delete();
+    ```csharp
+	@{
+	    ViewBag.Title = "DeleteQueue";
+	}
+	
+	<h2>Delete Queue results</h2>
+	
+	@ViewBag.QueueName deleted.
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
+    ```
+
+1. Run the application, and select **Get queue length** to see results similar to the following screen shot:
+  
+	![Delete queue](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## Next steps
-[!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
+View more feature guides to learn about additional options for storing data in Azure.
 
+  * [Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)](./vs-storage-aspnet-getting-started-blobs.md)
+  * [Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)](./vs-storage-aspnet-getting-started-tables.md)

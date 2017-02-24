@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: dinesh
+ms.author: dineshm
 
 ---
 # Using Azure Storage with a Hudson Continuous Integration solution
