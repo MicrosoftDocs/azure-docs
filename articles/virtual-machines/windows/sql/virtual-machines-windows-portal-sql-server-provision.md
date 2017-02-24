@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: jroth
 
 ---
@@ -58,6 +58,9 @@ In this tutorial, you will:
    > 
    > 
 7. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. Click **Create**.
+
+   > [!TIP]
+   > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM.
    
     ![Create SQL VM with Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
