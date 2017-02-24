@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/24/2017
 ms.author: tarcher
 
 ---
@@ -34,7 +34,7 @@ You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-
     ![Lab VM blade](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
 1. Enter a **User Name** that is granted administrator privileges on the virtual machine.  
-1. If you want to use a password stored in your *secret store*, select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**.
+1. If you want to use a password stored in your [secret store](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**.
 1. The **Virtual machine disk type** determines which storage disk type is allowed for the virtual machines in the lab.
 1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. 
