@@ -107,19 +107,24 @@ Switch back to the publisher portal and paste the key into the **Client Secret**
 
 ![Allowed tenants][api-management-client-allowed-tenants]
 
-Multiple domains can be specified in the **Allowed Tenants** section. Before any user can log in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, a global administrator must log in to the application and click **Accept**. In the following example `miaoaad.onmicrosoft.com` has been added to **Allowed Tenants** and a global administrator from that domain is logging in for the first time.
-
-![Permissions][api-management-permissions-form]
-
-> If a non-global administrator tries to log in before permissions are granted by a global administrator, the login attempt fails and an error screen is displayed.
-> 
-> 
 
 Once the desired configuration is specified, click **Save**.
 
 ![Save][api-management-client-allowed-tenants-save]
 
 Once the changes are saved, the users in the specified Azure Active Directory can log into the Developer portal by following the steps in [Log in to the Developer portal using an Azure Active Directory account][Log in to the Developer portal using an Azure Active Directory account].
+
+Multiple domains can be specified in the **Allowed Tenants** section. Before any user can log in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should go to `https://<URL of your developer portal>/aadadminconsent` (e.g., https://contoso.portal.azure-api.net/aadadminconsent), type in the domain name of the Active Directory tenant they want to give access to and click Submit. In the following example, a global administrator from `miaoaad.onmicrosoft.com` is tring to give permission to this particular developer portal. 
+
+![Permissions][api-management-aad-consent]
+
+In the next screen, the global administrator will be prompted to confirm giving the permission. 
+
+![Permissions][api-management-permissions-form]
+
+> If a non-global administrator tries to log in before permissions are granted by a global administrator, the login attempt fails and an error screen is displayed.
+> 
+> 
 
 ## How to add an external Azure Active Directory Group
 After enabling access for users in an Azure Active Directory, you can add Azure Active Directory groups into API Management to more easily manage the association of the developers in the group with the desired products.
@@ -201,6 +206,7 @@ Your user is now logged into the developer portal for your API Management servic
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 [api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
 [api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
+[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
 [api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
 [api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
 [api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
