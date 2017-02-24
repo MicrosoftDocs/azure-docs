@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 
 ---
 # Azure Relay Hybrid Connections protocol
@@ -210,7 +210,7 @@ properties at this time:
   Sec-WebSocket-Extensions headers.
 
 #### Accept Message
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -325,7 +325,7 @@ property at this time:
   namespace or Hybrid Connection that confers the **Listen** right.
 
 #### renewToken Message
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -362,7 +362,7 @@ The query string parameter options are as follows
 
 | Param | Required? | Description |
 | --- | --- | --- |
-| sb-hc-action |Yes |For the listener role the parameter must be `action=connect`. |
+| sb-hc-action |Yes |For the sender role the parameter must be `action=connect`. |
 | {path} |Yes |(see the following paragraph) |
 | sb-hc-token |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right. |
 | sb-hc-id |No |An optional ID that enables end-to-end diagnostic tracing and is made available to the listener during the accept handshake. |

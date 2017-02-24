@@ -1,5 +1,5 @@
 ---
-title: Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
+title: Create a REST API in Azure with ASP.NET and SQL DB | Microsoft Docs
 description: A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure web app by using Visual Studio.
 services: app-service\web
 documentationcenter: .net
@@ -660,7 +660,7 @@ When you see that the item you enter is saved and appears on the contact manager
 The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Azure, delete it. The application is public and doesn't have a mechanism to limit access.
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

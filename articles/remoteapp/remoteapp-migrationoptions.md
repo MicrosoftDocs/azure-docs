@@ -12,7 +12,7 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/07/2017
 ms.author: mbaldwin
 
 ---
@@ -26,7 +26,7 @@ If you have stopped using Azure RemoteApp because of the [retirement announcemen
 
 Self-service IaaS is a do-it-yourself deployment that is managed, operated, and owned by you, directly deployed on virtual machines (VMs) or physical systems. At the other end, a fully managed PaaS/SaaS offering is more like Azure RemoteApp - a partner provides a service layer on top of a remoting solution that handles operational and servicing, while you, as the customer, do some image and app management.
 
-Read on for more information, including examples of the different hosting options.    
+[View the Azure RemoteApp webinars on migration options](https://social.msdn.microsoft.com/Forums/azure/40557aaa-3e9f-403c-b221-ad3eac10dc56/migration-option-webinar-recordings?forum=AzureRemoteApp), or read on for more information (including examples of the different hosting options).
 
 ## Self-managed (IaaS) solutions
 ### **RDS on IaaS**
@@ -58,6 +58,21 @@ Learn more about [Citrix XenApp Express](http://now.citrix.com/remoteapp).
 ### **Citrix Service Provider Program**
 The Citrix Service Provider Program makes it easy for service providers to deliver the simplicity of virtual cloud computing to SMBs, offering them the services they want in an easy, pay-as-you-go model. Citrix Service Providers grow their Microsoft SPLA businesses and expand their RDS platform investments with any device, anywhere access, the broadest application support, a rich experience, added security and increased scalability. In turn, Citrix Service Providers attract more subscribers, increase customer satisfaction and reduce their operational costs. [Learn more](http://www.citrix.com/products/service-providers.html) or [find a partner](https://www.citrix.com/buy/partnerlocator.html).
 
+### Frame
+
+IT organizations in enterprise and government, managed service providers, and leading software vendors choose Frame to create and manage their secure, software-defined workspaces in the cloud. From small to large organizations, Frame makes it incredibly easy to let users access Windows applications on any browser from any device. The Frame platform includes everything an admin needs to deploy applications from the cloud including the Azure infrastructure and RDS licenses (bringing your own Azure account and licenses is optional). 
+
+Learn more about [Frame on Azure](https://www.fra.me/ara). 
+
+Primary location: San Mateo, CA, USA
+
+Operation region: Worldwide
+
+Microsoft Partner: Yes
+
+1-480-269-4668
+
+
 ### **Microsoft Hosted Service Provider**
 Hosting partners typically offer a fully managed hosted Windows desktop and application service, which may include managing the Azure resources, operating systems, applications, and helpdesk using the partner’s licensing agreements with Microsoft and other software providers along with being a Service Provider License Agreement to allow reselling of Subscriber Access License (SAL). The following information provides details and contact information for some of the hosters that specialize in assisting customers with their Azure RemoteApp migration. Check out [the current list of Hosted Service Providers](http://aka.ms/rdsonazurecertified) that have completed the RDS on IaaS learning path and assessment.  
 
@@ -83,7 +98,7 @@ Azure RemoteApp migration solutions: Yes, [learn more](https://www.aspex.be/en/a
 * Web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
 
 #### **Conexlink (Platform name: MyCloudIT)**
-[MyCloudIT](http://www.mycloudit.com) is an automation platform for IT companies to simplify, optimize, and scale the migration and delivery of remote desktops, remote applications, and infrastructure in the Microsoft Azure Cloud. 
+[MyCloudIT](https://mycloudit.com) is an automation platform for IT companies to simplify, optimize, and scale the migration and delivery of remote desktops, remote applications, and infrastructure in the Microsoft Azure Cloud. 
 
 The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and moves their client’s entire IT infrastructure into the cloud in a matter of a few key strokes. Partners can now manage customers from one global dashboard, service end users around the world like never before, and grow revenues without adding additional overhead or extensive Azure training.  
 

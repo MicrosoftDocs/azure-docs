@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 
 ---
@@ -36,9 +36,9 @@ To browse for tutorials in the Gallery, open the [Gallery](http://gallery.cortan
 tutorials.
  Click **See all** to view all
 tutorials.
- From this page you can browse all the
+ From this page, you can browse all the
 tutorials
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 tutorial
@@ -59,28 +59,33 @@ You can contribute a tutorial to the Gallery to help other users solve a problem
 ### Create a tutorial
 Follow these steps to create and contribute a tutorial to the Cortana Intelligence Gallery:
 
-* Sign in to the Gallery using your Microsoft account
-* Click your image at the top of the window and then click your name
+1. Sign in to the Gallery using your Microsoft account
+
+2. Click your image at the top of the window and then click your name
   
     ![Click your account name](media/machine-learning-gallery-tutorials/click-account-name.png)
-* Click **New Item**
+
+3. Click **New Item**
   
     ![Click "New Item"](media/machine-learning-gallery-collections/click-new-item.png)
-* Select **Collection** for **Item Type**, then give the collection a name, a brief summary, a description, and any tags that will help users find the collection
+
+4. Select **Collection** for **Item Type**, then give the collection a name, a brief summary, a description, and any tags that will help users find the collection
   
     ![Enter information for new collection](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
-* Click **Next** - you can upload an image file, or select a stock image, that will be displayed with the collection; choose something that will help users identify the content and purpose of the collection
+5. Click **Next** - you can upload an image file, or select a stock image, that will be displayed with the collection; choose something that will help users identify the content and purpose of the collection
   
     ![Enter information for new collection](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
-* Click **Next** - you can decide whether the tutorial is **Public** (it can be viewed by anyone) or **Unlisted** (only people with a direct link can view the tutorial)
+
+6. Click **Next** - you can decide whether the tutorial is **Public** (it can be viewed by anyone) or **Unlisted** (only people with a direct link can view the tutorial)
   
-  > [!IMPORTANT]
-  > Once you set a tutorial to **Public**, you can not set it to **Unlisted**.
-  > 
-  > 
+    > [!IMPORTANT]
+    > Once you set a tutorial to **Public**, you can not set it to **Unlisted**.
+    > 
+    > 
   
     ![Select Public or Unlisted](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
-* Click **Create**
+
+7. Click **Create**
 
 Your tutorial is now part of the Cortana Intelligence Gallery. It will be listed on your account page under the **Items** tab.
 

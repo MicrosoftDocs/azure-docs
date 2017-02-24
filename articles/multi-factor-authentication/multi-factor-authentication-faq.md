@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication FAQ
+title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
 description: Provides a list of frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions.
 services: multi-factor-authentication
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: kgremban
 
 ---
@@ -58,6 +58,8 @@ Billing is based on the number of users configured to use Multi-Factor Authentic
 When you use the "per user" or "per authentication" model, Azure MFA is a consumption-based resource. Any charges are billed to the organization’s Azure subscription just like virtual machines, websites, etc.
 
 When you use the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like for Office 365 and other subscription products.
+
+Learn more about your options in [How Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md)
 
 **Q: Is there a free version of Azure Multi-Factor Authentication for administrators?**
 
@@ -156,8 +158,6 @@ A workaround for this is to have separate user accounts for admin-related and no
 
 ## Next steps
 If your question isn't answered here, please leave it in the comments at the bottom of the page. Or, here are some additional options for getting help:
-
-**Q: How can I get help with Azure Multi-Factor Authentication?**
 
 * Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) for solutions to common technical issues.
 * Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).

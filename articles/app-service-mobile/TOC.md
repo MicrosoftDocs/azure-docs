@@ -207,11 +207,15 @@
 ### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Reference
-## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [.NET backend SDK](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Node.js backend SDK](https://azure.github.io/azure-mobile-apps-node/)
+## [Android client SDK](https://azure.github.io/azure-mobile-apps-android-client/)
+## [iOS client SDK](https://azure.github.io/azure-mobile-apps-ios-client/)
+## [JavaScript/Cordova client SDK](https://azure.github.io/azure-mobile-apps-js-client/)
+## [Windows/Xamarin client SDK](https://msdn.microsoft.com/library/azure/mt419521.aspx)
 
 # Related
-## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [GitHub repositories](https://github.com/Azure/azure-mobile-apps)
 ## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resources
@@ -219,6 +223,14 @@
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## Samples
+### [Field engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
+### [Structured data sync](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
+### Quickstart completed
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
+#### [.NET backend](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
+#### [Node.js backend](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [App Service Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [List of WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

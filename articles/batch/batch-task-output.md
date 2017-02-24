@@ -1,5 +1,5 @@
 ---
-title: Job and task output persistence in Azure Batch | Microsoft Docs
+title: Persist output from jobs and tasks - Azure Batch | Microsoft Docs
 description: Learn how to use Azure Storage as a durable store for your Batch task and job output, and enable viewing this persisted output in the Azure portal.
 services: batch
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/07/2016
+ms.date: 01/23/2017
 ms.author: tamram
 
 ---

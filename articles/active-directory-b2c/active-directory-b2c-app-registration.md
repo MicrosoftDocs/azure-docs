@@ -26,7 +26,7 @@ To build an application that accepts consumer sign-up and sign-in, you first nee
 ## Navigate to the B2C features blade
 If you have the B2C features blade pinned to your Startboard, you will see the blade as soon as you sign in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant.
 
-You can also access the blade by clicking **Browse** and then **Azure AD B2C** in the left navigation pane on the [Azure portal](https://portal.azure.com/).
+You can also access the blade by clicking **More services** and then searching **Azure AD B2C** in the left navigation pane on the [Azure portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
 > You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.  You can switch to your B2C tenant by using the tenant switcher in the top right corner of the Azure Portal.
@@ -37,7 +37,7 @@ You can also access the blade by clicking **Browse** and then **Azure AD B2C** i
 1. On the B2C features blade on the Azure portal, click **Applications**.
 2. Click **+Add** at the top of the blade.
 3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
-4. If you are writing a web-based application, toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44321/`. If your web application will also be calling some web API secured by Azure AD B2C, you'll want to create an **Application Secret** as well by clicking the **Generate Key** button.
+4. If you are writing a web-based application, toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`. If your web application will also be calling some web API secured by Azure AD B2C, you'll want to create an **Application Secret** as well by clicking the **Generate Key** button.
    
    > [!NOTE]
    > An **Application Secret** is an important security credential, and should be secured appropriately.
@@ -48,7 +48,7 @@ You can also access the blade by clicking **Browse** and then **Azure AD B2C** i
 7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
 > [!IMPORTANT]
-> Applications created in the B2C features blade have to managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
+> Applications created in the B2C features blade have to be managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
 > 
 > 
 

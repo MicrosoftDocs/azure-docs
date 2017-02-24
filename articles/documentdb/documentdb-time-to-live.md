@@ -4,7 +4,7 @@ description: With TTL, Microsoft Azure DocumentDB provides the ability to have d
 services: documentdb
 documentationcenter: ''
 keywords: time to live
-author: kiratp
+author: arramac
 manager: jhubbard
 editor: ''
 
@@ -14,31 +14,31 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2016
-ms.author: kipandya
+ms.date: 01/13/2017
+ms.author: arramac
 
 ---
 # Expire data in DocumentDB collections automatically with time to live
 Applications can produce and store vast amounts of data. Some of this data, like machine generated event data, logs, and user session information is only useful for a finite period of time. Once the data becomes surplus to the needs of the application it is safe to purge this data and reduce the storage needs of an application.
 
-With “time to live” or TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the database after a period of time. The default time to live can be set at the collection level, and overridden on a per-document basis. Once TTL is set, either as a collection default or at a document level, DocumentDB will automatically remove documents that exist after that period of time, in seconds, since they were last modified.
+With "time to live" or TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the database after a period of time. The default time to live can be set at the collection level, and overridden on a per-document basis. Once TTL is set, either as a collection default or at a document level, DocumentDB will automatically remove documents that exist after that period of time, in seconds, since they were last modified.
 
-Time to live in DocumentDB uses an offset against when the document was last modified. To do this it uses the _ts field which exists on every document. The _ts field is a unix-style epoch timestamp representing the date and time. The _ts field is updated every time a document is modified. 
+Time to live in DocumentDB uses an offset against when the document was last modified. To do this it uses the `_ts` field which exists on every document. The _ts field is a unix-style epoch timestamp representing the date and time. The `_ts` field is updated every time a document is modified. 
 
 ## TTL behavior
-The TTL feature is controlled by TTL properties at two levels - the collection level and the document level. The values are set in seconds and are treated as a delta from the _ts that the document was last modified at.
+The TTL feature is controlled by TTL properties at two levels - the collection level and the document level. The values are set in seconds and are treated as a delta from the `_ts` that the document was last modified at.
 
 1. DefaultTTL for the collection
    
    * If missing (or set to null), documents are not deleted automatically.
-   * If present and the value is “-1” = infinite – documents don’t expire by default
-   * If present and the value is some number (“n”) – documents expire “n” seconds after last modification
+   * If present and the value is "-1" = infinite – documents don’t expire by default
+   * If present and the value is some number ("n") – documents expire "n” seconds after last modification
 2. TTL for the documents: 
    
    * Property is applicable only if DefaultTTL is present for the parent collection.
    * Overrides the DefaultTTL value for the parent collection.
 
-As soon as the document has expired (ttl + _ts >= current server time), the document is marked as “expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](documentdb-request-units.md) from the collection budget.
+As soon as the document has expired (`ttl` + `_ts` >= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](documentdb-request-units.md) from the collection budget.
 
 The above logic can be shown in the following matrix:
 
@@ -54,42 +54,98 @@ By default, time to live is disabled by default in all DocumentDB collections an
 ## Enabling TTL
 To enable TTL on a collection, or the documents within a collection, you need to set the DefaultTTL property of a collection to either -1 or a non-zero positive number. Setting the DefaultTTL to -1 means that by default all documents in the collection will live forever but the DocumentDB service should monitor this collection for documents that have overridden this default.
 
+    DocumentCollection collectionDefinition = new DocumentCollection();
+    collectionDefinition.Id = "orders";
+    collectionDefinition.PartitionKey.Paths.Add("/customerId");
+    collectionDefinition.DefaultTimeToLive =-1; //never expire by default
+
+    DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
+        UriFactory.CreateDatabaseUri(databaseName),
+        collectionDefinition,
+        new RequestOptions { OfferThroughput = 20000 });
+
 ## Configuring default TTL on a collection
-You are able to configure a default time to live at a collection level. 
+You are able to configure a default time to live at a collection level. To set the TTL on a collection, you need to provide a non-zero positive number that indicates the period, in seconds, to expire all documents in the collection after the last modified timestamp of the document (`_ts`). Or, you can set the default to -1, which implies that all documents inserted in to the collection will live indefinitely by default.
 
-To set the TTL on a collection, you need to provide a non-zero positive number that indicates the period, in seconds, to expire all documents in the collection after the last modified timestamp of the document (_ts).
+    DocumentCollection collectionDefinition = new DocumentCollection();
+    collectionDefinition.Id = "orders";
+    collectionDefinition.PartitionKey.Paths.Add("/customerId");
+    collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+    
+    DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
+        "/dbs/salesdb",
+        collectionDefinition,
+        new RequestOptions { OfferThroughput = 20000 });
 
-Or, you can set the default to -1, which implies that all documents inserted in to the collection will live indefinitely by default.
 
 ## Setting TTL on a document
 In addition to setting a default TTL on a collection you can set specific TTL at a document level. Doing this will override the default of the collection.
 
-To set the TTL on a document, you need to provide a non-zero positive number which indicates the period, in seconds, to expire the document after the last modified timestamp of the document (_ts).
+* To set the TTL on a document, you need to provide a non-zero positive number which indicates the period, in seconds, to expire the document after the last modified timestamp of the document (`_ts`).
+* If a document has no TTL field, then the default of the collection will apply.
+* If TTL is disabled at the collection level, the TTL field on the document will be ignored until TTL is enabled again on the collection.
 
-To set this expiry offset, set the TTL field on the document.
+Here's a snippet showing how to set the TTL expiration on a document:
 
-If a document has no TTL field, then the default of the collection will apply.
+    // Include a property that serializes to "ttl" in JSON
+    public class SalesOrder
+    {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+        
+        [JsonProperty(PropertyName="cid")]
+        public string CustomerId { get; set; }
+        
+        // used to set expiration policy
+        [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
+        public int? TimeToLive { get; set; }
+        
+        //...
+    }
+    
+    // Set the value to the expiration in seconds
+    SalesOrder salesOrder = new SalesOrder
+    {
+        Id = "SO05",
+        CustomerId = "CO18009186470",
+        TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days 
+    };
 
-If TTL is disabled at the collection level, the TTL field on the document will be ignored until TTL is enabled again on the collection.
 
 ## Extending TTL on an existing document
-You can reset the TTL on a document by doing any write operation on the document. Doing this will set the _ts to the current time, and the countdown to the document expiry, as set by the ttl, will begin again.
+You can reset the TTL on a document by doing any write operation on the document. Doing this will set the `_ts` to the current time, and the countdown to the document expiry, as set by the `ttl`, will begin again. If you wish to change the `ttl` of a document, you can update the field as you can do with any other settable field.
 
-If you wish to change the ttl of a document, you can update the field as you can do with any other settable field.
+    response = await client.ReadDocumentAsync(
+        "/dbs/salesdb/colls/orders/docs/SO05"), 
+        new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
+    
+    Document readDocument = response.Resource;
+    readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+    
+    response = await client.ReplaceDocumentAsync(salesOrder);
 
 ## Removing TTL from a document
-If a TTL has been set on a document and you no longer want that document to expire, then you can retrieve the document, remove the TTL field and replace the document on the server.
+If a TTL has been set on a document and you no longer want that document to expire, then you can retrieve the document, remove the TTL field and replace the document on the server. When the TTL field is removed from the document, the default of the collection will be applied. To stop a document from expiring and not inherit from the collection then you need to set the TTL value to -1.
 
-When the TTL field is removed from the document, the default of the collection will be applied.
-
-To stop a document from expiring and not inherit from the collection then you need to set the TTL value to -1.
+    response = await client.ReadDocumentAsync(
+        "/dbs/salesdb/colls/orders/docs/SO05"), 
+        new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
+    
+    Document readDocument = response.Resource;
+    readDocument.TimeToLive = null; // inherit the default TTL of the collection
+    
+    response = await client.ReplaceDocumentAsync(salesOrder);
 
 ## Disabling TTL
-To disable TTL entirely on a collection and stop the background process from looking for expired documents the DefaultTTL property on the collection should be deleted.
+To disable TTL entirely on a collection and stop the background process from looking for expired documents the DefaultTTL property on the collection should be deleted. Deleting this property is different from setting it to -1. Setting to -1 means new documents added to the collection will live forever but you can override this on specific documents in the collection. Removing this property entirely from the collection means that no documents will expire, even if there are documents that have explicitly overridden a previous default.
 
-Deleting this property is different from setting it to -1. Setting to -1 means new documents added to the collection will live forever but you can override this on specific documents in the collection.
+    DocumentCollection collection = await client.ReadDocumentCollectionAsync("/dbs/salesdb/colls/orders");
+    
+    // Disable TTL
+    collection.DefaultTimeToLive = null;
+    
+    await client.ReplaceDocumentCollectionAsync(collection);
 
-Removing this property entirely from the collection means that no documents will expire, even if there are documents that have explicitly overridden a previous default.
 
 ## FAQ
 **What will TTL cost me?**
@@ -106,7 +162,7 @@ No, there will be no impact on RU charges for deletions of expired documents via
 
 **Does the TTL feature only apply to entire documents, or can I expire individual document property values?**
 
-TTL applies to the entire document. If you would like to expire just a portion of a document, then it is recommended that you extract the portion from the main document in to a separate “linked” document and then use TTL on that extracted document.
+TTL applies to the entire document. If you would like to expire just a portion of a document, then it is recommended that you extract the portion from the main document in to a separate "linked” document and then use TTL on that extracted document.
 
 **Does the TTL feature have any specific indexing requirements?**
 

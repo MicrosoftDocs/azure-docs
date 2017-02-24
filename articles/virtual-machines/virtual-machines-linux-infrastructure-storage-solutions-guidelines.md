@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Solutions Guidelines | Microsoft Docs
+title: Storage solutions for Linux VMs in Azure | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying storage solutions in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-linux

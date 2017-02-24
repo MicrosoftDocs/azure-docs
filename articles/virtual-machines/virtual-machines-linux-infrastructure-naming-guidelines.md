@@ -1,5 +1,5 @@
 ---
-title: Azure Infrastructure Naming Guidelines | Microsoft Docs
+title: Azure infrastructure naming guidelines - Linux | Microsoft Docs
 description: Learn about the key design and implementation guidelines for naming in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 
 ---

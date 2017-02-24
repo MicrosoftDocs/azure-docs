@@ -1,6 +1,6 @@
 ---
-title: Performance monitoring for mobile web apps with Developer Analytics | Microsoft Docs
-description: Application performance and usage monitoring for mobile app developers. , desktop, web service, and backend apps with HockeyApp and Application Insights.
+title: Performance monitoring for mobile apps - Azure Application Insights | Microsoft Docs
+description: Application performance and usage monitoring for mobile app developers. DevOps with HockeyApp and Application Insights.
 author: alancameronwills
 services: application-insights
 documentationcenter: ''

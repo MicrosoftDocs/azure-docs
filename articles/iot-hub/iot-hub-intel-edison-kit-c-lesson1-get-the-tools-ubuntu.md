@@ -1,5 +1,5 @@
 ---
-title: Get the tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 1: Get tools (Ubuntu) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Edison on Ubuntu.
 services: iot-hub
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Customer case studies | Microsoft Docs
+title: Azure Data Factory - Customer case studies | Microsoft Docs
 description: Learn about how some of our customers have been using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: shlo
 
 ---
-# Customer case studies
+# Azure Data Factory - Customer case studies
 Data Factory is a cloud-based information management service that automates the movement and transformation of data. Customers across many industries use Data Factory and other Azure services to build their analytics pipelines and solve their business problems.  Learn directly from our customers how and why they are using Data Factory.
 
 ## Milliman

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 
 ---
@@ -43,9 +43,9 @@ that have been developed in [Azure Machine Learning Studio](https://studio.azure
 experiments.
  Click **See all** to view all
 experiments.
- From this page you can browse all the
+ From this page, you can browse all the
 experiments
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 experiment

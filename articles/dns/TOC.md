@@ -34,6 +34,9 @@
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
+## Troubleshoot
+### [Troubleshooting guide](dns-troubleshoot.md)
+
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
 ## [Azure CLI 2.0 (Preview)](/cli/azure/network/dns)

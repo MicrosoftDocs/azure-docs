@@ -1,13 +1,12 @@
 ---
-title: Create a container registry in the portal | Microsoft Docs
+title: Create Azure container registry - portal | Microsoft Docs
 description: Get started creating and managing Azure container registries with the Azure portal
 services: container-registry
 documentationcenter: ''
 author: stevelas
 manager: balans
 editor: dlepow
-tags: ''
-keywords: ''
+tags: ''keywords: ''
 
 ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
@@ -17,9 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
----
-# Create a container registry using the Azure portal
-Use the Azure portal to create a container registry and manage its settings. You can also create and manage container registries using the [Azure CLI 2.0 Preview commands](container-registry-get-started-azure-cli.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
+---# Create a container registry using the Azure portal
+Use the Azure portal to create a container registry and manage its settings. You can also create and manage container registries using the [Azure CLI 2.0 commands](container-registry-get-started-azure-cli.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
 For background and concepts, see [What is Azure Container Registry?](container-registry-intro.md)
 
@@ -49,7 +47,9 @@ For background and concepts, see [What is Azure Container Registry?](container-r
    > [!IMPORTANT]
    > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md).
    
-    e. **Storage account** - Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location.
+
+    e. **Storage account** - Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location. Currently Premium Storage is not supported.
+
 
 ## Manage registry settings
 After creating the registry, find the registry settings by starting at the **Container Registries** blade in the portal. For example, you might need the settings to log in to your registry, or you might want to enable or disable the admin user.

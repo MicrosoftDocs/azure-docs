@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools for your Azure IoT Starter Kit (Windows 7 and later) | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 2: Azure tools (Windows) | Microsoft Docs'
 description: Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''

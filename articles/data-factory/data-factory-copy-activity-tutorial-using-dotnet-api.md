@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/27/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 
 ---
@@ -34,6 +34,9 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 
 > [!NOTE]
 > This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK.
+> 
+> The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
+
 
 ## Prerequisites
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
@@ -500,6 +503,12 @@ You should have following four values from these steps:
 20. Verify that the two employee records are created in the "**emp**" table in the specified Azure SQL database.
 
 ## Next Steps
-* Read through [Data Movement Activities](data-factory-data-movement-activities.md) article, which provides detailed information about the Copy Activity you used in the tutorial.
-* See [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK. This article does not cover all the Data Factory .NET API.
+| Topic | Description |
+|:--- |:--- |
+| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory. |
+| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
+| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
+[Data Factory .NET API Reference](/dotnet/api/) | Provides details about Data Factory .NET SDK (look for Microsoft.Azure.Management.DataFactories.Models in the tree view). 
+
+
 

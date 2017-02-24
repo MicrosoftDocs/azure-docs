@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/11/2017
 ms.author: chrande
 
 ---
@@ -35,7 +35,7 @@ Azure Functions supports trigger, input, and output bindings for Azure Storage b
 <a name="trigger"></a>
 
 ## Storage blob trigger
-The Azure Storage blob trigger enables you to monitor a storage container for new and updated blobs and react to it. 
+The Azure Storage blob trigger lets you monitor a storage container for new and updated blobs and run your function code when changes are detected. 
 
 The Storage blob trigger to a function uses the following JSON objects in the `bindings` array of function.json:
 
@@ -352,9 +352,9 @@ The Storage blob output for a function uses the following JSON objects in the `b
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 

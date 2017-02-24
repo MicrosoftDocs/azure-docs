@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
 
 ---
@@ -414,7 +414,7 @@ At this point, the function is ready. Make sure to switch back to the **Develop*
 ### Azure logic app
 Next you must create an Azure logic app that picks up the events that the function is pushing to the Service Bus queue, parses the content, and sends an email based on a condition being matched.
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) by going to **New > Logic App**.
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) by going to **New > Logic App**.
 
 Once the logic app is created, navigate to it and choose **edit**. Within the logic app editor, choose **Service Bus Queue** and enter your Service Bus credentials to connect it to the queue.
 

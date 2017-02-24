@@ -67,7 +67,7 @@ Create a new Explicit App ID for your application with Apple and also configure 
    > The name in your certificate might be different, but it will be prefixed with **Apple Development iOS Push Services:**.
    > 
    > 
-10. In Keychain Access, right-click the new push certificate that you just created in the **Certificates** category. Click **Export**, name the file, select the **.p12** format, and then click **Save**.
+10. In Keychain Access, control-click the new push certificate that you just created in the **Certificates** category. Click **Export**, name the file, select the **.p12** format, and then click **Save**.
     
     Remember the file name and location of the exported .p12 push certificate. It will be used to enable authentication with APNS by uploading it on the Azure Classic Portal.
 

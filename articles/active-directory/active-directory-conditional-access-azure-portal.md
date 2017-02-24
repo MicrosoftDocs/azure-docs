@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/27/2016
+ms.date: 01/19/2017
 ms.author: markvi
 
 ---
@@ -158,6 +158,32 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 ### Does conditional access work with Exchange ActiveSync?
  
 No, you cannot use Exchange ActiveSync in a conditional access policy at this point.
+
+
+### What happens if I require multi-factor authentication or a compliant device?
+
+Currently, the user will be prompted for multi-factor authentication irrespective of the device.
+
+
+## What you should avoid doing
+
+The conditional access framework provides you with a great configuration flexibility. However, great flexibility  also means that you should carefully review each configuration policy prior to releasing it to avoid undesirable results. In this context, you should pay special attention to assignments affecting complete sets such as **all users / groups / cloud apps**.
+
+In your environment, you should avoid the following configurations:
+
+
+**For all users, all cloud apps:**
+
+- **Block access** - This configuration blocks your entire organization, which is definitely not a good idea.
+
+- **Require compliant device** - For users that don't have enrolled their devices yet, this policy blocks all access including access to the Intune portal. If you are an administrator without an enrolled device, this policy blocks you from getting back into the Azure portal to change the policy.
+
+- **Require domain join** - This policy block access has also the potential to block access for all users in your organization if you don't have a domain-joined device yet.
+ 
+
+**For all users, all cloud apps, all device platforms:** 
+
+- **Block access** - This configuration blocks your entire organization, which is definitely not a good idea.
 
 
 ## Common scenarios

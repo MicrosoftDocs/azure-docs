@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/08/2017
 ms.author: jingwang
 
 ---
 # Move data From Amazon Redshift using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Redshift to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity, and a list of source/sink data stores.  
+This article outlines how you can use the Copy Activity in an Azure data factory to move data from Amazon Redshift to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity, and a list of source/sink data stores.  
 
 Data factory currently supports only moving data from Amazon Redshift to other data stores, but not for moving data from other data stores to Amazon Redshift.
 

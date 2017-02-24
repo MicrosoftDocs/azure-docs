@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Devtest Labs Documentation - Tutorials | Microsoft Docs
 description: Learn how to quickly create application test environments using reusable artifacts. Tutorials, videos, and more show you how to create, manage, and secure labs.
+services: devtest-lab
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: devtest-lab
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Devtest Labs Documentation
 
@@ -99,13 +110,4 @@ Learn how to use Devtest Labs to quickly create application test environments us
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Devtest Lab Documentation
-        </div>
-    </a>
-</div>

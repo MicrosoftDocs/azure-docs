@@ -4,7 +4,7 @@ description: Overview of the HTTP action with properties
 services: ''
 documentationcenter: ''
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -26,7 +26,7 @@ You can:
 * Create logic app workflows that activate (trigger) when a website that you manage goes down.
 * Communicate to any endpoint over HTTP to extend your workflows into other services.
 
-To get started using the HTTP action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To get started using the HTTP action in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Use the HTTP trigger
 A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
@@ -122,7 +122,7 @@ The following are output details for the HTTP response.
 | Status Code |int |HTTP status code |
 
 ## Authentication
-The Logic Apps feature of Azure App Service allows you to use different types of authentication against HTTP endpoints. You can use this authentication with the **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)**, and **[HTTP Webhook](connectors-native-webhook.md)** connectors. The following types of authentication are configurable:
+The Logic Apps feature allows you to use different types of authentication against HTTP endpoints. You can use this authentication with the **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)**, and **[HTTP Webhook](connectors-native-webhook.md)** connectors. The following types of authentication are configurable:
 
 * [Basic authentication](#basic-authentication)
 * [Client certificate authentication](#client-certificate-authentication)
@@ -206,5 +206,5 @@ For example:
 ```
 
 ## Next steps
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
 

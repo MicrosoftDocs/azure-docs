@@ -37,7 +37,7 @@ The connector supports the following database operations:
 
 This topic shows you how to use the connector in a logic app to process database operations.
 
-To learn more about Logic Apps, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To learn more about Logic Apps, see [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Available actions
 This connector supports the following logic app actions:
@@ -401,5 +401,5 @@ This connector supports the following IBM Informix versions, when configured to 
 * IBM Informix 11.7
 
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 01/11/2017
 ms.author: jeedes
 
 ---
@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Atlassian Cloud application using the following pattern: `https://<company name>.predictix.com/sso/request`
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Atlassian Cloud application using the following pattern: `https://<instancename>.atlassian.net`
 	
 	b. In the **Identifier** textbox, type the URL with the following pattern: `https://id.atlassian.com/login`
 

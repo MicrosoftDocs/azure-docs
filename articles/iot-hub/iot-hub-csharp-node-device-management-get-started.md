@@ -234,7 +234,7 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [img-servicenuget]: media/iot-hub-csharp-node-device-management-get-started/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-device-management-get-started/createnetapp.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md

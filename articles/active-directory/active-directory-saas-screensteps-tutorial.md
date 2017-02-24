@@ -166,7 +166,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 2. On the **ScreenSteps** application integration page, click **Assign users**.
    
-    ![Assign users](./media/active-directory-saas-screensteps-tutorial/IC773094.png "Assign users")
+    ![Assign users](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Assign users")
 
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    

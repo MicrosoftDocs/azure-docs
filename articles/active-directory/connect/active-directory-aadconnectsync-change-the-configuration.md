@@ -1,19 +1,18 @@
 ---
-title: 'Azure AD Connect sync: How to make a change to the default configuration | Microsoft Docs'
+title: 'Azure AD Connect sync: Make a configuration change in Azure AD Connect sync | Microsoft Docs'
 description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: andkjell
 manager: femila
 editor: ''
-
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -51,7 +50,7 @@ The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every
    ![Inbound rule filtering](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
    * Name: Give the rule a descriptive name.
    * Description: Some clarification so someone else can understand what the rule is for.
-   * Connected system: The system the object can be found in. In this case, we select the Active Directory Connector.
+   * Connected system: The system the object can be found in. In this case, select the Active Directory Connector.
    * Connected System/Metaverse Object Type: Select **User** and **Person** respectively.
    * Link Type: Change this value to **Join**.
    * Precedence: Provide a value that is unique in the system. A lower numeric value indicates higher precedence.
@@ -80,7 +79,7 @@ Start **Synchronization Service** from the start menu. The steps in this section
    ![Full sync](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
    The objects are now updated in the metaverse. You now want to look at the object in the metaverse.
 2. **Preview and full sync on a single object**  
-   Select **Connectors** at the top. Identify the Connector you made a change to in the previous section, in this case the Active Directory Domain Services, and select it. Select **Search Connector Space**. Use scope to find an object you want to use to test the change. Select the object and click **Preview**. In the new screen, select **Commit Preview**.
+   Select **Connectors** at the top. Identify the Connector you made a change to in the previous section, in this case the Active Directory Domain Services, and select it. Select **Search Connector Space**. Use scope to find an object you want to use to test the change. Select the object and click **Preview**. In the new screen, select **Commit Preview**.  
    ![Commit preview](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
    The change is now committed to the metaverse.
 
@@ -104,7 +103,7 @@ To create a rule with other attribute flows, do the following:
 
 * Start **Synchronization Rule Editor** from the start menu.
 * With **Inbound** still selected to the left, click the button **Add new rule**.
-* Give the rule a name and description. Select the on-premises Active Directory and the relevant object types.  In **Link Type**, select **Join**. For precedence, pick a number that is not used by another rule. The out-of-box rules start with 100, so the value 50 can be used in this example.
+* Give the rule a name and description. Select the on-premises Active Directory and the relevant object types. In **Link Type**, select **Join**. For precedence, pick a number that is not used by another rule. The out-of-box rules start with 100, so the value 50 can be used in this example.
   ![Attribute flow 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
 * Leave scope empty (that is, should apply to all user objects in the forest).
 * Leave join rules empty (that is, let the out-of-box rule handle any joins).
@@ -130,7 +129,7 @@ In this expression, take everything left of the first @-sign (Word) and concaten
 Some attributes in Active Directory are multi-valued in the schema even though they look single valued in Active Directory Users and Computers. An example is the description attribute.  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
-In this expression in case the attribute has a value, we take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
+In this expression in case the attribute has a value, take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
 
 ### Do not flow an attribute
 For background on the scenario for this section, see [Control the attribute flow process](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
@@ -150,6 +149,25 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 * Verify that the intended changes are about to be exported by searching the connector space.
   ![Staged delete](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
+## Create rules with PowerShell
+Using the sync rule editor works fine when you only have a few changes to make. If you need to make many changes, then PowerShell might be a better option. Some advanced features are only available with PowerShell.
+
+### Get the PowerShell script for an out-of-box rule
+To see the PowerShell script that created an out-of-box rule, select the rule in the sync rules editor and click **Export**. This action gives you the PowerShell script that created the rule.
+
+### Advanced precedence
+The out-of-box sync rules start with a precedence value of 100. If you have many forests and you need to make many custom changes, then 99 sync rules might not be enough.
+
+You can instruct the Sync Engine that you want additional rules inserted before the out-of-box rules. To get this behavior, follow these steps:
+
+1. Mark the first out-of-box sync rule (this rule is the **In from AD-User Join**) in the sync rule editor and select **Export**. Copy the SR Identifier value.  
+![PowerShell before change](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)  
+2. Create the new sync rule. You can use the sync rule editor to create it. Export the rule to a PowerShell script.
+3. In the property **PrecedenceBefore**, insert the identifier value from the out-of-box rule. Set the **Precedence** to **0**. Make sure the Identifier attribute is unique and you are not reusing a GUID from another rule. Also make sure that the **ImmutableTag** property is not set; this property should only be set for an out-of-box rule. Save the PowerShell script and run it. The result is that your custom rule is assigned the precedence value of 100 and all other out-of-box rules are incremented.  
+![PowerShell after change](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
+
+You can have many custom sync rules using the same **PrecedenceBefore** value when needed.
+
 ## Next steps
 * Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
@@ -158,4 +176,3 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 
 * [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

@@ -1,5 +1,5 @@
 ---
-title: Azure Subscription and Accounts Guidelines | Microsoft Docs
+title: Subscription and accounts for Windows VMs in Azure | Microsoft Docs
 description: Learn about the key design and implementation guidelines for subscriptions and accounts on Azure.
 documentationcenter: ''
 services: virtual-machines-windows

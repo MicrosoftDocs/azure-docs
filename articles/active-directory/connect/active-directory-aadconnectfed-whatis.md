@@ -42,7 +42,5 @@ This topic is the home for information on Federation related functionalities for
 
 ## Additional resources
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-* [AD FS deployment in Azure](active-directory-aadconnect-
-* azure-adfs.md)
+* [AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md)
 * [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-

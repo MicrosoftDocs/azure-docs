@@ -81,8 +81,7 @@ Subscriptions are assigned three types of administrator accounts:
     administrator, but otherwise have full control over subscription resources
     and users.
 
-Below the subscription level other users can be assigned permissions on
-individual resources.
+Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through an Azure Active Directory).
 
 Like AWS accounts, subscriptions have default service quotas and limits. For a
 full list of these limits, see [Azure subscription and service limits, quotas,
@@ -314,7 +313,12 @@ Autoscaling in Azure is handled by two services:
 -   [App Service
     Autoscale](https://azure.microsoft.com/documentation/articles/web-sites-scale/) - provides the capability to autoscale Azure App Service solutions.
 
-#### Other compute services
+
+#### Container Service
+The [Azure Container Service](https://docs.microsoft.com/azure/container-service/container-service-intro) supports Docker containers managed through Docker Swarm, Kubernetes, or DC/OS.
+
+#### Other compute services 
+
 
 Azure offers several compute services that do not have direct equivalents in
 AWS:

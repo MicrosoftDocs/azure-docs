@@ -4,7 +4,7 @@ description: Steps to identify and resolve common connection errors for Azure SQ
 services: sql-database
 documentationcenter: ''
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: ''
 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 
 ---
@@ -58,8 +58,8 @@ If the application persistently fails to connect to Azure SQL Database, it usual
 * User error: for example, mistyped connection parameters, such as the server name in the connection string.
 
 ### Steps to resolve persistent connectivity issues
-1. Set up [firewall rules](sql-database-configure-firewall-settings.md) to allow the client IP address.
-2. On all firewalls between the client and the Internet, make sure that port 1433 is open for outbound connections. Review [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx) for additional pointers.
+1. Set up [firewall rules](sql-database-configure-firewall-settings.md) to allow the client IP address. For temporary testing purposes, set up a firewall rule using 0.0.0.0 as the starting IP address range and using 255.255.255.255 as the ending IP address range. This will open the server to all IP addresses. If this resolves your connectivity issue, remove this rule and create a firewall rule for a appropriately limited IP address or address range. 
+2. On all firewalls between the client and the Internet, make sure that port 1433 is open for outbound connections. Review [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx) and [Hybrid Identity Required Ports and Protocols](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) for additional pointers related to additional ports that you need to open for Azure Active Directory authentication.
 3. Verify your connection string and other connection settings. See the Connection String section in the [connectivity issues topic](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4. Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
 
@@ -76,11 +76,9 @@ The following table lists every connection problem topic that applies directly t
 | 6 |[SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) |Provides info about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. |
 | 7 |[Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) |Provides guidance to help you determine which service tier is right for your application. Also provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
 | 8 |[SQL Database Development Overview](sql-database-develop-overview.md) |Provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
-| 9 |Upgrade to Azure SQL Database v12 page ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Provides directions for upgrading existing Azure SQL Database V11 servers and databases to Azure SQL Database V12 by using Azure portal or PowerShell. |
 
 ## Next steps
 * [Troubleshoot Azure SQL Database performance issues](sql-database-troubleshoot-performance.md)
-* [Troubleshoot Azure SQL Database permissions issues](sql-database-troubleshoot-permissions.md)
 * [Search the documentation on Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [View the latest updates to the Azure SQL Database service](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -88,6 +86,4 @@ The following table lists every connection problem topic that applies directly t
 * [SQL Database Development Overview](sql-database-develop-overview.md)
 * [General transient fault-handling guidance](../best-practices-retry-general.md)
 * [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-* [The learning path for using Azure SQL Database](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [The learning path for using elastic database features and tools](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
