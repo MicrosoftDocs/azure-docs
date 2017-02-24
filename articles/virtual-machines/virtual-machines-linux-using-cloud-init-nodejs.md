@@ -1,31 +1,35 @@
 ---
-title: Use cloud-init to customize a Linux VM with the Azure CLI 2.0 (Preview) | Microsoft Docs
-description: How to use cloud-init to customize a Linux VM during creation with the Azure CLI 2.0 (Preview)
+title: Using cloud-init to customize a Linux VM during creation | Microsoft Docs
+description: Using cloud-init to customize a Linux VM during creation.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: vlivech
 manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
-ms.author: iainfou
+ms.date: 10/26/2016
+ms.author: v-livech
 
 ---
-# Use cloud-init to customize a Linux VM during creation
-This article shows how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts with the Azure CLI 2.0 (Preview).  The cloud-init scripts are called during the VM creation from Azure CLI.
+# Using cloud-init to customize a Linux VM during creation
+This article shows how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts.  The cloud-init scripts are called during the VM creation from Azure CLI.  The article requires:
+
+* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
+* the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`.
+* the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](virtual-machines-linux-using-cloud-init-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](#quick-commands) - our next generation CLI for the resource management deployment model (this article)
+- [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0 (Preview)](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Quick Commands
 Create a cloud-init.txt script that sets the hostname, updates all packages, and adds a sudo user to Linux.
@@ -42,23 +46,29 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
 ```
-
-Create a resource group to launch VMs into with [az group create](/cli/azure/group#create. The following example creates the resource group named `myResourceGroup`:
+Create a resource group to launch VMs into.
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+azure group create myResourceGroup westus
 ```
 
-Create a Linux VM with [az vm create](/cli/azure/vm#create) using cloud-init to configure it during boot.
+Create a Linux VM using cloud-init to configure it during boot.
 
 ```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud-init.txt
+azure vm create \
+  -g myResourceGroup \
+  -n myVM \
+  -l westus \
+  -y Linux \
+  -f myVMnic \
+  -F myVNet \
+  -P 10.0.0.0/22 \
+  -j mySubnet \
+  -k 10.0.0.0/24 \
+  -Q canonical:ubuntuserver:14.04.2-LTS:latest \
+  -M ~/.ssh/id_rsa.pub \
+  -u myAdminUser \
+  -C cloud-init.txt
 ```
 
 ## Detailed walkthrough
@@ -100,22 +110,27 @@ To launch a cloud-init script when creating a VM in Azure, specify the cloud-ini
 
 Create a resource group to launch VMs into.
 
-Create a resource group to launch VMs into with [az group create](/cli/azure/group#create. The following example creates the resource group named `myResourceGroup`:
-
 ```azurecli
-az group create --name myResourceGroup --location westus
+azure group create myResourceGroup westus
 ```
 
-Create a Linux VM with [az vm create](/cli/azure/vm#create) using cloud-init to configure it during boot.
+Create a Linux VM using cloud-init to configure it during boot.
 
 ```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud-init.txt
+azure vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --nic-name myVMnic \
+  --vnet-name myVNet \
+  --vnet-address-prefix 10.0.0.0/22 \
+  --vnet-subnet-name mySubnet \
+  --vnet-subnet-address-prefix 10.0.0.0/24 \
+  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username myAdminUser \
+  --custom-data cloud-init.txt
 ```
 
 ## Creating a cloud-init script to set the hostname of a Linux VM
@@ -127,16 +142,23 @@ One of the simplest and most important settings for any Linux VM would be the ho
 hostname: myservername
 ```
 
-During the initial startup of the VM, this cloud-init script sets the hostname to `myservername`. Create a Linux VM with [az vm create](/cli/azure/vm#create) using cloud-init to configure it during boot.
+During the initial startup of the VM, this cloud-init script sets the hostname to `myservername`.
 
 ```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud-init.txt
+azure vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --nic-name myVMnic \
+  --vnet-name myVNet \
+  --vnet-address-prefix 10.0.0.0/22 \
+  --vnet-subnet-name mySubNet \
+  --vnet-subnet-address-prefix 10.0.0.0/24 \
+  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username myAdminUser \
+  --custom-data cloud_config_hostname.txt
 ```
 
 Login and verify the hostname of the new VM.
@@ -156,16 +178,23 @@ For security, you want your Ubuntu VM to update on the first boot.  Using cloud-
 apt_upgrade: true
 ```
 
-After Linux has booted, all the installed packages are updated via `apt-get`. Create a Linux VM with [az vm create](/cli/azure/vm#create) using cloud-init to configure it during boot.
+After Linux has booted, all the installed packages are updated via `apt-get`.
 
 ```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud_config_apt_upgrade.txt
+azure vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --nic-name myVMnic \
+  --vnet-name myVNet \
+  --vnet-address-prefix 10.0.0.0/22 \
+  --vnet-subnet-name mySubNet \
+  --vnet-subnet-address-prefix 10.0.0.0/24 \
+  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username myAdminUser \
+  --custom-data cloud_config_apt_upgrade.txt
 ```
 
 Login and verify all packages are updated.
@@ -197,16 +226,23 @@ users:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myUbuntuVM
 ```
 
-After Linux has booted, all the listed users are created and added to the sudo group. Create a Linux VM with [az vm create](/cli/azure/vm#create) using cloud-init to configure it during boot.
+After Linux has booted, all the listed users are created and added to the sudo group.
 
 ```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud_config_add_users.txt
+azure vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --nic-name myVMnic \
+  --vnet-name myVNet \
+  --vnet-address-prefix 10.0.0.0/22 \
+  --vnet-subnet-name mySubNet \
+  --vnet-subnet-address-prefix 10.0.0.0/24 \
+  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username myAdminUser \
+  --custom-data cloud_config_add_users.txt
 ```
 
 Login and verify the newly created user.
