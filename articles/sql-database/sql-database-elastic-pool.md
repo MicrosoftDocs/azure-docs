@@ -12,7 +12,7 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 02/01/2017
+ms.date: 02/24/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
@@ -20,7 +20,7 @@ ms.tgt_pltfrm: NA
 
 ---
 # What is an Azure SQL elastic pool?
-A SQL elastic pool is given a set number of eDTUs, for a set price, on an Azure logical server that are shared amongst a pool of databases on that server. SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns. You can create and manage an elastic pool using the [Azure portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API.
+A SQL elastic pool is given a set number of eDTUs, for a set price, on an Azure logical server that are shared among a pool of databases on that server. SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns. You can create and manage an elastic pool using the [Azure portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API.
 
 > [!NOTE]
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
@@ -58,7 +58,7 @@ If all DTUs of an elastic pool are used, then each database in the pool receives
 
 ## Elastic pool properties
 
-The following tables describes the limits for elastic pools and pooled databases.
+The following tables describe the limits for elastic pools and pooled databases.
 
 ### Limits for elastic pools
 | Property | Description |
