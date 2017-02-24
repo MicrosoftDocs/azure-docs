@@ -1,5 +1,5 @@
 ---
-title: SQL Database backups - automatic, geo-redundant | Microsoft Docs
+title: Azure SQL Database backups-automatic, geo-redundant | Microsoft Docs
 description: SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy.
 services: sql-database
 documentationcenter: ''
@@ -36,7 +36,7 @@ You can use these backups to:
 * To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
 >
 
 
@@ -79,12 +79,13 @@ Once you add the LTR policy to a database using Azure portal or API, the weekly 
 The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use the Aure portal or PowerShell to access these backups.
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery-portal.md)
 >
 
 ## Next steps
 
 - Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
-- To restore to a point in time, see [restore database to a point in time](sql-database-point-in-time-restore.md).
-- To view the oldest restore point from the service-generated backups of a database, see [view oldest restore point](sql-database-view-oldest-restore-point.md)
-- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](sql-database-configure-long-term-retention.md)
+- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](sql-database-point-in-time-restore-portal.md).
+- To restore to a point in time using PowerShell, see [restore database to a point in time using PowerShell](sql-database-point-in-time-restore-powershell.md).
+- To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md).
+- To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).

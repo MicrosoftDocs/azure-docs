@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/03/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 
 ---
@@ -47,7 +47,6 @@ Now, let's see what an Azure AD B2B collaboration user in State 1 looks like in 
 ![After offer redemption](media/active-directory-b2b-user-properties/after-redemption.png)
 
 ## Key properties of the Azure AD B2B collaboration user
-
 ### UserType
 This property indicates the relationship of the user to the host tenancy. This can have two values:
 - Member: This value indicates an employee of the host organization and a user in the organization's payroll. For example, this user expects to have access to internal-only sites. This user would not be considered an external collaborator.
@@ -57,8 +56,7 @@ This property indicates the relationship of the user to the host tenancy. This c
   > [!NOTE]
   > The UserType has no relation to how the user signs in, the directory role of the user, and so on. This property simply indicates the user's relationship to the host organization and allows the organization to enforce policies that depend on this property.
 
-### Source
-This property indicates how the user signs in.
+### SourceThis property indicates how the user signs in.
 
 - Invited User: This user has been invited but has not yet redeemed an invitation.
 
@@ -69,7 +67,6 @@ This property indicates how the user signs in.
 - Windows Server Active Directory: This user is signed in from on-premises Active Directory that belongs to this organization. This type of sign-in corresponds to State 3.
 
 - Azure Active Directory: This user authenticates by using an Azure AD account that belongs to this organization. This type of sign-in corresponds to State 4.
-
   > [!NOTE]
   > Source and UserType are independent properties. A value of Source does not imply a particular value for UserType.
 
@@ -97,6 +94,7 @@ Browse our other articles on Azure AD B2B collaboration:
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
 * [Delegate B2B collaboration invitations](active-directory-b2b-delegate-invitations.md)
+* [B2B collaboration user auditing and reporting](active-directory-b2b-auditing-and-reporting.md)
 * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
 * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
 * [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)

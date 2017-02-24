@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/14/2017
 ms.author: awills
 
 ---
@@ -134,7 +134,7 @@ If your app generates a lot of telemetry (and you are using the ASP.NET SDK vers
 
 
 ## Create work item
-You can create a bug in Visual Studio Team Services with the details from any telemetry item. 
+You can create a bug in GitHub or Visual Studio Team Services with the details from any telemetry item. 
 
 ![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
 
@@ -142,7 +142,7 @@ The first time you do this, you are asked to configure a link to your Team Servi
 
 ![Fill the URL of your Team Services server and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
 
-(You can also get to the configuration blade from Settings > Work Items.)
+(You can also configure the link on the Work Items blade.)
 
 ## Save your search
 When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.

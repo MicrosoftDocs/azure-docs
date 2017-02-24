@@ -21,10 +21,10 @@ ms.author: johnkem
 | Partners |  |  |
 | --- | --- | --- |
 | [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] |
-| [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] |
-| [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | | |
+| [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
+| [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
+| [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
+| [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## AlertLogic Log Manager
 Alert Logic Log Manager collects VM, Application, and Azure platform logs for security analysis and retention. This includes Azure Audit Logs via the Azure Monitor API.  This information is used to detect malfeasance and meet compliance requirements.
@@ -40,6 +40,11 @@ AppDynamics Application Performance Management (APM) enables application owners 
 You can create JIRA tickets on Azure Monitor alerts.
 
 [Go to the documentation.][atlassian-doc]
+
+## CloudHealth
+Unite and automate your cloud with a platform built to save serious time and money. With unparalleled visibility, intuitive optimization and rock-solid governance practices, CloudHealth is redefining cloud management. The Cloudhealth platform enables enterprises and MSPs to maximize return on cloud investments and make confident decisions around cost, usage, performance and security.
+
+[Learn More.][cloudhealth-doc]
 
 ## CloudMonix
 CloudMonix offers monitoring, automation and self-healing services for Microsoft Azure platform.
@@ -77,7 +82,7 @@ PagerDuty, the leading incident management solution, has provided first-class su
 
 [Go to the documentation.][pagerduty-doc]
 
-## ScienceLogic EM7
+## ScienceLogic
 ScienceLogic delivers the next generation IT service assurance platform for managing any technology, anywhere.  In one platform, ScienceLogic delivers the scale, security, automation, and resiliency necessary to simplify the ever-expanding task of managing IT resources, services, and applications that are in constant motion.  The ScienceLogic platform uses Azure APIs to interface with Microsoft Azure.  ScienceLogic gives you real-time visibility into your Azure services and resources so you know when something’s not working and can fix it faster. You can also manage Azure alongside your other clouds and data center systems and services.
 
 [Learn more.][sciencelogic-doc]
@@ -93,13 +98,16 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [Learn more.][sumologic-doc]
 
 ## Next Steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../azure-resource-manager/resource-group-audit.md)
-* [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
+* [Learn more about Azure Monitor](monitoring-overview.md)
+* [Access metrics using the REST API](monitoring-rest-api-walkthrough.md)
+* [Stream the Activity Log to a 3rd party service](monitoring-stream-activity-logs-event-hubs.md)
+* [Stream Diagnostic Logs to a 3rd party service](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
-<!--Connectors Documentation-->
+<!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
+[cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "DataDog"
@@ -107,7 +115,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
-[sciencelogic-anchor]: #sciencelogic-em7 "ScienceLogic"
+[sciencelogic-anchor]: #sciencelogic "ScienceLogic"
 [splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
 [sumologic-anchor]: #sumo-logic "Sumo Logic"
 
@@ -115,6 +123,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
 [appdynamics-logo]: ./media/partner-logos/appdynamics.png
 [atlassian-logo]: ./media/partner-logos/atlassian.png
+[cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
@@ -130,6 +139,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "AppDynamics documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
+[cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn introduction."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "DataDog documentation."

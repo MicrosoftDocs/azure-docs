@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 
 ---
 # Hybrid Identity Required Ports and Protocols
 The following document is a technical reference on the required ports and protocols for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
 
-![What is Azure AD Connect](./media/active-directory-aadconnect-ports/required2.png)
+![What is Azure AD Connect](./media/active-directory-aadconnect-ports/required3.png)
 
 ## Table 1 - Azure AD Connect and On-premises AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and on-premises AD.
@@ -67,9 +67,10 @@ This table describes the ports and protocols that are required for communication
 | HTTPS |443(TCP/UDP) |Used for device authentication. |
 | TCP |49443 (TCP) |Used for certificate authentication. |
 
-## Table 6 - Pass-through Authentication
-This table describes the ports and protocols that are required for communication between the connector and Azure AD.
+## Table 6a & 6b - Pass-through Authentication with Single Sign On (SSO) and Password Hash Sync with Single Sign On (SSO)
+The following tables describes the ports and protocols that are required for communication between the Azure AD Connect and Azure AD.
 
+### Table 6a - Pass-through Authentication with SSO
 |Protocol|Port Number|Description
 | --- | --- | ---
 |HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
@@ -80,6 +81,12 @@ This table describes the ports and protocols that are required for communication
 |HTTPS|8080/443|	Enable the Connector bootstrap sequence and Connector automatic update
 |HTTPS|9090|	Enable Connector registration (required only for the Connector registration process)
 |HTTPS|9091|	Enable Connector trust certificate automatic renewal
+
+### Table 6b - Password Hash Sync with SSO
+
+|Protocol|Port Number|Description
+| --- | --- | ---
+|HTTPS|9090|	Enable SSO registration (required only for the SSO registration process).
 
 ## Table 7a & 7b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 The following tables describe the endpoints, ports, and protocols that are required for communication between Azure AD Connect Health agents and Azure AD

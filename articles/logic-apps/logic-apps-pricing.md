@@ -23,7 +23,7 @@ All actions executed in a run of a logic app instance are metered.
 ### What are action executions?
 Every step in a logic app definition is an action, which includes triggers, control flow steps like conditions, scopes, for each loops, do until loops, calls to connectors and calls to native actions.
 Triggers are special actions that are designed to instantiate a new instance of a logic app when a particular event occurs.  There are several different behaviors for triggers, which could affect how the logic app is metered.
-* **Polling trigger** – this trigger continually polls an endpoint until it receives a message that satisfies the criteria for creating an instance of a logic app.  The polling interval can be configured in the trigger in the Logic Apps designer.  Each polling request, even if it doesn’t create an instance of a logic app, counts as an action execution.
+* **Polling trigger** – this trigger continually polls an endpoint until it receives a message that satisfies the criteria for creating an instance of a logic app.  The polling interval can be configured in the trigger in the Logic App Designer.  Each polling request, even if it doesn’t create an instance of a logic app, counts as an action execution.
 * **Webhook trigger** – this trigger waits for a client to send it a request on a particular endpoint.  Each request sent to the webhook endpoint counts as an action execution. The Request and the HTTP Webhook trigger are both webhook triggers.
 * **Recurrence trigger** – this trigger creates an instance of the logic app based on the recurrence interval configured in the trigger.  For example, a recurrence trigger can be configured to run every three days or even every minute.
 

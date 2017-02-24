@@ -152,7 +152,7 @@ To create a VNet peering by using PowerShell, please follow the steps below:
         RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
 
-	After peering is established, VMs should be able to communicate with each other across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two VNets. Read the ]network security group](virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
+	After peering is established, VMs should be able to communicate with each other across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two VNets. Read the [network security group](virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -222,7 +222,7 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 1. If you are creating a peering between VNets deployed through different deployment models in the *same* subscription, skip to step 2. The ability to create a VNet peering between VNets deployed through different deployment models in *different* subscriptions is in **preview** release. Capabilities in preview release do not have the same level of reliability and service level agreement as general release capabilities. If you are creating a peering between VNets deployed through different deployment models in different subscriptions you must first complete the following tasks:
-	- Register the preview capability in your Azure subscription by entering the following command from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
+	- Register the preview capability in your Azure subscription by entering the following commands from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` and `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network`
 	- Complete steps 1-2 in the [Peering across subscriptions](#x-sub) section of this article.
 2. Read the virtual network object for **VNET1**, the Azure Resource Manager virtual network, by entering the following command:
 

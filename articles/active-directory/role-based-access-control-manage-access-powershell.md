@@ -124,7 +124,15 @@ To remove access for users, groups, and applications, use:
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## Create a custom role
-To create a custom role, use the `New-AzureRmRoleDefinition` command. There are two methods of structuring the role, using PSRoleDefinitionObject or a JSON template. 
+To create a custom role, use the ```New-AzureRmRoleDefinition``` command. There are two methods of structuring the role, using PSRoleDefinitionObject or a JSON template. 
+
+## Get Actions from Particular Resource Provider
+When You are creating custom roles from scratch it is important to know all the possible operations from the resource providers.
+This can be achieve by using ```Get-AzureRMProviderOperation``` command. 
+For example, if you want to check all the available operations for virtual Machine then the command will be as mentioned below:
+
+```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
+
 
 ### Create role with PSRoleDefinitionObject
 When you create a custom role by using PowerShell, you can start from scratch or use one of the [built-in roles](role-based-access-built-in-roles.md) as a starting point, the latter being used in this example. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
