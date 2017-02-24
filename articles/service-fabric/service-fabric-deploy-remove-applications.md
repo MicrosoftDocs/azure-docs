@@ -32,13 +32,13 @@ Once an [application type has been packaged][10], it's ready for deployment into
 2. Register the application type
 3. Create the application instance
 
-After an app is deployed and running in the cluster, you can also remove the app. App removal involves the following steps:
+After an app is deployed and an instance is running in the cluster, you can delete the app instance and it's application type. To completely remove an app from the cluster involves the following steps:
 
-1. Remove (or delete) the running application
+1. Remove (or delete) the running application instance
 2. Unregister the application type if you no longer need it
 3. Remove the application package from the image store
 
-If you use [Visual Studio for deploying and debugging applications](service-fabric-publish-app-remote-cluster.md) on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio. 
+If you use [Visual Studio for deploying and debugging applications](service-fabric-publish-app-remote-cluster.md) on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
  
 ## Connect to the cluster
 Before you run any PowerShell commands in this article, always start by using [Connect-ServiceFabricCluster](/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to the Service Fabric cluster. To connect to the local development cluster, run the following:
@@ -175,7 +175,7 @@ PS D:\temp>
 ```
 
 ## Unregister an application type
-When a particular version of an application type is no longer needed, you should unregister it's application type by using the [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) cmdlet. Unregistering unused types releases storage space used by the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
+When a particular version of an application type is no longer needed, you should unregister the application type the [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) cmdlet. Unregistering unused application types releases storage space used by the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
 
 Run [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) to see the application types currently registered in the cluster:
 
