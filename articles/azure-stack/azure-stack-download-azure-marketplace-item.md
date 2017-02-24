@@ -26,3 +26,7 @@ After you have registered Azure Stack, you can download marketplace items from A
 3. Select the item you want in the list and then click **Download**. This starts downloading the VM image for the item you selected. Download times vary.
 4. After the download succeeds, you can deploy the new marketplace item, either as a service administrator or a tenant. Click **+New**, use **Search the marketplace** to find your item, and then click **Create**.
 5. Follow the instructions to deploy your item.
+
+## Next steps
+
+TBS
