@@ -27,7 +27,7 @@ Azure has two deployment models: Azure Resource Manager and classic. Microsoft r
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](virtual-networks-create-vnet-arm-cli-nodejs.md) – our CLI for the classic and resource management deployment models
+- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) – our CLI for the classic and resource management deployment models
 - [Azure CLI 2.0](#create-a-virtual-network) - our next generation CLI for the resource management deployment model (this article)`
  
     You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
