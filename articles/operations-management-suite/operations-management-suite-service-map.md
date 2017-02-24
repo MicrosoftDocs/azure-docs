@@ -134,7 +134,7 @@ Following is a drill-down view of Configuration Change event after selecting **S
 
 
 ## OMS Performance integration
-The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.
+The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.  Note that to get the network performance data, you must also have enabled the Wire Data 2.0 solution in OMS.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-performance.png)
 
 

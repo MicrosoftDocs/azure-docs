@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/23/2017
 ms.author: jingwang
 
 ---
@@ -185,9 +185,7 @@ The following table provides description for JSON elements specific to Web linke
 | --- | --- | --- |
 | type |The type property must be set to: **Web** |Yes |
 | Url |URL to the Web source |Yes |
-| authenticationType |Anonymous or Basic. |Yes |
-| userName |Username for Basic authentication. |Yes (for Basic Authentication) |
-| password |Password for Basic authentication. |Yes (for Basic Authentication) |
+| authenticationType |Anonymous. |Yes |
 
 ### Using Anonymous authentication
 
@@ -201,25 +199,6 @@ The following table provides description for JSON elements specific to Web linke
         {
             "authenticationType": "Anonymous",
             "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
-}
-```
-
-### Using Basic authentication
-
-```JSON
-{
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "basic",
-            "url" : "http://myit.mycompany.com/",
-            "userName": "Administrator",
-            "password": "password"
         }
     }
 }
