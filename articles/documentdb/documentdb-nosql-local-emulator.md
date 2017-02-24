@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/23/2017
 ms.author: arramac
 
 ---
@@ -245,6 +245,9 @@ To change the number of collections available to the DocumentDB Emulator, do the
 Use the following tips to help troubleshoot issues you encounter with the DocumentDB emulator:
 
 - If the DocumentDB emulator crashes, collect dump files from c:\Users\user_name\AppData\Local\CrashDumps folder, compress them, and attach them to an email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+- If you experience crashes in DocumentDB.StartupEntryPoint.exe, run the following command from an admin command prompt:
+`lodctr /R` 
 
 - If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
