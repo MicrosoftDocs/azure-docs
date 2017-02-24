@@ -180,16 +180,6 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 <br>
 
 ## F-series
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1 |1 |2 |16 |2 |2x500 |1 / moderate |
-| Standard_F2 |2 |4 |32 |4 |4x500 |2 / high |
-| Standard_F4 |4 |8 |64 |8 |8x500 |4 / high |
-| Standard_F8 |8 |16 |128 |16 |16x500 |8 / high |
-| Standard_F16 |16 |32 |256 |32 |32x500 |8 / extremely high |
-
-
-<br>
 
 | Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
