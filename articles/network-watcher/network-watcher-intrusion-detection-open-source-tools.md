@@ -31,13 +31,13 @@ This article explains how to set up your environment to perform network intrusio
 
 Both open source tools can be set up on an Azure VM, allowing you to perform this analysis within your own Azure network environment.
 
-### Steps
+## Steps
 
-#### Install Suricata
+### Install Suricata
 
 For all other methods of installation, visit http://suricata.readthedocs.io/en/latest/install.html
 
-1. In the command-line terminal of your VM runs the following commands:
+1. In the command-line terminal of your VM run the following commands:
 
     ```
     sudo add-apt-repository ppa:oisf/suricata-stable
@@ -81,7 +81,6 @@ While the logs that Suricata produces contain valuable information about what’
 1. Download the correct binary package for your system:
 
     ```
-    sudo apt-get install openjdk-8-jre
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -89,7 +88,7 @@ While the logs that Suricata produces contain valuable information about what’
 
     Other installation methods can be found at [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-1. Verify that elastic search is running with the command:
+1. Verify that Elasticsearch is running with the command:
 
     ```
     curl http://127.0.0.1:9200

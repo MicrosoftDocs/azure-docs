@@ -1,6 +1,6 @@
 ---
-title: 'Customize: Azure AD Password Management | Microsoft Docs'
-description: How to customize Password Management look and feel, behavior, and notifications in Azure AD to meet your needs.
+title: 'Customize: Azure Active Directory password management | Microsoft Docs'
+description: How to customize password management look and feel, behavior, and notifications in Azure AD to meet your needs.
 services: active-directory
 documentationcenter: ''
 author: asteen
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---
-# Customizing Password Management to fit your organization's needs
+# Customizing password management to fit your organization's needs
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
-In order to give your users the best possible experience, we recommend that you explore and play with all of the Password Management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the **Active Directory extension** in the [Azure classic portal](https://manage.windowsazure.com). This topic walks you through all of the different Password Management customizations you can make as an administrator from within **Configure** tab of your directory within the [Azure classic portal](https://manage.windowsazure.com), including:
+In order to give your users the best possible experience, we recommend that you explore and play with all of the password management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the **Active Directory extension** in the [Azure classic portal](https://manage.windowsazure.com). This topic walks you through all of the different password management customizations you can make as an administrator from within **Configure** tab of your directory within the [Azure classic portal](https://manage.windowsazure.com), including:
 
 | Topic |  |
 | --- | --- |
@@ -37,7 +37,7 @@ In order to give your users the best possible experience, we recommend that you 
 | How can I force my users to register when signing in? |[Enforced registration-based rollout of password reset](#require-users-to-register-when-signing-in) |
 | How can I force my users to re-confirm their registered periodically? |[Setting: number of days before users must re-confirm their authentication data](#number-of-days-before-users-must-confirm-their-contact-data) |
 | How can I customize how a user gets in touch with an admin? |[Setting: customize the "contact your administrator" link](#customize-the-contact-your-administrator-link) |
-| How can I allow users to unlock AD accounts without resetting a password? |[Setting: enable users to unlock their AD accounts without resetting a password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| How can I allow users to unlock on-premises AD accounts without resetting a password? |[Setting: enable users to unlock their AD accounts without resetting a password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | How can I enable password reset notifications for users? |[Setting: notify users when their passwords have been reset](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | How can I enable password reset notifications for admins? |[Setting: notify other admins when an admin reset their own password](#notify-admins-when-other-admins-reset-their-own-passwords) |
 | How can I customize password reset look and feel? |[Setting: company name, branding, and logo ](#password-management-look-and-feel) |
@@ -132,13 +132,13 @@ The following table describes how each control affects the experience for users 
             </tr>
           </tbody></table>
 
-## Password Management behavior
+## Password management behavior
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the **User Password Reset Policy** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).
 
 > [!NOTE]
 > The administrator account you are using must have an AAD Premium license assigned in order to see these policy controls.<br><br>These policy controls only apply to end users resetting their passwords, not administrators.  **Administrators have a default policy of alternate email and/or mobile phone that is specified for them by Microsoft which cannot be changed.**
-> 
-> 
+>
+>
 
 <table>
             <tbody><tr>
@@ -741,12 +741,12 @@ The following table describes how each control affects the experience for users 
                   <li class="unordered">
                                                 If the switch is set to <strong>yes</strong>, then writeback will be enabled, and federated and password hash sync’d users will be able to reset their passwords.<br><br></li>
                 </ul>
-              </td>
+              </td
             </tr>
              <tr>
               <td>
                 <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
-                  <p>Allow users to unlock accounts without resetting their password</p>
+                  <p>Allow users to unlock on-premises Active Directory accounts without resetting their password</p>
                 </div>
               </td>
               <td>
@@ -780,7 +780,7 @@ The following table describes how each control affects the experience for users 
             </tr>
           </tbody></table>
 
-## Password Management notifications
+## Password management notifications
 The following table describes how each control affects the experience for users and admins who receive password reset notifications.  You can configure these options under the **Notifications** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).
 
 <table>
@@ -861,7 +861,7 @@ The following table describes how each control affects the experience for users 
 <br/>
 <br/>
 
-## Links to password reset documentation
+## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
 * **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
