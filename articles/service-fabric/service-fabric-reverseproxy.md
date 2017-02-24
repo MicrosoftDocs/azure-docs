@@ -45,14 +45,15 @@ Instead of configuring individual service's ports in the azure load balancer, ju
 
 > [!WARNING]
 > Configuring the reverse proxy's port on the load balancer makes all micro services in the cluster that expose a http endpoint addressable from outside the cluster.
-> 
-> 
+>
+>
+
 
 ## URI format for addressing services via the reverse proxy
 The Reverse proxy uses a specific URI format to identify which service partition the incoming request should be forwarded to :
 
 ```
-http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
+http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
 * **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. In the case of HTTPS traffic, SSL termination occurs at the reverse proxy. Requests that are forwarded by the reverse proxy to services in the cluster are over http. **Note that HTTPS services are not currently supported.**
@@ -62,6 +63,10 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **Suffix path:** This is the actual URL path for the service that you want to connect to. For example, *myapi/values/add/3*
 * **PartitionKey:** For a partitioned service, this is the computed partition key of the partition you want to reach. Note that this is *not* the partition ID GUID. This parameter is not required for services using the singleton partition scheme.
 * **PartitionKind:** The service partition scheme. This can be 'Int64Range' or 'Named'. This parameter is not required for services using the singleton partition scheme.
+* **ListenerName** The endpoints from the service are of the form {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}. When the service exposes multiple endpoints, this identifies which of those endpoints the client request should be forwarded to. This can be omitted if the service has only one listener. 
+* **TargetReplicaSelector** This specifies how the target replica or instance should be selected.
+  * When the target service is stateful, the TargetReplicaSelector can be one of 'PrimaryReplica' or 'RandomSecondaryReplica' or 'RandomReplica'. The default when this param is not specified is 'PrimaryReplica'.
+  * When the target service is stateless, reverse proxy picks a random instance of the service partition to forward the request to.
 * **Timeout:**  This specifies the timeout for the http request created by the reverse proxy to the service on behalf of the client request. The default value for this is 60 seconds. This is an optional parameter.
 
 ### Example usage
@@ -129,7 +134,7 @@ The service fabric Reverse proxy can be enabled for the cluster via the [Azure R
 Once you have the template for the cluster that you want to deploy (either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
 
 1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
-   
+
     ```json
     "SFReverseProxyPort": {
         "type": "int",
@@ -140,30 +145,9 @@ Once you have the template for the cluster that you want to deploy (either from 
     },
     ```
 2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md)
-   
-    For apiVersion's prior to '2016-09-01'  the port is identified by the parameter name ***httpApplicationGatewayEndpointPort***
-   
-    ```json
-    {
-        "apiVersion": "2016-03-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-       "nodeTypes": [
-          {
-           ...
-           "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
-           ...
-          },
-        ...
-        ],
-        ...
-    }
-    ```
-   
-    For apiVersion's on or after '2016-09-01' the port is identified by the parameter name ***reverseProxyEndpointPort***
-   
+
+    The port is identified by the parameter name ***reverseProxyEndpointPort***
+
     ```json
     {
         "apiVersion": "2016-09-01",
@@ -183,7 +167,7 @@ Once you have the template for the cluster that you want to deploy (either from 
     }
     ```
 3. To address the reverse proxy from outside the azure cluster, setup the **azure load balancer rules** for the port specified in step 1.
-   
+
     ```json
     {
         "apiVersion": "[variables('lbApiVersion')]",
@@ -226,32 +210,8 @@ Once you have the template for the cluster that you want to deploy (either from 
         ]
     }
     ```
-4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md)
-   
-    For apiVersion's prior to '2016-09-01'  the certificate is identified by the parameter name ***httpApplicationGatewayCertificate***
-   
-    ```json
-    {
-        "apiVersion": "2016-03-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-            ...
-            "httpApplicationGatewayCertificate": {
-                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            },
-            ...
-            "clusterState": "Default",
-        }
-    }
-    ```
-    For apiVersion's on or after '2016-09-01'  the certificate is identified by the parameter name ***reverseProxyCertificate***
-   
+4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
+
     ```json
     {
         "apiVersion": "2016-09-01",
@@ -272,6 +232,61 @@ Once you have the template for the cluster that you want to deploy (either from 
         }
     }
     ```
+
+### Supporting Reverse proxy certificate different from Cluster certificate
+ If the reverse proxy certificate is different from the certificate used to secure the cluster, then certificate specified above should be installed on the VM and acl'ed such that service fabric can access it. This can be done via the **virtualMachineScaleSets** [Resource type section](../resource-group-authoring-templates.md). The installation can be done by adding that certificate to the osProfile and acl'ing can be done by the certificate to the extension section of the template.
+
+  ```json
+  {
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    ....
+      "osProfile": {
+          "adminPassword": "[parameters('adminPassword')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "computernamePrefix": "[parameters('vmNodeType0Name')]",
+          "secrets": [
+            {
+              "sourceVault": {
+                "id": "[parameters('sfReverseProxySourceVaultValue')]"
+              },
+              "vaultCertificates": [
+                {
+                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
+                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
+                }
+              ]
+            }
+          ]
+        }
+   ....
+   "extensions": [
+          {
+              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
+              "properties": {
+                      "type": "ServiceFabricNode",
+                      "autoUpgradeMinorVersion": false,
+                      ...
+                      "publisher": "Microsoft.Azure.ServiceFabric",
+                      "settings": {
+                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+                        "dataPath": "D:\\\\SvcFab",
+                        "durabilityLevel": "Bronze",
+                        "testExtension": true,
+                        "reverseProxyCertificate": {
+                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
+                        },
+                  },
+                  "typeHandlerVersion": "1.0"
+              }
+          },
+      ]
+    }
+  ```
+> [!NOTE]
+> When enabling reverse proxy on an existing cluster,  with certificates that are different from the cluster certificate, the reverse proxy certificate should be installed and acl'd on the cluster before enabling the reverse proxy. i.e. the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) deployment with the settings mentioned above should be completed before starting a deployment to enable the reverse proxy using the steps 1-4.
 
 ## Next steps
 * See an example of HTTP communication between services in a [sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
