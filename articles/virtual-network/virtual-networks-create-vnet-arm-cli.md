@@ -116,9 +116,9 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Which produces the following output:
 
-        Where      Name      Group
-        ---------  --------  -------
-        centralus  TestVNet  TestRG
+            Where      Name      Group
+            ---------  --------  -------
+            centralus  TestVNet  TestRG
 
 4. Create a subnet:
 

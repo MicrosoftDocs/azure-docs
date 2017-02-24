@@ -27,7 +27,7 @@ ms.author: jdial
 You can complete the task using one of the following CLI versions: 
 
 - [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#how-to-specify-a-static-private-ip-address-when-creating-a-vm) - our next generation CLI for the resource management deployment model (this article)
+- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
@@ -40,7 +40,7 @@ This article covers the Resource Manager deployment model. You can also [manage 
 > [!NOTE]
 > The sample Azure CLI 2.0 commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-cli.md).
 
-## How to specify a static private IP address when creating a VM
+## Specify a static private IP address when creating a VM
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
@@ -162,7 +162,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
    * `--nics`: Name of the NIC to which the VM is attached.
    
 
-## How to retrieve static private IP address information for a VM
+## Retrieve static private IP address information for a VM
 
 To view the static private IP address that you created, run the following Azure CLI command and observe the values for *Private IP alloc-method* and *Private IP address*:
 
@@ -197,7 +197,7 @@ The output is something like:
 }
 ```
 
-## How to remove a static private IP address from a VM
+## Remove a static private IP address from a VM
 
 You cannot remove a static private IP address from a NIC in Azure CLI for resource manager deployments. You must:
 - Create a new NIC that uses a dynamic IP

@@ -115,9 +115,6 @@ Look for the **networkInterfaces** and **subnets** properties as shown below:
 
 In the example above, the NSG is not associated to any network interfaces (NICs), and it is associated to a subnet named **FrontEnd**.
 
-## Manage rules
-You can add rules to an existing NSG, edit existing rules, and remove rules.
-
 ## Add a rule
 To add a rule allowing **inbound** traffic to port **443** from any machine to the **NSG-FrontEnd** NSG, enter the following command:
 

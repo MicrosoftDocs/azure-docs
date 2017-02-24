@@ -26,7 +26,7 @@ ms.author: jdial
 You can complete the task using one of the following CLI versions: 
 
 - [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#how-to-create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
+- [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
@@ -34,7 +34,7 @@ You can complete the task using one of the following CLI versions:
 
 The sample Azure CLI 2.0 commands following expect a simple environment already created based on the scenario preceding. 
 
-## How to create the NSG for the `FrontEnd` subnet
+## Create the NSG for the `FrontEnd` subnet
 
 To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow the steps following.
 
@@ -121,17 +121,17 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
 
     Parameters:
 
-* `--resource-group testrg`: The resource group to use. Note that it is case-insensitive.
-* `--nsg-name NSG-FrontEnd`: Name of the NSG in which the rule is created.
-* `--name rdp-rule`: Name for the new rule.
-* `--access Allow`: Access level for the rule (Deny or Allow).
-* `--protocol Tcp`: Protocol (Tcp, Udp, or *).
-* `--direction Inbound`: Direction of the connection (Inbound or Outbound).
-* `--priority 100`: Priority for the rule.
-* `--source-address-prefix Internet`: Source address prefix in CIDR or using default tags.
-* `--source-port-range "*"`: Source port or port range. Port that opened the connection.
-* `--destination-address-prefix "*"`: Destination address prefix in CIDR or using default tags.
-* `--destination-port-range 3389`: Destination port or port range. Port that receives the connection request.
+    * `--resource-group testrg`: The resource group to use. Note that it is case-insensitive.
+    * `--nsg-name NSG-FrontEnd`: Name of the NSG in which the rule is created.
+    * `--name rdp-rule`: Name for the new rule.
+    * `--access Allow`: Access level for the rule (Deny or Allow).
+    * `--protocol Tcp`: Protocol (Tcp, Udp, or *).
+    * `--direction Inbound`: Direction of the connection (Inbound or Outbound).
+    * `--priority 100`: Priority for the rule.
+    * `--source-address-prefix Internet`: Source address prefix in CIDR or using default tags.
+    * `--source-port-range "*"`: Source port or port range. Port that opened the connection.
+    * `--destination-address-prefix "*"`: Destination address prefix in CIDR or using default tags.
+    * `--destination-port-range 3389`: Destination port or port range. Port that receives the connection request.
 
 
 
@@ -226,7 +226,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
     }
     ```
 
-## How to create the NSG for the `BackEnd` subnet
+## Create the NSG for the `BackEnd` subnet
 To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the steps following.
 
 1. Create the `NSG-BackEnd` NSG with **az network nsg create**.
