@@ -21,11 +21,9 @@ ms.author: danlep
 # Set up GPU drivers for N-series VMs
 To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is also available for [Linux VMs](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). See also [General considerations for N-series VMs](#general-considerations-for-n-series-vms).
 
-> [!NOTE]
-> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website. Use of NVIDIA drivers is subject to the [License for Customer Use of NVIDIA Software](http://www.nvidia.com/content/DriverDownload-March2009/licence.php?lang=us).
->
+
 
 
 
@@ -50,9 +48,9 @@ Connect by Remote Desktop to each N-series VM. Download, extract, and install th
 | Windows Server 2016 | [369.71](https://go.microsoft.com/fwlink/?linkid=836842) (.zip) |
 | Windows Server 2012 R2 | [369.30](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)  |
 
-
-
-
+> [!NOTE]
+> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website. Use of NVIDIA drivers is subject to the [License for Customer Use of NVIDIA Software](http://www.nvidia.com/content/DriverDownload-March2009/licence.php?lang=us).
+>
 
 ## Verify GPU driver installation
 
@@ -66,21 +64,17 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 ![NVIDIA device status](./media/virtual-machines-windows-n-series-driver-setup/smi.png)  
 
-## HpcVmDrivers extension for NC24r VMs
+## RDMA network for NC24r VMs
 
 RDMA network connectivity can be enabled on NC24r VMs deployed in the same availablity set. The HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. To add the VM extension to an NC24r VM, use [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlets for Azure Resource Manager.
 
-  To get information about the latest HpcVmDrivers extension:
-
-  ```PowerShell
-  Get-AzureVMAvailableExtension -ExtensionName  "HpcVmDrivers"
-  ```
-
-  To install the latest version 1.1 HpcVMDrivers extension on an existing RDMA-capable VM named myVM:
+To install the latest version 1.1 HpcVMDrivers extension on an existing RDMA-capable VM named myVM in the West US region:
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   For more information, see [Virtual machine extensions and features for Windows](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+
+The RDMA network supports Message Passing Interface (MPI) traffic for applications running under [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) or Intel MPI 5.x. 
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
 
