@@ -20,7 +20,7 @@ ms.author: singhkay
 ---
 # Set up Key Vault for virtual machines in Azure Resource Manager with the Azure CLI 1.0
 
-This article shows how to setup Key Vault for use with Azure Virtual Machines.
+This article shows how to set up Key Vault for use with Azure Virtual Machines.
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions
