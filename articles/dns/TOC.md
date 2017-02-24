@@ -6,8 +6,7 @@
 
 ## [Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
 ### [PowerShell](dns-getstarted-create-dnszone.md)
-### [Azure CLI 1.0](dns-getstarted-create-dnszone-cli-nodejs.md)
-### [Azure CLI 2.0](dns-getstarted-create-dnszone-cli.md)
+### [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 ## [Create DNS records](dns-getstarted-create-recordset-portal.md)
 ### [PowerShell](dns-getstarted-create-recordset.md)
@@ -20,7 +19,7 @@
 
 ## Manage DNS zones
 ### [PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+### [Azure CLI](dns-operations-dnszones-cli.md)
 
 
 ## [Manage DNS records](dns-operations-recordsets-portal.md)
@@ -41,7 +40,7 @@
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
-## [Azure CLI 2.0](/cli/azure/network/dns)
+## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
