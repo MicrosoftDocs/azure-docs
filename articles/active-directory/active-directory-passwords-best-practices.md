@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---
 # Deploying Password Management and training users to use it
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 After enabling password reset, the next step you need to take is to get users using the service in your organization. To do this, you'll need to make sure your users are configured to use the service properly and also that your users have the training they need to be successful in managing their own passwords. This article will explain to you the following concepts:
 
@@ -119,11 +119,11 @@ You can upload the authentication data via the [Azure Management Portal](https:/
 2. Click on the **Users** tab.
 3. Select the user you are interested in from the list.
 4. On the first tab, you will find **Alternate Email**, which can be used as a property to enable password reset.
-   
+
    ![][005]
 5. Click on the **Work Info** tab.
 6. On this page, you will find **Office Phone**, **Mobile Phone**, **Authentication Phone**, and **Authentication Email**.  These properties can also be set to allow a user to reset his or her password.
-   
+
    ![][006]
 
 See [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) to see how each of these properties can be used.
@@ -137,7 +137,7 @@ We are working on sample training materials that you can use to get your IT orga
 <br/>
 <br/>
 
-## Links to password reset documentation
+## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
 * **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
