@@ -19,27 +19,22 @@ ms.author: cephalin
 
 # Create a web app and deploy code from a local Git repository
 
-This sample script does the following using Azure CLI 2.0: 
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
 
-* Create a web app in Azure App Service in the West Europe Azure region.
-* Deploy web app code from a local Git repository.
-* Display the deployed Azure web app in the browser.
+Before running this script, ensure that a connection with Azure has been created using the `az login` command, and that your application code is committed into a local Git repository.
 
-## Prerequisites
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
-* Run `az login` to log in to Azure.
-* Commit your web app code into a local Git repository.
-
-## Create app sample
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Create a web app and deploy code from a local Git repository")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
-az group delete --name $webappname
+az group delete --name myResourceGroup
 ```
 
 ## Script explanation

@@ -17,11 +17,12 @@ ms.date: 02/21/2017
 ms.author: cephalin
 ---
 
+
 # Create a web app with deployment from GitHub
 
-This sample script does the following using Azure CLI 2.0: 
+This sample script does the following using Azure CLI 2.0:
 
-* Create a web app in Azure App Service in the West Europe Azure region. 
+* Create a web app in Azure App Service in the West Europe Azure region.
 * Deploy your web app code from GitHub.
 * Display the deployed Azure web app in the browser.
 
@@ -40,12 +41,12 @@ This sample script does the following using Azure CLI 2.0:
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3-4 "Create a web app with deployment from GitHub")]
 
-## Clean up deployment 
+## Clean up deployment
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
-az group delete --name $webappname
+az group delete --name myResourceGroup
 ```
 
 ## Script explanation

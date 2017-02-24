@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: azure-service-management
 
-ms.assetid: 41329e96-d76d-4dd3-bec5-ef3e05968f12
+ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -24,13 +24,15 @@ In this scenario you will learn how to create an Azure SQL database and an Azure
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Connect app sample
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/connect-to-sql/connect-to-sql.sh?highlight=9-10 "SQL Database")]
 
 ## Clean up deployment 
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, VM, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup

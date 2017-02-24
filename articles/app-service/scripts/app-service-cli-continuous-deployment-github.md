@@ -19,34 +19,26 @@ ms.author: cephalin
 
 # Create a web app with continuous deployment from GitHub
 
-This sample script does the following using Azure CLI 2.0: 
+This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](app-service-cli-deploy-github.md).
 
-* Create a web app in Azure App Service in the West Europe Azure region. 
-* Deploy your web app code from GitHub.
-* Display the deployed Azure web app in the browser.
+Before running this script, ensure the following:
 
-## Prerequisites
+- A connection with Azure has been created using the `az login` command.
+- The application code is in a public or private GitHub repository that you own.
+- You have [created an access token in your GitHub account](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
-* Run `az login` to log in to Azure.
-* Put your web app code in a GitHub repository.
-* For a GitHub repository you own, [create an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
-
-> [!NOTE]
-> If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
-> cannot set up the SSH key and webhooks necessary for continuous deployment.
->
->
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Create app sample
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-github-continuous/deploy-github-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from GitHub")]
 
-## Clean up deployment 
+## Clean up deployment
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
-az group delete --name $webappname
+az group delete --name myResourceGroup
 ```
 
 ## Script explanation

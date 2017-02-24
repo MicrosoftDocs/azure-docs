@@ -20,19 +20,22 @@
 ### [Network infrastructure considerations](site-recovery-network-design.md)
 ### [Use the Site Recovery Capacity Planner](site-recovery-capacity-planner.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
+### [Run the Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ## Configure
-### [Set up the source replication environment](site-recovery-set-up-vmware-to-azure.md)
+### [Set up the source environment](site-recovery-set-up-vmware-to-azure.md)
+### [Set up the target environment](site-recovery-prepare-target-vmware-to-azure.md)
 ### [Configure replication settings](site-recovery-setup-replication-settings-vmware.md)
 ### [Deploy the Mobility service for VMware replication](site-recovery-vmware-to-azure-install-mob-svc.md)
-#### [Deploy the Mobility service using System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
-#### [Deploy the Mobility service using Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+#### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
+#### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
 ## Failover and failback
 ### [Failover in Site Recovery](site-recovery-failover.md)
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
 ### [Run a test failover to Azure](site-recovery-test-failover-to-azure.md)
 ### [Run a test failover between two VMM sites](site-recovery-test-failover-vmm-to-vmm.md)
-### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
+### [Fail back VMware VMs/physical servers from Azure](site-recovery-how-to-failback-azure-to-vmware.md)
+### [Fail back Hyper-V VMs from Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
 ## Migrate
 ### [Migrate to Azure](site-recovery-migrate-to-azure.md)
@@ -53,8 +56,8 @@
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Manage
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
-### [Edit replication settings](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
-## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
+### [Scale out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)

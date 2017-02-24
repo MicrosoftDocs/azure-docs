@@ -3,7 +3,7 @@ title: Managing custom domain names in your Azure Active Directory preview | Mic
 description: Management concepts and how-tos for managing a domain name in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: jeffsta
+author: curtand
 manager: femila
 editor: ''
 

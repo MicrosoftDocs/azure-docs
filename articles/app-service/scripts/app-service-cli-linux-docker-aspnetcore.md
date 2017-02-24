@@ -24,13 +24,15 @@ In this scenario you will learn how to create a resource group, Linux app servic
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
-## Create app sample
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-linux-docker/deploy-linux-docker.sh?highlight=6 "Linux Docker")]
 
-## Clean up deployment 
+## Clean up deployment
 
-After the script sample has been run, the follow command can be used to remove the Resource Group, VM, and all related resources.
+After the script sample has been run, the follow command can be used to remove the Resource Group, App Service app, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup

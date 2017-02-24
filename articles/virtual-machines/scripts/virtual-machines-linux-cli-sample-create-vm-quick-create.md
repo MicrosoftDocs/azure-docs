@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: nepeters
 ---
 
-# Quick Create a virtual machine with the Azure CLI
+# Create a virtual machine
 
-The sample script provided here creates an Azure Virtual Machine with an Ubuntu operating system. Once the script has been successfully run, the virtual Machine can be accessed over SSH. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+The sample script provided here creates an Azure Virtual Machine with an Ubuntu operating system. Once the script has been successfully run, the virtual Machine can be accessed over SSH. 
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 
-## Create VM sample
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-vm-quick.sh "Quick Create VM")]
 

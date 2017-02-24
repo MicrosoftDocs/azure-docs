@@ -5,10 +5,10 @@
 ## [Compare Azure hosting options](../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
 # QuickStart	
-## [Host your first ASP.NET app](../app-service-web-get-started-dotnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		
-## [Host your first ASP.NET Core app on Windows](../web-sites-create-web-app-using-vscode.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	 
-## [Host your first ASP.NET Core app on Linux](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
-## [Host an Umbraco app in the Azure portal](../app-service-web-get-started-dotnet-portal.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+## [Create your first ASP.NET app](../app-service-web-get-started-dotnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)		
+## [Create your first ASP.NET Core app on Windows](../web-sites-create-web-app-using-vscode.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	 
+## [Create your first ASP.NET Core app on Linux](../app-service-linux-how-to-create-a-web-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
+## [Create an Umbraco app in the Azure portal](../app-service-web-get-started-dotnet-portal.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [Add functionality to an app](../app-service-web-get-started-2.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
 # Common examples
@@ -19,13 +19,6 @@
 ### [Scale a web app](../../app-service/scripts/app-service-cli-scale-manual.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ### [Deploy ASP.NET Core to Linux](../../app-service/scripts/app-service-cli-linux-docker-aspnetcore.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
-## PowerShell 
-### Continuous deploy from GitHub
-### Connect to storage
-### Deploy to staging
-### Scale a web app
-### Deploy ASP.NET Core to Linux
-
 # Tutorials 		 	
 ## [ASP.NET app with Visual Studio](../web-sites-dotnet-get-started.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [Mobile friendly web app](../web-sites-dotnet-deploy-aspnet-mvc-mobile-app.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
@@ -35,12 +28,8 @@
 
 # How-To Guides
 ## Develop your app	
-### Set up your ASP.NET app
 ### [Configure runtime](../web-sites-configure.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
-			
-### Configure server	
-#### Configure IIS server
-#### Configure Apache on Linux
+
 			
 ### Configure application	
 #### [Use app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
@@ -56,8 +45,7 @@
 ### [Deploy with template](../app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ### [Agile deployment](../app-service-agile-software-development.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ### [Beta testing](../app-service-web-test-in-production-controlled-test-flight.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
-### Deploy WebJobs
-### Automate deployment with CLI
+
 ### [Set deployment credentials](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
 ### Map custom domain
@@ -67,14 +55,12 @@
 #### [Map GoDaddy domains](../web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 #### [Migrate an active domain](../app-service-custom-domain-name-migrate.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 
-### Debug remotely
-### Profile your app remotely
+
 ### [Migrate from IIS](../web-sites-migration-from-iis-server.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ### [Test in production](../app-service-web-test-in-production-get-start.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ### [Run performance tests](../app-service-web-app-performance-test.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json) 
 			
 ## Connect to DB/resources		
-### Connect to local DB
 ### [Connect to on-premises data](../web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json) 
 ### [Connect to Azure VNet](../web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ### [Connect to Azure VNet with PowerShell](../app-service-vnet-integration-powershell.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
@@ -120,17 +106,13 @@
 
 # Concepts
 ## [App Service](../../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
-### Service architecture
-### Service types
-### App state
+
 ## [App Service plans](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
 ## [App Service Environments](../app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## Deployment slots	
 ## [Authentication and authorization](../../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [Authentication with on-premises AD](../web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
-## Extensibility	
-### API
-### Site extensions
+
 
 # Reference	
 ## [CLI 2.0](/cli/azure/appservice)
@@ -142,11 +124,9 @@
 ## [Quota Information](../../azure-subscription-service-limits.md#app-service-limits?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
 ## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](../app-service-best-practices.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
-## Community Content	
+
 ## [Samples](https://azure.microsoft.com/resources/samples/?service=app-service&platform=dotnet)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=app-service)
 ## Cookbooks	
 ### [Reference Architectures](../../guidance/guidance-ra-app-service.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)	
 ### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	
-### Common Web.config	
-### Common Application.xdt Transforms

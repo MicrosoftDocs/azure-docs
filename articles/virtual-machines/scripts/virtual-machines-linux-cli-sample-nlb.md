@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: nepeters
 ---
 
-# Load balance traffic between highly available virtual machines
+# Create a highly available VM
 
-This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. The outcome of this script is three virtual machines joined to an Azure Availability Set and accessible through an Azure Load Balancer. This sample works in Bash. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. The outcome of this script is three virtual machines joined to an Azure Availability Set and accessible through an Azure Load Balancer. 
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 
-## Create VM with network load balancer
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Quick Create VM")]
 
