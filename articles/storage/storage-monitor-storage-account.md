@@ -55,53 +55,21 @@ You should start seeing monitoring data in the charts on the storage account bla
 > Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see [How metrics are stored](storage-analytics.md#how-metrics-are-stored).
 >
 
-## How to: Customize the Monitor page
-
-On the **Monitor** page, you can view the full set of metrics for your storage account.
-
-* If your storage account has minimal monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.
-* If your storage account has verbose monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.
-
-Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed on the **Monitor** page. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.
-
-## How to: Add metrics to the metrics table
-
-1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
-2. Click **Monitor**.
-   
-    The **Monitor** page opens. By default, the metrics table displays a subset of the metrics that are available for monitoring. The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services. Use **Add Metrics** to select the metrics you want to monitor from all available metrics.
-   
-    ![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
-   
-   > [!NOTE]
-   > Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see [Storage Analytics and Billing](http://msdn.microsoft.com/library/azure/hh360997.aspx).
-   > 
-   > 
-3. Click **Add Metrics**.
-   
-    The aggregate metrics that are available in minimal monitoring are at the top of the list. If the check box is selected, the metric is displayed in the metrics list.
-   
-    ![AddMetricsInitialDisplay](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
-4. Hover over the right side of the dialog box to display a scrollbar that you can drag to scroll additional metrics into view.
-   
-    ![AddMetricsScrollbar](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
-5. Click the down arrow by a metric to expand a list of operations the metric is scoped to include. Select each operation that you want to view in the metrics table in the [Azure portal](https://portal.azure.com).
-   
-    In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
-   
-    ![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
-6. After you select metrics for all services, click OK (checkmark) to update the monitoring configuration. The selected metrics are added to the metrics table.
-7. To delete a metric from the table, click the metric to select it, and then click **Delete Metric**.
-   
-    ![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
-
 ## How to: Customize metrics charts
 
-1. On the **Monitor** page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the chart, clear the check box.
-2. To switch the chart between relative values (final value only displayed) and absolute values (Y axis displayed), select **Relative** or **Absolute** at the top of the chart.
-3. To change the time range the metrics chart displays, select **6 hours**, **24 hours**, or **7 days** at the top of the chart.
+Use the following procedure to choose which storage metrics to view in metrics charts. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.
 
-## How to: Add metrics to your portal dashboard
+* If your storage account has **aggregate** monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.
+* If your storage account has **per API** monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.
+
+## How to: Add metrics charts the storage account blade
+
+A default set of metrics charts are displayed on the storage account blade. Use the following procedure to choose which storage metrics charts to display on your storage account blade.
+
+1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. Select TODO.
+
+## How to: Add metrics to the portal dashboard
 
 You can add Azure Storage metrics charts for any of your storage accounts to your portal dashboard.
 
@@ -110,7 +78,7 @@ You can add Azure Storage metrics charts for any of your storage accounts to you
 1. Select **Type** > **Storage accounts**.
 1. In **Resources**, select the storage account whose metrics you wish to add to the dashboard.
 1. Select **Categories** > **Monitoring**.
-1. Drag-and-drop the chart tile onto your dashboard for the metric you'd like displayed. Repeat for all metrics you'd like displayed on the dashboard. In the following image, the "Blobs - Total requests" is highlighted as an example, but all of the charts are available for placement on your dashboard.
+1. Drag-and-drop the chart tile onto your dashboard for the metric you'd like displayed. Repeat for all metrics you'd like displayed on the dashboard. In the following image, the "Blobs - Total requests" chart is highlighted as an example, but all of the charts are available for placement on your dashboard.
 1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
    ![Selecting a metrics chart to add to the portal dashboard](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
@@ -125,15 +93,20 @@ For each of the storage services available with your storage account (blob, tabl
 > Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
 >
 
-1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
-2. Click **Configure**, and use the Down arrow on the keyboard to scroll down to **logging**.
-   
-    ![Storagelogging](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
-3. For each service (blob, table, and queue), configure the following:
-   
-   * The types of request to log: Read Requests, Write Requests, and Delete Requests.
-   * The number of days to retain the logged data. Enter zero is if you do not want to set a retention policy. If you do not set a retention policy, it is up to you to delete the logs.
-4. Click **Save**.
+1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
+1. Open the **Diagnostic blade**--scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
+1. Select the **services** for which you'd like to enable logging.
+
+    ![Storagelogging](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
+1. Click **Save**.
 
 The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/library/azure/hh343262.aspx).
+
+> [NOTE!]
+> Logging is currently supported for the Blob, Table, and Queue services. The File service does not yet support logging.
+>
+
+## Next steps
+
+* TODO
 
