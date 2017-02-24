@@ -25,7 +25,7 @@ ms.author: janeng
 You can create single databases with dedicated resource on the [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) selected. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across the databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
 
 In both cases, the service tiers include **Basic**, **Standard**, and **Premium**. 
-o
+
 ## Choosing a service tier
 The following table provides examples of the tiers best suited for different application workloads.
 
