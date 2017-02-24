@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 01/04/2017
+ms.date: 02/23/2017
 ms.author: bharatn
 
 ---
@@ -63,7 +63,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **Suffix path:** This is the actual URL path for the service that you want to connect to. For example, *myapi/values/add/3*
 * **PartitionKey:** For a partitioned service, this is the computed partition key of the partition you want to reach. Note that this is *not* the partition ID GUID. This parameter is not required for services using the singleton partition scheme.
 * **PartitionKind:** The service partition scheme. This can be 'Int64Range' or 'Named'. This parameter is not required for services using the singleton partition scheme.
-* **ListenerName** The endpoints from the service are of the form {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}. When the service exposes multiple endpoints, this identifies which of those endpoints the client request should be forwarded to. This can be omitted if the service has only one listener. 
+* **ListenerName** The endpoints from the service are of the form {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}. When the service exposes multiple endpoints, this identifies which of those endpoints the client request should be forwarded to. This can be omitted if the service has only one listener.
 * **TargetReplicaSelector** This specifies how the target replica or instance should be selected.
   * When the target service is stateful, the TargetReplicaSelector can be one of 'PrimaryReplica' or 'RandomSecondaryReplica' or 'RandomReplica'. The default when this param is not specified is 'PrimaryReplica'.
   * When the target service is stateless, reverse proxy picks a random instance of the service partition to forward the request to.
