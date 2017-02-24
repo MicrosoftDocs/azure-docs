@@ -32,7 +32,7 @@ az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-depl
 ```
 
 ## Update a Key Vault for use with VMs
-Set the deployment policy on an existing key vault with [az keyvault update](/cli/azure/keyvault#update]. The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
+Set the deployment policy on an existing key vault with [az keyvault update](/cli/azure/keyvault#update). The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
