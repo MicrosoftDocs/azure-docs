@@ -25,7 +25,7 @@ This article answers some of the most common questions about Azure DevTest Labs.
 ## General
 * [What if my question isn't answered here?](#what-if-my-question-isnt-answered-here)
 * [Why should I use Azure DevTest Labs?](#why-should-i-use-azure-devtest-labs) 
-* [What does "worry-free, self-service" mean?](#what-does-quotworry-free-self-servicequot-mean)
+* [What does "worry-free, self-service" mean?](#what-does-worry-free-self-service-mean)
 * [How can I use Azure DevTest Labs?](#how-can-i-use-azure-devtest-labs) 
 * [How am I billed for Azure DevTest Labs?](#how-am-i-billed-for-azure-devtest-labs) 
 

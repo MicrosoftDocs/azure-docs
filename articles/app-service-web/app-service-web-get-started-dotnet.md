@@ -20,7 +20,7 @@ ms.author: cephalin
 # Deploy your first ASP.NET web app to Azure in five minutes (CLI 2.0 Preview)
 
 > [!div class="op_single_selector"]
-> * [First HTML site](app-service-web-get-started-html.md)
+> * [First static site](app-service-web-get-started-html.md)
 > * [First .NET app](app-service-web-get-started-dotnet.md)
 > * [First PHP app](app-service-web-get-started-php.md)
 > * [First Node.js app](app-service-web-get-started-nodejs.md)
@@ -63,7 +63,7 @@ You can complete the task using one of the following CLI versions:
 > 
 
 ## Deploy an ASP.NET web app
-1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
+1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `az --version` to verify that Git and Azure CLI
    are installed on your machine.
    
     ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
@@ -132,7 +132,7 @@ Congratulations, you have deployed your app to Azure App Service.
 ## See your app running live
 To see your app running live in Azure, run this command from any directory in your repository:
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## Make updates to your app
 You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code

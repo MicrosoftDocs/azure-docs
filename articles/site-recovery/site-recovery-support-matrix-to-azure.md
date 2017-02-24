@@ -24,7 +24,7 @@ ms.author: rajanaki
 > * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 
-This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about prerequisites for Azure Site Recovery, see [Site Recovery best practices](site-recovery-best-practices.md).
+This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
 
 ## Support for deployment options
@@ -61,7 +61,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## Support for replicated machine OS versions
 
-Virtual machines that are protected must meet [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) when replicating to Azure.
+Virtual machines that are protected must meet [Azure requirements](#failed-over-azure-vm-requirements) when replicating to Azure.
 The following table summarizes replicated operating system support in various deployment scenarios while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
 
  **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
@@ -148,7 +148,7 @@ Multi-path (MPIO) | N/A | Yes | Yes
 
 **Azure storage** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
 --- | --- | --- | ---
-LRS | Yes | Yes | Yes 
+LRS | Yes | Yes | Yes
 GRS | Yes | Yes | Yes
 Cool storage | No | No | No
 Hot storage| No | No | No
@@ -207,4 +207,4 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 
 
 ## Next steps
-[Prepare for deployment](site-recovery-best-practices.md)
+[Check prerequisites](site-recovery-prereq.md)
