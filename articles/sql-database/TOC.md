@@ -17,12 +17,6 @@
 ### [Security overview](sql-database-security-overview.md)
 ### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
-# Common Examples
-## [Azure CLI samples - bash](sql-database-cli-samples.md)
-### [Create a SQL database and configure a firewall rule](sql-database-create-and-configure-database-cli.md)
-### [Monitor and scale a SQL database](sql-database-monitor-and-scale-database-cli.md)
-### [Create elastic pools and move databases between pools and out of a pool](sql-database-move-database-between-pools-cli.md)
-### [Create and scale an elastic pool](sql-database-scale-pool-cli.md)
 # Get Started
 ## Databases and servers
 ### Learn
