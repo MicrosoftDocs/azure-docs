@@ -4,7 +4,7 @@ sql-database-elastic-pool.md
 sql-database-resource-limits.md
 sql-database-service-tiers.md  
 -->
-
+ 
 ### Basic elastic pool limits
 
 | Pool size (eDTUs)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
@@ -75,5 +75,6 @@ sql-database-service-tiers.md
 | Max eDTUs per database | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Pooled databases share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database. Max storage per pool refers to the maximum storage of the data files in the pool and does not include space used by log files.
-
+> [!IMPORTANT]
+>\* Pooled databases share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database. Max storage per pool refers to the maximum storage of the data files in the pool and does not include space used by log files.
+>
