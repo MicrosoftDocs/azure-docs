@@ -99,61 +99,61 @@ The following code example uses Media Services .NET SDK to perform the following
 			    // This output is specified as AssetCreationOptions.None, which 
 			    // means the output asset is not encrypted. 
 			    // It is also specified to use AssetFormatOption.AdaptiveStreaming, 
-            // which means the output asset will contain fMP4 chunks.
+			    // which means the output asset will contain fMP4 chunks.
 
-            task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks",
-                    options: AssetCreationOptions.None,
-                    formatOption: AssetFormatOption.AdaptiveStreaming);
+			    task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks",
+				    options: AssetCreationOptions.None,
+				    formatOption: AssetFormatOption.AdaptiveStreaming);
 
-            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-            job.Submit();
-            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+			    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+			    job.Submit();
+			    job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
-            return job.OutputMediaAssets[0];
-        }
-        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-        {
-            Console.WriteLine("Job state changed event:");
-            Console.WriteLine("  Previous state: " + e.PreviousState);
-            Console.WriteLine("  Current state: " + e.CurrentState);
-            switch (e.CurrentState)
-            {
-                case JobState.Finished:
-                    Console.WriteLine();
-                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                    break;
-                case JobState.Canceling:
-                case JobState.Queued:
-                case JobState.Scheduled:
-                case JobState.Processing:
-                    Console.WriteLine("Please wait...\n");
-                    break;
-                case JobState.Canceled:
-                case JobState.Error:
+			    return job.OutputMediaAssets[0];
+			}
+			private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+			{
+			    Console.WriteLine("Job state changed event:");
+			    Console.WriteLine("  Previous state: " + e.PreviousState);
+			    Console.WriteLine("  Current state: " + e.CurrentState);
+			    switch (e.CurrentState)
+			    {
+				case JobState.Finished:
+				    Console.WriteLine();
+				    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+				    break;
+				case JobState.Canceling:
+				case JobState.Queued:
+				case JobState.Scheduled:
+				case JobState.Processing:
+				    Console.WriteLine("Please wait...\n");
+				    break;
+				case JobState.Canceled:
+				case JobState.Error:
 
-                    // Cast sender as a job.
-                    IJob job = (IJob)sender;
+				    // Cast sender as a job.
+				    IJob job = (IJob)sender;
 
-                    // Display or log error details as needed.
-                    break;
-                default:
-                    break;
-            }
-        }
-        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-        {
-            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+				    // Display or log error details as needed.
+				    break;
+				default:
+				    break;
+			    }
+			}
+			private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+			{
+			    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+			    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-            if (processor == null)
-                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+			    if (processor == null)
+				throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-            return processor;
-        }
+			    return processor;
+			}
 
-    }
+		    }
 
-}
+		}
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
