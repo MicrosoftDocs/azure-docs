@@ -5,7 +5,7 @@ keywords: database options,database performance
 services: sql-database
 documentationcenter: ''
 author: janeng
-manager: jhubbard
+emanager: jhubbard
 editor: ''
 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+wms.date: 02/09/2017
 ms.author: janeng
 
 ---
@@ -25,7 +25,7 @@ ms.author: janeng
 You can create single databases with dedicated resource on the [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) selected. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across the databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
 
 In both cases, the service tiers include **Basic**, **Standard**, and **Premium**. 
-
+o
 ## Choosing a service tier
 The following table provides examples of the tiers best suited for different application workloads.
 
@@ -45,7 +45,7 @@ First decide if you want to run a single database or if you want to group databa
 Once you have determined the minimum service tier, you are ready to determine the performance level for the database (the number of DTUs). The standard S2 and S3 performance levels are often a good starting point. For databases with high CPU or IO requirements, the Premium performance levels are the right starting point. Premium offers more CPU and starts at 10x more IO compared to the highest Standard performance level.
 
 ## Single database service tiers and performance levels
-For single databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands using the [Azure portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C#, and the REST API. 
+For single databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands using the [Azure portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C#, and the REST API. 
 
 Regardless of the number of databases hosted, your database gets a guaranteed set of resources and the expected performance characteristics of your database are not affected.
 
@@ -57,7 +57,7 @@ Regardless of the number of databases hosted, your database gets a guaranteed se
 
 ## Scaling up or scaling down a single database
 
-After initially picking a service tier and performance level, you can scale a single database up or down dynamically based on actual experience. If you need to scale up or down, you can easily change the tiers of your database using the [Azure portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C#, and the REST API. 
+After initially picking a service tier and performance level, you can scale a single database up or down dynamically based on actual experience. If you need to scale up or down, you can easily change the tiers of your database using the [Azure portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C#, and the REST API. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
