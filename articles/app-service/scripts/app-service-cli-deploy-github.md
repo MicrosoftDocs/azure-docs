@@ -39,7 +39,7 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3-4 "Create a web app with deployment from GitHub")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app with deployment from GitHub")]
 
 ## Clean up deployment
 
