@@ -24,7 +24,7 @@ This article introduces how to deploy a NAT firewall using FreeBSD’s PF throug
 PF (Packet Filter, also written pf) is a BSD licensed stateful packet filter, a central piece of software for firewalling. PF has since evolved quickly and now has several advantages over other available firewalls. Network Address Translation (NAT) is in PF since day one, then packet scheduler and active queue management have been integrated into PF, by integrating the ALTQ and making it configurable through PF's configuration. Features such as pfsync and CARP for failover and redundancy, authpf for session authentication, and ftp-proxy to ease firewalling the difficult FTP protocol, have also extended PF.
 In short, PF is a powerful and feature-rich firewall. 
 
-## Get Started
+## Get started
 If you are interested in setting up a secure firewall in the cloud for your web servers, then let’s get started. And you also could apply the scripts used in this Azure Resource Manager template to set up your networking topology.
 The Azure Resource Manager template set up a FreeBSD virtual machine that performs NAT /redirection using PF and two FreeBSD virtual machines with the Nginx web server installed and configured. In addition to performing NAT for the two web servers egress traffics, the NAT/redirection virtual machine intercepts HTTP requests and redirect them to the two web servers in round-robin fashion. The VNet uses the private non-routable IP address space 10.0.0.2/24 and you can modify the parameters of the template. The Azure Resource Manager template also defines a route table for the whole VNet, which is a collection of individual routes used to override Azure default routes based on the destination IP address. 
 
@@ -136,7 +136,7 @@ After about five minutes, you will get below deployment information. You can acc
     data:    _artifactsLocation            String        https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/
     info:    group deployment create command OK
 
-## Next Step
+## Next step
 Do you want to set up your own NAT in Azure? Open Source, free but secure? Then PF is a good choice. By using [preceding Azure template](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you just need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario.
 
 If you want to learn the offering of FreeBSD in Azure, refer to [introduction to FreeBSD on Azure](./virtual-machines-freebsd-intro-on-azure.md).
