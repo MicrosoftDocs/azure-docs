@@ -1,10 +1,9 @@
-When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage.
+When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. Detaching a disk removes the disk from the virtual machine, but doesn't delete the disk from the Azure storage account.
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
 
 > [!NOTE]
-> To detach an operating system disk you first need to delete the virtual machine.
->
+> To detach an operating system disk, you first need to delete the virtual machine.
 >
 
 ## Find the disk
