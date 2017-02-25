@@ -122,10 +122,10 @@ In this Step, you will learn how to perform Domain Ownership Verification for an
      
       **DNS TXT Record Verification**
         
-        * Using your DNS manager, Create a TXT record on the **‘DZC’** subdomain with value equal to the **Domain Verification Token.**
+        * Using your DNS manager, Create a TXT record on the **‘@’** subdomain with value equal to the **Domain Verification Token.**
         * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
           
-          For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **cAGgQrKc**, you need to create a TXT record on dzc.contosocertdemo.com with value **cAGgQrKc.**     
+          For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **tgjgthq8d11ttaeah97s3fr2sh**, you need to create a TXT record on contosocertdemo.com with value **tgjgthq8d11ttaeah97s3fr2sh.**     
 
 ## <a name="bkmk_AssignCertificate"></a>Step 3: Assign Certificate to App Service App
 In this Step, you will learn how to assign this newly purchased certificate to your App Service Apps. 
