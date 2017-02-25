@@ -22,15 +22,17 @@ If you don't know the name of the disk or want to verify it before you detach it
 ## Detach the disk
 1. From the Azure portal, click **Virtual Machines**, and then click the name of the virtual machine that has the data disk you want to detach.
 
-2. Click the disk you want to detach.
+2. Click **Disks** along the left edge of the virtual machine dashboard, under **Settings**.
+
+3. Click the disk you want to detach.
 
   ![Identify the disk to detach](./media/howto-detach-disk-windows-linux/disklist.png)
 
-3. From the command bar, click **Detach**.
+4. From the command bar, click **Detach**.
 
   ![Locate the detach command](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
-4. In the confirmation window, click **Yes** to detach the disk.
+5. In the confirmation window, click **Yes** to detach the disk.
 
   ![Confirm detaching the disk](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
