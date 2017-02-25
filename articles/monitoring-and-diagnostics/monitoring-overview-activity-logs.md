@@ -20,11 +20,9 @@ ms.author: johnkem
 # Overview of the Azure Activity Log
 The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model.
 
-The following diagram shows a conceptual view of Azure monitoring, including the type of logs you can collect and what you can do with that data.   
+![Activity Logs vs other types of logs ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
-![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v1.png)
-
-Figure 1: Activity Logs and where you can send them and access them from.
+Figure 1: Activity Logs vs other types of logs
 
 The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource.
 
@@ -42,12 +40,16 @@ View the following video introducing the Activity Log.
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
 
-* Query and view it in the **Azure portal**.
-* Query it via REST API, PowerShell Cmdlet, or CLI.
+![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+
+
 * [Create an email or webhook alert that triggers off an Activity Log event.](insights-auditlog-to-webhook-email.md)
-* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
-* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
+* Query and view it in the **Azure portal**.
+* Query it via PowerShell Cmdlet, CLI, or REST API.
+
 
 You can use a storage account or event hub namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 

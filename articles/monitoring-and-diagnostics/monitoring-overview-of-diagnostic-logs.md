@@ -24,13 +24,9 @@ Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or O
 
 Not all resources support the new type of Diagnostic Logs described here. The following list of Supported Services shows which resource types support the new Diagnostic Logs.
 
-![Diagnostic Logs in Compute ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Overview_compute_v2.png)
+![Diagnostics Logs vs other types of logs ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
-Figure 1: Diagnostics logs when gathering information from an application running on Azure compute
-
-![Diagnostic Logs in Compute ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Overview_non-compute_v2.png)
-
-Figure 2: Diagnostics logs when gathering information on a non compute resource
+Figure 1: Diagnostics Logs vs other types of logs
 
 ## What you can do with Diagnostic Logs
 Here are some of the things you can do with Diagnostic Logs:
