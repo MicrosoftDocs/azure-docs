@@ -9,7 +9,6 @@
 |                                                                                           | A1v2-A8v2 |  | 160        |
 |                                                                                           | D      | Applications that demand faster CPUs, better local disk performance, or higher memories. | 160        |
 |                                      | Dv2    | Applications that demand more powerful CPUs, which are about 35% faster than D-series.                                                         | 210 - 250* |
-
 | [High Performance Compute](../articles/virtual-machines/virtual-machines-windows-sizes-hpc.md) | A8-11  | Compute-intensive workloads like HPC.                                                                                                          | 225*       |
 |                                      | H      | Financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.                                           | TBD        |
 | [Compute optimized](../articles/virtual-machines/virtual-machines-windows-sizes-compute.md)                    | F      | Higher CPU to memory ratio. Good for web servers, network appliances, batch process and application servers.                                   | 210 - 250* |
