@@ -28,9 +28,9 @@ Remote Desktop Protocol (RDP) traffic can be published through Azure AD Applicat
 
 ## Remote Desktop deployment
 
-Within the Remote Desktop deployment, the Remote Desktop Gateway is published so that it can convert the remote procedure call (RPC) over HTTPS traffic to RDP over User Datagram Protocol (UDP) traffic.
+Within the Remote Desktop deployment, Remote Desktop Gateway is published so that it can convert the remote procedure call (RPC) over HTTPS traffic to RDP over User Datagram Protocol (UDP) traffic.
 
-You can configure the clients to use Remote Desktop clients, such as MSTSC.exe, to access the Azure AD Application Proxy. In this way, you create a new HTTPS connection to the Remote Desktop Gateway by using its connectors. As a result, the Gateway is not directly exposed to the Internet, and all HTTPS requests will first be terminated in the cloud.
+You can configure the clients to use Remote Desktop clients, such as MSTSC.exe, to access the Azure AD Application Proxy. In this way, you create a new HTTPS connection to Remote Desktop Gateway by using its connectors. As a result, the gateway is not directly exposed to the Internet, and all HTTPS requests will first be terminated in the cloud.
 
 The topology is shown in the following diagram:
 
@@ -48,7 +48,7 @@ If no Remote Desktop Gateway URL is configured, users or admins can specify it i
 
  ![Remote Desktop Connection dialog box](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-advanced.png)
 
-The Connection Settings dialog box appears when you click **Settings** in the **Advanced** tab.
+The **Connection settings** dialog box appears when you click **Settings** on the **Advanced** tab.
 
  ![Connection settings window in the Remote Desktop Connection dialog box](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-settings.png)
 
