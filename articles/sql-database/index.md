@@ -123,7 +123,7 @@ Learn how to use SQL Database, a relational database-as-a-service in the cloud b
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
                         <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Elastic DB)</a></p>
-                        <p><a href="/cli/azure/appservice">Azure CLI 2​.0">Azure CLI 2.0</a></p>
+                        <p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
