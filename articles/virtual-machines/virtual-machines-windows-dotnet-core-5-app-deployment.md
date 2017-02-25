@@ -115,6 +115,46 @@ Notice in the below JSON that the script is stored in GitHub. This script could 
 }
 ```
 
+As mentioned above, it is also possible to store your script resources in Azure Blob storage. There are two options for storing the script resources in blob storage; either make the container/script public and follow the same approach as above, altering the fileUris as required, or it can also be kept in private blob storage. In order to use private blob storage, it is necessary to provide the storageAccountName and storageAccountKey to the CustomScriptExtension JSON settings section to allow the extension to access the storage account and download the script or resource(s).
+
+In the example below, as well as altering the fileUris to obtain the file from the storageaccount, we provide additional settings within the protectedSettings section; specifically the name of the storageAccount that contains the files, and the storageAccountKey. While it is possible to provide the storage account key manually as a parameter or variable, ARM templates provide the listKeys function that will return the storageAccountKey programmatically - this means that if the storage account key is changed, your template will continue to work without an update.
+
+In order to use the listKeys function however, you must have appropriate permissions (list keys) on the storage account containing the script(s)/resource(s) defined in fileUris. The following example use of listKeys shows how to obtain the key from a storage account that contains the scripts, which is in a different resource group than that being deployed to but that is in the same subscription. Additionally, you must specify the resource group name of the storage account that contains the scripts, otherwise it is assumed the storage account with the scripts is in the same resource group you are deploying to, so providing the name of the resource group that contains the storage account with the scripts is also required when using listKeys.
+
+It should be noted that while the example below uses defined values for the storage account name and its resource group's name, these can be passed as parameters or variables.
+
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://mystorageaccount9999.blob.core.windows.net/container/configure-music-app.ps1"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]",
+      "storageAccountName": "mystorageaccount9999",
+      "storageAccountKey": "[listKeys(resourceId('mysa999rgname','Microsoft.Storage/storageAccounts', mystorageaccount9999), '2015-06-15').key1]"
+    }
+  }
+}
+```
+
 For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Next Step
