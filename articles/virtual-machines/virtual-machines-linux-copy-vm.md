@@ -85,14 +85,14 @@ Depending on the storage type of your source VM, follow the instructions in eith
 
 1. To create a copy of a virtual hard disk, you need the Azure storage account keys and the URI of the disk. To view the storage account keys, use [az storage account keys list](/cli/azure/storage/account/keys#list).
 
-The following example lists the keys for the storage account `mystorageaccount` in the resource group `myResourceGroup`:
+ The following example lists the keys for the storage account `mystorageaccount` in the resource group `myResourceGroup`:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
         --name mystorageaccount --output table
     ```
 
-    The output is similar to the following example:
+ The output is similar to the following example:
 
     ```azurecli
     KeyName    Permissions    Value
@@ -181,4 +181,4 @@ You can now create a VM by using [az vm create](/cli/azure/vm#create). As when y
     ```
 
 ## Next steps
-To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for the Azure Resource Manager](azure-cli-arm-commands.md).
+To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for Azure Resource Manager](azure-cli-arm-commands.md).
