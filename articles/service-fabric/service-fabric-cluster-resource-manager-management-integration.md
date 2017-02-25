@@ -98,7 +98,7 @@ With all of these constraints, you may have been thinking “Hey – I think tha
 
 Well it turns out we can do that! Constraints can be configured with a few different levels of enforcement, but they boil down to “hard” (0), “soft” (1), “optimization” (2), and “off” (-1). Most of the constraints we’ve defined as hard by default. For example, most people don’t normally think about capacity as something they are willing to relax, and almost all are either hard or soft.
 
-The different constraint priorities are why some constraint violation warnings show up more often than others: there are certain constraints that we're willing to relax (violate) temporarily. These levels don't really mean that a given constraint will or will be violated, just that there's an order in which they are preferentially enforced. This allows the Cluster Resource Manager to make the right tradeoffs if it is impossible to satisfy all constraints.
+The different constraint priorities are why some constraint violation warnings show up more often than others: there are certain constraints that we're willing to relax (violate) temporarily. These levels don't really mean that a given constraint will be violated, just that there's an order in which they are preferentially enforced. This allows the Cluster Resource Manager to make the right tradeoffs if it is impossible to satisfy all constraints.
 
 In advanced situations constraint priorities can be changed. For example, say you wanted to ensure that affinity would be violated to solve node capacity issues. To achieve this, you could set the priority of the affinity constraint to “soft” (1) and leave the capacity constraint set to “hard” (0).
 

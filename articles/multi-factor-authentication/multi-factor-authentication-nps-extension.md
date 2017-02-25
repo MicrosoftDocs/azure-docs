@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 
 ---
@@ -58,6 +58,9 @@ When you install the extension, you need the directory ID and admin credentials 
 ![Find your Directory ID under Azure Active Directory properties](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
 ## Install the NPS extension
+
+> [!IMPORTANT]
+> Install the NPS extension on a different server than the VPN access point. 
 
 To install the NPS Extension for Azure MFA:
 
@@ -132,7 +135,7 @@ This error could be due to one of several reasons. Use these steps to help troub
 1. Restart your NPS server.
 2. Verify that that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
-4. Verify that https://login.windows.new/ is accessible from the server running the extension.
+4. Verify that https://login.windows.net/ is accessible from the server running the extension.
 
 -------------------------------------------------------------
 

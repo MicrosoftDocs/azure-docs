@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/09/2017
 ms.author: awills
 
 ---
@@ -21,7 +21,7 @@ Import any tabular data into [Analytics](app-insights-analytics.md), either to j
 
 You can import data into Analytics using your own schema. It doesn't have to use the standard Application Insights schemas such as request or trace.
 
-Currently, you can import CSV (comma-separated value) files, or similar formats using tab or semicolon separators.
+You can import JSON or DSV (delimiter-separated values - comma, semicolon or tab) files.
 
 There are three situations where importing to Analytics is useful:
 
@@ -69,12 +69,15 @@ Before you can import data, you must define a *data source,* which specifies the
 
     ![Add new data source](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Follow the instructions to upload a sample data file.
+2. Upload a sample data file. (Optional if you upload a schema definition.)
 
- * The first row of the sample can be column headers. (You can change the field names in the next step.)
- * The sample should include at least 10 rows of data.
+    The first row of the sample can be column headers. (You can change the field names in the next step.)
 
-3. Review the schema that the wizard has inferred from your sample. You can adjust the inferred types of the columns if necessary.
+    The sample should include at least 10 rows of data.
+
+3. Review the schema that the wizard has got. If it inferred the types from a sample, you will probably need to adjust the inferred types of the columns.
+
+   (Optional.) Upload a schema definition. See the format below.
 
 4. Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
 
@@ -82,6 +85,37 @@ Before you can import data, you must define a *data source,* which specifies the
 
 5. Create the data source.
 
+### Schema definition file format
+
+Instead of editing the schema in UI, you can load the schema definition from a file. The schema definition format is as follows: 
+
+Delimited format 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+JSON format 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Each column is identified by the location, name and type. 
+
+* Location – For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
+* Name – the displayed name of the column.
+* Type – the data type of that column.
+ 
+In case a sample data was used and file format is delimited, the schema definition must map all columns and add new columns at the end. 
+
+JSON allows partial mapping of the data, therefore the schema definition of JSON format doesn’t have to map every key which is found in a sample data. It can also map columns which are not part of the sample data. 
 
 ## Import data
 
@@ -268,7 +302,6 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())

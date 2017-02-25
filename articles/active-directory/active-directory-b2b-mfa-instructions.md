@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/07/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 
 ---
@@ -32,11 +32,15 @@ This means:
 6. Company A will need to have adequate premium Azure AD SKUs which support MFA. The user from Company B will consume this license from Company A.
 7. In summary, the inviting tenancy is *always* responsible for MFA of B2B collaboration users from the partner organization, not the partner organization itself (even if it has MFA capabilities). In future releases, we will be enabling the inviting organization to trust specific partner organizations' MFA instead of using the inviting organization's MFA.
 
-## Setting up MFA for B2B users
-To discover how easy it is to set up MFA for B2B collaboration users, see how in [this video](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
+## Setting up MFA for B2B collaboration users
+To discover how easy it is to set up MFA for B2B collaboration users, see how in the following video:
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
 ## B2B users MFA experience for offer redemption
-Check out the animation below to see the redemption experience, as shown in [this video](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
+Check out the animation below to see the redemption experience, as shown in the following video:
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
 ## MFA reset for B2B collaboration users
 Currently, the admin can require B2B collaboration users to proof up again only by using the following PowerShell cmdlets. Therefore, the following PowerShell cmdlets should be used if you want to reset a B2B collaboration user's proof up method.
@@ -73,11 +77,12 @@ Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-add-guest-to-role.md)
+* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
 * [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
 * [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
 * [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
 * [Azure Active Directory B2B collaboration frequently-asked questions (FAQ)](active-directory-b2b-faq.md)
 * [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
+* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

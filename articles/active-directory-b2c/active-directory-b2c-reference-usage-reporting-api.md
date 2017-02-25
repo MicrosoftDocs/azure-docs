@@ -100,8 +100,7 @@ if ($oauth.access_token -ne $null) {
  * TotalUserCount = Count of all user objects
  * OtherUserCount = # of AAD Directory users (non-B2C users)
  * LocalUserCount = # of B2C user accounts created with credentials local to the B2C Tenant
-
-**AlternateIdUserCount** = # of B2C users registered with external Identity providers (for example, facebook, Microsoft Account, other AAD tenants - aka OrgId)
+ * AlternateIdUserCount** = # of B2C users registered with external Identity providers (for example, facebook, Microsoft Account, other AAD tenants - aka OrgId)
 
 **b2cAuthenticationCountSummary** – Sum the daily count of billable authentications over the last 30 days by day and by type of authentication flow
 

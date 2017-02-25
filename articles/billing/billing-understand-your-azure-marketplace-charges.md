@@ -48,7 +48,7 @@ Some services are billed in a pay-as-you-go fashion while others use a monthly b
 ### You can't use monthly free credits for external services
 If you are using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to external service bills. Use a credit card to purchase external services.
 
-## View external service spending and history
+## View external service spending and history in the Azure portal
 You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/): 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the account administrator.
@@ -64,6 +64,9 @@ You can view a list of the external services that are on each subscription withi
 5. From here, you can view past bill amounts including the tax breakdown.
    
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
+
+## View external service spending for Enterprise Agreement (EA) customers
+EA customers can see external service spending and download reports in the EA portal. See [Azure Marketplace for EA Customers](https://ea.azure.com/helpdocs/azureMarketplace) to get started.
 
 ## Manage payment methods for external service orders
 Update your payment methods for external service orders from the [Account Center](https://account.windowsazure.com/).

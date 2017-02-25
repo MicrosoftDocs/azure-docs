@@ -19,6 +19,7 @@ ms.author: sashan
 
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover 
+
 > [!NOTE]
 > [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
 >  

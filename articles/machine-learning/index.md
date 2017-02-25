@@ -127,7 +127,8 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/machinelearning">REST API Reference</a></p>
+                        <p><a href="/rest/api/machinelearning">REST API reference</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-web-service-error-codes">Web service error codes</a></p>
                     </div>
                 </div>
             </div>

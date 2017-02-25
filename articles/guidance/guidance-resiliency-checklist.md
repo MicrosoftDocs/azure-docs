@@ -151,7 +151,7 @@ The following checklist items apply to specific services in Azure.
 
 ### SQL Database
 * **Use Standard or Premium tier.** These tiers provide a longer point-in-time restore period (35 days). For more information, see [SQL Database options and performance](../sql-database/sql-database-service-tiers.md).
-* **Enable SQL Database auditing.** Auditing can be used to diagnose malicious attacks or human error. For more information, see [Get started with SQL database auditing](../sql-database/sql-database-auditing-get-started.md).
+* **Enable database auditing.** Auditing can be used to diagnose malicious attacks or human error. For more information, see [Get started with SQL database auditing](../sql-database/sql-database-auditing.md).
 * **Use Active Geo-Replication** Use Active Geo-Replication to create a readable secondary in a different region.  If your primary database fails, or simply needs to be taken offline, perform a manual failover to the secondary database.  Until you fail over, the secondary database remains read-only.  For more information, see [SQL Database Active Geo-Replication](../sql-database/sql-database-geo-replication-overview.md).
 * **Use sharding**. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database](../sql-database/sql-database-elastic-scale-introduction.md).
 * **Use point-in-time restore to recover from human error.**  Point-in-time restore returns your database to an earlier point in time. For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].

@@ -30,6 +30,14 @@ A generalized VM has had all of your personal account information removed using 
 
 You need to have already [created a managed VM image](virtual-machines-windows-capture-image-resource.md) to use for creating the new VM. 
 
+Make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
+
 
 ## Collect information about the image
 

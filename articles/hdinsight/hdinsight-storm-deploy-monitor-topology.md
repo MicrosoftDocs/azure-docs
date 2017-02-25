@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 
 ---
@@ -54,7 +54,7 @@ From the top of the Storm Dashboard, select **Submit Topology**. Follow the inst
 
 ### Storm UI
 
-From the Storm Dashboard, select the **Storm UI** link. This will display information about the cluster, in addition to any running topologies.
+From the Storm Dashboard, select the **Storm UI** link. This displays information about the cluster, in addition to any running topologies.
 
 ![the storm ui][storm-dashboard-ui]
 
@@ -143,7 +143,7 @@ Use the following steps to deploy a sample to your Storm on HDInsight cluster, t
    > [!NOTE]
    > You can also view **Storm Topologies** from **Server Explorer** by expanding **Azure** > **HDInsight**, and then right-clicking a Storm on HDInsight cluster, and selecting **View Storm Topologies**.
 
-    Select the shape for the spouts or bolts to view information about these components. A new window will open for each item selected.
+    Select the shape for the spouts or bolts to view information about these components. A new window opens for each item selected.
 
    > [!NOTE]
    > The name of the topology is the class name of the topology (in this case, `HelloWord`,) with a timestamp appended.
@@ -173,7 +173,7 @@ Requests to the REST API must use **basic authentication**, so you use the HDIns
 
 ### Return values
 
-Information that is returned from the REST API may only be usable from within the cluster or virtual machines on the same Azure Virtual Network as the cluster. For example, the fully qualified domain name (FQDN) returned for Zookeeper servers will not be accessible from the Internet.
+Information that is returned from the REST API may only be usable from within the cluster or virtual machines on the same Azure Virtual Network as the cluster. For example, the fully qualified domain name (FQDN) returned for Zookeeper servers are not be accessible from the Internet.
 
 ## Next Steps
 

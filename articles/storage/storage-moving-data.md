@@ -71,4 +71,6 @@ See [StorSimple](../storsimple/storsimple-overview.md) to learn more.
 When you have on-premises workloads and applications, you'll need a solution that allows your business to continue running in the event of a disaster. Azure Site Recovery handles replication, failover, and recovery of virtual machines and physical servers. Replicated data is stored in Azure Storage, allowing you to eliminate the need for a secondary on-site datacenter.
 
 See [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to learn more.
-
+### Moving Data FAQ:
+## Can I migrate VHDs from one region to another without copying?
+The only way to copy VHDs between region is to copy the data between storage accounts on each region. You can use AZCopy for this. See Transfer data with the AzCopy Command-Line Utility to learn more. For very large amounts of data, you can also Azure Import/Export. See [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) to learn more.

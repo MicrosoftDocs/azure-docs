@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 
 ---
@@ -75,37 +75,20 @@ These charts combine results for all the web tests of this application.
 ## <a name="failures"></a>If you see failures
 Click a red dot.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Or, scroll down and click a test where you see less than 100% success.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+From a web test result, you can:
 
-The results of that test open.
+* Inspect the response received from your server.
+* Open the telemetry sent by your server app while processing the failed request instance.
+* Log an issue or work item in Git or VSTS to track the problem. The bug will contain a link to this event.
+* Open the web test result in Visual Studio.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-The test is run from several locations&#151;pick one where the results are less than 100%.
-
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Scroll down to **Failed tests** and pick a result.
-
-Click the result to evaluate it in the portal and see why it failed.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Alternatively, you can download the result file and inspect it in Visual Studio.
 
 *Looks OK but reported as a failure?* Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
 
-### Open the server request and exceptions
-
-From the detailed properties of a particular test, you can open the server-side report of the request and any other events such as exceptions.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-If you don't see related items, it may be because [sampling](app-insights-sampling.md) is in operation.
+*No related items?* That may be because [sampling](app-insights-sampling.md) is in operation.
 
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.

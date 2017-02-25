@@ -136,7 +136,7 @@ Use [role-based access control][rbac] (RBAC) to control access to the Azure reso
 
 A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
-> [!NOTE]
+d> [!NOTE]
 > RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 > 
 > 
@@ -146,7 +146,7 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
 ## Solution deployment
-
+m
 A deployment for this reference architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
 
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window."
@@ -156,7 +156,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Select **linux** in the **Os Type** drop down box.
+.   * Select **linux** in the **Os Type** drop down box.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 3. Wait for the deployment to complete.
@@ -176,7 +176,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md

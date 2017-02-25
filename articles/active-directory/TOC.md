@@ -2,14 +2,16 @@
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
 ## [About Azure identity management](fundamentals-identity.md)
-## [Preview the Azure portal experience](active-directory-preview-explainer.md)
+## [Preview the Azure AD portal experience](active-directory-preview-explainer.md)
 
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
-## [Manage AD licensing](active-directory-licensing-what-is.md)
+## Manage Azure AD licensing
+### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
+### [Classic portal](active-directory-licensing-what-is.md)
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
 ## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
@@ -34,7 +36,7 @@
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
 #### [Classic portal](active-directory-accessmanagement-manage-groups.md)
-#### [Powershell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -47,11 +49,22 @@
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Classic portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Group-based licensing](active-directory-licensing-whatis-azure-portal.md)
+#### [Assigning licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifying and resolving license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [How to migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
-## [View access and usage reports](active-directory-view-access-usage-reports.md)
+## [View activity reports](active-directory-view-access-usage-reports.md)
 ### [Azure AD reporting](active-directory-reporting-getting-started.md)
+### [Sign-ins](active-directory-reporting-activity-sign-ins.md)
+### [Audit logs](active-directory-reporting-activity-audit-logs.md)
+### [Users at risk](active-directory-reporting-security-user-at-risk.md)
+### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
+### [FAQ](active-directory-reporting-faq.md)
+### [Report migration](active-directory-reporting-migration.md)
 ### [Known networks](active-directory-known-networks.md)
 
 ### [Reporting guide](active-directory-reporting-guide.md)
@@ -85,7 +98,7 @@
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 #### [Classic portal](active-directory-create-users-reset-password.md)
 ### [Set expiration policies](active-directory-passwords-set-expiration-policy.md)
-### Enable Password Management
+### Enable password management
 #### [Get started](active-directory-passwords-getting-started.md)
 #### [Deploy](active-directory-passwords-best-practices.md)
 #### [Set up self-service password reset](active-directory-passwords.md)
@@ -197,6 +210,7 @@
 #### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
@@ -211,7 +225,6 @@
 #### [B2B user tokens](active-directory-b2b-user-token.md)
 #### [B2B user claims mapping](active-directory-b2b-claims-mapping.md)
 #### [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
-#### [Compare B2B and B2C](active-directory-b2b-compare-b2c.md)
 #### [Configure SaaS apps for B2B](active-directory-b2b-configure-saas-apps.md)
 #### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
@@ -229,9 +242,9 @@
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Resource access in Azure](active-directory-understanding-resource-access.md)
 ### [Role-Based Access Control](role-based-access-control-what-is.md)
-#### Manage access
-##### [Azure portal](role-based-access-control-manage-assignments.md)
-##### [Classic portal](role-based-access-control-configure.md)
+#### Manage access assignments
+##### [By user](role-based-access-control-manage-assignments.md)
+##### [By resource](role-based-access-control-configure.md)
 #### [Built-in roles](role-based-access-built-in-roles.md)
 #### [Custom roles](role-based-access-control-custom-roles.md)
 #### [Reporting](role-based-access-control-access-change-history-report.md)
@@ -249,7 +262,6 @@
 #### [Register devices](active-directory-conditional-access-device-registration-overview.md)
 #### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
 ##### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Manage Authenticator app](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
 #### [Deploy on-premises](active-directory-conditional-access-on-premises-setup.md)
@@ -271,7 +283,7 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Deploy on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
+## [Deploy AD DS on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)
 ### [Replica domain controller in an Azure virtual network](active-directory-install-replica-active-directory-domain-controller.md)
 ### [New forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)

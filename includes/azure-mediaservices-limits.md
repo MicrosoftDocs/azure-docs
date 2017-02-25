@@ -19,7 +19,7 @@
 | Storage accounts | 1,000<sup>5</sup> (fixed) |
 | Policies | 1,000,000<sup>6</sup> |
 | File size| In some scenarios there is a limit on the maximum file size supported for processing in Media Services. <sup>7</sup> |
- 
+  
 <sup>1</sup> S3 RUs are not available in India West.
 
 <sup>2</sup> This number includes queued, finished, active, and canceled jobs. It does not include deleted jobs. You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request.
@@ -35,7 +35,7 @@ Starting April 1, 2017, any Job record in your account older than 90 days will b
 <sup>6</sup> There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> You should use the same policy ID if you are always using the same days / access permissions / etc.
+> You should use the same policy ID if you are always using the same days / access permissions / etc. For information and an example, see [this](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) section.
 
 <sup>7</sup>If you are uploading content to an Asset in Azure Media Services with the intent to process it with one of the media processors in our service (i.e. encoders like Media Encoder Standard and Media Encoder Premium Workflow, or analysis engines like Face Detector), then you should be aware of the following limits. 
 

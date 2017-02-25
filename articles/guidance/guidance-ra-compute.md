@@ -40,7 +40,7 @@ This reference architecture contains a set of baseline recommendations for runni
 > 
 > 
 
-[![0]][0]
+![[0]][0]
 
 Considerations:
 
@@ -52,7 +52,7 @@ For detailed information, see [Running a Windows VM on Azure][single-vm] and [Ru
 
 To improve availability and scalability, deploy several VMs in an availability set and use a load balancer to distribute traffic across them.  
 
-[![1]][1]
+![[1]][1]
 
 Benefits:
 
@@ -66,7 +66,7 @@ This architecture shows best practices for running an N-tier application on VMs 
 
 The VMs for each tier are placed in separate availability sets.  Within a tier, load balancers distribute traffic across the VMs. At the data tier, the database is replicated for higher availability.
 
-[![2]][2]
+![[2]][2]
 
 For detailed information, see:
 
@@ -78,7 +78,7 @@ An application deployed to a single region could become unavailable if an incide
 
 This architecture show how to deploy a multi-region N-tier application in an active/passive configuration. During normal operation, Azure Traffic Manager routes traffic to the primary region. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region.  
 
-[![3]][3]
+![[3]][3]
 
 Benefits of deploying to multiple regions:
 

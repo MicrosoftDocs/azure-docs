@@ -45,7 +45,7 @@
 
 ## Disk Storage 
 ### [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Create a Linux VM using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
@@ -71,7 +71,8 @@
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
-### [Disks and VHDs for Azure VMs](storage-about-disks-and-vhds-windows.md)
+### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
+### [Disks and VHDs for Linux VMs](storage-about-disks-and-vhds-linux.md)
 ### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
 ### [Migrate Azure VMs to Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
 ### [Migrate from AWS and other platforms to Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
@@ -79,9 +80,8 @@
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
-<!--### Standard Storage-->
-<!--
-#### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md) -->
+### Standard Storage
+#### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
 ### Using unmanaged disks
 #### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
 #### [Back up unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md)
@@ -100,7 +100,7 @@
 ### [Set and retrieve properties and metadata](storage-properties-metadata.md)
 ## Manage
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0 (Preview)](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Secure
