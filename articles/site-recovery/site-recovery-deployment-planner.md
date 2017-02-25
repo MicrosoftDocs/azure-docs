@@ -96,13 +96,14 @@ First, you need to have the list of virtual machines that you are looking to pro
 2.	Open VMware vSphere PowerCLI console
 3.	Ensure that execution policy is not disabled for the script. If disabled launch the VMware vSphere PowerCLI console in administrator mode and run the following command to enable it:
 
-		Set-ExecutionPolicy –ExecutionPolicy AllSigned
+			Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4.	Run the following two commands to get all the names of virtual machines on a VMware vCenter or VMware vSphere ESXi and store in a .txt file.
 Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo;, &lsaquo;outputfile.txt&rsaquo;; with your inputs.
  
-		Connect-VIServer -Server <server name>; -User <user name> -Password <password>
-		Get-virtual machine |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+			Connect-VIServer -Server <server name> -User <user name> -Password <password>
+
+			Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
 
 5.	Open the output file in Notepad. Copy the names of all virtual machines that you want to profile to another file (say ProfileVMList.txt), one virtual machine name per line. This file will be used as input to the -VMListFile parameter of the command line tool
@@ -219,10 +220,14 @@ The generated Microsoft Excel report has following sheets
 * [Compatible VMs](site-recovery-deployment-planner.md#compatible-vms)
 * [Incompatible VMs](site-recovery-deployment-planner.md#incompatible-vms)
 
+![Deployment Planner](./media/site-recovery-deployment-planner/dp-report.png)
+
+
 ##Get throughput
 To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server where the tool is running (ideally a server based on the Configuration Server sizing guide).  If you have already deployed Azure Site Recovery infrastructure components on-premises, run the tool on the Configuration Server. 
 
 Open a command line console and go to ASR deployment planning tool folder.  Run ASRDeploymentPlanner.exe with following parameters. Parameters in [] are optional.
+
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 
 |Parmeter Name | Description |
@@ -364,6 +369,7 @@ Total number of disks across all compatible virtual machines  is the total numbe
 
 
 ##VM-Storage placement
+
 ![Deployment Planner](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
 **Disk Storage Type** is either ‘Standard’ or ‘Premium’ Azure Storage account used to replicate all the corresponding virtual machines mentioned in the ‘VMs to Place’ column.
