@@ -72,7 +72,7 @@ The topology of this scenario is shown in the following diagram:
 
 In the preceding case, users must authenticate to RDWA by using form-based authentication, but they don't need to authenticate over RDP.
 
->[!NOTE}
+>[!NOTE]
 >In both preceding cases, no pre-authentication is required on the RDP traffic. Therefore, users can access it without going through RDWA first.
 
 ## Next steps
