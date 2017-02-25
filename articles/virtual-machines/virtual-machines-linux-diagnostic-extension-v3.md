@@ -20,7 +20,7 @@ ms.author: jasonzio@microsoft.com
 ## Introduction
 (**Note**: The Linux Diagnostic Extension is open-sourced on [Github](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) where the most current information on the extension is first published. You might want to check the [Github page](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) first.)
 
-The Linux Diagnostic Extension helps a user monitor the health of a Linux VM that are running on Microsoft Azure. It has the following capabilities:
+The Linux Diagnostic Extension helps a user monitor the health of a Linux VM running on Microsoft Azure. It has the following capabilities:
 
 * Collects system performance metrics from the VM and stores them in a table in the same storage account as the VM's boot vhd.
 * Enables users to customize the data metrics that will be collected and uploaded.
@@ -37,7 +37,7 @@ This extension introduces breaking changes to the configuration of the extension
 
 In order to migrate from 2.x to this new version of the extension, you must uninstall the old extension (under the old publisher name) and then install the new extension.
 
-We strongly recommended you install the extension and automatic minor version upgrade enabled. On classic (ASM) VMs, you can achieve this by specifying '3.*' as the version if you are installing the extension through Azure XPLAT CLI or Powershell. On ARM VMs, you can achieve this by including '"autoUpgradeMinorVersion": true' in the VM deployment template.
+We strongly recommended you install the extension with automatic minor version upgrade enabled. On classic (ASM) VMs, you can achieve this by specifying '3.*' as the version if you are installing the extension through Azure XPLAT CLI or Powershell. On ARM VMs, you can achieve this by including '"autoUpgradeMinorVersion": true' in the VM deployment template.
 
 ## Enable the extension
 You can enable this extension by using the [Azure portal](https://portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.
@@ -76,7 +76,7 @@ sasTableKey | An [Account SAS token](https://azure.microsoft.com/en-us/blog/sas-
 mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension to connect to the specified storage account and endpoint.
 
 ## Public settings
-This structure contains various blocks of settings which control the various information collected by the extension.
+This structure contains various blocks of settings which control the information collected by the extension.
 ```json
 {
     "enableSyslog": "",
@@ -108,8 +108,6 @@ Controls the gathering of metrics and logs for delivery to the Azure Metrics ser
 
 The Azure Metrics service requires metrics to be stored in a very particular Azure storage table. Similarly, log events must be stored in a different, but also very particular, table. All instances of the diagnostic extension configured (via Private Config) to use the same storage account name and endpoint will add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. The eventVolume setting changes how partition keys are constructed so that, across all instances of the extension writing to the same table, entries are spread across 1, 10, or 100 different partitions.  
 
-The Azure Metrics service tables 
-
 Element | Value
 ------- | -----
 eventVolume | Controls the number of partitions created within the storage table. Must be one of "Large", "Medium", or "Small".
@@ -129,7 +127,7 @@ Defines additional destinations to which the extension will deliver the informat
 
 Element | Value
 ------- | -----
-name | A string used to refer to this sink elsewhere in the extension configuration
+name | A string used to refer to this sink elsewhere in the extension configuration.
 type | The type of sink being defined.
 
 #### metrics
@@ -143,7 +141,7 @@ type | The type of sink being defined.
 }
 ```
 
-Samples of the metrics specified in the performanceCounters section are collected every 15 seconds. If multiple scheduledTransferPeriod frequencies appear (as in the example), each aggregation is computed independently. The name of the storage table to which aggregated metrics are written (and from which Acure Metrics reads data) is based, in part, on the transfer period of the aggregated metrics stored within it.
+Samples of the metrics specified in the performanceCounters section are collected every 15 seconds. If multiple scheduledTransferPeriod frequencies appear (as in the example), each aggregation is computed independently. The name of the storage table to which aggregated metrics are written (and from which Azure Metrics reads data) is based, in part, on the transfer period of the aggregated metrics stored within it.
 
 
 Element | Value
@@ -234,7 +232,8 @@ Controls the delivery of syslog events to the specified Azure storage table with
 Element | Value
 ------- | -----
 facility | A syslog facility name. See the "facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
-minSeverity | A syslog severity level. See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
+minSeverity | A syslog severity level. See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list. Only events at or above this level of severity will be matched by this query.
+table | The Azure storage table into which the matching syslog events will be placed.
 ### fileLogs
 Controls the capture of log files by rsyslogd. As new text lines are written to the file, rsyslogd captures them and passes them to the diagnostic extension, which in turn writes them as table rows.
 ```json
@@ -263,7 +262,7 @@ The "builtin" metric provider is a source of metrics most interesting to a broad
 The available metrics are described in greater detail in the following sections.
 
 ### Builtin metrics for the Processor class
-The Processor class of metrics provide information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. For example, given a VM with two cores, if one core was 100% busy for a given aggregation window and the other core was 100% idle, the reported PercentIdleTime would be 50; if each core was 50% busy for the same period, the reported result would also be 50. In a four core system, with one core 100% busy and the others completely idle, the reported PercentIdleTime would be 75.
+The Processor class of metrics provides information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. For example, given a VM with two cores, if one core was 100% busy for a given aggregation window and the other core was 100% idle, the reported PercentIdleTime would be 50; if each core was 50% busy for the same period, the reported result would also be 50. In a four core system, with one core 100% busy and the others completely idle, the reported PercentIdleTime would be 75.
 
 counter | Meaning
 ------- | -------
@@ -298,7 +297,7 @@ PercentUsedSwap | In-use swap space as a percentage of total swap
 
 This family of metrics has only a single instance; the "condition" attribute has no useful settings and should be omitted.
 ### Builtin metrics for the Network class
-The Network class of metrics provide information about network activity, aggregated across all network devices (eth0, eth1, etc.) since boot. Bandwidth information is not directly available; it can be computed, of course, but this is probably better retrieved from host metrics rather than from within the guest.
+The Network class of metrics provide information about network activity, aggregated across all network devices (eth0, eth1, etc.) since boot. Bandwidth information is not directly available; it is best retrieved from host metrics rather than from within the guest.
 
 counter | Meaning
 ------- | -------
