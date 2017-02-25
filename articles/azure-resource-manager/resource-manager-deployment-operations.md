@@ -118,7 +118,18 @@ To see the deployment operations, use the following steps:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
+4. Get Details about any deployment operations
+Every deployment operation in Azure is associated with 'Request' and 'Response' content. "Request" content is simply what you are requesting Azure to create during deployment, e.g. during VM deployment a VM, OS disk etc. "Response" content is simply how Azure is responding your deployment request. To get this information you must specify "DeploymentDebugLogLevel" paramenter during deployment. 
 
+You can get those informations and save them locally by using the below powershell commands.
+
+```powershell
+
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+
+```
 
 ## Azure CLI
 
