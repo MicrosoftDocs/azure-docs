@@ -21,7 +21,7 @@ ms.author: anirudha
 Learn how to manage storage accounts in Azure Stack to find, recover,
 and reclaim storage capacity based on business needs.
 
-## <a name="find_sa"></a>Find a storage account
+## <a name="find"></a>Find a storage account
 The list of storage accounts in the region can be viewed in Azure Stack
 by:
 
@@ -148,7 +148,7 @@ One of the side effects of having a retention period is that a deleted account c
 You can reclaim capacity using either the portal or PowerShell.
 
 **To reclaim capacity using the portal:**
-1. Navigate to the storage accounts blade. See [Find a storage account](#find_sa).
+1. Navigate to the storage accounts blade. See [Find a storage account](#find).
 2. Click **Reclaim space** at the top of the blade.
 3. Read the message and then click **OK**.
 
@@ -169,9 +169,9 @@ You can also use PowerShell to explicitly override the retention period and imme
    For more information about Azure Resource Manager cmdlets, see
    [Using Azure PowerShell with Azure Resource
    Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Run the folowing cmdlet:
+2. Run the following cmdlet:
    
-    ```PowerShell
+    ```
     Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
     ```
 
@@ -203,42 +203,47 @@ You must use PowerShell to migrate containers.
             
    `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
 
-   Then examine `$containers`:
+   Then examine $containers:
 
    `$containers`
-          ![](media/azure-stack-manage-storage-accounts/image13.png)
+
+    ![](media/azure-stack-manage-storage-accounts/image13.png)
 5. Get the best destination shares for the container migration:
 
     `$destinationshares= Get-ACSDestinationSharesForContainer -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
 
-    Then examine `$destinationshares`:
+    Then examine $destinationshares:
 
     `$destinationshares`
-           ![](media/azure-stack-manage-storage-accounts/image14.png)
+
+    ![](media/azure-stack-manage-storage-accounts/image14.png)
 6. Kick off migration for a container, notice this is an async implementation, so one can loop all containers in a share and track the status using the returned job id.
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
-    Then examine `$jobId`:
+    Then examine $jobId:
 
-```powershell
-$jobId
-d1d5277f-6b8d-4923-9db3-8bb00fa61b65
-```
+   ```
+   $jobId
+   d1d5277f-6b8d-4923-9db3-8bb00fa61b65
+   ```
 7. Check status of the migration job by its job id. When the container migration finishes, MigrationStatus is set to “Completed”.
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName -JobId $jobId`
-           ![](media/azure-stack-manage-storage-accounts/image15.png)
+
+    ![](media/azure-stack-manage-storage-accounts/image15.png)
 
     You can cancel an in-progress migration job. This again is an async operation and can be tracked using jobid:
 
     `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -ShareName $shares[0].ShareName -JobId $jobId-Verbose`
-           ![](media/azure-stack-manage-storage-accounts/image16.png)
+
+    ![](media/azure-stack-manage-storage-accounts/image16.png)
 
     You can check the status of the migration cancel again:
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName -JobId $jobId`
-       ![](media/azure-stack-manage-storage-accounts/image17.png)
+
+    ![](media/azure-stack-manage-storage-accounts/image17.png)
 
 
 
