@@ -23,7 +23,7 @@ ms.author: juliako
 
 This topic shows how to use Media Encoder Standard (MES) to auto-generate a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate. The auto-generated preset will never exceed the input resolution and bitrate. For example, if the input is 720p at 3Mbps, output will remain 720p at best, and will start at rates lower than 3Mbps.
 
-To use this feature, you need to specify the **Adaptive Streaming** preset when creating an encoding task. When using the **Adaptive Streaming** preset, the MES encoder will intelligently cap a bitrate ladder. However, you will not be able to control the encoding costs, since the service determines how many layers to use and at what resolution. You can see examples of output XMLs produced by MES as a result of encoding with the **Adaptive Streaming** preset at the [end](#output) of this topic.
+To use this feature, you need to specify the **Adaptive Streaming** preset when creating an encoding task. When using the **Adaptive Streaming** preset, the MES encoder will intelligently cap a bitrate ladder. However, you will not be able to control the encoding costs, since the service determines how many layers to use and at what resolution. You can see examples of output layers produced by MES as a result of encoding with the **Adaptive Streaming** preset at the [end](#output) of this topic.
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -147,164 +147,41 @@ The following code example uses Media Services .NET SDK to perform the following
 
 		}
 
-## <a id="output"></a>Output XMLs
+## <a id="output"></a>Output
 
-This section shows three examples of output XMLs produced by MES as a result of encoding with the **Adaptive Streaming** preset. For more information about MES schema, see [this](media-services-mes-schema.md) topic.
+This section shows three examples of output layers produced by MES as a result of encoding with the **Adaptive Streaming** preset. 
 
-### Source with Height="1080" and Framerate="29.970" 
-	
-	<?xml version="1.0" encoding="utf-8"?>
-	<AssetFiles xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">
-	  <AssetFile Name="AMS_Platform_Promo_1920x1080_6780.mp4" Size="117036387" Duration="PT2M59.246S">
-	    <Sources>
-	      <Source Name="AMS_Platform_Promo_1920x1080_6780.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="4.1" Width="1920" Height="1080" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="5221" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="AMS_Platform_Promo_1280x720_3520.mp4" Size="61880376" Duration="PT2M59.246S">
-	    <Sources>
-	      <Source Name="AMS_Platform_Promo_1280x720_3520.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="3.2" Width="1280" Height="720" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="2759" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="AMS_Platform_Promo_960x540_2210.mp4" Size="38870473" Duration="PT2M59.246S">
-	    <Sources>
-	      <Source Name="AMS_Platform_Promo_960x540_2210.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="3.1" Width="960" Height="540" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="1732" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="AMS_Platform_Promo_640x360_1150.mp4" Size="20913994" Duration="PT2M59.246S">
-	    <Sources>
-	      <Source Name="AMS_Platform_Promo_640x360_1150.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="3.0" Width="640" Height="360" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="930" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="AMS_Platform_Promo_480x270_720.mp4" Size="13431254" Duration="PT2M59.246S">
-	    <Sources>
-	      <Source Name="AMS_Platform_Promo_480x270_720.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="2.1" Width="480" Height="270" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="596" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="AMS_Platform_Promo_320x180_380.mp4" Size="7361873" Duration="PT2M59.246S">
-	    <Sources>
-	      <Source Name="AMS_Platform_Promo_320x180_380.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="1.3" Width="320" Height="180" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="326" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="AMS_Platform_Promo_AACAudio_128_Audio1.mp4" Size="2902955" Duration="PT2M59.286S">
-	    <Sources>
-	      <Source Name="AMS_Platform_Promo_AACAudio_128_Audio1.mp4" />
-	    </Sources>
-	    <AudioTracks>
-	      <AudioTrack Id="1" Codec="aac" Language="eng" Channels="2" SamplingRate="48000" Bitrate="127" BitsPerSample="0" />
-	    </AudioTracks>
-	  </AssetFile>
-	</AssetFiles>
+### Example 1
+Source with height "1080" and framerate "29.970" procuces 6 video layers:
 
-### Source with Height="720" Framerate="23.976"
-	
-	<?xml version="1.0" encoding="utf-8"?>
-	<AssetFiles xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">
-	  <AssetFile Name="Future_of_Work_March2015_1280x720_2940.mp4" Size="135033677" Duration="PT6M27.513S">
-	    <Sources>
-	      <Source Name="Future_of_Work_March2015_1280x720_2940.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="3.1" Width="1280" Height="720" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="23.976" TargetFramerate="0" Bitrate="2785" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="Future_of_Work_March2015_960x540_1850.mp4" Size="84115219" Duration="PT6M27.513S">
-	    <Sources>
-	      <Source Name="Future_of_Work_March2015_960x540_1850.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="3.1" Width="960" Height="540" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="23.976" TargetFramerate="0" Bitrate="1734" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="Future_of_Work_March2015_640x360_960.mp4" Size="43508051" Duration="PT6M27.513S">
-	    <Sources>
-	      <Source Name="Future_of_Work_March2015_640x360_960.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="3.0" Width="640" Height="360" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="23.976" TargetFramerate="0" Bitrate="895" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="Future_of_Work_March2015_480x270_600.mp4" Size="27204529" Duration="PT6M27.513S">
-	    <Sources>
-	      <Source Name="Future_of_Work_March2015_480x270_600.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="2.1" Width="480" Height="270" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="23.976" TargetFramerate="0" Bitrate="559" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="Future_of_Work_March2015_320x180_320.mp4" Size="14579939" Duration="PT6M27.513S">
-	    <Sources>
-	      <Source Name="Future_of_Work_March2015_320x180_320.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="1.3" Width="320" Height="180" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="23.976" TargetFramerate="0" Bitrate="298" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="Future_of_Work_March2015_AACAudio_128_Audio1.mp4" Size="6274492" Duration="PT6M27.563S">
-	    <Sources>
-	      <Source Name="Future_of_Work_March2015_AACAudio_128_Audio1.mp4" />
-	    </Sources>
-	    <AudioTracks>
-	      <AudioTrack Id="1" Codec="aac" Language="eng" Channels="2" SamplingRate="48000" Bitrate="127" BitsPerSample="0" />
-	    </AudioTracks>
-	  </AssetFile>
-	</AssetFiles>
+|Layer|Height|Width|Bitrate(kbps)|
+|---|---|---|---|
+|1|1080|1920|6780|
+|2|720|1280|3520|
+|3|540|960|2210|
+|4|360|640|1150|
+|5|270|480|720|
+|6|180|320|380|
 
-### Source with Height="360" and Framerate="29.970" 
+### Example 2
+Source with height "720" and framerate "23.970" procuces 5 video layers:
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<AssetFiles xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">
-	  <AssetFile Name="Running Man episode 309_640x360_700.mp4" Size="401364318" Duration="PT1H17M22.939S">
-	    <Sources>
-	      <Source Name="Running Man episode 309_640x360_700.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="3.0" Width="640" Height="360" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="688" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="Running Man episode 309_480x270_440.mp4" Size="254630247" Duration="PT1H17M22.939S">
-	    <Sources>
-	      <Source Name="Running Man episode 309_480x270_440.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="2.1" Width="480" Height="270" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="436" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="Running Man episode 309_320x180_230.mp4" Size="134026340" Duration="PT1H17M22.939S">
-	    <Sources>
-	      <Source Name="Running Man episode 309_320x180_230.mp4" />
-	    </Sources>
-	    <VideoTracks>
-	      <VideoTrack Id="1" FourCC="avc1" Profile="High" Level="1.3" Width="320" Height="180" DisplayAspectRatioNumerator="16" DisplayAspectRatioDenominator="9" Framerate="29.970" TargetFramerate="0" Bitrate="228" TargetBitrate="0" />
-	    </VideoTracks>
-	  </AssetFile>
-	  <AssetFile Name="Running Man episode 309_AACAudio_128_Audio1.mp4" Size="75159887" Duration="PT1H17M22.987S">
-	    <Sources>
-	      <Source Name="Running Man episode 309_AACAudio_128_Audio1.mp4" />
-	    </Sources>
-	    <AudioTracks>
-	      <AudioTrack Id="1" Codec="aac" Language="und" Channels="2" SamplingRate="48000" Bitrate="128" BitsPerSample="0" />
-	    </AudioTracks>
-	  </AssetFile>
-	</AssetFiles>
+|Layer|Height|Width|Bitrate(kbps)|
+|---|---|---|---|
+|1|720|1280|2940|
+|2|540|960|1850|
+|3|360|640|960|
+|4|270|480|600|
+|5|180|320|320|
 
+### Example 3
+Source with height "360" and framerate "29.970" procuces 3 video layers:
+
+|Layer|Height|Width|Bitrate(kbps)|
+|---|---|---|---|
+|1|360|640|700|
+|2|270|480|440|
+|3|180|320|230|
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
