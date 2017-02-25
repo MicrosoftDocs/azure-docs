@@ -21,7 +21,7 @@ ms.author: aelnably
 
 # Azure App Service web apps on Linux FAQ
 
-With the release of Azure App Service on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are a number of frequently asked questions (FAQs) that our customers have been asking us over the last months.
+With the release of Azure App Service on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
 If you have a question, please comment on the article and we'll answer it as soon as possible.
 
 ## Built-in images
@@ -30,41 +30,39 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **A:** You can find all Docker files on GitHub: https://github.com/azure-app-service. You can find all Docker containers on Docker Hub: https://hub.docker.com/u/appsvc/.
 
+**Q:** What are the expected values for the Startup File section when I configure the runtime stack?
+
+**A:** For Node.Js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name. For Ruby, you can specify the Ruby script that you want to initialize your app with.
+
 ## Management
 
-**Q:** I press the restart button in the Azure portal, but my web app didn't restart. How come?
+**Q:** I pressed the restart button in the Azure portal, but my web app didn't restart. How come?
 
-**A:** We're working on enabling the restart button in the near future. Right now you have two options:
+**A:** We're working on enabling the restart button in the near future. Right now, you have two options:
 - Add or change a dummy application setting. This will force your web app to restart.
-- Stop, and then start your web app.
+- Stop and then start your web app.
 
 **Q:** Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?
 
 **A:** No. We'll be providing a way to use SSH to connect to your app container in a future release.
 
-## Continuous integration/Deployment
+## Continuous integration/deployment
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
-**A:** You can refresh the container by stopping and then starting your web app. Or you can change/add a dummy application setting to force a refresh of your container. We're planning to have a continuous integration/deployment feature for custom containers in a future release.
+**A:** You can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container. We're planning to have a continuous integration/deployment feature for custom containers in a future release.
 
 ## Language support
 
 **Q:** Do you support uncompiled .NET Core apps?
 
-**A:** No. You need to deploy the compiled .NET Core app with all the dependencies. A full deployment and build experience will be coming in a future release.
-
-## Built-in images
-
-**Q:** What are the expected values for the Startup File section when I configure the runtime stack?
-
-**A:** For Node.Js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name. For Ruby, you can specify the Ruby script that you want to initialize your app with.
+**A:** No. You need to deploy compiled .NET Core apps with all the dependencies. We're planning a full deployment and build experience in a future release.
 
 ## Custom containers
 
 **Q:** I'm using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content by using the SCM site or an FTP client. Where are my files?
 
-**A:** We mount an SMB share to \home\ directory. This overrides any content that's there.
+**A:** We mount an SMB share to the \home\ directory. This overrides any content that's there.
 
 **Q:** I want to expose more than one port on my custom container image. Is that possible?
 
@@ -96,7 +94,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** Where can I request new features?
 
-**A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Please add [Linux] to the title of your idea.
+**A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Please add "[Linux]" to the title of your idea.
 
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
