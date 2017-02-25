@@ -145,8 +145,9 @@ az vm show --resource-group myResourceGroup --name myVM --show-details
 ## Next steps
 You can create multiple VMs from your source VM image. If you need to make changes to your image: 
 
-- Power on the source VM resource.
+- Create a VM from your image.
 - Make any updates or configuration changes.
-- Follow the steps again to deprovision, deallocate, generalize, and capture the VM. 
+- Follow the steps again to deprovision, deallocate, generalize, and create an image.
+- Use this new image for future deployments. If desired, delete the original image.
 
 For more information on managing your VMs with the CLI, see [Azure CLI 2.0](/cli/azure/overview).
