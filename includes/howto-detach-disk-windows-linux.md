@@ -13,7 +13,9 @@ If you don't know the name of the disk or want to verify it before you detach it
 
 2. Click **Virtual Machines**, and then select the appropriate VM.
 
-3. Under **Disks**, the table lists the name and type of all attached disks. For example, this screen shows a virtual machine with one operating system (OS) disk and one data disk:
+3. Click **Disks** along the left edge of the virtual machine dashboard, under **Settings**.
+
+ The virtual machine dashboard lists the name and type of all attached disks. For example, this screen shows a virtual machine with one operating system (OS) disk and one data disk:
 
     ![Find data disk](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
