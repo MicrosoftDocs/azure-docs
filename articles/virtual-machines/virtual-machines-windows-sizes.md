@@ -38,3 +38,4 @@ This article describes the available sizes and options for the Azure virtual mac
 - [GPU optimized](virtual-machines-windows-sizes-gpu.md)
 - [High performance compute](virtual-machines-windows-sizes-hpc.md)
 - [Storage optimized](virtual-machines-windows-sizes-storage.md)
+
