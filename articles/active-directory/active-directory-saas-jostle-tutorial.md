@@ -41,7 +41,7 @@ To configure Azure AD integration with Jostle, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario Description
 In this tutorial, you test Azure AD SSO in a test environment. 
@@ -83,7 +83,6 @@ For SSO to work, Azure AD needs to know what the counterpart user in Jostle is t
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Jostle.
 
 To configure and test Azure AD SSO with Jostle, you need to complete the following building blocks:
-
 1. **[Configuring Azure AD single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating a Jostle test user](#creating-a-jostle-test-user)** - to have a counterpart of Britta Simon in Jostle that is linked to the Azure AD representation of her.
