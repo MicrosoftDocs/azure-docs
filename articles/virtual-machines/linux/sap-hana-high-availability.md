@@ -126,8 +126,8 @@ Follow these steps to deploy the template:
 
 The following items are prefixed with either [A] - applicable to all nodes, [1] - only applicable to node 1 or [2] - only applicable to node 2.
 
-1. [A] Register SLES to be able to use the repositories
-1. [A] Add public-cloud module
+1. [A] (Optional) Register SLES to be able to use the repositories
+1. [A] (Optional) Add public-cloud module
 1. [A] Install HA extension
     <pre><code>
     zypper install sle-ha-release
