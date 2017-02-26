@@ -32,7 +32,7 @@ We currently only support setting up HANA System Replication on Azure.
 SAP HANA Replication consists of one master node and at least one slave node. Changes to the data on the master node are replicated to the slave nodes synchronously or asynchronously.
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, install and configure SAP HANA System Replication.
-In the example configurations, installation commands etc. instance number 04 and HANA System ID HDB is used.
+n the example configurations, installation commands etc. instance number 04 and HANA System ID HDB is used.
 
 Read the following SAP Notes and papers first
 
@@ -42,7 +42,6 @@ Read the following SAP Notes and papers first
   SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
 * [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]  
   The guide contains all required information to set up SAP HANA System Replication on-premises. Use this guide as a baseline.
-
 ## Deploying Linux
 
 The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.
@@ -62,7 +61,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
    SLES For SAP Applications 12 SP1 (BYOS)  
    Select Storage Account 1  
    Select Availability Set  
-1. Create Virtual Machine 2  
+. Create Virtual Machine 2  
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Select Storage Account 2   
@@ -72,7 +71,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
     1. Create a frontend IP pool
         1. Open the load balancer, select frontend IP pool and click Add
         1. Enter the name of the new frontend IP pool (for example hana-frontend)
-        1. Click OK
+       1. Click OK
         1. After the new frontend IP pool is created, write down its IP address
     1. Create a backend pool
         1. Open the load balancer, select backend pools and click Add
@@ -82,7 +81,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
         1. Select the virtual machines of the SAP HANA cluster
         1. Click OK
     1. Create a health probe
-        1. Open the load balancer, select health probes and click Add
+       1. Open the load balancer, select health probes and click Add
         1. Enter the name of the new health probe (for example hana-hp)
         1. Select TCP as protocol, port 625**04**, keep Interval 5 and Unhealthy threshold 2
         1. Click OK
@@ -92,7 +91,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
         1. Select the frontend IP address, backend pool and health probe you created earlier (for example hana-frontend)
         1. Keep protocol TCP, enter port 3**04**15
         1. Increase idle timeout to 30 minutes
-        1. **Make sure to enable Floating IP**
+       1. **Make sure to enable Floating IP**
         1. Click OK
         1. Repeat the steps above for port 3**04**17
 
@@ -126,8 +125,8 @@ Follow these steps to deploy the template:
 
 The following items are prefixed with either [A] - applicable to all nodes, [1] - only applicable to node 1 or [2] - only applicable to node 2.
 
-1. [A] (Optional) Register SLES to be able to use the repositories
-1. [A] (Optional) Add public-cloud module
+1. [A] SLES for SAP BYOS only - Register SLES to be able to use the repositories
+1. [A] SLES for SAP BYOS only - Add public-cloud module
 1. [A] Install HA extension
     <pre><code>
     zypper install sle-ha-release
