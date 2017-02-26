@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: cynthn
 
 ---
@@ -36,12 +36,12 @@ You cannot convert an unmanaged VM created in the Resource Manager deployment mo
 
 **Data Disks**:
 1.	Detach the Data Disk from the VM.
-2.	Copy the VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): `https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.	Copy the VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`
 3.	Attach the copied disk to the VM and convert the VM.
 
 **OS Disk**:
 1.	Stop deallocated the VM. Save the VM configuration if needed.
-2.	Copy the OS VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): `https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.	Copy the OS VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.	Create a VM that uses managed disks and attach that VHD file as the OS disk during creation.
 
 

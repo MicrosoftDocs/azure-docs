@@ -4,7 +4,7 @@ description: Configure performance, availability, and usage analytics for your A
 services: application-insights
 documentationcenter: .net
 author: NumberByColors
-manager: douge
+manager: carmonm
 
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/13/2016
+ms.date: 02/24/2017
 ms.author: awills
 
 ---
