@@ -21,12 +21,12 @@ ms.author: helaw
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Microsoft-Azure-Stack/player]
 
 
-Microsoft Azure Stack is a hybrid cloud platform that lets you deliver key Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 3 is being made available as a Proof of Concept (POC). Once deployed, the POC is an ideal environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
+Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 3 is being made available as a Proof of Concept (POC). Once deployed, the POC is an ideal environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
 
 ## Scope of Azure Stack POC
 * Azure Stack POC must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
-* Your deployment of Azure Stack is associated with a single identity provider, like Azure Active Directory on ADFS. You can create multiple users in this directory and assign subscriptions to each user.
-* With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale and performance evaluation.
+* Your deployment of Azure Stack is associated with a single identity provider, like Azure Active Directory or ADFS. You can create multiple users in this directory and assign subscriptions to each user.
+* With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale or performance evaluation.
 * Network scenario support is limited due to single NIC requirements.
 
 ## Next steps
