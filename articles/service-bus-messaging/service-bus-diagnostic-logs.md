@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus diagnostic logs | Microsoft Docs
-description: Learn how to analyze diagnostic logs from Service Bus in Microsoft Azure.
+description: Learn how to set up diagnostic logs from Service Bus in Microsoft Azure.
 keywords:
 documentationcenter: ''
 services: service-bus-messaging
@@ -18,36 +18,38 @@ ms.date: 02/17/2017
 ms.author: babanisa
 
 ---
-# Azure Service Bus diagnostic logs
+# Service Bus diagnostic logs
 
 You can view two types of logs for Azure Service Bus:
-* **[Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)**. These logs are always enabled, and they have information about operations performed on a job.
+* **[Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)**. These logs have information about operations performed on a job. The logs are always turned on.
 * **[Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)**. You can configure diagnostic logs, for richer insight into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates, and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
 Diagnostics logs are **off** by default. To turn on diagnostic logs:
 
-1.	In the Azure portal, go to the streaming job blade, then under **Monitoring**, go to the **Diagnostics logs** blade.
+1.	In the Azure portal, go to the streaming job blade.
+
+2.	Under **Monitoring**, go to the **Diagnostics logs** blade.
 
 	![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)  
 
-2.	Select **Turn on diagnostics**.
+3.	Select **Turn on diagnostics**.
 
 	![turn on diagnostic logs](./media/service-bus-diagnostic-logs/image2.png)
 
-3.	For **Status**, select **On**.
+4.	For **Status**, select **On**.
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-4.	Set the archival target that you want, for example, a storage account, an event hub, or Log Analytics.
+5.	Set the archival target that you want, for example, a storage account, an event hub, or Log Analytics.
 
-5.	Select the categories of logs that you want to collect, for example, **Execution** or **Authoring**.
+6.	Select the categories of logs that you want to collect, for example, **Execution** or **Authoring**.
 
-6.	Save the new diagnostics settings.
+7.	Save the new diagnostics settings.
 
-New settings take effect after about 10 minutes. Then, logs appear in the configured archival target, on the **Diagnostics logs** blade.
+New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
 
-For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+For more information about configuring diagnostics, see an [overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## Diagnostic logs schema
 
@@ -57,7 +59,7 @@ All logs are stored in JavaScript Object Notation (JSON) format. Each entry has 
 
 Logs in the **OperationalLogs** category capture what is happening during Service Bus operation. Specifically, these logs capture the operation type, including queue creation, resources used, and the status of the operation.
 
-Operation log JSON strings include items listed in the following table:
+Operation log JSON strings include elements listed in the following table:
 
 Name | Description
 ------- | -------
