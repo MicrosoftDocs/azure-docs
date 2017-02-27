@@ -14,12 +14,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: kgremban
 ---
 
 
-# Troubleshoot Application Proxy
+# Troubleshoot Application Proxy problems and error messages
 If errors occur in accessing a published application or in publishing applications, check the following options to see if Microsoft Azure AD Application Proxy is working correctly:
 
 * Open the Windows Services console and verify that the **Microsoft AAD Application Proxy Connector** service is enabled and running. You may also want to look at the Application Proxy service properties page, as shown in the following image:  
