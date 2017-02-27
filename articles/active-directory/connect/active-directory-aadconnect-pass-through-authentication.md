@@ -36,6 +36,7 @@ Pass-through authentication can be configured with Azure AD Connect and utilizes
 >Multi-forest environments can be supported if there are trusts between the forests and name suffix routing is correctly configured.
 
 ## Supported Clients in the preview
+
 Pass-through authentication is supported via web browser-based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga). For clients that are not supported, such as legacy Office clients and Exchange active sync (that is, native email clients on mobile devices), customers are encouraged to use the modern authentication equivalent. These clients not only allow pass-through authentication, but also allow conditional access to be applied, such as multi-factor authentication.
 
 For customers using Windows 10 joined to Azure AD, pass-through authentication is not currently supported. However, customers can utilize password sync as an automatic fallback for Windows 10 in addition for legacy clients.
