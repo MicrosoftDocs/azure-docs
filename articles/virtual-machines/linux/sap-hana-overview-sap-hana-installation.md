@@ -16,7 +16,7 @@ ms.date: 12/01/2016
 ms.author: rclaus
 
 ---
-# Install SAP HANA on SAP HANA on Azure (Large Instances)
+# How to install and configure SAP HANA (large instances) on Azure
 
 Installation of SAP HANA is your responsibility and you can do this immediately after handoff of a new SAP HANA on Azure (Large Instances) server. Please note, per SAP policy, installation of SAP HANA must be performed by certified SAP HANA installer — someone who has passed the Certified SAP Technology Associate – SAP HANA Installation certification exam, or by a SAP-certified system integrator (SI).
 

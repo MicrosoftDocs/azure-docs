@@ -16,7 +16,7 @@ ms.date: 12/01/2016
 ms.author: rclaus
 
 ---
-# Overview and Architecture of SAP HANA on Azure (Large Instances)
+# SAP HANA (large instances) overview and architecture on Azure 
 This is a five-part architecture and technical deployment guide that provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not comprehensive, and does not cover specific details involving setup of SAP solutions. Instead, gives valuable information to help with your initial deployment and ongoing operations. Do not use it to replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It also provides detail on installing SAP HANA on Azure (Large Instances).
 
 

@@ -18,7 +18,7 @@ ms.date: 02/15/2017
 ms.author: rasquill
 
 ---
-# Select Linux VM images with the Azure CLI
+# How to find Linux VM images with the Azure CLI
 This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. 
 
 

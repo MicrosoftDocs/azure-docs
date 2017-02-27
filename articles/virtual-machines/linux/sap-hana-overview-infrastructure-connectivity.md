@@ -16,7 +16,7 @@ ms.date: 12/01/2016
 ms.author: rclaus
 
 ---
-# Infrastructure and Connectivity to SAP HANA on Azure (Large Instances)
+# SAP HANA (large instances) infrastructure and connectivity on Azure 
 
 After the purchase of SAP HANA on Azure (Large Instances) is finalized between you and the Microsoft enterprise account team, the following information is required:
 

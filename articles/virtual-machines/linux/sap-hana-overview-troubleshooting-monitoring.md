@@ -16,7 +16,7 @@ ms.date: 12/01/2016
 ms.author: rclaus
 
 ---
-# Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
+# How to troubleshoot and monitor SAP HANA (large instances) on Azure
 
 
 ## Monitoring in SAP HANA on Azure (Large Instances)

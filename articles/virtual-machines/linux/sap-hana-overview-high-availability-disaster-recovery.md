@@ -16,7 +16,7 @@ ms.date: 12/01/2016
 ms.author: rclaus
 
 ---
-# High availability and disaster recovery of SAP HANA on Azure (large instances)
+# SAP HANA (large instances) high availability and disaster recovery on Azure 
 
 High availability and disaster recovery are important aspects of running your mission-critical SAP HANA on Azure (large instances) servers. It's important to work with SAP, your system integrator, or Microsoft to properly architect and implement the right high-availability/disaster-recovery strategy. It is also important to consider the recovery point objective and recovery time objective, which are specific to your environment.
 
