@@ -111,7 +111,8 @@ The following screenshot shows an example for this.
    
     ![Configure App Settings][9]   
   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your CloudPassage app (e.g.: *https://portal.cloudpassage.com/saml/init/accountid*).  
-  2. In the **Reply URL** textbox, type your AssertionConsumerService URL (e.g.: *https://portal.cloudpassage.com/saml/consume/accountid*). You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal.  
+  2. In the **Reply URL** textbox, type your AssertionConsumerService URL (e.g.: *https://portal.cloudpassage.com/saml/consume/accountid*). You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal.
+  
     ![Configure Single Sign-On][10]   
   3. Click **Next**.
 4. On the **Configure single sign-on at CloudPassage** page, click **Download certificate**, and then save the certificate file locally on your computer. 
