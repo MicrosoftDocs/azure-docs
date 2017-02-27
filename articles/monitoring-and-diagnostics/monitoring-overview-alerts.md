@@ -1,5 +1,5 @@
 ---
-title: Overview of alerts in Microsoft Azure and Azure Monitor | Microsoft Docs
+title: Overview: Alerts in Microsoft Azure and Azure Monitor | Microsoft Docs
 description: Alerts enable you to monitor Azure resource metrics, events, or logs and be notified when a condition you specify is met.
 author: rboucher
 manager: carolz
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 02/27/2017
 ms.author: robb
-
+ms.custom: H1Hack27Feb2017
 ---
-# Overview of alerts in Microsoft Azure
-This article describes what alerts are, their benefits, and how to get started with using them.  
+# What are alerts in Microsoft Azure?
+This article describes what alerts are, their benefits, and how to get started with using them. It specifically deal with Azure Monitor, but provides pointers to other services.  
 
-Alerts are a method of monitoring Azure resource metrics, events, or logs and then being notified when a condition you specify is met.
+Alerts are a method of monitoring Azure resource metrics, events, or logs and being notified when a condition you specify is met.  
 
 ## Alerts in different Azure services
 Alerts are available across different services, including:
@@ -29,7 +29,8 @@ Alerts are available across different services, including:
 * **Log Analytics (Operations Management Suite)**: Enables the routing of diagnostic logs to Log Analytics. Operations Management Suite allows metric, log, and other alert types. For more information, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).  
 * **Azure Monitor**: Enables alerts based on both metric values and activity log events. Azure Monitor includes the [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx).  For more information, see [Using the Azure portal, PowerShell, or the command-line interface to create alerts](insights-alerts-portal.md).
 
-The following diagram summarizes alerts and what you can do with them in Azure Monitor. Other actions may be available for the services listed previously.
+## Visual Summary
+The following diagram summarizes alerts and what you can do with them specifically in "Azure Monitor". Other actions may be available for the services listed previously. For example, alerts on Diagnostics Logs are only available in Log Analytics at this time.
 
 ![Alerts explained](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
 
@@ -37,14 +38,18 @@ The following diagram summarizes alerts and what you can do with them in Azure M
 
 You can receive alerts based on:
 
-* **Metric values**: This alert triggers when the value of a specified metric crosses a threshold that you assign in either direction. That is, it triggers both when the condition is first met and then afterward when that condition is no longer being met.
+* **Metric values**: This alert triggers when the value of a specified metric crosses a threshold that you assign in either direction. That is, it triggers both when the condition is first met and then afterward when that condition is no longer being met. For a growing list of available metrics supported by Azure monitor, see [List of metrics supported on Azure Monitor](monitoring-supported-metrics.md).
 * **Activity log events**: This alert can trigger on every event or only when a specific number of events occur.
 
 ## What can Alerts do?
 You can configure an alert to do the following actions:
 
 * Send email notifications to the service administrator, to co-administrators, or to additional email addresses that you specify.
-* Call a webhook, which enables you to launch additional automation actions. Examples include call an Azure Automation Runbook, Azure Function, Azure Logic App, or a third-party service.
+* Call a webhook, which enables you to launch additional automation actions. Examples include calling:
+    - Azure Automation Runbook
+    - Azure Function
+    - Azure Logic App
+    - a third-party service
 
 
 ## Next steps
