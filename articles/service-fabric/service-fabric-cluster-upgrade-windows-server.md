@@ -122,14 +122,8 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
 ```
 
 #### Cluster Upgrade workflow.
-1. Run Get-ServiceFabricClusterUpgrade from one of the nodes in the cluster and note the TargetCodeVersion.
-2. Run the following from an internet connected machine to list all upgrade compatible versions with the current version and download the corresponding package from the associated download links.
-   ```powershell
-   
-    ###### Get list of all upgrade compatible packages
-    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1>
-    ```
-3. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster 
+1. Download the latest version of the package from [Create service fabric cluster for windows server](service-fabric-cluster-creation-for-windows-server.md) document
+2. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster 
    
     ```powershell
    
@@ -144,7 +138,7 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
         -StoreLocation CurrentUser `
         -StoreName My
     ```
-4. Copy the downloaded package into the cluster image store.
+3. Copy the downloaded package into the cluster image store.
    
     ```powershell
    
@@ -156,7 +150,7 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
 
     ```
 
-5. Register the copied package 
+4. Register the copied package 
    
     ```powershell
    
@@ -167,7 +161,7 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-6. Kick off a cluster upgrade to one of the versions that is available. 
+5. Kick off a cluster upgrade to one of the versions that is available. 
    
     ```Powershell
    
@@ -197,13 +191,6 @@ To perform cluster config upgrade, run Start-ServiceFabricClusterConfigurationUp
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
 
 ```
-
-### Cluster Certificate Config Upgrade (PLS HOLD ON TILL v5.5 is released, because cluster cert upgrade doesn't work till v5.5)
-Cluster certificate is used for authentication between cluster nodes, so the certificate roll over should be performed with extra caution because failure will block the communication among cluster nodes.
-Technically, two options are supported:
-
-1. Single certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate B (Primary) -> Certificate C (Primary) -> ...'. 
-2. Double certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate A (Primary) and B (Secondary) -> Certificate B (Primary) -> Certificate B (Primary) and C (Secondary) -> Certificate C (Primary) -> ...'
 
 
 ## Next steps

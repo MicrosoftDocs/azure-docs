@@ -1,6 +1,6 @@
 ---
-title: 'Get Insights: Azure AD Password Management Reports | Microsoft Docs'
-description: This article describes how to use reports to get insight into Password Management operations in your organization.
+title: 'Get Insights: Azure AD password management reports | Microsoft Docs'
+description: This article describes how to use reports to get insight into password management operations in your organization.
 services: active-directory
 documentationcenter: ''
 author: asteen
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 02/22/2017
 ms.author: asteen
 
 ---
-# How to get operational insights with Password Management reports
+# How to get operational insights with password management reports
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
-This section describes how you can use Azure Active Directory’s Password Management reports to view how users are using password reset and change in your organization.
+This section describes how you can use Azure Active Directory’s password management reports to view how users are using password reset and change in your organization.
 
-* [**Password Management reports overview**](#overview-of-password-management-reports)
-* [**How to view Password Management reports**](#how-to-view-password-management-reports)
+* [**Password management reports overview**](#overview-of-password-management-reports)
+* [**How to view password management reports**](#how-to-view-password-management-reports)
 * [**View password reset registration activity in your organization**](#view-password-reset-registration-activity)
 * [**View password reset activity in your organization**](#view-password-reset-activity)
 
-## Overview of Password Management reports
-Once you deploy password reset, one of the most common next steps is to see how it is being used in your organization.  For example, you may want to get insight into how users are registering for password reset, or how many password resets have been done in the last few days.  Here are some of the common questions that you will be able to answer with the Password Management reports that exist in the [Azure Management Portal](https://manage.windowsazure.com) today:
+## Overview of password management reports
+Once you deploy password reset, one of the most common next steps is to see how it is being used in your organization.  For example, you may want to get insight into how users are registering for password reset, or how many password resets have been done in the last few days.  Here are some of the common questions that you will be able to answer with the password management reports that exist in the [Azure Management Portal](https://manage.windowsazure.com) today:
 
 * How many people have registered for password reset?
 * Who has registered for password reset?
@@ -42,19 +42,19 @@ Once you deploy password reset, one of the most common next steps is to see how 
 * What admins are resetting their own passwords frequently?
 * Is there any suspicious activity going on with password reset?
 
-## How to view Password Management reports
-To find the Password Management reports, follow the steps below:
+## How to view password management reports
+To find the password management reports, follow the steps below:
 
-1. Click on the **Active Directory** extension in the [Azure Management Portal](https://manage.windowsazure.com).
+1. Click on the **Active Directory** extension in the [Azure classic portal](https://manage.windowsazure.com).
 2. Select your directory from the list that appears in the portal.
 3. Click on the **Reports** tab.
 4. Look under the **Activity Logs** section.
 5. Select either the **Password reset activity** report or the **Password reset registration activity** report.
-   
+
    ![][001]
 
-## How to access Password Management Reports from an API
-As of August 2015, the Azure AD Reports and Events now supports retrieving all of the information included in the Password Reset and Password Reset Registration reports.
+## How to access password management Reports from an API
+As of August 2015, the Azure AD Reports and Events now supports retrieving all of the information included in the password reset and password reset registration reports.
 
 To access this data, you'll need to write a small app or script to retrieve it from our servers. [Learn how to get started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 
@@ -69,7 +69,7 @@ The password reset registration activity report shows all password reset registr
 * **Max time range**: 1 month
 * **Max number of rows**: unlimited
 * **Downloadable**: Yes, via CSV file
-  
+
     ![][002]
 
 ### Description of report columns
@@ -93,7 +93,7 @@ This report shows all password reset attempts that have occurred in your organiz
 * **Max time range**: 1 month
 * **Max number of rows**: unlimited
 * **Downloadable**: Yes, via CSV file
-  
+
     ![][003]
 
 ### Description of report columns
@@ -156,7 +156,7 @@ Below is the list of result types you may expect when using the password reset a
 | Password reset has been disabled entirely for this tenant. See [here](http://aka.ms/ssprtroubleshoot) to resolve this. |Failed |
 | User successfully reset password |Succeeded |
 
-## Links to password reset documentation
+## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
 * **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
