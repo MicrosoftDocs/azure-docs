@@ -1,6 +1,6 @@
 ---
-title: Configure tasks that depend on other tasks - Azure Batch | Microsoft Docs
-description: Create tasks that depend on the successful completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
+title: Use task dependencies to run tasks based on the completion of other tasks - Azure Batch | Microsoft Docs
+description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -13,11 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Task dependencies in Azure Batch
+# Create task dependencies to run tasks that depend on other tasks
+
 The task dependencies feature of Azure Batch is a good fit if you want to process:
 
 * MapReduce-style workloads in the cloud.
