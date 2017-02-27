@@ -31,7 +31,6 @@ By using the Azure AD PowerShell module, you can define custom home-page URLs fo
 >When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 >
 
-<<<<<<< HEAD
 When users launch the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home-page URL. For example, for the back-end app http://ExpenseApp, the URL is published as *https://expenseApp-contoso.msappproxy.net*. By default, the home-page URL is set as *https://expenseApp-contoso.msappproxy.net*.
 
 ## Determine the home-page URL
