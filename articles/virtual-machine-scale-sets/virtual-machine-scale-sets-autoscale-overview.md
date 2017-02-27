@@ -18,7 +18,7 @@ ms.date: 10/18/2016
 ms.author: adegeo
 
 ---
-# Automatic scaling and virtual machine scale sets
+# How to use automatic scaling and Virtual Machine Scale Sets
 Automatic scaling of virtual machines in a scale set is the creation or deletion of machines in the set as needed to match performance requirements. As the volume of work grows, an application may require additional resources to enable it to effectively perform tasks.
 
 Automatic scaling is an automated process that helps ease management overhead. By reducing overhead, you don't need to continually monitor system performance or decide how to manage resources. Scaling is an elastic process. More resources can be added as the load increases, but as demand decreases resources can be removed to minimize costs and maintain performance levels.

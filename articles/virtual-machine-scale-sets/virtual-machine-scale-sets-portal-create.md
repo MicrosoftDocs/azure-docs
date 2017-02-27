@@ -19,7 +19,7 @@ ms.date: 09/15/2016
 ms.author: negat
 
 ---
-# Create a Virtual Machine Scale Set using the Azure portal
+# How to create a Virtual Machine Scale Set with the Azure portal
 This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Choose the VM image from the marketplace
