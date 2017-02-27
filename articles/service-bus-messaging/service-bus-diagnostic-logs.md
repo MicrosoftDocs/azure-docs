@@ -22,7 +22,7 @@ ms.author: babanisa
 
 You can view two types of logs for Azure Service Bus:
 * **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. These logs have information about operations performed on a job. The logs are always turned on.
-* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs, for richer insight into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates, and activities that occur while the job is running.
+* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs, for richer insight into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
 Diagnostics logs are **off** by default. To turn on diagnostic logs:
@@ -41,7 +41,7 @@ Diagnostics logs are **off** by default. To turn on diagnostic logs:
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-5.	Set the archival target that you want, for example, a storage account, an event hub, or Log Analytics.
+5.	Set the archival target that you want, for example, a storage account, an event hub, or Azure Log Analytics.
 
 6.	Select the categories of logs that you want to collect, for example, **Execution** or **Authoring**.
 
