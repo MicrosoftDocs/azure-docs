@@ -58,7 +58,6 @@
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
 ## [View activity reports](active-directory-view-access-usage-reports.md)
-### [Azure AD reporting](active-directory-reporting-getting-started.md)
 ### [Sign-ins](active-directory-reporting-activity-sign-ins.md)
 ### [Audit logs](active-directory-reporting-activity-audit-logs.md)
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
@@ -68,6 +67,7 @@
 ### [Known networks](active-directory-known-networks.md)
 
 ### Classic portal
+#### [Azure AD reporting](active-directory-reporting-getting-started.md)
 #### [Reporting guide](active-directory-reporting-guide.md)
 #### [Preview](active-directory-reporting-azure-portal.md)
 #### [API](active-directory-reporting-api-getting-started.md)
