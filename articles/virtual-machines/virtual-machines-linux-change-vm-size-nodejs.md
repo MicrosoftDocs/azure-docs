@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
 ms.author: mwasson
-
+ms.custom: H1Hack27Feb2017
 ---
 # How to resize a Linux VM with the Azure CLI 1.0
 
