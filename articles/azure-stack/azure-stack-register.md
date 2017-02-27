@@ -27,7 +27,7 @@ To use Azure Stack in a production environment you must first register it with y
 
 ## Register
 
-1.	Sign in to the POC host computer as an Azure Stack administrator.
+1.	Sign in to the Azure Stack POC host computer as an Azure Stack administrator.
 2.	Make sure you have the Azure PowerShell cmdlets on the host computer. 
 3.	Close all PowerShell windows.
 4.	[TEMP WORKAROUND] Copy the DLLs from \\TBD link\\ to the C:\CloudDeployment\ECEngine\bin folder on the host.
