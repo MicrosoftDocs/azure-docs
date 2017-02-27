@@ -31,7 +31,7 @@ This tutorial shows how to create a simple [Node.js] application and deploy it t
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-nodejs-get-started.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](app-service-web-nodejs-get-started.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [Node.js]

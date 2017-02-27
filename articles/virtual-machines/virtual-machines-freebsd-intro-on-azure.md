@@ -80,9 +80,7 @@ After you're logged in through this user account, you can run commands as root b
 You can optionally obtain a root shell by using `sudo -s`.
 
 ## Known issues
-1. There is currently an outstanding issue with FreeBSD 11.0 on Hyper-V (and Azure) that may cause VMs to fail to boot if the operating system is patched using `freebsd-update`. The [proposed patch](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212721) is included in the FreeBSD images on the Azure Marketplace. However, it has not been merged upstream by the FreeBSD team, so running `freebsd-update` replaces the kernel with an unpatched one. It is recommended that users on Azure do not install patches for FreeBSD 11.0 until the fix is published as an ERRATA.
-
-2. The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. It is recommended that FreeBSD VM users on Azure use 2.2.1 or earlier release. The fix will be captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3. 
+1. The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
 
 ## Next steps
 * Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
