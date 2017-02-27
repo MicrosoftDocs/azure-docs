@@ -13,23 +13,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: adegeo
-
 ---
-# How to auto scale a cloud service
+
+# How to configure auto scaling for a Cloud Service in the portal
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-how-to-scale-portal.md)
 > * [Azure classic portal](cloud-services-how-to-scale.md)
-> 
-> 
 
 Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a conditation based on a message queue or the metric of some other Azure resource associated with your subscription.
 
 > [!NOTE]
 > This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) and manually turn them on or off.
-> 
-> 
 
 ## Considerations
 You should consider the following information before you configure scaling for your application:
@@ -38,6 +34,10 @@ You should consider the following information before you configure scaling for y
 * You can scale based on a queue message threshold. For more information about how to use queues, see [How to use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md).
 * You can also scale other resources associated with your subscription.
 * To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+
+> [!WARNING]
+> Automatic scaling only works with Classic Azure Storage Accounts. It does not work with Azure Resource Manager Storage Accounts.
+
 
 ## Where scale is located
 After you select your cloud service, you should have the cloud service blade visible.

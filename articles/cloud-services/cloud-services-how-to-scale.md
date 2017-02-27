@@ -1,5 +1,5 @@
 ---
-title: Auto scale a cloud service in the portal (classic portal) | Microsoft Docs
+title: Auto scale a cloud service in the classic portal | Microsoft Docs
 description: (classic) Learn how to use the classic portal to configure auto scale rules for a cloud service web role or worker role in Azure.
 services: cloud-services
 documentationcenter: ''
@@ -13,23 +13,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: adegeo
-
 ---
-# How to auto scale a cloud service
+
+# How to configure auto scaling for a Cloud Service in the classic portal
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-how-to-scale-portal.md)
 > * [Azure classic portal](cloud-services-how-to-scale.md)
-> 
-> 
 
 On the Scale page of the Azure classic portal, you can manually scale your web role or worker role, or you can enable automatic scaling based on CPU load or a message queue.
 
 > [!NOTE]
 > This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. Some of this information applies to these types of virtual machines. Scaling an availability set of virtual machines is really just shutting them on and off based on the scale rules you configure. For more information about Virtual Machines and availability sets, see [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-> 
-> 
 
 You should consider the following information before you configure scaling for your application:
 
@@ -37,6 +33,9 @@ You should consider the following information before you configure scaling for y
 * You must create a queue and associate it with a role before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md).
 * You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 * To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+
+> [!WARNING]
+> Automatic scaling only works with Classic Azure Storage Accounts. It does not work with Azure Resource Manager Storage Accounts.
 
 ## Schedule scaling
 By default, all roles do not follow a specific schedule. Therefore, any settings changed apply to all times and all days throughout the year. If you want, you can setup manual or automatic scaling for:
@@ -62,8 +61,7 @@ On the **Scale** page, you can manually increase or decrease the number of runni
    
    > [!TIP]
    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
-   > 
-   > 
+
 2. Click **Scale**.
 3. Select the schedule you want to change scaling options for. Defaults to *No scheduled times* if you have no schedules defined.
 4. Find the **Scale by metric** section and select **NONE**. This is the default setting for all roles.
@@ -77,8 +75,6 @@ On the **Scale** page, you can manually increase or decrease the number of runni
 
 > [!TIP]
 > Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
-> 
-> 
 
 ## Automatic scale - CPU
 This scales if the average percentage of CPU usage goes above or below specified thresholds; role instances are created or deleted.
@@ -87,8 +83,7 @@ This scales if the average percentage of CPU usage goes above or below specified
    
    > [!TIP]
    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
-   > 
-   > 
+
 2. Click **Scale**.
 3. Select the schedule you want to change scaling options for. Defaults to *No scheduled times* if you have no schedules defined.
 4. Find the **Scale by metric** section and select **CPU**.
@@ -98,8 +93,6 @@ This scales if the average percentage of CPU usage goes above or below specified
 
 > [!TIP]
 > Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
-> 
-> 
 
 ## Automatic scale - Queue
 This automatically scales if the number of messages in a queue goes above or below a specified threshold; role instances are created or deleted.
@@ -108,18 +101,15 @@ This automatically scales if the number of messages in a queue goes above or bel
    
    > [!TIP]
    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
-   > 
-   > 
+
 2. Click **Scale**.
-3. Find the **Scale by metric** section and select **CPU**.
+3. Find the **Scale by metric** section and select **Queue**.
 4. Now you can configure a minimum and maximum range of roles instances, the queue and amount of queue messages to process for each instance, and how many instances to scale up and down by.
 
 ![Scale a cloud service role by a message queue][queue_scale]
 
 > [!TIP]
 > Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
-> 
-> 
 
 ## Scale linked resources
 Often when you scale a role, it's beneficial to scale the database that the application is using also. If you link the database to the cloud service, you can access the scaling settings for that resource by clicking on the appropriate link.
@@ -128,15 +118,12 @@ Often when you scale a role, it's beneficial to scale the database that the appl
    
    > [!TIP]
    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
-   > 
-   > 
+
 2. Click **Scale**.
 3. Find the **linked resources** section and clicked on **Manage scale for this database**.
    
    > [!NOTE]
    > If you don't see a **linked resources** section, you probably do not have any linked resources.
-   > 
-   > 
 
 ![][linked_resource]
 
