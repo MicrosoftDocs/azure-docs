@@ -32,7 +32,7 @@ This preview release of Azure Stack has a set of region management capabilities 
  
  You can view the health state of components in both the Azure Stack administrator portal and through Rest API and PowerShell.
  
- To view the health state in the portal, click the region that you want to view in the **Region Management** tile. You can view the health state of infrastructure roles and of resource providers. However, be aware that in the TP3 release, not all infrastructure roles and resource providers report health state.
+To view the health state in the portal, click the region that you want to view in the **Region Management** tile. You can view the health state of infrastructure roles and of resource providers. However, in the TP3 release, not all infrastructure roles and resource providers report health state.
 
 ![List of infrastructure roles](media/azure-stack-monitor-health/image2.png)
 
@@ -41,7 +41,7 @@ You can click a resource provider or infrastructure role to view more detailed i
 New in TP3, you can restart or shut down an infrastructure role instance for troubleshooting purposes. To do this, click an infrastructure role, click the role instance, and then in the **Role Instance** blade, click **Restart**, **Shutdown**, or **Start**. (The available options depend on the current state.)
 
 > [!WARNING]
->In an Azure Stack Proof of Concept (POC) environment, there is only one role instance for each infrastructure role. Therefore, if you restart or shut down a role instance, the functionality that the role offers will be unavailable until the role instance starts. If you restart or shut down the MAS-XRP01 role instance (associated with the Infrastructure management controller), you must use Hyper-V Manager to start the virtual machine.
+>In an Azure Stack Proof of Concept (POC) environment, there is only one role instance for each infrastructure role. Therefore, if you restart or shut down a role instance, the functionality that the role offers is unavailable until the role instance starts. If you restart or shut down the MAS-XRP01 role instance (associated with the Infrastructure management controller), you must use Hyper-V Manager to start the virtual machine.
 >
 >
  
