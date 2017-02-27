@@ -22,13 +22,13 @@ ms.author: nepeters
 
 This script mounts the operating system disk of a failed or problematic virtual machine as a data disk to a second virtual machine. This can be useful when troubleshooting disk issues or recovering data. This sample works in Bash. 
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, an existing virtual machine will be needed. Update the name and Resource Group of the existing VM in the script sample.
+Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an existing virtual machine will be needed. Update the name and Resource Group of the existing VM in the script sample.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh?highlight=4-5 "Quick Create VM")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Quick Create VM")]
 
 ## Script explanation
 
@@ -39,7 +39,8 @@ This script uses the following commands to create a resource group, virtual mach
 | [az vm show](https://docs.microsoft.com/cli/azure/vm#show) | Return a list of virtual machines. In this case, the query option is used to return the virtual machine operating system disk. This value is then added to a variable name ‘uri’. |
 | [az vm delete](https://docs.microsoft.com/cli/azure/vm#delete) | Deletes a virtual machine. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates a virtual machine.  |
-| [az vm disk attach-existing](https://docs.microsoft.com/cli/azure/vm/disk#attach-existing) | Attaches a disk to a virtual machine. |
+| [az vm disk attach](https://docs.microsoft.com/en-us/cli/azure/vm/disk#attach) | Attaches a disk to a virtual machine. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/en-us/cli/azure/vm#list-ip-addresses) | Returns the IP addresses of a virtual machine. |
 
 ## Next steps
 
