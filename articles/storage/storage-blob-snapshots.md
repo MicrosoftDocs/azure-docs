@@ -34,7 +34,7 @@ When you create a snapshot of a blob, the blob's system properties are copied to
 
 Any leases associated with the base blob do not affect the snapshot. You cannot acquire a lease on a snapshot.
 
-A VHD file is the file used to store the current status of a VM disk. You can detach a disk or shut down the VM and take a snapshot that you can use later to recreate the VM if needed.
+A VHD file is the file used to store the current information for a VM disk. You can detach a disk or shut down the VM and take a snapshot that you can use later to recreate the VM if needed.
 
 If Storage Service Encryption (SSE) is enabled for the storage account in which the blob resides, then any snapshots taken of that blob will be encrypted at rest.
 
