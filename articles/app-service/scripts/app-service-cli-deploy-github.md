@@ -20,22 +20,11 @@ ms.author: cephalin
 
 # Create a web app with deployment from GitHub
 
-This sample script does the following using Azure CLI 2.0:
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a public GitHub repository.
 
-* Create a web app in Azure App Service in the West Europe Azure region.
-* Deploy your web app code from GitHub.
-* Display the deployed Azure web app in the browser.
+Before running this script, ensure that a connection with Azure has been created using the `az login` command, and that you have the URL of a GitHub repository to deploy.
 
-## Prerequisites
-
-* Run `az login` to log in to Azure.
-* Put your web app code in a GitHub repository.
-
-> [!NOTE]
-> If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
-> cannot set up the SSH key and webhooks necessary for continuous deployment.
->
->
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Create app sample
 
