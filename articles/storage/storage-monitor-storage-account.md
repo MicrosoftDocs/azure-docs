@@ -32,9 +32,9 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the storage account name to open the account dashboard.
 1. To open the **Diagnostic blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
-   
-    ![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
 1. Select the **type** of metrics data for each **service** you wish to monitor, and the **retention policy** for the data. You can also disable monitoring by setting **Status** to **Off**.
+
+    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-01.png)
 
    There are two types of metrics you can enable for each service, both of which are enabled by default for new storage accounts:
 
@@ -129,5 +129,8 @@ The diagnostics logs are saved in a blob container named $logs in your storage a
 
 ## Next steps
 
-* TODO
+The following articles contain additional information about working with Storage Analytics.
+
+* TODO link1
+* TODO link2
 
