@@ -1,5 +1,5 @@
 ---
-title: Get started with SQL database auditing | Microsoft Docs
+title: Get started with Azure SQL database auditing | Microsoft Docs
 description: Get started with SQL database auditing
 services: sql-database
 documentationcenter: ''
@@ -29,7 +29,7 @@ Auditing enables and facilitates adherence to compliance standards but doesn't g
 * [Set up auditing for your database]
 * [Analyze audit logs and reports]
 
-## <a id="subheading-1"></a>Azure SQL Database Auditing overview
+## <a id="subheading-1"></a>Azure SQL Database auditing overview
 SQL Database Auditing allows you to:
 
 * **Retain** an audit trail of selected events. You can define categories of database actions to be audited.
@@ -53,7 +53,7 @@ An auditing policy can be defined for a specific database or as a default server
 ## <a id="subheading-2"></a>Set up auditing for your database
 The following section describes the configuration of auditing using the Azure portal.
 
-### <a id="subheading-2-1">Blob Auditing</a>
+### <a id="subheading-2-1">Blob auditing</a>
 1. Launch the [Azure portal](https://portal.azure.com) at https://portal.azure.com.
 2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection**.
 
@@ -74,7 +74,7 @@ The following section describes the configuration of auditing using the Azure po
 6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
 7. Click **Save**.
 
-### <a id="subheading-2-2">Table Auditing</a>
+### <a id="subheading-2-2">Table auditing</a>
 
 > Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
 
@@ -97,9 +97,9 @@ The following section describes the configuration of auditing using the Azure po
 8. Click **Save**.
 
 
-## <a id="subheading-8"></a>Blob/Table differences in Server auditing policy inheritance
+## <a id="subheading-8"></a>Blob/table differences in server auditing policy inheritance
 
-###<a>Blob Auditing</a>
+###<a>Blob auditing</a>
 
 1. If **Server Blob auditing is enabled**, it **always applies to the database** (i.e. the database will be audited), regardless of:
     - The database auditing settings.
@@ -114,7 +114,7 @@ The following section describes the configuration of auditing using the Azure po
     > <br><br>
     > Otherwise, it is **recommended to only enable server-level Blob Auditing** and leave the database-level auditing disabled for all databases.
 
-###<a>Table Auditing</a>
+###<a>Table auditing</a>
 
 If **server-level Table auditing is enabled**, it only applies to the database if the "Inherit settings from server" checkbox is checked in the database blade (this is checked by default for all existing and newly created databases).
 
@@ -164,7 +164,7 @@ There are several methods to view Blob Auditing logs:
 
 3. We have created a **sample application** that runs in Azure and utilizes OMS public APIs to push SQL audit logs into OMS for consumption via the OMS dashboard ([more info here](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
 
-### <a id="subheading-3-2">Table Auditing</a>
+### <a id="subheading-3-2">Table auditing</a>
 Table Auditing logs are saved as a collection of Azure Storage Tables with a **SQLDBAuditLogs** prefix.
 
 For further details about the Table audit log format, see the [Table Audit Log Format Reference (doc file download)](http://go.microsoft.com/fwlink/?LinkId=506733).
@@ -191,12 +191,12 @@ There are several methods to view Table Auditing logs:
 ## <a id="subheading-5"></a>Practices for usage in production
 <!--The description in this section refers to screen captures above.-->
 
-### <a id="subheading-6">Auditing Geo-replicated databases</a>
+### <a id="subheading-6">Auditing geo-replicated databases</a>
 When using Geo-replicated databases, it is possible to set up Auditing on either the Primary database, the Secondary database, or both, depending on the Audit type.
 
 **Table Auditing** - you can configure a separate policy, on either the database or the server level, for each of the two databases (Primary and Secondary) as described in [Set up auditing for your database](#subheading-2-2) section.
 
-**Blob Auditing** - follow these instructions:
+**Blob auditing** - follow these instructions:
 
 1. **Primary database** - turn on **Blob Auditing** either on the server or the database itself, as described in [Set up auditing for your database](#subheading-2-1) section.
 2. **Secondary database** - Blob Auditing can only be turned on/off from the Primary database auditing settings.
@@ -209,7 +209,7 @@ When using Geo-replicated databases, it is possible to set up Auditing on either
 
 <br>
 
-### <a id="subheading-6">Storage Key Regeneration</a>
+### <a id="subheading-6">Storage key regeneration</a>
 In production, you are likely to refresh your storage keys periodically. When refreshing your keys, you need to re-save the auditing policy. The process is as follows:
 
 1. In the storage details blade switch the **Storage Access Key** from *Primary* to *Secondary*, and then click **OK** at the bottom. Then click **SAVE** at the top of the auditing configuration blade.
@@ -235,17 +235,17 @@ You can also configure Auditing in Azure SQL Database using the following automa
    * [Use-AzureRMSqlServerAuditingPolicy][107]
 2. **REST API - Blob auditing**
 
-   * [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt695939.aspx)
-   * [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt771861.aspx)
-   * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt695938.aspx)
-   * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt771860.aspx)
-   * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/en-us/library/azure/mt771862.aspx)
+   * [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+   * [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+   * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+   * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+   * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 3. **REST API - Table auditing**
 
-   * [Create or Update Database Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604471.aspx)
-   * [Create or Update Server Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604383.aspx)
-   * [Get Database Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604381.aspx)
-   * [Get Server Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604382.aspx)
+   * [Create or Update Database Auditing Policy](https://msdn.microsoft.com/library/azure/mt604471.aspx)
+   * [Create or Update Server Auditing Policy](https://msdn.microsoft.com/library/azure/mt604383.aspx)
+   * [Get Database Auditing Policy](https://msdn.microsoft.com/library/azure/mt604381.aspx)
+   * [Get Server Auditing Policy](https://msdn.microsoft.com/library/azure/mt604382.aspx)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
@@ -271,10 +271,10 @@ You can also configure Auditing in Azure SQL Database using the following automa
 [11]: ./media/sql-database-auditing-get-started/11_auditing_get_started_blob_audit_records.png
 [12]: ./media/sql-database-auditing-get-started/12_auditing_get_started_table_audit_records.png
 
-[101]: https://msdn.microsoft.com/en-us/library/azure/mt603731(v=azure.200).aspx
-[102]: https://msdn.microsoft.com/en-us/library/azure/mt619329(v=azure.200).aspx
-[103]: https://msdn.microsoft.com/en-us/library/azure/mt603796(v=azure.200).aspx
-[104]: https://msdn.microsoft.com/en-us/library/azure/mt603574(v=azure.200).aspx
-[105]: https://msdn.microsoft.com/en-us/library/azure/mt603531(v=azure.200).aspx
-[106]: https://msdn.microsoft.com/en-us/library/azure/mt603794(v=azure.200).aspx
-[107]: https://msdn.microsoft.com/en-us/library/azure/mt619353(v=azure.200).aspx
+[101]: https://msdn.microsoft.com/library/azure/mt603731(v=azure.200).aspx
+[102]: https://msdn.microsoft.com/library/azure/mt619329(v=azure.200).aspx
+[103]: https://msdn.microsoft.com/library/azure/mt603796(v=azure.200).aspx
+[104]: https://msdn.microsoft.com/library/azure/mt603574(v=azure.200).aspx
+[105]: https://msdn.microsoft.com/library/azure/mt603531(v=azure.200).aspx
+[106]: https://msdn.microsoft.com/library/azure/mt603794(v=azure.200).aspx
+[107]: https://msdn.microsoft.com/library/azure/mt619353(v=azure.200).aspx
