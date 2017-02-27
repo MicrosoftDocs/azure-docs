@@ -58,7 +58,7 @@ The following example shows a URL that includes the two query parameters:
  
 
 ``` 
-https://store.office.com/app.aspx?assetid=WA102957661&amp;mktcmpid=refexample&amp;mktvid=PN102957641
+https://store.office.com/app.aspx?assetid=WA102957661&mktcmpid=refexample&mktvid=PN102957641
 ``` 
 
  
@@ -85,7 +85,7 @@ The following example shows a URL that includes the two query parameters:
  
 
 ```
-https://store.office.com/app.aspx?assetid=WA102957661&amp;mktcmpid=refexample&amp;mktvid=PN102957641 
+https://store.office.com/app.aspx?assetid=WA102957661&mktcmpid=refexample&mktvid=PN102957641 
 ``` 
 
  
