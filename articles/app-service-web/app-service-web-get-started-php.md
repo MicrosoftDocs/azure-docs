@@ -70,7 +70,7 @@ You can complete the task using one of the following CLI versions:
 
 3. Set the deployment user for App Service. You will deploy code using these credentials later.
    
-        az appservice web deployment user set --user-name <username> --password <password>
+        az appservice web deployment user set --user-name <unique-username> --password <password-with-letters-numbers>
 
 3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this first App Service tutorial, you don't really need to know
 what it is.
