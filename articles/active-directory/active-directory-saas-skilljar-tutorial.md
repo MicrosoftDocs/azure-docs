@@ -41,7 +41,7 @@ To configure Azure AD integration with Skilljar, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD SSO in a test environment.
@@ -105,7 +105,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
    
     ![Configure Single Sign-On](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_04.png) 
-  1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Skilljar application using the following pattern: *https://\<company name\>.skilljar.com*
+  1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Skilljar application using the following pattern: *https://\<company name\>.skilljar.com*.
   2. Click **Next**.
 4. On the **Configure single sign-on at Skilljar** page, perform the following steps:
    
