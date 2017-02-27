@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus diagnostic logs | Microsoft Docs
-description: Learn how to set up diagnostic logs from Service Bus in Microsoft Azure.
+description: Learn how to set up diagnostic logs for Service Bus in Azure.
 keywords:
 documentationcenter: ''
 services: service-bus-messaging
@@ -21,8 +21,8 @@ ms.author: babanisa
 # Service Bus diagnostic logs
 
 You can view two types of logs for Azure Service Bus:
-* **[Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)**. These logs have information about operations performed on a job. The logs are always turned on.
-* **[Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)**. You can configure diagnostic logs, for richer insight into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates, and activities that occur while the job is running.
+* **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. These logs have information about operations performed on a job. The logs are always turned on.
+* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs, for richer insight into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates, and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
 Diagnostics logs are **off** by default. To turn on diagnostic logs:
