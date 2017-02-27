@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 >
 >
 
-Azure Active Directory (Azure AD) simplifies the procerss of resetting a user's password if they forget and are locked out, or performing routine security maintenance. 
+Azure Active Directory (Azure AD) simplifies the process of resetting a user's password if they forget and are locked out, or while performing routine security maintenance. 
 
 1. Open your directory.
 2. Select the **Users** tab, and then select the display name of the user you want to change.
