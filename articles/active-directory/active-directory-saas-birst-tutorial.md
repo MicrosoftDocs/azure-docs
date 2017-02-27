@@ -42,7 +42,7 @@ To configure Azure AD integration with Birst Agile Business Analytics, you need 
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. 
@@ -106,8 +106,8 @@ The objective of this section is to enable Azure AD SSO in the Azure classic por
 3. On the **Configure App Settings** dialog page, perform the following steps:.
    
     ![Configure Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png) 
-  1. In the Sign On URL textbox, type the URL used by your users to sign-on to your Birst Agile Business Analytics application using the following pattern: **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”**.
-   The URL is dependent on the datacenter that your Birst account is located. For US datacenter use **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”** and for Europe datacenter use **“https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**
+  1. In the Sign On URL textbox, type the URL used by your users to sign-on to your Birst Agile Business Analytics application using the following pattern: “https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”.
+   The URL is dependent on the datacenter that your Birst account is located. For US datacenter use “https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID” and for Europe datacenter use “https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID".
   2. Click **Next**.
 4. On the **Configure single sign-on at Birst Agile Business Analytics** page, perform the following steps:
    
