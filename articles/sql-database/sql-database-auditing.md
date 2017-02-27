@@ -18,7 +18,7 @@ ms.date: 10/05/2016
 ms.author: ronitr; giladm
 
 ---
-# Get started with SQL database  auditing
+# Get started with SQL database auditing
 Azure SQL Database Auditing tracks database events and writes them to an audit log in your Azure Storage account.
 
 Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
@@ -51,10 +51,10 @@ You can configure auditing for different types of event categories, as explained
 An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy applies to all existing and newly created databases on a server.
 
 ## <a id="subheading-2"></a>Set up auditing for your database
-The following section describes the configuration of auditing using the Azure Portal.
+The following section describes the configuration of auditing using the Azure portal.
 
 ### <a id="subheading-2-1">Blob Auditing</a>
-1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com.
+1. Launch the [Azure portal](https://portal.azure.com) at https://portal.azure.com.
 2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection**.
 
     <a id="auditing-screenshot"></a>
@@ -79,7 +79,7 @@ The following section describes the configuration of auditing using the Azure Po
 > Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
 
 
-1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com.
+1. Launch the [Azure portal](https://portal.azure.com) at https://portal.azure.com.
 2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection** (*[see screenshot in Blob Auditing section](#auditing-screenshot)*).
 3. In the database auditing configuration blade, you can check the **Inherit settings from server** checkbox to designate that this database will be audited according to its server's settings. If this option is checked, you will see a **View server auditing settings** link that allows you to view or modify the server auditing settings from this context.
 
@@ -136,7 +136,7 @@ For further details about the Blob audit logs storage folder hierarchy, Blob nam
 
 There are several methods to view Blob Auditing logs:
 
-1. Through the [Azure Portal](https://portal.azure.com) - open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click on **View audit logs**.
+1. Through the [Azure portal](https://portal.azure.com) - open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click on **View audit logs**.
 
     ![Navigation Pane][10]
 
@@ -171,7 +171,7 @@ For further details about the Table audit log format, see the [Table Audit Log F
 
 There are several methods to view Table Auditing logs:
 
-1. Through the [Azure Portal](https://portal.azure.com) - open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click on **View audit logs**.
+1. Through the [Azure portal](https://portal.azure.com) - open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click on **View audit logs**.
 
     ![Navigation Pane][10]
 
