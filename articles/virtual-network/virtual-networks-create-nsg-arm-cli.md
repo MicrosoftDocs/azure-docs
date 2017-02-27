@@ -1,10 +1,10 @@
 ---
-title: How to create NSGs in ARM mode using the Azure CLI 2.0| Microsoft Docs
-description: Learn how to create and deploy NSGs in ARM using the Azure CLI 2.0
+title: Create network security groups - Azure CLI 2.0 | Microsoft Docs
+description: Learn how to create and deploy network security groups using the Azure CLI 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# How to create NSGs in the Azure CLI 2.0
+# Create network security groups using the Azure CLI 2.0
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 ## CLI versions to complete the task 
