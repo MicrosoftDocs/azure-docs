@@ -28,7 +28,7 @@ In your title:
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
 
-![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](../../images/d9906e6a-272a-4de0-b160-a9582d6cddd9.png)
+![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](../images/d9906e6a-272a-4de0-b160-a9582d6cddd9.png)
 
 ### Use a consistent add-in name
 
@@ -51,7 +51,7 @@ The short description you supply with your submission is the text that is shown 
 - Avoid using jargon or specialized terminology - don't assume that users know what they're looking for.
 - Include keywords that customers might search for.
 
-![An image that shows a good short description next to one that relies on the brand name](../../images/078861fd-794c-410f-a639-bc28644d2dbc.PNG)
+![An image that shows a good short description next to one that relies on the brand name](../images/078861fd-794c-410f-a639-bc28644d2dbc.PNG)
 
 ### Effective long descriptions
 
@@ -97,7 +97,7 @@ Your logo should:
 - Use simple imagery. Don't clutter or complicate your image.
 - Communicate the problem that the add-in solves. Don't rely on your company logo for your image.
 
-![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](../../images/d8de904b-0047-41fb-b83c-4e116a486a76.PNG)
+![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](../images/d8de904b-0047-41fb-b83c-4e116a486a76.PNG)
 
 When you submit Office Add-ins, you specify an image in your manifest file, and upload an image with your Seller Dashboard submission.
 
@@ -134,7 +134,7 @@ Make your screenshots rich and informative. Help customers understand how your a
 
 >**Note:**  Be sure to remove any personal information from your screenshots that you do not want customers to see.
 
-![An image that shows an add-in with callouts next to a blank add-in](../../images/dd143a4e-aa72-46f1-8e4c-1e121f2ce6e1.PNG)
+![An image that shows an add-in with callouts next to a blank add-in](../images/dd143a4e-aa72-46f1-8e4c-1e121f2ce6e1.PNG)
 
 ## Use ratings and reviews
 <a name="bk_ratings"> </a>
@@ -144,14 +144,14 @@ Good ratings and reviews lead to better store placement and improved customer pe
 - Ask customers to rate and review from within your add-in. Make sure that they've had a chance to explore the add-in first, and don't ask for feedback too often.
 - Offer help and support from within your add-in, so customers don't have to leave feedback in Office Store reviews.
 
-![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](../../images/2038209a-5d7e-4a0e-a7ea-c12fa02c54a0.PNG)
+![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](../images/2038209a-5d7e-4a0e-a7ea-c12fa02c54a0.PNG)
 
 ## Respond to customer reviews in the Office Store
 <a name="bk_ratings"> </a>
 
 You can use the comment feature in the Office Store to respond to customer reviews of your app or add-in - for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
 
-![Screenshot that shows a developer response to a comment with the App provider label under the name](../../images/7f710930-4ecd-4b28-b55d-8507a928995b.PNG)
+![Screenshot that shows a developer response to a comment with the App provider label under the name](../images/7f710930-4ecd-4b28-b55d-8507a928995b.PNG)
  
 If you've responded to a user review and the user responds to your comment, the user has the option to change their rating of the app or add-in if their issue has been resolved. 
 

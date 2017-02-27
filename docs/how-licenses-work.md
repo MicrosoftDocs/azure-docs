@@ -89,7 +89,7 @@ The following figure shows the add-in license acquisition process for content an
  
 
  
-![App purchase process from Office Store](,,/,,/images/SP15_app_licensePurchase.png)
+![App purchase process from Office Store](,,/images/SP15_app_licensePurchase.png)
  
 ### Acquiring an add-in license from an add-in catalog
 
@@ -100,7 +100,7 @@ The following figure shows the add-in license acquisition process for Office Add
  
 
  
-![Office app purchase process from corporate catalog](../../images/O15_app_license_PurchaseCorpCatalog.png)
+![Office app purchase process from corporate catalog](../images/O15_app_license_PurchaseCorpCatalog.png)
  
 ### Acquiring an add-in license for an Outlook add-in
  
@@ -112,7 +112,7 @@ The following figure shows the add-in license acquisition process for Outlook ad
  
 
  
-![Mail app purchase from the Office Store](../../images/O15_mapp_license_Purchase.png)
+![Mail app purchase from the Office Store](../images/O15_mapp_license_Purchase.png)
  
 ### Acquiring an add-in license for a SharePoint Add-in
  
@@ -124,7 +124,7 @@ The following figure shows the add-in license acquisition and assignment process
  
 
  
-![SharePoint app purchase from Office Store](../../images/SP15_app_license_Purchase.png)
+![SharePoint app purchase from Office Store](../images/SP15_app_license_Purchase.png)
  
 
  
