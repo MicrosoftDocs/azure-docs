@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2016
 ms.author: kasing
+ms.custom: H1Hack27Feb2017
 
 ---
 # How to vertically scale virtual machines with Azure Automation
