@@ -63,7 +63,7 @@ The objective of this section is to outline how to enable the application integr
 ## Configure single sign-on
 The objective of this section is to outline how to enable users to authenticate to TimeOffManager with their account in Azure AD using federation based on the SAML protocol.  
 
-As part of this procedure, you are required to upload a base-64 encoded certificate to your TimeOffManager tenant. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+As part of this procedure, you are required to upload a base-64 encoded certificate to your TimeOffManager tenant. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
 ### To configure single sign-on, perform the following steps:
 1. In the Azure classic portal, on the **TimeOffManager** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
