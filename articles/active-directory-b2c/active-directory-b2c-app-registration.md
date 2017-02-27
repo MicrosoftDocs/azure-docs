@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 3/06/2016
 ms.author: swkrish
 
 ---
@@ -33,19 +33,43 @@ You can also access the blade by clicking **More services** and then searching *
 > 
 > 
 
-## Register an application
+## Register a web application
 1. On the B2C features blade on the Azure portal, click **Applications**.
 2. Click **+Add** at the top of the blade.
 3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
-4. If you are writing a web-based application, toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`. If your web application will also be calling some web API secured by Azure AD B2C, you'll want to create an **Application Secret** as well by clicking the **Generate Key** button.
-   
-   > [!NOTE]
-   > An **Application Secret** is an important security credential, and should be secured appropriately.
-   > 
-   > 
-5. If you are writing a mobile application, toggle the **Include native client** switch to **Yes**. Copy down the default **Redirect URI** that is automatically created for you.
+4. Toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
+5. Click **Create** to register your application.
+6. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
+
+> [!IMPORTANT]
+> Applications created in the B2C features blade have to be managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
+> 
+> 
+
+## Register a mobile application
+1. On the B2C features blade on the Azure portal, click **Applications**.
+2. Click **+Add** at the top of the blade.
+3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
+4. Toggle the **Include native client** switch to **Yes**. Copy down the default **Redirect URI** that is automatically created for you.
+5. Click **Create** to register your application.
+6. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
+
+> [!IMPORTANT]
+> Applications created in the B2C features blade have to be managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
+> 
+> 
+
+## Register a web api
+1. On the B2C features blade on the Azure portal, click **Applications**.
+2. Click **+Add** at the top of the blade.
+3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C api".
+4. Toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
+5. Enter an **App ID URI**. This is the identifier used for your web API. For example, enter 'notes'. It will generate the full identifier URI underneath. 
 6. Click **Create** to register your application.
 7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
+8. Click on **Published scopes**. This is where you define the permissions (scopes) that can be granted to other applications.
+9. Add more scopes as necessary. By default, the "user_impersonation" scope will be defined. This gives other applications the ability to access this api on behalf of the signed-in user. This can be removed if you wish. 
+10. Click **Save**.
 
 > [!IMPORTANT]
 > Applications created in the B2C features blade have to be managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
