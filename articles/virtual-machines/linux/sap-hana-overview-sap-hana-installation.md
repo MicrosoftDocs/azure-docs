@@ -14,6 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 
 ---
 # How to install and configure SAP HANA (large instances) on Azure

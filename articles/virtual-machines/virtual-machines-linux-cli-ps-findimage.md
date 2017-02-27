@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 
 ---
 # How to find Linux VM images with the Azure CLI

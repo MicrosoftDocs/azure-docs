@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 
 ---
 # How to create a Linux VM using an Azure Resourec Manager template

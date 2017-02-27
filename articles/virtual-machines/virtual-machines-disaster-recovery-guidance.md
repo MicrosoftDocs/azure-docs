@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+ms.custom: H1Hack27Feb2017
 
 ---
 # What to do in the event that an Azure service disruption impacts Azure VMs
