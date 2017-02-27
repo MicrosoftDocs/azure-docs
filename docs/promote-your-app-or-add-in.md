@@ -13,9 +13,9 @@ After you submit your app or add-in to the Seller Dashboard and it is approved f
 
 |**Badge size**|**How it looks**|
 |:-----|:-----|
-|Small|![Screenshot of the small-sized Office Store badge](../../images/60a9da08-8a1c-4b2b-82e6-215e116c7fa3.png)|
-|Medium|![Screenshot of the medium-sized Office Store badge](../../images/0da977b2-a5f4-43a4-971d-9b4a2b089545.png)|
-|Large|![Screenshot of the large-sized Office Store badge](../../images/8ae64033-d9b3-43a1-b393-afd2212f52fe.png)|
+|Small|![Screenshot of the small-sized Office Store badge](../images/60a9da08-8a1c-4b2b-82e6-215e116c7fa3.png)|
+|Medium|![Screenshot of the medium-sized Office Store badge](../images/0da977b2-a5f4-43a4-971d-9b4a2b089545.png)|
+|Large|![Screenshot of the large-sized Office Store badge](../images/8ae64033-d9b3-43a1-b393-afd2212f52fe.png)|
 3. Add the badge to your app or add-in webpage, directly following the link. This will make it clear to your users that they can download your app or add-in from the Office Store. 
     
  

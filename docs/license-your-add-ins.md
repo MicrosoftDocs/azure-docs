@@ -113,7 +113,7 @@ The following figure shows the add-in license query and validation process for O
 
 
  
-![Office app license verification process](../../images/O15_app_license_Verification.png)
+![Office app license verification process](../images/O15_app_license_Verification.png)
  
 
  
@@ -132,7 +132,7 @@ The following figure shows the add-in license query and validation process for S
  
 
  
-![SharePoint app license verification process](../../images/SP15_app_license_Verification.png)
+![SharePoint app license verification process](../images/SP15_app_license_Verification.png)
  
 
  
