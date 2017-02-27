@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/23/2016
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 
 ---
 # About the virtual machine agent and extensions for Windows VMs
