@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 
 ---
 # What are Virtual Machine Scale Sets in Azure?
