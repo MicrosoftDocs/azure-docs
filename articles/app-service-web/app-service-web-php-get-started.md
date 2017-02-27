@@ -43,7 +43,7 @@ You can apply what you learn here to other PHP web apps that you deploy to Azure
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](app-service-web-php-get-started-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-php-get-started.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](app-service-web-php-get-started.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [PHP 7.0](http://php.net/downloads.php)
