@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 02/26/2017
 ms.author: bwren
 
 ---
@@ -164,7 +164,23 @@ An example of a credential resource is below.
 
 
 ## Schedules
-[Azure Automation schedules](../automation/automation-schedules.md) have a type of **Microsoft.Automation/automationAccounts/schedules** and have the properties in the following table.
+[Azure Automation schedules](../automation/automation-schedules.md) have a type of **Microsoft.Automation/automationAccounts/schedules** and have the the following structure.
+
+    "name": "<name-of-schedule>",
+    "type": "microsoft.automation/automationAccounts/schedules",
+    "apiVersion": "<api-version-of-resource>",
+    "tags": { },
+    "dependsOn": [
+    ],
+    "properties": {
+        "description": "<schedule-description>",
+        "startTime": "<start-time>",
+        "isEnabled": "<schedule-enabled>",
+        "interval": "<interval-day-or-hour>",
+        "frequency": "<frequency-day-or-hour>"
+    }
+
+The properties for schedule resources are described in the following table.
 
 | Property | Description |
 |:--- |:--- |
@@ -174,34 +190,15 @@ An example of a credential resource is below.
 | interval |The type of interval for the schedule.<br><br>day<br>hour |
 | frequency |Frequency that the schedule should fire in number of days or hours. |
 
-An example of a schedule resource is below.
+The challenge with including schedules in a solution file is the start time which must be a value greater than the current time.  You cannot provide this value with a variable since you would have no way of knowing when it's going to be installed.
 
-    "name": "[concat(parameters('accountName'), '/', variables('variableName'))]",
-    "type": "microsoft.automation/automationAccounts/schedules",
-    "apiVersion": "[variables('AutomationApiVersion')]",
-    "tags": { },
-    "dependsOn": [
-    ],
-    "properties": {
-        "description": "Schedule for StartByResourceGroup runbook",
-        "startTime": "10/30/2016 12:00:00",
-        "isEnabled": "true",
-        "interval": "day",
-        "frequency": "1"
-    }
+Use one of the following two strategies when using schedule resources in a solution.
 
+- Use a parameter for the start time of the schedule.  This will prompt the user to provide a value when they install the solution.  If you have multiple schedules, you could use a single parameter value for more than one of them.
+- Create the schedules using a runbook that starts when the solution is installed.  This removes the requirement of the user to specify a time, but you can't contain the schedule in your solution so it will be removed when the solution is removed.
 
 ## Variables
-[Azure Automation variables](../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the properties in the following table.
-
-| Property | Description |
-|:--- |:--- |
-| description |Optional description for the variable. |
-| isEncrypted |Specifies whether the variable should be encrypted. |
-| type |Data type for the variable. |
-| value |Value for the variable. |
-
-An example of a variable resource is below.
+[Azure Automation variables](../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the following structure.
 
     "name": "[concat(parameters('accountName'), '/', variables('StartTargetResourceGroupsAssetName')) ]",
     "type": "microsoft.automation/automationAccounts/variables",
@@ -210,12 +207,20 @@ An example of a variable resource is below.
     "dependsOn": [
     ],
     "properties": {
-        "description": "Description for the variable.",
-        "isEncrypted": "true",
-        "type": "string",
-        "value": "'This is a string value.'"
+        "description": "<variable-description>",
+        "isEncrypted": "<>",
+        "type": "<variable-datatype>",
+        "value": "<variable-value>"
     }
 
+The properties for variable resources are described in the following table.
+
+| Property | Description |
+|:--- |:--- |
+| description | Optional description for the variable. |
+| isEncrypted | Specifies whether the variable should be encrypted. |
+| type | Data type for the variable. |
+| value | Value for the variable. |
 
 ## Modules
 Your management solution does not need to define [global modules](../automation/automation-integration-modules.md) used by your runbooks because they will always be available.  You do need to include a resource for any other module used by your runbooks, and the runbook should depend on the module resource to ensure that it's created before the runbook.
