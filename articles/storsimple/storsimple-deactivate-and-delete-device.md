@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: anbacker
+ms.custom: H1Hack27Feb2017
 
 ---
 # Deactivate and delete a StorSimple 8000 series device via StorSimple Manager service
