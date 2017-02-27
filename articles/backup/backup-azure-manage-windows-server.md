@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 1/10/2017
-ms.author: jimpark; markgal
+ms.author: markgal
 
 ---
 # Monitor and manage Azure recovery services vaults and servers for Windows machines
