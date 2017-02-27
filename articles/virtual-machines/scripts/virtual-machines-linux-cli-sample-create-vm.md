@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2017
+ms.date: 02/27/2017
 ms.author: nepeters
 ---
 
@@ -22,9 +22,9 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine with an Ubuntu operating system and related networking resources. Once the script has been successfully run, the virtual Machine can be accessed over SSH. 
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
-
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
+
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
