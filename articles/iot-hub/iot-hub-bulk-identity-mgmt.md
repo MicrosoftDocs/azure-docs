@@ -39,6 +39,10 @@ The following C# code snippet shows how to create an export job:
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
 
+> [!NOTE]
+> To use the **RegistryManager** class in your C# code, add the **Microsoft.Azure.Devices** NuGet package to your project. The **RegistryManager** class is in the **Microsoft.Azure.Devices** namespace.
+
+
 Then you can use the **RegistryManager** class to query the state of the **Job** using the returned **JobProperties** metadata.
 
 The following C# code snippet shows how to poll every five seconds to see if the job has finished executing:

@@ -32,7 +32,7 @@ In this tutorial you will learn how to:
 ## Before you begin
 To run this tutorial, you need:
 
-* Azure Active Directory Application to use for Service-to-Service authentication. To create, follow [Active directory authentication](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory.md)
+* Azure Active Directory Application to use for Service-to-Service authentication. To create, follow [Active directory authentication](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
 
 >[!NOTE] 
 > You need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your Azure Data Lake from SQL Data Warehouse. Details for how to get these values are in the link above.

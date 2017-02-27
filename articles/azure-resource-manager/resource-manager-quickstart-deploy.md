@@ -84,7 +84,7 @@ The following sections show how to perform those steps with [PowerShell](#powers
 
 ## Azure CLI
 
-1. To install Azure CLI, see [Install Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2).
+1. To install Azure CLI, see [Install Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 2. To quickly get started with deployment, use the following commands:
 

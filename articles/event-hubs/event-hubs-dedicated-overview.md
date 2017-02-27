@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/21/2017
 ms.author: sethm;babanisa
 
 ---
@@ -57,7 +57,7 @@ This service is targeted at the largest telemetry users and is available to cust
 
 ## How to onboard
 
-The Event Hubs Dedicated platform is offered to the public through an enterprise agreement with varying sizes of CUs. Each CU provides approximately the equivalent of 200 throughput units and is billed at $31 per hour. You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+The Event Hubs Dedicated platform is offered to the public through an enterprise agreement with varying sizes of CUs. Each CU provides approximately the equivalent of 200 throughput units. You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
 
 ## Next steps
 Contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated Capacity. You can also learn more about Event Hubs by visiting the following links:

@@ -29,7 +29,7 @@ There are 3 types of triggers that can receive requests:
 For the remainder of the article, we will use **request** as the example, but all of the principles apply identically to the other 2 types of triggers.
 
 ## Adding a trigger to your definition
-The first step is to add a trigger to your Logic app definition that can receive incoming requests.  You can search in the designer for "HTTP Request" to add the trigger card. You can define a request body JSON Schema and the designer will generate tokens to help you parse and pass data from the manual trigger through the workflow.  I recommend using a tool like [jsonschema.net](http://jsonschema.net) to generate a JSON schema from a sample body payload.
+The first step is to add a trigger to your Logic app definition that can receive incoming requests.  You can search in the designer for "HTTP Request" to add the trigger card. You can define a request body JSON Schema and the designer will generate tokens to help you parse and pass data from the manual trigger through the workflow. If you do not have a schema ready, select `Use sample payload to generate schema` to generate a JSON schema from a sample payload.
 
 ![Request Trigger Card][2]
 
@@ -50,6 +50,31 @@ Or, by calling:
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
+
+### Changing HTTP method of the trigger
+By default, request trigger in Logic Apps expects HTTP POST request. But you can configure the HTTP method under `Show advanced options`.
+
+ > [!NOTE]
+ > Only one type of method is allowed.
+
+### Relative trigger URL
+You can also customize relative path of the request Url to accept parameters.
+
+1. Expand `Show advanced options` of the **Request** trigger.
+ - Under `Relative path`, enter `customer/{customerId}`.
+
+  ![Relative Url Trigger](./media/logic-apps-http-endpoint/relativeurl.png)
+
+2. Update **Respond** action to make user of the parameter.
+ - You should see `customerId` shows up in the token picker.
+ - Update the body of the respond to return `Hello {customerId}`.
+
+  ![Relative Url Response](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+
+3. Save the Logic App, you should notice the request Url update to include the relative path.
+
+4. Copy the new request Url and paste it into a new browser window. Substitute `{customerId}` with `123`, and press Enter.
+ - You should see `Your customer Id is 123` returned.
 
 ### Security for the trigger URL
 Logic App callback URLs are generated securely using a Shared Access Signature.  The signature is passed through as a query parameter, and must be validated before the logic app will fire.  It is generated through a unique combination of a secret key per logic app, the trigger name, and the operation being performed.  Unless someone has access to the secret logic app key, they would not be able to generate a valid signature.
@@ -145,7 +170,7 @@ This functionality is available through **API management**:
 | Configure basic or OAuth authentication |via API management |
 | Configure HTTP method |via API management |
 | Configure relative path |via API management |
-| Reference the incoming body via  `@triggerOutputs().body.Content` |Reference via `@triggerOutputs().body` |
+| Reference the incoming body via `@triggerOutputs().body.Content` |Reference via `@triggerOutputs().body` |
 | **Send HTTP response** action on the HTTP Listener |Click on **Respond to HTTP request** (no API app required) |
 
 [1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
