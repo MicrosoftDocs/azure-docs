@@ -4,7 +4,7 @@ description: Explains how to configure your device for remote management and how
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 923377aa-f451-4656-87de-5e95a34a6a2a
