@@ -18,7 +18,7 @@ ms.author: robb
 
 ---
 # Application Architecture on Microsoft Azure
--Resources for building applications that use Microsoft Azure. This includes tools to help you draw diagrams to visually describe software systems.
+This article lists resources for building applications that use Microsoft Azure. It includes tools to visually draw and describe software systems.
 
 ## Design patterns poster
 Microsoft patterns & practices has published the book [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx), which is available both on MSDN and in PDF download. There is also a large format poster available, which visually lists all the patterns.
@@ -27,11 +27,18 @@ Microsoft patterns & practices has published the book [Cloud Design Patterns](ht
 
 
 ## Drawing symbol and icon sets
-[View the Visio and symbols training video](http://aka.ms/CnESymbolsVideo) and then [download the Cloud and Enterprise Symbol set](http://aka.ms/CnESymbols) to help create technical materials that describe Azure, Windows Server, SQL Server and more. You can use the symbols in architecture diagrams, training materials, presentations, datasheets, infographics, whitepapers, and even third party books if the book trains people to use Microsoft products. However, they are not meant for use in user interfaces.
+[View the Visio and symbols training video](http://aka.ms/CnESymbolsVideo) and then [download the Cloud and Enterprise Symbol set](http://aka.ms/CnESymbols) to help create technical materials that describe Azure, Windows Server, SQL Server and more. You can use the symbols in following whether free or for profit.  
+- architecture diagrams 
+- training materials 
+- presentations 
+- datasheets 
+- infographics 
+- whitepapers 
+- third-party books, if the book trains people to use Microsoft products.
 
-The CnE symbols are in Visio, SVG, and PNG format. Additional instructions on how to use easily use the symbols in PowerPoint are included in the set.
+The symbols are not meant for using in user interfaces, but you can request permission using the following email address.  Generally all but the third-party and Microsoft Office product symbols (Word, PowerPoint, Office, etc) are okay to use. That is, provided that you are using them to represent the same objects in the same way as in the Azure portal.  For example, the symbol for Azure Service Bus should be used to represent and access only Azure Service Bus objects. 
 
-The symbol set ships quarterly and is updated as new services are released.
+The CnE symbols are in Visio, SVG, and PNG format. Additional instructions on how to easily use the symbols in PowerPoint are included in the set. The symbol set ships quarterly and is updated as new services are released.
 
 Additional symbols for Microsoft Office and related technologies are available in the [Microsoft Office Visio stencil](http://www.microsoft.com/en-us/download/details.aspx?id=35772), though they are not optimized for architectural diagrams like the CnE set is.   
 
@@ -47,7 +54,7 @@ Microsoft created an architecture course in August 2015 supporting Microsoft cer
 ## Microsoft Solutions
 Microsoft publishes a set of high-level [solution architectures](http://aka.ms/azblueprints) showing how to build specific types of systems using Microsoft products.
 
-Previously, Microsoft published a set of isometric 3d blueprints showing example architectures. Those blueprints have been replaced by the solution architectures. The blueprint link has been redirected to point to the solutions. If you need access to the previous blueprints materials for some reason, please email [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) with your request.   
+Previously, Microsoft published a set of isometric 3d blueprints showing example architectures. Those blueprints have been replaced by the solution architectures. The blueprint link has been redirected to point to the solutions. If you need access to the previous blueprints materials for some reason, email [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) with your request.   
 
 The blueprints and solution architectures diagrams both use parts of the [Cloud and Enterprise Symbol Set](http://aka.ms/CnESymbols).   
 
