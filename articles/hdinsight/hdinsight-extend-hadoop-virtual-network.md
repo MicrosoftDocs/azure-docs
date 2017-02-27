@@ -22,7 +22,7 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 ## Prerequisites
 
-* Azure CLI 2.0 (preview): See [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) for more information.
+* Azure CLI 2.0: See [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) for more information.
 
 * Azure PowerShell: See [Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information.
 
