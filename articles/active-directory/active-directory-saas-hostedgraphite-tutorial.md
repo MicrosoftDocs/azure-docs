@@ -187,6 +187,7 @@ The objective of this section is to create a test user in the classic portal cal
     ![Creating an Azure AD test user](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_08.png) 
  1. Write down the value of the **New Password**.  
  2. Click **Complete**.   
+ 
 ### Create a Hosted Graphite test user
 The objective of this section is to create a user called Britta Simon in Hosted Graphite. Hosted Graphite supports just-in-time provisioning, which is by default enabled.
 
