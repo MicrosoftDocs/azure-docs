@@ -1,5 +1,5 @@
 ---
-title: Deploy LAMP on a Linux virtual machine in Azure | Microsoft Docs
+title: Deploy LAMP on a Linux virtual machine with the Azure CLI 1.0 | Microsoft Docs
 description: Learn how to install the LAMP stack on a Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -18,13 +18,14 @@ ms.date: 2/21/2017
 ms.author: juluk
 
 ---
-# Deploy LAMP stack on Azure
+# Deploy LAMP stack with the Azure CLI 1.0
 This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
 
-There are two methods for installing LAMP covered in this article:
+## CLI versions to complete the task
+You can complete the task using one of the following CLI versions:
 
-## Quick command summary
-* Deploy LAMP on new VM with Azure CLI 1.0. If you prefer Azure CLI 2.0, visit [this document](virtual-machines-linux-create-lamp-stack.md).
+- [Azure CLI 1.0] – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ```
 # One command to create a resource group holding a VM with LAMP already on it

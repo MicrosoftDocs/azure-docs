@@ -4,12 +4,12 @@ sql-database-elastic-pool.md
 sql-database-resource-limits.md
 sql-database-service-tiers.md  
 -->
-
+ 
 ### Basic elastic pool limits
 
 | Pool size (eDTUs)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
-| Max storage per pool* | 5 GB | 10 GB | 20 GB | 29 GB | 39 GB | 78 GB | 117 GB | 156 GB |
+| Max data storage per pool* | 5 GB | 10 GB | 20 GB | 29 GB | 39 GB | 78 GB | 117 GB | 156 GB |
 | Max In-Memory OLTP storage per pool* | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Max concurrent workers per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -23,7 +23,7 @@ sql-database-service-tiers.md
 
 | Pool size (eDTUs)  | **50** | **100** | **200** | **300** | **400** | **800** | 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
-| Max storage per pool* | 50 GB| 100 GB| 200 GB | 300 GB| 400 GB | 800 GB | 
+| Max data storage per pool* | 50 GB| 100 GB| 200 GB | 300 GB| 400 GB | 800 GB | 
 | Max In-Memory OLTP storage per pool* | N/A | N/A | N/A | N/A | N/A | N/A | 
 | Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Max concurrent workers per pool | 100 | 200 | 400 | 600 |  800 | 1600 |
@@ -37,7 +37,7 @@ sql-database-service-tiers.md
 
 | Pool size (eDTUs)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Max storage per pool* | 1.2 TB | 1.6 TB | 2 TB | 2.4 TB | 2.9 TB | 
+| Max data storage per pool* | 1.2 TB | 1.6 TB | 2 TB | 2.4 TB | 2.9 TB | 
 | Max In-Memory OLTP storage per pool* | N/A | N/A | N/A | N/A | N/A | 
 | Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 500 |
 | Max concurrent workers per pool |  2400 | 3200 | 4000 | 5000 | 6000 |
@@ -51,7 +51,7 @@ sql-database-service-tiers.md
 
 | Pool size (eDTUs)  | **125** | **250** | **500** | **1000** | **1500** | 
 |:---|---:|---:|---:| ---: | ---: | 
-| Max storage per pool* | 250 GB| 500 GB| 750 GB| 750 GB| 750 GB| 
+| Max data storage per pool* | 250 GB| 500 GB| 750 GB| 750 GB| 750 GB| 
 | Max In-Memory OLTP storage per pool* | 1 GB| 2 GB| 4 GB| 10 GB| 12 GB| 
 | Max number DBs per pool | 50 | 100 | 100 | 100 | 100 |  
 | Max concurrent workers per pool | 200 | 400 | 800 | 1600 |  2400 | 
@@ -65,7 +65,7 @@ sql-database-service-tiers.md
 
 | Pool size (eDTUs)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
-| Max storage per pool* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
+| Max data storage per pool* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
 | Max In-Memory OLTP storage per pool* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
 | Max concurrent workers per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
@@ -75,5 +75,6 @@ sql-database-service-tiers.md
 | Max eDTUs per database | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Pooled databases share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database. Max storage per pool refers to the maximum storage of the data files in the pool and does not include space used by log files.
-
+> [!IMPORTANT]
+>\* Pooled databases share pool storage, so data storage in an elastic pool is limited to the smaller of the remaining pool storage or max storage per database.
+>
