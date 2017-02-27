@@ -4,8 +4,8 @@ description: Architecture overview that covers common design patterns
 services: ''
 documentationcenter: ''
 author: Rboucher
-manager: jwhit
-editor: mattshel
+manager: carmonm
+editor: 
 
 ms.assetid: 3a37bbc0-f624-46f3-bc4e-5a10560f9fbf
 ms.service: multiple
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2016
+ms.date: 02/27/2016
 ms.author: robb
 
 ---
