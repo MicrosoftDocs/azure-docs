@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 12/25/2016
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Microsoft Authenticator
+# Get started with the Microsoft Authenticator app
 The Microsoft Authenticator app provides an additional level of security in your Azure account (for example, bsimon@contoso.onmicrosoft.com), your on-premises work account (for example, bsimon@contoso.com), or your Microsoft account (for example, bsimon@outlook.com).
 
 The app works in one of two ways:
