@@ -4,7 +4,7 @@ description: A tutorial that teaches you how to deploy a web app to Azure App Se
 services: app-service\web,cdn
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: b81ee930-dd6d-4b65-971f-c4cb7902168c

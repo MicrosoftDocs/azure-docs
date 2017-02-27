@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale, scalable, app service plan, app
 services: app-service
 documentationcenter: ''
 author: btardif
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1

@@ -4,7 +4,7 @@ description: A tutorial that shows how to make a PHP (Laravel) web app run in Az
 services: app-service\web
 documentationcenter: php
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 tags: mysql
 
