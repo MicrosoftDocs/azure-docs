@@ -23,7 +23,7 @@ ms.author: marsma
 You can use the [Azure portal](https://portal.azure.com) to monitor your Azure Storage account. Azure Storage uses [Storage Analytics](storage-analytics.md) to track metrics for your account and log request data, and by using the portal, you can configure both.
 
 > [!NOTE]
-> Additional costs are associated with examining monitoring data in the Azure portal. For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
+> There are costs are associated with examining monitoring data in the Azure portal. For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
 > 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -49,7 +49,7 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 
 1. When you finish the monitoring configuration, select **Save**.
 
-You should start seeing monitoring data in the charts on the storage account blade and the **Metrics** blade of the services you selected to monitor after about an hour. A default set of metrics is displayed in charts for each service. You can select **Edit** on any metrics chart to configure which metrics are displayed in the chart.
+You should start seeing monitoring data in the charts on the storage account blade and the **Metrics** blade of the services you selected to monitor in about an hour. A default set of metrics is displayed in charts for each service. You can select **Edit** on any metrics chart to configure which metrics are displayed in the chart.
 
 > [!NOTE]
 > Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see [How metrics are stored](storage-analytics.md#how-metrics-are-stored).
@@ -75,27 +75,22 @@ Use the following procedure to choose which storage metrics to view in a metrics
 
    ![Individual metric selection in Edit Chart blade](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
 
-### Metric availability in charts
+### Metrics availability in charts
 
 The list of available metrics changes based on which service you've chosen in the drop-down, and the type of chart you're editing. Only the checkboxes of the metrics applicable to the selected service and chart type are displayed and enabled.
 
-For example, to select any of the success percentage metrics (PercentAuthorizationError, PercentNetworkError, PercentThrottlingError, etc.), you must open the metric percentage chart:
+For example, to select any of the error percentage metrics (*PercentAuthorizationError*, *PercentNetworkError*, *PercentThrottlingError*, etc.), you must open and configure the error percentage chart highlighted in the following image:
 
+![Request error percentage chart in the Azure portal](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
 
-
-IMAGE-HERE
+### Metrics resolution
 
 The metrics you selected in the Diagnostics settings determines the resolution of the metrics that are available for your account:
 
 * If your storage account has **aggregate** monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.
 * If your storage account has **per API** monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.
 
-## How to: Add metrics charts to the storage account blade
-
-A default set of metrics charts are displayed on the storage account blade. Use the following procedure to choose which storage metrics charts to display on your storage account blade.
-
-1. In the [Azure portal](https://portal.azure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
-1. Select 
+## How to: Configure metrics alerts
 
 TODO
 
