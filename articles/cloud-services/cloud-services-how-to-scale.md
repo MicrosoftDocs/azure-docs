@@ -103,7 +103,7 @@ This automatically scales if the number of messages in a queue goes above or bel
    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
 
 2. Click **Scale**.
-3. Find the **Scale by metric** section and select **Queue**.
+3. Find the **Scale by metric** section and select **QUEUE**.
 4. Now you can configure a minimum and maximum range of roles instances, the queue and amount of queue messages to process for each instance, and how many instances to scale up and down by.
 
 ![Scale a cloud service role by a message queue][queue_scale]
