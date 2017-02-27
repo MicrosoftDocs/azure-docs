@@ -46,7 +46,7 @@ Jenkins is one of the hugely used continuous integration and deployment tools, w
 
 ## Setting up Jenkins (using ServiceFabric as the container-orchestrator)
 
-1. Ensure you have  azure-cli installed locally on your host.
+1. Ensure you have  azure-cli installed locally on your host. If not, you can the follow the steps mentioned [here](service-fabric-azure-cli.md).
 2. Do - ``git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker && cd service-fabric-java-getting-started/Services/JenkinsDocker/``
 3. Connect to a Service Fabric cluster (say ``http://SOME-IP:19080``) where you want to run the Jenkins-Container image using azure-cli - ``azure servicefabric cluster connect http://SOME-IP:19080``
 4. Run ``./install.sh``. It will install the Jenkins container to the cluster you connected. You can monitor your container app using the ususal service-fabric explorer - ``http://SOME-IP:19080``.
@@ -77,3 +77,7 @@ Here, you can upload a plugin. Select the ``Choose file`` option, then select th
     ![Service Fabric Jenkins Build action](build-step)
   - Under the ``Post-Build Actions`` drop-down, select ``Deploy Service Fabric Project``. Here you need to provide the details like - Application Name, Application Type, Application manifest Path, cluster-IP, cluster-type etc. Please fill in the details accordingly. You might want to have a look at the following handy screen-shot as a reference -
     ![Service Fabric Jenkins Post-Build action](post-build-step)
+
+  > [!NOTE]
+  > You should keep in mind that the service-fabric cluster where you deployed your container application, must have a public-facing IP (this can be a SF cluster created from azure portal or one-box cluster created on an azure VM). Else, if the cluster is under some corpnet-proxy, then Github would not be able to talk to the Jenkins instance.
+  >
