@@ -75,5 +75,5 @@ To use Azure Stack in a production environment you must first register it with y
 
 ## Next steps
 
-TBS
+[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 
