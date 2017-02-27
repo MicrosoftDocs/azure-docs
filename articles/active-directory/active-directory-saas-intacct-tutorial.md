@@ -94,10 +94,7 @@ As part of this procedure, you are required to create a base-64 encoded certific
    2. As **Identity provider type**, select **SAML 2.0**.
    3. In the Azure classic portal, on the **Configure single sign-on at Intacct** page, copy the **Issuer URL** value, and then paste it into the **Issuer URL** box.
    4. In the Azure classic portal, on the **Configure single sign-on at Intacct** page, copy the **Remote Login URL** value, and then paste it into the **Login URL** box.
-   5. Create a **base-64 encoded** file from your downloaded certificate.      
-      >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
-      >  
+   5. Create a **base-64 encoded** file from your downloaded certificate. For more information, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).      
    6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** box.
    7. Click **Save**.
 9. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign-On** page.
@@ -123,10 +120,7 @@ To set up Azure AD users so they can sign in to Intacct, they must be provisione
 
    1. Enter the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title**, and the **Phone** of an Azure AD account that you want to provision into the **User Information** section.
    2. Select the **Admin privileges** of an Azure AD account that you want to provision.
-   3. Click **Save**.      
-      >[!NOTE]
-      >The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.
-      >  
+   3. Click **Save**. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.
 
 >[!NOTE]
 >To provision Azure AD user accounts, you can use other Intacct user account creation tools or APIs that are provided by Intacct.
