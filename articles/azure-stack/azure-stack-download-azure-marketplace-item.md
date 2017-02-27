@@ -29,4 +29,4 @@ After you have registered Azure Stack, you can download marketplace items from A
 
 ## Next steps
 
-TBS
+[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
