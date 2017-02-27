@@ -17,8 +17,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Analyze flight delay data by using Hive in HDInsight
+# Analyze flight delay data by using Hive on Linux-based HDInsight
+
 Learn how to analyze flight delay data using Hive on Linux-based HDInsight then export the data to Azure SQL Database using using Sqoop.
 
 > [!IMPORTANT]
@@ -85,6 +87,7 @@ Before you begin this tutorial, you must have the following:
     ```
 
 ## Create and run the HiveQL
+
 Use the following steps to import data from the CSV file into a Hive table named **Delays**.
 
 1. Use the following to create and edit a new file named **flightdelays.hql**:

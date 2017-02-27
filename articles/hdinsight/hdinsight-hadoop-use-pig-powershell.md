@@ -17,18 +17,19 @@ ms.workload: big-data
 ms.date: 01/19/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Run Pig jobs using PowerShell
+# Use Azure PowerShell to run Pig jobs with HDInsight
+
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 This document provides an example of using Azure PowerShell to submit Pig jobs to a Hadoop on HDInsight cluster. Pig allows you to write MapReduce jobs by using a language (Pig Latin,) that models data transformations, rather than map and reduce functions.
 
 > [!NOTE]
 > This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information about the Pig Latin used in this example, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
-> 
-> 
 
 ## <a id="prereq"></a>Prerequisites
+
 To complete the steps in this article, you will need the following.
 
 * **An Azure HDInsight cluster**
@@ -41,6 +42,7 @@ To complete the steps in this article, you will need the following.
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a id="powershell"></a>Run Pig jobs using PowerShell
+
 Azure PowerShell provides *cmdlets* that allow you to remotely run Pig jobs on HDInsight. Internally, this is accomplished by using REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (formerly called Templeton) running on the HDInsight cluster.
 
 The following cmdlets are used when running Pig jobs on a remote HDInsight cluster:

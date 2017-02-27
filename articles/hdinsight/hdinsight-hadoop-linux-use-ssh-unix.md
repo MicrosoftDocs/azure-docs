@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Use SSH with HDInsight (Hadoop) from Windows, Linux, Unix, or OS X
+# Use SSH with HDInsight (Hadoop) from Bash on Windows 10, Linux, Unix, or OS X
 
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -39,13 +40,11 @@ Many operating systems provide SSH client functionality through the `ssh` and `s
 * __ssh__: A general SSH client that can be used to establish a remote command line session and create tunnels.
 * __scp__: A utility that copies files between local and remote systems using the SSH protocol.
 
-Historically, Windows has not provided an SSH client until Windows 10 Anniversary Edition. This version of Windows includes the Bash on Windows 10 feature for developers, which provides `ssh`, `scp` and other Linux commands. For more information on using Bash on Windows 10, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
+Windows 10 Anniversary Edition provides Bash as a developer feature. It provides `ssh`, `scp` and other Linux commands. For more information on using Bash on Windows 10, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
 If you use Windows and do not have access to Bash on Windows 10, we recommend the following SSH clients:
 
 * [Git For Windows](https://git-for-windows.github.io/): Provides the `ssh` and `scp` command line utilities.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): Provides a graphical SSH client.
-* [MobaXterm](http://mobaxterm.mobatek.net/): Provides a graphical SSH client.
 * [Cygwin](https://cygwin.com/): Provides the `ssh` and `scp` command line utilities.
 
 > [!NOTE]

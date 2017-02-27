@@ -17,8 +17,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Develop Java-based topologies for a basic word-count application with Apache Storm and Maven on HDInsight
+# Use Maven to develop a Java-based word count topology for Storm on HDInsight
 
 Learn how to create a Java-based topology for Apache Storm on HDInsight by using Maven. You create a basic word-count application using Maven and Java, where the topology is defined in Java. Then, you learn how to define the topology using the Flux framework.
 

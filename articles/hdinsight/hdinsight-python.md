@@ -14,11 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Use Python with Hive and Pig in HDInsight
+# Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight
 
 Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general purpose language. Both Hive and Pig allow you to create User Defined Functions (UDF) using a variety of programming languages. In this article, you will learn how to use a Python UDF from Hive and Pig.
 
@@ -107,6 +108,7 @@ Beyond that, the script just concatenates the input values for `devicemake` and 
 See [Running the examples](#running) for how to run this example on your HDInsight cluster.
 
 ## <a name="pigpython"></a>Pig and Python
+
 A Python script can be used as a UDF from Pig through the **GENERATE** statement. There's two ways to accomplish this; using Jython (Python implemented on the Java Virtual Machine,) and C Python (regular Python).
 
 The primary difference between these are that Jython runs on the JVM and can natively be called from Pig (also running on the JVM.) C Python is an external process (written in C.) So the data from Pig on the JVM is sent out to the script running in a Python process, then the output of that is sent back into Pig.
@@ -163,9 +165,13 @@ Remember that we previously just defined the **LINE** input as a chararray becau
    * classname - the class name the entry was created for
    * level - the log level
    * detail - verbose details for the log entry
+
 2. Next, the **def create_structure(input)** defines the function that Pig will pass line items to.
+
 3. The example data, **sample.log**, mostly conforms to the date, time, classname, level, and detail schema we want to return. But it also contains a few lines that begin with the string '*java.lang.Exception*' that need to be modified to match the schema. The **if** statement checks for those, then massages the input data to move the '*java.lang.Exception*' string to the end, bringing the data in-line with our expected output schema.
+
 4. Next, the **split** command is used to split the data at the first four space characters. This results in five values, which are assigned into **date**, **time**, **classname**, **level**, and **detail**.
+
 5. Finally, the values are returned to Pig.
 
 When the data is returned to Pig, it will have a consistent schema as defined in the **@outputSchema** statement.
@@ -191,6 +197,7 @@ For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDIns
 After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 #### Hive
+
 1. Use the `hive` command to start the hive shell. You should see a `hive>` prompt once the shell has loaded.
 2. Enter the following at the `hive>` prompt.
    
@@ -309,6 +316,7 @@ These steps use Azure PowerShell. If this is not already installed and configure
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 
 #### Hive
+
 The following script will run the **streaming.py** script. Before running, it will prompt you for the HTTPs/Admin account information for your HDInsight cluster.
 
 ```powershell
@@ -367,6 +375,7 @@ The output for the **Hive** job should appear similar to the following:
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
 #### Pig (Jython)
+
 The following will use the **pig_python.py** script, using the Jython interpreter. Before running, it will prompt you for the HTTPs/Admin information for the HDInsight cluster.
 
 > [!NOTE]
@@ -427,6 +436,7 @@ The output for the **Pig** job should appear similar to the following:
 ## <a name="troubleshooting"></a>Troubleshooting
 
 ### Errors when running jobs
+
 When running the hive job, you may encounter an error similar to the following:
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
@@ -442,6 +452,7 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 ```
 
 ### PowerShell scripts
+
 Both of the example PowerShell scripts used to run the examples contain a commented line that will display error output for the job. If you are not seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
 
 ```powershell
@@ -460,6 +471,7 @@ The error information (STDERR,) and the result of the job (STDOUT,) are also log
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
 ## <a name="next"></a>Next steps
+
 If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) for an example of how to do this.
 
 For other ways to use Pig, Hive, and to learn about using MapReduce, see the following.

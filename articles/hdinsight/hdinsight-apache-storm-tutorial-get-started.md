@@ -18,8 +18,10 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Apache Storm tutorial: Get started with the Storm Starter samples for big data analytics on HDInsight
+# Get started with the Storm Starter samples for big data analytics on HDInsight
+
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Microsoft Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time. 
 
 > [!IMPORTANT]
