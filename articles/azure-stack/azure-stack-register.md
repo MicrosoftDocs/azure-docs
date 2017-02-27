@@ -71,7 +71,7 @@ To use Azure Stack in a production environment you must first register it with y
 
 1. Sign in to the Azure Stack portal as a service administrator.
 2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
-3. If you see a list of items available from Azure like those below, your activation was successful.
+3. If you see a list of items available from Azure (such as WordPress), your activation was successful.
 
 ## Next steps
 
