@@ -36,7 +36,7 @@ Microsoft patterns & practices has published the book [Cloud Design Patterns](ht
 - whitepapers 
 - third-party books, if the book trains people to use Microsoft products.
 
-The symbols are not meant for using in user interfaces, but you can request permission.  The Azure ones are generally okay to use. That is, provided that you use them to represent the same objects in the same way as in the Azure portal.  For example, the symbol for Azure Service Bus should be used to represent and access only Azure Service Bus objects. Third-party symbols are not owned by Microsoft. Look to those companies web sites for rules on the use of their icons.
+The symbols are not meant for use in user interfaces, but you can request permission.  The Azures ones are okay to use. That is, if you use them to represent the same objects in the same way as in the Azure portal.  For example, the symbol for Azure Service Bus should be used to represent and access only Azure Service Bus objects. Third-party symbols are not owned by Microsoft. Look to those companies web sites for rules on the use of their icons.
 
 The CnE symbols are in Visio, SVG, and PNG format. Additional instructions on how to easily use the symbols in PowerPoint are included in the set. The symbol set ships quarterly and is updated as new services are released.
 
