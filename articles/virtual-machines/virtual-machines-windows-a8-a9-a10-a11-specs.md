@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
 # About H-series and compute-intensive A-series VMs for Windows
