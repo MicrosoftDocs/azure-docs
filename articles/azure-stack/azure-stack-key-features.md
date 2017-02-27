@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2017/2016
+ms.date: 3/1/2017
 ms.author: helaw
 
 ---
@@ -27,11 +27,16 @@ There are two varieties of users for Microsoft Azure Stack, the cloud administra
 * A **tenant** consumes services that the cloud administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
 
 ## Portal
-The primary methods of interacting with Microsoft Azure Stack is the portal and PowerShell.
+The primary methods of interacting with Microsoft Azure Stack is the administrative portal, user portal, and PowerShell.
 
 ![](media/azure-stack-key-features/image3.png)
 
-The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud administrator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see Using the Azure Stack administrator and user portals.
+The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud administrator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
+
+## Identity 
+Azure Stack can use either Azure Active Directory (AAD) or Active Directory Federation Services (ADFS) as an identity provider.  
+
+You may choose ADFS
 
 ## Regions, services, plans, offers, and subscriptions
 In Azure Stack, services are delivered to tenants using regions, subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
