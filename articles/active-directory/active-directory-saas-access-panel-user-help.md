@@ -48,7 +48,7 @@ MyApps is a web portal that allows you to:
 For more details, see [How to update your own password](active-directory-passwords-update-your-own-password.md).
 
 
-## How Do I setup password reset?
+## How do I setup password reset?
 
 1.	In **MyApps**, click the user control in the top right, and then click **Profile**.
 2.	Under **Manage Account**, click **Set up self service password reset**.
@@ -62,7 +62,7 @@ For more details, see [How to reset your password](active-directory-passwords-up
 1.	In **MyApps**, click **Add App**.
 2.	Search or find an app you want to add, and then click **Add**.
 
-**Note:**
+**Remarks:**
 
 - You only have access to this option if your admin has enabled this for your account.
 - If the app requires permission you may need to wait for admin approval.
@@ -75,7 +75,7 @@ For more details, see [How to reset your password](active-directory-passwords-up
 2.	To create a group, under **Groups I own**, click **Create group**, and then follow the instructions.
 3.	To join a group, under **Groups I'm in**, click **Join group**, and then follow the instructions.
 
-**Note:**
+**Remarks:**
 
 - Clicking a group you are a member of allows you to view details and leave the group.
 - Clicking a group you are an owner of allows you to view details, add or remove members, and leave the group.
