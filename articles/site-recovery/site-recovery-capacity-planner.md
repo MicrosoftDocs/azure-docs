@@ -35,7 +35,7 @@ You can run the tool in a couple of modes:
 2. Identify your daily change (churn) rate for replicated data. To do this:
 
    * If you're replicating Hyper-V VMs, then download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](site-recovery-capacity-planning-for-hyper-v-replication.md) about this tool. We recommend you run this tool over a week to capture averages.
-   * If you're replicating VMware virtual machines, use the [vSphere capacity planning appliance](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance) to figure out the churn rate.
+   * If you're replicating VMware virtual machines, use the [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) to figure out the churn rate.
    * If you're replicating physical servers, you need to estimate manually.
 
 ## Run the Quick Planner
@@ -46,7 +46,7 @@ You can run the tool in a couple of modes:
 3. In the **Capacity Planner** worksheet, enter the required information. You must fill in all the fields circled in red in the screenshot below.
 
    * In **Select your scenario**, choose **Hyper-V to Azure** or **VMware/Physical to Azure**.
-   * In **Average daily data change rate (%)**, put in the information you gather using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or the [vSphere capacity planning appliance](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
+   * In **Average daily data change rate (%)**, put in the information you gather using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or the [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).  
    * **Compression** only applies to compression offered when replicating VMware VMs or physical servers to Azure. We estimate 30% or more, but you can modify the setting as required. For replicating Hyper-V VMs to Azure compression, you can use a third-party appliance such as Riverbed.
    * In **Retention Inputs**, specify how long replicas should be retained. If you're replicating VMware or physical servers, input the value in days. If you're replicating Hyper-V, specify the time in hours.
    * In **Number of hours in which initial replication for the batch of virtual machines should complete** and **Number of virtual machines per initial replication batch**, you input settings that are used to compute initial replication requirements.  When Site Recovery is deployed, the entire initial data set should be uploaded.
