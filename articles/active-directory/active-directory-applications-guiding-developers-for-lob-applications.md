@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
 # Develop line-of-business apps for Azure Active Directory
 This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.
