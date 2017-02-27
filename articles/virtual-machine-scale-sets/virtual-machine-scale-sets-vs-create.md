@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 
 ---
 # How to create a Virtual Machine Scale Set with Visual Studio
