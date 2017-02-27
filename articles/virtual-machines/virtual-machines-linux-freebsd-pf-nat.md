@@ -31,28 +31,26 @@ The Azure Resource Manager template set up a FreeBSD virtual machine that perfor
     ![pf_topology](./media/virtual-machines-freebsd-pf-nat/pf_topology.jpg)
     
 ### Deploy through Azure CLI
-After [install Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/install-az-cli2), log in to an Azure account using [az login](/cli/azure/#login) and create a resource group with [az group create](/cli/azure/group#create). The following example creats a resource group name 'myResourceGroup' in the 'West US' location.
+After [install Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/install-az-cli2), log in to an Azure account using [az login](/cli/azure/#login) and create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group name 'myResourceGroup' in the 'West US' location.
 
 ```azurecli
     az login
     az group create --name myResourceGroup --location westus
 ```
-Next, deploy the NAT template pf-freebsd-setup with [az group deployment create](/cli/azure/group/deployment#create). You could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) and define your own resource values, such as 'adminPassword', 'networkPrefix', and 'domainNamePrefix'. 
+Next, deploy the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) with [az group deployment create](/cli/azure/group/deployment#create). You could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) and define your own resource values, such as 'adminPassword', 'networkPrefix', and 'domainNamePrefix'. 
 
 ```azurecli
     az group deployment create --resource-group myResourceGroup --name myDeploymentName --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json --parameters '@.\azuredeploy.parameters.json' --verbose
 ```
 
-After about five minutes, you will get the information of '"provisioningState": "Succeeded"'. Then you can ssh to the frondend VM (NAT) or access Nginx web server in a browser using the public IP address or FQDN of the frontend VM (NAT). The following example lists FQDN and public ip address that assigned to the frontend VM (NAT) in the 'myResourceGroup' resource group. 
+After about five minutes, you will get the information of '"provisioningState": "Succeeded"'. Then you can ssh to the frontend VM (NAT) or access Nginx web server in a browser using the public IP address or FQDN of the frontend VM (NAT). The following example lists FQDN and public ip address that assigned to the frontend VM (NAT) in the 'myResourceGroup' resource group. 
 
 ```azurecli
     az network public-ip list --resource-group myResourceGroup
 ```
     
 ## Next step
-Do you want to set up your own NAT in Azure? Open Source, free but secure? Then PF is a good choice. By using the NAT template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you just need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario. 
-
-If you want to learn how to deploy the the NAT template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) through Powershell 
+Do you want to set up your own NAT in Azure? Open Source, free but powerful? Then PF is a good choice. By using the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you only need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario. 
 
 If you want to learn the offering of FreeBSD in Azure, refer to [introduction to FreeBSD on Azure](./virtual-machines-freebsd-intro-on-azure.md).
 
