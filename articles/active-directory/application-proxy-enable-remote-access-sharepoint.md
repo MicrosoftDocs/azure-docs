@@ -51,7 +51,7 @@ To ensure that your sites are running under a defined service account, do the fo
 
 1. Open the **SharePoint 2013 Central Administration** site.
 2. Go to **Security** and select **Configure service accounts**.
-3. Select **Web Application Pool - SharePoint - 80**. The options may be slightly different based on the name of your web pool, or if it uses SSL by default.
+3. Select **Web Application Pool - SharePoint - 80**. The options may be slightly different based on the name of your web pool, or if the web pool uses SSL by default.
 
   ![Choices for configuring a service account](./media/application-proxy-remote-sharepoint/remote-sharepoint-service-web-application.png)
 
@@ -59,7 +59,7 @@ To ensure that your sites are running under a defined service account, do the fo
 5. Select **Register new managed account**. After your account is created, you must set **Web Application Pool** before you can use the account.
 
 > [!NOTE]
-You need to have a previously created Azure AD account for the service. We suggest that you allow for an automatic password change. For more details about the full set of steps and troubleshooting issues, see [Configure automatic password change in SharePoint 2013](https://technet.microsoft.com/EN-US/library/ff724280.aspx).
+You need to have a previously created Azure AD account for the service. We suggest that you allow for an automatic password change. For more information about the full set of steps and troubleshooting issues, see [Configure automatic password change in SharePoint 2013](https://technet.microsoft.com/EN-US/library/ff724280.aspx).
 
 ### Configure SharePoint for Kerberos
 
