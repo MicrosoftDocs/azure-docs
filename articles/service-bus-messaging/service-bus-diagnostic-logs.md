@@ -18,24 +18,24 @@ ms.date: 02/17/2017
 ms.author: babanisa
 
 ---
-# Service Bus diagnostic logs
+# Azure Service Bus diagnostic logs
 
-Azure Service Bus exposes two types of logs:
-* **[Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)**. Activity logs are always active, and provide insights into operations performed on jobs.
-* **[Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)**. You can configure diagnostic logs, for richer insights into everything that happens with the job. Diagnostic logs cover activities from the time the job is created until the job is deleted. They include updates and  activities that occur while the job is running.
+You can view two types of logs for Azure Service Bus:
+* **[Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)**. These logs are always enabled, and they have information about operations performed on a job.
+* **[Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)**. You can configure diagnostic logs, for richer insight into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates, and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
-Diagnostics logs are turned **off** by default. To turn on diagnostic logs:
+Diagnostics logs are **off** by default. To turn on diagnostic logs:
 
-1.	In the Azure portal, go to the streaming job blade.
+1.	In the Azure portal, go to the streaming job blade, then under **Monitoring**, go to the **Diagnostics logs** blade.
 
 	![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)  
 
-2.	Under **Monitoring**, on the **Diagnostics logs** blade, select **Turn on diagnostics**.
+2.	Select **Turn on diagnostics**.
 
 	![turn on diagnostic logs](./media/service-bus-diagnostic-logs/image2.png)
 
-3.	Change the status to **On**.
+3.	For **Status**, select **On**.
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
@@ -43,11 +43,11 @@ Diagnostics logs are turned **off** by default. To turn on diagnostic logs:
 
 5.	Select the categories of logs that you want to collect, for example, **Execution** or **Authoring**.
 
-6.	Save the new diagnostics configuration.
+6.	Save the new diagnostics settings.
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
+New settings take effect after about 10 minutes. Then, logs appear in the configured archival target, on the **Diagnostics logs** blade.
 
-For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## Diagnostic logs schema
 
