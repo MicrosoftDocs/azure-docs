@@ -107,7 +107,7 @@ Learn how to use Site Recovery for business continuity and disaster recovery str
             </div>
         </div>
         </a>
-    </li>
+   </li>
 </ul>
 
 ---
