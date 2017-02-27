@@ -21,7 +21,7 @@ ms.author="jeffstok"
 
 # How to guarantee Stream Analytics job reliability and make your jobs upgrade resilient during service updates.
 
-Part of being a fully managed service is the capability to introduce new service functionality and improvements at a rapid pace. As a result, Stream Analytics can have a service update deploy on a weekly (or more frequent) basis. No matter how much testing is done there is still a risk that an existing, running job may break due to the introduction of a bug. For customers who run mission critical streaming processing jobs these risks need to be avoided. A mechanism customers can use to reduce this  risk is Azure’s **[paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** model. 
+Part of being a fully managed service is the capability to introduce new service functionality and improvements at a rapid pace. As a result, Stream Analytics can have a service update deploy on a weekly (or more frequent) basis. No matter how much testing is done there is still a risk that an existing, running job may break due to the introduction of a bug. For customers who run mission critical streaming processing jobs these risks need to be avoided. A mechanism customers can use to reduce this risk is Azure’s **[paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** model. 
 
 ## How do Azure paired regions address this concern?
 Stream Analytics guarantees jobs in paired regions are updated in separate batches. As a result there is a sufficient time gap between the updates to identify potential breaking bugs and remediate them.
