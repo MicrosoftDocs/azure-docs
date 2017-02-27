@@ -40,4 +40,4 @@ Brazil South |  | South Central US
 China North |  | China East
 Germany North East |  | Germany Central
 
-Customers are advised to deploy identical jobs to both paired regions. In addition to Stream Analytics’ internal monitoring, customers are also advised to monitor the jobs as if **both** are production jobs. If a break is identified to be a result of the Stream Analytics service update, escalate appropriately and fail any downstream consumers to the healthy job output. Escalation to support will prevent the paired region from being affected by the new deployment and maintain the integrity of the paired jobs.
+Customers are advised to deploy identical jobs to both paired regions. In addition to Stream Analytics’ internal monitoring, customers are also advised to monitor the jobs as if **both** are production jobs. If a break is identified to be a result of the Stream Analytics service update, escalate appropriately and fail over any downstream consumers to the healthy job output. Escalation to support will prevent the paired region from being affected by the new deployment and maintain the integrity of the paired jobs.
