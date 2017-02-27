@@ -1,6 +1,6 @@
 ---
 title: Window VM agent and extensions in Azure | Microsoft Docs
-description: Gives an overview of the agent and extensions, and how to install the agent, using the classic deployment model.
+description: Gives an overview of the agent and extensions, and how to install the agent, using the classic deployment model on Windows VMs.
 services: virtual-machines-windows
 documentationcenter: ''
 author: squillace
@@ -18,7 +18,7 @@ ms.date: 08/23/2016
 ms.author: rasquill
 
 ---
-# About the virtual machine agent and extensions
+# About the virtual machine agent and extensions for Windows VMs
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about VM agents and extensions using Resource Manager, see [here](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
