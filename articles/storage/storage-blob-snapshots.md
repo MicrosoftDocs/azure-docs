@@ -34,6 +34,8 @@ When you create a snapshot of a blob, the blob's system properties are copied to
 
 Any leases associated with the base blob do not affect the snapshot. You cannot acquire a lease on a snapshot.
 
+If Storage Service Encryption (SSE) is enabled for the storage account in which the blob resides, then any snapshots taken of that blob will be encrypted at rest.
+
 ## Create a snapshot
 The following code example shows how to create a snapshot in .NET. This example specifies separate metadata for the snapshot when it is created.
 
