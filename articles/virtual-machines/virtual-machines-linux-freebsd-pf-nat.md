@@ -43,7 +43,7 @@ Next, deploy the template [pf-freebsd-setup](https://github.com/Azure/azure-quic
     az group deployment create --resource-group myResourceGroup --name myDeploymentName --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json --parameters '@.\azuredeploy.parameters.json' --verbose
 ```
 
-After about five minutes, you will get the information of '"provisioningState": "Succeeded"'. Then you can ssh to the frontend VM (NAT) or access Nginx web server in a browser using the public IP address or FQDN of the frontend VM (NAT). The following example lists FQDN and public ip address that assigned to the frontend VM (NAT) in the 'myResourceGroup' resource group. 
+After about five minutes, you will get the information of '"provisioningState": "Succeeded"'. Then you can ssh to the frontend VM (NAT) or access Nginx web server in a browser using the public IP address or FQDN of the frontend VM (NAT). The following example lists FQDN and public IP address that assigned to the frontend VM (NAT) in the 'myResourceGroup' resource group. 
 
 ```azurecli
     az network public-ip list --resource-group myResourceGroup
