@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: saurabh
+ms.custom: H1Hack27Feb2017
 
 ---
 # Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates
