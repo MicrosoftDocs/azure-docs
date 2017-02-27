@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
 # Change the StorSimple Virtual Array device administrator password via StorSimple Device Manager
 
