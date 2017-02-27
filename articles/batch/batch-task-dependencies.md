@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/22/2017
 ms.author: tamram
 
 ---
@@ -132,6 +132,15 @@ new CloudTask("4", "cmd.exe /c echo 4")
     DependsOn = TaskDependencies.OnIdRange(1, 3)
 },
 ```
+
+## Dependency actions
+
+Beginning with version XXX/YYY, you can now specify how a dependent tasks behaves, based on whether the task on which it depends completes successfully. 
+
+
+
+the exit condition of
+
 
 ## Code sample
 The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to enable task dependency on a job, create tasks that depend on other tasks, and execute those tasks on a pool of compute nodes.
