@@ -67,7 +67,8 @@
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Known networks](active-directory-known-networks.md)
 
-### [Reporting guide](active-directory-reporting-guide.md)
+### Classic portal
+#### [Reporting guide](active-directory-reporting-guide.md)
 #### [Preview](active-directory-reporting-azure-portal.md)
 #### [API](active-directory-reporting-api-getting-started.md)
 ##### [Audit Reference](active-directory-reporting-api-audit-reference.md)
@@ -75,20 +76,18 @@
 ##### [Prerequisites](active-directory-reporting-api-prerequisites.md)
 ##### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
 ##### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
-
-
 #### [Audit events](active-directory-reporting-audit-events.md)
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
-### Understand reports
-#### [Irregular sign-in](active-directory-reporting-irregular-sign-in-activity.md)
-#### [Multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)
-#### [Suspicious IP addresses](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-#### [Multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-#### [Possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-#### [Unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)
-#### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
+#### Understand reports
+##### [Irregular sign-in](active-directory-reporting-irregular-sign-in-activity.md)
+##### [Multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)
+##### [Suspicious IP addresses](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
+##### [Multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)
+##### [Possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
+##### [Unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)
+##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Manage passwords](active-directory-manage-passwords.md)
 ### [Update your own password](active-directory-passwords-update-your-own-password.md)
