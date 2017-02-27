@@ -39,43 +39,12 @@ The following snippet shows the easiest authentication by the user providing cre
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var _TenantID = "<Tenant ID>"; // Replace this string with the user's Azure Active Directory tenant ID.
-    var _clientId = "1950a258-227b-4e31-a9cf-717495945fc2"; // Microsoft provides this specific GUID for developers.
+    var _tenantId = "<Tenant ID>"; // Replace this string with the user's Azure Active Directory tenant ID.
+    var _clientId = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(_TenantID, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(_tenantId, activeDirectoryClientSettings).Result;
 
-If you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD domain, client ID, and redirect URI for the application you created.
-
-#### Example
-
-    // Call logon method
-    var creds = AuthenticateAzure(_TenantID, _ClientID);
-
-    // Initialize management client objects, using your
-    // credentials (creds). Initialize others as needed.
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
-    _adlsClient.SubscriptionId = _SubID;
-
-    _adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
-    _adlaClient.SubscriptionId = _SubID; 
-
-
-    // Methods to create and manage Data Lake Analytics
-    . . .
-
-
-    // Interactive logon
-    public static ServiceClientCredentials AuthenticateAzure(string tenantID, string clientID)
-    {
-        // User login via interactive popup
-        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-
-        // Use the client ID of an existing AAD "Native Client" application.
-        var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(clientID, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-        
-        return UserTokenProvider.LoginWithPromptAsync(tenantID, activeDirectoryClientSettings).Result;
-    }
-
+For this approach, we recommend creating your own 'native' application and service principal within your Azure Active Directory tenant, then using the client ID for that application, rather than the ID used above.
 
 ### Non-interactive with a client secret
 You can use the following snippet to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
@@ -114,7 +83,24 @@ The following table shows the client management objects, with variables that use
 | DataLakeAnalyticsAccountManagementClient  | _adlaClient           |
 | DataLakeStoreFileSystemManagementClient   | _adlsFileSystemClient |
 | DataLakeAnalyticsCatalogManagementClient  | _adlaCatalogClient    |
-| DataLakeAnalyticsJobManagementClient      | _adlaJobClient       |
+| DataLakeAnalyticsJobManagementClient      | _adlaJobClient        |
+
+#### Example
+
+    // Call your logon method
+    var creds = AuthenticateAzure(_tenantId, _clientID);
+
+    // Initialize management client objects, using your
+    // credentials (creds). Initialize others as needed.
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsClient.SubscriptionId = _SubID;
+
+    _adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
+    _adlaClient.SubscriptionId = _SubID; 
+
+    // Methods to create and manage Data Lake Analytics 
+    . . .
+
 
 ### Data Lake Store management client objects:
 * DataLakeStoreAccountManagementClient - Use to create and manage Data Lake Store accounts.
@@ -185,7 +171,6 @@ For any Data Lake Analytics account, you only need to include the Data Lake Stor
 The following code lists the Data Lake Store accounts in a subscription. List operations do not always provide all the properties of an object and that in some cases you need to do a Get operation on the object.
             
     var adlsAccounts = _adlsClient.Account.List().ToList();
-    Console.WriteLine($"You have {adlsAccounts.Count} Data Lake Store accounts.");
     foreach (var adls in adlsAccounts)
     {
         Console.WriteLine($"\t{adls.Name});
@@ -193,7 +178,6 @@ The following code lists the Data Lake Store accounts in a subscription. List op
     }
 
     var adlaAccounts = _adlaClient.Account.List().ToList();
-    Console.WriteLine($"\nYou have {adlaAccounts.Count} Data Lake Analytic accounts.");
     for (var adla in AdlaAccounts)
     {
         Console.WriteLine($"\t{adla.Name}");
@@ -220,6 +204,8 @@ The following code uses a DataLakeAnalyticsAccountManagementClient to return a D
     }
 
 Similarly, you can use DataLakeStoreAccountManagementClient (_adlsClient) in the same way to get a Data Lake Store account. 
+
+### Get a collection of accounts
 
 ### Delete an account
 The following code deletes a Data Lake Analytics account if it exists. 
@@ -304,13 +290,13 @@ The first parameter for these methods is the name of the Data Lake Store Account
 
 The following example shows how to download a folder in the Data Lake Store.
 
-    void DownloadFolder(string accnt, string DLpath, string localpath)
+    void DownloadFolder(string account, string sourcePath, string destinationPath)
     {
         try
         {
-            if (_adlsFileSystemClient.FileSystem.PathExists(accnt, DLpath))
+            if (_adlsFileSystemClient.FileSystem.PathExists(account, sourcePath))
             {
-                _adlsFileSystemClient.FileSystem.DownloadFolder(accnt, DLpath, localPath);
+                _adlsFileSystemClient.FileSystem.DownloadFolder(account, sourcePath, destinationPath);
             }
             else
             {
