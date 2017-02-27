@@ -1,7 +1,7 @@
 ---
-title: Change Tracking solution in Log Analytics | Microsoft Docs
-description: You can use the Configuration Change Tracking solution in Log Analytics to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.
-services: operations-management-suite
+title: Track changes with Azure Log Analytics | Microsoft Docs
+description: The Change Tracking solution in Log Analytics helps you identify software and Windows Services changes that occur in your environment.
+services: log-analytics
 documentationcenter: ''
 author: bandersmsft
 manager: carmonm
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Change Tracking solution in Log Analytics
+# Track software changes in your environment with the Change Tracking solution
+
 This article helps you use the Change Tracking solution in Log Analytics to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows files, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
 You install the solution to update the type of agent that you have installed. Changes to installed software, Windows services, and Linux daemons on the monitored servers are read and then the data is sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.

@@ -1,6 +1,6 @@
 ---
 title: Create an IoT Hub using Azure CLI (az.py) | Microsoft Docs
-description: How to create an Azure IoT hub using the cross-platform Azure CLI 2.0 (Preview) (az.py).
+description: How to create an Azure IoT hub using the cross-platform Azure CLI 2.0 (az.py).
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,23 +17,23 @@ ms.date: 12/15/2016
 ms.author: dobett
 
 ---
-# Create an IoT hub using the Azure CLI 2.0 (Preview)
+# Create an IoT hub using the Azure CLI 2.0
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 
-You can use Azure CLI 2.0 (Preview) (az.py) to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure CLI 2.0 (Preview) (az.py) to create an IoT hub.
+You can use Azure CLI 2.0 (az.py) to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure CLI 2.0 (az.py) to create an IoT hub.
 
 You can complete the task using one of the following CLI versions:
 
 * [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) – the CLI for the classic and resource management deployment models.
-* Azure CLI 2.0 (Preview) (az.py) - the next generation CLI for the resource management deployment model as described in this article.
+* Azure CLI 2.0 (az.py) - the next generation CLI for the resource management deployment model as described in this article.
 
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Azure CLI 2.0 (Preview)][lnk-CLI-install].
+* [Azure CLI 2.0][lnk-CLI-install].
 
 ## Sign in and set your Azure account
 
