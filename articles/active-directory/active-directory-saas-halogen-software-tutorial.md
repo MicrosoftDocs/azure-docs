@@ -42,7 +42,7 @@ To configure Azure AD integration with Halogen Software, you need the following 
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD SSO in a test environment. 
@@ -101,7 +101,8 @@ The objective of this section is to enable Azure AD SSO in the Azure classic por
 2. On the **How would you like users to sign on to Halogen Software** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Azure AD Single Sign-On][9]
-3. On the **Configure App Settings** dialog page, perform the following steps: 
+3. On the **Configure App Settings** dialog page, perform the following steps:
+
     ![Configure App Settings][10]
    1. in the **Sign On URL** textbox, type your URL used by your users to sign on to your Halogen Software application using the following pattern: *https://global.hgncloud.com/fabrikam/welcome.jsp*
    2. Click **Next**.
