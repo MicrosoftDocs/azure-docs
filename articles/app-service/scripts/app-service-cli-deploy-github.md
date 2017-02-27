@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a web app with deployment from GitHub | Microsoft Docs
-description: Azure CLI Script Sample - Create a web app with deployment from GitHub
+title: Azure CLI Script Sample - Create a web app and deploy code from GitHubb | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app and deploy code from GitHub
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -18,9 +18,9 @@ ms.author: cephalin
 ---
 
 
-# Create a web app with deployment from GitHub
+# Create a web app and deploy code from GitHub
 
-This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a public GitHub repository.
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a public GitHub repository (without continuous deployment). For GitHub deployment with continuous deployment, see [Create a web app with continuous deployment from GitHub](app-service-cli-continuous-deployment-github.md).
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command, and that you have the URL of a GitHub repository to deploy.
 
@@ -28,7 +28,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app with deployment from GitHub")]
+[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app and deploy code from GitHub")]
 
 ## Clean up deployment
 
