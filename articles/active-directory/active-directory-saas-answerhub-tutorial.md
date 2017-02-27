@@ -62,7 +62,7 @@ The objective of this section is to outline how to enable the application integr
 ## Configure single sign-on
 The objective of this section is to outline how to enable users to authenticate to AnswerHub with their account in Azure AD using federation based on the SAML protocol.  
 
-As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
 **To configure single sign-on, perform the following steps:**
 
@@ -97,9 +97,10 @@ As part of this procedure, you are required to create a base-64 encoded certific
 11. On the Keys and Certificates tab, perform the following steps:
     
   ![Keys and Certificates](./media/active-directory-saas-answerhub-tutorial/IC785173.png "Keys and Certificates")  
-  1. Create a **base-64 encoded** file from your downloaded certificate.      
+  1. Create a **base-64 encoded** file from your downloaded certificate.
+  
     >[!TIP]
-    > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
+    >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
     > 
   2. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IDP Public Key (x509 Format)** textbox.
   3. Click **Save**.
