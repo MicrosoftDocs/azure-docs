@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+
+ms.custom: H1Hack27Feb2017
 
 ---
 # Managing access to resources with Azure Active Directory groups

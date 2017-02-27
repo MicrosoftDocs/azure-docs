@@ -1,6 +1,6 @@
 ---
 
-  title: How to migrate individual licensed users to group-based licensing in Azure Active Directory | Microsoft Docs
+  title: How to migrate you individual licensed users to a group  in Azure Active Directory | Microsoft Docs
   description: How to switch from individual user licenses to group-based licensing using Azure Active Directory
   services: active-directory
   keywords: Azure AD licensing
@@ -15,12 +15,14 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/21/2017
+  ms.date: 02/27/2017
   ms.author: curtand
+
+  ms.custom: H1Hack27Feb2017
 
 ---
 
-# How to migrate individual licensed users to group-based licensing in Azure Active Directory
+# How to add licensed users to a group for licensing in Azure Active Directory
 
 You may have existing licenses deployed to users in the organizations via “direct assignment;” that is, using PowerShell scripts or other tools to assign individual user licenses. If you would like to start using group-based licensing to manage licenses in your organization, you will need a migration plan to seamlessly replace existing solutions with group-based licensing.
 

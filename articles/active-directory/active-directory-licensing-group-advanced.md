@@ -15,12 +15,14 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/21/2017
+  ms.date: 02/27/2017
   ms.author: curtand
+
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure Active Directory group-based licensing additional scenarios
+# Scenarios, limitations, and known issues with using groups to manage licensing in Azure Active Directory 
 
 ## Group-based licensing using dynamic groups
 
