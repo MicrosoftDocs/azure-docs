@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
 # Connect remotely to your StorSimple 8000 series device
