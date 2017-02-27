@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/03/2017
 ms.author: marsma
 
 ---
@@ -57,21 +57,38 @@ You should start seeing monitoring data in the charts on the storage account bla
 
 ## How to: Customize metrics charts
 
-Use the following procedure to choose which storage metrics to view in metrics charts. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account, only the viewing of the metrics data.
+Use the following procedure to choose which storage metrics to view in a metrics chart. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account, only the viewing of the metrics data.
 
-1. Select anywhere within the chart you wish to customize. In this walk-through, we use the default Metric chart for storage account "mystorageaccount."
+1. Open the chart blade for the chart you wish to customize by clicking anywhere within the chart's tile. In this example, we'll work with the chart highlighted in the following image:
+
+   ![Chart selection in Azure portal](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
+
 1. Select **Edit chart** to open the **Edit Chart** blade.
-1. Select the **Time Range** of the metrics to display in the chart.
-1. For each service you wish to display metrics (blob, queue, table, file), select it from the drop-down and check all metrics for that service you wish to display.
 
-TODO
+   ![Edit chart button on chart blade](./media/storage-monitor-storage-account/stg-customize-chart-01.png)
+
+1. On the **Edit Chart** blade, select the **Time Range** of the metrics to display in the chart, and the **service** (blob, queue, table, file) whose metrics you wish to display. Here we've selected to display the past week's metrics for the blob service:
+
+   ![Time range and service selection in the Edit Chart blade](./media/storage-monitor-storage-account/stg-customize-chart-02.png)
+
+1. Select the individual **metrics** you'd like displayed in the chart, then click **OK**. For example, here we've chosen to display the *ContainerCount* and *ObjectCount* metrics:
+
+   ![Individual metric selection in Edit Chart blade](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
+
+### Metric availability in charts
+
+The list of available metrics changes based on which service you've chosen in the drop-down, and the type of chart you're editing. Only the checkboxes of the metrics applicable to the selected service and chart type are displayed and enabled.
+
+For example, to select any of the success percentage metrics (PercentAuthorizationError, PercentNetworkError, PercentThrottlingError, etc.), you must open the metric percentage chart:
+
+
+
+IMAGE-HERE
 
 The metrics you selected in the Diagnostics settings determines the resolution of the metrics that are available for your account:
 
 * If your storage account has **aggregate** monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.
 * If your storage account has **per API** monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.
-
-TODO
 
 ## How to: Add metrics charts to the storage account blade
 
