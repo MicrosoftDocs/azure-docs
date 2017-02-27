@@ -22,7 +22,7 @@ ms.author: rickbyh
 # Azure SQL Database Transact-SQL differences   
 Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. For example, the core SQL components such as data types, operators, string, arithmetic, logical, and cursor functions, etc., work without differences from SQL Server.
 
-## Why some Transact-SQL is not supported
+# Why some Transact-SQL is not supported
 Azure SQL Database is designed to isolate features from dependencies on the master database and the operating system. As a consequence many server-level activities are inappropriate for SQL Database. Transact-SQL statements are usually not available if they configure server-level options, operating system components, or specify file system configuration. When features that are outside of the user database are necessary, an appropriate alternative is often available in some other way from SQL Database or from another Azure feature or service. 
 
 For example, Always On does not apply to Azure SQL Database, since high availability is built into the service - every database is highly available. For that reason, any Transact-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are not supported.  
@@ -55,7 +55,7 @@ In addition to Transact-SQL statements related to the unsupported features descr
 - Syntax related to hardware-related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
 - `HAS_DBACCESS`
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, `BULK INSERT`, and four-part names
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, and four-part names
 - .NET Framework [CLR integration with SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Semantic search
 - Server credentials. Use database scoped credentials instead.
