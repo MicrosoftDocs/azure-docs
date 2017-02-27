@@ -43,7 +43,7 @@ You should consider the following information before you configure scaling for y
 > Automatic scaling only works with Classic Azure Storage Accounts. It does not work with Azure Resource Manager Storage Accounts.
 
 ## Schedule scaling
-By default, all roles do not follow a specific schedule. Therefore, any settings changed apply to all times and all days throughout the year. If you want, you can setup manual or automatic scaling for one of the following modes.
+By default, all roles do not follow a specific schedule. Therefore, any settings changed apply to all times and all days throughout the year. If you want, you can setup manual or automatic scaling for one of the following modes:
 
 * Weekdays
 * Weekends
@@ -68,7 +68,7 @@ On the **Scale** page, you can manually increase or decrease the number of runni
    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
 
 2. Click **Scale**.
-3. Select the schedule you want to change scaling options for. Defaults to *No scheduled times* if you have no schedules defined.
+3. Select the schedule you want to change scaling options for. *No scheduled times* is the default if you have no schedules defined.
 4. Find the **Scale by metric** section and select **NONE**. This setting is the default for all roles.
 5. Each role in the cloud service has a slider for changing the number of instances to use.
    
@@ -90,7 +90,7 @@ This mode scales if the average percentage of CPU usage goes above or below spec
    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
 
 2. Click **Scale**.
-3. Select the schedule you want to change scaling options for. Defaults to *No scheduled times* if you have no schedules defined.
+3. Select the schedule you want to change scaling options for. *No scheduled times* is the default if you have no schedules defined.
 4. Find the **Scale by metric** section and select **CPU**.
 5. Now you can configure a minimum and maximum range of roles instances, the target CPU usage (to trigger a scale up), and how many instances to scale up and down by.
 
@@ -100,7 +100,7 @@ This mode scales if the average percentage of CPU usage goes above or below spec
 > Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
 
 ## Automatic scale - Queue
-This mode automatically scales if the number of messages in a queue goes above or below a specified threshold; role instances are created or deleted.
+This mode automatically scales if the number of messages in a queue goes above or below a specified threshold. Role instances are created or deleted when this happens.
 
 1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
    
@@ -125,7 +125,7 @@ Often when you scale a role, it's beneficial to scale the database that the appl
    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
 
 2. Click **Scale**.
-3. Find the **linked resources** section and click on **Manage scale for this database**.
+3. Find the **linked resources** section and click **Manage scale for this database**.
    
    > [!NOTE]
    > If you don't see a **linked resources** section, you probably do not have any linked resources.
