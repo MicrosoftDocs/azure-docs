@@ -31,7 +31,7 @@ To use Azure Stack in a production environment you must first register it with y
 2.	Make sure you have the Azure PowerShell cmdlets on the host computer. 
 3.	Close all PowerShell windows.
 4.	[TEMP WORKAROUND] Copy the DLLs from \\TBD link\\ to the C:\CloudDeployment\ECEngine\bin folder on the host.
-5.	Copy the Test-Activation.ps1 script to a folder on host computer (such as C:/temp).
+5.	Copy the Test-Activation.ps1 script to a folder on the host computer (such as C:/temp).
 6.	Start PowerShell ISE as an administrator and open the Test-Activation.ps1 script.
 7.	In the Step 1 section of the script, change the values for *YourAccountName*, *YourPassword*, and *YourDirectory* to match your Azure subscription.
 
