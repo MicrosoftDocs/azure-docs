@@ -1,5 +1,5 @@
 ---
-title: Assess Service Fabric applications with Log Analytics using PowerShell | Microsoft Docs
+title: Assess Service Fabric applications with Azure Log Analytics using PowerShell | Microsoft Docs
 description: You can use the Service Fabric solution in Log Analytics using PowerShell to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
 services: log-analytics
 documentationcenter: ''
