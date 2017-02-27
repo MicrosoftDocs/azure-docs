@@ -1,5 +1,5 @@
 ---
-title: How to Deploy the Access Panel Extension for Internet Explorer using Group Policy | Microsoft Docs
+title: Deploy Azure Access Panel Extension for IE using a GPO | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
 documentationcenter: ''
@@ -12,8 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+
+ms.custom: H1Hack27Feb2017
 
 ---
 # How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
@@ -25,7 +27,7 @@ The Access Panel extension is also available for [Chrome](https://go.microsoft.c
 
 ## Prerequisites
 * You have set up [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), and you have joined your users' machines to your domain.
-* You must have the "Edit settings" permission in order to edit Group Policy Objects (GPOs). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* You must have the "Edit settings" permission in order to edit the Group Policy Object (GPO). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## Step 1: Create the Distribution Point
 First, you must place the installer package on a network location that can be accessed from all of the machines that you wish to remotely install the extension on. To do this, follow these steps:

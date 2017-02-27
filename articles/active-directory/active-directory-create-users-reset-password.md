@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Reset the password for a user
+# Reset a password for a user in the Azure classic portal
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-users-reset-password-azure-portal.md)
 > * [Azure classic portal](active-directory-create-users-reset-password.md)

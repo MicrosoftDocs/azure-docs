@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 02/27/2017
 ms.author: asteen
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# How password management works
+# How password management works in Azure Active Directory
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 >
