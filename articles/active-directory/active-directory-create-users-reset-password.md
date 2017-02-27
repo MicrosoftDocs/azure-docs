@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 >
 >
 
-Whether you're responding to a user requesting a password reset after a lockout, or just attending to routine security maintenance, sometimes you need to reset a user's password. Azure Active Directory (Azure AD) makes this easy.
+Azure Active Directory (Azure AD) simplifies the procerss of resetting a user's password if they forget and are locked out, or performing routine security maintenance. 
 
 1. Open your directory.
 2. Select the **Users** tab, and then select the display name of the user you want to change.
