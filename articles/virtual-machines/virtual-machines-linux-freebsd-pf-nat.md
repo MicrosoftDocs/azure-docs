@@ -28,7 +28,7 @@ In short, PF is a powerful and feature-rich firewall.
 If you are interested in setting up a secure firewall in the cloud for your web servers, then let’s get started. And you also could apply the scripts used in this Azure Resource Manager template to set up your networking topology.
 The Azure Resource Manager template set up a FreeBSD virtual machine that performs NAT /redirection using PF and two FreeBSD virtual machines with the Nginx web server installed and configured. In addition to performing NAT for the two web servers egress traffics, the NAT/redirection virtual machine intercepts HTTP requests and redirect them to the two web servers in round-robin fashion. The VNet uses the private non-routable IP address space 10.0.0.2/24 and you can modify the parameters of the template. The Azure Resource Manager template also defines a route table for the whole VNet, which is a collection of individual routes used to override Azure default routes based on the destination IP address. 
 
-    ![pf_topology](./media/virtual-machines-freebsd-pf-nat/pf_topology.jpg)
+    ![pf_topology](./media/virtual-machines-linux-freebsd-pf-nat/pf_topology.jpg)
     
 ### Deploy through Azure CLI
 After [install Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/install-az-cli2), log in to an Azure account using [az login](/cli/azure/#login) and create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group name 'myResourceGroup' in the 'West US' location.
