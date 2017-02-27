@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: nepeters
 ---
 
@@ -22,35 +22,16 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine and then uses the Azure Virtual Machine Custom Script Extension to install NGINX. Once the script has been run, a demo website can be reached on the public IP address of the virtual machine.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
-
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
+
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
 The following script creates the virtual machine and invokes the custom script extension.
 
-```azurecli
-#!/bin/bash
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Quick Create VM")]
 
-# Create a resource group.
-az group create --name myResourceGroup --location westeurope
-
-# Create a new virtual machine, this creates SSH keys if not present.
-az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
-
-# Open port 80 to allow web traffic to host.
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM 
-
-# Use CustomScript extension to install Apache.
-az vm extension set \
-  --publisher Microsoft.Azure.Extensions \
-  --version 2.0 \
-  --name CustomScript \
-  --vm-name myVM \
-  --resource-group myResourceGroup \
-  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install nginx"}'
- ``` 
 ## Custom Script Extension
 
 The custom script extension copies this script onto the virtual machine. The script is then run to install and configure an NGINX web server. 
