@@ -2613,13 +2613,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 Preview
+                                                <h3>Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/get-started/">Get Started</a>
+                                                    <a href="/cli/azure/overview">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Download Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Reference</a>

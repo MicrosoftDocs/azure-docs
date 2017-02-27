@@ -106,7 +106,7 @@ Instead of hard-coding the repository URL, you can add a parameter for the repos
 
     azure group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
-### Azure CLI 2.0 (Preview)
+### Azure CLI 2.0
 
     az group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 

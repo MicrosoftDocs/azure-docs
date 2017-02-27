@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Connect computers and devices to OMS using the OMS Gateway
+# Connect computers and devices without Internet access to OMS using the OMS Gateway
+
 This document describes how your OMS-managed devices and System Center Operations Manager (SCOM)-monitored computers can send data to the OMS service when they do not have Internet access. The OMS Gateway can collect the data and send it to the OMS service on their behalf.
 
 The gateway is a HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. The gateway can handle up to 2000 OMS concurrently connected devices when run on a 4-core CPU, 16-GB server running Windows.

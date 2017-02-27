@@ -13,11 +13,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2016
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create an Azure Batch account using the Azure portal
+# Create a Batch account with the Azure portal
+
 > [!div class="op_single_selector"]
 > * [Azure portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
