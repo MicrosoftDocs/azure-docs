@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
 # Deploy the StorSimple Manager service in the Azure classic portal
