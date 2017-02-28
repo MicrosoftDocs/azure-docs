@@ -1,5 +1,6 @@
 ---
-title: Using attributes to create advanced rules for group membership in Azure Active Directory preview | Microsoft Docs
+
+title: Attribute-based dynamic group membership in Azure Active Directory preview | Microsoft Docs
 description: How to create advanced rules for dynamic group membership including supported expression rule operators and parameters.
 services: active-directory
 documentationcenter: ''
@@ -13,12 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 02/27/2017
 ms.author: curtand
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Using attributes to create advanced rules for group membership in Azure Active Directory preview
-The Azure portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) preview groups. [What's in the preview?](active-directory-preview-explainer.md) This article details the rule attributes and syntax to create these advanced rules.
+# Create attribute-based rules for dynamic group membership in Azure Active Directory preview
+The Azure portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) preview groups. [What's in the preview?](active-directory-preview-explainer.md). 
+
+This article details the attributes and syntax to create dynamic membership rules.
 
 ## To create the advanced rule
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.

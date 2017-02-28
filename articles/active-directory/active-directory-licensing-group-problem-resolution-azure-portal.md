@@ -1,6 +1,6 @@
 ---
 
-  title: Identifying and resolving license problems for a group in Azure Active Directory | Microsoft Docs
+  title: Resolving license problems for a group in Azure Active Directory | Microsoft Docs
   description: How to identify and resolve license assignment problems using Azure Active Directory group-based licensing
   services: active-directory
   keywords: Azure AD licensing
@@ -15,12 +15,14 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/21/2017
+  ms.date: 02/27/2017
   ms.author: curtand
+
+  ms.custom: H1Hack27Feb2017
 
 ---
 
-# Identifying and resolving license problems for a group in Azure Active Directory
+# Identifying and resolving license assigment problems when using groups in Azure Active Directory
 
 
 Group-based licensing in Azure Active Directory (Azure AD) introduces the concept of users in licensing error state. In this article, we explain why users may end up in this state. When licenses are assigned directly to individual users, without the use of group-based licensing, the assignment operation may fail. For example, when the administrator executes the PowerShell cmdlet `Set-MsolUserLicense` on a user, the cmdlet may fail for a number of reasons related to business logic, such as an insufficient number of licenses or a conflict between two service plans that cannot be assigned at the same time. The problem is reported back immediately to the user
