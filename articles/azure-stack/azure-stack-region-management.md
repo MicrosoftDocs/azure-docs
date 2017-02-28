@@ -20,14 +20,14 @@ ms.author: efemmano
 # Region management in Azure Stack
 Azure Stack has the concept of regions, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. Inside Region Management, you can find all resources that are required to successfully operate the Azure Stack infrastructure lifecycle.
 
-The Azure Stack Proof of Concept (POC) is a single-node deployment, and equals one region. If you set up another instance of Azure Stack POC on separate hardware, this instance will be a different region.
+The Azure Stack Proof of Concept (POC) is a single-node deployment, and equals one region. If you set up another instance of Azure Stack POC on separate hardware, this instance is a different region.
 
 ## Information available through the Region Management tile
-This preview release of Azure Stack has a set of region management capabilities available in the **Region Management** tile. This tile is available to a cloud administator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
+This preview release of Azure Stack has a set of region management capabilities available in the **Region Management** tile. This tile is available to a cloud administrator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
 
  ![The region management tile](media/azure-stack-manage-region/image1.png)
 
- If you click a region in the Region Management tile, you can access the following information. 
+ If you click a region in the Region Management tile, you can access the following information:
 
   ![Description of panes on the Region Management blade](media/azure-stack-manage-region/image2.png)
 
