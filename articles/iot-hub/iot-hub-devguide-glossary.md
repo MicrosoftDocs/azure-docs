@@ -58,7 +58,7 @@ The [Microsoft Azure portal](https://portal.azure.com) is a central place where 
 In the context of [IoT Hub](#iot-hub), a back-end app is an app that connects to one of the service-facing endpoints on an IoT hub. For example, a back-end app might retrieve [device-to-cloud](#device-to-cloud)messages or manage the [identity registry](#identity-registry). Typically, a back-end app runs in the cloud, but in many of the tutorials the back-end apps are console apps running on your local development machine.
 
 ## Built-in endpoints
-Every IoT hub includes a built-in [endpoint](iot-hub-devguide-endpoints.md) that is Event Hubs-compatible. You can use any mechanism that works with Event Hubs to read device-to-cloud messages from this endpoint.
+Every IoT hub includes a built-in [endpoint](iot-hub-devguide-endpoints.md) that is Event Hub-compatible. You can use any mechanism that works with Event Hubs to read device-to-cloud messages from this endpoint.
 
 ## Cloud gateway
 A cloud gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). A cloud gateway is hosted in the cloud in contrast to a [field gateway](#field-gateway) that runs local to your devices. A typical use case for a cloud gateway is to implement protocol translation for your devices.
