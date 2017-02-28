@@ -44,7 +44,7 @@ Scheduled events are surfaced to all Virtual Machines in a cloud service or to a
 
 ### Discover the Endpoint
 In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from the non-routable IP of: 169.254.169.254 
-Otherwise, (in the default cases for cloud services and classic VMs), an additional logic is required to discover the endpoint to use. 
+Otherwise, in the default cases for cloud services and classic VMs, an additional logic is required to discover the endpoint to use. 
 Refer to this sample to learn how to [discover the host endpoint] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### Versioning 
@@ -101,7 +101,7 @@ Once you have learned of an upcoming event and completed your logic for graceful
 ## PowerShell Sample 
 
 The following sample reads the metadata server for scheduled events and
-record them in the Application event log before acknowledging.
+records them in the Application event log before acknowledging.
 
 ```PowerShell
 $localHostIP = "169.254.169.254"
