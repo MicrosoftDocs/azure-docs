@@ -27,15 +27,15 @@ Start here if you are new to Azure Search. You can review all of these resources
 
 | Title | Description | Date |
 |-------|-------------|------|
-| [Step 1: Watch this video introduction](https://channel9.msdn.com/Events/Connect/2016/138) | 9m38s introduction to features, service creation, and queries. | November 2016 |
-| [Step 2: Create a service](search-get-started-portal.md) | Steps for setting up Azure Search in the portal. | February 2017 |
-| [Step 3: Build and query your first index](search-get-started-portal.md) | Steps for creating and querying an index using built-in sample data. Tools in the portal are a fast way to learn about query types and search parameters. | February 2017 |
-| [Step 4a: Code in .NET](search-howto-dotnet-sdk.md) | C# walkthrough shows you how to connect, index, and query using the Azure Search .NET library. | November 2016 |
-| [Step 4b: Code in REST](search-create-index-rest-api.md) | Review REST calls and JSON payloads for creating an Azure Search index on any platform and programming language. | December 2016 |
+| [Watch this video introduction](https://channel9.msdn.com/Events/Connect/2016/138) | 9m38s introduction to features, service creation, and queries. | November 2016 |
+| [ Create a service](search-get-started-portal.md) | Steps for setting up Azure Search in the portal. | February 2017 |
+| [Build and query your first index](search-get-started-portal.md) | Steps for creating and querying an index using built-in sample data. Tools in the portal are a fast way to learn about query types and search parameters. | February 2017 |
+| [Next step: Code in .NET](search-howto-dotnet-sdk.md) | C# walkthrough shows you how to connect, index, and query using the Azure Search .NET library. | November 2016 |
+| [SNext step: Code in REST](search-create-index-rest-api.md) | Review REST calls and JSON payloads for creating an Azure Search index on any platform and programming language. | December 2016 |
 
 ## Practice
 
-Code-based exploration through code samples and walkthroughs.
+Code-based exploration through samples and walkthroughs.
 
 | Link | Description |
 |-------|-------------|
