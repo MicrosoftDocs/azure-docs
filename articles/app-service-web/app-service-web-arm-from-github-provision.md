@@ -4,7 +4,7 @@ description: Use an Azure Resource Manager template to deploy a web app that con
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 32739607-85fe-43c8-a4dc-1feb46d93a4d
