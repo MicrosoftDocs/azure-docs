@@ -1,6 +1,6 @@
 ---
 title: Schema updates June-1-2016 - Azure Logic Apps | Microsoft Docs
-description: Create JSON definitions for Azure Logic Apps with schema version 2016-04-01
+description: Create JSON definitions for Azure Logic Apps with schema version 2016-06-01
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -123,9 +123,9 @@ Upgrading to the new schema only takes a few steps.
 The upgrade process includes running the upgrade script, 
 saving as a new logic app, and potentially overwriting old logic app if necessary.
 
-1. Open your current logic app.
+1. In the Azure portal, open your logic app.
 
-2. On the toolbar, click **Update Schema**.
+2. Go to **Overview**. On the logic app toolbar, choose **Update Schema**.
    
     ![Choose Update Schema][1]
    
