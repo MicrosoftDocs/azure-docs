@@ -57,7 +57,7 @@
 #### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
 ### Populate the Marketplace
 #### [Marketplace overview](azure-stack-marketplace.md)
-#### [Download marketplace items]()
+#### [Download marketplace items](azure-stack-download-azure-marketplace-item.md)
 #### [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 #### [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
