@@ -3,7 +3,7 @@ title: ownload Azure Stack tools from GitHub | Microsoft Docs
 description: Learn how to download tools required to work with Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: Sneha Gunda
+author: SnehaGunda
 manager: byronr
 editor: ''
 
