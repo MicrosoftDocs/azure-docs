@@ -23,11 +23,11 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 ## Personas
 There are two varieties of users for Microsoft Azure Stack, the cloud administrator (provider) and the tenant (consumer).
 
-* A **cloud administrator** can configure Azure Stack and manage offers, plans, services, quotas, and pricing to provide resources for their tenants.  Cloud administrators also respond to Azure Stack alerts and manage capacity.
+* A **cloud administrator** can configure Azure Stack and manage offers, plans, services, quotas, and pricing to provide resources for their tenants.  Cloud administrators also manage capacity and respond to alerts.  
 * A **tenant** consumes services that the cloud administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
 
 ## Portal
-The primary methods of interacting with Microsoft Azure Stack is the administrative portal, user portal, and PowerShell.
+The primary methods of interacting with Microsoft Azure Stack are the administrative portal, user portal, and PowerShell.
 
 ![](media/azure-stack-key-features/image3.png)
 
@@ -37,18 +37,19 @@ The Azure Stack portals are each backed by separate instances of Azure Resource 
 Azure Stack can use either Azure Active Directory (AAD) or Active Directory Federation Services (ADFS) as an identity provider.  
 
 ### Azure Active Directory
-Azure Active Directory is Microsoft's cloud-based identity provider.  For most instances, you will use Azure Active Directory as the identity store for Azure Stack POC.
+Azure Active Directory is Microsoft's cloud-based identity provider.  For most scenarios, you will use Azure Active Directory as the identity store for Azure Stack POC.
 
 ### Active Directory Federation Services
-You may choose to use ADFS with Azure Stack where network connectivity is limited.  Azure Stack, resource providers, and other applications work much the same way with Active Directory Federation Services (AD FS) as they do with Azure Active Directory. Azure Stack includes its own ADFS and Active Directory instance, and an Active Directory Graph API. Azure Stack Technical Preview 3 supports the following AD FS scenarios:
-•	Sign in to the POC deployment by using AD FS.
-•	Create a virtual machine with secrets in Key Vault
-•	Create a vault to store/access secrets
-•	Create custom RBAC roles in subscription
-•	Assign users to RBAC roles on resources
-•	Create system-wide RBAC roles through Azure PowerShell
-•	Sign in as a user through Azure PowerShell
-•	Create service principals use them to sign in to Azure PowerShell
+You may choose to use ADFS with Azure Stack when network connectivity is limited.  Azure Stack, resource providers, and other applications work much the same way with Active Directory Federation Services (AD FS) as they do with Azure Active Directory. Azure Stack includes its own ADFS and Active Directory instance, and an Active Directory Graph API. Azure Stack Technical Preview 3 supports the following AD FS scenarios:
+
+- Sign in to the POC deployment by using AD FS.
+- Create a virtual machine with secrets in Key Vault
+- Create a vault to store/access secrets
+- Create custom RBAC roles in subscription
+- Assign users to RBAC roles on resources
+- Create system-wide RBAC roles through Azure PowerShell
+- Sign in as a user through Azure PowerShell
+- Create service principals use them to sign in to Azure PowerShell
 
 
 ## Regions, services, plans, offers, and subscriptions
@@ -99,7 +100,7 @@ Resource providers are web services that form the foundation for all Azure-based
 There are four foundational RPs: Network, Storage, Compute and KeyVault. Each of these RPs helps you configure and control its respective resources. Service administrators can also add new custom resource providers.
 
 ### Compute RP
-The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.  As an example, you can use the CRP to provision a Linux virtual machine and run BASH scripts during deployment to configure the VM.
+The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.  As an example, you can use the CRP to provision a Linux virtual machine and run Bash scripts during deployment to configure the VM.
 
 ### Network RP
 The Network Resource Provider (NRP) delivers a series of Software Defined Networking (SDN) and Network Function Virtualization (NFV) features for the private cloud.  You can use the NRP to create software load balancers, public IPs, network security groups, virtual networks, among others.
