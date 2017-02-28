@@ -18,7 +18,7 @@ ms.date: 02/21/2017
 ms.author: janeng
 ---
 
-# Azure CLI Samples for Azure SQL Database
+# Azure SQL Database CLI Samples
 
 The following table includes links to sample Azure CLI scripts for Azure SQL Database.
 
