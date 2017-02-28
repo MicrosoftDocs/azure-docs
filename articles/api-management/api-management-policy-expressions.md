@@ -48,7 +48,7 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
   
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
   
-@(context.Variables.ContainsKey("maxAge")?3600:int.Parse((string)context.Variables["maxAge"]))  
+@(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
 @{   
   string value;   
