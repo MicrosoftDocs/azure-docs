@@ -13,9 +13,9 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: jehollan
-ms.custom: H1Hack27Feb2017
 
 ---
 # Schema updates for Azure Logic Apps - June 1, 2016
