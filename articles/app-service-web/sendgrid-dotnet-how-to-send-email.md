@@ -63,10 +63,10 @@ To install the SendGrid NuGet package in your application, do the following:
 3. Search for **SendGrid** and select the **SendGrid** item in the
    results list.
 4. Select the latest stable version of the Nuget package from the version dropdown to be able to work with the object model and APIs demonstrated in this article.
-5. Click **Install** to complete the installation, and then close this
-   dialog.
 
    ![SendGrid package][sendgrid-package]
+5. Click **Install** to complete the installation, and then close this
+   dialog.
 
 SendGrid's .NET class library is called **SendGrid**. It contains the following namespaces:
 
