@@ -1,5 +1,5 @@
 ---
-title: Define lab policies in Azure DevTest Labs | Microsoft Docs
+title: Manage lab policies in Azure DevTest Labs | Microsoft Docs
 description: Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation.
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -16,8 +16,10 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: tarcher
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Define lab policies in Azure DevTest Labs
+# Manage all policies for a lab in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player]
 > 
 > 

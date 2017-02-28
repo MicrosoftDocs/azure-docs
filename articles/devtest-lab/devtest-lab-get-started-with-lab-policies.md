@@ -1,5 +1,5 @@
 ---
-title: Get started with lab policies in Azure DevTest Labs | Microsoft Docs
+title: Manage basic lab policies in Azure DevTest Labs | Microsoft Docs
 description: Learn how to set some of the basic policies (settings) for a lab in DevTest Labs 
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: tarcher
 
 ---
 
-# Get started with the basic policies for a lab in DevTest Labs
+# Manage basic policies for a lab in Azure DevTest Labs
 
 Azure DevTest Labs enables you control cost and minimize waste in your labs by managing policies (settings) for each lab. In this article, you get started with policies by learning how to set two of the most critical policies - limiting the number of VMs that can be created by a single user, and configuring auto-shutdown. To view how to set every lab policy, see the article, [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
