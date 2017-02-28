@@ -78,7 +78,6 @@
 ##### [Downlevel clients support and IP endpoint changes for auditing](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
 #### [Threat detection](sql-database-threat-detection.md)
 #### Encrypt data
-##### [Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
 ##### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
 #### Mask data
@@ -86,10 +85,11 @@
 ###### [Azure portal](sql-database-dynamic-data-masking-get-started.md)
 ### Do
 #### [Dynamic data masking using the Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
-### [Configure auditing in the Azure portal](sql-database-auditing-portal.md)
-### [Configure auditing using PowerShell](sql-database-auditing-powershell.md)
-### [Configure auditing using the REST API](sql-database-auditing-rest.md)
-##### [Always Encrypted using the Windows certificate store](sql-database-always-encrypted.md)
+#### [Configure auditing in the Azure portal](sql-database-auditing-portal.md)
+#### [Configure auditing using PowerShell](sql-database-auditing-powershell.md)
+#### [Configure auditing using the REST API](sql-database-auditing-rest.md)
+#### [Always Encrypted using Windows certificate](sql-database-always-encrypted.md)
+#### [Always Encrypted using Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
 ## Business continuity
 ### Learn
 #### [Overview](sql-database-business-continuity.md)
