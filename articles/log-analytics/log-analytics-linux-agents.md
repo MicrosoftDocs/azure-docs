@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Connect Linux computers to Log Analytics
-Using Log Analytics, you can collect and act on data generated from Linux computers. Adding data collected from Linux to OMS allows you to manage Linux systems and container solutions like Docker regardless of where your computers are located—virtually anywhere. So, those data sources might reside in your on-premises datacenter as physical servers, virtual computers in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure, or even the laptop on your desk. In addition, OMS also collects data from Windows computers similarly, so it supports a truly hybrid IT environment.
+# Connect your Linux computers to Log Analytics
+Using Log Analytics, you can collect and act on data generated from Linux computers. Adding data collected from Linux to OMS allows you to manage Linux systems and container solutions like Docker, regardless of where your computers are located — virtually anywhere. Data sources might reside in your on-premises datacenter as physical servers, virtual computers in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure, or even the laptop on your desk. In addition, OMS also collects data from Windows computers similarly, so it supports a truly hybrid IT environment.
 
 You can view and manage data from all of those sources with Log Analytics in OMS with a single management portal. This reduces the need to monitor it using many different systems, makes it easy to consume, and you can export any data you like to whatever business analytics solution or system that you already have.
 

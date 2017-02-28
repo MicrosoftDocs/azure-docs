@@ -5,7 +5,7 @@ keywords: azure app service, web app, faq, linux, oss, ruby
 services: app-service
 documentationCenter: ''
 authors: aelnably
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 

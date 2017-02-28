@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 02/02/2017
 ms.author: rasquill
-
+ms.custom: H1Hack27Feb2017
 ---
 # Add a disk to a Linux VM
 This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. 
