@@ -17,8 +17,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Correlate events over time with Storm and HBase on HDInsight
+# Correlate events that arrive at differnet times using Storm and HBase
 
 By using a persistent data store with Apache Storm, you can correlate data entries that arrive at different times. For example, linking login and logout events for a user session to calculate how long the session lasted.
 
