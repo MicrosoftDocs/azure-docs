@@ -31,19 +31,19 @@ The Azure Resource Manager template set up a FreeBSD virtual machine that perfor
     ![pf_topology](./media/virtual-machines-linux-freebsd-pf-nat/pf_topology.jpg)
     
 ### Deploy through Azure CLI
-After [install Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/install-az-cli2), log in to an Azure account using [az login](/cli/azure/#login) and create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group name 'myResourceGroup' in the 'West US' location.
+After [install Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/install-az-cli2), log in to an Azure account using [az login](/cli/azure/#login) and create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group name `myResourceGroup` in the `West US` location.
 
 ```azurecli
     az login
     az group create --name myResourceGroup --location westus
 ```
-Next, deploy the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) with [az group deployment create](/cli/azure/group/deployment#create). You could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) and define your own resource values, such as 'adminPassword', 'networkPrefix', and 'domainNamePrefix'. 
+Next, deploy the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) with [az group deployment create](/cli/azure/group/deployment#create). You could download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and define your own resource values, such as `adminPassword`, `networkPrefix`, and `domainNamePrefix`. 
 
 ```azurecli
-    az group deployment create --resource-group myResourceGroup --name myDeploymentName --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json --parameters '@.\azuredeploy.parameters.json' --verbose
+    az group deployment create --resource-group myResourceGroup --name myDeploymentName --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json --parameters '@azuredeploy.parameters.json' --verbose
 ```
 
-After about five minutes, you will get the information of '"provisioningState": "Succeeded"'. Then you can ssh to the frontend VM (NAT) or access Nginx web server in a browser using the public IP address or FQDN of the frontend VM (NAT). The following example lists FQDN and public IP address that assigned to the frontend VM (NAT) in the 'myResourceGroup' resource group. 
+After about five minutes, you will get the information of `"provisioningState": "Succeeded"`. Then you can ssh to the frontend VM (NAT) or access Nginx web server in a browser using the public IP address or FQDN of the frontend VM (NAT). The following example lists FQDN and public IP address that assigned to the frontend VM (NAT) in the `myResourceGroup` resource group. 
 
 ```azurecli
     az network public-ip list --resource-group myResourceGroup
