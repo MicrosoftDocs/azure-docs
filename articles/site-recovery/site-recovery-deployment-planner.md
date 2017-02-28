@@ -271,7 +271,7 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter
 >
 > c. Check your local storage characteristics and look to improve the hardware (e.g. HDD to SSD, etc.)
 >
-> d. Change the Azure Site Recovery settings in the process server to [increase network bandwdith used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+> d. Change the Azure Site Recovery settings in the process server to [increase the amount of network bandwdith used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 >
 
 ##Recommendations with desired RPO as input
@@ -315,6 +315,8 @@ a.	Check if there is any network Quality of Service (QoS) that is limiting Azure
 b.	Check if your Azure Site Recovery vault is in the nearest physical supported Microsoft Azure region to minimize network latency
 
 c.	Check your local storage characteristics and look to improve the hardware (e.g. HDD to SSD, etc.)
+
+d. Change the Azure Site Recovery settings in the process server to [increase the amount network bandwdith used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
 In cases where you are running the tool on a Configuration Server / Process Server that already has protected virtual machines, run the tool a few times because the achieved throughput number will change depending on the amount of churn being processed at that particular point of time.
 
