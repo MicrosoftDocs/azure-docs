@@ -32,7 +32,7 @@ With a Remote Desktop connection, a single concurrent user can work with the por
 then close Server Manager.
 4. Double-click **Microsoft Azure Stack Portal** icon (https://publicportal.local.azurestack.global/) to open the [portal](azure-stack-key-features.md#portal).
    
-   ![Azure Stack portal icon](media/azure-stack-connect-azure-stack/image2.png)
+   ![Azure Stack portal icon](media/azure-stack-connect-azure-stack/image0.png)
 5. Log in using the Azure Active Directory credentials specified during installation.
 
 ## Connect with VPN
@@ -111,13 +111,13 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
         ```PowerShell
         Connect-AzureStackVpn -Password $Password
         ```
-        ![connect with cmd](media/azure-stack-connect-azure-stack/image4.png)  
+    ![connect with cmd](media/azure-stack-connect-azure-stack/image4.png)  
 
     When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** into your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
 
     b.	Open your local computer’s **Network Settings** > **VPN** >click **azurestack** > **connect**
 
-        ![connect with UI](media/azure-stack-connect-azure-stack/image5.png)  
+    ![connect with UI](media/azure-stack-connect-azure-stack/image5.png)  
 
         At the sign in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a **connected** state.
 
