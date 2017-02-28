@@ -98,7 +98,7 @@ To register all resource providers on all your subscriptions, use the following 
 
 ```PowerShell
 Register-AllAzureRmProvidersOnAllSubscriptions
-``
+```
 
 Next Steps
 * [Develop templates for Azure Stack](azure-stack-develop-templates.md)

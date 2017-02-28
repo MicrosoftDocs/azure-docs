@@ -1,6 +1,6 @@
 ---
 title: Manage Key Vault in Azure Stack using PowerShell | Microsoft Docs
-description: Learn how to manage Key Vault in Azure Stack.
+description: Learn how to manage Key Vault in Azure Stack using PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: SnehaGunda
@@ -103,7 +103,7 @@ The **Destination** parameter is used to specify that the key is software protec
 
 You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values specified in the new key.  You can access the previous version by using the version-specific URI of the key. For example, 
 
-•	Use **https://vault10.vault.local.azurestack.external:443/keys/key01** to always get the current version 
+•	Use **https://vault10.vault.local.azurestack.external:443/keys/key01** to always get the current version  
 •	Use **https://vault010.vault.local.azurestack.external:443/keys/key01/ d0b36ee2e3d14e9f967b8b6b1d38938a** to get this specific version
 
 ### Get a key

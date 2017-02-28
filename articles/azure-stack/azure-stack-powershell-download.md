@@ -57,6 +57,6 @@ This repository contains PowerShell modules that support the following functiona
 | [AzureRM template validator](azure-stack-validate-templates.md) | Use this module to verify if an existing or a new template can be deployed to Azure Stack. | Cloud administrators and users |
 
 
-Next steps
-•	[Configure powerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
-•	[Connect to Azure Stack POC over a VPN](azure-stack-connect-azure-stack.md)
+## Next steps
+•	[Configure powerShell for use with Azure Stack](azure-stack-powershell-configure.md)   
+•	[Connect to Azure Stack POC over a VPN](azure-stack-connect-azure-stack.md)  
