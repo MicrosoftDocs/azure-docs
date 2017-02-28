@@ -3,8 +3,8 @@ title: Configure a Connection String to Azure Storage | Microsoft Docs
 description: Configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate access to a storage account from your application at runtime.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: tamram
+ms.date: 12/12/2016
+ms.author: marsma
 
 ---
 # Configure Azure Storage Connection Strings
@@ -54,8 +54,8 @@ For example, your connection string will look similar to the following sample co
 
 > [!NOTE]
 > Azure Storage supports both HTTP and HTTPS in a connection string; however, using HTTPS is highly recommended.
-> 
-> 
+>
+>
 
 ## Create a connection string using a shared access signature
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
@@ -73,7 +73,7 @@ AccountName=myAccountName;
 AccountKey=myAccountKey
 ```
 
-One scenario where you may wish to do specify an explicit endpoint is if you have mapped your Blob storage endpoint to a custom domain. In that case, you can specify your custom endpoint for Blob storage in your connection string, and optionally specify the default endpoints for the other service if your application uses them.
+One scenario where you may wish to do specify an explicit endpoint is if you have mapped your Blob storage endpoint to a custom domain. In that case, you can specify your custom endpoint for Blob storage in your connection string, and optionally specify the default endpoints for the other services if your application uses them.
 
 Here are examples of valid connection strings that specify an explicit endpoint for the Blob service:
 

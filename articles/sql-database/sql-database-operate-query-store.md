@@ -1,10 +1,10 @@
-﻿---
+---
 title: Operating Query Store in Azure SQL Database
 description: Learn how to operate the Query Store in Azure SQL Database
 keywords: ''
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: bonova
 manager: jhubbard
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
-ms.author: carlrab
+ms.author: bonova
 
 ---
 # Operating the Query Store in Azure SQL Database

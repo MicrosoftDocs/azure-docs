@@ -1,9 +1,9 @@
 ---
-title: Integrate a cloud service with Azure CDN | Microsoft Docs
-description: A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint
+title: Integrate an Azure cloud service with Azure CDN | Microsoft Docs
+description: Learn how to deploy a cloud service that serves content from an integrated Azure CDN endpoint
 services: cdn, cloud-services
 documentationcenter: .net
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # <a name="intro"></a> Integrate a cloud service with Azure CDN

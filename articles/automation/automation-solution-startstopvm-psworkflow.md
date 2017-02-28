@@ -1,4 +1,4 @@
-﻿---
+---
 title: Starting and stopping virtual machines with Azure Automation - PowerShell Workflow | Microsoft Docs
 description: Graphical version of Azure Automation scenario including runbooks to start and stop classic virtual machines.
 services: automation
@@ -14,9 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
-ms.author: bwren
+ms.author: magoedte;bwren
 
+#Redirection
+redirect_url: https://docs.microsoft.com/azure/automation/automation-solution-vm-management 
+redirect_document_id: FALSE
 ---
+
 # Azure Automation scenario - starting and stopping virtual machines
 This Azure Automation scenario includes runbooks to start and stop classic virtual machines.  You can use this scenario for any of the following:  
 

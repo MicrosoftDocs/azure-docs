@@ -1,10 +1,10 @@
-﻿---
+---
 title: How to use table storage from PHP | Microsoft Docs
 description: Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table.
 services: storage
 documentationcenter: php
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use table storage from PHP
@@ -46,9 +46,9 @@ To use the Azure Table service APIs, you need to:
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 > [!NOTE]
-> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the <code>WindowsAzure.php</code> autoloader file.
-> 
-> 
+> The examples in this article assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the <code>WindowsAzure.php</code> autoloader file.
+>
+>
 
 ```php
 require_once 'vendor/autoload.php';

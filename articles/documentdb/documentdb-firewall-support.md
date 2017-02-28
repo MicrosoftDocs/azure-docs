@@ -1,5 +1,5 @@
 ---
-title: DocumentDB firewall support | Microsoft Docs
+title: Azure DocumentDB firewall support & IP access control | Microsoft Docs
 description: Learn how to use IP access control policies for firewall support on Azure DocumentDB database accounts.
 keywords: IP access control, firewall support
 services: documentdb
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: ankshah; kraman
+ms.date: 12/20/2016
+ms.author: ankshah
 
 ---
 # DocumentDB firewall support
@@ -28,14 +28,14 @@ By default, a DocumentDB database account is accessible from public internet as 
 ![Diagram showing the connection process for IP-based access control](./media/documentdb-firewall-support/documentdb-firewall-support-flow.png)
 
 ## Connections from cloud services
-In Azure, cloud services are a very common way for hosting middle tier service logic using DocumentDB. To enable access to a DocumentDB database account from a cloud service, the public IP address of the cloud service must be added to the allowed list of IP addresses associated with your DocumentDB database account by [contacting Azure support](#configure-ip-policy).  This ensures that all role instances of cloud services have access to your DocumentDB database account. You can retrieve IP addresses for your cloud services in the Azure portal, as shown in the following screenshot. 
+In Azure, cloud services are a very common way for hosting middle tier service logic using DocumentDB. To enable access to a DocumentDB database account from a cloud service, the public IP address of the cloud service must be added to the allowed list of IP addresses associated with your DocumentDB database account by [configuring the IP access control policy](#configure-ip-policy).  This ensures that all role instances of cloud services have access to your DocumentDB database account. You can retrieve IP addresses for your cloud services in the Azure portal, as shown in the following screenshot.
 
 ![Screenshot showing the public IP address for a cloud service displayed in the Azure portal](./media/documentdb-firewall-support/documentdb-public-ip-addresses.png)
 
 When you scale out your cloud service by adding additional role instance(s), those new instances will automatically have access to the DocumentDB database account since they are part of the same cloud service.
 
 ## Connections from virtual machines
-[Virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) can also be used to host middle tier services using DocumentDB.  To configure the DocumentDB database account to allow access from virtual machines, public IP addresses of virtual machine and/or virtual machine scale set must be configured as one of the allowed IP addresses for your DocumentDB database account by [contacting Azure support](#configure-ip-policy). You can retrieve IP addresses for virtual machines in the Azure portal, as shown in the following screenshot.
+[Virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) can also be used to host middle tier services using DocumentDB.  To configure the DocumentDB database account to allow access from virtual machines, public IP addresses of virtual machine and/or virtual machine scale set must be configured as one of the allowed IP addresses for your DocumentDB database account by [configuring the IP access control policy](#configure-ip-policy). You can retrieve IP addresses for virtual machines in the Azure portal, as shown in the following screenshot.
 
 ![Screenshot showing a public IP address for a virtual machine displayed in the Azure portal](./media/documentdb-firewall-support/documentdb-public-ip-addresses-dns.png)
 
@@ -45,26 +45,10 @@ When you add additional virtual machine instances to the group, they are automat
 When you access a DocumentDB database account from a computer on the internet, the client IP address or IP address range of the machine must be added to the allowed list of IP address for the DocumentDB database account. 
 
 ## <a id="configure-ip-policy"></a> Configuring the IP access control policy
-Use the Azure portal to file a request with [Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to enable the IP access control policy on your database account.
+The IP access control policy can be set programmatically through [Azure CLI](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md), or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) by updating the `ipRangeFilter` property. IP addresses/ranges must be comma separated and must not contain any spaces. Example: "13.91.6.132,13.91.6.1/24". When updating your database account through these methods, be sure to populate all of the properties to prevent resetting to default settings.
 
-1. In the [Help + support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) blade, select **New support request**.
-2. In the **New support request** blade, select **Basics**.
-3. In the **Basics** blade, select the following:
-   * **Issue type**: Quota
-   * **Subscription**: The subscription associated with the account in which to add the IP access control policy.
-   * **Quota type**: DocumentDB
-   * **Support plan**: Quota Support - Included.
-4. In the **Problem** blade, do the following:
-   * **Severity**: Select C - Minimal impact
-   * **Details**: Copy the following text into the box, and include your account name/s and IP address/es: "I would like to enable firewall support for my DocumentDB database account. Database account: *Include account name/s*. Allowed IP address/Ranges: *Include IP address/range in CIDR format, for example 13.91.6.132, 13.91.6.1/24*."
-   * Click **Next**. 
-5. In the **Contact information** blade, fill in your contact details and click **Create**. 
-
-Once your request is received, IP access control should be enabled within 24 hours. You will be notified once the request is complete.
-
-![Screenshot of the Help + support blades](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
-
-![Screenshot of the Problem blade](./media/documentdb-firewall-support/documentdb-firewall-support-request-access-ticket.png)
+> [!NOTE]
+> By enabling an IP access control policy for your DocumentDB database account, all access to your DocumentDB database account from machines outside the configured allowed list of IP address ranges are blocked. By virtue of this model, browsing the data plane operation from the portal will also be blocked to ensure the integrity of access control.
 
 ## Troubleshooting the IP access control policy
 ### Portal operations

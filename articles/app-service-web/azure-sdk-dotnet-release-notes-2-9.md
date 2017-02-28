@@ -3,8 +3,7 @@ title: Azure SDK for .NET 2.9 Release Notes
 description: Azure SDK for .NET 2.9 Release Notes
 services: app-service\web
 documentationcenter: .net
-author: Juliako
-manager: erikre
+author: chrissfanos
 editor: ''
 
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
@@ -13,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/16/2016
+ms.date: 02/24/2017
 ms.author: juliako;mikhegn
 
 ---
@@ -80,7 +79,7 @@ This updates includes the following:
 **HDInsight Tools** for Visual Studio now supports HDInsight version 3.3, including showing Tez graphs and other language fixes.
 
 ## Azure Resource Manager
-This release adds [KeyVault](../resource-manager-keyvault-parameter.md) support for ARM templates.
+This release adds [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) support for Resource Manager templates.
 
 ## See also
 [Azure SDK 2.9 announcement post](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)

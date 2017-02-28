@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Elasticsearch as a Service Fabric application trace store | Microsoft Docs
 description: Describes how Service Fabric applications can use Elasticsearch and Kibana to store, index, and search through application traces (logs)
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2016
+ms.date: 01/04/2017
 ms.author: karolz@microsoft.com
 
 ---

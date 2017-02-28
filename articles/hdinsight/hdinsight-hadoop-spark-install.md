@@ -17,11 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 
 ---
-# Install and use Spark on HDInsight Hadoop clusters using Script Action
+# Install and use Spark on Windows-based HDInsight clusters using Script Action
+
 > [!IMPORTANT]
-> This article is now deprecated. HDInsight now provides Spark as a first-class cluster type for Windows-based clusters, which means you can now directly create a Spark cluster without modifying a Hadoop cluster using Script action. Using the Spark cluster type, you get an HDInsight version 3.2 cluster with Spark version 1.3.1.  To install different versions of Spark, you can use Script action. HDInsight provides a sample Script Action script.
->
->
+> This article is now deprecated. HDInsight now provides Spark as a first-class cluster type for Linux-based clusters, which means you can now directly create a Spark cluster without modifying a Hadoop cluster using Script action. Also, the steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 Learn how to install Spark on Windows based HDInsight using Script Action, and how to run Spark queries on HDInsight clusters.
 
@@ -49,8 +48,6 @@ You can modify this script or create your own script to install other versions o
 
 > [!NOTE]
 > The sample script works only with HDInsight 3.1 and 3.2 clusters. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
->
->
 
 1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md). Pick the cluster version depending on the following:
 
@@ -184,19 +181,15 @@ In this section, you use the <a href="http://www.scala-sbt.org/0.13/docs/index.h
 
         libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
-
-
-    >[AZURE.NOTE] Make sure you retain the empty lines in the file.
-
+    > [!NOTE]
+    > Make sure you retain the empty lines in the file.
 
 1. Under the **SimpleScalaApp** folder, create a directory structure **\src\main\scala** and paste the Scala program (**SimpleApp.scala**) you created earlier under the \src\main\scala folder.
 2. Open a command prompt, navigate to the SimpleScalaApp directory, and enter the following command:
 
         sbt package
 
-
     Once the application is compiled, you will see a **simpleapp_2.10-1.0.jar** file created under the **\target\scala-2.10** directory within the root SimpleScalaApp folder.
-
 
 #### Run the job on the cluster
 In this section, you remote into the cluster that has Spark installed and then copy the SimpleScalaApp project's target folder. You then use the **spark-submit** command to submit the job on the cluster.
@@ -212,33 +205,41 @@ In this section, you remote into the cluster that has Spark installed and then c
         Lines with a: 21374, Lines with b: 11430
 
 ## Install Spark using Azure PowerShell
-In this section, we use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information on configuring a workstation to run Azure PowerShell cmdlets for HDInsight, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
+In this section, we use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information on configuring a workstation to run Azure PowerShell cmdlets for HDInsight, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Perform the following steps:
 
 1. Open an Azure PowerShell window and declare the following variables:
 
-        # Provide values for these variables
-        $subscriptionName = "<SubscriptionName>"        # Name of the Azure subscription
-        $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
-        $storageAccountName = "<StorageAccountName>"    # Azure Storage account that hosts the default container
-        $storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
-        $containerName = $clusterName
-        $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $clusterNodes = <ClusterSizeInNumbers>            # Number of nodes in the HDInsight cluster
-        $version = "<HDInsightClusterVersion>"          # For example, "3.2"
+    ```powershell
+    # Provide values for these variables
+    $subscriptionName = "<SubscriptionName>"        # Name of the Azure subscription
+    $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
+    $storageAccountName = "<StorageAccountName>"    # Azure Storage account that hosts the default container
+    $storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
+    $containerName = $clusterName
+    $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the Storage account.
+    $clusterNodes = <ClusterSizeInNumbers>            # Number of nodes in the HDInsight cluster
+    $version = "<HDInsightClusterVersion>"          # For example, "3.2"
+    ```
+
 2. Specify the configuration values such as nodes in the cluster and the default storage to be used.
 
-        # Specify the configuration options
-        Select-AzureSubscription $subscriptionName
-        $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
-        $config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
-        $config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
-        $config.DefaultStorageAccount.StorageContainerName=$containerName
+    ```powershell
+    # Specify the configuration options
+    Select-AzureSubscription $subscriptionName
+    $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
+    $config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
+    $config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
+    $config.DefaultStorageAccount.StorageContainerName=$containerName
+    ```
+
 3. Use the **Add-AzureHDInsightScriptAction** cmdlet to add a script action to cluster configuration. Later, when the cluster is being created, the script action gets executed.
 
-        # Add a script action to the cluster configuration
-        $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
+    ```powershell
+    # Add a script action to the cluster configuration
+    $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
+    ```
 
     **Add-AzureHDInsightScriptAction** cmdlet takes the following parameters:
 
@@ -263,10 +264,12 @@ Perform the following steps:
     <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parameters required by the script. The sample script used in this topic does not require any parameters, and hence you do not see this parameter in the snippet above.
     </td></tr>
     </table>
-4. Finally, start creating a customized cluster with Spark installed.  
+4. Finally, start creating a customized cluster with Spark installed.
 
-        # Start creating a cluster with Spark installed
-        New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+    ```powershell
+    # Start creating a cluster with Spark installed
+    New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+    ```
 
 When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
 
@@ -288,4 +291,4 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs

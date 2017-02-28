@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 01/07/2017
 ms.author: adhurwit
 
 ---
@@ -110,10 +110,10 @@ Now we need code to call the Key Vault API and retrieve the secret. The followin
     // I put my GetToken method in a Utils class. Change for wherever you placed your method.
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
-    var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
+    var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
     //I put a variable in a Utils class to hold the secret for general  application use.
-    Utils.EncryptSecret = sec;
+    Utils.EncryptSecret = sec.Value;
 
 
 
@@ -141,29 +141,26 @@ Make note of the end date and the password for the .pfx (in this example: 07/31/
 For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
 **Associate the Certificate with an Azure AD application**
-Now that you have a certificate, you need to associate it with an Azure AD application. But the Azure Management Portal does not support this right now. Instead you have to use Powershell. Following are the commands that you need to run:
+Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure Portal does not support this worklfow; this can be completed through PowerShell. Run the following commands to assoicate the certificate with the Azure AD application:
 
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-
-    PS C:\> $x509.Import("C:\data\KVWebApp.cer")
-
-    PS C:\> $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
-
-    PS C:\> $now = [System.DateTime]::Now
+    $x509.Import("C:\data\KVWebApp.cer")
+    $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+    $now = [System.DateTime]::Now
 
     # this is where the end date from the cert above is used
-    PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
+    $yearfromnow = [System.DateTime]::Parse("2016-07-31")
 
-    PS C:\> $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 
-    PS C:\> $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
+    $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-    PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+    Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
     # get the thumbprint to use in your app settings
-    PS C:\>$x509.Thumbprint
+    $x509.Thumbprint
 
-After you have run these commands, you can see the application in Azure AD. If you don't see the application at first, search for "Applications my company owns" instead of "Applications my company uses".
+After you have run these commands, you can see the application in Azure AD. When searching, ensure you select "Applications my company owns" instead of "Applications my company uses" in the search dialog.
 
 To learn more about Azure AD Application Objects and ServicePrincipal Objects, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md)
 

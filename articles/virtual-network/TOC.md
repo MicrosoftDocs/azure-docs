@@ -77,6 +77,8 @@
 #### Multiple IP addresses
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Template](virtual-network-multiple-ip-addresses-template.md)
 
 ### Connectivity scenarios
 #### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -95,9 +97,10 @@
 ##### [Sample application](virtual-networks-sample-app.md)
 
 ## Configure
-### Accelerated networking
+### Accelerated networking for VMs
 #### [Azure portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Optimize VM network throughput](virtual-network-optimize-network-bandwidth.md)
 ### Access control lists
 #### [Classic portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
@@ -108,15 +111,17 @@
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Logs](virtual-network-nsg-manage-log.md)
-#### Troubleshoot
-##### [Portal](virtual-network-nsg-troubleshoot-portal.md)
-##### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
-### Troubleshoot routes
-#### [Portal](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### Virtual machines
 #### [View and modify hostnames](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
+
+## Troubleshoot
+### Network security groups
+#### [Portal](virtual-network-nsg-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+### Routes
+#### [Portal](virtual-network-routes-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Reference
 ## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))

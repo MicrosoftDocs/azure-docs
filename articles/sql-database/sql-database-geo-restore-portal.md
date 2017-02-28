@@ -1,34 +1,30 @@
 ---
-title: Restore an Azure SQL database from an automatic backup (Azure portal) | Microsoft Docs
-description: Restore an Azure SQL database from an automatic backup (Azure portal).
+title: 'Azure portal:Restore SQL Database from geo-redundant backup | Microsoft Docs'
+description: Restore an Azure SQL Database into a new server from a geo-redundant backup using the Azure portal 
 services: sql-database
 documentationcenter: ''
 author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 62d94085-d7e7-4f08-bb83-404cf866a6c1
+ms.assetid: 
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
-ms.date: 10/18/2016
-ms.author: sstein
-ms.workload: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
+ms.tgt_pltfrm: powershell
+ms.workload: NA
+ms.date: 12/19/2016
+ms.author: sstein; carlrab
 
 ---
-# Restore an Azure SQL database from an automatic backup using the Azure portal
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-recovery-using-backups.md#geo-restore)
-> * [Geo-Restore: PowerShell](sql-database-geo-restore-powershell.md)
-> 
-> 
+# Restore an Azure SQL Database from a geo-redundant backup with the Azure portal
 
-This article shows you how to restore your database from an [automatic backup](sql-database-automated-backups.md) into a new server with [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore) using the Azure portal.
+This article shows you how to restore your database into a new server by using geo-restore with the Azure portal. This task can also be done [using PowerShell](sql-database-geo-restore-powershell.md).
 
-## Select a database to restore
-To restore a database in the Azure portal, do the following steps:
+## Restore an Azure SQL Database from a geo-redundant backup by using the Azure portal
+
+To geo-restore a database in the Azure portal, do the following steps:
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. On the left side of the screen select **+New** > **Databases** > **SQL Database**:
@@ -38,12 +34,13 @@ To restore a database in the Azure portal, do the following steps:
    
    ![Restore an Azure SQL database](./media/sql-database-geo-restore-portal/geo-restore.png)
 
-Monitor the status of the restore operation by clicking the notification icon in the upper right of the page.
+4. Monitor the status of the restore operation by clicking the notification icon in the upper right of the page.
+
 
 ## Next steps
-* For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
-* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-* To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-* To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
-* To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+* For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
+* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+* To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
+* To learn about faster recovery options, see [Active-geo-replication](sql-database-geo-replication-overview.md).  
+* To learn about using automated backups for archiving, see [Database copy](sql-database-copy.md).
 

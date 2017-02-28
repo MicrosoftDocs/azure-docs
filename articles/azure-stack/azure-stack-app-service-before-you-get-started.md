@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack Technical Preview 2 Before You Get Started | Microsoft Docs
+title: Before you deploy App Services on Azure Stack | Microsoft Docs
 description: Steps to complete before deploying App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 1/23/2017
 ms.author: anwestg
 
 ---
@@ -26,7 +26,7 @@ You need a few items to install App Service on Azure Stack:
 - [A server that's running SQL Server](#SQL-Server).
 
 >[!NOTE] 
-> The following steps ALL take place on the Client VM.
+> The following steps ALL take place on the MAS-CON01 VM.
 
 ## Before you deploy App Service on Azure Stack
 
@@ -36,7 +36,7 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 
 1.	Sign in to the Azure Stack proof-of-concept (POC) computer as **AzureStack/administrator**, and then open **Server Manager**.
 2.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
-3.	Sign in to the ClientVM.AzureStack.local virtual machine as an administrator, and then open **Server Manager**.
+3.	Sign in to the MAS-CON01.AzureStack.local virtual machine as an administrator, and then open **Server Manager**.
 4.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
 
 ## Enable cookies
@@ -57,40 +57,45 @@ Perform the following steps from the MAS-CON01 VM, PowerShell console:
 
 1.  Open a Remote Desktop session to MAS-CON01 (login as azurestack\azurestackadmin)
 2.  Open a PowerShell Console as Administrator
-3.  You will be installing the AzureRM modules from the PSGallery. To see more details on about the PSGallery, run Get-PSRepository:
-![Get-PSRepository Result][1]
-4.  Execute the following command:
-    Install-Module -Name AzureRM -RequiredVersion 1.2.6 -Scope CurrentUser
-    1.	-Scope CurrentUser is optional
-    2.	If you want everyone to have access to the modules, use an elevated command prompt and leave off the Scope parameter
-5.  This command will execute, run for a bit, and install the AzureRM modules from the PSGallery
-6.  To confirm the installation of the AzureRM modules, execute the following commands:
+3.  You will be installing the AzureRM modules from the PSGallery. To see more details on about the PSGallery, run `Get-PSRepository`:
+
+    ![Get-PSRepository Result][1]
+4.  Run the following command:
+
+        Install-Module -Name AzureRM -RequiredVersion 1.2.6 -Scope CurrentUser
+
+    -	`-Scope CurrentUser` is optional
+    -	If you want everyone to have access to the modules, use an elevated command prompt and leave off the `Scope` parameter
+5.  This command will start, run for a bit, and install the AzureRM modules from the PSGallery.
+6.  To confirm the installation of the AzureRM modules, run the following commands:
+    ```
     Get-Module -ListAvailable | where {$_.Name -match "AzureRM"}
     Get-Command -Module AzureRM.AzureStackAdmin
-    1.	If you do not see the AzureRM modules listed, restart the MAS-CON01 VM
-    2.	When the machine has restarted, check for the modules again
-7.  The AzureRM modules have now been Installed and can now be used by the CurrentUser
-8.  Exit the PS Console and open another before you start using the cmdlets
+    ```
+    
+    If you do not see the AzureRM modules listed, restart the MAS-CON01 VM. When the machine has restarted, check for the modules again.
+7.  The AzureRM modules have now been installed and can now be used by the CurrentUser.
+8.  Exit the PowerShell Console and open another before you start using the cmdlets.
 
 > [!NOTE]  
 > These same instructions can be used to install the AzureRM modules on other machines as well.
 
 ## Using Visual Studio 2015 and Azure Stack TP2 on the MAS-CON01 VM
 
-The following steps provide guidance on how to install Visual Studio Community 2015 with Microsoft Azure SDK 2.9.5 and Microsoft Azure PowerShell - Azure Stack Technical Preview 2 on the MAS-CON01 VM.
+The following steps provide guidance on how to install Visual Studio Community 2015 with Microsoft Azure SDK 2.9.6 and Microsoft Azure PowerShell - Azure Stack Technical Preview 2 on the MAS-CON01 VM.
 
-1.  Open a Remote Desktop session to MAS-CON01 (login as azurestack\azurestackadmin)
-2.  Install and Open Web Platform Installer from https://www.microsoft.com/web/downloads/platform.aspx
-3.  Find and Install Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.5
-4.  Once the install is complete, go to Add/Remove Programs and Uninstall the Microsoft Azure PowerShell (Sept) that gets installed as part of the SDK
-5.  Go to Web Platform Installer
-6.  Find and Install Microsoft Azure PowerShell - Azure Stack Technical Preview 2
+1.  Open a Remote Desktop session to MAS-CON01 and login as azurestack\azurestackadmin.
+2.  Install and Open Web Platform Installer from https://www.microsoft.com/web/downloads/platform.aspx.
+3.  Find and install **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**.
+4.  Once the installation is complete, go to **Add/Remove Programs** and uninstall the **Microsoft Azure PowerShell - November 2016** that gets installed as part of the SDK.
+5.  Go to Web Platform Installer and click **Products**.
+6.  Find and install **Microsoft Azure PowerShell - Azure Stack Technical Preview 2**.
 7.  Visual Studio Community, Azure SDK, and Azure Stack TP2 PowerShell have now been installed
 ![WebPI - Products Installed][2]
 8.  Open Visual Studio and validate you can connect to the Azure Stack environment / get templates / etc.
 
 
-## SQL Server
+## <a name="SQL-Server"></a>SQL Server
 
 By default, the App Service on Azure Stack installer is set to use the SQL Server that is installed along with the Azure Stack SQL Resource Provider. When you install the SQL Server Resource Provider (SQL RP), ensure you take note of the database administrator username and password. You need both when you install App Service on Azure Stack.
 >[!NOTE]

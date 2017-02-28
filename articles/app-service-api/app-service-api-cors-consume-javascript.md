@@ -48,7 +48,7 @@ You can configure CORS in the Azure portal or by using [Azure Resource Manager](
    After you click **Save**, the API app will accept JavaScript calls from the specified URLs.
 
 #### Configure CORS by using Azure Resource Manager tools
-You can also configure CORS for an API app by using [Azure Resource Manager templates](../resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](/powershell/azureps-cmdlets-docs) and the [Azure CLI](../xplat-cli-install.md). 
+You can also configure CORS for an API app by using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](/powershell/azureps-cmdlets-docs) and the [Azure CLI](../xplat-cli-install.md). 
 
 For an example of an Azure Resource Manager template that sets the CORS property, open the [azuredeploy.json file in the repository for this tutorial's sample application](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Find the section of the template that looks like the following example:
 

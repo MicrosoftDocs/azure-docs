@@ -1,20 +1,19 @@
 ---
 title: Azure Government Monitoring + Management | Microsoft Docs
 description: This provides a comparison of features and guidance on developing applications for Azure Government.
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: ryansoc
 manager: zakramer
-editor: ''
 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/31/2016
+ms.date: 1/13/2017
 ms.author: ryansoc
 
 ---
@@ -27,7 +26,7 @@ Automation is generally available in Azure Government.
 ### Variations
 The following Automation features are not currently available in Azure Government.
 
-* Creation of a Service Principle credential for authentication
+* Creation of a Service Principal credential for authentication
 
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
@@ -36,11 +35,34 @@ Backup is generally available in Azure Government.
 
 For more information, see [Azure Government Backup](documentation-government-services-backup.md).
 
-### Variations
-The following Backup features are not currently available in Azure Government:
+## Site Recovery
+Site Recovery (ASR) is generally available in Azure Government.
 
-* Azure Resource Manager vaults
-* Management using the Azure portal (the Azure classic portal is supported)
+For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
+
+### Variations
+The following Site Recovery features are not currently available in Azure Government:
+
+* Azure Resource Manager site recovery vaults
+* Email notification
+
+| Site Recovery | Classic | Resource Manager |
+| --- | --- | --- |
+| VMWare/Physical  | GA | GA |
+| Hyper-V | GA | GA |
+| Site to Site | GA | GA |
+
+>[!NOTE]
+>Table applies to US Gov Virginia and US Gov Iowa.
+
+The following URLs for ASR  are different in Azure Government:
+
+| Azure Public | Azure Government | Notes |
+| --- | --- | --- |
+| *.hypervrecoverymanager.windowsazure.com | *.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
+| *. backup.windowsazure.com  | *.backup.windowsazure.us | Access to Protection Service |
+| *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
+| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
@@ -50,7 +72,7 @@ The following Log Analytics features and solutions are not currently available i
 
 * Solutions that are in preview in Microsoft Azure, including:
   * Network Monitoring solution
-  * Application Dependency Monitoring solution
+  * Service Map
   * Office 365 solution
   * Windows 10 Upgrade Analytics solution
   * Application Insights solution
@@ -92,16 +114,6 @@ The following Log Analytics features behave differently in Azure Government:
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
-
-## Site Recovery
-Site Recovery is generally available in Azure Government.
-
-For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
-
-### Variations
-The following Site Recovery features are not currently available in Azure Government:
-
-* Azure Resource Manager site recovery vaults
 
 ## Next steps
 For supplemental information and updates, subscribe to the

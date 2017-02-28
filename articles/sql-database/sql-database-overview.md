@@ -1,6 +1,6 @@
 ---
-title: Azure SQL database overview | Microsoft Docs
-description: This page provides an overview of Azure SQL databases.
+title: What is an Azure SQL database? | Microsoft Docs
+description: This article provides an overview of Azure SQL databases.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -9,9 +9,9 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
@@ -25,7 +25,7 @@ This topic provides an overview of Azure SQL databases. For information about Az
 Each database in Azure SQL Database is associated with a logical server. The database can be:
 
 - A single database with its [own set of resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
-- Part of a [pool of databases](sql-database-elastic-pool.md) that [shares a set of resources](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
+- Part of an [elastic pool](sql-database-elastic-pool.md) that [shares a set of resources](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
 - Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
 - Part of a set of databases participating in a [multitenant SaaS design pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
 
@@ -63,6 +63,6 @@ You can manage Azure SQL Database logical servers using several methods:
 - For an overview of Azure SQL logical servers, see [SQL Database logical server overview](sql-database-server-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
-- For security-related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+- For an overview of security, see [Azure SQL Database Security Overview](sql-database-security-overview.md).
 - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).
 

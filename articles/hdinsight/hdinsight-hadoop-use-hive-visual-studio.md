@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/23/2017
 ms.author: larryfr
 
 ---
@@ -22,16 +22,17 @@ ms.author: larryfr
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-In this article, you will learn how to submit Hive queries to an HDInsight cluster using the HDInsight tools for Visual Studio.
-
-> [!NOTE]
-> This document does not provide a detailed description of what the HiveQL statements used in the examples do. For information about the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
+Learn how to submit Hive queries to an HDInsight cluster using the HDInsight tools for Visual Studio.
 
 ## <a id="prereq"></a>Prerequisites
 
-To complete the steps in this article, you will need the following.
+To complete the steps in this article, you need the following.
 
-* An Azure HDInsight (Hadoop on HDInsight) cluster (Linux or Windows-based)
+* An Azure HDInsight (Hadoop on HDInsight) cluster
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Visual Studio (one of the following versions):
   
     Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
@@ -45,65 +46,73 @@ To complete the steps in this article, you will need the following.
 1. Open **Visual Studio** and select **New** > **Project** > **Azure Data Lake** > **HIVE** > **Hive Application**. Provide a name for this project.
 
 2. Open the **Script.hql** file that is created with this project, and paste in the following HiveQL statements:
-   
-        set hive.execution.engine=tez;
-        DROP TABLE log4jLogs;
-        CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
-        SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+
+   ```hiveql
+   set hive.execution.engine=tez;
+   DROP TABLE log4jLogs;
+   CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+   ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+   STORED AS TEXTFILE LOCATION '/example/data/';
+   SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+   ```
    
     These statements perform the following actions:
    
-   * **DROP TABLE**: Deletes the table and the data file if the table already exists.
+   * `DROP TABLE`: If the table exists, this statement deletes it.
 
-   * **CREATE EXTERNAL TABLE**: Creates a new 'external' table in Hive. External tables only store the table definition in Hive (the data is left in the original location).
+   * `CREATE EXTERNAL TABLE`: Creates a new 'external' table in Hive. External tables only store the table definition in Hive (the data is left in the original location).
      
      > [!NOTE]
      > External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
      > 
      > Dropping an external table does **not** delete the data, only the table definition.
 
-   * **ROW FORMAT**: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
+   * `ROW FORMAT`: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
 
-   * **STORED AS TEXTFILE LOCATION**: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
+   * `STORED AS TEXTFILE LOCATION`: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
 
-   * **SELECT**: Select a count of all rows where column **t4** contain the value **[ERROR]**. This should return a value of **3** because there are three rows that contain this value.
+   * `SELECT`: Select a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are three rows that contain this value.
 
-   * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
+   * `INPUT__FILE__NAME LIKE '%.log'` - Tells Hive that we should only return data from files ending in .log. This clause restricts the search to the sample.log file that contains the data.
 
-3. From the toolbar, select the **HDInsight Cluster** that you want to use for this query, and then select **Submit to WebHCat** to run the statements as a Hive job using WebHCat. You can also submit the job using the **Execute via HiveServer2** button if HiveServer2 is available on your cluster version. The **Hive Job Summary** appears and displays information about the running job. Use the **Refresh** link to refresh the job information, until the **Job Status** changes to **Completed**.
+3. From the toolbar, select the **HDInsight Cluster** that you want to use for this query. Select **Submit** to run the statements as a Hive job.
 
-4. Use the **Job Output** link to view the output of this job. It should display `[ERROR] 3`, which is the value returned by the SELECT statement.
+   ![Submit bar](./media/hdinsight-hadoop-use-hive-visual-studio/toolbar.png)
 
-5. You can also run Hive queries without creating a project. Using **Server Explorer**, expand **Azure** > **HDInsight**, right-click your HDInsight server, and then select **Write a Hive Query**.
+4. The **Hive Job Summary** appears and displays information about the running job. Use the **Refresh** link to refresh the job information, until the **Job Status** changes to **Completed**.
 
-6. In the **temp.hql** document that appears, add the following HiveQL statements:
+   ![job summary displaying a completed job](./media/hdinsight-hadoop-use-hive-visual-studio/jobsummary.png)
+
+5. Use the **Job Output** link to view the output of this job. It displays `[ERROR] 3`, which is the value returned by this query.
+
+6. You can also run Hive queries without creating a project. Using **Server Explorer**, expand **Azure** > **HDInsight**, right-click your HDInsight server, and then select **Write a Hive Query**.
+
+7. In the **temp.hql** document that appears, add the following HiveQL statements:
    
-        set hive.execution.engine=tez;
-        CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-        INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
-   
+   ```hiveql
+   set hive.execution.engine=tez;
+   CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+   INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+   ```
+
     These statements perform the following actions:
    
-   * **CREATE TABLE IF NOT EXISTS**: Creates a table if it does not already exist. Because the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
+   * `CREATE TABLE IF NOT EXISTS`: Creates a table if it does not already exist. Because the `EXTERNAL` keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed by Hive.
      
      > [!NOTE]
-     > Unlike **EXTERNAL** tables, dropping an internal table also deletes the underlying data.
+     > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
-   * **STORED AS ORC**: Stores the data in optimized row columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+   * `STORED AS ORC`: Stores the data in optimized row columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
 
-   * **INSERT OVERWRITE ... SELECT**: Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
+   * `INSERT OVERWRITE ... SELECT`: Selects rows from the `log4jLogs` table that contain `[ERROR]`, then inserts the data into the `errorLogs` table.
 
-7. From the toolbar, select **Submit** to run the job. Use the **Job Status** to determine that the job has completed successfully.
+8. From the toolbar, select **Submit** to run the job. Use the **Job Status** to determine that the job has completed successfully.
 
-8. To verify that the job completed and created a new table, use **Server Explorer** and expand **Azure** > **HDInsight** > your HDInsight cluster > **Hive Databases** > and **default**. You should see the **errorLogs** table and the **log4jLogs** table.
-
-## <a id="summary"></a>Summary
-
-As you can see, the the HDInsight tools for Visual Studio provide an easy way to run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
+9. To verify that the job created a new table, use **Server Explorer** and expand **Azure** > **HDInsight** > your HDInsight cluster > **Hive Databases** > **default**. The **errorLogs** table and the **log4jLogs** table are listed.
 
 ## <a id="nextsteps"></a>Next steps
+
+As you can see, the HDInsight tools for Visual Studio provide an easy way to work with Hive queries on HDInsight.
 
 For general information about Hive in HDInsight:
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Kontiki | Microsoft Docs'
 description: Learn how to use Kontiki with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/02/2017
 ms.author: jeedes
 
 ---
+
 # Tutorial: Azure Active Directory integration with Kontiki
 The objective of this tutorial is to show the integration of Azure and Kontiki.  
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A Kontiki single sign-on enabled subscription
+* A Kontiki single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Kontiki will be able to single sign into the application at your Kontiki company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Kontiki
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Kontiki
+* Configuring single sign-on
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-kontiki-tutorial/IC790235.png "Scenario")
 
-## Enabling the application integration for Kontiki
+## Enable the application integration for Kontiki
 The objective of this section is to outline how to enable the application integration for Kontiki.
 
-### To enable the application integration for Kontiki, perform the following steps:
+**To enable the application integration for Kontiki, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-kontiki-tutorial/IC700993.png "Active Directory")
@@ -58,11 +60,12 @@ The objective of this section is to outline how to enable the application integr
    
    ![Kontiki](./media/active-directory-saas-kontiki-tutorial/IC790237.png "Kontiki")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Kontiki with their account in Azure AD using federation based on the SAML protocol.
 
-### To configure single sign-on, perform the following steps:
+*To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Kontiki** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configure Single SignOn")
@@ -77,26 +80,28 @@ The objective of this section is to outline how to enable users to authenticate 
    ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Configure Single SignOn")
 5. Send the metadatafile to the Kontiki support team.
    
-   > [!NOTE]
-   > The single sign-on configuration has to be performed by the Kontiki support team. You will get a notification as soon as the configuration has been completed.
-   > 
+   >[!NOTE]
+   >The single sign-on configuration has to be performed by the Kontiki support team. You will get a notification as soon as the configuration has been completed. 
    > 
 6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
-   ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configure Single SignOn")
+  ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configure Single SignOn")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
-There is no action item for you to configure user provisioning to Kontiki.  
-When an assigned user tries to log into Kontiki using the access panel, Kontiki checks whether the user exists.  
-If there is no user account available yet, it is automatically created by Kontiki.
+There is no action item for you to configure user provisioning to Kontiki. When an assigned user tries to log into Kontiki using the access panel, Kontiki checks whether the user exists.  
 
-## Assigning users
+>!NOTE]
+>If there is no user account available yet, it is automatically created by Kontiki.
+>
+
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Kontiki, perform the following steps:
+**To assign users to Kontiki, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Kontiki **application integration page, click **Assign users**.
+2. On the **Kontiki** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

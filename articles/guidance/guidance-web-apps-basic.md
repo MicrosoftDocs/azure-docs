@@ -19,6 +19,7 @@ ms.author: mwasson
 
 ---
 # Basic web application architecture in Azure
+
 [!INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
 This article shows a recommended architecture for a basic web application in Microsoft Azure.
@@ -226,7 +227,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [arm-template]: ../azure-resource-manager/resource-group-overview.md#resource-groups
 [custom-domain-name]: ../app-service-web/web-sites-custom-domain-name.md
 [deploy]: ../app-service-web/web-sites-deploy.md
-[deploy-arm-template]: ../resource-group-template-deploy.md
+[deploy-arm-template]: ../azure-resource-manager/resource-group-template-deploy.md
 [deployment-slots]: ../app-service-web/web-sites-staged-publishing.md
 [diagnostic-logs]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [kudu]: https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/
@@ -237,11 +238,11 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [rbac]: ../active-directory/role-based-access-control-what-is.md
 [resource-group]: ../azure-resource-manager/resource-group-overview.md
 [sla]: https://azure.microsoft.com/support/legal/sla/
-[sql-audit]: ../sql-database/sql-database-auditing-get-started.md
+[sql-audit]: ../sql-database/sql-database-auditing.md
 [sql-backup]: ../sql-database/sql-database-business-continuity.md
 [sql-db]: https://azure.microsoft.com/documentation/services/sql-database/
 [sql-db-overview]: ../sql-database/sql-database-technical-overview.md
-[sql-db-scale]: ../sql-database/sql-database-scale-up-powershell.md
+[sql-db-scale]: ../sql-database/sql-database-service-tiers.md
 [sql-db-service-tiers]: ../sql-database/sql-database-service-tiers.md
 [sql-db-v12]: ../sql-database/sql-database-features.md
 [sql-dtu]: ../sql-database/sql-database-service-tiers.md

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumudd
+ms.author: kumud
 ---
 
 # Advisor Cost recommendations
@@ -44,7 +44,7 @@ Advisor identifies SQL server instances that can benefit from creating elastic d
 3. On the Advisor dashboard, click the **Cost** tab, select the subscription for which you’d like to receive recommendations, and then click **Get recommendations**
 
 > [!NOTE]
-> Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor** or **Reader**.
+> To access Advisor recommendations, you must first **register** your subscription with Advisor. A subscription is registered when a **subscription Owner** launches the Advisor dashboard and clicks on the **Get recommendations** button. This is a **one-time operation**. Once a subscription is registered, Advisor recommendations can be accessed by **Owner**s, **Contributor**s, or **Reader**s for a subscription, resource group or a specific resource.
 
 ## Next steps
 

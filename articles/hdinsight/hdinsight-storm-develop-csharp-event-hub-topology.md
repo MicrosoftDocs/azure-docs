@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
@@ -26,17 +26,143 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 * **EventHubWriter**: Randomly generates data and writes it to Event Hubs
 * **EventHubReader**: Reads data from Event Hubs and logs the data to the Storm logs
 
+> [!NOTE] 
+> For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+
+## SCP.NET
+
+These projects use SCP.NET, a NuGet package that makes it easy to create C# topologies and components for use with Storm on HDInsight.
+
+> [!IMPORTANT]
+> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to a Storm on HDInsight cluster that uses Linux. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.__
+
+### Cluster versioning
+
+The Microsoft.SCP.Net.SDK NuGet package used by your project must match the major version of Storm installed on HDInsight. Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, so you must use SCP.NET version 0.10.x.x with these clusters. HDInsight 3.5 uses Storm 1.0.x., so you must use SCP.NET version 1.0.x.x with this cluster version.
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
+HDInsight 3.4 and greater use Mono to run C# topologies. Most things will work with Mono, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
+
+C# topologies must also target .NET 4.5.
+
+## How to work with Event Hubs
+
+Microsoft provides a set of Java components that can be used to communicate with Azure Event Hubs from a Storm topology. You can find the jar file that contains the latest version of these components at [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+
+> [!IMPORTANT]
+> While the components are written in Java, you can easily use them from a C# topology.
+
+The components that you will primarily be working with are:
+
+* __EventHubSpout__: Reads data from Event Hubs.
+* __EventHubBolt__: Writes data to Event Hubs.
+* __EventHubSpoutConfig__: Used to configure EventHubSpout.
+* __EventHubBoltConfig__: Used to configure EventHubBolt.
+* __UnicodeEventDataScheme__: Used to configure the spout to use UTF-8 encoding when reading from Event Hubs. If this is not used, the spout defaults to String encoding.
+
+### Example Spout usage
+
+SCP.NET provides methods specificly for adding an EventHubSpout to your topology. These methods make it easier to add a spout than using the generic methods for adding a Java component. The following example demonstrates how to crete a new spout using the __SetEventHubSpout__ and EventHubSpoutConfig methods provided by SCP.NET:
+
+```csharp
+topologyBuilder.SetEventHubSpout(
+    "EventHubSpout",
+    new EventHubSpoutConfig(
+        // the shared access signature name and key used to read the data
+        ConfigurationManager.AppSettings["EventHubSharedAccessKeyName"],
+        ConfigurationManager.AppSettings["EventHubSharedAccessKey"],
+        // The namespace that contains the Event Hub to read from
+        ConfigurationManager.AppSettings["EventHubNamespace"],
+        // The Event Hub name to read from
+        ConfigurationManager.AppSettings["EventHubEntityPath"],
+        // The number of partitions in the Event Hub
+        eventHubPartitions),
+    // Parallelism hint for this component. Should be set to the partition count.
+    eventHubPartitions);
+```
+
+The previous example creates a new spout component named __EventHubSpout__, and configures it to communicate with an Event Hub. Note that the parallelism hint for the component is set to the number of partitions in the Event Hub. This allows Storm to create an instance of the component for each partition.
+
+> [!WARNING]
+> As of January 1st, 2017, using the SetEventHubSpout and EventHubSpoutConfig methods create a spout that uses String encoding when reading data from Event Hubs. If you need to use UTF-8 encoding, see the following example.
+
+You can also use the generic JavaCompoentConstructor method when creating a spout. The following example demonstrates how to create a new spout using the JavaComponentConstructor method. It also demonstrates how to configure the spout to read data using a UTF-8 encoding instead of String:
+
+```csharp
+// Create an instance of UnicodeEventDataScheme
+var schemeConstructor = new JavaComponentConstructor("com.microsoft.eventhubs.spout.UnicodeEventDataScheme");
+// Create an instance of EventHubSpoutConfig
+var eventHubSpoutConfig = new JavaComponentConstructor(
+    "com.microsoft.eventhubs.spout.EventHubSpoutConfig",
+    new List<Tuple<string, object>>()
+    {
+        // the shared access signature name and key used to read the data
+        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubSharedAccessKeyName"]),
+        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubSharedAccessKey"]),
+        // The namespace that contains the Event Hub to read from
+        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubNamespace"]),
+        // The Event Hub name to read from
+        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubEntityPath"]),
+        // The number of partitions in the Event Hub
+        Tuple.Create<string, object>("int", eventHubPartitions),
+        // The encoding scheme to use when reading
+        Tuple.Create<string, object>("com.microsoft.eventhubs.spout.IEventDataScheme", schemeConstructor)
+    }
+    );
+// Create an instance of the spout
+var eventHubSpout = new JavaComponentConstructor(
+    "com.microsoft.eventhubs.spout.EventHubSpout",
+    new List<Tuple<string, object>>()
+    {
+        Tuple.Create<string, object>("com.microsoft.eventhubs.spout.EventHubSpoutConfig", eventHubSpoutConfig)
+    }
+    );
+// Set the spout in the topology
+topologyBuilder.SetJavaSpout("EventHubSpout", eventHubSpout, eventHubPartitions);
+```
+
+> [!IMPORTANT]
+> UnicodeEventDataScheme is only available in the 9.5 version of the Event Hub components, which is available from [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+
+### Example Bolt usage
+
+You must use the JavaComponmentConstructor method to create an instance of the bolt. The following example demonstrates how to create and configure a new instance of the EventHubBolt:
+
+```csharp
+//Create constructor for the Java bolt
+JavaComponentConstructor constructor =
+    // Use a Clojure expression to create the EventHubBoltCOnfig
+    JavaComponentConstructor.CreateFromClojureExpr(
+        String.Format(@"(org.apache.storm.eventhubs.bolt.EventHubBolt. (org.apache.storm.eventhubs.bolt.EventHubBoltConfig. " +
+        @"""{0}"" ""{1}"" ""{2}"" ""{3}"" ""{4}"" {5}))",
+    // The policy name and key used to read from Event Hubs
+    ConfigurationManager.AppSettings["EventHubPolicyName"],
+    ConfigurationManager.AppSettings["EventHubPolicyKey"],
+    // The namespace that contains the Event Hub
+    ConfigurationManager.AppSettings["EventHubNamespace"],
+    "servicebus.windows.net", //suffix for the namespace fqdn
+    // The Evetn Hub Name)
+    ConfigurationManager.AppSettings["EventHubName"],
+    "true"));
+
+//Set the bolt
+topologyBuilder.SetJavaBolt(
+        "EventHubBolt",
+        constructor,
+        partitionCount). //Parallelism hint uses partition count
+    shuffleGrouping("Spout"); //Consume data from spout
+```
+
 > [!NOTE]
-> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.__
-> 
-> To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
-> 
-> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
-> 
-> For a Java version of this project, which will also work on a Linux-based or Windows-based cluster, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+> This example uses a Clojure expression passed as a string, instead of using JavaComponentConstructor to create a seperate EventHubBoltConfig as the Spout example did. Either method works; use the one that feels best to you.
 
+## Download the completed project
 
-## Prerequisites
+You can download a complete version of the project created in this tutorial from GitHub: [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). However, you still need to provide configuration settings by following the steps in this tutorial.
+
+### Prerequisites
 
 * An [Apache Storm on HDInsight cluster version 3.5](hdinsight-apache-storm-tutorial-get-started.md)
 
@@ -49,22 +175,16 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 
 * The [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
-* [Java](https://java.com) 1.7 or greater on your development environment. Java is used to package the topology when it is submitted to the HDInsight cluster.
+* Java JDK 1.7 greater on your development environment. JDK downloads are available from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
   * The **JAVA_HOME** environment variable must point to the directory that contains Java.
   * The **%JAVA_HOME%/bin** directory must be in the path
 
-## Completed project
-
-You can download a complete version of the project created in this tutorial from GitHub: [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). However, you still need to provide configuration settings by following the steps in this tutorial.
-
-## Event Hubs spout and bolt
-
-The Event Hubs spout and bolt are Java components that allow you to easily work with Event Hubs from Apache Storm. Although these components are written in Java, the HDInsight Tools for Visual Studio allow you to create hybrid topologies that mix C# and Java components.
+## Download the Event Hub components
 
 The spout and bolt are distributed as a single Java archive (.jar) file named **eventhubs-storm-spout-#.#-jar-with-dependencies.jar**, where #.# is the version of the file.
 
-A version of the jar file that works with Storm on HDInsight version 3.5 can be downloaded from [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar).
+A version of the jar file that works with Storm on HDInsight version 3.5 can be downloaded from  [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
 
 Create a new directory named `eventhubspout` and save the file into the directory.
 

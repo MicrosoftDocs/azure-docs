@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 
 ---
@@ -40,51 +40,61 @@ The objective of this section is to outline how to enable the application integr
 ### To enable the application integration for SimpleNexus, perform the following steps:
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
-   ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
-   ![Applications](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Applications")
+    ![Applications](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Applications")
+
 4. Click **Add** at the bottom of the page.
    
-   ![Add application](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Add application")
+    ![Add application](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Add application")
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
-   ![Add an application from gallerry](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Add an application from gallerry")
+
 6. In the **search box**, type **simple nexus**.
    
-   ![Application Gallery](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Application Gallery")
+
 7. In the results pane, select **SimpleNexus**, and then click **Complete** to add the application.
    
-   ![Simple Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
+    ![Simple Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to SimpleNexus with their account in Azure AD using federation based on the SAML protocol.
 
 ### To configure single sign-on, perform the following steps:
 1. In the Azure classic portal, on the **SimpleNexus** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configure Single Sign-On")
+
 2. On the **How would you like users to sign on to SimpleNexus** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configure Single Sign-On")
+
 3. On the **Configure App URL** page, in the **SimpleNexus Sign In URL** textbox, type your URL using the following pattern "*https://simplenexus.com/CompanyName\_login*", and then click **Next**.
    
-   ![Configure App URL](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configure App URL")
+
 4. On the **Configure single sign-on at SimpleNexus** page, click **Download metadata**, and then forward the metadata file to the SimpleNexus support team.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configure Single Sign-On")
    
-   > [!NOTE]
-   > Single sign-on needs to be enabled by the SimpleNexus support team.
-   > 
-   > 
+    > [!NOTE]
+    > Single sign-on needs to be enabled by the SimpleNexus support team.
+    > 
+    > 
+
 5. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configuring user provisioning
 
 In order to enable Azure AD users to log into SimpleNexus, they must be provisioned into SimpleNexus.  
 In the case of SimpleNexus, provisioning is a manual task performed by the tenant administrator.
@@ -99,12 +109,13 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ### To assign users to SimpleNexus, perform the following steps:
 1. In the Azure classic portal, create a test account.
-2. On the **SimpleNexus **application integration page, click **Assign users**.
+2. On the **SimpleNexus** application integration page, click **Assign users**.
    
-   ![Assign Users](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assign Users")
+    ![Assign Users](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assign Users")
+
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    
-   ![Yes](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Yes")
+    ![Yes](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

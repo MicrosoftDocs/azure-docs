@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Function which binds to an Azure service | Microsoft Docs
-description: Build an Azure Function, a serverless application, which interacts with other Azure Services.
+title: Create a function that connects to Azure services | Microsoft Docs
+description: Use Azure Functions to create a serverless application that connects to other Azure services. 
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -15,26 +15,21 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 
 ---
-# Create an Azure Function that is connected to an Azure service
+# Use Azure Functions to create a function that connects to other Azure services
 
-This topic shows you how to create an Azure Function that listens to messages on an Azure  Storage queue and copies the messages to rows in an Azure Storage table. A timer triggered function is used to load messages into the queue. A second function reads from the queue and writes messages to the table. Both the queue and the table are created for you by Azure Functions based on the binding definitions. 
+This topic shows you how to create a function in Azure Functions that listens to messages on an Azure Storage queue and copies the messages to rows in an Azure Storage table. A timer triggered function is used to load messages into the queue. A second function reads from the queue and writes messages to the table. Both the queue and the table are created for you by Azure Functions based on the binding definitions. 
 
-To make things more interesting, one function is written in JavaScript and the other is written in C# script. This demonstrates how a function app can have functions in various languages.
+To make things more interesting, one function is written in JavaScript and the other is written in C# script. This demonstrates how a function app can have functions in various languages. 
 
-## Watch the video
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+You can see this scenario demonstrated in a [video on Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## Create a function that writes to the queue
 
-Before you can connect to a storage queue, you need to create a function that loads the message queue. This JavaScript function uses a timer trigger that writes a message to the queue every 10 seconds.
-
-### Create the function
+Before you can connect to a storage queue, you need to create a function that loads the message queue. This JavaScript function uses a timer trigger that writes a message to the queue every 10 seconds. If you don't already have an Azure account, check out the [Try Azure Functions](https://functions.azure.com/try) experience, or [create your free Azure acccount](https://azure.microsoft.com/free/).
 
 1. Go to the Azure portal and locate your function app.
 
@@ -50,7 +45,7 @@ Before you can connect to a storage queue, you need to create a function that lo
    
 	![View the log to verify the function works](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
 
-### Add a message queue output binding
+## Add a message queue output binding
 
 1. On the **Integrate** tab, choose **New Output** > **Azure Queue Storage** > **Select**.
 
@@ -59,9 +54,6 @@ Before you can connect to a storage queue, you need to create a function that lo
 2. Enter `myQueueItem` for **Message parameter name** and `functions-bindings` for **Queue name**, select an existing **Storage account connection** or click **new** to create a storage account connection, and then click **Save**.  
 
 	![Create the output binding to the storage queue](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
-   
-
-### Write to the message queue
 
 1. Back in the **Develop** tab, append the following code to the function:
    
@@ -90,7 +82,7 @@ Before you can connect to a storage queue, you need to create a function that lo
 
 3. Click **Save and Run**.
 
-### View queue updates by using Storage Explorer
+## View storage updates by using Storage Explorer
 You can verify that your function is working by viewing messages in the queue you created.  You can connect to your storage queue by using Cloud Explorer in Visual Studio. However, the portal makes it easy to connect to your storage account by using Microsoft Azure Storage Explorer.
 
 1. In the **Integrate** tab, click your queue output binding > **Documentation**, then unhide the Connection String for your storage account and copy the value. You use this value to connect to your storage account.
@@ -114,8 +106,6 @@ You can verify that your function is working by viewing messages in the queue yo
 
 Now that you have messages being added to the queue, you can create another function that reads from the queue and writes the messages permanently to an Azure Storage table.
 
-### Create the function
-
 1. Click **New Function** > **QueueTrigger-CSharp**. 
  
 2. Name the function `FunctionsBindingsDemo2`, enter **functions-bindings** in the **Queue name** field, select an existing storage account or create one, and then click **Create**.
@@ -125,8 +115,8 @@ Now that you have messages being added to the queue, you can create another func
 3. (Optional) You can verify that the new function works by viewing the new queue in Storage Explorer as before. You can also use Cloud Explorer in Visual Studio.  
 
 4. (Optional) Refresh the **functions-bindings** queue and notice that items have been removed from the queue. The removal occurs because the function is bound to the **functions-bindings** queue as an input trigger and the function reads the queue. 
-5. 
-### Add a table output binding
+ 
+## Add a table output binding
 
 1. In FunctionsBindingsDemo2, click **Integrate** > **New Output** > **Azure Table Storage** > **Select**.
 
@@ -176,16 +166,25 @@ Now that you have messages being added to the queue, you can create another func
 	```
 	The **TableItem** class represents a row in the storage table, and you add the item to the `myTable` collection of **TableItem** objects. You must set the **PartitionKey** and **RowKey** properties to be able to insert into the table.
 
-9. Click **Save**.  Finally, you can verify the function works by viewing the table in Storage explorer or Visual Studio Cloud Explorer.
+4. Click **Save**.  Finally, you can verify the function works by viewing the table in Storage explorer or Visual Studio Cloud Explorer.
 
-4. (Optional) In your storage account in Storage Explorer, expand **Tables** > **functionsbindings** and verify that rows are added to the table. You can do the same in Cloud Explorer in Visual Studio.
+5. (Optional) In your storage account in Storage Explorer, expand **Tables** > **functionsbindings** and verify that rows are added to the table. You can do the same in Cloud Explorer in Visual Studio.
 
 	![View of rows in the table](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
 
-	If the table does not exist or is empty, there is most likely a problem with your function binding or code.
-   
+	If the table does not exist or is empty, there is most likely a problem with your function binding or code. 
  
-[!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+[!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+## Next steps
+See these topics for more information about Azure Functions.
+
+* [Azure Functions developer reference](functions-reference.md)  
+  Programmer reference for coding functions and defining triggers and bindings.
+* [Testing Azure Functions](functions-test-a-function.md)  
+  Describes various tools and techniques for testing your functions.
+* [How to scale Azure Functions](functions-scale.md)  
+  Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
+
+[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 

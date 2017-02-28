@@ -24,14 +24,14 @@ This article describes the details of configuring Service Map and onboarding age
 
 
 ## Connected sources
-The following table describes the connected sources that are supported by the Service Map solution.
+Service Map gets its data from the Microsoft Dependency Agent.  The Dependency Agent is dependent on the OMS Agent for its connections to OMS.  This means that a server must have the OMS Agent installed and configured first, and then the Dependency Agent can be installed.  The following table describes the connected sources that are supported by the Service Map solution.
 
 | Connected Source | Supported | Description |
 |:--|:--|:--|
-| [Windows agents](../log-analytics/log-analytics-windows-agents.md) | Yes | Service Map analyzes and collects data from Windows agent computers.  <br><br>In addition to the OMS Agent, Windows agents require the Microsoft Dependency Agent.  See the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
-| [Linux agents](../log-analytics/log-analytics-linux-agents.md) | Yes | Service Map analyzes and collects data from Linux agent computers.  <br><br>In addition to the OMS Agent, Linux agents require the Microsoft Dependency Agent.  See the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
-| [SCOM management group](../log-analytics/log-analytics-om-agents.md) | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected System Center Operations Manager (SCOM) management group. <br><br>A direct connection from the SCOM agent computer to OMS is required. Data is sent directly from forwarded from the management group to the OMS repository.|
-| [Azure storage account](../log-analytics/log-analytics-azure-storage.md) | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure storage. |
+| Windows agents | Yes | Service Map analyzes and collects data from Windows agent computers.  <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-windows-agents.md), Windows agents require the Microsoft Dependency Agent.  See the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Service Map analyzes and collects data from Linux agent computers.  <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-linux-agents.md), Linux agents require the Microsoft Dependency Agent.  See the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
+| SCOM management group | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager (SCOM) management group](../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the SCOM agent computer to OMS is required. Data is sent directly from forwarded from the management group to the OMS repository.|
+| Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure storage. |
 
 Service Map only supports 64-bit platforms.
 
@@ -72,7 +72,7 @@ The MP is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  It i
 
 
 ## Configuration
-In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the Service Map solution and then installed as root or Admin on each managed server.  Once the Service Map agent is installed on a server reporting to OMS, Service Map dependency maps will appear within 10 minutes.  If you have any issues, please email [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the Service Map solution and then installed as root or Admin on each managed server.  Once the Service Map agent is installed on a server reporting to OMS, Service Map dependency maps will appear within 10 minutes.
 
 
 ### Migrating from BlueStripe FactFinder
@@ -114,7 +114,7 @@ Use the following steps to install the Dependency Agent on each Linux computer:
 3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
 ### Uninstalling the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the proxy, which is installed automatically with the agent.  You can uninstall both with the following single command:
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the Connector, which is installed automatically with the agent.  You can uninstall both with the following single command:
 
 	rpm -e dependency-agent dependency-agent-connector
 
@@ -164,7 +164,7 @@ If you encounter problems with Service Map, you can gather troubleshooting infor
 #### Microsoft Dependency Agent
 To generate troubleshooting data from the Dependency Agent, open a Command Prompt as administrator and run the CollectDependencyAgentData.vbs script using the following command.  You can add the --help flag to show additional options.
 
-	cd C:\Program Files\Bluestripe\Collector\scripts
+	cd C:\Program Files\Microsoft Dependency Agent\scripts
 	cscript CollectDependencyData.vbs
 
 The Support Data Package is saved in the %USERPROFILE% directory for the current user.  You can use the --file <filename> option to save it to a different location.
@@ -195,7 +195,7 @@ Traces are written to c:\Windows\Logs\OpsMgrTrace.  You can stop the tracing wit
 #### Microsoft Dependency Agent
 To generate troubleshooting data from the Dependency Agent, login with an account that has sudo or root privileges and run the following command.  You can add the --help flag to show additional options.
 
-	/opt/microsoft/dependency-agent/scripts/collect-dependency-agent-data.sh
+	/opt/microsoft/dependency-agent/lib/scripts/collect-dependency-agent-data.sh
 
 The Support Data Package is saved to /var/opt/microsoft/dependency-agent/log (if root) under the Agent's installation directory, or to the home directory of the user running the script (if non-root).  You can use the --file <filename> option to save it to a different location.
 
@@ -252,6 +252,7 @@ The following sections list the supported operating systems for the Dependency A
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
 
 #### Red Hat Linux 6
 | OS Version | Kernel Version |
@@ -272,7 +273,7 @@ The following sections list the supported operating systems for the Dependency A
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417 |
 
 #### Oracle Enterprise Linux w/ Unbreakable Kernel (UEK)
 

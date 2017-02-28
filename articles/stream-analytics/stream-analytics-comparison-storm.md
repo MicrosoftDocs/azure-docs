@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Analytics platforms: Apache Storm comparison to Stream Analytics | Microsoft Docs'
 description: Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences.
 keywords: analytics platform, analytics platforms, cloud analytics platform, storm comparison
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---

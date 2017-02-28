@@ -1,10 +1,10 @@
 ---
-title: What are User Defined Routes and IP Forwarding?
-description: Learn how to use User Defined Routes (UDR) and IP Forwarding to forward traffic to network virtual appliances in Azure.
+title: User-defined routes and IP Forwarding in Azure | Microsoft Docs
+description: Learn how to configure user-defined routes (UDR) and IP Forwarding to forward traffic to network virtual appliances in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# What are User Defined Routes and IP Forwarding?
+# User-defined routes and IP forwarding
+
 When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with each other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets. The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.
 
 This flow of communication is possible because Azure uses a series of system routes to define how IP traffic flows. System routes control the flow of communication in the following scenarios:
@@ -26,6 +28,7 @@ This flow of communication is possible because Azure uses a series of system rou
 * From a subnet to another within a VNet.
 * From VMs to the Internet.
 * From a VNet to another VNet through a VPN gateway.
+* From a VNet to another VNet through VNet Peering (Service Chaining).
 * From a VNet to your on-premises network through a VPN gateway.
 
 The figure below shows a simple setup with a VNet, two subnets, and a few VMs, along with the system routes that allow IP traffic to flow.
@@ -60,14 +63,14 @@ In Azure PowerShell some of the "NextHopType" values have different names:
 * Internet is Internet
 * None is None
 
-### System Routes
+### System routes
 Every subnet created in a virtual network is automatically associated with a route table that contains the following system route rules:
 
 * **Local Vnet Rule**: This rule is automatically created for every subnet in a virtual network. It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.
 * **On-premises Rule**: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
 * **Internet Rule**: This rule handles all traffic destined to the public Internet (address prefix 0.0.0.0/0) and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
-### User Defined Routes
+### User-defined routes
 For most environments you will only need the system routes already defined by Azure. However, you may need to create a route table and add one or more routes in specific cases, such as:
 
 * Force tunneling to the Internet via your on-premises network.
@@ -88,7 +91,7 @@ To learn how to create user defined routes, see [How to Create Routes and Enable
 > 
 > 
 
-### BGP Routes
+### BGP routes
 If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure. These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
@@ -96,12 +99,12 @@ If you have an ExpressRoute connection between your on-premises network and Azur
 > 
 > 
 
-## IP Forwarding
+## IP forwarding
 As describe above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance. A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.
 
 This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM. This is an Azure setting, not a setting in the guest operating system.
 
-## Next Steps
+## Next steps
 * Learn how to [create routes in the Resource Manager deployment model](virtual-network-create-udr-arm-template.md) and associate them to subnets. 
 * Learn how to [create routes in the classic deployment model](virtual-network-create-udr-classic-ps.md) and associate them to subnets.
 

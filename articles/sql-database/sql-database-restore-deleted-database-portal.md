@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 33b0c9e6-1cd2-4fd9-9b0d-70ecf6e54821
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.date: 10/12/2016
 ms.author: sstein
@@ -19,12 +19,6 @@ ms.tgt_pltfrm: NA
 
 ---
 # Restore a deleted Azure SQL database using the Azure Portal
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-recovery-using-backups.md)
-> * [**Restore Deleted DB: Portal**](sql-database-restore-deleted-database-portal.md)
-> * [Restore Deleted DB: PowerShell](sql-database-restore-deleted-database-powershell.md)
-> 
-> 
 
 ## Select the database to restore
 To restore a deleted database in the Azure portal:

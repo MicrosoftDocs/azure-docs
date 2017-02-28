@@ -1,4 +1,3 @@
-
 ---
 title: Best practices for Azure RemoteApp clients | Microsoft Docs
 description: Learn about best practices for using the RemoteApp clients

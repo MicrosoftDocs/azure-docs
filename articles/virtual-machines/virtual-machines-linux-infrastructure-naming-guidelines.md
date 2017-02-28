@@ -1,5 +1,5 @@
 ---
-title: Infrastructure Naming Guidelines | Microsoft Docs
+title: Azure infrastructure naming guidelines - Linux | Microsoft Docs
 description: Learn about the key design and implementation guidelines for naming in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 
 ---
-# Infrastructure naming guidelines
+# Azure infrastructure naming guidelines
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding how to approach naming conventions for all your various Azure resources to build a logical and easily identifiable set of resources across your environment.
@@ -92,7 +92,7 @@ If a VM is created from a .vhd image file that already contains an operating sys
 We recommend that the Azure VM name is the same as the underlying operating system computer name.
 
 ## Storage account names
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. For more information, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). Additionally, the storage account name, with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net

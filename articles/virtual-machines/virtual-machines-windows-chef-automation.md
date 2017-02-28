@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure virtual machine deployment with Chef | Microsoft Docs
 description: Learn how to use Chef to do automated virtual machine deployment and configuration on Microsoft Azure
 services: virtual-machines-windows

@@ -23,7 +23,7 @@ ms.author: wesmc
 
 ##Overview
 
-This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your Azure Function App is an Azure App Service. So those best practices would apply.  
+This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your Azure Function App is an Azure App Service. So those best practices would apply.
 
 
 ## Avoid large long running functions
@@ -65,7 +65,7 @@ How does your code react if a failure occurs after inserting 5,000 of those item
 
 If a queue item was already processed, allow your function to be a no-op.
 
-Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers](functions-bindings-storage.md#storagequeuetrigger).
+Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers](functions-bindings-storage-queue.md#trigger).
  
 
 
@@ -100,4 +100,5 @@ For more information, see the following resources:
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
 * [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
+* [Patterns and Practices HTTP Performance Optimizations](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
 

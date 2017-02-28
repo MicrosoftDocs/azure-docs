@@ -4,7 +4,7 @@ description: How to enable storage metrics for the Blob, Queue, Table, and File 
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 2fb5b229-f099-4334-92be-4e0e7dd257d7

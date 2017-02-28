@@ -1,4 +1,4 @@
-﻿---
+---
 title: Administrative units management in Azure Active Directory
 description: Using administrative units for more granular delegation of permissions in Azure Active Directory
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---

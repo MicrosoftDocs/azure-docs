@@ -24,7 +24,7 @@ Testing in production, or live-testing your web app using live customer traffic,
 With the Traffic Routing feature in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can direct a portion of live user traffic to one or more [deployment slots](web-sites-staged-publishing.md), and then analyze your app with [Azure Application Insights](/services/application-insights/) or [Azure HDInsight](/services/hdinsight/), or a third-party tool like [New Relic](/marketplace/partners/newrelic/newrelic/) to validate your change. For example, you can implement the following scenarios with App Service:
 
 * Discover functional bugs or pinpoint performance bottlenecks in your updates prior to site-wide deployment
-* Perform "controlled test flights" of your changes by measuring usibility metrics on the beta app
+* Perform "controlled test flights" of your changes by measuring usability metrics on the beta app
 * Gradually ramp up to a new update, and gracefully back down to the current version if an error occurs 
 * Optimize your app's business results by running [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) or [multivariate tests](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) in multiple deployment slots
 

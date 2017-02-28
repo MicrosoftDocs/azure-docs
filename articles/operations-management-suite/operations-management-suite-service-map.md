@@ -27,7 +27,7 @@ This article describes the details of using Service Map.  For information on con
 ## Use cases: Make your IT processes dependency aware
 
 ### Discovery
-Service Map automatically builds a common reference map of dependencies across your servers, processes, and third-party services.  It discovers and maps all TCP dependencies, identifying surprise connections, remote third-party systems you depend on, and dependencies to traditional dark areas of your network such as DNS and AD.  Service Map discovers failed network connections that your managed systems are attempting to make, helping you identify potential server misconfiguration, service outages, and network issues.
+Service Map automatically builds a common reference map of dependencies across your servers, processes, and third-party services.  It discovers and maps all TCP dependencies, identifying surprise connections, remote third-party systems you depend on, and dependencies to traditional dark areas of your network such as Active Directory.  Service Map discovers failed network connections that your managed systems are attempting to make, helping you identify potential server misconfiguration, service outages, and network issues.
 
 ### Incident management
 Service Map helps eliminate the guesswork of problem isolation by showing you how systems are connected and affecting each other.  In addition to failed connections, information about connected clients helps identify misconfigured load balancers, surprising or excessive load on critical services, and rogue clients such as developer machines talking to production systems.  Integrated workflows with OMS Change Tracking also allow you to see whether a change event on a back-end machine or service explains the root cause of an incident.
@@ -47,11 +47,9 @@ Service Map agents gather information about all TCP-connected processes on the s
 
 ![Service Map overview](media/oms-service-map/service-map-overview.png)
 
-Machines can be expanded in the map to show the running processes with active network connections during the selected time range.  When a remote machine with a Service Map agent is expanded to show process details, only those processes communicating with the focus machine are shown.  The count of agentless front-end machines connecting into the focus machine is indicated on the left side of the processes they connect to.  If the focus machine is making a connection to a back-end machine without an agent, that back-end is represented with a node in the map, and the node can be expanded to show individual ports and services that the focus machine is communicating with.
+Machines can be expanded in the map to show the running processes with active network connections during the selected time range.  When a remote machine with a Service Map agent is expanded to show process details, only those processes communicating with the focus machine are shown.  The count of agentless front-end machines connecting into the focus machine is indicated on the left side of the processes they connect to.  If the focus machine is making a connection to a back-end machine without an agent, that back-end server is included in a Server Port Group, along with other connections to the same port number.
 
 By default, Service Map maps show the last 10 minutes of dependency information.  Using the time controls in the upper left, maps can be queried for historical time ranges, up to one-hour wide, to show how dependencies looked in the past, e.g. during an incident or before a change occurred.    Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
-
-![Machine map with selected machine properties](media/oms-service-map/machine-map.png)
 
 ## Status badges
 At the bottom of each server in the map can be a list of status badges conveying status information about the server.  The badges indicate that there is some relevant information for the server from one of the OMS solution integrations.  Clicking on a badge will take you directly to the details of the status in in the right panel.  The currently availably status badges include Alerts, Changes, Security, and Updates.
@@ -65,6 +63,20 @@ Failed Connections are shown in Service Map maps for processes and computers, wi
 
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.
 
+## Client Groups
+Client Groups are boxes on the map that represent client machines that do not have Dependency Agents.  A single Client Group represents the clients for an individual process.
+
+![Client groups](media/oms-service-map/client-groups.png)
+
+To see the IP addresses of the servers in a Client Group, select the group.  The contents of the group will be listed in the Properties Panel.
+
+![Client group properties](media/oms-service-map/client-group-properties.png)
+
+## Server Port Groups
+Server Port Groups are boxes that represent server ports on servers that do not have Dependency Agents.  The box will list the server port along with a count of the number of servers with connections to that port.  Expand the box to see the individual servers and connections.  If there is only one server in the box, the name or IP address will be listed.
+
+![Server port groups](media/oms-service-map/server-port-groups.png)
+
 ## Context menu
 Clicking on the three dots in the top right of any server will expose the context menu for that server.
 
@@ -76,7 +88,10 @@ Load Server Map will navigate to a new map with the selected server as the new F
 ### Show/Hide Self Links
 Show Self Links will redraw the server node including any self links, which are TCP connections that start and end on processes within the server.  If self links are shown, the menu will change to Hide Self Links, allowing users to toggle the drawing of self links.
 
+## Computer summary
+The Machine Summary panel includes an overview of a server's Operating System and dependency counts along with a variety of data from other OMS solutions, including Performance Metrics, Change Tracking, Security, Updates, etc.
 
+![Machine summary](media/oms-service-map/machine-summary.png)
 
 ## Computer and process properties
 When navigating a Service Map map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and Service Map agents.
@@ -91,10 +106,22 @@ The Process Summary panel provides additional information about that process’s
 
 ![Process summary](media/oms-service-map/process-summary.png)
 
-## Computer summary
-The Machine Summary panel includes an overview of a server's Operating System and dependency counts along with a variety of data from other OMS solutions, including Performance Metrics, Change Tracking, Security, Updates, etc.
+## OMS Alerts integration
+Service Map integrates with OMS Alerts to show fired alerts for the selected server in the selected time range.  The server will show an icon if there are current alerts and the Machine Alerts Panel will list the alerts
 
-![Machine summary](media/oms-service-map/machine-summary.png)
+![Machine Alerts Panel](media/oms-service-map/machine-alerts.png)
+
+Note that for Service Map to be able to display relevant alerts, the alert rule must be created so that it fires for a specific computer.  To create proper alerts:
+- Include a clause to group by computer: "by Computer interval 1minute"
+- Choose to alert based on Metric measurement
+
+![Alert configuration](media/oms-service-map/alert-configuration.png)
+
+
+## OMS Log Events integration
+Service Map integrates with Log Search to show a count of all available log events for the selected server during the selected time range.  You can click on any row in the list of event counts to jump to Log Search and see the individual log events.
+
+![Log events](media/oms-service-map/log-events.png)
 
 ## OMS Change Tracking integration
 Service Map's integration with Change Tracking is automatic when both solutions are enabled and configured in your OMS workspace.
@@ -107,7 +134,7 @@ Following is a drill-down view of Configuration Change event after selecting **S
 
 
 ## OMS Performance integration
-The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.
+The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.  Note that to get the network performance data, you must also have enabled the Wire Data 2.0 solution in OMS.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-performance.png)
 
 
@@ -123,19 +150,6 @@ Service Map's integration with Update Management is automatic when both solution
 
 The Machine Updates Panel shows data from the OMS Update Management solution for the selected server.  The panel will list a summary of any missing updates for the server during the selected time range.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-updates.png)
-
-
-## OMS Alerts integration
-Service Map's integrates with OMS Alerts to show fired alerts for the selected server in the selected time range.  The server will show an icon if there are current alerts and the Machine Alerts Panel will list the alerts
-
-![Machine Alerts Panel](media/oms-service-map/machine-alerts.png)
-
-Note that for Service Map to be able to display relevant alerts, the alert rule must be created so that it fires for a specific computer.  To create proper alerts:
-- Include a clause to group by computer: "by Computer interval 1minute"
-- Choose to alert based on Metric measurement
-
-![Alert configuration](media/oms-service-map/alert-configuration.png)
-
 
 ## Log Analytics records
 Service Map's computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
@@ -236,13 +250,19 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## REST API
+All of the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+
 
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security, and integrity of the Service Map service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses, or other contact information.
 
-For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
-
+For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## Next steps
 - Learn more about [log searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to retrieve data collected by Service Map.
+
+
+## Feedback
+Do you have any feedback for us about Service Map or this documentation?  Please visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.

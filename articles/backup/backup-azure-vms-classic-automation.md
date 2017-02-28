@@ -1,10 +1,10 @@
-﻿---
+---
 title: Deploy and manage backup for Azure VMs using PowerShell | Microsoft Docs
 description: Learn how to deploy and manage Azure Backup using PowerShell
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: ''
 
 ms.assetid: 2e24b1d9-4375-4049-a28d-e3bc01152f32

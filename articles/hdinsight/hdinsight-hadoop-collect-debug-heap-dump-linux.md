@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 
 ---
@@ -23,10 +23,10 @@ ms.author: larryfr
 
 Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they are very useful for diagnosing problems that occur at run-time.
 
-> [!NOTE]
-> The information in this article only applies to Linux-based HDInsight. For information on Windows-based HDInsight, see [Enable heap dumps for Hadoop services on Windows-based HDInsight](hdinsight-hadoop-collect-debug-heap-dumps.md)
-> 
-> 
+
+
+> [!IMPORTANT]
+> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="whichServices"></a>Services
 You can enable heap dumps for the following services:

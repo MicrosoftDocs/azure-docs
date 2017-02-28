@@ -20,8 +20,9 @@ ms.author: charwen
 ---
 # Configure a virtual network gateway for ExpressRoute using the classic deployment model and PowerShell
 > [!div class="op_single_selector"]
-> * [PowerShell - Resource Manager](expressroute-howto-add-gateway-resource-manager.md)
-> * [PowerShell - Classic](expressroute-howto-add-gateway-classic.md)
+> * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+> * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
+> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 

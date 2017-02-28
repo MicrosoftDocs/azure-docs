@@ -3,28 +3,22 @@ title: Initiate a planned or unplanned failover for Azure SQL Database with the 
 description: Initiate a planned or unplanned failover for Azure SQL Database using the Azure portal
 services: sql-database
 documentationcenter: ''
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: a9d184a4-09e0-4f41-b364-40425f68f430
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 
 ---
 # Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 This article shows you how to initiate failover to a secondary SQL Database with the [Azure portal](http://portal.azure.com). To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-portal.md).
 
@@ -52,7 +46,7 @@ There is a short period during which both databases are unavailable (on the orde
 * To learn recovering after a disaster using Active Geo-Replication, including pre and post recovery steps and performing a disaster recovery drill, see [Disaster Recovery Drills](sql-database-disaster-recovery.md)
 * For a Sasha Nosov blog post about Active Geo-Replication, see [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 * For information about designing cloud applications to use Active Geo-Replication, see [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* For information about using Active Geo-Replication with elastic database pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* For information about using Active Geo-Replication with elastic pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * For an overview of business continurity, see [Business Continuity Overview](sql-database-business-continuity.md)
 
 <!--Image references-->

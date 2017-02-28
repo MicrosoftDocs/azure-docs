@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 02/22/2017
 ms.author: bwren
 
 ---
@@ -34,11 +34,15 @@ ms.author: bwren
 
 ## Log Analytics
 * [Log Analytics documentation](http://azure.microsoft.com/documentation/services/log-analytics)
+* [Log Analytics REST API](/rest/api/loganalytics)
 * [Log Analytics HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md)
 * [Log Search API](../log-analytics/log-analytics-log-search-api.md)
 * [Alert API](../log-analytics/log-analytics-api-alerts.md)
 * [Log Analytics PowerShell Cmdlets](https://msdn.microsoft.com/library/mt188224.aspx)
 * [Log Analytics .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/0.16.0-preview)
+
+## Service Map
+* [Service Map documentation](operations-management-suite-service-map.md)
 
 ## Site Recovery
 * [Site Recovery PowerShell cmdlets](https://msdn.microsoft.com/library/mt637930.aspx)

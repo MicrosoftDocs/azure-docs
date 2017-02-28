@@ -1,4 +1,4 @@
-﻿---
+---
 title: What workloads can you protect with Azure Site Recovery?
 description: Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site
 services: site-recovery
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/10/2016
+ms.date: 02/06/2017
 ms.author: raynew
 
 ---
@@ -128,5 +128,4 @@ Use Site Recovery to protect your SAP deployment, as follows:
 [Learn more](http://aka.ms/asr-sap) about protecting SAP.
 
 ## Next steps
-[Prepare for Site Recovery deployment](site-recovery-best-practices.md) 
-
+[Check prerequisites](site-recovery-prereq.md) 

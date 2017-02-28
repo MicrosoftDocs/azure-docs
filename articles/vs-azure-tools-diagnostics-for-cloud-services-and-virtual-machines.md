@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuring Diagnostics for Azure Cloud Services and Virtual Machines | Microsoft Docs
 description: Describes how to configure diagnostics information for debugging Azure cloude services and virtual machines (VMs) in Visual Studio.
 services: visual-studio-online
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 
 ---
@@ -63,6 +63,8 @@ If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, y
 
 ## Enable diagnostics in cloud service projects before deploying them
 In Visual Studio, you can choose to collect diagnostics data for roles that run in Azure, when you run the service in the emulator before deploying it. All changes to diagnostics settings in Visual Studio are saved in the diagnostics.wadcfgx configuration file. These configuration settings specify the storage account where diagnostics data is saved when you deploy your cloud service.
+
+[!INCLUDE [cloud-services-wad-warning](../includes/cloud-services-wad-warning.md)]
 
 ### To enable diagnostics in Visual Studio before deployment
 1. On the shortcut menu for the role that interests you, choose **Properties**, and then choose the **Configuration** tab in the role’s **Properties** window.

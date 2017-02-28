@@ -1,4 +1,4 @@
-﻿
+
 
 
 This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model.

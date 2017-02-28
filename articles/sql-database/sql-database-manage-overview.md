@@ -3,7 +3,7 @@ title: 'Overview: management tools for SQL Database | Microsoft Docs'
 description: Compares tools and options for managing Azure SQL Database
 services: sql-database
 documentationcenter: ''
-author: carlrabeler
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 
 ---
@@ -34,7 +34,7 @@ SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) are client 
 >  
 
 ## PowerShell
-You can use PowerShell to manage databases and elastic database pools, and to automate Azure resource deployments. Microsoft recommends this tool for managing a large number of databases and automating deployment and resource changes in a production environment.
+You can use PowerShell to manage databases and elastic pools, and to automate Azure resource deployments. Microsoft recommends this tool for managing a large number of databases and automating deployment and resource changes in a production environment.
 
 For more information, see [Manage SQL Database with PowerShell](sql-database-manage-powershell.md)
 

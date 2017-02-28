@@ -1,5 +1,5 @@
 ---
-title: Azure Container Registry introduction | Microsoft Docs
+title: Private Docker container registry in Azure | Microsoft Docs
 description: Introduction to the Azure Container Registry service, providing cloud-based, managed, private Docker registries.
 services: container-registry
 documentationcenter: ''

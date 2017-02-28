@@ -3,8 +3,8 @@ title: Get started with Azure Table storage using .NET | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # Get started with Azure Table storage using .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## Overview
 Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
@@ -30,7 +30,7 @@ You can use Table storage to store flexible datasets, such as user data for web 
 ### About this tutorial
 This tutorial shows how to write .NET code for some common scenarios using Azure Table storage, including creating and deleting a table and inserting, updating, deleting, and querying table data.
 
-**Prerequisities:**
+**Prerequisites:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -279,9 +279,13 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 
 // Print the phone number of the result.
 if (retrievedResult.Result != null)
+{
     Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+}
 else
+{
     Console.WriteLine("The phone number could not be retrieved.");
+}
 ```
 
 ## Replace an entity
@@ -332,7 +336,9 @@ if (updateEntity != null)
     Console.WriteLine("Entity updated.");
 }
 else
+{
     Console.WriteLine("Entity could not be retrieved.");
+}
 ```
 
 ## Insert-or-replace an entity
@@ -381,9 +387,10 @@ if (updateEntity != null)
 
     Console.WriteLine("Entity was updated.");
 }
-
 else
+{
     Console.WriteLine("Entity could not be retrieved.");
+}
 ```
 
 ## Query a subset of entity properties
@@ -450,9 +457,10 @@ if (deleteEntity != null)
 
     Console.WriteLine("Entity deleted.");
 }
-
 else
+{
     Console.WriteLine("Could not retrieve the entity.");
+}
 ```
 
 ## Delete a table

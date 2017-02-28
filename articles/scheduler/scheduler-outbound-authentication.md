@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scheduler Outbound Authentication
 description: Scheduler Outbound Authentication
 services: scheduler

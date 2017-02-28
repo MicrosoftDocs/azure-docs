@@ -31,4 +31,5 @@ Customers can create web apps on Linux only within a Linux enabled App Service P
 
 * [What is App Service on Linux?](../app-service-web/app-service-linux-intro.md)
 * [Creating Apps in an App Service on Linux](../app-service-web/app-service-linux-how-to-create-a-web-app.md)
+* [Azure App Service Web Apps on Linux FAQ](../app-service-web/app-service-linux-faq.md) 
 
