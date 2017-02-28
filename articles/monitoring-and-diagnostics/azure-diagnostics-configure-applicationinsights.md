@@ -49,17 +49,16 @@ Example configuration for Application Insights:
 - The **Channels** element contains one or more **Channel** elements.
     - The *name* attribute uniquely refers to that channel.
     - The *loglevel* attribute lets you specify the log level that the channel allows. The available log levels in order of most least information are
-
-
-- Verbose
-- Information
-- Warning
-- Error
-- Critical
+        - Verbose
+        - Information
+        - Warning
+        - Error
+        - Critical
 
 A channel acts like a filter and allows you to select specific log levels to send to the target sink. For example you could collect verbose logs and send them to storage, but send only Errors to the sink.
 
 The following graphic shows this relationship.
+
 ![Diagnostics Public Configuration](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
 
 ## Send data to the Application Insights sink
