@@ -5,6 +5,7 @@
 
 # Get Started
 ## [Create lab](devtest-lab-create-lab.md)
+## [Create formulas](devtest-lab-create-formulas.md)
 ## [Create VM](devtest-lab-add-vm.md)
 ## [Manage basic lab policies](devtest-lab-get-started-with-lab-policies.md)
 ## [Create lab for training](devtest-lab-training-lab.md)
