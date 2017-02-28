@@ -14,6 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
+experimental: true
 experiment_id: "heidist-20170221"
 ---
 # What is Azure Search?
