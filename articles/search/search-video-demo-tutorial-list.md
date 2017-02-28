@@ -29,7 +29,7 @@ Start here if you are new to Azure Search. You can review all of these resources
 |-------|-------------|------|
 | [Watch this video introduction](https://channel9.msdn.com/Events/Connect/2016/138) | 9m38s introduction to features, service creation, and queries. | November 2016 |
 | [ Create a service](search-get-started-portal.md) | Steps for setting up Azure Search in the portal. | February 2017 |
-| [Build and query your first index](search-get-started-portal.md) | Steps for creating and querying an index using built-in sample data. Tools in the portal are a fast way to learn about query types and search parameters. | February 2017 |
+| [Query an index](search-get-started-portal.md) | Create and query an index using built-in sample data. Tools in the portal are a fast way to learn about query types and search parameters. | February 2017 |
 | [Next step:<br/> Code in .NET](search-howto-dotnet-sdk.md) | C# walkthrough shows you how to connect, index, and query using the Azure Search .NET library. | November 2016 |
 | [Next step:<br/> Code in REST](search-create-index-rest-api.md) | Review REST calls and JSON payloads for creating an Azure Search index on any platform and programming language. | December 2016 |
 
@@ -44,7 +44,7 @@ Code-based exploration through samples and walkthroughs.
 | [Demo: NYC Jobs Website](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) | Source for the live demo Azure Search site over NYC jobs data, using ASP.NET MVC. |
 | [Demo: Tate Art Gallery](https://github.com/liamca/azure-search-tate-art-gallery/) | Source for the live demo Azure Search site over art gallery data, showing the Collections data type and nested data structures, facets and filters, people names, and thumbnail images.|
 
-All of the above code samples can be found on the Azure Sample Github repo, along with other samples showing how to use Azure Search in specific scenarios: [**Azure Samples > Azure Search**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
+Find more code samples for specific feature combinations and scenarios: [**Azure Samples > Azure Search**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
 
 ## Courseware
 
@@ -56,7 +56,7 @@ Multi-session demos and labs for Azure Search.
 [Using Windows Azure Search](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | Older but still relevant drilldown into scale, geospatial search, linguistic analysis, Cortana speech recognition | May 2015 | 
 
 ## Online demo sites
-These sites are fully functional web applications that use Azure Search for the search experience. 
+Fully functional web applications that use Azure Search for the search experience. 
 
 | Link | Description |
 |-------|-------------|
@@ -80,7 +80,6 @@ These sites are fully functional web applications that use Azure Search for the 
 | [Channel9 Data Exposed: "SQL Server To Azure Search Synchronization"](http://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-to-Azure-Search-Synchronization) |December 2014 |16 minutes. Synchronize database transactions. Load Azure SQL relational data into Azure Search. |
 | [TechEd Europe: Deep Dive into Azure Search](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410) |October 2014 |1 hour 15 minutes. Fast-paced demo of Azure Search end-to-end, delivered by Pablo Castro. |
 | [Channel9 Data Exposed: "GeoSpatial Data and Azure Search"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) |September 2014 |18 minutes. Geospatial search scenarios. |
-
 | [Channel9 Cloud Cover: Episode 152](http://channel9.msdn.com/Shows/Cloud%20Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) |September 2014 |25 minutes. Technical feature discussion, how to issue regular and geospatial queries via Fiddler, and understand the results that come back. |
 | [Channel9 Data Exposed: "Introduction to Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search) |August 2014 |22 minutes. Architecture and capabilities of Azure Search, now in Public Preview. |
 
