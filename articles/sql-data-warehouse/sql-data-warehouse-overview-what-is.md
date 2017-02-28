@@ -18,16 +18,16 @@ ms.author: jrj;mausher;kevin;barbkess;elbutter
 
 ---
 # What is Azure SQL Data Warehouse?
-Azure SQL Data Warehouse is a massively parallel processing (MPP) cloud-based, scale-out relational database capable of processing massive volumes of data. 
+Azure SQL Data Warehouse is a massively parallel processing (MPP) cloud-based, scale-out, relational database capable of processing massive volumes of data. 
 
 SQL Data Warehouse:
 
 * Combines the SQL Server relational database with Azure cloud scale-out capabilities. 
 * Decouples storage from compute.
-* Ability to increase, decrease, pause, or resume compute. 
+* Enables increasing, decreasing, pausing, or resuming compute. 
 * Integrates across the Azure platform.
 * Utilizes SQL Server Transact-SQL (T-SQL) and tools.
-* Complies to various legal and business security requirements such as SOC and ISO.
+* Complies with various legal and business security requirements such as SOC and ISO.
 
 This article describes the key features of SQL Data Warehouse.
 
