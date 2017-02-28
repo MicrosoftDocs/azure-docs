@@ -16,9 +16,9 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: danlep
-
+ms.custom: H1Hack27Feb2017
 ---
-# About H-series and compute-intensive A-series VMs
+# About H-series and compute-intensive A-series VMs for Linux
 Here is background information and some considerations for using the newer Azure H-series and the earlier A8, A9, A10, and A11 sizes, also known as *compute-intensive* instances. This article focuses on using these sizes for Linux VMs. This article is also available for [Windows VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

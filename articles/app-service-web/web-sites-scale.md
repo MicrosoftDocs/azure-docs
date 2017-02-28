@@ -4,7 +4,7 @@ description: Learn how to scale up an app in Azure App Service to add capacity a
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab

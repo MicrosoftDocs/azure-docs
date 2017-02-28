@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Docs'
+title: 'Azure AD Connect Synchronization Service Manager Operations | Microsoft Docs'
 description: Understand the Operations tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
-
+ms.custom: H1Hack27Feb2017
 ---
-# Azure AD Connect sync: Synchronization Service Manager
+# Using the Sync Service Manager Operations tab
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 

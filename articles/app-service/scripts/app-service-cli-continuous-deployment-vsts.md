@@ -19,17 +19,15 @@ ms.author: cfowler
 
 # Create a web app with continuous deployment from Visual Studio Team Services
 
-This sample script does the following using Azure CLI 2.0: 
+This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Visual Studio Team Services (VSTS) repository. 
 
-* Create a web app in Azure App Service in the West Europe Azure region. 
-* Deploy your web app code from Visual Studio Team Services.
-* Display the deployed Azure web app in the browser.
+Before running this script, ensure the following:
 
-## Prerequisites
+- A connection with Azure has been created using the `az login` command.
+- The application code is in a public or private Visual Studio Team Services repository that you own.
+- You have [created an access token in VSTS](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
 
-* Run `az login` to log in to Azure.
-* Put your web app code in a Visual Studio Team Services repository.
-* For a Visual Studio Team Services repository you own, [create an access token](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Create app sample
 
@@ -40,7 +38,7 @@ This sample script does the following using Azure CLI 2.0:
 After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
 
 ```azurecli
-az group delete --name $webappname
+az group delete --name myResourceGroup
 ```
 
 ## Script explanation
