@@ -67,6 +67,7 @@
 #### [Firewall](sql-database-firewall-configure.md)
 #### [Manage logins](sql-database-manage-logins.md)
 #### [Azure AD authentication](sql-database-aad-authentication.md)
+#### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
 ### Do
 #### [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
 #### [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
@@ -75,7 +76,7 @@
 #### Auditing
 ##### [Audit](sql-database-auditing.md)
 ##### [Downlevel clients support and IP endpoint changes for auditing](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Threat detection](sql-database-threat-detection-get-started.md)
+#### [Threat detection](sql-database-threat-detection.md)
 #### Encrypt data
 ##### [Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
 ##### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
@@ -165,11 +166,12 @@
 ### [Manage SQL Database using PowerShell](sql-database-manage-powershell.md)
 ### [Manage SQL Database using SSMS](sql-database-manage-azure-ssms.md)
 ### Servers
-#### [Create servers](sql-database-create-servers.md)
-#### [View or update server settings](sql-database-view-update-server-settings.md)
+### [Manage servers using the Azure portal](sql-database-manage-servers-portal.md)
+### [Manage servers using PowerShell](sql-database-manage-servers-powershell.md)
 ### Single databases
-#### [Create single databases](sql-database-create-databases.md)
-#### [View or update database settings](sql-database-view-update-database-settings.md)
+### [Manage databases using the Azure portal](sql-database-manage-single-databases-portal.md)
+### [Manage databases using PowerShell](sql-database-manage-single-databases-powershell.md)
+### [Manage databases using Transact-SQL](sql-database-manage-single-databases-tsql.md)
 ### Firewall rules
 #### [Create firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
 #### [Create firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
@@ -198,7 +200,9 @@
 ##### [Manage using T-SQL](sql-database-elastic-pool-manage-tsql.md)
 ##  Authenticate and authorize
 ### [Configure Azure AD authentication](sql-database-aad-authentication-configure.md)
-### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
+### [Multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
+## Configure threat detection
+### [Configure threat detection using the Azure portal](sql-database-threat-detection-portal.md)
 ## Encrypt data
 ### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
@@ -239,19 +243,17 @@
 ### [Query using SSMS](sql-database-connect-query-ssms.md)
 ## Backup and Restore
 ### Long-term backup retention
-#### [Configure long-term backup retention](sql-database-configure-long-term-retention.md)
-#### [View backups in a Recovery Services vault](sql-database-view-backups-in-vault.md)
-#### [Restore from long-term backup retention](sql-database-restore-from-long-term-retention.md)
-#### [Delete from long-term backup retention](sql-database-long-term-retention-delete.md)
+#### [Manage long-term backup retention using the Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
+#### [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ### Restore deleted database
 #### [Restore deleted using the Azure portal](sql-database-restore-deleted-database-portal.md)
 #### [Restore deleted using PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Point in time restore
-#### [Restore to a point in time](sql-database-point-in-time-restore.md)
-#### [View oldest restore point](sql-database-view-oldest-restore-point.md)
+#### [Point in time restore using the Azure portal](sql-database-point-in-time-restore-portal.md)
+#### [Point in time restore using PowerShell](sql-database-point-in-time-restore-powershell.md)
 ### Restore from geo-redundant backup
-### [Restore using the Azure portal](sql-database-geo-restore-portal.md)
-### [Restore using PowerShell](sql-database-geo-restore-powershell.md)
+### [Geo-restore using the Azure portal](sql-database-geo-restore-portal.md)
+### [Geo-restore using PowerShell](sql-database-geo-restore-powershell.md)
 ## Active Geo-Replication
 ### [Configure using the Azure portal](sql-database-geo-replication-portal.md)
 ### [Configure using PowerShell](sql-database-geo-replication-powershell.md)
