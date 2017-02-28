@@ -1,5 +1,5 @@
 ---
-title: Define lab policies in Azure DevTest Labs| Microsoft Docs
+title: Define lab policies in Azure DevTest Labs | Microsoft Docs
 description: Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation.
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 02/28/2017
 ms.author: tarcher
 
 ---
@@ -22,28 +22,7 @@ ms.author: tarcher
 > 
 > 
 
-Azure DevTest Labs enables you to specify key policies that help you to control cost and minimize waste in your labs. These lab policies include the maximum number of VMs created per user and per lab, and various auto-shutdown and auto-start options. 
-
-## Accessing a lab's policies in Azure DevTest Labs
-The following steps guide you through setting up policies for a lab in Azure DevTest Labs:
-
-To view (and change) the policies for a lab, follow these steps:
-
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **More services**, and then select **DevTest Labs** from the list.
-3. From the list of labs, select the desired lab.   
-4. Select **Policy settings**.
-5. The **Policy settings** blade contains a menu of settings that you can specify: 
-   
-    ![Policy settings blade](./media/devtest-lab-set-lab-policy/policies.png)
-   
-    To learn more about setting a policy, select it from the following list:
-   
-   * [Allowed virtual machine sizes](#set-allowed-virtual-machine-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
-   * [Virtual machines per user](#set-virtual-machines-per-user) - Specify the maximum number of VMs that can be created by a user. 
-   * [Virtual machines per lab](#set-virtual-machines-per-lab) - Specify the maximum number of VMs that can be created for a lab. 
-   * [Auto-shutdown](#set-auto-shutdown) - Specify the time when the current lab's VMs automatically shut down.
-   * [Auto-start](#set-auto-start) - Specify the time when the current lab's VMs automatically start up.
+Azure DevTest Labs enables you control cost and minimize waste in your labs by managing policies (settings) for each lab. This article walks explains in step-by-step detail how to set each policy.  
 
 ## Set allowed virtual machine sizes
 The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
