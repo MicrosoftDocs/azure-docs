@@ -18,7 +18,7 @@ ms.author: erikje
 
 ---
 # Deploy Azure Stack POC
-To deploy the Azure Stack POC, you first need to [prepare the deployment machine](#prepare-the-deployment-machine), [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
+To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
 ## Download and extract Microsoft Azure Stack POC
 Before you start, make sure that you at least 85 GB of space and that you have .NET Framework 4.6 installed.
