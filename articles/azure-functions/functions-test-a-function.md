@@ -18,6 +18,8 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
 
+ms.custom: H1Hack27Feb2017
+
 ---
 # Strategies for testing your code in Azure Functions
 

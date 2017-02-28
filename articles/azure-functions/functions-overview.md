@@ -18,6 +18,8 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
 
+ms.custom: H1Hack27Feb2017
+
 ---
 # An introduction to Azure Functions  
 Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Python or PHP. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop serverless applications on Microsoft Azure.

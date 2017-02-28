@@ -17,6 +17,9 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
+
+ms.custom: H1Hack27Feb2017
+
 ---
 
 # Tips for improving the performance and reliability of Azure Functions

@@ -18,6 +18,8 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: dariagrigoriu, glenga
 
+ms.custom: H1Hack27Feb2017
+
 ---
 # Scaling considerations and service plans in Azure Functions
 
