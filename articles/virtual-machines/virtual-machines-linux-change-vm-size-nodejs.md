@@ -19,7 +19,10 @@ ms.author: mwasson
 ms.custom: H1Hack27Feb2017
 
 ---
-# How to resize a Linux VM using CLI 1.0
+
+# Resize a Linux VM with Azure CLI 1.0
+
+## Overview
 
 After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is hosting the VM.
 
