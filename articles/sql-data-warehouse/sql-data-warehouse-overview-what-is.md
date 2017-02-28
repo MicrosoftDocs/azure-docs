@@ -64,8 +64,7 @@ The MPP approach is aided by a number of data warehousing specific performance o
 
 
 ## Predictable and scalable performance With Data Warehouse Units
-SQL Data Warehouse is built with similar technologies as SQL Database which means that users can expect consistent and predictable performance for analytical queries. Users should expect to see performance scale linearly as they 
-add or subtract Compute nodes. Allocation of resources to your SQL Data Warehouse is measured in Data Warehouse Units (DWUs). DWUs are a measure of underlying resources like CPU, memory, IOPS, which are allocated to your SQL Data Warehouse. Increasing the number of DWUs increases resources and performance. Specifically, DWUs help ensure that:
+SQL Data Warehouse is built with similar technologies as SQL Database which means that users can expect consistent and predictable performance for analytical queries. Users should expect to see performance scale linearly as they add or subtract Compute nodes. Allocation of resources to your SQL Data Warehouse is measured in Data Warehouse Units (DWUs). DWUs are a measure of underlying resources like CPU, memory, IOPS, which are allocated to your SQL Data Warehouse. Increasing the number of DWUs increases resources and performance. Specifically, DWUs help ensure that:
 
 * You are able to scale your data warehouse without worrying about the underlying hardware or software.
 * You can predict performance improvement for a DWU level before changing the compute of your data warehouse.
