@@ -1,10 +1,10 @@
 ---
-title: Create a VM with a static public IP using a template | Microsoft Docs
-description: Learn how to create a VM with a static public IP address through Azure Resource Manager using a template.
+title: Create a VM with a static public IP address - Azure Resource Manager template | Microsoft Docs
+description: Learn how to create a VM with a static public IP address using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a VM with a static public IP using a template
+# Create a VM with a static public IP address using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
 - [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)

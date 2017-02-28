@@ -1,10 +1,10 @@
 ---
-title: Manage NSGs using the Azure CLI 1.0 | Microsoft Docs
-description: Learn how to manage existing NSGs using the Azure CLI 1.0.
+title: Manage network security groups - Azure CLI 1.0 | Microsoft Docs
+description: Learn how to manage network security groups using the Azure command-line interface (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Manage NSGs using the Azure CLI 1.0
+# Manage network security groups using the Azure CLI 1.0
 
 ## CLI versions to complete the task 
 
