@@ -17,6 +17,7 @@
 ### [Authoring templates](resource-group-authoring-templates.md)
 ### [Template functions](resource-group-template-functions.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
+### [Set child resource name and type](resource-manager-template-child-resource.md)
 ### [Create multiple instances of resource type](resource-group-create-multiple.md)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 ### [Link to other templates](resource-group-linked-templates.md)

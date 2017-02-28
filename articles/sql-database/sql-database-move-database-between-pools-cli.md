@@ -3,8 +3,8 @@ title: Azure CLI Script-Move a SQL database and elastic pools | Microsoft Docs
 description: Azure CLI Script Sample - Move a SQL database between elastic pools
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: jhubbard
 editor: carlrab
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 02/21/2017
-ms.author: janeng
+ms.author: janeng;carlrab
 ---
 
 # Create elastic pools and move databases between pools and out of a pool using the Azure CLI

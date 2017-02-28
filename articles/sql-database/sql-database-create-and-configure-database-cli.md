@@ -3,8 +3,8 @@ title: Azure CLI Script-Create a SQL database | Microsoft Docs
 description: Azure CLI Script Sample - Create a SQL database
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: jhubbard
 editor: carlrab
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 02/21/2017
-ms.author: janeng
+ms.author: janeng;carlrab
 ---
 
 # Create a single SQL database and configure a firewall rule using the Azure CLI
