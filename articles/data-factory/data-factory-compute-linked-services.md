@@ -48,7 +48,7 @@ Note the following **important** points about on-demand HDInsight linked service
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [!IMPORTANT]
-> It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
+> It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.
 > 
 > 
 
