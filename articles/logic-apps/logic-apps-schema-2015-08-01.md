@@ -30,8 +30,8 @@ more reliable and easier to use:
 <a name="api-connections"></a>
 ## Move to API connections
 
-The biggest change is that you no longer need to deploy API apps into your Azure Subscription to use APIs. 
-There are 2 ways you can use APIs:
+The biggest change is that you no longer have to deploy API Apps into 
+your Azure subscription so you can use APIs. There are 2 ways you can use APIs:
 
 * Managed APIs
 * Your custom Web APIs
@@ -237,14 +237,14 @@ Here is an example showing the new `metadata.apiDefinitionUrl` property:
 }
 ```
 
-If you host your Web API on **App Service**, 
+If you host your Web API on Azure App Service, 
 your Web API automatically appears in the list of actions available in the designer. 
 If not, you have to paste in the URL directly. The Swagger endpoint must be unauthenticated 
 to be usable in the Logic App Designer, aalthough you can secure the API itself with whatever methods that Swagger supports.
 
 ### Call deployed API apps with 2015-08-01-preview
 
-If you previously deployed an API App, you can call the app with the `HTTP` action.
+If you previously deployed an API App, you can call the app with the **HTTP** action.
 
 For example, if you use Dropbox to list files, 
 your **2014-12-01-preview** schema version definition might have something like:
@@ -327,7 +327,7 @@ Walking through these properties one-by-one:
 | `inputs.body` |Identical to the API App parameters |
 | `inputs.authentication` |Identical to the API App authentication |
 
-This approach should work for all API app actions. However, remember that these previous API apps are no longer supported, 
+This approach should work for all API App actions. However, remember that these previous API Apps are no longer supported, 
 and you should move to one of the two other previous options, a managed API or hosting your custom Web API.
 
 <a name="foreach"></a>
@@ -455,7 +455,7 @@ With these changes, the functions `@repeatItem()`, `@repeatBody()`, and `@repeat
 
 <a name="http-listener"></a>
 ## Native HTTP listener
-The HTTP Listener capabilities are now built in, so you no longer need to deploy an HTTP Listener API app. Read about [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
+The HTTP Listener capabilities are now built in, so you no longer need to deploy an HTTP Listener API App. Read about [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
 
 With these changes, the function `@accessKeys()` is removed and has been replaced with the `@listCallbackURL()` function for the purposes of getting the endpoint (when needed). In addition, you now must define at least one trigger in your Logic app now. 
 If you want to `/run` the workflow, you must have one of these triggers: `manual`, `apiConnectionWebhook`, or `httpWebhook`
