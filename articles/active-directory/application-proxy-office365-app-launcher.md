@@ -49,11 +49,11 @@ In the next section, you walk through setting up a custom home-page URL for the 
 
 ## Install the Azure AD PowerShell module
 
-Before you define a custom home-page URL by using PowerShell, install a nonstandard package of the Azure AD PowerShell module. You can download the package from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/1.1.23.0), which uses the GRAPH API endpoint. 
+Before you define a custom home-page URL by using PowerShell, install a nonstandard package of the Azure AD PowerShell module. You can download the package from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/1.1.23.0), which uses the Graph API endpoint. 
 
 To install the package by using PowerShell, do the following:
 
-1. Open a standard PowerShell, and then run the following command:
+1. Open a standard PowerShell window, and then run the following command:
 
     ```
      Install-Module -Name AzureAD -RequiredVersion 1.1.23.0
