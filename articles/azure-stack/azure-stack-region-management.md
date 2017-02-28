@@ -50,7 +50,7 @@ This preview release of Azure Stack has a set of region management capabilities 
 ## Next steps
 [Manage health and alerts in Azure Stack](azure-stack-monitor-health.md)
 
-[Updates management in Azure Stack](azure-stack-updates.md)
+[Update management in Azure Stack](azure-stack-updates.md)
 
 
 

@@ -17,7 +17,7 @@ ms.date: 03/01/2017
 ms.author: twooley
 
 ---
-# Updates management in Azure Stack
+# Update management in Azure Stack
 In this Technical Preview 3 release, you can preview the experience for managing Azure Stack updates. No updates are yet available for installation.    
 
 ## View update information
