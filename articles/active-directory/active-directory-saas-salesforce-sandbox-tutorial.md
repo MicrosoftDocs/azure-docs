@@ -21,7 +21,7 @@ ms.author: jeedes
 The objective of this tutorial is to show the integration of Azure and Salesforce Sandbox.  
 
 >[!TIP]
->For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=521878). 
+>For feedback, see the [Azure support page](http://go.microsoft.com/fwlink/?LinkId=521878). 
 > 
 
 Sandboxes give you the ability to create multiple copies of your organization in separate environments for a variety of purposes, such as development, testing, and training, without compromising the data and applications in your Salesforce production organization.  
