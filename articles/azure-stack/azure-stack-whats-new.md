@@ -26,7 +26,7 @@ This release provides new features for both tenants and administrators.
 * Use Azure D-Series VM sizes for increased performance and consistency.
 * Deploy and create templates with Temp Disks that are consistent with Azure.
 
-## MAnagement
+## Infrastructure and operations
 * Marketplace Syndication allows you to use content from the Azure Marketplace and make available in Azure Stack
 * Isolated administrative and user portals and APIs provide enhanced security.
 * Use enhanced infrastructure management functionality, such as improved alerting.
