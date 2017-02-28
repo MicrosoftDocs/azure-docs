@@ -27,40 +27,41 @@ Start here if you are new to Azure Search. You can review all of these resources
 
 | Title | Description | Date |
 |-------|-------------|------|
-| [Video: Azure Search Overview](https://channel9.msdn.com/Events/Connect/2016/138) | 9m38s introduction to features, service creation, and queries. | November 2016 |
-| [Create a service](search-get-started-portal.md) | Steps for setting up Azure Search in the portal. | February 2017 |
-| [Build and query your first index](search-get-started-portal.md) | Steps for creating and querying an index using built-in sample data. Tools in the portal are a fast way to learn about query types and search parameters. | February 2017 |
-| [Code in .NET)](search-howto-dotnet-sdk.md) | C# walkthrough shows you how to connect, index, and query using the Azure Search .NET library. | November 2016 |
-| [Code using REST API)](search-create-index-rest-api.md) | Review REST calls and JSON payloads for creating an Azure Search index on any platform and programming language. | December 2016 |
+| [Step 1: Watch this video introduction](https://channel9.msdn.com/Events/Connect/2016/138) | 9m38s introduction to features, service creation, and queries. | November 2016 |
+| [Step 2: Create a service](search-get-started-portal.md) | Steps for setting up Azure Search in the portal. | February 2017 |
+| [Step 3: Build and query your first index](search-get-started-portal.md) | Steps for creating and querying an index using built-in sample data. Tools in the portal are a fast way to learn about query types and search parameters. | February 2017 |
+| [Step 4a: Code in .NET](search-howto-dotnet-sdk.md) | C# walkthrough shows you how to connect, index, and query using the Azure Search .NET library. | November 2016 |
+| [Step 4b: Code in REST](search-create-index-rest-api.md) | Review REST calls and JSON payloads for creating an Azure Search index on any platform and programming language. | December 2016 |
 
 ## Practice
 
-Code-based exploration through sample code and walkthroughs.
+Code-based exploration through code samples and walkthroughs.
 
 | Link | Description |
 |-------|-------------|
-| [**Code sample for the demo site: NYC Jobs Website**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) | Source for the live demo Azure Search site over NYC jobs data, using ASP.NET MVC. |
-| [**Code sample for .NET client library**](https://github.com/Azure-Samples/search-dotnet-getting-started) | ASP.NET MVC 5 application using the .NET client library. |
-| [**Code sample for  the REST API**](https://github.com/Azure-Samples/search-rest-api-getting-started) | REST API code sample. |
-| [**Code sample for the demo site: Tate Art Gallery**](https://github.com/liamca/azure-search-tate-art-gallery/) | Source for the live demo Azure Search site over art gallery data, showing the Collections data type and nested data structures, facets and filters, people names, and thumbnail images.|
+| [Code sample for the demo site: NYC Jobs Website](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) | Source for the live demo Azure Search site over NYC jobs data, using ASP.NET MVC. |
+| [Code sample for .NET client library](https://github.com/Azure-Samples/search-dotnet-getting-started) | ASP.NET MVC 5 application using the .NET client library. |
+| [Code sample for  the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) | REST API code sample. |
+| [Code sample for the demo site: Tate Art Gallery](https://github.com/liamca/azure-search-tate-art-gallery/) | Source for the live demo Azure Search site over art gallery data, showing the Collections data type and nested data structures, facets and filters, people names, and thumbnail images.|
 
 All of the above code samples can be found on the Azure Sample Github repo, along with other samples showing how to use Azure Search in specific scenarios: [**Azure Samples > Azure Search**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
 
-## Deep Dive (Virtual Academy courses)
+## Courseware
 
 Multi-session demos and labs for Azure Search.
 
 | Link | Description | Date |
 |------|-------------|------|
 [Building Intelligent Cross-Platform Mobile Applications Using Xamarin and Azure Search](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Typeahead, full text search and paging, filtering, lookup, moreLikeThis, machine learning, scoring and tuning, analytics | December 2016 |
-[Using Windows Azure Search](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | Scale, geospatial or geo-search, lexical or linguistic analysis, Cortana speech recognition | May 2015 | 
+[Using Windows Azure Search](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | Older but still relevant drilldown into scale, geospatial or geo-search, lexical or linguistic analysis, Cortana speech recognition | May 2015 | 
 
 ## Online demo sites
 These sites are fully functional web applications that use Azure Search for the search experience. 
 
-[**New York City (NYC) Jobs portal demo for Azure Search**](http://aka.ms/azjobsdemo) is a live ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative. This app uses the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx). You can modify code to try out the [Lucene syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx). 
-
-[**Azure Search Demo Site**](https://searchsamples.azurewebsites.net/#/) is a collection of demo apps for Azure Search. Test-drive media search, geo search and product inventory apps using Azure Search.
+| Link | Description |
+|-------|-------------|
+|[New York City (NYC) Jobs portal demo for Azure Search](http://aka.ms/azjobsdemo) | A live ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative. This app uses the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx). You can modify code to try out the [Lucene syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx). |
+|[Azure Search Demo Site](https://searchsamples.azurewebsites.net/#/) | A collection of demo apps for Azure Search. Test-drive media search, geo search and product inventory apps using Azure Search. |
 
 ## Video archive
 
