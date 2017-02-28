@@ -57,7 +57,7 @@ Note that the partition count on an Event Hub cannot be modified after setup. Wi
 
 Event Hubs is designed to allow a single partition reader per consumer group. In most cases, the default setting of 4 partitions is sufficient. If you want to scale your event processing, you can consider adding additional partitions. There is no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
 
-However, if you have a model in which your application has an affinity to a particular partition, increasing the number of partitions may not be of any benefit to you. Instead of processing the desired batch size, this may be inefficient and provide sparse processing with a higher checkpoint rate. For more information about availability versus consistency, see [availability and consistency](event-hubs-availability-and-consistency.md).
+However, if you have a model in which your application has an affinity to a particular partition, increasing the number of partitions may not be of any benefit to you. Instead of processing the desired batch size, this may be inefficient and provide sparse processing with a higher checkpoint rate. For more information about availability versus consistency, see [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md).
 
 ## Pricing
 
