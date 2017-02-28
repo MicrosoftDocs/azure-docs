@@ -81,11 +81,10 @@
 ##### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
 #### Mask data
-##### Dynamic data masking
-###### [Azure portal](sql-database-dynamic-data-masking-get-started.md)
+##### [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md)
 ### Do
 #### [Dynamic data masking using the Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
-#### [Configure auditing in the Azure portal](sql-database-auditing-portal.md)
+#### [Configure auditing using the Azure portal](sql-database-auditing-portal.md)
 #### [Configure auditing using PowerShell](sql-database-auditing-powershell.md)
 #### [Configure auditing using the REST API](sql-database-auditing-rest.md)
 #### [Always Encrypted using Windows certificate](sql-database-always-encrypted.md)
@@ -162,45 +161,42 @@
 #### [Upgrade using PowerShell](sql-database-upgrade-server-powershell.md)
 # How To
 ## Create and manage
-### [Manage SQL Database using the Azure portal](sql-database-manage-portal.md)
-### [Manage SQL Database using PowerShell](sql-database-manage-powershell.md)
-### [Manage SQL Database using SSMS](sql-database-manage-azure-ssms.md)
+### [Manage using the Azure portal](sql-database-manage-portal.md)
+### [Manage using PowerShell](sql-database-manage-powershell.md)
+### [Manage using SSMS](sql-database-manage-azure-ssms.md)
 ### Servers
-### [Manage servers using the Azure portal](sql-database-manage-servers-portal.md)
-### [Manage servers using PowerShell](sql-database-manage-servers-powershell.md)
+#### [Manage using the Azure portal](sql-database-manage-servers-portal.md)
+#### [Manage using PowerShell](sql-database-manage-servers-powershell.md)
 ### Single databases
-### [Manage databases using the Azure portal](sql-database-manage-single-databases-portal.md)
-### [Manage databases using PowerShell](sql-database-manage-single-databases-powershell.md)
-### [Manage databases using Transact-SQL](sql-database-manage-single-databases-tsql.md)
+#### [Manage using the Azure portal](sql-database-manage-single-databases-portal.md)
+#### [Manage using PowerShell](sql-database-manage-single-databases-powershell.md)
+#### [Manage using Transact-SQL](sql-database-manage-single-databases-tsql.md)
 ### Firewall rules
-#### [Create firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
-#### [Create firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Create firewall rules using REST API](sql-database-configure-firewall-settings-rest.md)
-#### [Create firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md)
+#### [Create using the Azure portal](sql-database-configure-firewall-settings.md)
+#### [Create using PowerShell](sql-database-configure-firewall-settings-powershell.md)
+#### [Create rules using REST API](sql-database-configure-firewall-settings-rest.md)
+#### [Create using T-SQL](sql-database-configure-firewall-settings-tsql.md)
 ### Multiple databases
 #### [Upgrade client library in client applications](sql-database-elastic-scale-upgrade-client-library.md)
 #### Sharded databases
 ##### [Security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [Add a shard](sql-database-elastic-scale-add-a-shard.md)
 ##### [Fix shard map problems](sql-database-elastic-database-recovery-manager.md)
-##### [Migrate existing scaled-out databases to sharded databases](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [Migrate to sharded databases](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Create performance counters for shard map manager](sql-database-elastic-database-perf-counters.md)
 #### Elastic jobs
-##### [How do I install the elastic jobs service?](sql-database-elastic-jobs-service-installation.md)
-##### [Create and manage elastic jobs using PowerShell](sql-database-elastic-jobs-powershell.md) 
-##### [Create and manage elastic jobs using the Azure portal](sql-database-elastic-jobs-create-and-manage.md)
-##### [How do I uninstall elastic jobs?](sql-database-elastic-jobs-uninstall.md)
+##### [How do I install?](sql-database-elastic-jobs-service-installation.md)
+##### [Manage using PowerShell](sql-database-elastic-jobs-powershell.md) 
+##### [Manage using the Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+##### [How do I uninstall?](sql-database-elastic-jobs-uninstall.md)
 #### Elastic pools
-##### [Create using the Azure portal](sql-database-elastic-pool-create-portal.md)
-##### [Create using PowerShell](sql-database-elastic-pool-create-powershell.md)
-##### [Create using C#](sql-database-elastic-pool-create-csharp.md)
 ##### [Manage using the Azure portal](sql-database-elastic-pool-manage-portal.md)
 ##### [Manage using PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ##### [Manage using C#](sql-database-elastic-pool-manage-csharp.md)
 ##### [Manage using T-SQL](sql-database-elastic-pool-manage-tsql.md)
-##  Authenticate and authorize
+## Authenticate and authorize
 ### [Configure Azure AD authentication](sql-database-aad-authentication-configure.md)
-### [Multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
+### [Configure multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
 ## Configure threat detection
 ### [Configure threat detection using the Azure portal](sql-database-threat-detection-portal.md)
 ## Encrypt data
@@ -212,13 +208,10 @@
 ### [DMVs](sql-database-monitoring-with-dmvs.md)
 ### [Compatibility levels](sql-database-compatibility-level-query-performance-130.md)
 ### [Performance tuning tips](sql-database-troubleshoot-performance.md)
-### Change service tiers and performance levels
-#### [Change service tiers using the Azure portal](sql-database-scale-up.md)
-#### [Change service tiers using PowerShell](sql-database-scale-up-powershell.md)
 ### [Create alerts](sql-database-insights-alerts-portal.md)
-#### [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md)
+### [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md)
 ### Query Store
-#### [Monitoring performance by using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+#### [Monitoring performance using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 #### [Query Store usage scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
 #### [Operating the Query Store](sql-database-operate-query-store.md)
 ### Extended events
@@ -248,9 +241,9 @@
 ### Restore deleted database
 #### [Restore deleted using the Azure portal](sql-database-restore-deleted-database-portal.md)
 #### [Restore deleted using PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Point in time restore
+### Point in time database restore
 #### [Point in time restore using the Azure portal](sql-database-point-in-time-restore-portal.md)
-#### [Point in time restore using PowerShell](sql-database-point-in-time-restore-powershell.md)
+#### [Point in time database restore using PowerShell](sql-database-point-in-time-restore-powershell.md)
 ### Restore from geo-redundant backup
 ### [Geo-restore using the Azure portal](sql-database-geo-restore-portal.md)
 ### [Geo-restore using PowerShell](sql-database-geo-restore-powershell.md)
