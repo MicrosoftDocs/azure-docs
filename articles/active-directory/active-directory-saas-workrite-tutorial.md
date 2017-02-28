@@ -41,7 +41,7 @@ To configure Azure AD integration with Workrite, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD SSO in a test environment.
@@ -106,6 +106,7 @@ The objective of this section is to enable Azure AD SSO in the Azure classic por
    
     ![Azure AD Single Sign-On][8] 
   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Workrite site (e.g.: *https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
+
     >[!NOTE]
     >Please contact your Workrite support team [support@workrite.co.uk](mailto:support@workrite.co.uk) if you don't know the value of the Sign On URL. 
     >   
