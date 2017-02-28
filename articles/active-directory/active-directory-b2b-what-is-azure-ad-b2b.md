@@ -1,6 +1,6 @@
 ---
-title: What is Azure Active Directory B2B collaboration preview? | Microsoft Docs
-description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications
+title: About Azure Active Directory B2B collaboration preview | Microsoft Docs
+description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications.
 services: active-directory
 documentationcenter: ''
 author: sasubram
@@ -19,7 +19,7 @@ ms.author: sasubram
 
 ---
 
-# What is Azure AD B2B collaboration preview?
+# About Azure AD B2B collaboration preview
 
 Azure AD B2B collaboration capabilities enable IT pros and information workers to work closely with their partners in any other organization on the planet. They can provide access to documents, resources and applications while maintaining complete control over their internal data. Developers can use the Azure AD business-to-business APIs to write applications that bring two organizations together in a secure way that appears seamless to information workers and is intuitive for them to navigate.
 
