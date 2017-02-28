@@ -33,7 +33,7 @@ use the [foreach type](logic-apps-loops-and-scopes.md).
 ## Handle failures if something goes wrong
 
 Usually, you want to include a *remediation step* — some logic that executes 
-*if and only if** one or more of your calls fail. This example gets data 
+*if and only if* one or more of your calls fail. This example gets data 
 from various places, but if the call fails, we want to POST a message 
 somewhere so we can track down that failure later:  
 
