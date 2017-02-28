@@ -47,9 +47,9 @@ The following steps guide you through the process of creating a formula from a c
     ![Base list](./media/devtest-lab-manage-formulas/base-list.png)
 7. On the **Create formula** blade, specify the following values:
    
-   * **Formula name** - Enter a name for your formula. This value will be displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message will indicate the requirements for a valid name.
+   * **Formula name** - Enter a name for your formula. This value is displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message indicates the requirements for a valid name.
    * **Description** - Enter a meaningful description for your formula. This value is available from the formula's context menu when you create a VM.
-   * **User name** - Enter a user name that will be granted administrator privileges.
+   * **User name** - Enter a user name that is granted administrator privileges.
    * **Password** - Enter - or select from the dropdown - a value that is associated with the secret (password) that you want to use for the specified user.  
    * **Image** - This field displays name of the base image you selected on the previous blade. 
    * **Virtual machine size** - Select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
