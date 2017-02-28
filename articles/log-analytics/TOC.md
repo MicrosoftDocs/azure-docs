@@ -62,9 +62,10 @@
 ## Create alerts
 ### [Understanding alerts](log-analytics-alerts.md)
 ### [Alert actions](log-analytics-alerts-actions.md)
-### [Create alert rules in OMS portal](log-analytics-alerts-creating.md)
-### [Create alert rules with API](log-analytics-api-alerts.md)
-### [Create alert rules with Resource Manager template](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### Create alert rules
+#### [OMS portal](log-analytics-alerts-creating.md)
+#### [REST API](log-analytics-api-alerts.md)
+#### [Resource Manager template](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Webhook action sample](log-analytics-alerts-webhooks.md)
 ### [Alert Management solution](log-analytics-solution-alert-management.md)
 ## Develop

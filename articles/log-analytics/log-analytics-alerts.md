@@ -13,31 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 02/28/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
 
 ---
-# Understand alerts in Log Analytics
+# Respond to issues in Log Analytics using alerts
 
-Alerts in Log Analytics identify important information in your Log Analytics repository.  This article provides details of how alert rules in Log Analytics work and describes the differences between different types of alert rules.
+Alerts in Log Analytics identify important information in your Log Analytics repository.  You can use them to proactively notify you of a problem or to take automated actions in response to the issue.  This article provides an overview of how alerts are created and used.  
 
-For the process of creating alert rules, see the following articles.
-
-- Create alert rules using [Azure portal](log-analytics-alerts-create.md)
-- Create alert rules using [Resource Manager template](log-analytics-template-workspace-configuration.md)
-- Create alert rules using [REST API](log-analytics-api-alerts.md)
-
-
-## Alert rules
-
-Alerts are created by alert rules that automatically run log searches at regular intervals.  If the results of the log search match particular criteria then an alert record is created.  The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process.  
-
-![Log Analytics alerts](media/log-analytics-alerts/overview.png)
 
 >[!NOTE]
 > For information on metric measurement alert rules which are currently in public preview, see [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/).
+
+## Alert rules
+
+Alerts are created by alert rules that automatically run log searches at regular intervals.  If the results of the log search match particular criteria then an alert record is created.  The rule can also automatically run one or more actions to proactively notify you of the alert or invoke another process.  
+
+![Log Analytics alerts](media/log-analytics-alerts/overview.png)
+
 
 Alert Rules are defined by the following details.
 
@@ -46,24 +41,46 @@ Alert Rules are defined by the following details.
 - **Frequency**.  Specifies how often the query should be run. Can be any value between 5 minutes and 24 hours. Should be equal to or less than the time window.  If the value is greater than the time window, then you risk records being missed.<br>For example, consider a time window of 30 minutes and a frequency of 60 minutes.  If the query is run at 1:00, it returns records between 12:30 and 1:00 PM.  The next time the query would run is 2:00 when it would return records between 1:30 and 2:00.  Any records created between 1:00 and 1:30 would never be evaluated.
 - **Threshold**.  If the number of records returned from the log search exceeds the threshold, an alert is created.
 
+For the process of creating alert rules, see the following articles.
 
-## Scenarios
+- Create alert rules using [OMS portal](log-analytics-alerts-creating.md).
+- Create alert rules using [Resource Manager template](log-analytics-template-workspace-configuration.md).
+- Create alert rules using [REST API](log-analytics-api-alerts.md).
+
+## Alert actions
+
+In addition to creating an alert record, an alert rule can take one or more actions when it creates an alert.  You can use actions to send a mail in response to the alert or start a process that attempts to take corrective action.  
+
+You can also leverage actions to add functionality to Log Analytics.  For example, it does not currently provide features to notify you using SMS or telephone.  You could use a webhook action in an alert rule though to call a service such as [PagerDuty](https://www.pagerduty.com/) that does provide these features.  You can walkthrough an example of creating a webhook to [Slack](https://slack.com/) in [Create an alert webhook action in OMS Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
+
+The following table lists the actions you can take.  You can read about each of these in [Adding actions to alert rules in Log Analytics](log-analytics-alerts-actions.md). 
+
+| Action | Description |
+|:--|:--|
+| Email  | 	Send an e-mail with the details of the alert to one or more recipients. |
+| Webhook | Invoke an external process through a single HTTP POST request. |
+| Runbook | Start a runbook in Azure Automation. |
+
+
+## Alerting scenarios
 
 ### Events
-To alert on a single event, set the number of results to greater than 0 and both the frequency and time window to 5 minutes.  That will run the query every 5 minutes and check for the occurrence of a single event that was created since the last time the query was run.  A longer frequency may delay the time between the event being collected and the alert being created.
+To alert on a single event, create an alert rule with the number of results to **greater than 0** and both the frequency and time window to **5 minutes**.  That will run the query every 5 minutes and check for the occurrence of a single event that was created since the last time the query was run.  A longer frequency may delay the time between the event being collected and the alert being created.  You would use a query similar to the following to specify the event you're interested in.
 
-Some applications may log an occasional error that shouldn't necessarily raise an alert.  For example, the application may retry the process that created the error event and then succeed the next time.  In this case, you may not want to create the alert unless multiple events are created within a particular time window.  
+	Type=Event Source=MyApplication EventID=7019 
 
-In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time window, then an alert should be created.  In this case you would set the threshold to **less than 1**.
+Some applications may log an occasional error that shouldn't necessarily raise an alert.  For example, the application may retry the process that created the error event and then succeed the next time.  In this case, you may not want to create the alert unless multiple events are created within a particular time window.  To do this you would use the same query but set the threshold to a higher number.  For example, to alert on 5 events in 30 minutes, you set the frequency to **5 minutes**, the time window to **30 minutes**, and the number of results to **greater than 4**.    
+
+In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time window, then an alert should be created.  In this case you would set the number of results to **less than 1**.
 
 ### Performance alerts
-[Performance data](log-analytics-data-sources-performance-counters.md) is stored as records in the OMS repository similar to events.  If you want to alert when a performance counter exceeds a particular threshold, then that threshold should be included in the query.
+[Performance data](log-analytics-data-sources-performance-counters.md) is stored as records in the Log Analytics< repository similar to events.  If you want to alert when a performance counter exceeds a particular threshold, then that threshold should be included in the query.
 
-For example, if you wanted to alert when the processor runs over 90%, you would use a query like the following with the threshold for the alert rule **greater than 0**.
+For example, if you want an alert when the processor runs over 90%, you would use a query like the following with the number of results for the alert rule **greater than 0**.
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**. 
+If you want to alert when the processor averages over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**. 
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
@@ -90,6 +107,7 @@ There are other kinds of alert records created by the [Alert Management solution
 
 
 ## Next steps
+* Create an alert rule using the [OMS portal](log-analytics-alerts-creating.md).
 * Install the [Alert Management solution](log-analytics-solution-alert-management.md) to analyze alerts created in Log Analytics along with alerts collected from System Center Operations Manager (SCOM).
 * Read more about [log searches](log-analytics-log-searches.md) that can generate alerts.
 * Complete a walkthrough for [configuring a webook](log-analytics-alerts-webhooks.md) with an alert rule.  

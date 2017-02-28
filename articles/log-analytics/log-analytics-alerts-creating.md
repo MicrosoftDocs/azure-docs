@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2017
+ms.date: 02/28/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -92,7 +92,7 @@ Defines how often the search query is run.
 
 
 ### Actions
-Alert rules will always create an [alert record](#alert-records) when the threshold is met.  You can also define one or more actions to be run such as sending an email or starting a runbook.  See 
+Alert rules will always create an [alert record](#alert-records) when the threshold is met.  You can also define one or more actions to be run such as sending an email or starting a runbook.  See [Adding actions to alert rules in Log Analytics](log-analytics-alerts-actions.md) for details on configuring actions. 
 
 
 #### Email actions
