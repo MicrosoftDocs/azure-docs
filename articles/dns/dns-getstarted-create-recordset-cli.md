@@ -11,12 +11,13 @@ ms.service: dns
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 ---
 
-# Create DNS records using the Azure CLI 2.0
+# How to create DNS records using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-create-recordset-portal.md)
