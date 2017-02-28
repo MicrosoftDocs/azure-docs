@@ -328,8 +328,8 @@ Typical solution project
 ![Typical solution project](./media/data-lake-analytics-u-sql-programmability-guide/typical-solution-project.png)
 
 
-In the second part of the project, we call a code behind – file Script.usql.cs  
-![Code Behind](./media/data-lake-analytics-u-sql-programmability-guide/code-behind.png)
+In the second part of the project, we call a code-behind – file Script.usql.cs  
+![Code-behind](./media/data-lake-analytics-u-sql-programmability-guide/code-behind.png)
 
 This file contains a default namespace definition for programmability objects.
 
@@ -495,7 +495,7 @@ WITH ADDITIONAL_FILES =
      );
 ```
 
-In this case, we only register one U-SQL assembly and include the native assembly as a string dependency to the U-SQL assembly. To use the spatial assemblies we only need to reference the U-SQL assembly, and the additional file will automatically be made available for the assembly. Here is a simple sample script using the spatial assembly:
+In this case, we only register one U-SQL assembly and include the native assembly as a string dependency to the U-SQL assembly. To use the spatial assemblies, we only need to reference the U-SQL assembly, and the additional file is automatically be made available for the assembly. Here's a simple sample script using the spatial assembly:
 
 ```sql
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -518,23 +518,23 @@ TO "/output/spatial.csv"
 USING Outputters.Csv();
 ```
 
-The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods are using the System.Data.SqlTypes types instead of the built-in C# types. Since System.Data is already included by default, I just can reference to the needed SQL type. The code above is available on our [Github site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
+The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods are using the System.Data.SqlTypes types instead of the built-in C# types. Since System.Data is already included by default, we can simply reference the needed SQL type. The previous code is available on our [Github site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
 
 
 ### Use assembly versioning
-Currently, U-SQL uses the .Net Framework version 4.5. So please make sure that your own assemblies are compatible with that version of the runtime!
+Currently, U-SQL uses the .NET Framework version 4.5. So ensure that your own assemblies are compatible with that version of the runtime.
 
-As mentioned above, U-SQL runs code in a 64-bit (x64) format. So please make sure that your code is compiled to run on x64. Otherwise you get the incorrect format error shown above!
+As mentioned earlier, U-SQL runs code in a 64-bit (x64) format. So please make sure that your code is compiled to run on x64. Otherwise you get the incorrect format error shown earlier.
 
-Each uploaded assembly dll, resource file such as a different runtime, a native assembly, or config files etc., can be at most 400MB and the total size of deployed resources either via the DEPLOY RESOURCE or via references assemblies and their additional files cannot exceed 3GB.
+Each uploaded assembly dll and resource file such as a different runtime, a native assembly, or a config file, can be at most 400 MB. The total size of deployed resources, either via DEPLOY RESOURCE or via references to assemblies and their additional files, cannot exceed 3 GB.
 
-Finally, please note that each U-SQL database can only contain one version of any given assembly. For example, if you need both the version 7 and version 8 of the NewtonSoft Json.Net library, you need to register them into two different databases. Furthermore, each script can only refer to one version of a given assembly dll. In this respect, U-SQL follows the C# assembly management and versioning semantics!
+Finally, please note that each U-SQL database can only contain one version of any given assembly. For example, if you need both version 7 and version 8 of the NewtonSoft Json.Net library, you need to register them in two different databases. Furthermore, each script can only refer to one version of a given assembly dll. In this respect, U-SQL follows the C# assembly management and versioning semantics.
 
 
-## User-defined functions - UDF
-U-SQL user-defined functions or UDF are programming routines that accept parameters, perform an action, such as a complex calculation, and return the result of that action as a value. The return value of UDF can only be a single scalar. U-SQL UDF can be called in U-SQL base script like any other C# scalar function.
+## User-defined functions: UDF
+U-SQL user-defined functions, or UDF, are programming routines that accept parameters, perform an action (such as a complex calculation), and return the result of that action as a value. The return value of UDF can only be a single scalar. U-SQL UDF can be called in U-SQL base script like any other C# scalar function.
 
-U-SQL User-Defined Functions should be initializes as public and **static**.
+We recommend that you initialize U-SQL user-defined functions as public and **static**.
 
 ```c#
         public static string MyFunction(string param1)
@@ -545,9 +545,9 @@ U-SQL User-Defined Functions should be initializes as public and **static**.
 
 First let’s look at the simple example of creating an UDF.
 
-In this use case scenario, we need to determine the fiscal period – fiscal quarter and fiscal month of the first login for the specific user. First fiscal month of the year in our scenario is June.
+In this use-case scenario, we need to determine the fiscal period, including the fiscal quarter and fiscal month of the first sign-in for the specific user. The first fiscal month of the year in our scenario is June.
 
-To calculate fiscal period, we introduce the following C# function
+To calculate fiscal period, we introduce the following C# function:
 
 ```c#
         public static string GetFiscalPeriod(DateTime dt)
@@ -584,11 +584,11 @@ To calculate fiscal period, we introduce the following C# function
         }
 ```
 
-It simply calculates fiscal month and quarter and returns a string value. For June – first month of the first fiscal quarter – “Q1:P1”, for July – “Q1:P2”, etc.
+It simply calculates fiscal month and quarter and returns a string value. For June, the first month of the first fiscal quarter, we use “Q1:P1”. For July, we use “Q1:P2”, and so on.
 
-This is a regular C# function that we are going to use our U-SQL project.
+This is a regular C# function that we are going to use in our U-SQL project.
 
-Here is how the code-behind section looks in this scenario
+Here is how the code-behind section looks in this scenario:
 
 ```c#
 using Microsoft.Analytics.Interfaces;
@@ -640,13 +640,13 @@ namespace USQL_Programmability
 }
 ```
 
-Now we are going to call this function from the base U-SQL script. To do this, we have to provide a fully qualified name of the function, including name space – NameSpace.Class.Function(parameter)
+Now we are going to call this function from the base U-SQL script. To do this, we have to provide a fully-qualified name for the function, including the namespace, which in this case is NameSpace.Class.Function(parameter).
 
 ```sql
     USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
 ```
 
-Here is the actual U-SQL base script
+Following is the actual U-SQL base script:
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -676,7 +676,7 @@ DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-Here is the output file of the script execution
+Following is the output file of the script execution:
 
 ```
 0d8b9630-d5ca-11e5-8329-251efa3a2941,2016-02-11T07:04:17.2630000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User1",""
@@ -689,19 +689,19 @@ Here is the output file of the script execution
 This example demonstrates a simple usage of inline UDF in U-SQL.
 
 ### Keep state between UDF invocations
-U-SQL C# programmability objects can be more sophisticated utilizing interactivity through the Code-behind global variables. Let’s look at the following business use case scenario:
+U-SQL C# programmability objects can be more sophisticated utilizing interactivity through the code-behind global variables. Let’s look at the following business use-case scenario:
 
-In large organizations, users can switch between varieties of internal applications. This may include Microsoft Dynamics CRM, PowerBI, etc. Customer wants to apply a telemetry analysis of how users switching between different applications, what is the usage trend and so on. The end goal for business is to optimize application usage. Possibly combine different applications or specific sign-on routines.
+In large organizations, users can switch between varieties of internal applications. These can include Microsoft Dynamics CRM, PowerBI, and so on. Customers might want to apply a telemetry analysis of how users switch between different applications, what the usage trends are, and so on. The end goal for the business is to optimize application usage. They also might want to combine different applications or specific sign-on routines.
 
 To achieve this goal, we have to determine a session IDs and lag time between last occurred sessions.
 
-We need to find a previous logon and then assign this logon to all sessions that being generated to the same application. The first challenge is that U-SQL base script will not allow us to apply calculations over already calculated column with LAG function. The second challenge is that we have to keep the specific session for all sessions within the same time period.
+We need to find a previous sign-in and then assign this sign-in to all sessions that are being generated to the same application. The first challenge is that U-SQL base script doesn't allow us to apply calculations over already-calculated columns with LAG function. The second challenge is that we have to keep the specific session for all sessions within the same time period.
 
-To solve this problem, we are going to use a Global Variable inside Code-behind section - `static public string globalSession;`.
+To solve this problem, we use a Global Variable inside a code-behind section: `static public string globalSession;`.
 
-This Global Variable is applied to the entire rowset during our script execution.
+This global variable is applied to the entire rowset during our script execution.
 
-Here is the Code-behind section of our U-SQL program
+Here is the code-behind section of our U-SQL program:
 
 ```c#
 using Microsoft.Analytics.Interfaces;
@@ -793,7 +793,7 @@ ORDER BY UserName, EventDateTime ASC
 USING Outputters.Csv();
 ```
 
-Function `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` is called here during second Memory Rowset calculation. It passes `UserSessionTimestamp` column and returns the value until is `UserSessionTimestamp` changed.
+Function `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` is called here during the second memory rowset calculation. It passes the `UserSessionTimestamp` column and returns the value until `UserSessionTimestamp` has changed.
 
 The output file
 
@@ -822,17 +822,17 @@ The output file
 "2016-02-19T01:20:31.4800000-08:00","User4","2016-02-18T14:37:27.6560000-08:00",False,"2136f4cf-7c7d-43c1-8ae2-08f4ad6a6e08"
 ```
 
-This example demonstrates a more complicated use case scenario when we use a Global Variable inside code-behind section applied to entire Memory Rowset.
+This example demonstrates a more complicated use-case scenario in which we use a global variable inside a code-behind section that's applied to the entire memory rowset.
 
-## Use user-defined types - UDT
+## Use user-defined types: UDT
 User-Defined Types or UDT is another programmability feature of U-SQL. U-SQL UDT acts like a regular C# user-defined type. C# is a strongly typed language that allows the use of built-in and custom user-defined types.
 
-U-SQL cannot implicitly serialize/de-serialize arbitrary UDTs while the UDT is passed between vertices in rowsets. Thus the user has to provide an explicit formatter using the IFormatter interface. This will provide U-SQL with the serialize and de-serialize methods for the UDT.
+U-SQL cannot implicitly serialize or de-serialize arbitrary UDTs when the UDT is passed between vertices in rowsets. This means that the user has to provide an explicit formatter by using the IFormatter interface. This provides U-SQL with the serialize and de-serialize methods for the UDT.
 
 > [!NOTE]
-> U-SQL’s built-in extractors and outputters currently cannot serialize/de-serialize UDT data to/from files even with the IFormatter set.  Thus when writing UDT data to a file with the OUTPUT statement or reading it with an extractor, the user has to pass it as a string or byte array and call the serialization and deserialization code (e.g., the UDT’s ToString() method) explicitly. User-defined extractors and outputters on the other hand can read and write UDTs.
+> U-SQL’s built-in extractors and outputters currently cannot serialize or de-serialize UDT data to or from files even with the IFormatter set. So when you're writing UDT data to a file with the OUTPUT statement, or reading it with an extractor, the user has to pass it as a string or byte array, and then call the serialization and deserialization code (that is, the UDT’s ToString() method) explicitly. User-defined extractors and outputters, on the other hand, can read and write UDTs.
 
-If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT)
+If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as shown here:
 
 ```sql
 @rs1 =
@@ -842,7 +842,7 @@ If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT)
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-we receive the following error
+We receive the following error:
 
 ```
 	Error	1	E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
@@ -859,7 +859,7 @@ we receive the following error
 	USQL-Programmability\Types.usql	52	1	USQL-Programmability
 ```
 
-To work with UDT in Outptutter, we either have to serialize it to string with ToString() method, you create a custom Outputter.
+To work with UDT in outptutter, we either have to serialize it to string with the ToString() method or create a custom outputter.
 
 UDTs currently cannot be used in GROUP BY. If UDT is used in GROUP BY, the following error is thrown:
 
@@ -880,26 +880,26 @@ UDTs currently cannot be used in GROUP BY. If UDT is used in GROUP BY, the follo
 
 To define a UDT, we have to:
 
-* Add the following name spaces
+* Add the following namespaces:
 
 ```c#
 	using Microsoft.Analytics.Interfaces
 	using System.IO;
 ```
 
-* `Microsoft.Analytics.Interfaces` required for the UDT interfaces and `System.IO` may be needed to define IFormatter interface
+* `Microsoft.Analytics.Interfaces` is required for the UDT interfaces and `System.IO` might be needed to define IFormatter interface.
 
-* Define Used Defined Type with SqlUserDefinedType attribute
+* Define used-defined type with SqlUserDefinedType attribute.
 
 **SqlUserDefinedType** is used to mark a type definition in an assembly as a user-defined type (UDT) in U-SQL. The properties on the attribute reflect the physical characteristics of the UDT. This class cannot be inherited.
 
 SqlUserDefinedType is a required attribute for UDT definition.
 
-The constructor of the class  
+The constructor of the class:  
 
-* SqlUserDefinedTypeAttribute(Type formatter)
+* SqlUserDefinedTypeAttribute (type formatter)
 
-* Type formatter – required parameter to define an UDT formatter. Specifically type of the `IFormatter` interface
+* Type formatter: Required parameter to define an UDT formatter--specifically, the type of the `IFormatter` interface.
 	has to be passed here.
 
 ```c#
@@ -910,7 +910,7 @@ The constructor of the class
            }
 ```
 
-* Typical UDT will also require definition of IFormatter interface
+* Typical UDT also requires definition of the IFormatter interface, as shown in the following example:
 
 ```c#
        public class MyTypeFormatter : IFormatter<MyType>
@@ -929,27 +929,27 @@ The constructor of the class
         }
 ```
 
-`IFormatter` interface to serialize and de-serialize an object graph with the root type of \<typeparamref name="T">.
+`IFormatter` interface serializes and de-serializes an object graph with the root type of \<typeparamref name="T">.
 
 \<typeparam name="T">The root type for the object graph to serialize and de-serialize.
 
-* Deserialize – de-serialize the data on the provided stream and reconstitutes the graph of objects.
+* Deserialize: De-serializes the data on the provided stream and reconstitutes the graph of objects.
 
-* Serialize – serializes an object, or graph of objects with the given root to the provided stream.
+* Serialize: Serializes an object, or graph of objects, with the given root to the provided stream.
 
-`MyType` instance – instance of the type  
-`IColumnWriter` writer / `IColumnReader` reader – the underlying column stream.  
-`ISerializationContext` context – enum that defines a set of flags that specifies the source or destination context for the stream during serialization.
+`MyType` instance: Instance of the type.  
+`IColumnWriter` writer / `IColumnReader` reader: The underlying column stream.  
+`ISerializationContext` context: Enum that defines a set of flags that specifies the source or destination context for the stream during serialization.
 
-   * *Intermediate* - specifies that the source or destination context is not a persisted store
+   * *Intermediate*: Specifies that the source or destination context is not a persisted store.
 
-   * *Persistence* - specifies that the source or destination context is a persisted store
+   * *Persistence*: Specifies that the source or destination context is a persisted store.
 
-As a regular C# type, U-SQL UDT definition may include overrides for operators such as +/==/!=, etc. Can include static methods and so on. For example, if we are going to use this UDT as a parameter to U-SQL MIN aggregate function, we have to define < operator override.
+As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=. It can also include static methods. For example, if we are going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.
 
-Earlier in this guide we demonstrated an example for fiscal period identification from the specific date in format of Qn:Pn (Q1:P10). The following example shows how to define a custom type for fiscal period values.
+Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format Qn:Pn (Q1:P10). The following example shows how to define a custom type for fiscal period values.
 
-Code-behind section with custom UDT and IFormatter interface for it:
+Code-behind section with custom UDT and IFormatter interface:
 
 ```c#
         [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
@@ -1050,11 +1050,11 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
         }
 ```
 
-The defined type includes two numbers – Quarter and Month. Operators ==/!=/>/< and static method ToString() are defined here.
+The defined type includes two numbers: quarter and month. Operators ==/!=/>/< and static method ToString() are defined here.
 
-As mentioned earlier, UDT can be used in SELECT expression, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with ToString() or used with custom OUTPUTTER/EXTRACTOR.
+As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with ToString() or used with custom OUTPUTTER/EXTRACTOR.
 
-Now let’s discuss usage of UDT. In Code Behind section, we changed our GetFiscalPeriod function to
+Now let’s discuss usage of UDT. In a code-behind section, we changed our GetFiscalPeriod function to the following:
 
 ```c#
         public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
@@ -1091,9 +1091,9 @@ Now let’s discuss usage of UDT. In Code Behind section, we changed our GetFisc
         }
 ```
 
-As you can see, it returns value of our FiscalPeriod type.
+As you can see, it returns the value of our FiscalPeriod type.
 
-Here is how we use it further in U-SQL base script. This example demonstrates different ways of UDT invocation from U-SQL script.
+Here we show how to use it further in U-SQL base script. This example demonstrates different forms of UDT invocation from U-SQL script.
 
 ```sql
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
@@ -1135,7 +1135,7 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
 OUTPUT @rs2 TO @output_file USING Outputters.Text();
 ```
 
-Full Code behind section:
+Full code-behind section:
 
 ```c#
 using Microsoft.Analytics.Interfaces;
@@ -1296,10 +1296,10 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## Use user-defined aggregates – UDAGG
-User-defined aggregates are any aggregation-related functions that are not shipped out of the box with U-SQL. The example can be an aggregate to perform a custom math calculation, perform string concatenations or manipulations with strings, etc.
+## Use user-defined aggregates: UDAGG
+User-defined aggregates are any aggregation-related functions that are not shipped out of the box with U-SQL. The example can be an aggregate to perform a custom math calculation, perform string concatenations, or manipulations with strings, and so on.
 
-User-defined aggregate base class definition is
+The user-defined aggregate base class definition is as follows:
 
 ```c#
     [SqlUserDefinedAggregate]
@@ -1318,7 +1318,7 @@ User-defined aggregate base class definition is
 SqlUserDefinedType attribute is **optional** for UDAGG definition
 
 
-The base class allows you to pass three abstract parameters – two input ones and one the result. The data types are variable and should be defined during class inheritance.
+The base class allows you to pass three abstract parameters: two as input parameters and one as the result. The data types are variable and should be defined during class inheritance.
 
 ```c#
     public class GuidAggregate : IAggregate<string, string, string>
@@ -1343,11 +1343,11 @@ The base class allows you to pass three abstract parameters – two input ones a
     }
 ```
 
-* Init provides initialization routine for each aggregation group. It invokes once for each group during computation.
-* Accumulate – executed once for each value. Provides main functionality for the aggregation algorithm. Can be used to aggregate values with various data types defined during class inheritance. Can accept two parameters of variable data types.
-* Terminate - executed once per aggregation group at the end of processing to output the result for each group
+* **Init** invokes once for each group during computation. It provides an initialization routine for each aggregation group.  
+* **Accumulate** is executed once for each value. It provides the main functionality for the aggregation algorithm. It can be used to aggregate values with various data types that are defined during class inheritance. It can accept two parameters of variable data types.
+* **Terminate** is executed once per aggregation group at the end of processing to output the result for each group.
 
-To declare a correct input and output data types, use class definition
+To declare correct input and output data types, use class definition as follows:
 
 ```c#
 	public abstract class IAggregate<T1, T2, TResult> : IAggregate
@@ -1357,7 +1357,7 @@ To declare a correct input and output data types, use class definition
 * T2 – first parameter to Accumulate
 * TResult – return type of Terminate
 
-for example
+For example:
 
 ```c#
 	public class GuidAggregate : IAggregate<string, int, int>
@@ -1370,15 +1370,15 @@ or
 ```
 
 ### Use UDAGG in U-SQL
-To use UDAGG, first define it in code behind or reference it from the existent programmability DLL as discussed earlier.
+To use UDAGG, first define it in code-behind or reference it from the existent programmability DLL as discussed earlier.
 
-Then use the following syntax
+Then use the following syntax:
 
 ```c#
     AGG<UDAGG_functionname>(param1,param2)
 ```
 
-Here is the example of UDAGG
+Here is an example of UDAGG:
 
 ```c#
     public class GuidAggregate : IAggregate<string, string, string>
@@ -1405,8 +1405,8 @@ Here is the example of UDAGG
 
     }
 ```
-
-and base U-SQL script
+;
+And base U-SQL script:
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1430,12 +1430,12 @@ DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-In this use case scenario, we concatenate class GUIDs for the specific users.
+In this use-case scenario, we concatenate class GUIDs for the specific users.
 
-## Use user-defined objects – UDO
-U-SQL provides an ability to define custom programmability objects, which called user-defined objects or UDO.
+## Use user-defined objects: UDO
+U-SQL provides the ability to define custom programmability objects, which are called user-defined objects or UDO.
 
-The following list of UDO in U-SQL
+The following is a list of UDO in U-SQL:
 
 * User-defined extractors
 	* Extract row by row
@@ -1443,24 +1443,24 @@ The following list of UDO in U-SQL
 
 * User-defined outputters
 	* Output row by row
-	* Used to Output custom data types or to custom file format
+	* Used to output custom data types or to custom file format
 
 * User-defined processors
 	* Take one row and produce one row
-	* Used to reduce number of columns or produce new column with values derived from existent column set
+	* Used to reduce the number of columns or produce new columns with values derived from existent column set
 
 * User-defined appliers
 	* Take one row and produce 0 to n rows
 	* Used with OUTER/CROSS APPLY
 
 * User-defined combiners
-	* Combines rowsets – user-defined JOINs
+	* Combines rowsets--user-defined JOINs
 
 * User-defined reducers
 	* Take n rows and produce one row
 	* Used to reduce number of rows
 
-UDO typically called explicitly in U-SQL script as part of the following U-SQL statements:
+UDO is typically called explicitly in U-SQL script as part of the following U-SQL statements:
 
 * EXTRACT
 * OUTPUT
@@ -1469,7 +1469,7 @@ UDO typically called explicitly in U-SQL script as part of the following U-SQL s
 * REDUCE
 
 ## Use user-defined extractors
-U-SQL allows you to import external data by using EXTRACT statement. The EXTRACT statement can use built-in UDO extractors  
+U-SQL allows you to import external data by using an EXTRACT statement. An EXTRACT statement can use built-in UDO extractors:  
 
 * *Extractors.Text()*: Provides extraction from delimited text files of different encodings.
 
@@ -1478,13 +1478,13 @@ different encodings.
 
 * *Extractors.Tsv()*: Provides extraction from tab-separated value (TSV) files of different encodings.
 
-However, it can be useful to develop a custom extractor. This can be helpful during data import if we want to
+However, it can be useful to develop a custom extractor. This can be helpful during data import if we want to do any of the following tasks:
 
-* Modify input data by splitting columns, modifying individual values. Combining columns is better to achieve by using PROCESSOR functionality.
-* Parse unstructured such as Web pages/Emails r or semi-unstructured data such as XML/JSON.
-* Parse data in unsupported encoding
+* Modify input data by splitting columns and  modifying individual values. The PROCESSOR functionality is better for combining columns.
+* Parse unstructured data such as Web pages and emails or semi-unstructured data such as XML/JSON.
+* Parse data in unsupported encoding.
 
-To define a user-defined extractor, or UDE, we need to create `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, encoding, etc., needs to be defined in the constructor of the class. The `IExtractor`  interface should also contain definition for `IEnumerable<IRow>` override
+To define a user-defined extractor, or UDE, we need to create `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for `IEnumerable<IRow>` override as follows:
 
 ```c#
      [SqlUserDefinedExtractor]
@@ -1539,17 +1539,17 @@ Then, further split input row into column parts.
 	}
 ```
 
-To set output data, we use `output.Set` method
+To set output data, we use the `output.Set` method.
 
-It is important to understand that custom extractor will only output columns/values defined with output. Set method call.
+It's important to understand that the custom extractor only outputs columns and values that are defined with output. Set method call.
 
 ```c#
 	output.Set<string>(count, part);
 ```
 
-The actual extractor output is triggered by calling to `yield return output.AsReadOnly();`.
+The actual extractor output is triggered by calling `yield return output.AsReadOnly();`.
 
-Here is the extractor example
+Following is the extractor example:
 
 ```c#
     [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
@@ -1608,9 +1608,9 @@ Here is the extractor example
      }
 ```
 
-In this use case scenario, the extractor regenerates GUID for “guid” column and converts the values of “user” column to UPPER case. Custom extractors can produce more complicated results by parsing input data and manipulating with it.
+In this use-case scenario, the extractor regenerates GUID for “guid” column and converts the values of “user” column to UPPER case. Custom extractors can produce more complicated results by parsing input data and manipulating it.
 
-Base U-SQL script that uses a custom extractor
+Following is base U-SQL script that uses a custom extractor:
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1629,22 +1629,22 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ```
 
 ## Use user-defined outputters
-User-defined outputter is another U-SQL UDO that allows to extend a built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
+User-defined outputter is another U-SQL UDO that allows you to extend a built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
 
 * *Outputters.Text()*: Writes data to delimited text files of different encodings.
 * *Outputters.Csv()*: Writes data to comma-separated value (CSV) files of
 different encodings.
 * *Outputters.Tsv()*: Writes data to tab-separated value (TSV) files of different encodings.
 
-Custom outputter allows you to write data in a custom defined format. This can be useful for
+Custom outputter allows you to write data in a custom defined format. This can be useful for the following tasks:
 
-* Writing data to semi-structured or unstructured files
-* Writing data not supported encodings
-* Modifying output data or adding custom attributes
+* Writing data to semi-structured or unstructured files.
+* Writing data not supported encodings.
+* Modifying output data or adding custom attributes.
 
-To define user-defined outputter, we need to create `IOutputter` interface
+To define user-defined outputter, we need to create the `IOutputter` interface.
 
-Base `IOutputter` class implementation
+Following is the base `IOutputter` class implementation:
 
 ```c#
     public abstract class IOutputter : IUserDefinedOperator
@@ -1656,7 +1656,7 @@ Base `IOutputter` class implementation
     }
 ```
 
-All input parameters to the outputter, such as column/row delimiters, encoding, etc., needs to be defined in the constructor of the class. The `IOutputter` interface should also contain definition for `void Output` override. The attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can be optionally set for atomic file processing – please see the details below.
+All input parameters to the outputter, such as column/row delimiters, encoding, and so on,  needs to be defined in the constructor of the class. The `IOutputter` interface should also contain definition for `void Output` override. The attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can be optionally set for atomic file processing – please see the details below.
 
 ```c#
         [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1680,9 +1680,9 @@ All input parameters to the outputter, such as column/row delimiters, encoding, 
         }
 ```
 
-* `Output` called for each input row. Returns the `IUnstructuredWriter output` rowset
-* Constructor class is used to pass parameters to the user-defined outputter
-* `Close` optionally override to release expensive state or know when the last row has been written
+* `Output` is called for each input row. Returns the `IUnstructuredWriter output` rowset.
+* The Constructor class is used to pass parameters to the user-defined outputter.
+* `Close` optionally override to release expensive state or know when the last row has been written.
 
 **SqlUserDefinedOutputter** attribute indicates that the type should be registered as a user-defined outputter. This class cannot be inherited.
 
@@ -1697,13 +1697,13 @@ The main programmability objects are *row* and *output*. *row* object is used to
 
 The output data is accessed through the `IRow` interface. Output data is passed a row at a time.
 
-The individual values are enumerated by calling Get method of IRow interface.
+The individual values are enumerated by calling Get method of IRow interface:
 
 ```c#
 	row.Get<string>("column_name")
 ```
 
-Individual column names can be determined by calling to `row.Schema`
+Individual column names can be determined by calling `row.Schema`:
 
 ```c#
 	ISchema schema = row.Schema;
@@ -1713,9 +1713,9 @@ Individual column names can be determined by calling to `row.Schema`
 
 This approach allows you to build a flexible outputter for any metadata schema.
 
-The output data is written to file by using `System.IO.StreamWriter` with stream parameter set to `output.BaseStrea` as part of `IUnstructuredWriter output`
+The output data is written to file by using `System.IO.StreamWriter` with the stream parameter set to `output.BaseStrea` as part of `IUnstructuredWriter output`.
 
-The important note – to flush data buffer to file after each row iteration, `StreamWriter` object must be used with Disposable attribute enabled(default) and *using* keyword
+Note that it's important to flush the data buffer to the file after each row iteration. In addition, the `StreamWriter` object must be used with the Disposable attribute enabled(default) and with the *using* keyword:
 
 ```c#
 	using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
@@ -1724,7 +1724,7 @@ The important note – to flush data buffer to file after each row iteration, `S
             }
 ```
 
-Otherwise, call Flush() method explicitly after each iteration – this is demonstrated further in this example:
+Otherwise, call Flush() method explicitly after each iteration. We demonstrate this further in the following example example.
 
 ### Set headers and footers for user-defined outputter
 To set a header, use single iteration execution flow.
@@ -1750,9 +1750,9 @@ To set a header, use single iteration execution flow.
 
 The code in first `if (isHeaderRow)` block is executed only once.
 
-For the footer, use reference to the instance of `System.IO.Stream` object (`output.BaseStream`) and write footer in Close() method of `IOutputter` interface – see example below.
+For the footer, use the reference to the instance of `System.IO.Stream` object (`output.BaseStream`) and write footer inthe  Close() method of `IOutputter` interface.  (For more information, see the following example.)
 
-Here is the example of user-defined Outputter
+Here an the example of a user-defined outputter:
 
 ```c#
         [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1773,7 +1773,7 @@ Here is the example of user-defined Outputter
                 this.encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
             }
 
-            // Close method is used to write footer to file - executed only once after all rows
+            // The Close method is used to write the footer to the file. It's executed only once, after all rows
             public override void Close()
             {
                 //Reference to IO.Stream object - g_writer
@@ -1790,7 +1790,7 @@ Here is the example of user-defined Outputter
                 // Metadata schema initialization to enumerate column names
                 ISchema schema = row.Schema;
 
-                // This is data independent header - HTML table definition
+                // This is a data-independent header--HTML table definition
                 if (IsTableHeader)
                 {
                     streamWriter.Write("<table border=1>");
@@ -1803,7 +1803,7 @@ Here is the example of user-defined Outputter
                 string data_wrapper_on = "<td>";
                 string data_wrapper_off = "</td>";
 
-                // Header row output - runs only once
+                // Header row output--runs only once
                 if (isHeaderRow)
                 {
                     streamWriter.Write("<tr>");
@@ -1823,7 +1823,7 @@ Here is the example of user-defined Outputter
                     string val = "";
                     try
                     {
-                        // Data type enumeration - require to match the distinct list of types form OUTPUT statement
+                        // Data type enumeration--required to match the distinct list of types from OUTPUT statement
                         switch (col.Type.Name.ToString().ToLower())
                         {
                             case "string": val = row.Get<string>(col.Name).ToString(); break;
@@ -1831,7 +1831,7 @@ Here is the example of user-defined Outputter
                             default: break;
                         }
                     }
-                    // Hnadling NULL values - keeping them empty
+                    // Handling NULL values--keeping them empty
                     catch (System.NullReferenceException)
                     {
                     }
@@ -1859,7 +1859,7 @@ Here is the example of user-defined Outputter
         }
 ```
 
-and U-SQL base script
+And U-SQL base script:
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1877,7 +1877,7 @@ DECLARE @output_file string = @"\usql-programmability\output_file.html";
 OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-This is an HTML outputter – creates HTML file with table data.
+This is an HTML outputter, which creates an HTML file with table data.
 
 ### Call outputter from U-SQL base script
 To call a custom outputter from the base U-SQL script, the new instance of the outputter object has to be created.
@@ -1886,7 +1886,7 @@ To call a custom outputter from the base U-SQL script, the new instance of the o
 OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-To avoid creating an instance of the object in base script, we can create a function wrapper. From above
+To avoid creating an instance of the object in base script, we can create a function wrapper. From our earlier example:
 
 ```c#
         // Define the factory classes
@@ -1899,18 +1899,18 @@ To avoid creating an instance of the object in base script, we can create a func
         }
 ```
 
-In this case, the original call looks like
+In this case, the original call looks like the following:
 
 ```sql
 OUTPUT @rs0 TO @output_file USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
 ## Use user-defined processors
-User-defined processor or UDP is a type of U-SQL UDO that allows to process the incoming rows by applying programmability features. UDP allows you to combine columns, modify values, add new columns if necessary. Basically it helps to process a rowset to produce required data elements.
+User-defined processor, or UDP, is a type of U-SQL UDO that enables you to process the incoming rows by applying programmability features. UDP enables you to combine columns, modify values, and add new columns if necessary. Basically, it helps to process a rowset to produce required data elements.
 
-To define a UDP, we need to create `IProcessor` interface with `SqlUserDefinedProcessor` attribute, which is optional for UDP.
+To define a UDP, we need to create an `IProcessor` interface with the `SqlUserDefinedProcessor` attribute, which is optional for UDP.
 
-This interface should contain definition for `IRow` interface rowset override
+This interface should contain the definition for the `IRow` interface rowset override, as shown in the following example:
 
 ```c#
     [SqlUserDefinedProcessor]
@@ -1925,21 +1925,21 @@ This interface should contain definition for `IRow` interface rowset override
 
 **SqlUserDefinedProcessor** indicates that the type should be registered as a user-defined processor. This class cannot be inherited.
 
-SqlUserDefinedProcessor attribute is **optional** for UDP definition
+SqlUserDefinedProcessor attribute is **optional** for UDP definition.
 
-The main programmability objects are *input* and *output*. Input object is used to enumerate input columns and Output – to set output data as a result of the processor activity.
+The main programmability objects are *input* and *output*. Input object is used to enumerate input columns and Output, and to set output data as a result of the processor activity.
 
-For input columns enumeration, we use `input.Get` method
+For input columns enumeration, we use the `input.Get` method.
 
 ```c#
 	string column_name = input.Get<string>("column_name");
 ```
 
-The parameter to `input.Get` method is a column passed as part of `PRODUCE` clause of` PROCESS` statement of the U-SQL base script. We need to use the correct data type here.
+The parameter for `input.Get` method is a column that's passed as part of the `PRODUCE` clause of the `PROCESS` statement of the U-SQL base script. We need to use the correct data type here.
 
 For output – output.Set method
 
-It is important to understand that custom producer will only output columns/values defined with output.Set method call.
+It is important to understand that custom producer will only output columns and values that are defined with output.Set method call.
 
 ```c#
 	output.Set<string>("mycolumn", mycolumn);
@@ -1947,7 +1947,7 @@ It is important to understand that custom producer will only output columns/valu
 
 The actual processor output is triggered by calling to `return output.AsReadOnly()`;
 
-Here is a processor example
+Following is a processor example:
 
 ```c#
      [SqlUserDefinedProcessor]
@@ -1967,7 +1967,7 @@ Here is a processor example
      }
 ```
 
-In this use case scenario, the processor is generating new column “full_description” by combining the existent ones – “user” in upper case and “des”. It also regenerates a guid and returns the original and new guid values.
+In this use-case scenario, the processor is generating new column “full_description” by combining the existent ones – “user” in upper case and “des”. It also regenerates a guid and returns the original and new guid values.
 
 As you can see from above, you can call on C# methods during output.Set call.
 
