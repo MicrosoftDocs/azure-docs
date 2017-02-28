@@ -116,7 +116,7 @@ As an example, for six VMs with the values shown in the table, the tool calculat
     > IOPS on standard and premium storage are calculated at the VM level, and not at disk level. A standard virtual machine can handle up to 500 IOPS per disk. If IOPS for a disk are greater than 500, you need premium storage. However, if IOPS for a disk are more than 500, but IOPS for the total VM disks are within the support standard Azure VM limits (VM size, number of disks, number of adapters, CPU, memory), then the planner picks a standard VM and not the DS or GS series. You need to manually update the mapping Azure size cell with appropriate DS or GS series VM.
 
 
-1. After all the details are in place, click **Submit data to the planner tool** to open the **Capacity Planner** Workloads are highlighted, to show whether they're eligible for protection or not.
+After all the details are in place, click **Submit data to the planner tool** to open the **Capacity Planner** Workloads are highlighted, to show whether they're eligible for protection or not.
 
 ### Submit data in the Capacity Planner
 1. When you open the **Capacity Planner** worksheet it's populated based on the settings you've specified. The word 'Workload' appears in the **Infra inputs source** cell, to show that the input is the **Workload Qualification** worksheet.
