@@ -29,7 +29,7 @@ Read the [Virtual Network overview](virtual-networks-overview.md) article if you
 
 1. [Create a VNet with two subnets](#create-vnet)
 2. [Create two VMs, each with one network interface (NIC)](#create-vms), and associate a network security group (NSG) to each NIC
-3. [Communicate to and from the VMs](#communicate-with-vms)
+3. [Connect to and from the VMs](#connect-to-from-vms)
 4. [Delete all resources](#delete-resources). You incur charges for some of the resources created in this exercise while they're provisioned. To minimize the charges, after you complete the exercise, be sure to complete the steps in this section to delete the resources you create.
 
 Upon completion of this exercise, you will have a basic understanding of how you can use a VNet. Next steps are provided so you can learn more about how to use VNets at a deeper level.
@@ -93,7 +93,7 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 	|**Setting**| **Value**|**Details**|
 	|---|---|---|
-	|**Name**|*MyWebServer*|This VM serves as a web server that the Internet communicates with.|
+	|**Name**|*MyWebServer*|This VM serves as a web server that Internet resources communicate with.|
 	|**VM disk type**|*SSD*|
 	|**User name**|*Your choice*|
 	|**Password and Confirm password**|*Your choice*|
@@ -107,25 +107,25 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 	|**Setting**|**Value**|**Details**|
 	|---|---|---|
 	|**Storage: Use managed disks**|*Yes*||
-	|**Virtual network**| Select *MyVNet*|You can select any VNet that exists in the same location as the VM you’re creating. To learn more about VNets and subnets, read the [Virtual network](virtual-networks-overview.md) article t.|
+	|**Virtual network**| Select *MyVNet*|You can select any VNet that exists in the same location as the VM you’re creating. To learn more about VNets and subnets, read the [Virtual network](virtual-networks-overview.md) article.|
 	|**Subnet**|Select *Front-end*|You can select any subnet that exists within the VNet.|
 	|**Public IP address**|Accept the default|A public IP address enables you to connect to the VM from the Internet. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.|
 	|**Network security group (firewall)**|Accept the default|Click the **(new) MyWebServer-nsg** default NSG the portal created to view its settings. In the **Create network security group** blade that opens, notice that it has one inbound rule that allows TCP/3389 (RDP) traffic from any source IP address.|
 	|**All other values**|Accept the defaults|To learn more about the remaining settings, read the [About VMs](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.|
 
-	Network security groups (NSG) enable you to create inbound/outbound rules for the type of network traffic that can flow to and from the VM. By default, all inbound traffic to the VM is denied. For production use, you might add additional inbound rules for TCP/80 (HTTP) and TCP/443 (HTTPS) for a web server. There is no rule for outbound traffic because by default, all outbound traffic is allowed. You can add/remove rules to control traffic per your policies. Read the [Network security groups](virtual-networks-nsg.md) article to learn more about NSGs. 
+	Network security groups (NSG) enable you to create inbound/outbound rules for the type of network traffic that can flow to and from the VM. By default, all inbound traffic to the VM is denied. You might add additional inbound rules for TCP/80 (HTTP) and TCP/443 (HTTPS) for a production web server. There is no rule for outbound traffic because by default, all outbound traffic is allowed. You can add/remove rules to control traffic per your policies. Read the [Network security groups](virtual-networks-nsg.md) article to learn more about NSGs.
 
 6.  In the **Summary** blade, review the settings and click **OK** to create the VM. A status tile is displayed on the portal dashboard as the VM creates. It may take a few minutes to create. You don’t need to wait for it to complete. You can continue to the next step while the VM is created.
 
 ### <a name="create-dabase-server-vm"></a>Create the database server VM
 
-1.  In the Favorites pane, click **NewComputeWindows Server 2016 Datacenter**.
+1.  In the Favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
 2.  In the **Windows Server 2016 Datacenter** blade, click **Create**.
 3.  In the **Basics blade**, enter or select the following values and click **OK**:
 
 	|**Setting**|**Value**|**Details**|
 	|---|---|---|
-	|**Name**|*MyDBServer*|This VM serves as a database server that the web server communicates with, but that the Internet cannot communicate with.|
+	|**Name**|*MyDBServer*|This VM serves as a database server that the web server communicates to, but that the Internet cannot communicate to.|
 	|**VM disk type**|*SSD*||
 	|**User name**|Your choice||
 	|**Password and Confirm password**|Your choice||
@@ -142,7 +142,7 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 	|**Virtual network**|Select *MyVNet*|You can select any VNet that exists in the same location as the VM you’re creating.|
 	|**Subnet**|Select *Back-end* by clicking on the Subnet box, then selecting **Back-end** from the **Choose a subnet** blade|You can select any subnet that exists within the VNet.|
 	|**Public IP address**|None – Click the default address, then click **None** from the **Choose public IP address** blade|Without a public IP address, you can only connect to the VM from another VM connected to the same VNet. You cannot connect to it directly from the Internet.|
-	|**Network security group (firewall)**|Accept the default| Like the default NSG created for the MyWebServer VM, this NSG also has the same default inbound rule.|
+	|**Network security group (firewall)**|Accept the default| Like the default NSG created for the MyWebServer VM, this NSG also has the same default inbound rule. You might add an additional inbound rule for TCP/1433 (MS SQL) for a database server. There is no rule for outbound traffic because by default, all outbound traffic is allowed. You can add/remove rules to control traffic per your policies.|
 	|**All other values**|Accept the defaults||
 
 6.  In the **Summary** blade, review the settings and click **OK** to create the VM. A status tile is displayed on the portal dashboard as the VM creates. It may take a few minutes to create. You don’t need to wait for it to complete. You can continue to the next step while the VM is created.
@@ -160,7 +160,7 @@ Though you created one VNet and two VMs, the Azure portal created several additi
 
 Read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles to learn more about those resources. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to communicate with other resources over the VNet. Read the [NIC](virtual-network-network-interface-overview.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. Read the [IP addresses(virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article to learn more about public IP addresses.
 
-##<a name="communicate-with-vms"></a>VM communication
+##<a name="connect-to-from-vms"></a>VM communication
 
 With your VNet and two VMs created, you can now communicate with the VMs by completing the steps in the following sections:
 
@@ -176,7 +176,7 @@ Complete the following steps to connect to the MyWebServer VM from the Internet:
 
 4. Allow your browser to download the *MyWebServer.rdp* file, then open it.
 5. If you receive a dialog box informing you that the publisher of the remote connection cannot be verified, click **Connect**.
-6. When entering your credentials, ensure you login with the user name and password you specified in step 3 of the [Create the web server VM](#create-web-vm) section of this article. If the **Windows Security** box that appears doesn’t list the correct credentials, you may need to click **More choices**, then **Use a different account**, so you can specify the correct user name and password). Click **OK** to connect to the VM.
+6. When entering your credentials, ensure you login with the user name and password you specified in step 3 of the [Create the web server VM](#create-web-server-vm) section of this article. If the **Windows Security** box that appears doesn’t list the correct credentials, you may need to click **More choices**, then **Use a different account**, so you can specify the correct user name and password). Click **OK** to connect to the VM.
 7. If you receive a **Remote Desktop Connection** box informing you that the identity of the remote computer cannot be verified, click **Yes**.
 8. You are now connected to the MyWebServer VM from the Internet. Leave the remote desktop connection open to complete the steps in the next section.
 
@@ -210,13 +210,13 @@ Complete the following steps to connect to the MyDBServer VM from the MyWebServe
 1. If you don’t already have a remote connection to the MyWebServer VM open, make a remote connection to the VM by completing the steps in the [Connect to the MyWebServer VM from the Internet](#connect-from-internet) section of this article.
 2. Click the Start button in the lower-left corner of the Windows desktop, then start typing *remote desktop*. When the Start menu list displays **Remote Desktop Connection**, click it.
 3. In the **Remote Desktop Connection** dialog box, enter *MyDBServer* for the computer name and click **Connect**.
-4. Enter the user name and passwords you entered in step 3 of the [Create the database server VM](#create-database-vm) section of this article, then click **OK**.
+4. Enter the user name and passwords you entered in step 3 of the [Create the database server VM](#create-database-server-vm) section of this article, then click **OK**.
 5. If you receive a dialog box informing you that the identity of the remote computer cannot be verified, click **Yes**.
 6. Leave the remote desktop connection to both servers open to complete the steps in the next section.
 
 You were able to make the connection to the MyDBServer VM from the MyWebServer VM because:
 
-- TCP/3389 inbound connections are enabled for any source IP in the default NSG created in step 5 of the [Create the database server VM](#create-database-vm) section of this article.
+- TCP/3389 inbound connections are enabled for any source IP in the default NSG created in step 5 of the [Create the database server VM](#create-database-server-vm) section of this article.
 - You initiated the connection from the MyWebServer VM, which is connected to the same VNet as the MyDBServer VM. To communicate with a VM that doesn’t have a public IP address assigned to it, you must connect from another VM connected to the same VNet, even if the VM is connected to a different subnet.
 - Even though the VMs are connected to different subnets, Azure creates default routes that enable connectivity between subnets. You can override the default routes by creating your own however. Read the [User-defined routes](virtual-networks-udr-overview.md) article to learn more about routing in Azure.
 
