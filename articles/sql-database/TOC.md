@@ -58,7 +58,7 @@
 ## Migrate and move data
 ### Learn
 #### [Migrate a database](sql-database-cloud-migrate.md)
-#### [Transactional replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+#### [Export a database](sql-database-export.md)
 #### [Data sync](sql-database-get-started-sql-data-sync.md)
 #### [Copy a SQL database](sql-database-copy.md)
 ## Firewall rules, authentication, and authorization
@@ -66,13 +66,14 @@
 #### [Access control](sql-database-control-access.md)
 #### [Firewall](sql-database-firewall-configure.md)
 #### [Manage logins](sql-database-manage-logins.md)
+#### [Azure AD authentication](sql-database-aad-authentication.md)
 ### Do
 #### [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
 #### [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
 ## Secure and protect data
 ### Learn
 #### Auditing
-##### [Audit](sql-database-auditing-get-started.md)
+##### [Audit](sql-database-auditing.md)
 ##### [Downlevel clients support and IP endpoint changes for auditing](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
 #### [Threat detection](sql-database-threat-detection-get-started.md)
 #### Encrypt data
@@ -83,7 +84,10 @@
 ##### Dynamic data masking
 ###### [Azure portal](sql-database-dynamic-data-masking-get-started.md)
 ### Do
-#### [Dynamic data masking using the Azure portal](sql-database-dynamic-data-masking-get-started.md)
+#### [Dynamic data masking using the Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+### [Configure auditing in the Azure portal](sql-database-auditing-portal.md)
+### [Configure auditing using PowerShell](sql-database-auditing-powershell.md)
+### [Configure auditing using the REST API](sql-database-auditing-rest.md)
 ##### [Always Encrypted using the Windows certificate store](sql-database-always-encrypted.md)
 ## Business continuity
 ### Learn
@@ -100,7 +104,7 @@
 #### [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
 #### [Active Geo-Replication overview](sql-database-geo-replication-overview.md)
 ### Do
-#### [Azure portal: Backup and restore](sql-database-get-started-backup-recovery.md)
+#### [Azure portal: Backup and restore](sql-database-get-started-backup-recovery-portal.md)
 #### [PowerShell: Backup and restore](sql-database-get-started-backup-recovery-powershell.md)
 ## App development
 ### Learn
@@ -193,20 +197,11 @@
 ##### [Manage using C#](sql-database-elastic-pool-manage-csharp.md)
 ##### [Manage using T-SQL](sql-database-elastic-pool-manage-tsql.md)
 ##  Authenticate and authorize
-### [Azure AD authentication](sql-database-aad-authentication.md)
+### [Configure Azure AD authentication](sql-database-aad-authentication-configure.md)
 ### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
 ## Encrypt data
 ### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
-## Migrate databases
-### Determine compatibility
-#### [Determine compatibility using the SQL Package utility](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [Determine compatibility using SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### Fix compatibility issues
-#### [Fix compatibility issues using SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-#### [Fix compatibility issues using SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [Fix compatibility issues using SMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [Migrate using the SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ## Monitor and tune
 ### [Query Performance Insight](sql-database-query-performance.md)
 ### [SQL Database Advisor](sql-database-advisor-portal.md)
@@ -231,15 +226,14 @@
 #### [Copy using PowerShell](sql-database-copy-powershell.md)
 #### [Copy using T-SQL](sql-database-copy-transact-sql.md)
 ### Export database to a BACPAC file
-#### [Export using the Azure portal](sql-database-export.md)
-#### [Export using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [Export using SQL Package utility](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [Export using the Azure portal](sql-database-export-portal.md)
+#### [Export using SQL Package utility](sql-database-export-sqlpackage.md)
 #### [Export using PowerShell](sql-database-export-powershell.md)
-### Import database from a BACPAC file
-#### [Import using the Azure portal](sql-database-import.md)
-#### [Import using PowerShell](sql-database-import-powershell.md)
-#### [Import using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [Import using SQL Package utility](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [Export using SSMS](sql-database-export-ssms.md)
+## Import data
+### [Import using the Azure portal](sql-database-import-portal.md)
+### [Import using PowerShell](sql-database-import-powershell.md)
+### [Import using SQLPackage](sql-database-import-sqlpackage.md)
 ### [Load from CSV file using BCP](sql-database-load-from-csv-with-bcp.md)
 ## Query
 ### [Query using SSMS](sql-database-connect-query-ssms.md)
@@ -255,7 +249,9 @@
 ### Point in time restore
 #### [Restore to a point in time](sql-database-point-in-time-restore.md)
 #### [View oldest restore point](sql-database-view-oldest-restore-point.md)
-### [Restore from geo-redundant backup](sql-database-geo-restore.md)
+### Restore from geo-redundant backup
+### [Restore using the Azure portal](sql-database-geo-restore-portal.md)
+### [Restore using PowerShell](sql-database-geo-restore-powershell.md)
 ## Active Geo-Replication
 ### [Configure using the Azure portal](sql-database-geo-replication-portal.md)
 ### [Configure using PowerShell](sql-database-geo-replication-powershell.md)
