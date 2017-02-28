@@ -33,12 +33,12 @@ Brewer's theorem defines consistency and availability as follows:
 Event Hubs is built on top of a partitioned data model. You can configure the number of partitions in your Event Hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you only need to make a decision regarding availability and consistency for your application.
 
 ## Availability
-The simplest way to get started with Event Hubs is to use the default behavior. If you create a new `EventHubClient` object and use the [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) method, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of up time.
+The simplest way to get started with Event Hubs is to use the default behavior. If you create a new `EventHubClient` object and use the `Send` method, your events are automatically distributed between partitions in your Event Hub. This behavior allows for the greatest amount of up time.
 
 For use cases that require the maximum up time, this model is preferred.
 
 ## Consistency
-In some scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a [PartitionSender](/dotnet/api/microsoft.azure.eventhubs.partitionsender) object to only send events to a certain partition. Doing so ensures that when these events are read from the partition, they are read in order.
+In some scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` object to only send events to a certain partition. Doing so ensures that when these events are read from the partition, they are read in order.
 
 With this type of configuration, you must keep in mind that if the particular partition to which you are sending is unavailable, you will receive an error response. As a point of comparison, if you do not have an affinity to a single partition, the Event Hubs service sends your event to the next available partition.
 
