@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Intacct | Microsoft Docs'
-description: Learn how to use Intacct with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+description: Learn how to use Intacct with Azure Active Directory to enable single sign-on, automated provisioning, and more.
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -23,7 +23,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A valid Azure subscription
 * An Intacct tenant
 
-After completing this tutorial, the Azure Active Directory users you have assigned to Intacct will be able to single sign in to the application at your Intacct company site (service provider initiated sign on), or use the [Access Panel](active-directory-saas-access-panel-introduction.md).
+After you complete this tutorial, the Azure Active Directory (Azure AD) users you have assigned to Intacct will be able to sign in to the application at your Intacct company site (service provider initiated sign-on), or use the [Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
@@ -39,11 +39,11 @@ The objective of this section is to outline how to enable the application integr
 
 **To enable the application integration for Intacct, perform the following steps:**
 
-1. In the Azure classic portal, on the left navigation pane, click the Active Directory icon.
+1. In the Azure classic portal, in the left pane, click the Active Directory icon.
 
    ![Active Directory](./media/active-directory-saas-intacct-tutorial/IC700993.png "Active Directory")
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+3. To open the applications view, in the directory view, click **Applications** on the top menu.
 
    ![Applications](./media/active-directory-saas-intacct-tutorial/IC700994.png "Applications")
 4. Click **Add** at the bottom of the page.
@@ -61,13 +61,13 @@ The objective of this section is to outline how to enable the application integr
 
 ## Configure single sign-on
 
-The objective of this section is to outline how to enable users to authenticate to Intacct with their account in Azure Active Directory (Azure AD). Federation that is based on the SAML protocol is used for this authentication.  
+The objective of this section is to outline how to enable users to authenticate to Intacct with their account in Azure AD. Federation that is based on the SAML protocol is used for this authentication.  
 
 As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Intacct** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On ** page.
+1. In the Azure classic portal, on the **Intacct** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On** page.
 
    ![Configure single sign-on](./media/active-directory-saas-intacct-tutorial/IC790033.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Intacct** page, select **Windows Azure AD Single Sign-On**, and then click **Next**.
@@ -158,7 +158,7 @@ In this section, you set up Britta Simon to use Azure single sign-on by granting
 
 	![Configure single sign-on](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_50.png)
 
-3. In the **Manage** menu, click **Users and groups**.
+3. On the **Manage** menu, click **Users and groups**.
 
 	![Assign user][202]
 
@@ -184,7 +184,7 @@ When you click the Intacct tile in the Access Panel, you should be automatically
 ## Additional resources
 
 * [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
