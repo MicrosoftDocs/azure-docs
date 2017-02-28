@@ -21,15 +21,15 @@ ms.author: helaw
 This release provides new features for both tenants and administrators.
 
 ## Services
-* ADFS support provides identity options for scenarios where network connectivity is limited or intermittent.
+* Active Directory Federation Services (AD FS) support provides identity options for scenarios where network connectivity is limited or intermittent.
 * You can use Azure Virtual Machine Scale Sets to provide managed scale out of workloads.
 * Use Azure D-Series VM sizes for increased performance and consistency.
 * Deploy and create templates with Temp Disks that are consistent with Azure.
 
-## Billing, portal and management
-* Marketplace Syndication allows you to consume content from the Azure Marketplace and make available in Azure Stack
+## MAnagement
+* Marketplace Syndication allows you to use content from the Azure Marketplace and make available in Azure Stack
 * Isolated administrative and user portals and APIs provide enhanced security.
-* Use enhanced infrastructure management functionality, such as improved alerting and update management
+* Use enhanced infrastructure management functionality, such as improved alerting.
 * Using the Windows Azure Pack connector, you can view and manage IaaS virtual machines that are hosted on a Cloud Platform System (CPS) stamp. For this preview release, you can try this only with a CPS environment and additional configuration is required.
 
 ## Next steps
