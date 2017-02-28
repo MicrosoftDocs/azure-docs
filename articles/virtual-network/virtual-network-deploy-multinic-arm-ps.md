@@ -1,10 +1,10 @@
 ---
-title: Create a VM with multiple NICs using PowerShell | Microsoft Docs
-description: Learn how to create a VM with multiple NICs through Azure Resource Manager using PowerShell.
+title: Create a VM with multiple NICs - Azure PowerShell | Microsoft Docs
+description: Learn how to create a VM with multiple NICs using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
 # Create a VM with multiple NICs using PowerShell

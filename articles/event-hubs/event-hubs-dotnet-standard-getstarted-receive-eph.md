@@ -30,9 +30,9 @@ In this tutorial, we will write a .NET Core console application to receive messa
 
 ## Prerequisites
 
-1. [Visual Studio 2015](http://www.visualstudio.com).
+1. [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com).
 
-2. [.NET Core Visual Studio 2015 Tooling](http://www.microsoft.com/net/core).
+2. [.NET Core Visual Studio 2015 or 2017 Tooling](http://www.microsoft.com/net/core).
 
 3. An Azure subscription.
 
