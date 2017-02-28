@@ -43,7 +43,7 @@ In the **App Service plan**, your Function Apps run on dedicated VMs, just like 
 
 The Consumption service plan automatically scales CPU and memory resources by adding additional processing instances based on the runtime needs of the functions in the Function App. Every Function App processing instance is allocated memory resources up to 1.5GB.
 
-> [!NOTE] When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
+When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
 
 ### Runtime scaling
 
