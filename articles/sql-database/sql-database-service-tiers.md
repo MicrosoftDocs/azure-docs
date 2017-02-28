@@ -20,6 +20,7 @@ ms.author: janeng
 
 ---
 # SQL Database options and performance: Understand what's available in each service tier
+
 [Azure SQL Database](sql-database-technical-overview.md) offers three [service tiers](sql-database-service-tiers.md), **Basic**, **Standard**, and **Premium**, with multiple performance levels to handle different workloads. Higher performance levels provide increasings resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
 
 You can create single databases with dedicated resources on the [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) selected. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across the databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
