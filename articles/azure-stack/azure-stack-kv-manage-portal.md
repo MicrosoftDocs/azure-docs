@@ -54,8 +54,8 @@ Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack b
 
 9.	Optionally, choose an **Advanced access policy**  to enable the following features:  
 
-    ![access policies](media/azure-stack-kv-manage-portal/image2.png)  
-
+    ![Policies screen](media/azure-stack-kv-manage-portal/image2.png)  
+    
 10.	After configuring the settings, click **OK** and then **Create**. This starts the key vault deployment. 
 
 ## Manage keys and secrets
