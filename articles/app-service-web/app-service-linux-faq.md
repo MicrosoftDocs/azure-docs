@@ -28,7 +28,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** I want to fork the built-in Docker containers that the platform provides. Where can I find those files?
 
-**A:** You can find all Docker files on GitHub: https://github.com/azure-app-service. You can find all Docker containers on Docker Hub: https://hub.docker.com/u/appsvc/.
+**A:** You can find all Docker files on [GitHub](https://github.com/azure-app-service). You can find all Docker containers on [Docker Hub](https://hub.docker.com/u/appsvc/).
 
 **Q:** What are the expected values for the Startup File section when I configure the runtime stack?
 
@@ -94,7 +94,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** Where can I request new features?
 
-**A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Please add "[Linux]" to the title of your idea.
+**A:** You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps-uservoice). Please add "[Linux]" to the title of your idea.
 
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
