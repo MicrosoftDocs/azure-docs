@@ -1,9 +1,9 @@
 ---
-title: Azure CLI Script Sample - Quick Create a Windows Server 2016 VM | Microsoft Docs
-description: Azure CLI Script Sample - Quick Create a Windows Server 2016 VM 
+title: Azure CLI Script Sample - Install IIS | Microsoft Docs
+description: Azure CLI Script Sample - Install IIS 
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
-author: rickstercdn
+author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
-ms.date: 02/23/2017
-ms.author: rickstercdn
+ms.date: 02/28/2017
+ms.author: nepeters
 ---
 
 # Quick Create a virtual machine with the Azure CLI
 
-The sample script provided here creates an Azure Virtual Machine with a Windows Server 2016 operating system. Once the script has been successfully run, the virtual Machine can be accessed via RDP.
+This script creates an Azure Virtual Machine with Windows Server 2016, and then uses the Azure Virtual Machine Custom Script Extension to install IIS. Once the script has been run, the default IIS website can be reached on the public IP address of the virtual machine.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
 
@@ -28,7 +28,35 @@ This sample works in a Bash Shell. For options on running Azure CLI scripts on W
 
 ## Create VM sample
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-windows-vm-quick.sh "Quick Create VM")]
+```azurecli
+#!/bin/bash
+
+# Update for your admin password
+AdminPassword=ChangeYourAdminPassword1
+
+# Create a resource group.
+az group create --name myResourceGroup --location westeurope
+
+# Create a virtual machine. 
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image win2016datacenter \
+    --admin-username azureuser \
+    --admin-password $AdminPassword
+
+# Open port 80 to allow web traffic to host.
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM 
+
+# Use CustomScript extension to install Apache.
+az vm extension set \
+  --publisher Microsoft.Compute \
+  --version 1.8 \
+  --name CustomScriptExtension \
+  --vm-name myVM \
+  --resource-group myResourceGroup \
+  --settings '{"commandToExecute":"powershell.exe Install-WindowsFeature -Name Web-Server"}'
+```
 
 ## Clean up deployment 
 
@@ -46,6 +74,8 @@ This script uses the following commands to create a resource group, virtual mach
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also specifies the virtual machine image to be used and administrative credentials.  |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Creates a network security group rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#set) | Adds and runs a virtual machine extension to a VM. In this sample, the custom script extension is used to install IIS.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
