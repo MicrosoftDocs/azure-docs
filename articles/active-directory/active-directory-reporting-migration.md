@@ -19,7 +19,7 @@ ms.author: dhanyahk;markvi
 ---
 # Find activity reports in the Azure portal
 
-If you are moving from the Azure classic portal to the Azure portal, you'll get a new look at Azure Active Directory (Azure AD) activity logs. In a recent [blog post](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), we explain how you can see activity logs in the context of the resource you are working on in the Azure portal. In this article, we describe how to find reports that you used in the Azure classic portal, in the Azure portal.
+If you are moving from the Azure classic portal to the Azure portal, you'll get a new look at Azure Active Directory (Azure AD) activity logs. In a recent [blog post](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), we explain how you can see activity logs in the context of the resource you are working on in the Azure portal. In this article, we describe how to find reports that you used in the Azure classic portal in the Azure portal.
 
 ## What's new
 
