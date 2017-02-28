@@ -18,7 +18,7 @@ ms.author: helaw
 ---
 # Add users in the Azure Stack POC
 
-To add more users in the POC deployment, you must add them to the stamp AD using Microsoft Management Console from the Azure Stack host computer.
+To add more users in the POC deployment, you must add them to the Azure Stack POC AD using Microsoft Management Console from the Azure Stack host computer.
 1.	On the Azure Stack host computer, open Microsoft Management Console.
 2.	Click **File > Add or remove snap-in**.
 3.	Select **Active Directory Users and Computers** > **AzureStack.local** > **Users**.
