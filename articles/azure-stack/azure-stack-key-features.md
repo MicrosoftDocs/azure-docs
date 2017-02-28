@@ -36,7 +36,20 @@ The Azure Stack portals are each backed by separate instances of Azure Resource 
 ## Identity 
 Azure Stack can use either Azure Active Directory (AAD) or Active Directory Federation Services (ADFS) as an identity provider.  
 
-You may choose ADFS
+### Azure Active Directory
+Azure Active Directory is Microsoft's cloud-based identity provider.  For most instances, you will use Azure Active Directory as the identity store for Azure Stack POC.
+
+### Active Directory Federation Services
+You may choose to use ADFS with Azure Stack where network connectivity is limited.  Azure Stack, resource providers, and other applications work much the same way with Active Directory Federation Services (AD FS) as they do with Azure Active Directory. Azure Stack includes its own ADFS and Active Directory instance, and an Active Directory Graph API. Azure Stack Technical Preview 3 supports the following AD FS scenarios:
+•	Sign in to the POC deployment by using AD FS.
+•	Create a virtual machine with secrets in Key Vault
+•	Create a vault to store/access secrets
+•	Create custom RBAC roles in subscription
+•	Assign users to RBAC roles on resources
+•	Create system-wide RBAC roles through Azure PowerShell
+•	Sign in as a user through Azure PowerShell
+•	Create service principals use them to sign in to Azure PowerShell
+
 
 ## Regions, services, plans, offers, and subscriptions
 In Azure Stack, services are delivered to tenants using regions, subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
