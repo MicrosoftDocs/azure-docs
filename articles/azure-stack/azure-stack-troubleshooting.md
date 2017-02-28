@@ -71,7 +71,7 @@ You can also use the Azure Stack templates already provided in the [GitHub repos
 
 ## Virtual machines
 ### Default image and gallery item
-You must first [add a Windows Server](azure-stack-add-default-image.md) image and gallery item before deploying VMs in Azure Stack TP3.
+You must first add a Windows Server image and gallery item before deploying VMs in Azure Stack TP3.
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
 Yes, this is behavior expected. It was designed this way because:
