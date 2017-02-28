@@ -32,14 +32,14 @@ With a Remote Desktop connection, a single concurrent user can work with the por
 then close Server Manager.
 4. Double-click **Microsoft Azure Stack Portal** icon (https://publicportal.local.azurestack.global/) to open the [portal](azure-stack-key-features.md#portal).
    
-   ![Azure stack portal icon](media/azure-stack-connect-azure-stack/image2.png)
+   ![Azure Stack portal icon](media/azure-stack-connect-azure-stack/image2.png)
 5. Log in using the Azure Active Directory credentials specified during installation.
 
 ## Connect with VPN
 
 In an Azure Stack Proof of Concept (POC) environment, you can use a Virtual Private Network (VPN) to connect your local Windows-based computer to Azure Stack. VPN connections enable multiple clients to connect to Azure Stack at the same time.
  
-Through the VPN connection, you can access the administrator portal, user portal and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources.
+Through the VPN connection, you can access the administrator portal, user portal, and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources.
 
 **Note:** This VPN connection does not provide connectivity to Azure Stack infrastructure VMs. 
 
@@ -98,7 +98,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
     ```PowerShell
     Add-AzureStackVpnConnection -ServerAddress $natIp -Password $Password
     ```
-    ![get cpn connection](media/azure-stack-connect-azure-stack/image2.png)  
+    ![get VPN connection](media/azure-stack-connect-azure-stack/image2.png)  
 
     If the connection succeeds, you should see **azurestack** in your list of VPN connections.
 
@@ -115,7 +115,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
     When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** into your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
 
-    b.	Open your local computer’s **Network Settings** > **VPN** >click on **azurestack** > **connect**
+    b.	Open your local computer’s **Network Settings** > **VPN** >click **azurestack** > **connect**
 
         ![connect with UI](media/azure-stack-connect-azure-stack/image5.png)  
 
