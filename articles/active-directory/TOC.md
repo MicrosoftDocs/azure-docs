@@ -34,15 +34,13 @@
 ##### [Adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [Next steps](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## Manage users
 ### Add users
 #### [Azure portal](active-directory-users-create-azure-portal.md)
 #### [Classic portal](active-directory-create-users.md)
 
-### Add users from other directories
-#### [Azure portal](active-directory-users-create-external-azure-portal.md)
-#### [Classic portal](active-directory-create-users-external.md)
-
+### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Delete users](active-directory-users-delete-user-azure-portal.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
