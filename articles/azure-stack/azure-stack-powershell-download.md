@@ -1,5 +1,5 @@
 ---
-title: ownload Azure Stack tools from GitHub | Microsoft Docs
+title: Download Azure Stack tools from GitHub | Microsoft Docs
 description: Learn how to download tools required to work with Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -47,14 +47,14 @@ This repository contains PowerShell modules that support the following functiona
 
 | Functionality | Description | who can use this module? |
 | --- | --- | --- |
-| [AzureRM cloud capabilities](azure-stack-validate-templates) | Use this module to get the cloud capabilities of a cloud. For example, you can get the cloud capabilities such as API version, Azure Resource Manager resources, VM extensions etc. for Azure Stack and Azure clouds using this module. | Cloud administrators and users. |
-| [Azure Stack compute administration](azure-stack-add-vm-image) | Use this module to add or remove a VM image from the Azure Stack marketplace. | Cloud administrators. |
+| [AzureRM cloud capabilities](azure-stack-validate-templates.md) | Use this module to get the cloud capabilities of a cloud. For example, you can get the cloud capabilities such as API version, Azure Resource Manager resources, VM extensions etc. for Azure Stack and Azure clouds using this module. | Cloud administrators and users. |
+| [Azure Stack compute administration](azure-stack-add-vm-image.md) | Use this module to add or remove a VM image from the Azure Stack marketplace. | Cloud administrators. |
 | [Azure Stack Infrastructure administration](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Use this module to manage Azure Stack infrastructure VMs, alerts, updates etc. |  Cloud administrators.|
-| [Resource Manager policy for Azure Stack](azure-stack-policy-module) | Use this module to configure an Azure subscription or an Azure resource group with the same versioning and service availability as Azure Stack. | Cloud administrators and users |
-| [Azure Stack deployment](azure-stack-run-powershell-script) | Use this module to prepare the Azure Stack host computer to deploy and redeploy by using the Azure Stack Virtual Hard Disk(VHD) image. | Cloud administrators. |
-| [Connecting to Azure Stack](azure-stack-connect-powershell) | Use this module to connect to an Azure Stack instance through PowerShell and to configure VPN connectivity to Azure Stack. | Cloud administrators and users |
-| [Azure Stack service administration](azure-stack-create-offer) | Azure Stack administrators can use this module to create a default tenant offer with unlimited quota across Compute, Storage, Network, and Key Vault services.   | Cloud administrators.|
-| [AzureRM template validator](azure-stack-validate-templates) | Use this module to verify if an existing or a new template can be deployed to Azure Stack. | Cloud administrators and users |
+| [Resource Manager policy for Azure Stack](azure-stack-policy-module.md) | Use this module to configure an Azure subscription or an Azure resource group with the same versioning and service availability as Azure Stack. | Cloud administrators and users |
+| [Azure Stack deployment](azure-stack-run-powershell-script.md) | Use this module to prepare the Azure Stack host computer to deploy and redeploy by using the Azure Stack Virtual Hard Disk(VHD) image. | Cloud administrators. |
+| [Connecting to Azure Stack](azure-stack-connect-powershell.md) | Use this module to connect to an Azure Stack instance through PowerShell and to configure VPN connectivity to Azure Stack. | Cloud administrators and users |
+| [Azure Stack service administration](azure-stack-create-offer.md) | Azure Stack administrators can use this module to create a default tenant offer with unlimited quota across Compute, Storage, Network, and Key Vault services.   | Cloud administrators.|
+| [AzureRM template validator](azure-stack-validate-templates.md) | Use this module to verify if an existing or a new template can be deployed to Azure Stack. | Cloud administrators and users |
 
 
 Next steps
