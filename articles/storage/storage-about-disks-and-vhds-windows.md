@@ -32,15 +32,12 @@ Let's take a look at how the disks are used by the VMs.
 Every virtual machine has one attached operating system disk. It’s registered as a SATA drive and labeled as the C: drive by default. This disk has a maximum capacity of 1023 gigabytes (GB). 
 
 ### Temporary disk
-The temporary disk is automatically created for you. The temporary disk is labeled as the D: drive by default and it used for storing pagefile.sys. 
+Each VM contains a temporary disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) or when you [redeploy a VM](virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). During a standard reboot of the VM, the data on the temporary drive should persist.
 
-The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Windows virtual machines](../virtual-machines/virtual-machines-windows-sizes.md).
-
-> [!WARNING]
-> Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk to a different drive letter, see [Change the drive letter of the Windows temporary disk](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
-> 
+The temporary disk is labeled as the D: drive by default and it used for storing pagefile.sys. To remap this disk to a different drive letter, see [Change the drive letter of the Windows temporary disk](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md). The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Windows virtual machines](../virtual-machines/virtual-machines-windows-sizes.md).
 
 For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+
 
 ### Data disk
 A data disk is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
