@@ -276,7 +276,8 @@ Click **Firewall** to view and configure firewall rules for your Premium Azure R
 
 You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved there is a short delay before the rule is effective. This delay is typically less than one minute.
 
-> [!IMPORTANT] Connections from Azure Redis Cache monitoring systems are always permitted, even if firewall rules are configured.
+> [!IMPORTANT]
+> Connections from Azure Redis Cache monitoring systems are always permitted, even if firewall rules are configured.
 > 
 > Firewall rules are only available for Premium tier caches.
 > 
