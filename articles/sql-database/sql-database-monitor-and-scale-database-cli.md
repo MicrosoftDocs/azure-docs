@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 02/21/2017
-ms.author: janeng
+ms.author: janeng;carlrab
 ---
 
 # Monitor and scale a single SQL database using the Azure CLI
