@@ -34,9 +34,9 @@ To configure Azure AD integration with Recognize, you need the following items:
 * An Azure AD subscription
 * A Recognize single-sign on (SSO) enabled subscription
 
->[!NOTE]
->To test the steps in this tutorial, we do not recommend using a production environment. 
-> 
+ >[!NOTE]
+ >To test the steps in this tutorial, we do not recommend using a production environment. 
+ > 
 
 To test the steps in this tutorial, you should follow these recommendations:
 
@@ -108,9 +108,10 @@ In this section, you enable Azure AD SSO in the classic portal and configure SSO
   1. In the **Sign On URL** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-domain>/saml/sso`. 
   2. In the **Identifier** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-domain>/saml/metadata`.
   3. Click **Next**.
-   >[!NOTE]
-   >If you don't know about these URLs, type sample URLs with example pattern. To get these values, you can refer step 9 for more details or contact Recognize support team via <mailto:support@recognizeapp.com>.
-   >
+  
+    >[!NOTE]
+    >If you don't know about these URLs, type sample URLs with example pattern. To get these values, you can refer step 9 for more details or contact Recognize support team via <mailto:support@recognizeapp.com>.
+    >
 
 4. On the **Configure single sign-on at Recognize** page, click **Download certificate** and then save the file on your computer:
    
