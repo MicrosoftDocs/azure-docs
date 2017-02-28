@@ -74,10 +74,16 @@ Here, you can upload a plugin. Select the ``Choose file`` option, then select th
   - A test event will be sent to your Jenkins instance. You should see a green check by the webhook in Github, and your project will build!
   - Under the ``Build Triggers`` section select which build option do you want - for this use-case we plan to trigger a build whenever some push to the repo happens - so the corresponding option would be - ``GitHub hook trigger for GITScm polling`` (previously it was 'Build when a change is pushed to Github')
   - Under the ``Build section`` - from the drop-down ``Add build step``, select the option ``Invoke Gradle Script``. In the widget that comes, specify the path to ``Root build script``, for your application. It picks up the build.gradle from the path specified and works accordingly. Please note that - if you create a project named ``MyActor``(using Eclipse plugin or Yeoman generator), then the root-build-script should contain - ``${WORKSPACE}/MyActor``. As an example, this section mostly looks like -
-    ![Service Fabric Jenkins Build action](media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png)
+
+    ![Service Fabric Jenkins Build action][build-step]
   - Under the ``Post-Build Actions`` drop-down, select ``Deploy Service Fabric Project``. Here you need to provide the details like - Application Name, Application Type, Application manifest Path, cluster-IP, cluster-type etc. Please fill in the details accordingly. You might want to have a look at the following handy screen-shot as a reference -
-    ![Service Fabric Jenkins Post-Build action](media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png)
+
+    ![Service Fabric Jenkins Build action][post-build-step]
 
   > [!NOTE]
   > You should keep in mind that the service-fabric cluster where you deployed your container application, must have a public-facing IP (this can be a SF cluster created from azure portal or one-box cluster created on an azure VM). Else, if the cluster is under some corpnet-proxy, then Github would not be able to talk to the Jenkins instance.
   >
+
+  <!-- Images -->
+  [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
+  [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
