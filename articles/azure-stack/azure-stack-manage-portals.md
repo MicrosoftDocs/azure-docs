@@ -30,7 +30,7 @@ The following table shows how to connect to the portals and to endpoints in a si
 
 
 ## The administrator portal
-The administrator portal enables a cloud administrator to perform administrative tasks. An administrator can do thing such as:
+The administrator portal enables a cloud administrator to perform administrative tasks. An administrator can do things such as:
 * monitor health and alerts
 * manage capacity
 * populate the marketplace
