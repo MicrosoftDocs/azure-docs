@@ -75,7 +75,7 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using the REST API or Azure PowerShell. Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. To improve performance, server-level firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). For more information on server-level firewall rules, see [How to: Configure an Azure SQL server firewall using the Azure portal](sql-database-configure-firewall-settings.md).
 
 ## Creating database-level firewall rules
-After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information on configuring database-level firewall rules, see [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
+ After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information on configuring database-level firewall rules, see [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically using Transact-SQL, REST API, and Azure PowerShell. The following tables describe the set of commands available for each method.
@@ -142,7 +142,7 @@ Consider the following points when access to the Microsoft Azure SQL Database se
   * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
 ## Next steps
-For artciles on creating server-level and database-level firewall rules, see:
+For articles on creating server-level and database-level firewall rules, see:
 
 * [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
 * [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md)
