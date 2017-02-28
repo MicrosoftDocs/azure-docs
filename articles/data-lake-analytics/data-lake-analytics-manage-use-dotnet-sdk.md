@@ -49,14 +49,14 @@ For this approach, we recommend creating your own 'native' application and servi
 ### Non-interactive with a client secret
 You can use the following snippet to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
-    // Service principal / appplication authentication with client secret / key
+    // Service principal / application authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var tenantID = "<Azure tennant ID>";
+    var tenantId = "<Azure tenant ID>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
-    var creds = ApplicationTokenProvider.LoginSilentAsync(tenantID, clientCredential).Result;
+    var creds = ApplicationTokenProvider.LoginSilentAsync(tenantId, clientCredential).Result;
 
 ### Non-interactive with a service principal
 As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
@@ -64,11 +64,11 @@ As a third option, the following snippet can be used to authenticate your applic
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var tenantID = "<Azure tennant ID>";
+    var tenantId = "<Azure tenant ID>";
     var webApp_clientId = "<AAD-application-clientid>";
     System.Security.Cryptography.X509Certificates.X509Certificate2 clientCert = <AAD-application-client-certificate>
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
-    var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(tenantID, clientAssertionCertificate).Result;
+    var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(tenantId, clientAssertionCertificate).Result;
 
 ## Client management objects
 The Azure Data Lake Analytics and Azure Data Lake Store APIs include sets of client management objects from which you do most of your programming. These objects are in these two namespaces:
@@ -88,15 +88,15 @@ The following table shows the client management objects, with variables that use
 #### Example
 
     // Call your logon method
-    var creds = AuthenticateAzure(_tenantId, _clientID);
+    var creds = AuthenticateAzure(_tenantId, _clientId);
 
     // Initialize management client objects, using your
     // credentials (creds). Initialize others as needed.
     _adlsClient = new DataLakeStoreAccountManagementClient(creds);
-    _adlsClient.SubscriptionId = _SubID;
+    _adlsClient.SubscriptionId = _SubId;
 
     _adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
-    _adlaClient.SubscriptionId = _SubID;
+    _adlaClient.SubscriptionId = _SubId;
 
     // Methods to create and manage Data Lake Analytics
     . . .
