@@ -4,7 +4,7 @@ description: Learn how to create a Node.js RESTful API and deploy it to an API a
 services: app-service\api
 documentationcenter: node
 author: bradygaster
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70

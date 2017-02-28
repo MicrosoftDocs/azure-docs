@@ -15,10 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 02/21/2017
-ms.author: janeng
+ms.author: janeng;carlrab
 ---
 
-# Azure CLI Samples for Azure SQL Database
+# Azure SQL Database CLI Samples
 
 The following table includes links to sample Azure CLI scripts for Azure SQL Database.
 

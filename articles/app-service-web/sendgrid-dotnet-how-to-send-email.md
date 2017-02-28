@@ -4,7 +4,7 @@ description: Learn how send email with the SendGrid email service on Azure. Code
 services: app-service\web
 documentationcenter: .net
 author: thinkingserious
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
