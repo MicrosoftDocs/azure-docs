@@ -1,6 +1,6 @@
 # Overview
 ## [What is Azure Stack?](azure-stack-poc.md)
-## [What's new?](azure-stack-whats-new.md)
+## [What's new](azure-stack-whats-new.md)
 ## [Key features and concepts](azure-stack-key-features.md)
 ## [POC architecture](azure-stack-architecture.md)
 
@@ -36,11 +36,11 @@
 # Security & compliance
 ## How to
 ### [Manage user permissions](azure-stack-manage-permissions.md)
-### [Add users for ADFS](azure-stack-add-users-adfs.md)
+### [Add users for AD FS](azure-stack-add-users-adfs.md)
 
 # Offer services
 ## Get started
-### Create plans, offers, quotas
+### Create plans, offers, and quotas
 #### [Set quotas](azure-stack-setting-quotas.md)
 #### [Create a plan](azure-stack-create-plan.md)
 #### [Create an offer](azure-stack-create-offer.md)
@@ -57,7 +57,7 @@
 #### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
 ### Populate the Marketplace
 #### [Marketplace overview](azure-stack-marketplace.md)
-#### [Download marketplace items]()
+#### [Download marketplace items](azure-stack-download-azure-marketplace-item.md)
 #### [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 #### [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
@@ -69,7 +69,7 @@
 
 # Use services
 ## Compute
-### [Add VM Image](azure-stack-add-vm-image.md)
+### [Add VM image](azure-stack-add-vm-image.md)
 ### [Use Linux guests](azure-stack-linux.md)
 ## Storage
 ### [Overview](azure-stack-storage-overview.md)
@@ -80,7 +80,7 @@
 ## Key Vault
 ### [Overview](azure-stack-kv-intro.md)
 ### Get Started
-#### [Manage with Portal](azure-stack-kv-manage-portal.md)
+#### [Manage with portal](azure-stack-kv-manage-portal.md)
 #### [Manage with PowerShell](azure-stack-kv-manage-powershell.md)
 ### How to
 #### [Deploy a VM with a password](azure-stack-kv-deploy-vm-with-secret.md)
