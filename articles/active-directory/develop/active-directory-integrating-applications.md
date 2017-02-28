@@ -58,7 +58,7 @@ For example, if a web client application needs to read calendar information abou
 
 The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications, such as on a phone, tablet, server, or a web application, and gain access to the required resources.
 
-For more detailed information about the consent framework, see [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md), and for infomation about getting authorized access to Office 365 via Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview).
+For more detailed information about the consent framework, see [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md), and for infomation about getting authorized access to Office 365 via Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### Example of the consent experience
 The following steps will show you how the consent experience works for both the application developer and user.
@@ -166,7 +166,7 @@ For more information on application manifest concepts in general, please refer t
 ### Accessing the Azure AD Graph and Office 365 via Microsoft Graph APIs  
 As mentioned earlier, in addition to exposing/accessing APIs on your own resource applications, you can also update your client application to access APIs exposed by Microsoft resources.  The Microsoft Graph API, which is called “Microsoft Graph” in the list of Permissions to other applications, is available or all applications that are registered with Azure AD. If you are registering your client application in an Azure AD tenant that was provisioned by Office 365, you can also access all of the permissions exposed by the Microsoft Graph API to various Office 365 resources.
 
-For a complete discussion on access scopes exposed by Microsoft Graph API, please see the [Permission scopes | Microsoft Graph API concepts](https://graph.microsoft.io/en-us/docs/authorization/permission_scopes) article.
+For a complete discussion on access scopes exposed by Microsoft Graph API, please see the [Permission scopes | Microsoft Graph API concepts](https://graph.microsoft.io/docs/authorization/permission_scopes) article.
 
 > [!NOTE]
 > Due to a current limitation, native client applications can only call into the Azure AD Graph API if they use the “Access your organization's directory” permission.  This restriction does not apply for web applications.
