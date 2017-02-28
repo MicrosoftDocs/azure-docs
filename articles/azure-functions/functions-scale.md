@@ -1,5 +1,5 @@
 ---
-title: How to scale Azure Functions | Microsoft Docs
+title: Choose an Azure Functions hosting plan | Microsoft Docs
 description: Understand how Azure Functions scale to meet the needs of your event-driven workloads.
 services: functions
 documentationcenter: na
@@ -21,7 +21,7 @@ ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 
 ---
-# Scaling considerations and service plans in Azure Functions
+# Choose the correct service plan for your Azure Functions
 
 ## Introduction
 
@@ -29,17 +29,17 @@ Azure Functions has two different service plans: Consumption plan and App Servic
 
 If you are not yet familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md) article.
 
-## Choose a service plan
+## Service plan options
 
 When you create a function app, you must configure a hosting plan for functions contained in the app. The available hosting plans are: the **Consumption Plan** and the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Currently, this choice must be made during the creation of the function app. You cannot change between these two options after creation. You can scale between tiers on the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). No changes are currently supported for the Consumption plan as scaling is dynamic.
 
 ### Consumption plan
 
-In the **Consumption plan**, your function apps are assigned to a compute processing instance. When needed, more instances are dynamically added or removed. Moreover, your functions run in parallel minimizing the total time needed to process requests. Execution time for each function is aggregated by the containing function app. Cost is driven by memory size and total execution time across all functions in a function app as measured in gigabyte-seconds. This is an excellent option if your compute needs are intermittent or your job times tend to be very short as it allows you to only pay for compute resources when they are actually in use. 
+In the **Consumption plan**, your function apps are assigned to a compute processing instance. When needed, more instances are dynamically added or removed. Moreover, your functions run in parallel minimizing the total time needed to process requests. Execution time for each function is aggregated by the containing function app. Cost is driven by memory size and total execution time across all functions in a function app as measured in gigabyte-seconds. This is an excellent option if your compute needs are intermittent or your job times tend to be very short as it allows you to only pay for compute resources when they are actually in use. The next section provides details on how the Consumption plan works.
 
 ### App Service plan
 
-In the **App Service plan**, your function apps run on dedicated VMs, just like Web Apps work today for Basic, Standard, or Premium SKUs. Dedicated VMs are allocated to your App Service apps and function apps and are always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the VMs that they run on.
+In the **App Service plan**, your function apps run on dedicated VMs, just like Web Apps work today for Basic, Standard, or Premium SKUs. Dedicated VMs are allocated to your App Service apps and function apps and are always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the VMs that they run on. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 ## How the Consumption plan works
 
