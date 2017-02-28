@@ -60,7 +60,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 ## Custom containers
 
-**Q:** I'm using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content by using the SCM site or an FTP client. Where are my files?
+**Q:** I'm using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?
 
 **A:** We mount an SMB share to the \home\ directory. This overrides any content that's there.
 
