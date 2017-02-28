@@ -25,7 +25,7 @@ ms.author: sethm;jotaub
 Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### What are Event Hubs throughput units?
-You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
+You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs Resource Manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
 
 * Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.
 * Up to 2 MB per second of egress events (events consumed from an Event Hub).
