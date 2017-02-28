@@ -55,7 +55,7 @@ Multi-session demos and labs for Azure Search.
 [Building Intelligent Cross-Platform Mobile Applications Using Xamarin and Azure Search](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Typeahead, full text search and paging, filtering, lookup, moreLikeThis, machine learning, scoring and tuning, analytics | December 2016 |
 [Using Windows Azure Search](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | Older but still relevant drilldown into scale, geospatial search, linguistic analysis, Cortana speech recognition | May 2015 | 
 
-## Online demo sites
+## Online demos
 Fully functional web applications that use Azure Search for the search experience. 
 
 | Link | Description |
