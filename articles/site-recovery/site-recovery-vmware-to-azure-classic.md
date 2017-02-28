@@ -245,7 +245,9 @@ If you want to replicate VMware virtual machines, follow these steps on the mana
 >
 
 
+
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+
 
 
 1. On the **Quick Start** page, download the unified installation file to the server.

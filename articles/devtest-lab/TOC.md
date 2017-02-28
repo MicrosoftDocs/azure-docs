@@ -4,9 +4,9 @@
 ## [DevTest Labs concepts](devtest-lab-concepts.md)
 
 # Get Started
-## [Create a lab](devtest-lab-create-lab.md)
-## [Create VM artifacts](devtest-lab-add-vm-with-artifacts.md)
-## [Create a lab for training](devtest-lab-training-lab.md)
+## [Create lab](devtest-lab-create-lab.md)
+## [Create VM](devtest-lab-add-vm.md)
+## [Create lab for training](devtest-lab-training-lab.md)
 ## [FAQ](devtest-lab-faq.md)
 
 # How To
@@ -20,6 +20,7 @@
 ## Manage Artifacts
 ### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
 ### [Create custom artifacts](devtest-lab-artifact-author.md)
+### [Manage artifacts](devtest-lab-add-vm-with-artifacts.md)
 
 ## Manage VM bases and templates
 ### [Create multi-VM environments with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md)

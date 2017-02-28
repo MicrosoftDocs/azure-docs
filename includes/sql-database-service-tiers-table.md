@@ -38,4 +38,4 @@ sql-database-service-tiers.md
 | Max concurrent sessions | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* Max database size refers to the maximum size of the data files and does not include the space used by log files.
+\* Max database size refers to the maximum size of the data in the database.
