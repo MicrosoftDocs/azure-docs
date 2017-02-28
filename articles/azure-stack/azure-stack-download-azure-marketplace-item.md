@@ -21,6 +21,7 @@ ms.author: erikje
 
 After you have registered Azure Stack, you can download marketplace items from Azure and use them in your Azure Stack deployment.
 
+## Download
 1. Sign in to the Azure Stack portal as a service administrator.
 2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
 3. Select the item you want in the list and then click **Download**. This starts downloading the VM image for the item you selected. Download times vary.
