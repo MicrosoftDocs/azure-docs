@@ -56,21 +56,18 @@ To install the SendGrid NuGet package in your application, do the following:
 1. Create a **New Project** and select a **Template**.
 
    ![Create a new project][create-new-project]
-2. In **Solution Explorer**, right-click **References**, then click **Manage NuGet Packages**.
-
-   ![Select a template][select-a-template]
-3. In **Solution Explorer**, right-click **References**, then click
+2. In **Solution Explorer**, right-click **References**, then click
    **Manage NuGet Packages**.
-4. Search for **SendGrid** and select the **SendGrid** item in the
-   results list.
 
    ![SendGrid NuGet package][SendGrid-NuGet-package]
-4. Search for **SendGrid** and select the **SendGrid** item in the results list.
-5. Select the latest stable version of the Nuget package from the version dropdown to be able to work with the object model and APIs demonstrated in this article.
-6. Click **Install** to complete the installation, and then close this
+3. Search for **SendGrid** and select the **SendGrid** item in the
+   results list.
+4. Select the latest stable version of the Nuget package from the version dropdown to be able to work with the object model and APIs demonstrated in this article.
+5. Click **Install** to complete the installation, and then close this
    dialog.
 
    ![SendGrid package][sendgrid-package]
+
 SendGrid's .NET class library is called **SendGrid**. It contains the following namespaces:
 
 * **SendGrid** for communicating with SendGrid’s API.
@@ -92,9 +89,9 @@ The following example demonstrates how to create a fully populated email object:
 
     var recipients = new List<EmailAddress>
     {
-    new EmailAddress(){ "jeff@example.com", "Jeff Smith" },
-    new EmailAddress(){ "anna@example.com", "Anna Lidman" },
-    new EmailAddress(){ "peter@example.com", "Peter Saddow" }
+        new EmailAddress(){ "jeff@example.com", "Jeff Smith" },
+        new EmailAddress(){ "anna@example.com", "Anna Lidman" },
+        new EmailAddress(){ "peter@example.com", "Peter Saddow" }
     };
     msg.AddTos(recipients);
 
@@ -204,7 +201,6 @@ these links to learn more.
 [How to: Use Additional SendGrid Services]: #useservices
 
 [create-new-project]: ./media/sendgrid-dotnet-how-to-send-email/new-project.png
-[select-a-template]: ./media/sendgrid-dotnet-how-to-send-email/select_a_template.png
 [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/reference.png
 [sendgrid-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid-package.png
 [azure_app_settings]: ./media/sendgrid-dotnet-how-to-send-email/azure-app-settings.png
