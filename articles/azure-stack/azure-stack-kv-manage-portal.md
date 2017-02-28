@@ -27,8 +27,8 @@ Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack b
 
 ## Prerequisites  
 
-1. Azure Stack administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
-2. Tenants must subscribe to an offer that includes the Key Vault service.  
+* Azure Stack administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
+* Tenants must subscribe to an offer that includes the Key Vault service.  
  
 ## Create a key vault 
 
@@ -83,7 +83,7 @@ After creating a vault, use the following steps to create and manage keys and se
 
 After the key is successfully created, you can select it from the **Keys** blade and view or modify its properties. The properties section contains the **Key Identifier**, a URI by which external applications can access this key. To limit operations on this key, configure settings under **Permitted operations**.
 
-    ![URI key](media/azure-stack-kv-manage-portal/image4.png)  
+![URI key](media/azure-stack-kv-manage-portal/image4.png)  
 
 ## Create a secret 
 
@@ -106,7 +106,7 @@ After the secret is successfully created, you can select it from the **Secrets**
 
 
 ## Next Steps
-•	[Deploy a VM with password stored in a key vault](azure-stack-kv-deploy-vm-with-secret.md)  
-•	[Deploy a VM with certificate stored in a key vault](azure-stack-kv-push-secret-into-vm.md)     
+* [Deploy a VM with password stored in a key vault](azure-stack-kv-deploy-vm-with-secret.md)  
+* [Deploy a VM with certificate stored in a key vault](azure-stack-kv-push-secret-into-vm.md)     
 
 

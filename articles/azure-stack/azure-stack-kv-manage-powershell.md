@@ -18,7 +18,7 @@ ms.author: sngun
 
 ---
 
-## Manage Key Vault in Azure Stack using PowerShell
+# Manage Key Vault in Azure Stack using PowerShell
 
 This article helps you get started to create and manage Key Vault in Azure Stack by using PowerShell. 
 
@@ -28,9 +28,9 @@ This article helps you get started to create and manage Key Vault in Azure Stack
 The Key Vault PowerShell commands described in this article are available as a part of the Azure PowerShell SDK.  Following sections describe the PowerShell commands required to create a vault, store and manage cryptographic keys and secrets as well as authorize users or applications to invoke operations in the vault. 
 
 ## Prerequisites
-•	Install PowerShell for Azure Stack.  
-•	Azure Stack administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
-•	Tenants must subscribe to an offer that includes the Key Vault service.  
+* Install PowerShell for Azure Stack.  
+* Azure Stack administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
+* Tenants must subscribe to an offer that includes the Key Vault service.  
 
 ## Enable your tenant subscription for vault operations
 
@@ -104,8 +104,8 @@ The **Destination** parameter is used to specify that the key is software protec
 
 You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values specified in the new key.  You can access the previous version by using the version-specific URI of the key. For example, 
 
-•	Use **https://vault10.vault.local.azurestack.external:443/keys/key01** to always get the current version  
-•	Use **https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a** to get this specific version
+* Use **https://vault10.vault.local.azurestack.external:443/keys/key01** to always get the current version  
+* Use **https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a** to get this specific version
 
 ### Get a key
 
@@ -154,5 +154,5 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ```
 
 ## Next Steps
-•	[Deploy a VM with password stored in a Key Vault](azure-stack-kv-deploy-vm-with-secret.md)  
-•	[Deploy a VM with certificate stored in Key Vault](azure-stack-kv-push-secret-into-vm.md) 
+* [Deploy a VM with password stored in a Key Vault](azure-stack-kv-deploy-vm-with-secret.md)  
+* [Deploy a VM with certificate stored in Key Vault](azure-stack-kv-push-secret-into-vm.md) 

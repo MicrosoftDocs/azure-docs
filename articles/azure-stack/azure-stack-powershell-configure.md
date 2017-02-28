@@ -23,8 +23,8 @@ ms.author: sngun
 You can use PowerShell to connect to an Azure Stack environment. After connecting, you can manage and deploy Azure Stack resources. You can use the steps described in this article either from MAS-CON01, the Azure Stack host computer, or a Windows-based external client if you are connected through VPN.
 
 ## Prerequisites
-•	Install Azure Stack compatible Azure PowerShell on MAS-CON01 or on your local computer.  
-•	Download tools required to work with Azure Stack to MAS-CON01 or to your local computer.  
+* Install Azure Stack compatible Azure PowerShell on MAS-CON01 or on your local computer.  
+* Download tools required to work with Azure Stack to MAS-CON01 or to your local computer.  
 
 ## Import the Connect PowerShell module
 
@@ -101,7 +101,7 @@ To register all resource providers on all your subscriptions, use the following 
 Register-AllAzureRmProvidersOnAllSubscriptions
 ```
 
-Next Steps
+## Next Steps
 * [Develop templates for Azure Stack](azure-stack-develop-templates.md)
 * [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
 

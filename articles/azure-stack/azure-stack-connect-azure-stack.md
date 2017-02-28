@@ -48,8 +48,8 @@ The following sections describe the steps that are required to establish VPN con
 
 ### Prerequisites
 
-•	Install Azure Stack compatible Azure PowerShell on your local computer.  
-•	Download the tools required to work with Azure Stack to your local computer.  
+* Install Azure Stack compatible Azure PowerShell on your local computer.  
+* Download the tools required to work with Azure Stack to your local computer.  
 
 ### Import the Connect PowerShell module
 
@@ -124,7 +124,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
 ### Validate the VPN connectivity
 
-1.	To test the portal connection, open an Internet browser and navigate to either the user portal (https://publicportal.local.azurestack.external) or the administrator portal (https://portal.local.azurestack.external), sign in and create resources.  
+To test the portal connection, open an Internet browser and navigate to either the user portal (https://publicportal.local.azurestack.external) or the administrator portal (https://portal.local.azurestack.external), sign in and create resources.  
 
 
 

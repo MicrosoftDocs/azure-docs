@@ -43,7 +43,9 @@ cd AzureStack-Tools-master
 
 ```
 
-This repository contains PowerShell modules that support the following functionalities for Azure Stack:  
+## Functionalities provided by the modules
+
+The AzureStack-Tools repository contains PowerShell modules that support the following functionalities for Azure Stack:  
 
 | Functionality | Description | who can use this module? |
 | --- | --- | --- |
@@ -58,5 +60,5 @@ This repository contains PowerShell modules that support the following functiona
 
 
 ## Next steps
-•	[Configure powerShell for use with Azure Stack](azure-stack-powershell-configure.md)   
-•	[Connect to Azure Stack POC over a VPN](azure-stack-connect-azure-stack.md)  
+* [Configure powerShell for use with Azure Stack](azure-stack-powershell-configure.md)   
+* [Connect to Azure Stack POC over a VPN](azure-stack-connect-azure-stack.md)  
