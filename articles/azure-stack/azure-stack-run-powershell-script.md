@@ -92,7 +92,22 @@ Before you start, make sure that you at least 85 GB of space and that you have .
     
 2. Open an elevated PowerShell console.
 3. In PowerShell, run this command: `cd C:\CloudDeployment\Configuration`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
-4. Run the deploy command: `.\InstallAzureStackPOC.ps1`
+4. You can deploy Azure Stack with Azure Active Directory or Active Directory Federation Services. Azure Stack, resource providers, and other applications work the same way with both. To learn more about what is supported with AD FS in Azure Stack TP3, see the [Key features and concepts](azure-stack-key-features.md) article.
+
+    To deploy Azure Stack with Azure Active Directory, run the deploy command:
+    
+    `.\InstallAzureStackPOC.ps1`
+
+    To deploy the Azure Stack POC with Active Directory Federation Services instead, run the following script:
+
+    ```powershell
+    cd C:\CloudDeployment\Setup 
+    $adminpass = ConvertTo-SecureString "〈LOCAL_ADMIN_PASSWORD〉" -AsPlainText -Force 
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -UseADFS
+    ```
+
+    In this AD FS deployment, the default stamp Directory Service is used as the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
+
 5. At the **Enter the password** prompt, enter the same password as the one in Step 8 of the previous section, and then confirm it. This is the password to all the virtual machines. Be sure to record it.
 6. Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
 7. The deployment process can take a couple of hours, during which the system automatically reboots once.
