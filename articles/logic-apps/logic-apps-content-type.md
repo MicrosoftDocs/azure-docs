@@ -29,7 +29,7 @@ This article describes how the engine handles different content types and how to
 To start basically, let's look at the two `Content-Types` that don't require conversion or casting 
 to use in a logic app - `application/json` and `text/plain`.
 
-### Application/JSON
+## Application/JSON
 
 The workflow engine relies on the `Content-Type` header from HTTP calls to determine the appropriate handling. 
 Any request with the content type `application/json` is stored and handled as a JSON Object. 
@@ -50,7 +50,7 @@ by using an expression like `@body('myAction')['foo'][0]` to get the value `bar`
 No additional casting is needed. If you are working with data that is JSON but didn't have a header specified, 
 you can manually cast it to JSON using the `@json()` function, for example: `@json(triggerBody())['foo']`.
 
-### Text/plain
+## Text/plain
 
 Similar to `application/json`, HTTP messages received with the `Content-Type` header 
 of `text/plain` are stored in raw form. Also, if included in subsequent actions without casting, 
@@ -67,7 +67,7 @@ the request would have a `text/plain` Content-Type header.
 If you are working with data that is plain text but didn't have a header specified, 
 you can manually cast the data to text using the `@string()` function, for example: `@string(triggerBody())`.
 
-### Application/xml and Application/octet-stream and Converter Functions
+## Application/xml and Application/octet-stream and Converter Functions
 
 The Logic Apps Engine always preserves the `Content-Type` that was received on the HTTP request or response. 
 So if the engine receives content with the `Content-Type` of `application/octet-stream`, 
@@ -100,19 +100,19 @@ For example, if you received an HTTP request with `Content-Type`: `application/x
 You could cast and use later with something like `@xml(triggerBody())`, 
 or in a function like `@xpath(xml(triggerBody()), '/CustomerName')`.
 
-### Other content types
+## Other content types
 
 Other content types are supported and work with logic apps, 
 but might require manually retrieving the message body by decoding the `$content`. 
-So if you trigger an `application/x-www-url-formencoded` request 
-like this example:
+For example, suppose you trigger an `application/x-www-url-formencoded` request 
+where `$content` is the payload encoded as a base64 string to preserve all data:
 
 ```
 CustomerName=Frank&Address=123+Avenue
 ```
 
-The request is stored in the action because the request isn't plain text or JSON 
-where `$content` is the payload encoded as a base64 string to preserve all data:
+Because the request isn't plain text or JSON, 
+the request is stored in the action as follows:
 
 ```
 ...
