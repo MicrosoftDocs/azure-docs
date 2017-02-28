@@ -23,7 +23,7 @@ Use this article to figure out how to plan capacity and scaling when replicating
 
 ## How do I start capacity planning?
 
-1. Gather information about your replication environment using the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). This includes information about number of virtual machines that are compatible and incompatible, disks per VM, data churn per disk, network bandwidth requirement and required Azure infrasturcutre for successful replication and test failover/failover.
+Gather information about your replication environment using the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). This includes information about number of virtual machines that are compatible and incompatible, disks per VM, data churn per disk, network bandwidth requirement and required Azure infrasturcutre for successful replication and test failover/failover.
 
 ## Capacity considerations
 

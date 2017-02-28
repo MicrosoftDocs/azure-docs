@@ -30,27 +30,27 @@ Azure Site Recovery Deployment Planner Public Preview is a command line tool cur
 The tool provides the following details:
 
 **Compatibility assessment**<br>
-1. Virtual machine eligibility assessment based on number of disks, disk size, IOPS and churn
+* Virtual machine eligibility assessment based on number of disks, disk size, IOPS and churn
 
 **Network bandwidth need vs. RPO assessment**<br>
-2. Estimated network bandwidth required for delta replication<br>
-3. Throughput that Azure Site Recovery can get from on-premises to Azure<br>
-4.	Number of virtual machines to batch based on estimated bandwidth to complete initial replication in a given amount of time<br>
+* Estimated network bandwidth required for delta replication<br>
+* Throughput that Azure Site Recovery can get from on-premises to Azure<br>
+* Number of virtual machines to batch based on estimated bandwidth to complete initial replication in a given amount of time<br>
 
 **Microsoft Azure infrastructure requirements**<br>
-5.	Storage type (standard or premium storage) requirement for each virtual machine<br>
-6.	Total number of standard and premium storage accounts to be provisioned for replication<br>
-7.	Storage accounts naming suggestions based on Azure Storage guidance<br>
-8.	Every virtual machine's storage account placement<br>
-9.	Number of Microsoft Azure cores to be provisioned before test failover/failover on the subscription<br>
-10.	Recommended Microsoft Azure virtual machine size for each on-premises virtual machine<br>
+* Storage type (standard or premium storage) requirement for each virtual machine<br>
+* Total number of standard and premium storage accounts to be provisioned for replication<br>
+* Storage accounts naming suggestions based on Azure Storage guidance<br>
+* Every virtual machine's storage account placement<br>
+* Number of Microsoft Azure cores to be provisioned before test failover/failover on the subscription<br>
+* Recommended Microsoft Azure virtual machine size for each on-premises virtual machine<br>
 
 **On-premises infrastructure requirements**<br>
-11.	Required number of Configuration Servers and Process Servers to be deployed on-premises<br>
+* Required number of Configuration Servers and Process Servers to be deployed on-premises<br>
 
 >[!IMPORTANT]
 >
->All these calculations in the tool are done assuming a 30% growth factor in your workload characteristics, due to possible increased usage over time, and taking 95th percentile of all the profiling metrics (R/W IOPS, churn, etc.) Both these parameters – growth factor and percentile calculation are configurable. Learn more about [growth factor](site-recovery-deployment-planner.md#growth-factor) and [percentil value used for the caculation](site-recovery-deployment-planner.md#percentil-value-used-for-the-calculation).
+>All these calculations in the tool are done assuming a 30% growth factor in your workload characteristics, due to possible increased usage over time, and taking 95th percentile of all the profiling metrics (R/W IOPS, churn, etc.) Both these parameters – growth factor and percentile calculation are configurable. Learn more about [growth factor](site-recovery-deployment-planner.md#growth-factor) and [percentile value used for the caculation](site-recovery-deployment-planner.md#percentile-value-used-for-the-calculation).
 >
 
 
@@ -210,7 +210,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 ##### Example 6: Generate report for 5 minutes RPO.
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-DesiredRPO** 5
 
-### Percentil value used for the calculation
+### Percentile value used for the calculation
 **What default percentile value of the performance metrics collected during profiling is used at the time of report generation?**
 
 The tool defaults to 95th percentile values of R/W IOPS, write IOPS, and data churn collected during profiling of all the VMs. This ensures that the 100th percentile spike your VMs may see due to temporary events like say a backup job running once a day, a periodic database indexing or analytics report generation activity, or any other similar point in time short-lived event that happens during the profiling period is not used to determine your target Azure Storage and source bandwidth requirements. Using 95th percentile values gives a true picture of real workload characteristics and gives you the best performance when these workloads are running on Microsoft Azure. We do not expect you to change this number often, but if you choose to go even lower, e.g. 90th percentile, you can update this configuration file ‘ASRDeploymentPlanner.exe.config’ in the default folder and save it to generate a new report on the existing profiled data.
