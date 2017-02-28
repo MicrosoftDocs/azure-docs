@@ -4,7 +4,7 @@ description: Learn how to secure a web app, mobile app backend, or API app in Az
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 5ce560b4-42d7-4b20-935c-0445fd539e39

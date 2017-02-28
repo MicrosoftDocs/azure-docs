@@ -163,7 +163,6 @@
 #### [Run NAMD with Microsoft HPC Pack](../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Run applications
-### [Deploy Node.js application](../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Django web app](../virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Jupyter Notebook](../virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
