@@ -37,7 +37,7 @@ You can opt in and configure additional recipients to receive your Azure invoice
 
     ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
-If you don't get an email after following the steps, make sure your email address is correct in [communication preferences on your profile](https://account.windowsazure.com/profile).
+If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
 
 
 ## Download invoice from Azure portal (.pdf)
