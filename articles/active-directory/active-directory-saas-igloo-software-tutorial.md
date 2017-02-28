@@ -98,9 +98,10 @@ As part of this procedure, you are required to upload a base-64 encoded certific
    3. In the Azure classic portal, on the **Configure single sign-on at Igloo Software** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **IdP Logout URL** textbox.
    4. As **Logout Response and Request HTTP Type**, select **POST**.
    5. Create a text file from the downloaded certificate.    
-      >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
-      > 
+   
+       >[!TIP]
+       >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o). 
+       > 
    6. Remove the first line and the last line from the text file version of your certificate, copy the remaining certificate text, and then paste it into the **Public Certificate** textbox.
 10. In the **Response and Authentication Configuration**, perform the following steps:
     
