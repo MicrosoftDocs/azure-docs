@@ -33,7 +33,7 @@ To upgrade your logic apps from the August 1, 2015 preview schema to the June 1,
 <a name="scopes"></a>
 ## Scopes
 
-This schema includes scopes, which lets you group actions together, 
+This schema includes scopes, which let you group actions together, 
 or nest actions inside each other. For example, a condition can contain another condition. 
 Learn more about [scope syntax](../logic-apps/logic-apps-loops-and-scopes.md), 
 or review this basic scope example:
@@ -98,12 +98,12 @@ The `runAfter` property replaces `dependsOn`,
 providing more precision when you specify the run order for actions 
 based on the status of previous actions.
 
-The `dependsOn` was synonymous with "the action ran and was successful", 
-no matter how many times you wanted to execute an action 
+The `dependsOn` property was synonymous with "the action ran and was successful", 
+no matter how many times you wanted to execute an action, 
 based on whether the previous action was successful, failed, or skipped. 
-The `runAfter` property provides that flexibility now as an object 
-that specifies all the action names after which the object runs, 
-and defines an array of statuses that are acceptable as triggers. 
+The `runAfter` property provides that flexibility as an object 
+that specifies all the action names after which the object runs. 
+This property also defines an array of statuses that are acceptable as triggers. 
 For example, if you wanted to run after step A succeeds and also after 
 step B succeeds or fails, you construct this `runAfter` property:
 
@@ -121,8 +121,8 @@ step B succeeds or fails, you construct this `runAfter` property:
 
 Upgrading to the new schema only takes a few steps. 
 The upgrade process includes running the upgrade script, 
-saving as a new logic app, and possibly overwriting the 
-previous logic app if you want.
+saving as a new logic app, and if you want, 
+possibly overwriting the previous logic app.
 
 1. In the Azure portal, open your logic app.
 
@@ -137,7 +137,7 @@ previous logic app if you want.
 
 3. In the upgrade blade toolbar, choose **Save As**.
 
-4. Enter the logic name name and status. 
+4. Enter the logic name and status. 
 To deploy your upgraded logic app, choose **Create**.
 
 5. Confirm that your upgraded logic app works as expected.
@@ -167,8 +167,7 @@ You can remap actions after upgrading, if necessary.
 #### 'foreach' loop with condition
 
 In the new schema, you can use the filter action 
-for replicating the previous pattern 
-of a `foreach` loop with a condition per item, 
+to replicate the pattern of a `foreach` loop with a condition per item, 
 but this change should automatically happen when you upgrade. 
 The condition becomes a filter action before the foreach loop 
 for returning only an array of items that match the condition, 
@@ -188,9 +187,10 @@ This change creates more consistency for the kind of pattern that the trigger is
 
 ### New 'filter' action
 
-If you want to filter a large array down to a smaller set of items, 
+To filter a large array down to a smaller set of items, 
 the new `filter` type accepts an array and a condition, 
-evaluates the condition for each item, and returns an array with items that meet the condition.
+evaluates the condition for each item, and returns an array 
+with items meeting the condition.
 
 ### Restrictions for 'foreach' and 'until' actions
 

@@ -18,7 +18,7 @@ ms.date: 07/25/2016
 ms.author: jehollan
 
 ---
-# Create logic app definitions with JSON
+# Create workflow definitions with JSON for logic apps
 
 You can create definitions for [Azure Logic Apps](logic-apps-what-are-logic-apps.md) 
 with simple, declarative JSON language. If you haven't already, first review 
@@ -199,7 +199,7 @@ by adding items to the `runAfter` property as in the previous example.
 
 ## Map list items to a different configuration
 
-Next, let's say that we want to get completely different content depending on a value of a property. 
+Next, let's say that we want to get different content based on the value of a property. 
 We can create a map of values to destinations as a parameter:  
 
 ```
@@ -270,7 +270,8 @@ but we aren't confident about proper handling for character encoding.
 One option is to base64 encode this string. However, 
 to avoid escaping in a URL, we are going to replace a few characters. 
 
-We also want a substring of the the order's name because the first 5 characters are not used.
+We also want a substring of the order's name because 
+the first five characters are not used.
 
 ```
 {
@@ -304,7 +305,7 @@ We also want a substring of the the order's name because the first 5 characters 
 }
 ```
 
-Workfing from inside to outside:
+Working from inside to outside:
 
 1. Get the [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) 
 for the orderer's name, so we get back the total number of characters.
@@ -318,7 +319,7 @@ We start at index `5` and go the remainder of the string.
 
 5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all the `+` characters with `-` characters.
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all of the `/` characters with `_` characters.
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all the `/` characters with `_` characters.
 
 ## Work with Date Times
 
@@ -386,8 +387,8 @@ Finally, we can compare these two values.
 If the first value is less than the second value, 
 then more than one second has passed since the order was first placed.
 
-Also note that to format dates, we can use string formatters.
-To get the RFC1123, we use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+To format dates, we can use string formatters. For example, 
+to get the RFC1123, we use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
 To learn about date formatting, see [Workflow Definition Language](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
 ## Deployment parameters for different environments
@@ -396,8 +397,7 @@ Commonly, deployment lifecycles have a development environment, a staging enviro
 and a production environment. For example, you might use the same definition in all these environments
 but use different databases. Likewise, you might want to use the same definition across different 
 regions for high availability but want each logic app instance to talk to that region's database.
-
-Note that this scenario differs from taking parameters at *runtime* 
+This scenario differs from taking parameters at *runtime* 
 where instead, you should use the `trigger()` function as in the previous example.
 
 You can start with a basic definition like this example:
@@ -429,8 +429,8 @@ You can start with a basic definition like this example:
 }
 ```
 
-In the actual `PUT` request for the logic appy, you can provide the parameter `uri`. 
-Note that because a default value no longer exists, the logic app payload requires this parameter:
+In the actual `PUT` request for the logic apps, you can provide the parameter `uri`. 
+Because a default value no longer exists, the logic app payload requires this parameter:
 
 ```
 {
