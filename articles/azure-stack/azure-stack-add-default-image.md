@@ -46,9 +46,9 @@ Before you can provision virtual machines, you must add the Windows Server VM im
     Import-Module .\Connect\AzureStack.Connect.psm1 
     Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
     ```
-7. Get the GUID of the Azure Active Directory Tenant that was used to deploy Azure Stack by running one of the following scripts (depending on if you are using AD or AD FS):
+7. Get the GUID of the Azure Active Directory Tenant that was used to deploy Azure Stack by running one of the following scripts (depending on if you are using AAD or AD FS):
 
-    For AD deployments, use the following:
+    For AAD deployments, use the following:
 
     ```powershell
     $aadTenant = Get-AADTenantGUID -AADTenantName "<myaadtenant>.onmicrosoft.com" 
