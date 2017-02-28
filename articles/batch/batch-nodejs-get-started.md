@@ -21,7 +21,7 @@ Clearly, Azure batch was a pretty good fit.
 
 However, I also needed a trigger that would deploy this batch job, and after completion of all tasks delete the pools.
 
-I was thinking of using a Nodejs blob trigger function. That could deploy a batch job with the python console app and pass the relevant parameters.
+I was thinking of using a timmer trigger function. That could deploy a batch job with the python console app and pass the relevant parameters.
 
 ## Azure Batch with Nodejs client
 
@@ -37,14 +37,14 @@ Following are the commands to create one through Nodejs CLI.
 
 Create a Resource Group, skip this step if you already have one where you want to create the Batch Account:
 
-`azure group create --name "<resource-group-name>" --location "<location>`
+`azure group create --name "<resource-group-name>" --location "<location>"`
 
 Then create an Azure Batch account.
-`azure batch account create --location "<location>"  --resource-group "<resource-group-name>" "<batch-account-name>`
+`azure batch account create --location "<location>"  --resource-group "<resource-group-name>" "<batch-account-name>"`
 
 Each Batch account has its corresponding access keys, these keys are needed to create further resources in Azure batch account. A good practice for production environment is to use Azure Key Vault to store these keys, and create a Service principal for the application that can access and download the keys from vault.
 
-`$acc_keys = Get-AzureRmBatchAccountKeys -AccountName 'account name'`
+`$acc_keys = Get-AzureRmBatchAccountKeys -AccountName "<batch-account-name>"`
 
 You can print the account keys from the variable `$acc_keys` by using the following command. Please copy and store the key for further use below.
 
@@ -125,7 +125,7 @@ Please refer to the screenshot below:
 
 ### Create Azure Batch Job
 
-Once you get a success message, next step is to create a Job. A job is a logical grouping of similar tasks. For example, let's say I have files corresponding to a customer each, uploaded once every four hours. I need to convert these files to JSON from csv. My job here would be to process csv files, every four hours and a task could correspond to a customer.  
+Once you get a success message, next step is to create a Job. A job is a logical grouping of similar tasks. For example, let's say I have files corresponding to a customer, uploaded once every four hours. I need to convert these files to JSON from csv. My job here would be to process csv files that runs every four hours and I could have multiple tasks in the job each corresponding to a customer.  
 
 The idea is to maximize the node utilization in the pool and use Batch's parallelism to execute operations in parallel. This completely depends on the kind of processing one needs to do. One can use the ![maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property to specify maximum number of tasks that can run concurrently on a single node.
 
@@ -211,7 +211,7 @@ Following is the code
 
 The code above will add multiple tasks to the pool. And each of the tasks will be executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the maxTasksPerNode property, the tasks will wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
-The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure Node SDK. Details are provided in the documentation [link](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure Node SDK. Details are provided in the documentation [link](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html). 
 
 
 #### Github reference
