@@ -365,7 +365,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |String of the policy name |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |If true sets the policy as organization's default policy, if false does nothing |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |The type of policy, for token lifetimes always use "TokenLifetimePolicy" | `-Type "TokenLifetimePolicy"` |
-| `AlternativeIdentifier` [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
