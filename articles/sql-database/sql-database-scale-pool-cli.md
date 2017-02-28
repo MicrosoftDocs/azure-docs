@@ -3,8 +3,8 @@ title: Azure CLI Script-Scale an elastic pool | Microsoft Docs
 description: Azure CLI Script Sample - Scale an elastic database pool
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: jhubbard
 editor: carlrab
 tags: azure-service-management
 

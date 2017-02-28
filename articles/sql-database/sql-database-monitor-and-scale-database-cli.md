@@ -3,8 +3,8 @@ title: Azure CLI Script-Monitor & scale a SQL Database | Microsoft Docs
 description: Azure CLI Script Sample - Monitor and scale a SQL database
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: jhubbard
 editor: carlrab
 tags: azure-service-management
 
