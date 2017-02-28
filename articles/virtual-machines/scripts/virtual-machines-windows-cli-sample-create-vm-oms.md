@@ -28,7 +28,7 @@ This sample works in a Bash Shell. For options on running Azure CLI scripts on W
 
 ## Create VM sample with Operations Management Suite
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-monitor-oms.sh?highlight=4-5 "Quick Create VM")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-monitor-oms.sh "Quick Create VM")]
 
 ## Clean up deployment 
 

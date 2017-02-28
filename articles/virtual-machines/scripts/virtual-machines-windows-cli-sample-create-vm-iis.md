@@ -28,7 +28,7 @@ This sample works in a Bash Shell. For options on running Azure CLI scripts on W
 
 ## Create VM sample
 
-```azureclu
+```azurecli
 #!/bin/bash
 
 # Update for your admin password
