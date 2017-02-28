@@ -151,11 +151,13 @@ The objective of this section is to create a test user in the classic portal cal
    
     ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_03.png) 
 5. On the **Tell us about this user** dialog page, perform the following steps:
+
     ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_04.png) 
  1. As Type Of User, select New user in your organization.  
  2. In the User Name **textbox**, type **BrittaSimon**. 
  3. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
+
    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_05.png)  
  1. In the **First Name** textbox, type **Britta**.   
  2. In the **Last Name** textbox, type, **Simon**. 
