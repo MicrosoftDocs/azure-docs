@@ -71,7 +71,7 @@ The following code example uses Media Services .NET SDK to perform the following
 			    // Get an uploaded asset.
 			    var asset = _context.Assets.FirstOrDefault();
 
-			    // Encode and generate the output using custom presets.
+			    // Encode and generate the output using the "Adaptive Streaming" preset.
 			    EncodeToAdaptiveBitrateMP4Set(asset);
 
 			    Console.ReadLine();
@@ -88,7 +88,7 @@ The following code example uses Media Services .NET SDK to perform the following
 			    // Create a task
 			    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
 				processor,
-				"H264 Multiple Bitrate 720p",
+				"Adaptive Streaming",
 				TaskOptions.None);
 
 			    // Specify the input asset to be encoded.

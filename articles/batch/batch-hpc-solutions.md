@@ -1,5 +1,5 @@
 ---
-title: Batch and HPC solutions in the cloud | Microsoft Docs
+title: Batch and HPC solutions in the cloud - Azure | Microsoft Docs
 description: Learn about batch and high-performance computing (HPC and Big Compute) scenarios and solution options in Azure
 services: batch, virtual-machines, cloud-services
 documentationcenter: ''
@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# Batch and HPC solutions in the Azure cloud
+# Batch and HPC solutions for large-scale computing workloads
+
 Azure offers efficient, scalable cloud solutions for batch and high-performance computing (HPC) - also called *Big Compute*. Learn here about Big Compute workloads and Azure’s services to support them, or jump directly to [solution scenarios](#scenarios) later in this article. This article is mainly for technical decision-makers, IT managers, and independent software vendors, but other IT professionals and developers can use it to familiarize themselves with these solutions.
 
 Organizations have large-scale computing problems: engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and others. Azure helps organizations solve these problems with the resources, scale, and schedule they need. With Azure, organizations can:
