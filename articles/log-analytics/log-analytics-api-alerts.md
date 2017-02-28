@@ -1,6 +1,6 @@
 ---
-title: Log Analytics Alert REST API
-description: The Log Analytics Alert REST API allows you to create and manage alerts in Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
+title: Using OMS Log Analytics Alert REST API
+description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics which is part of Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 02/27/2017
 ms.author: bwren
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Log Analytics alert REST API
+# Create and manage alert rules in Log Analytics with REST API
 The Log Analytics Alert REST API allows you to create and manage alerts in Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
 
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document you will find examples where the API is accessed from a PowerShell command line using  [ARMClient](https://github.com/projectkudu/ARMClient), an open source command line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools you can utilize the RESTful Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
