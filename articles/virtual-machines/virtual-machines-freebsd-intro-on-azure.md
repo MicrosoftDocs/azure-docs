@@ -5,6 +5,7 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: KylieLiang
 manager: timlt
+
 editor: ''
 tags: azure-service-management
 
@@ -14,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: kyliel
 
 ---
@@ -34,10 +35,43 @@ The agent is responsible for communication between the FreeBSD VM and the Azure 
 As for future versions of FreeBSD, the strategy is to stay current and make the latest releases available shortly after they are published by the FreeBSD release engineering team.
 
 ## Deploying a FreeBSD virtual machine
-Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace:
+Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace from the Azure portal:
 
 - [FreeBSD 10.3 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [FreeBSD 11.0 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+
+### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
+Firstly you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
+
+```bash 
+    curl -L https://aka.ms/InstallAzureCli | bash
+```
+
+If bash is not installed on your FreeBSD machine, please run below command before the installation. 
+   
+    sudo pkg install bash
+
+If python is not installed on your FreeBSD machine, please run below commands before the installation. 
+    
+    sudo pkg install python35
+    cd /usr/local/bin 
+    sudo rm /usr/local/bin/python 
+    sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+
+During the installation, you will be asked `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. If you answer `y` and enter `/etc/rc.conf` as `a path to an rc file to update`, you may meet the problem `ERROR: [Errno 13] Permission denied`. To resolve this problem, you should grant the write right to current user against the file `etc/rc.conf`.
+
+Now you can log in Azure and create your FreeBSD VM. Below is an example to create a FreeBSD 11.0 VM. You can also add the parameter `--public-ip-address-dns-name` with a globally unique DNS name for a newly created Public IP. 
+
+```azurecli
+    az login 
+    az group create -n myResourceGroup -l westus az vm create -n myFreeBSD11 -g myResourceGroup --image MicrosoftOSTC:FreeBSD:11.0:latest --admin-username azureuser --ssh-key-value /etc/ssh/ssh_host_rsa_key.pub 
+```
+
+Then you can log in to your FreeBSD VM through the ip address that printed in the output of above deployment. 
+
+```bash
+    ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
+```   
 
 ## VM extensions for FreeBSD
 Following are supported VM extensions in FreeBSD.
