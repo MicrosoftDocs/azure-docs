@@ -71,6 +71,18 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
     
     sudo sh ./NVIDIA-Linux-x86_64-367.48.run
     ```
+6. Silent Install without reboot may be performed via scripts as follows:
+ 
+    ```bash 
+    service lightdm stop 
+    wget -O NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
+    chmod +x NVIDIA-Linux-x86_64-367.48.run
+    DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
+    DEBIAN_FRONTEND=noninteractive apt-get update -y
+    DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential gcc g++ make binutils linux-headers-`uname -r`
+    DEBIAN_FRONTEND=noninteractive ./NVIDIA-Linux-x86_64-367.48.run  --silent
+    DEBIAN_FRONTEND=noninteractive update-initramfs -u
+     ```
 
 ## Verify driver installation
 
@@ -101,6 +113,45 @@ sudo apt-get install cuda-drivers
 
 The installation can take several minutes.
 
+## Silent and Secure installation of NVIDIA CUDA Toolkit on Ubuntu 16.04 LTS
+ 
+ CUDA Toolkit may be silently and securely installed via scripts as follows
+ 
+ ```bash
+ DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
+ export CUDA_DOWNLOAD_SUM=16b0946a3c99ca692c817fb7df57520c && export CUDA_PKG_VERSION=8-0 && curl -o cuda-repo.deb -fsSL http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb && \
+     echo "$CUDA_DOWNLOAD_SUM  cuda-repo.deb" | md5sum -c --strict - && \
+     dpkg -i cuda-repo.deb && \
+     rm cuda-repo.deb && \
+     apt-get update -y && apt-get install -y cuda && \
+     apt-get install -y nvidia-cuda-toolkit && \
+ export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/:${LIBRARY_PATH}  && export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/stubs:${LIBRARY_PATH} && \
+ export PATH=/usr/local/cuda-8.0/bin:${PATH}
+ ```
+ 
+ ### CUDA Samples Silent Install
+ 
+ [CUDA Samples](http://docs.nvidia.com/cuda/cuda-samples/#new-features-in-cuda-toolkit-8-0) can be installed in a location as follows:
+ 
+ ```bash
+ export SHARE_DATA="/data"
+ export SAMPLES_USER="samplesuser"
+ su -c "/usr/local/cuda-8.0/bin/./cuda-install-samples-8.0.sh $SHARE_DATA" $SAMPLES_USER
+ ```
+
+## Silent installation of CUDNN
+
+The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. 
+cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers.
+cuDNN is part of the NVIDIA Deep Learning SDK and it can be installed silently as follows:
+
+ ```bash
+    export CUDNN_DOWNLOAD_SUM=a87cb2df2e5e7cc0a05e266734e679ee1a2fadad6f06af82a76ed81a23b102c8 && curl -fsSL http://developer.download.nvidia.com/compute/redist/cudnn/v5.1/cudnn-8.0-linux-x64-v5.1.tgz -O && \
+    echo "$CUDNN_DOWNLOAD_SUM  cudnn-8.0-linux-x64-v5.1.tgz" | sha256sum -c --strict - && \
+    tar -xzf cudnn-8.0-linux-x64-v5.1.tgz -C /usr/local && \
+    rm cudnn-8.0-linux-x64-v5.1.tgz && \
+    ldconfig
+  ```
 ## Next steps
 
 * For more information about the NVIDIA GPUs on the N-series VMs, see:
