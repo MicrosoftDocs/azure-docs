@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: tarcher
 
+ms.custom: H1Hack27Feb2017
+
 ---
 # Manage Azure DevTest Labs formulas
 
