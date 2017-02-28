@@ -3,7 +3,7 @@ title: Connect to Azure Stack | Microsoft Docs
 description: Learn how to connect Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS, SnehaGunda
+author: ErikjeMS
 manager: byronr
 editor: ''
 
@@ -41,7 +41,7 @@ In an Azure Stack Proof of Concept (POC) environment, you can use a Virtual Priv
  
 Through the VPN connection, you can access the administrator portal, user portal and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources.
 
-**Note:** This VPN connection does not provide connectivity to Azure Stack infrastructure VMs or other resources. 
+**Note:** This VPN connection does not provide connectivity to Azure Stack infrastructure VMs. 
 
 The following sections describe the steps that are required to establish VPN connectivity to Azure Stack.
 
@@ -57,8 +57,7 @@ After you download the tools, navigate to the downloaded folder and import the *
 ```PowerShell
 Import-Module .\AzureStack.Connect.psm1
 ```
-
-**Note:** When you import the module, if you receive an error that says “AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, run the following command in an elevated PowerShell session:
+When you import the module, if you receive an error that says “**AzureStack.Connect.psm1** is not digitally signed. The script will not execute on the system”. To resolve this issue, run the following command in an elevated PowerShell session:
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
@@ -70,61 +69,61 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
 1.	Add the Azure Stack PoC computer’s host IP address & certificate authority(CA) to the list of trusted hosts on your client computer. To do this, run the following commands in an elevated PowerShell session:
 
-```PowerShell
-.Set-Item wsman:\localhost\Client\TrustedHosts -Value $hostIP -Concatenate
-Set-Item wsman:\localhost\Client\TrustedHosts -Value mas-ca01.azurestack.local -Concatenate  
-```
+    ```PowerShell
+    Set-Item wsman:\localhost\Client\TrustedHosts -Value $hostIP -Concatenate
+    Set-Item wsman:\localhost\Client\TrustedHosts -Value mas-ca01.azurestack.local -Concatenate  
+    ```
 
-2.	Assign the Azure Stack host IP address and administrator password to the $hostIP and $Password variables. To do this, run the following PowerShell commands and make sure that you populate the administrator password and fields:
+2.	Assign the Azure Stack host IP address and administrator password to the **$hostIP** and **$Password** variables. To do this, run the following PowerShell commands and make sure that you populate the administrator password and fields:
 
-```PowerShell
-#Change the IP address in the following command to match your Azure Stack host IP address
-$hostIP = "<Azure Stack host IP address>"
+    ```PowerShell
+    #Change the IP address in the following command to match your Azure Stack host IP address
+    $hostIP = "<Azure Stack host IP address>"
 
-# Change the password in the following command to administrator password that is provided when deploying Azure Stack. 
-$Password = ConvertTo-SecureString "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force
-```
+    # Change the password in the following command to administrator password that is provided when deploying Azure Stack. 
+    $Password = ConvertTo-SecureString "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force
+    ```
+
 3.	Get the Azure Stack host computer’s NAT IP address. If you do not remember the NAT IP address of the Azure Stack PoC instance you are trying to connect to, you can get it by using the **Get-AzureStackNatServerAddress** command:
 
-```PowerShell
-$natIp = Get-AzureStackNatServerAddress -HostComputer $hostIP -Password $Password
-```
-![get NAT IP](media/azure-stack-connect-azure-stack/image1.png) 
+    ```PowerShell
+    $natIp = Get-AzureStackNatServerAddress -HostComputer $hostIP -Password $Password
+    ```
+    ![get NAT IP](media/azure-stack-connect-azure-stack/image1.png)  
 
-
-This command remotes into the **MAS-BGPNAT01** infrastructure VM and gets the NAT IP address.
+    This command remotes into the **MAS-BGPNAT01** infrastructure VM and gets the NAT IP address.
 
 4.	Create a VPN connection entry for your local user by using the **Add-AzureStackVpnConnection** command:
 
-```PowerShell
-Add-AzureStackVpnConnection -ServerAddress $natIp -Password $Password
-```
-![get cpn connection](media/azure-stack-connect-azure-stack/image2.png) 
+    ```PowerShell
+    Add-AzureStackVpnConnection -ServerAddress $natIp -Password $Password
+    ```
+    ![get cpn connection](media/azure-stack-connect-azure-stack/image2.png)  
 
-If the connection succeeds, you should see **azurestack** in your list of VPN connections.
+    If the connection succeeds, you should see **azurestack** in your list of VPN connections.
 
-![Network connections](media/azure-stack-connect-azure-stack/image3.png)
+    ![Network connections](media/azure-stack-connect-azure-stack/image3.png)  
 
 5.	Connect to the Azure Stack instance by using either of the following:
 
-a.	**Connect-AzureStackVpn** command:
+    a.	**Connect-AzureStackVpn** command:
 
-```PowerShell
-Connect-AzureStackVpn -Password $Password
-```
-![connect with cmd](media/azure-stack-connect-azure-stack/image4.png)
+        ```PowerShell
+        Connect-AzureStackVpn -Password $Password
+        ```
+        ![connect with cmd](media/azure-stack-connect-azure-stack/image4.png)  
 
-When prompted, trust the Azure Stack host. 
-When prompted, install the certificate from **AzureStackCertificateAuthority** into your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
+    When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** into your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
 
-b.	Open your local computer’s **Network Settings** > **VPN** >click on **azurestack** > **connect**
+    b.	Open your local computer’s **Network Settings** > **VPN** >click on **azurestack** > **connect**
 
-![connect with UI](media/azure-stack-connect-azure-stack/image5.png)
+        ![connect with UI](media/azure-stack-connect-azure-stack/image5.png)  
 
-At the sign in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a **connected** state.
-Validate the VPN connectivity
-1.	To test the portal connection, open an Internet browser and navigate to either the administrator portal (https://portal.local.azurestack.external)or the user portal (https://publicportal.local.azurestack.external).
-2.	To review and manage the Azure Stack connection, use **Networks** on your client computer.
+        At the sign in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a **connected** state.
+
+### Validate the VPN connectivity
+
+1.	To test the portal connection, open an Internet browser and navigate to either the administrator portal (https://portal.local.azurestack.external)or the user portal (https://publicportal.local.azurestack.external).  
 
 
 
