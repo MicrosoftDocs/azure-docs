@@ -27,7 +27,7 @@ This article describes how the engine handles different content types and how to
 ## Content-Type Header
 
 To start basically, let's look at the two `Content-Types` that don't require conversion or casting 
-to use in a logic app - `application/json` and `text/plain`.
+that you can use in a logic app: `application/json` and `text/plain`.
 
 ## Application/JSON
 
@@ -50,11 +50,29 @@ by using an expression like `@body('myAction')['foo'][0]` to get the value `bar`
 No additional casting is needed. If you are working with data that is JSON but didn't have a header specified, 
 you can manually cast it to JSON using the `@json()` function, for example: `@json(triggerBody())['foo']`.
 
+### Schema and schema generator
+
+The Request trigger lets you to enter a JSON schema for the payload you expect to receive. 
+This schema lets the designer generate tokens so you can consume the content of the request. 
+If you don't have a schema ready, select `Use sample payload to generate schema`, 
+so you can generate a JSON schema from a sample payload.
+
+![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
+
+### 'Parse JSON' action
+
+The `Parse JSON` action lets you parse JSON content into friendly tokens 
+for logic app consumption. Similar to the Request trigger, this action 
+lets you enter or generate a JSON schema for the content you want to parse. 
+This tool makes consuming data from Service Bus, DocumentDB, and so on, much easier.
+
+![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
+
 ## Text/plain
 
 Similar to `application/json`, HTTP messages received with the `Content-Type` header 
-of `text/plain` are stored in raw form. Also, if included in subsequent actions without casting, 
-requests go out with a `Content-Type`: `text/plain` header. 
+of `text/plain` are stored in raw form. Also, if those messages are included in subsequent actions without casting, 
+those requests go out with  `Content-Type`: `text/plain` header. 
 For example, when working with a flat file, you might get this HTTP content as `text/plain`:
 
 ```
@@ -67,18 +85,17 @@ the request would have a `text/plain` Content-Type header.
 If you are working with data that is plain text but didn't have a header specified, 
 you can manually cast the data to text using the `@string()` function, for example: `@string(triggerBody())`.
 
-## Application/xml and Application/octet-stream and Converter Functions
+## Application/xml and Application/octet-stream and converter functions
 
 The Logic Apps Engine always preserves the `Content-Type` that was received on the HTTP request or response. 
 So if the engine receives content with the `Content-Type` of `application/octet-stream`, 
-and a subsequent action includes that content without casting, 
-then the outgoing request has `Content-Type`: `application/octet-stream`. 
+and you include that content in a subsequent action without casting, 
+the outgoing request has `Content-Type`: `application/octet-stream`. 
 This way, the engine can guarantee data isn't lost while moving through the workflow. 
 However, the action state (inputs and outputs) is stored in a JSON object as the state moves through the workflow. 
-So, to preserve some data-types, the engine converts the content 
+So to preserve some data types, the engine converts the content 
 to a binary base64 encoded string with appropriate metadata that preserves 
 both `$content` and `$content-type`, which are automatically be converted. 
-You can also manually convert between content types using built-in converter functions:
 
 * `@json()` - casts data to `application/json`
 * `@xml()` - casts data to `application/xml`
@@ -131,3 +148,4 @@ you could add the request to the action body without any casting like `@body('fo
 However, this method only works if the body is the only parameter in the `body` input. 
 If you try to use `@body('formdataAction')` in an `application/json` request, 
 you get a runtime error because the encoded body is sent.
+
