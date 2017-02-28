@@ -153,5 +153,5 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ```
 
 ## Next Steps
-•	[Deploy a VM with password stored in a Key Vault]()  
-•	[Deploy a VM with certificate stored in Key Vault]() 
+•	[Deploy a VM with password stored in a Key Vault](azure-stack-kv-deploy-vm-with-secret.md)  
+•	[Deploy a VM with certificate stored in Key Vault](azure-stack-kv-push-secret-into-vm.md) 
