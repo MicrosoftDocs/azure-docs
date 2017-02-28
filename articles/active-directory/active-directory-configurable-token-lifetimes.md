@@ -1,5 +1,5 @@
 ---
-title: Configurable Token Lifetimes in Azure Active Directory | Microsoft Docs
+title: Configurable Token Lifetimes in Azure Active Directory  | Microsoft Docs
 description: This feature is used by admins and developers to specify the lifetimes of tokens issued by Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2016
+ms.date: 01/17/2016
 ms.author: billmath
 
 ---
@@ -361,11 +361,11 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-Definition` |The array of stringified JSON that contains all the rules of the policy. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| `-DisplayName` |String of the policy name |`-DisplayName "MyTokenPolicy"` |
-| `-IsOrganizationDefault` |If true sets the policy as organization's default policy, if false does nothing |`-IsOrganizationDefault $true` |
-| `-Type` |The type of policy, for token lifetimes always use "TokenLifetimePolicy" | `-Type "TokenLifetimePolicy"` |
-| `-AlternativeIdentifier` [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> |The array of stringified JSON that contains all the rules of the policy. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;DisplayName</code> |String of the policy name |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;IsOrganizationDefault</code> |If true sets the policy as organization's default policy, if false does nothing |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> |The type of policy, for token lifetimes always use "TokenLifetimePolicy" | `-Type "TokenLifetimePolicy"` |
+| `AlternativeIdentifier` [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -378,7 +378,7 @@ Get-AzureADPolicy
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` [Optional] |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;ObjectId</code> [Optional] |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -391,7 +391,7 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -404,12 +404,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
-| `-DisplayName` |String of the policy name |`-DisplayName "MyTokenPolicy"` |
-| `-Definition` [Optional] |The array of stringified JSON that contains all the rules of the policy. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| `-IsOrganizationDefault` [Optional] |If true sets the policy as organization's default policy, if false does nothing |`-IsOrganizationDefault $true` |
-| `-Type` [Optional] |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |`-Type "TokenLifetimePolicy"` |
-| `-AlternativeIdentifier` [Optional] |Sets an alternative ID to the policy. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;DisplayName</code> |String of the policy name |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;Definition</code> [Optional] |The array of stringified JSON that contains all the rules of the policy. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Optional] |If true sets the policy as organization's default policy, if false does nothing |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Optional] |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Optional] |Sets an alternative ID to the policy. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -422,7 +422,7 @@ Deletes the specified policy
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Policy you would like to get. | `-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Policy you would like to get. | `-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -438,8 +438,8 @@ Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <O
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
-| `-RefObjectId` |The ObjectId of the Policy. | `-RefObjectId <ObjectId of Policy>` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |The ObjectId of the Policy. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -452,7 +452,7 @@ Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
@@ -465,8 +465,8 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <O
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
-| `-PolicyId` |The ObjectId of the Policy. | `-PolicyId <ObjectId of Policy>` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |The ObjectId of the Policy. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -482,8 +482,8 @@ Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefO
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
-| `-RefObjectId` |The ObjectId of the Policy. | `-RefObjectId <ObjectId of Policy>` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |The ObjectId of the Policy. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -496,7 +496,7 @@ Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
@@ -509,6 +509,6 @@ Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| `-ObjectId` |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
-| `-PolicyId` |The ObjectId of the Policy. | `-PolicyId <ObjectId of Policy>` |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |The ObjectId of the Policy. | `-PolicyId <ObjectId of Policy>` |
 
