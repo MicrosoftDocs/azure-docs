@@ -461,7 +461,7 @@ The HTTP Listener capabilities are now built in. So you no longer need to deploy
 See [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
 
 With these changes, we removed the `@accessKeys()` function, which we replaced with the `@listCallbackURL()` 
-function for getting the endpoint when necessary. Also, you now must now define at least one trigger in your logic app. 
+function for getting the endpoint when necessary. Also, you must now define at least one trigger in your logic app. 
 If you want to `/run` the workflow, you must have one of these triggers: `manual`, `apiConnectionWebhook`, 
 or `httpWebhook`.
 
@@ -471,8 +471,8 @@ or `httpWebhook`.
 Previously, calling child workflows required going to the workflow, 
 getting the access token, and pasting the token in the logic app 
 definition where you want to call that child workflow. 
-With the new schema version, the Logic Apps engine automatically generates 
-a SAS at runtime for the child workflow, which means that you don't have to 
+With the new schema, the Logic Apps engine automatically generates 
+a SAS at runtime for the child workflow so you don't have to 
 paste any secrets into the definition. Here is an example:
 
 ```
