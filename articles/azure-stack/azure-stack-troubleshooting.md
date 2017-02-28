@@ -27,23 +27,24 @@ The recommendations for troubleshooting issues that are described in this sectio
 Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
-* You may see non-terminating errors during deployment, which do not affect deployment success.
 * You may notice deployment taking longer than previous releases. 
-* You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM. This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
 * You will see that the  resource providers are not automatically registered for tenant subscriptions. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
   
-       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
-* You will see export functionality in the portal for Resource Groups, however no text is displayed and available for export.      
-* When you delete a plan, offer, or subscription, VMs may not be deleted.
-* When installing TP3, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
-* Logging out of ADFS will result in an error message.
+       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider  
+* You will see an error when signing in to a deployment with ADFS.  The text will read "Sorry, we had some trouble signing you in.  Click 'Try again' to try again."  This is a known error, and clicking Try Again will take you to the portal.  You can also add *https://*.local.azurestack.external* to the "Local Intranet" trusted sites in Internet Explorer. 
+* Logging out of portal in AD FS deployment will result in an error message.
 * You may not see usage information for Windows and Linux VMs.
-* The reclaim storage procedure may not immediately complete.
+* The reclaim storage procedure may take time to complete.
 * Opening Storage Explorer from the storage account blade will result in an error.  This is expected behavior for TP3.
-* You may see an error when signing in to a deployment with ADFS.  The text will read "Sorry, we had some trouble signing you in.  Click 'Try again' to try again."  This is a known error, and clicking Try Again will take you to the portal.
-* Attempting to delegate a private offer to a user will result in an error due to a blank Azure AD tenant.  To work around, make the offer public. 
-* Running Add-AzureRmEnvironment twice makes may result in error.
-
+* Attempting to delegate or assign a offer to a user will result in an error due to a blank Azure AD tenant field.  To work around, make the offer public. 
+* Using the Marketplace Item to create a VM with guest OS diagnostics enabled will receive an error that the VM extension failed.  To workaround, enable the Guest OS diagnostics after VM deployment. 
+* There are known issues with VM resizing and this scenario shouldn't be validate at this time.
+* Deploying Azure Stack with ADFS and without internet access will result in licensing error messages and the host will expire after 10 days.  We advise having internet connectivity during deployment, and then testing disconnected scenarios once deployment is complete.
+* Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
+* There is no marketplace experience for creating VM Scale Sets, though they can be created via template.
+* The "Getting started" tile on the dashboard references Azure specific information.
+* You will see the "Get subscription" tile is missing from the tenant dashboard.  To sign-up for a subscription, use the subscription list to select a subscription.
+* You will se the DNS namespaces have changed for Azure Stack, and also now include the region name.  Example:  *https://portal.local.azurestack.external*     
 
 ## Deployment
 ### Deployment failure
@@ -69,16 +70,8 @@ Make sure that:
 You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
 
 ## Virtual machines
-### After starting my Azure Stack TP3 host, some VMs may not automatically start.
-After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
-
-You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue in TP3, and just requires a few manual steps to bring them online:
-
-1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
-2.  Select the cluster **S-Cluster.azurestack.local**.
-3.  Select **Roles**.
-4.  Tenant VMs will appear in a *saved* state.  Once all Infrastructure VMs are running, right-click the tenant VMs and select **Start** to resume the VM.
-
+### Default image and gallery item
+You must first [add a Windows Server](azure-stack-add-default-image.md) image and gallery item before deploying VMs in Azure Stack TP3.
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
 Yes, this is behavior expected. It was designed this way because:
@@ -88,7 +81,7 @@ Yes, this is behavior expected. It was designed this way because:
 
 If you see "orphan" VHDs, it is important to know if they are part of the folder for a storage account that was deleted. If the storage account was not deleted, it's normal they are still there.
 
-You can read more about configuring the retention threshold in [manage storage accounts](azure-stack-manage-storage-accounts.md).
+You can read more about configuring the retention threshold and on-demand reclamation in [manage storage accounts](azure-stack-manage-storage-accounts.md).
 
 
 ## Next steps
