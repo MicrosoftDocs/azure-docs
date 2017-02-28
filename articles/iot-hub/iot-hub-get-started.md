@@ -19,7 +19,7 @@ ms.author: dobett
 ---
 # Get started with Azure IoT Hub or Azure IoT Gateway SDK
 
-You can chose one of several tutorials to get started with the IoT Hub service or the Gateway SDK.
+You can choose one of several tutorials to get started with the IoT Hub service or the Gateway SDK.
 
 ## IoT Hub
 

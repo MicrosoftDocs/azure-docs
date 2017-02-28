@@ -125,9 +125,11 @@
 #### [Troubleshoot](active-directory-passwords-troubleshoot.md)
 
 ## Manage devices
+### [Register devices](active-directory-conditional-access-device-registration-overview.md)
+#### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
+#### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
 ### [Register your device](active-directory-azureadjoin-personal-device.md)
 ### [Register a Windows 10 device](active-directory-azureadjoin-user-upgrade.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plan](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Set up device registration](active-directory-azureadjoin-setup.md)
@@ -276,9 +278,6 @@
 ### [Conditional access](active-directory-conditional-access.md)
 #### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
 #### [Supported apps](active-directory-conditional-access-supported-apps.md)
-#### [Register devices](active-directory-conditional-access-device-registration-overview.md)
-#### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
-##### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
 #### [Deploy on-premises](active-directory-conditional-access-on-premises-setup.md)
