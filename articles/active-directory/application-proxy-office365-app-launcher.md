@@ -39,9 +39,9 @@ There are several things you need to be aware of before setting the home page UR
 
 * You must ensure that the path you specify is a subdomain path of the root domain URL.
 
- For example, if your published app is accessible from a home page URL https://intranet-contoso.msappproxy.net/, then the home page URL you configure must start with https://intranet-contoso.msappproxy.net/. 
+ For example, if your published app is accessible from a root domain URL https://intranet-contoso.msappproxy.net/, then the home page URL you configure must start with https://intranet-contoso.msappproxy.net/. 
  
-* If the home page URL is https://apps.contoso.com/app1/, then the home page URL must start with https://apps.contoso.com/app1/.
+* If the root domain URL is https://apps.contoso.com/app1/, then the home page URL must start with https://apps.contoso.com/app1/.
 
 * If you make a change to the published application, it may reset the value of the home page URL. Therefore, when you decide to update you application, you should recheck and potentially update the homepage URL.
 
