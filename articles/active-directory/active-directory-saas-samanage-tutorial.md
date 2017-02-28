@@ -40,7 +40,7 @@ To configure Azure AD integration with Samanage, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 The objective of this tutorial is to enable you to test Azure AD SSO in a test environment.
@@ -105,7 +105,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
    ![Configure App URL](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "Configure App URL") 
  1. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<Company Name>.samanage.com/saml_login/<Company Name>`. 
- 2. click **Next**
+ 2. click **Next**.
  
    >[!NOTE]
    >Please note that these are not the real values. You have to update these values with the actual Sign On URL. To get these values, refer step 8.c for more details or contact Samanage.
