@@ -5,7 +5,7 @@ keywords: azure app service, web app, nodejs, pm2, linux, oss
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: fb420f32-6d74-49c7-992f-0ed5616e66e7

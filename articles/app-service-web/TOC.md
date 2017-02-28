@@ -257,7 +257,7 @@
 ### [Troubleshoot web app performance issues](app-service-web-troubleshoot-performance-degradation.md)
 
 # Reference
-## [Azure CLI 2.0 preview](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -273,4 +273,3 @@
 # Resources
 ## [Best practices](app-service-best-practices.md)
 ## [List of WebJob resources](websites-webjobs-resources.md)
-
