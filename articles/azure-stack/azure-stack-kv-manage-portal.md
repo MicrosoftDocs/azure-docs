@@ -101,14 +101,13 @@ After the key is successfully created, you can select it from the **Keys** blade
 
 7.	Click Create to start the deployment.  
 
-
 After the secret is successfully created, you can select it from the **Secrets** blade and view or modify its properties. The properties section contains **Secret Identifier**, a URI by which external applications can access this secret. 
 
 ![URI secret](media/azure-stack-kv-manage-portal/image5.png) 
 
 
 ## Next Steps
-•	[Deploy a VM with password stored in a key vault](azure-stack-kv-deploy-vm-with-secret.md)
+•	[Deploy a VM with password stored in a key vault](azure-stack-kv-deploy-vm-with-secret.md)  
 •	[Deploy a VM with certificate stored in a key vault](azure-stack-kv-push-secret-into-vm.md)     
 
 
