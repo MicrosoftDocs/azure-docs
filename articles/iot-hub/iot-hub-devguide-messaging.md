@@ -431,4 +431,4 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs#partitions
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions
