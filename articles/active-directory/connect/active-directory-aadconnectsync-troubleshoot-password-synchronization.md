@@ -35,7 +35,6 @@ Follow these steps to figure out why no passwords are synchronized:
     If you see these, you have a connectivity problem. The eventlog message contains forest information where you have a problem. For more information, see [Connectivity problem](#connectivity problem)
 5. If you see no heartbeat or if nothing else worked, then run [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords of all passwords). You should only run this script once.
 6. Read the section [Troubleshoot one object that is not synchronizing passwords](#one-object-is-not-synchronizing-passwords).
-7. If you at this point cannot find the problem, then you should open a support case. The support engineer might ask you to enable [verbose logging](#verbose-logging) to get more information about password sync.
 
 ### Connectivity problem
 
@@ -49,30 +48,8 @@ Follow these steps to figure out why no passwords are synchronized:
         * Replicate Directory Changes All
 3. Are the domain controllers reachable by Azure AD Connect? If the Connect server cannot connect to all domain controllers, then you should configure **Only use preferred domain controller**.  
     ![Domain controller used by AD Connector](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/preferreddc.png)  
-    Go back to **Synchronization Service Manager** and **Configure Directory Partition**. Select your domain in **Select directory partitions**, select the checkbox **Only use preferred domain controllers** and click **Configure**. In the list, enter the domain controllers Connect should use for password sync. The same list is used for import and export as well. Do this for all your domains.
+    Go back to **Synchronization Service Manager** and **Configure Directory Partition**. Select your domain in **Select directory partitions**, select the checkbox **Only use preferred domain controllers**, and click **Configure**. In the list, enter the domain controllers Connect should use for password sync. The same list is used for import and export as well. Do these steps for all your domains.
 4. If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
-
-### Enable verbose logging
-You should only follow these steps when instructed by a Microsoft support engineer. These logs can then be used by Microsoft to troubleshoot your password synchronization problem.
-
-1. Start a cmd prompt. Run `NET STOP ADSync`.
-2. Create a folder `C:\Temp`
-3. In the file **c:\Program Files\Microsoft Azure AD Sync\bin\miiserver.exe.config** add the following to the section `<system.diagnostics>`:
-```XML
-<source name="passwordSync" switchValue="Verbose">
-    <listeners>
-        <add name="passwordSyncTraceListener"
-            type="System.Diagnostics.TextWriterTraceListener"
-            initializeData="C:\Temp\passwordSyncVerboseTrace.log"
-            traceOutputOptions="DateTime" />
-        <remove name="Default" />
-    </listeners>
-</source>
-```
-4. From the cmd prompt, run `NET START ADSync`.
-5. Run your test, for example set a password on an object in Active Directory. Wait for 5-10 minutes (since password synchronization occurs every 120 seconds).
-6. Read the created verbose trace.
-7. Revert the changes you made in the previous steps.
 
 ## One object is not synchronizing passwords
 You can easily troubleshoot password synchronization issues by reviewing the status of an object.
@@ -85,7 +62,7 @@ If it is selected, then ask the user to sign in and change the password. Tempora
     2. Click **Connectors**.
     3. Select the **Active Directory Connector** the user is located in.
     4. Select **Search Connector Space**.
-    5. In **Scope** select **DN or anchor**. Enter the full DN of the user you are troubleshooting.
+    5. In **Scope**, select **DN or anchor**. Enter the full DN of the user you are troubleshooting.
     ![Search for user in cs with DN](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/searchcs.png)  
     6. Locate the user you are looking for and click **Properties** to see all attributes. If the user is not in the search result, then verify your [filtering rules](active-directory-aadconnectsync-configure-filtering.md) and make sure you run [Apply and verify changes](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes) for the user to appear in Connect.
     7. To see the password sync details of the object for the past week, click **Log...**.  
