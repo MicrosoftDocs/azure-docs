@@ -20,7 +20,7 @@ ms.author: rickstercdn
 
 # Quick Create a virtual machine with the Azure CLI
 
-The sample script provided here creates an Azure Virtual Machine with a Windows Server 2016 operating system. Once the script has been successfully run, the virtual Machine can be accessed via RDP. This sample works in Bash shell.
+The sample script provided here creates an Azure Virtual Machine with a Windows Server 2016 operating system. Once the script has been successfully run, the virtual Machine can be accessed via RDP.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
 

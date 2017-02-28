@@ -36,7 +36,7 @@ SSE works by encrypting the data when it is written to Azure Storage, and can be
 Storage Service Encryption – Files Preview
 SSE is now available for encrypting your data in File Storage. This is currently in preview. Given below is the list of regions where SSE for File Storage is available.
 
-To participate in the SSE Files Preview please contact ssdiscussions@microsoft.com.
+To participate in the SSE Files Preview please contact ssediscussions@microsoft.com.
 
 To learn more, please refer to the FAQ.
 Availability for File Storage
