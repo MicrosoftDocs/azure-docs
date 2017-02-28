@@ -33,7 +33,8 @@ After downloading the tools, navigate to the downloaded folder and import the **
 Import-Module .\AzureStack.Connect.psm1
 ```
 
-**Note:** When importing the above module, if you receive an error that “AzureStack.Connect.psm1 is not digitally signed and you cannot run this script on the current system”, you can resolve it by executing the following command in an elevated PowerShell window:  
+> [!NOTE]
+> When importing the above module, if you receive an error that “AzureStack.Connect.psm1 is not digitally signed and you cannot run this script on the current system”, you can resolve it by executing the following command in an elevated PowerShell window:  
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
@@ -44,28 +45,28 @@ Use the following steps to configure your Azure Stack environment:
 
 1.	Add your Azure Stack host to the list of trusted hosts by running the following command in an elevated PowerShell session:
 
-```PowerShell
-Set-Item wsman:\localhost\Client\TrustedHosts -Value "<Azure Stack host address>" -Concatenate
-```
+    ```PowerShell
+    Set-Item wsman:\localhost\Client\TrustedHosts -Value "<Azure Stack host address>" -Concatenate
+    ```
 
 2.	Get your Azure Active Directory Tenant ID (the directory that you used when deploying Azure Stack) using the following command:
 
-```PowerShell
-$Password = ConvertTo-SecureString "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force
+    ```PowerShell
+    $Password = ConvertTo-SecureString "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force
 
-$AadTenant = Get-AzureStackAadTenant -HostComputer <Host IP Address> -Password $Password
-```
+    $AadTenant = Get-AzureStackAadTenant -HostComputer <Host IP Address> -Password $Password
+    ```
 
 3.	Register an AzureRM environment that targets your Azure Stack instance. AzureRM command can be targeted at multiple clouds such as Azure Stack, Azure China, Azure Government etc. To target it to your Azure Stack instance, you should register the AzureRM environment as follows:
 
-```PowerShell
-# Use this command to access the administrative portal
-Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -Name AzureStack
+    ```PowerShell
+    # Use this command to access the administrative portal
+    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -Name AzureStack
 
-# Use this command to access the tenant portal
-Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.global -Name AzureStack
-```
-![Get environemnt details](media/azure-stack-powershell-configure/getenvdetails.png)  
+    # Use this command to access the tenant portal
+    Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.global -Name AzureStack
+    ```
+    ![Get environemnt details](media/azure-stack-powershell-configure/getenvdetails.png)  
 
 ## Sign in to Azure Stack 
 After the AzureRM environment is registered to target the Azure Stack instance, you can use all the AzureRM commands in your Azure Stack environment. Use the following command to sign in to your Azure Stack administrator or user account:
@@ -83,7 +84,7 @@ After you sign in to the administrator or user portal, you can issue operations 
   Get-AzureRmResourceProvider -ListAvailable 
 ```
 
-![](media/azure-stack-powershell-configure/unregisteredrps.png)  
+![unregistered PowerShell](media/azure-stack-powershell-configure/unregisteredrps.png)  
 
 You should manually register these resource providers on the user subscriptions before you can use them. To register providers on the current subscription, use the following command:
 
@@ -91,7 +92,7 @@ You should manually register these resource providers on the user subscriptions 
 Register-AllAzureRmProviders
 ```
 
-![](media/azure-stack-powershell-configure/registeringrps.png)  
+![registering PowerShell](media/azure-stack-powershell-configure/registeringrps.png)  
 
 
 To register all resource providers on all your subscriptions, use the following command:

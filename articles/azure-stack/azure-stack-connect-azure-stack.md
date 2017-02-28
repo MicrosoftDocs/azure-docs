@@ -41,7 +41,8 @@ In an Azure Stack Proof of Concept (POC) environment, you can use a Virtual Priv
  
 Through the VPN connection, you can access the administrator portal, user portal, and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources.
 
-**Note:** This VPN connection does not provide connectivity to Azure Stack infrastructure VMs. 
+> [!NOTE] 
+> This VPN connection does not provide connectivity to Azure Stack infrastructure VMs. 
 
 The following sections describe the steps that are required to establish VPN connectivity to Azure Stack.
 

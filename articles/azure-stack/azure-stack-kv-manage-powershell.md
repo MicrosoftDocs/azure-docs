@@ -22,7 +22,8 @@ ms.author: sngun
 
 This article helps you get started to create and manage Key Vault in Azure Stack by using PowerShell. 
 
-**Note:** In Technical Preview 3, you can create and manage a key vault from the user portal only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault. 
+> [!NOTE]
+> In Technical Preview 3, you can create and manage a key vault from the user portal only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault. 
 
 The Key Vault PowerShell commands described in this article are available as a part of the Azure PowerShell SDK.  Following sections describe the PowerShell commands required to create a vault, store and manage cryptographic keys and secrets as well as authorize users or applications to invoke operations in the vault. 
 
@@ -104,7 +105,7 @@ The **Destination** parameter is used to specify that the key is software protec
 You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values specified in the new key.  You can access the previous version by using the version-specific URI of the key. For example, 
 
 •	Use **https://vault10.vault.local.azurestack.external:443/keys/key01** to always get the current version  
-•	Use **https://vault010.vault.local.azurestack.external:443/keys/key01/ d0b36ee2e3d14e9f967b8b6b1d38938a** to get this specific version
+•	Use **https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a** to get this specific version
 
 ### Get a key
 

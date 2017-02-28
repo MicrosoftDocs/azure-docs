@@ -39,7 +39,7 @@ following sections describe managing a key vault from the user portal:
 
 3.	From the dashboard, click **New > Security + Identity > Key Vault**.  
 
-![KV screen](media/azure-stack-kv-manage-portal/image1.png)  
+    ![KV screen](media/azure-stack-kv-manage-portal/image1.png)  
 
 4.	On the **Create Key Vault** blade, assign a **Name** for your vault. Vault name can contain only alphanumeric characters, the special character hyphen (-), and it shouldn’t start with a number.  
 
@@ -55,7 +55,7 @@ following sections describe managing a key vault from the user portal:
 
 9.	Optionally, choose an **Advanced access policy**  to enable the following features:  
 
-![Access policies](media/azure-stack-kv-manage-portal/image2.png)  
+    ![access policies](media/azure-stack-kv-manage-portal/image2.png)  
 
 10.	After configuring the settings, click **OK** and then **Create**. This starts the key vault deployment. 
 
@@ -69,7 +69,7 @@ After creating a vault, use the following steps to create and manage keys and se
 
 2.	From the dashboard, click  **All resources** > select the key vault that you created earlier> click on the **Keys** tile.  
 
-![Keys tile](media/azure-stack-kv-manage-portal/image3.png)  
+    ![Keys tile](media/azure-stack-kv-manage-portal/image3.png)  
 
 
 3.	From the **Keys** blade, click **Add**. 
@@ -84,7 +84,7 @@ After creating a vault, use the following steps to create and manage keys and se
 
 After the key is successfully created, you can select it from the **Keys** blade and view or modify its properties. The properties section contains the **Key Identifier**, a URI by which external applications can access this key. To limit operations on this key, configure settings under **Permitted operations**.
 
-![URI key](media/azure-stack-kv-manage-portal/image4.png)  
+    ![URI key](media/azure-stack-kv-manage-portal/image4.png)  
 
 ## Create a secret 
 
