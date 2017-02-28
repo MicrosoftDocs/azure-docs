@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 
 ms.workload: infrastructure-services
-ms.date: 02/24/2017
+ms.date: 02/28/2017
 ms.author: jroth
 
 ---
@@ -57,7 +57,8 @@ In this tutorial, you will:
    > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM.
    
    > [!NOTE]
-   > SQL VM images include the licensing costs for SQL Server into the per-minute pricing of the VM you create (excep for the Developer and Express editions). There is another option to bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. For more information on this option, see  [Get started with SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+   > SQL VM images include the licensing costs for SQL Server into the per-minute pricing of the VM you create (excep for the Developer and Express editions). SQL Server Developer is free for development/testing (not production) and SQL Express is free for lightweight workloads (less than 1GB memory, less than 10 GB storage). 
+   > There is another option to bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. For more information on this option, see  [Get started with SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. Click **Create**.
