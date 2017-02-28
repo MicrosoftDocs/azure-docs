@@ -29,7 +29,7 @@ ms.custom: H1Hack27Feb2017
 
 ## What is SSH?
 
-SSH is a cryptographic network protocol that allows you to securely communicate with a remote server over an unsecured network. SSH is used to provide a secure command-line login to a remote server. In this case, the head nodes or edge node of an HDInsight cluster.
+SSH is a cryptographic network protocol that allows you to securely communicate with a remote server over an unsecured network. SSH is used to provide a secure command line login to a remote server. In this case, the head nodes or edge node of an HDInsight cluster.
 
 You can also use SSH to tunnel network traffic from your client to the HDInsight cluster. Using a tunnel allows you to access services on the HDInsight cluster that are not exposed directly to the internet. For more information on using SSH tunneling with HDInsight, see [Use SSH tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -40,7 +40,7 @@ Many operating systems provide SSH client functionality through the `ssh` and `s
 * __ssh__: A general SSH client that can be used to establish a remote command line session and create tunnels.
 * __scp__: A utility that copies files between local and remote systems using the SSH protocol.
 
-Windows 10 Anniversary Edition provides Bash as a developer feature. It provides `ssh`, `scp` and other Linux commands. For more information on using Bash on Windows 10, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
+Windows 10 Anniversary Edition provides Bash as a developer feature. It provides `ssh`, `scp`, and other Linux commands. For more information on using Bash on Windows 10, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
 If you use Windows and do not have access to Bash on Windows 10, we recommend the following SSH clients:
 
@@ -60,7 +60,7 @@ Using public-key cryptography involves creating a _public_ and _private_ key pai
 
 * The **private key** is what you present to the HDInsight cluster when you log in using an SSH client, to verify your identity. Protect this private key. Do not share it.
 
-    You can add additional security by creating a passphrase for the private key. You must provide this passphrase before the key can be used.
+    You can add additional security by creating a passphrase for the private key. If you use a passphrase, you must enter it when authenticating using SSH.
 
 ### Create a public and private key
 
@@ -87,7 +87,7 @@ After the command finishes, you will have two new files:
 * __id\_rsa__: This file contains the private key.
 
     > [!WARNING]
-    > You must restrict access to this file to prevent unauthorized access to services secured by the public key.
+    > Restrict access to this file to prevent unauthorized access to services secured by the public key.
 
 * __id\_rsa.pub__: This file contains the public key. You use this file when creating an HDInsght cluster.
 
@@ -111,13 +111,13 @@ For more information on configuring SSH during cluster creation, see one of the 
 
 While additional SSH users can be added to the cluster after it has been created, it is not recommended.
 
-* You must manually add new SSH users to each node in the cluster.
+* New SSH users need to be added to each node in the cluster.
 
 * New SSH users have the same access to HDInsight as the default user. There is no way to restrict access to data or jobs in HDInsight based on SSH user account.
 
 To restrict access on a per-user basis, you must use a domain joined HDInsight cluster. Domain joined HDInsight uses Active Directory to control access to cluster resources.
 
-Using a domain joined HDInsight cluster allows you to authenticate using Active Directory after connecting using SSH. Multiple users can connect using SSH and then authenticate to their Active Directory account after connecting. See the [Domain joined HDInsight](#domainjoined) section for more information.
+Using a domain joined HDInsight cluster allows you to authenticate using Active Directory after connecting using SSH. Multiple users can connect using SSH and then authenticate to their Active Directory account after connecting. For more information, see the [Domain joined HDInsight](#domainjoined) section.
 
 ##<a id="connect"></a> Connect to HDInsight
 
@@ -143,7 +143,7 @@ If you use a public key to secure the SSH account, you may need to specify the p
 
 ### Connect to other nodes
 
-The worker nodes and Zookeeper nodes are not directly accessible from outside the cluster, but they can be accessed from the cluster head nodes or edge nodes. The following are the general steps to accomplish this:
+The worker nodes and Zookeeper nodes are not directly accessible from outside the cluster, but they can be accessed from the cluster head nodes or edge nodes. The following are the general steps to connect to other nodes:
 
 1. Use SSH to connect to a head or edge node:
 
@@ -179,7 +179,7 @@ If you use an SSH key to authenticate your user account, you must make sure that
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    If nothing is returned, this indicates that `ssh-agent` is not running. See the agent startup scripts information at [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) or consult your SSH client documentation for specific steps on installing and configuring `ssh-agent`.
+    If nothing is returned, then `ssh-agent` is not running. See the agent startup scripts information at [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) or consult your SSH client documentation for specific steps on installing and configuring `ssh-agent`.
 
 4. Once you have verified that **ssh-agent** is running, use the following to add your SSH private key to the agent:
 
@@ -192,7 +192,7 @@ If you use an SSH key to authenticate your user account, you must make sure that
 
 [Domain-joined HDInsight](hdinsight-domain-joined-introduction.md) integrates Kerberos with Hadoop in HDInsight. Because the SSH user is not an Active Directory domain user, you cannot run Hadoop commands until you authenticate with Active Directory. Use the following steps to authenticate your SSH session with Active Directory:
 
-1. Connect to a Domain-joined HDInsight cluster using the SSH as mentioned in the [connect to HDInsight](#connect) section. For example, the following command connects to an HDInsight cluster named __myhdi__ using an SSH account named __sshuser__.
+1. Connect to a Domain-joined HDInsight cluster using the SSH. For example, the following command connects to an HDInsight cluster named __myhdi__ using an SSH account named __sshuser__.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -208,12 +208,12 @@ After authenticating using the `kinit` command, you can now use Hadoop commands 
 
 ## <a id="tunnel"></a>SSH tunneling
 
-SSH can be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request will then be routed to the requested resource as if it had originated on the HDInsight cluster headnode.
+SSH can be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request is forwarded to the cluster, and then resolved within the cluster.
 
 > [!IMPORTANT]
 > An SSH tunnel is a requirement for accessing the web UI for some Hadoop services. For example, both the Job History UI or Resource Manager UI can only be accessed using an SSH tunnel.
 
-For more information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
+For more information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## Next steps
 
