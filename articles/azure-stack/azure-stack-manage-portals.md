@@ -3,7 +3,7 @@ title: Using the administrator and user portals in Azure Stack | Microsoft Docs
 description: Learn the differences between the administrator and user portals in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: twooley-MS
+author: twooley
 manager: byronr
 editor: ''
 
