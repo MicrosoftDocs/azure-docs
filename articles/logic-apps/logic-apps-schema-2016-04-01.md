@@ -24,7 +24,7 @@ more reliable and easier to use:
 
 * [Scopes](#scopes) let you group or nest actions as a collection of actions.
 * [Conditions and loops](#conditions-loops) are now first-class actions.
-* More precise ordering for run Execution ordering more verbose via `runAfter` property (which replaces `dependsOn`)
+* More precise ordering for running actions with the `runAfter` property, replacing `dependsOn`
 
 To upgrade your logic apps from the August 1, 2015 preview schema to the June 1, 2016 schema, 
 [check out the upgrade section](#upgrading-to-2016-06-01-schema).
@@ -32,8 +32,8 @@ To upgrade your logic apps from the August 1, 2015 preview schema to the June 1,
 <a name="scopes"></a>
 ## Scopes
 
-This schema includes scopes, which lets you group actions together, or nest actions inside each other. 
-For example a condition can contain another condition. 
+This schema includes scopes, which lets you group actions together, 
+or nest actions inside each other. For example, a condition can contain another condition. 
 Learn more about [scope syntax](../logic-apps/logic-apps-loops-and-scopes.md), 
 or review this basic scope example:
 
@@ -62,7 +62,7 @@ or review this basic scope example:
 
 In previous schema versions, 
 conditions and loops were parameters associated with a single action. 
-This schema lifts this limitation, so conditions and loops now show up as a type of action. 
+This schema lifts this limitation, so conditions and loops now appear as action types. 
 Learn more about [loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md), 
 or review this basic example for a condition action:
 
@@ -116,9 +116,9 @@ step B succeeds or fails, you construct this `runAfter` property:
 }
 ```
 
-## Upgrading to 2016-06-01 schema
+## Upgrading to the schema
 
-Upgrading to the new 2016-06-01 schema only takes a few steps. 
+Upgrading to the new schema only takes a few steps. 
 The upgrade process includes running the upgrade script, 
 saving as a new logic app, and potentially overwriting old logic app if necessary.
 
