@@ -1,5 +1,5 @@
 ---
-title: Define child resource in Resource Manager template | Microsoft Docs
+title: Define child resource in Azure template | Microsoft Docs
 description: Shows how to set the resource type and name for child resource in an Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: ''
@@ -70,6 +70,6 @@ You can define the child resource at the top level. You might use this approach 
 
 The database is a child resource to the server even though they are defined on the same level in the template.
 
-## Next Steps
+## Next steps
 * For recommendations about how to create templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 * For an example of creating multiple child resources, see [Deploy multiple instances of resources in Azure Resource Manager templates](resource-group-create-multiple.md).
