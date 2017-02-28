@@ -21,7 +21,7 @@ ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 
 ---
-# Choose the correct service plan for your Azure Functions
+# Choose the correct service plan for Azure Functions
 
 ## Introduction
 
