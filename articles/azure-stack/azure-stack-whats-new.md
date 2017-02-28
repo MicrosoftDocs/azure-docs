@@ -20,14 +20,14 @@ ms.author: helaw
 # What's new in Azure Stack
 This release provides new features for both tenants and administrators.
 
-* Deploy with ADFS for disconnected scenarios
-* Azure Virtual Machine Scale Sets provide managed scale out of workloads
-* Syndicate content from the Azure Marketplace to make available in Azure Stack
-* Use Azure D-Series VM sizes for increased performance
+* ADFS support provides identity options for scenarios where network connectivity is limited or intermittent.
+* You can use Azure Virtual Machine Scale Sets to provide managed scale out of workloads
+* Use Azure D-Series VM sizes for increased performance and consistency
 * Deploy and create templates with Temp Disks that are consistent with Azure
+* Marketplace Syndication allows you to consume content from the Azure Marketplace and make available in Azure Stack
 * Isolated administrative portal and API endpoints for enhanced security
 * Use enhanced infrastructure management functionality, such as improved alerting and update management
-* Using the Windows Azure Pack connector, you can view and manage IaaS virtual machines that are hosted on a Cloud Platform System (CPS) stamp. For this preview release, you can try this only with a CPS environment.
+* Using the Windows Azure Pack connector, you can view and manage IaaS virtual machines that are hosted on a Cloud Platform System (CPS) stamp. For this preview release, you can try this only with a CPS environment and additional configuration is required.
 
 ## Next steps
 * [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
