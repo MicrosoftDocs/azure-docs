@@ -1,6 +1,7 @@
 ---
-title: Transferring ownership of an Azure subscription| Microsoft Docs
-description: How to transfer an Azure subscription to another user, and some frequently asked questions (FAQ) about the process
+title: Transfer Azure subscription ownership to another account | Microsoft Docs
+description: Describes how to transfer an Azure subscription to another user, and some frequently asked questions (FAQ) about the process
+keywords: transfer azure subscription,azure transfer subscription,move azure subscription to another account,azure change subscription owner,transfer azure subscription to another account
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,13 +15,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/28/2017
 ms.author: genli
 
 ---
-# Transferring ownership of an Azure subscription
+# Transfer ownership of an Azure subscription to another account
 
-You can transfer your subscription to another user for Pay-As-You-Go, Visual Studio, Action Pack, or BizSpark subscriptions in the Account Center. We support the transfer of Azure external services for these subscription types as well. 
+You can transfer your subscription to another user for Pay-As-You-Go,  Visual Studio, Action Pack, or BizSpark subscriptions in the Account Center. We support the transfer of Azure external services for these subscription types as well. 
 
 You might want to transfer ownership of an Azure subscription if you:
 
@@ -31,7 +32,7 @@ You might want to transfer ownership of an Azure subscription if you:
 
 To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). 
 
-## How to transfer ownership of an Azure subscription
+## Transfer ownership of an Azure subscription
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 >
 >
@@ -55,6 +56,26 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 
    ![Second subscription transfer web page](./media/billing-subscription-transfer/image5.png)
 7. Success! The subscription is now transferred.
+
+## Transfer subscription ownership for Enterprise Agreement (EA) customers
+The Enterprise Administrator can transfer ownership of subscriptions within an enrollment. To get started, see [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in the EA portal.
+
+## Next steps after accepting ownership of a subscription
+1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more about administrator roles](billing-add-change-azure-subscription-administrator.md).
+
+2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com). [Learn more about RBAC](../active-directory/role-based-access-control-configure.md)
+
+3. Update credentials associated with this subscription's services. These include:
+   
+   * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+   
+   * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md)
+   
+   * Remote Access credentials for services like Azure Virtual Machines. 
+
+4. [Update billing alerts for this subscription](billing-set-up-alerts.md) at the [Azure Account Center](https://account.windowsazure.com/Subscriptions). 
+
+5. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 
 <a id="faq"></a>
 
@@ -127,25 +148,6 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 
   If you cannot transfer subscription ownership, you could manually migrate your resources over. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
-## Transfer subscription ownership for Enterprise Agreement (EA) customers
-The Enterprise Administrator can transfer ownership of subscriptions within an enrollment. To get started, see [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in the EA portal.
-
-## Next steps after accepting ownership of a subscription
-1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more about administrator roles](billing-add-change-azure-subscription-administrator.md).
-
-2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com). [Learn more about RBAC](../active-directory/role-based-access-control-configure.md)
-
-3. Update credentials associated with this subscription's services. These include:
-   
-   * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
-   
-   * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md)
-   
-   * Remote Access credentials for services like Azure Virtual Machines. 
-
-4. [Update billing alerts for this subscription](billing-set-up-alerts.md) at the [Azure Account Center](https://account.windowsazure.com/Subscriptions). 
-
-5. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 
 
 ## Need help? Contact support.
