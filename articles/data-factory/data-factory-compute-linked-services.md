@@ -179,7 +179,9 @@ This type of configuration is supported for the following compute environments:
 
 * Azure HDInsight
 * Azure Batch
-* Azure Machine Learning.
+* Azure Machine Learning
+* Azure Data Lake Analytics
+* Azure SQL DB, Azure SQL DW, SQL Server
 
 ## Azure HDInsight Linked Service
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
