@@ -33,7 +33,7 @@ Follow these steps to figure out why no passwords are synchronized:
 4. Look in the eventlog for errors. Look for the following events, which would indicate a problem:
     1. Source: "Directory synchronization" ID: 0, 611, 652, 655
     If you see these, you have a connectivity problem. The eventlog message contains forest information where you have a problem. For more information, see [Connectivity problem](#connectivity problem)
-5. If you see no heartbeat or if nothing else worked, then run [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords of all passwords). You should only run this script once.
+5. If you see no heartbeat or if nothing else worked, then run [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). You should only run this script once.
 6. Read the section [Troubleshoot one object that is not synchronizing passwords](#one-object-is-not-synchronizing-passwords).
 
 ### Connectivity problem
