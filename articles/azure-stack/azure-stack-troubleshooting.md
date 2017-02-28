@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2017
+ms.date: 3/1/2017
 ms.author: helaw
 
 ---
@@ -27,34 +27,33 @@ The recommendations for troubleshooting issues that are described in this sectio
 Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
-* You may see non-terminating errors during deployment, which do not affect deployment success:
+* You may see non-terminating errors during deployment, which do not affect deployment success.
+* You may notice deployment taking longer than previous releases. 
 * You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM. This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
-* You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
+* You will see that the  resource providers are not automatically registered for tenant subscriptions. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
   
-       Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
+       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
 * You will see export functionality in the portal for Resource Groups, however no text is displayed and available for export.      
-* You can start a deployment of storage resources larger than available quota.  This deployment fails and the account resources will be suspended.  There are two remediation options available:
-  * Service Administrator can increase the quota, though changes will not take effect immediately and commonly take up to an hour to propagate.
-  * Service Administrator can create an add-on plan with additional quota that the tenant can then add to the subscription.
-* When using the portal to create VMs on Azure Stack environments with identity in ‘Azure - China’, you will not see VM sizes available to select in the **Size** step of VM deployment and will be unable to continue deployment.
 * When you delete a plan, offer, or subscription, VMs may not be deleted.
-* You cannot deploy a VM from a saved VM image.
-* Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they receive a message indicating the VM can’t be created. 
-* When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
-* Deployments with static IP network configurations require additional steps to activate the BGPNAT VM before the OS license expires, otherwise your environment may stop working and may require redeploying. For more information, see [this announcement](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack&announcementId=f35560ea-b0d2-4be0-b407-e20fe631d9fe).
+* When installing TP3, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
+* Logging out of ADFS will result in an error message.
+* You may not see usage information for Windows and Linux VMs.
+* The reclaim storage procedure may not immediately complete.
+* Opening Storage Explorer from the storage account blade will result in an error.  This is expected behavior for TP3.
+* You may see an error when signing in to a deployment with ADFS.  The text will read "Sorry, we had some trouble signing you in.  Click 'Try again' to try again."  This is a known error, and clicking Try Again will take you to the portal.
+* Attempting to delegate a private offer to a user will result in an error due to a blank Azure AD tenant.  To work around, make the offer public. 
+* Running Add-AzureRmEnvironment twice makes may result in error.
+
 
 ## Deployment
 ### Deployment failure
-If you experience a failure during installation, you can use the -rerun parameter of the updated Azure Stack TP2 install script to try again from the failed step.  Run the following from the PowerShell session where you noticed the failure:
+If you experience a failure during installation, you can use the -rerun parameter of the Azure Stack install script to try again from the failed step.  Run the following from the PowerShell session where you noticed the failure:
 
 ```PowerShell
-cd C:\CloudDeployment\Configuration
+cd C:\CloudDeployment\Setup
 .\InstallAzureStackPOC.ps1 -rerun
 ```
-> [!NOTE]  
-> Previous versions of Azure Stack required additional steps to rerun installation.  If the above steps don't restart installation, make sure you are using the updated Azure Stack [download](https://azure.microsoft.com/overview/azure-stack/try/?v=try).
-> 
->
+
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment has actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Press the ESC key to unselect it, and the completion message should be shown after it.
