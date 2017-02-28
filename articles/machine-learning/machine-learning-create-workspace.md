@@ -27,10 +27,10 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ### To create a workspace
-1. Sign-in to the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com/)
 
     > [!NOTE]
-    > To sign-in and create a workspace you need to be an Azure subscription administrator. 
+    > To sign in and create a workspace, you need to be an Azure subscription administrator. 
     >
     > 
 
@@ -41,7 +41,7 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 4. Enter your workspace information
 
     - The *workspace name* may be up to 260 characters, not ending in a space. The name can't include these characters: `< > * % & : \ ? + /`
-    - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, will be used if you deploy web services from this workspacce.
+    - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, is used if you deploy web services from this workspace.
 
     ![Create a new workspace](media/machine-learning-create-workspace/create-new-workspace.png)
 
@@ -55,16 +55,16 @@ Once the workspace is deployed, you can open it in Machine Learning Studio.
 
     ![Select workspace](media/machine-learning-create-workspace/open-workspace.png)
 
-3. Cick **my experiments**.
+3. Click **my experiments**.
 
     ![Open experiments](media/machine-learning-create-workspace/my-experiments.png)
 
 For information about managing your workspace, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
-If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to an Machine Learning workspace](machine-learning-troubleshooting-creating-ml-workspace.md).
+If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning workspace](machine-learning-troubleshooting-creating-ml-workspace.md).
 
 
 ## Sharing an Azure Machine Learning workspace
-Once a Machine Learning workspace is created, you can invite users to your workspace to share access to your workspace and all of its experiments, datasets, notebooks, etc. You can add users in one of two roles:
+Once a Machine Learning workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, notebooks, etc. You can add users in one of two roles:
 
 * **User** - A workspace user can create, open, modify, and delete experiments, datasets, etc. in the workspace.
 * **Owner** - An owner can invite and remove users in the workspace, in addition to what a user can do.
@@ -76,7 +76,7 @@ Once a Machine Learning workspace is created, you can invite users to your works
 
 ### To share a workspace
 
-1. Sign-in to Machine Learning Studio at [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Sign in to Machine Learning Studio at [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. In the left panel, click **SETTINGS**
 
@@ -86,7 +86,7 @@ Once a Machine Learning workspace is created, you can invite users to your works
 
     ![Studio settings](media/machine-learning-create-workspace/settings.png)
 
-5. Enter one or more email addresses. The users just need a valid Microsoft account or an organizational account (from Azure Active Directory).
+5. Enter one or more email addresses. The users need a valid Microsoft account or an organizational account (from Azure Active Directory).
 
 6. Select whether you want to add the users as Owner or User.
 
