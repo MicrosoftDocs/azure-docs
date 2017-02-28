@@ -50,11 +50,11 @@ Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack b
     >[!NOTE]
     > At the TP3 release, key vault supports the **Standard** SKU only.
 
-8.	Choose an existing **Access policies**  or create a new one. Access policy allows you to grant permissions for a user, application or a security group to perform operations with this vault.  
+8.	Choose an existing **Access policies** or create a new one. Access policy allows you to grant permissions for a user, application or a security group to perform operations with this vault.  
 
-9.	Optionally, choose an **Advanced access policy**  to enable the following features:  
+9.	Optionally, choose an **Advanced access policy** to enable the following features:  
 
-    ![Policies screen](media/azure-stack-kv-manage-portal/image2.png)  
+    ![Policiesscreen](media/azure-stack-kv-manage-portal/image2.png)  
     
 10.	After configuring the settings, click **OK** and then **Create**. This starts the key vault deployment. 
 
