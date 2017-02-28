@@ -128,8 +128,10 @@
 ### [Register devices](active-directory-conditional-access-device-registration-overview.md)
 #### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
-### [Register your device](active-directory-azureadjoin-personal-device.md)
-### [Register a Windows 10 device](active-directory-azureadjoin-user-upgrade.md)
+#### [FAQs](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Troubleshoot
+##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Troubleshooting for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plan](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Set up device registration](active-directory-azureadjoin-setup.md)
@@ -137,13 +139,10 @@
 #### [Deploy](active-directory-azureadjoin-devices-group-policy.md)
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
 #### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
-
 #### [Understand Windows 10 integration](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Use Windows 10 devices](active-directory-azureadjoin-windows10-devices.md)
-#### [FAQs](active-directory-conditional-access-automatic-device-registration-faq.md)
-#### Troubleshooting
-##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Troubleshooting for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+#### [Join your device](active-directory-azureadjoin-personal-device.md)
+#### [Join a Windows 10 device](active-directory-azureadjoin-user-upgrade.md)
 
 ## Manage apps
 ### [Overview](active-directory-enable-sso-scenario.md)
