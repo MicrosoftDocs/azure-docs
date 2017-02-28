@@ -172,6 +172,7 @@ For updating the CLI, navigate to the directory where you cloned the CLI and run
 
 ## Next steps
 * [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Set up and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)

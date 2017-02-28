@@ -75,14 +75,15 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
 Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the process of building and deploying Java services. You can follow the installation steps mentioned in [Service Fabric Eclipse Plugin Installation documentation](service-fabric-get-started-eclipse#install-service-fabric-plugin-eclipse-neon).
 
 ## Using Service Fabric Eclipse plugin on Mac
-Ensure you have gone through the steps mentioned in the [Service Fabric Eclipse Plugin documentation](service-fabric-get-started-eclipse). The steps for creating, building and deploying Service fabric java application using vagrant-guest container on a Mac host, is mostly same as the general documentation, apart from few points, you need to keep in mind, as mentioned below -
+
+Ensure you have gone through the steps mentioned in the [Service Fabric Eclipse Plugin documentation](service-fabric-get-started-eclipse.md). The steps for creating, building and deploying Service fabric java application using vagrant-guest container on a Mac host, is mostly same as the general documentation, apart from few points, you need to keep in mind, as mentioned below -
 * Since the Service Fabric libraries will be required by your Service-fabric java application to be built successfully, the eclipse project needs to be created in a shared path. By default, the contents at the path on your host where the ``Vagrantfile`` exists, is shared with the ``/vagrant`` path on the guest.
 * So to put it simply, if you have the ``Vagrantfile`` in a path, say, ``~/home/john/allprojects/``, then you need to create the your service-fabric project ``MyActor`` in location ``~/home/john/allprojects/MyActor`` and the path to your eclipse workspace would be ``~/home/john/allprojects``.
 
 
 ## Next steps
 <!-- Links -->
-
+* [Set up and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 * [Create your first Service Fabric application for Linux](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
 * [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
