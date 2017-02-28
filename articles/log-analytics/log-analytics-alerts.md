@@ -41,7 +41,8 @@ Alert Rules are defined by the following details.
 - **Frequency**.  Specifies how often the query should be run. Can be any value between 5 minutes and 24 hours. Should be equal to or less than the time window.  If the value is greater than the time window, then you risk records being missed.<br>For example, consider a time window of 30 minutes and a frequency of 60 minutes.  If the query is run at 1:00, it returns records between 12:30 and 1:00 PM.  The next time the query would run is 2:00 when it would return records between 1:30 and 2:00.  Any records created between 1:00 and 1:30 would never be evaluated.
 - **Threshold**.  If the number of records returned from the log search exceeds the threshold, an alert is created.
 
-For the process of creating alert rules, see the following articles.
+## Creating alert rules
+You can create and modify alert rules multiple methods.  See the following articles for detailed guidance.  
 
 - Create alert rules using [OMS portal](log-analytics-alerts-creating.md).
 - Create alert rules using [Resource Manager template](log-analytics-template-workspace-configuration.md).
@@ -51,9 +52,9 @@ For the process of creating alert rules, see the following articles.
 
 In addition to creating an alert record, an alert rule can take one or more actions when it creates an alert.  You can use actions to send a mail in response to the alert or start a process that attempts to take corrective action.  
 
-You can also leverage actions to add functionality to Log Analytics.  For example, it does not currently provide features to notify you using SMS or telephone.  You could use a webhook action in an alert rule though to call a service such as [PagerDuty](https://www.pagerduty.com/) that does provide these features.  You can walkthrough an example of creating a webhook to [Slack](https://slack.com/) in [Create an alert webhook action in OMS Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
+You can also leverage actions to augment Log Analytics functionality with other services.  For example, it does not currently provide features to notify you using SMS or telephone.  You could use a webhook action in an alert rule though to call a service such as [PagerDuty](https://www.pagerduty.com/) that does provide these features.  You can walkthrough an example of creating a webhook to send a message using [Slack](https://slack.com/) in [Create an alert webhook action in OMS Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
 
-The following table lists the actions you can take.  You can read about each of these in [Adding actions to alert rules in Log Analytics](log-analytics-alerts-actions.md). 
+The following table lists the actions you can take.  You can learn about each of these in [Adding actions to alert rules in Log Analytics](log-analytics-alerts-actions.md). 
 
 | Action | Description |
 |:--|:--|
@@ -92,7 +93,6 @@ Alert records created by alert rules in Log Analytics have a **Type** of **Alert
 |:--- |:--- |
 | Type |*Alert* |
 | SourceSystem |*OMS* |
-| *Object*  | [Metric measurement alerts](#metric-measurement-alert-rules) will have a property for the group field.  For example, if the log search groups on Computer, the alert record with have a Computer field with the name of the computer as the value.
 | AlertName |Name of the alert. |
 | AlertSeverity |Severity level of the alert. |
 | LinkToSearchResults |Link to Log Analytics log search that returns the records from the query that created the alert. |

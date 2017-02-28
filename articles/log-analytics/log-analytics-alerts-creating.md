@@ -112,7 +112,7 @@ Webhook actions allow you to invoke an external process through a single HTTP PO
 | Webhook |Specify **Yes** if you want to call a webhook when the alert is triggered. |
 | Webhook URL |The URL of the webhook. |
 | Include custom JSON payload |Select this option if you want to replace the default payload with a custom payload. |
-| Enter your custom JSON payload |The custom payload for the webhook.  See previous section for details. |
+| Enter your custom JSON payload |Custom payload to send to the webhook.  |
 
 #### Runbook actions
 Runbook actions start a runbook in Azure Automation. 

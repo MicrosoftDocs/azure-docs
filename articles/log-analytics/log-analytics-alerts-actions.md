@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 02/28/2017
 ms.author: bwren
 
 ---
 
 # Alert actions in Log Analytics
-When an alert is created in Log Analytics, you have the option of [configuring the alert rule](log-analytics-alerts.md) to perform one or more actions.  This article describes the different actions that are available and details on configuring them.
+When an [alert is created in Log Analytics](log-analytics-alerts.md), you have the option of [configuring the alert rule](log-analytics-alerts.md) to perform one or more actions.  This article describes the different actions that are available and details on configuring each kind.
 
 | Action | Description |
 |:--|:--|
-| [Email notification](#email-actions) | Send an e-mail with the details of the alert to one or more recipients. |
 | [Webhook](#webhook-actions) | Invoke an external process through a single HTTP POST request. |
 | [Runbook](#runbook-actions) | Start a runbook in Azure Automation. |
 
@@ -31,32 +30,26 @@ When an alert is created in Log Analytics, you have the option of [configuring t
 ## Email actions
 Email actions send an e-mail with the details of the alert to one or more recipients.  You can specify the subject of the mail, but it's content is a standard format constructed by Log Analytics.  It includes summary information such as the name of the alert in addition to details of up to ten records returned by the log search.  It also includes a link to a log search in Log Analytics that will return the entire set of records from that query.   The sender of the mail is *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*. 
 
+Email actions require the properties in the following table.
+
 | Property | Description |
 |:--- |:--- |
 | Email notification |Specify **Yes** if you want an email to be sent when the alert is triggered. |
 | Subject |Subject in the email.  You cannot modify the body of the mail. |
 | Recipients |Addresses of all e-mail recipients.  If you specify more than one address, then separate the addresses with a semicolon (;). |
-| Webhook |Specify **Yes** if you want to call a webhook when the alert is triggered. |
-| Webhook URL |The URL of the webhook. |
-| Include custom JSON payload |Select this option if you want to replace the default payload with a custom payload. |
-| Enter your custom JSON payload |The custom payload for the webhook.  See previous section for details. |
-| Runbook |Specify **Yes** if you want to start an Azure Automation runbook when the alert is triggered. |
-| Select a runbook |Select the runbook to start from the runbooks in the automation account configured in your Automation solution. |
-| Run on |Select **Azure** to run the runbook in the Azure cloud.  Select **Hybrid Worker** to run the runbook on a [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) in your local environment. |
+
 
 ## Webhook actions
 
+Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it will use any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](log-analytics-alerts-webhooks.md).
+
+Webhook actions require the properties in the following table.
+
 | Property | Description |
 |:--- |:--- |
-| Webhook |Specify **Yes** if you want to call a webhook when the alert is triggered. |
 | Webhook URL |The URL of the webhook. |
-| Include custom JSON payload |Select this option if you want to replace the default payload with a custom payload. |
-| Enter your custom JSON payload |The custom payload for the webhook.  See previous section for details. |
+| Custom JSON payload |Custom payload to send with the webhook.  See below for details. |
 
-
-Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it will use any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are using a service like [Slack](http://slack.com) to send a message with the details of the alert or creating an incident in a service like [PagerDuty](http://pagerduty.com/).  
-
-A complete walkthrough of creating an alert rule with a webhook to call a sample service is available at [Webhooks in Log Analytics alerts](log-analytics-alerts-webhooks.md).
 
 Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload will include the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
 
@@ -101,7 +94,14 @@ For example, to create a custom payload that includes just the alert name and th
 You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Log Analytics alert webhook sample](log-analytics-alerts-webhooks.md).
 
 ## Runbook actions
-Runbook actions start a runbook in Azure Automation.  In order to use this type of action, you must have the [Automation solution](log-analytics-add-solutions.md) installed and configured in your OMS workspace.  If you don't have it installed when you create a new alert rule, a link to its install is displayed.  You can select from the runbooks in the automation account that you configured in the Automation solution.
+Runbook actions start a runbook in Azure Automation.  In order to use this type of action, you must have the [Automation solution](log-analytics-add-solutions.md) installed and configured in your OMS workspace.  You can select from the runbooks in the automation account that you configured in the Automation solution.
+
+Runbook actions require the properties in the following table.
+
+| Property | Description |
+|:--- |:---|
+| Runbook | Runbook that you want to start when an alert is created. |
+| Run on | Select **Azure** to run the runbook in the cloud.  Select **Hybrid worker** to run the runbook on an agent with [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) installed.  |
 
 Runbook actions start the runbook using a [webhook](../automation/automation-webhooks.md).  When you create the alert rule, it will automatically create a new webhook for the runbook with the name **OMS Alert Remediation** followed by a GUID.  
 
