@@ -1,5 +1,5 @@
 ---
-title: Managing access to resources with Azure Active Directory groups| Microsoft Docs
+title: Use groupts to manage access to resources in Azure Active Directory | Microsoft Docs
 description: How to use groups in Azure Active Directory to manage user access to on-premises and cloud applications and resources.
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: curtand
 ms.custom: H1Hack27Feb2017
 
 ---
-# Managing access to resources with Azure Active Directory groups
+# Manage access to resources with Azure Active Directory groups
 Azure Active Directory (Azure AD) is a comprehensive identity and access management solution that provides a robust set of capabilities to manage access to on-premises and cloud applications and resources including Microsoft online services like Office 365 and a world of non-Microsoft SaaS applications. This article provides an overview, but if you want to start using Azure AD groups right now, follow the instructions in [Managing security groups in Azure AD](active-directory-accessmanagement-manage-groups.md). If you want to see how you can use PowerShell to manage groups in Azure Active directory you can read more in [Azure Active Directory preview cmdlets for group management](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
