@@ -25,14 +25,14 @@ In the administrator portal, there is an **Updates** tile on the default dashboa
 
  ![Updates tile on default dashboard](./media/azure-stack-updates/image2.png)
 
-You can access this same update information in other locations. For example, you can:
-
-* Click the **Region Management** tile on the default dashboard to view update information for a particular region.
-
+You can access this same update information in other locations. For example, to view update information for a particular region, you can:
+ 
 * Click **Browse**, click **Updates**, and then click the region name.
 
+* On the default dashboard, click the region name on the **Region Management** tile.
+
 ## Next steps
-* [Region managment in Azure Stack](azure-stack-region-management.md)
+* [Region management in Azure Stack](azure-stack-region-management.md)
 
 * [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
 
