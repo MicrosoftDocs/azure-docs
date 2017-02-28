@@ -18,13 +18,13 @@ ms.author: garye;gibattag
 
 ---
 
-# Create a Cognitive Services APIs account in the Azure Pprtal
+# Create a Cognitive Services APIs account in the Azure Portal
 
 To use Microsoft Cognitive Service APIs, you first need to create an account in the Azure portal.
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
-2. Click the **+** sign (New).
+2. Click **+ NEW**.
 
 3. Select **Intelligence + Analytics** and then **Cognitive Services APIs (preview)**.
 
