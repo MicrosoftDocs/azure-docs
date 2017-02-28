@@ -210,7 +210,7 @@ You must use PowerShell to migrate containers.
     ![](media/azure-stack-manage-storage-accounts/image13.png)
 5. Get the best destination shares for the container migration:
 
-    `$destinationshares= Get-ACSDestinationSharesForContainer -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
+    `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
 
     Then examine $destinationshares:
 
@@ -229,19 +229,19 @@ You must use PowerShell to migrate containers.
    ```
 7. Check status of the migration job by its job id. When the container migration finishes, MigrationStatus is set to “Completed”.
 
-    `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName -JobId $jobId`
+    `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
     ![](media/azure-stack-manage-storage-accounts/image15.png)
 
-    You can cancel an in-progress migration job. This again is an async operation and can be tracked using jobid:
+8. You can cancel an in-progress migration job. This again is an async operation and can be tracked using $jobid:
 
-    `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -ShareName $shares[0].ShareName -JobId $jobId-Verbose`
+    `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
     You can check the status of the migration cancel again:
 
-    `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName -JobId $jobId`
+    `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
     ![](media/azure-stack-manage-storage-accounts/image17.png)
 
