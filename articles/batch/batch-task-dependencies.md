@@ -1,6 +1,6 @@
 ---
-title: Configure tasks that depend on other tasks - Azure Batch | Microsoft Docs
-description: Create tasks that depend on the successful completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
+title: Use task dependencies to run tasks based on the completion of other tasks - Azure Batch | Microsoft Docs
+description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -13,20 +13,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/22/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Task dependencies in Azure Batch
-The task dependencies feature of Azure Batch is a good fit if you want to process:
+# Create task dependencies to run tasks that depend on other tasks
+
+By defining task dependencies, you can run a task or tasks that depend on a parent task once the parent task has completed. A task dependency establishes a downstream relationship in a case where a dependent task relies on the results of another task or the state of the application once the parent task has finished running. 
+
+Some scenarios where task dependencies are useful include:
 
 * MapReduce-style workloads in the cloud.
 * Jobs whose data processing tasks can be expressed as a directed acyclic graph (DAG).
 * Any other job in which downstream tasks depend on the output of upstream tasks.
 
-Batch task dependencies allow you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all frames have been successfully rendered.
+Batch task dependencies allow you to create tasks that are scheduled for execution on compute nodes only after the completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all frames have been successfully rendered.
 
-You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship. You can even create a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs. You can combine these three basic scenarios to create many-to-many relationships.
+You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship. You can even create a range dependency where a task depends on the completion of a group of tasks within a specific range of task IDs. You can combine these three basic scenarios to create many-to-many relationships.
 
 ## Task dependencies with Batch .NET
 In this article, we discuss how to configure task dependencies by using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and then demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
@@ -45,7 +49,7 @@ unboundJob.UsesTaskDependencies = true;
 In the preceding code snippet, "batchClient" is an instance of the [BatchClient][net_batchclient] class.
 
 ## Create dependent tasks
-To create a task that is dependent on the successful completion of one or more other tasks, you tell Batch that the task "depends on" the other tasks. In Batch .NET, configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with an instance of the [TaskDependencies][net_taskdependencies] class:
+To create a task that is dependent on the completion of one or more other tasks, you tell Batch that the task "depends on" the other tasks. In Batch .NET, configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with an instance of the [TaskDependencies][net_taskdependencies] class:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -78,7 +82,7 @@ There are three basic task dependency scenarios that you can use in Azure Batch:
 > 
 
 ### One-to-one
-To create a task that has a dependency on the successful completion of one other task, you supply a single task ID to the [TaskDependencies][net_taskdependencies].[OnId][net_onid] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
+To create a task that has a dependency on the completion of one other task, you supply a single task ID to the [TaskDependencies][net_taskdependencies].[OnId][net_onid] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -92,7 +96,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### One-to-many
-To create a task that has a dependency on the successful completion of multiple tasks, you supply a collection of task IDs to the [TaskDependencies][net_taskdependencies].[OnIds][net_onids] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
+To create a task that has a dependency on the completion of multiple tasks, you supply a collection of task IDs to the [TaskDependencies][net_taskdependencies].[OnIds][net_onids] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -108,7 +112,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ```
 
 ### Task ID range
-To create a task that has a dependency on the successful completion of a group of tasks whose IDs lie within a range, you supply the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
+To create a task that has a dependency on the completion of a group of tasks whose IDs lie within a range, you supply the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
 > When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Additionally, every task in the range must complete successfully for the dependent task to be scheduled for execution.
@@ -134,6 +138,17 @@ new CloudTask("4", "cmd.exe /c echo 4")
 ```
 
 ## Dependency actions
+
+In some scenarios, you may wish to specify the behavior of dependent tasks, regardless of whether the parent task completed successfully. 
+
+- You can run dependent tasks regardless of whether parent task has completed successfully. Setting the DependencyAction property to Satisfy indicates that dependent tasks should run even if the parent task exits with a non-zero exit code or a scheduling error.
+- You can block dependent tasks even if the parent task has completed successfully. Setting the DependencyAction property to Block indicates that dependent tasks should be blocked even if the parent task exits with an exit code of zero. 
+
+
+
+ You can now specify that dependent tasks proceed even if the task that they depend on fails. Set the new **dependencyAction** property of a task resource to *satisfy* to run dependent tasks even if the parent task fails. Alternately, set **dependencyAction** to *block* to block running of dependent tasks if the parent task fails.  
++
++    Specify the **dependencyAction** property in requests to [Add Task](~/docs-ref-autogen/batchservice/task.json#Task_Add) or [Add Task Collection](~/docs-ref-autogen/batchservice/task.json#Task_AddCollection). 
 
 Beginning with version XXX/YYY, you can now specify how a dependent tasks behaves, based on whether the task on which it depends completes successfully. 
 

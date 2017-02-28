@@ -1,10 +1,10 @@
 ---
-title: Create a virtual network using the Azure portal | Microsoft Docs
-description: Learn how to create a virtual network using the Azure portal | Resource Manager.
+title: Create a virtual network - Azure portal | Microsoft Docs
+description: Learn how to create a virtual network using the Azure portal.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/8/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
 # Create a virtual network using the Azure portal
