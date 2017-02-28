@@ -129,6 +129,7 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
    * **Entity ID**
    * **SAML SSO URL**
    * **Single Sign-Out Service URL**
+
     >[!NOTE]
     >After **ADP GlobalView** team configure the instance, get the **RelayState** value from them. Follow the below mentioned steps to configure it. After this configuration you can test the integration. So please note that this is important configuration for this application integration to work.
     >
