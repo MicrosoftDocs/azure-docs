@@ -92,7 +92,7 @@ or review this basic example for a condition action:
 ```
 
 <a name="run-after"></a>
-## RunAfter Property
+## 'runAfter' property
 
 The `runAfter` property replaces `dependsOn`, 
 providing more precision when you specify the run order for actions 
@@ -117,11 +117,12 @@ step B succeeds or fails, you construct this `runAfter` property:
 }
 ```
 
-## Upgrading to the schema
+## Upgrade your schema
 
 Upgrading to the new schema only takes a few steps. 
 The upgrade process includes running the upgrade script, 
-saving as a new logic app, and potentially overwriting old logic app if necessary.
+saving as a new logic app, and possibly overwriting the 
+previous logic app if you want.
 
 1. In the Azure portal, open your logic app.
 
@@ -154,7 +155,7 @@ or request trigger URL of your logic app.
 
 ### Upgrade tool notes
 
-#### Condition mapping
+#### Mapping conditions
 
 In the upgraded definition, the tool makes a best effort at 
 grouping true and false branch actions together as a scope. 
@@ -163,7 +164,7 @@ should appear as an `else` action. However, if the tool detects unrecognizable p
 the tool might create separate conditions for both the true and the false branch. 
 You can remap actions after upgrading, if necessary.
 
-#### ForEach with condition
+#### 'foreach' loop with condition
 
 In the new schema, you can use the filter action 
 for replicating the previous pattern 
@@ -180,7 +181,7 @@ After you upgrade, resource tags are removed, so you must reset them for the upg
 
 ## Other changes
 
-### Manual trigger renamed to Request trigger
+### Renamed 'manual' trigger to 'request' trigger
 
 The `manual` trigger type was deprecated and renamed to `request` with type `http`. 
 This change creates more consistency for the kind of pattern that the trigger is used to build.
@@ -195,7 +196,7 @@ evaluates the condition for each item, and returns an array with items that meet
 
 The `foreach` and `until` loop are restricted to a single action.
 
-### TrackedProperties on Actions
+### New 'trackedProperties' for actions
 
 Actions can now have an additional property called 
 `trackedProperties`, which is sibling to the `runAfter` and `type` properties. 
