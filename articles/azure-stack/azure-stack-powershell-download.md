@@ -53,7 +53,7 @@ This repository contains PowerShell modules that support the following functiona
 | [Resource Manager policy for Azure Stack](azure-stack-policy-module) | Use this module to configure an Azure subscription or an Azure resource group with the same versioning and service availability as Azure Stack. | Cloud administrators and users |
 | [Azure Stack deployment](azure-stack-run-powershell-script) | Use this module to prepare the Azure Stack host computer to deploy and redeploy by using the Azure Stack Virtual Hard Disk(VHD) image. | Cloud administrators. |
 | [Connecting to Azure Stack](azure-stack-connect-powershell) | Use this module to connect to an Azure Stack instance through PowerShell and to configure VPN connectivity to Azure Stack. | Cloud administrators and users |
-| [Azure Stack service administration](azure-stack-create-offer) | Azure Stack administrators can use this module to create a default tenant offer with unlimited quota across Compute, Storage, Network and Key Vault services.   | Cloud administrators.|
+| [Azure Stack service administration](azure-stack-create-offer) | Azure Stack administrators can use this module to create a default tenant offer with unlimited quota across Compute, Storage, Network, and Key Vault services.   | Cloud administrators.|
 | [AzureRM template validator](azure-stack-validate-templates) | Use this module to verify if an existing or a new template can be deployed to Azure Stack. | Cloud administrators and users |
 
 

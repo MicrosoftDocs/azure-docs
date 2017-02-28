@@ -41,7 +41,7 @@ c.	[Install the required version along with the existing version.](#install-the-
 
 ## Install the required version
 
-To install the Azure Stack PowerShell modules on a computer which doesn’t already contain any installed PowerShell modules, use the following steps:  
+To install the Azure Stack PowerShell modules on a computer, which doesn’t already contain any installed PowerShell modules, use the following steps:  
 
 1. Run the following command to install the required version of the AzureRM modules for Compute, Storage, Network, Key Vault etc. 
   ```powershell
@@ -77,7 +77,7 @@ To install the Azure Stack PowerShell modules on a computer which doesn’t alre
 
 ## Uninstall the existing version and install the required version
 
-To install the Azure Stack PowerShell modules on a computer which already contains a different version of PowerShell modules, use the following steps:  
+To install the Azure Stack PowerShell modules on a computer, which already contains a different version of PowerShell modules, use the following steps:  
 
 1.	Uninstall the existing Azure PowerShell commands (AzureRM and Azure modules). To uninstall, close all the active PowerShell sessions and run the following command:
   ```powershell
