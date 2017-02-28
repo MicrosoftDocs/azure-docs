@@ -5,7 +5,7 @@ keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
@@ -36,7 +36,7 @@ Customers can deploy their applications by using:
 
 * FTP
 * Local Git
-* GitHub or Bitbucket
+* GitHub
 
 For application scaling:
 

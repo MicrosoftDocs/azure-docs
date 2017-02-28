@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/31/2017
 ms.author: jotaub
 ---
 
@@ -30,9 +30,9 @@ In this tutorial, we will write a .NET Core console application to send messages
 
 ## Prerequisites
 
-1. [Visual Studio 2015](http://www.visualstudio.com).
+1. [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com).
 
-2. [.NET Core Visual Studio 2015 Tooling](http://www.microsoft.com/net/core).
+2. [.NET Core Visual Studio 2015 or 2017 Tooling](http://www.microsoft.com/net/core).
 
 3. An Azure subscription.
 
@@ -48,9 +48,7 @@ To send messages to an Event Hub, we will write a C# console application using V
 
 ### Add the Event Hubs NuGet package
 
-1. Right-click the newly created project and select **Manage NuGet Packages**.
-
-2. Click the **Browse** tab, then search for “Microsoft Azure Event Hubs” and select the **Microsoft Azure Event Hubs** item. Click **Install** to complete the installation, then close this dialog box.
+* Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package to your project.
 
 ### Write some code to send messages to the Event Hub
 
