@@ -1,4 +1,3 @@
-
 ---
 title: Using the administrator and user portals in Azure Stack | Microsoft Docs
 description: Learn the differences between the administrator and user portals in Azure Stack.
@@ -31,35 +30,42 @@ The following table shows how to connect to the portals and to endpoints in a si
 
 
 ## The administrator portal
-The administrator portal enables a cloud administrator to perform administrative tasks, some of which include health monitoring, capacity management, populating the marketplace, creating plans and offers, and creating subscriptions for tenant users. In addition to these administrative capabilities, an administrator can also create resources such as virtual machines, virtual networks, and storage accounts.
+The administrator portal enables a cloud administrator to perform administrative tasks. An administrator can do thing such as:
+* monitor health and alerts
+* manage capacity
+* populate the marketplace
+* create plans and offers
+* create subscriptions for tenant users
+
+In addition to these administrative capabilities, an administrator can create resources such as virtual machines, virtual networks, and storage accounts.
 
  ![The administrator portal](media/azure-stack-manage-portals/image1.png)
 
  ## The user portal
 
- The user portal (also referred to as the *tenant* portal) does not provide access to any of the administrative functionality of the administrator portal. The user portal enables a user to subscribe to public offers, and to use the services that are made available through them.
+ The user portal (also referred to as the *tenant* portal) does not provide access to any of the administrative functionalities of the administrator portal. The user portal enables a user to subscribe to public offers, and to use the services that are made available through them.
 
-  ![The user portal](media/azure-stack-manage-portals/image1.png)
+  ![The user portal](media/azure-stack-manage-portals/image2.png)
  
  ## Subscription behavior
  
- You should understand the following differences between subscription behavior in the two portals.
+ Make sure that you understand the following differences between subscription behavior in the two portals.
 
  Administrator portal:
 * There is only one subscription that is available in the administrator portal. This is the "Default Provider Subscription." You cannot add any subscriptions for use in the administrator portal.
 * As a cloud administrator, you can add subscriptions for your tenants (or for yourself) from the administrator portal. Your tenant users (or you) can access and use these subscriptions from the user portal.
 
   >[!NOTE]
-  Because of the Azure Resource Manager separation, subscriptions do not cross portals. For example, if you as a cloud administrator signs in to the user portal, you will not have access to the Default Provider Subscription. Therefore, you do not have access to any administrative functionality. You can create new subscriptions for yourself from public offers, but you will be considered a tenant user.
+  Because of the Azure Resource Manager separation, subscriptions do not cross portals. For example, if you as a cloud administrator signs in to the user portal, you can't access the Default Provider Subscription. Therefore, you don't have access to any administrative functionality. You can create new subscriptions for yourself from public offers, but you are considered a tenant user.
 
 User portal:
 * In the user portal, an account can have multiple subscriptions.
 
   >[!NOTE]
-In the POC environment, if a tenant user belongs to the same directory, they are not blocked from signing in to the administrator portal. However, they can't access any of the administrative functions. Also, they cannot add subscriptions or access offers that are made available to them in the user portal.
+In the POC environment, if a tenant user belongs to the same directory, they are not blocked from signing in to the administrator portal. However, they can't access any of the administrative functions. Also, they can't add subscriptions or access offers that are made available to them in the user portal.
 
 
 ## Next steps
-[Updates management in Azure Stack](azure-stack-updates.md)
 
 [Region management in Azure Stack](azure-stack-region-management.md)
+[Connect to Azure Stack] (azure-stack-connect-azure-stack.md)
