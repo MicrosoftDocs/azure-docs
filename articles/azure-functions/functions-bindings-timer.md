@@ -15,17 +15,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 02/27/2017
 ms.author: chrande; glenga
 
 ---
-# Azure Functions timer trigger
+# Schedule code execution with Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code timer triggers in Azure Functions. 
-Azure Functions supports the trigger for timers. Timer triggers call functions based on a schedule, one time or recurring. 
+Azure Functions has a timer trigger binding that lets you run your function code based on a defined schedule. 
 
-The timer trigger supports multi-instance scale-out. One single instance of a particular timer function is run across all instances.
+The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
