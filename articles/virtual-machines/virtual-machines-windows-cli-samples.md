@@ -28,7 +28,8 @@ The following table includes links to bash scripts built using the Azure CLI tha
 | [Create a virtual machine](./scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a Windows virtual machine with minimal configuration. |
 | [Create a fully configured virtual machine](./scripts/virtual-machines-windows-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
 | [Create highly available virtual machines](./scripts/virtual-machines-windows-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates several virtual machines in a highly available and load balanced configuration. |
-| [Create a VM and run DSC configuration](./scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine and uses the Azure Desired State Configuration (DSC) extension to install IIS. |
+| [Create a VM and run configuration script](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install IIS. |
+| [Create a VM and run DSC configuration](./scripts/virtual-machines-windows-cli-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine and uses the Azure Desired State Configuration (DSC) extension to install IIS. |
 |**Network virtual machines**||
 | [Secure network traffic between virtual machines](./scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
 |**Monitor virtual machines**||
