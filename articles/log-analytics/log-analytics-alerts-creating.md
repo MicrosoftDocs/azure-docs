@@ -19,7 +19,7 @@ ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create and manage alert rules in Log Analytics
+# Create and manage alert rules in Log Analytics with the OMS portal
 [Alerts in Log Analytics](log-analytics-alerts.md) are created by alert rules that automatically run log searches at regular intervals.  They create an alert record if the results match particular criteria.  The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process.   
 
 This article describes the processes to create and edit alert rules using the OMS portal.  For details about the different settings and how to implement required logic, see [Understanding alerts in Log Analytics](log-analytics-alerts.md).

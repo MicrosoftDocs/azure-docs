@@ -16,13 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: bwren
 
+ms.custom: H1Hack27Feb2017
+
 ---
 
-# Alert actions in Log Analytics
+# Add actions to alert rules in Log Analytics
 When an [alert is created in Log Analytics](log-analytics-alerts.md), you have the option of [configuring the alert rule](log-analytics-alerts.md) to perform one or more actions.  This article describes the different actions that are available and details on configuring each kind.
 
 | Action | Description |
 |:--|:--|
+| [Email](#email-actions) |	Send an e-mail with the details of the alert to one or more recipients. |
 | [Webhook](#webhook-actions) | Invoke an external process through a single HTTP POST request. |
 | [Runbook](#runbook-actions) | Start a runbook in Azure Automation. |
 
@@ -34,7 +37,6 @@ Email actions require the properties in the following table.
 
 | Property | Description |
 |:--- |:--- |
-| Email notification |Specify **Yes** if you want an email to be sent when the alert is triggered. |
 | Subject |Subject in the email.  You cannot modify the body of the mail. |
 | Recipients |Addresses of all e-mail recipients.  If you specify more than one address, then separate the addresses with a semicolon (;). |
 
@@ -91,7 +93,7 @@ For example, to create a custom payload that includes just the alert name and th
     }
 
 
-You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Log Analytics alert webhook sample](log-analytics-alerts-webhooks.md).
+You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in OMS Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
 
 ## Runbook actions
 Runbook actions start a runbook in Azure Automation.  In order to use this type of action, you must have the [Automation solution](log-analytics-add-solutions.md) installed and configured in your OMS workspace.  You can select from the runbooks in the automation account that you configured in the Automation solution.
@@ -101,7 +103,7 @@ Runbook actions require the properties in the following table.
 | Property | Description |
 |:--- |:---|
 | Runbook | Runbook that you want to start when an alert is created. |
-| Run on | Select **Azure** to run the runbook in the cloud.  Select **Hybrid worker** to run the runbook on an agent with [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) installed.  |
+| Run on | Specify **Azure** to run the runbook in the cloud.  Specify **Hybrid worker** to run the runbook on an agent with [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) installed.  |
 
 Runbook actions start the runbook using a [webhook](../automation/automation-webhooks.md).  When you create the alert rule, it will automatically create a new webhook for the runbook with the name **OMS Alert Remediation** followed by a GUID.  
 
