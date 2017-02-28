@@ -19,7 +19,7 @@ ms.author: erikje
 ---
 # Register Azure Stack with your Azure Subscription
 
-To use Azure Stack in a production environment you must first register it with your Azure subscription. After registering you can declare your business model (consumption-based or capacity-based) and Azure connection options.
+You must register with Azure to download marketplace items from Azure and to set up Azure Stack to report commerce data back to Microsoft. 
 
 > [!NOTE]
 >In TP3, registering Azure Stack is not required because you don't have to select a business model or connection option. However, you can test the process and provide feedback about it.
@@ -27,26 +27,24 @@ To use Azure Stack in a production environment you must first register it with y
 
 ## Register
 
-1.	Sign in to the Azure Stack POC host computer as an Azure Stack administrator.
-2.	Make sure you have the Azure PowerShell cmdlets on the host computer. 
-3.	Copy the [Test-Activation.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder on the host computer (such as C:/temp).
-4.	Start PowerShell ISE as an administrator and open the Test-Activation.ps1 script.
-5.	In the Step 1 section of the script, change the values for *YourAccountName*, *YourPassword*, and *YourDirectory* to match your Azure subscription.
+1. Sign in to the Azure Stack POC host computer as an Azure Stack administrator.
+2. Install the Azure PowerShell cmdlets on the host computer by running the 'Install-module AzureRM' cmdlet. 
+3. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder on the host computer (such as C:/temp).
+4. Start PowerShell ISE as an administrator.
+5. Run the RegisterWithAzure.ps1 script. Make sure to change the values for *YourAccountName* (the owner of the Azure subscription), *YourGUID*, and *YourDirectory* to match your Azure subscription.
 
     ```powershell
-    $azureCreds = New-Object System.Management.Automation.PSCredential("YourAccountName", (ConvertTo-SecureString -String "YourPassword" -AsPlainText -Force))
-    $azureDirectory = "YourDirectory"
+    RegisterWithAzure.ps1 -azureDirectory YourDirectory -azureSubscriptionId YourGUID -azureSubscriptionOwner YourAccountName
     ```
-6.	In the Step 3 section of the script, change the values for YourGUID and YourDirectory to match your Azure subscription.
-
+    
+    For example:
+    
     ```powershell
-    $azureSubscriptionId = "YourGUID"
-    $azureDirectory = "YourDirectory"
+    C:\temp\RegisterWithAzure.ps1 -azureDirectory contoso.onmicrosoft.com -azureSubscriptionId 5c15413c-1135-479b-a046-857e1ef9fbeb -azureSubscriptionOwner serviceadmin@contoso.onmicrosoft.com     
     ```
-7.	Save and run the Test-Activation.ps1 script.
-8.	Save the registrationOutput JSON file.
-9.	In PowerShell ISE, at the **Enter after the Register Azure Stack with Azure completed, update $registrationResponse to add syndication and usage bridge, then enter to continue** prompt, press enter.
-10.	At the **Azure Stack registration completed, enter to continue** prompt, press Enter to complete the registration.
+    
+6. At the two prompts, press Enter.
+7. In the pop-up log in window, enter your Azure subscription credentials
 
 ## Verify the registration
 
