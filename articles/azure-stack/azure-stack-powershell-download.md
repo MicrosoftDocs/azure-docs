@@ -58,5 +58,5 @@ This repository contains PowerShell modules that support the following functiona
 
 
 Next steps
-•	[Configure powerShell for use with Azure Stack](azure-stack-powershell-configure.md)
+•	[Configure powerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
 •	[Connect to Azure Stack POC over a VPN](azure-stack-connect-azure-stack.md)

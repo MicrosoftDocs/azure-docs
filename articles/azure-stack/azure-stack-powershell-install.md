@@ -90,9 +90,9 @@ To install the Azure Stack PowerShell modules on a computer, which already conta
 
 You can install a new version of PowerShell modules along with an existing version. When you do so, it is recommended that you install the existing and new versions of PowerShell modules in the same user scope. 
 
-For example, If the 1.2.6 version PowerShell modules are already installed in the **CurrentUser scope**, it is recommended that you install the 1.2.8 version PowerShell modules in the same scope. For CurrentUser scope, the modules are installed at “C:\Users\<username>\Documents\WindowsPowerShell\Modules” location.
+For example, If the 1.2.6 version PowerShell modules are already installed in the **CurrentUser scope**, it is recommended that you install the 1.2.8 version PowerShell modules in the same scope. For CurrentUser scope, the modules are installed at `C:\Users\<username>\Documents\WindowsPowerShell\Modules` location.
 
-If the 1.2.6 version PowerShell modules are already installed in the **AllUsers** scope, it is recommended that you install the 1.2.8 version PowerShell modules in the same scope. For AllUsers scope, the modules are installed at “C:\Program Files\WindowsPowerShell\Modules” location.
+If the 1.2.6 version PowerShell modules are already installed in the **AllUsers** scope, it is recommended that you install the 1.2.8 version PowerShell modules in the same scope. For AllUsers scope, the modules are installed at `C:\Program Files\WindowsPowerShell\Modules` location.
 
 The steps required to install are same as the steps described in the [Install the required version](#install-the-required-version) section.
 
