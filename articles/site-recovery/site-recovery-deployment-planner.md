@@ -214,6 +214,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 **What default percentile value of the performance metrics collected during profiling is used at the time of report generation?**
 
 The tool defaults to 95th percentile values of R/W IOPS, write IOPS, and data churn collected during profiling of all the VMs. This ensures that the 100th percentile spike your VMs may see due to temporary events like say a backup job running once a day, a periodic database indexing or analytics report generation activity, or any other similar point in time short-lived event that happens during the profiling period is not used to determine your target Azure Storage and source bandwidth requirements. Using 95th percentile values gives a true picture of real workload characteristics and gives you the best performance when these workloads are running on Microsoft Azure. We do not expect you to change this number often, but if you choose to go even lower, e.g. 90th percentile, you can update this configuration file ‘ASRDeploymentPlanner.exe.config’ in the default folder and save it to generate a new report on the existing profiled data.
+
 		&lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;>      
 		&lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;>      
 		&lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
