@@ -34,13 +34,13 @@ The primary methods of interacting with Microsoft Azure Stack are the administra
 The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud administrator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
 
 ## Identity 
-Azure Stack can use either Azure Active Directory (AAD) or Active Directory Federation Services (ADFS) as an identity provider.  
+Azure Stack can use either Azure Active Directory (AAD) or Active Directory Federation Services (AD FS) as an identity provider.  
 
 ### Azure Active Directory
 Azure Active Directory is Microsoft's cloud-based identity provider.  For most scenarios, you will use Azure Active Directory as the identity store for Azure Stack POC.
 
 ### Active Directory Federation Services
-You may choose to use ADFS with Azure Stack when network connectivity is limited.  Azure Stack, resource providers, and other applications work much the same way with Active Directory Federation Services (AD FS) as they do with Azure Active Directory. Azure Stack includes its own ADFS and Active Directory instance, and an Active Directory Graph API. Azure Stack Technical Preview 3 supports the following AD FS scenarios:
+You may choose to use Active Directory Federation Services (AD FS) with Azure Stack when network connectivity is limited.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Technical Preview 3 supports the following AD FS scenarios:
 
 - Sign in to the POC deployment by using AD FS.
 - Create a virtual machine with secrets in Key Vault
@@ -131,5 +131,5 @@ Azure RBAC has three basic roles that apply to all resource types: Owner, Contri
 Microsoft Azure Stack collects and aggregates usage data across all resource providers to provide a concise report per user. Data can be as simple as consumed resource count, or as complex as individual performance and scale counters. The data is available via REST API. There is an Azure-consistent Tenant API as well as Provider and Delegated Provider APIs to get usage data across all tenant subscriptions. This data can be used to integrate with an external tool or service for billing or chargeback.
 
 ## Next steps
-[Deploy Azure Stack Technical Preview 2 (POC)](azure-stack-deploy.md)
+[Deploy Azure Stack Technical Preview 3 (POC)](azure-stack-deploy.md)
 
