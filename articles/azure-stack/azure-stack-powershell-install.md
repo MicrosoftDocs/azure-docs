@@ -99,6 +99,6 @@ The steps required to install are same as the steps described in the [Install th
 > [!NOTE]
 > Installing more than one version of PowerShell modules on the same computer is not a recommended option. This is because both the module are installed in the same location and whenever you load a module, you must make sure to specify the full path.
 
-Next steps
+## Next steps
 •	[Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
 •	[Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) 
