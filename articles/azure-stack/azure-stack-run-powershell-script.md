@@ -92,7 +92,7 @@ Before you start, make sure that you at least 85 GB of space and that you have .
     
 2. Open an elevated PowerShell console.
 3. In PowerShell, run this command: `cd C:\CloudDeployment\Configuration`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
-4. You can deploy Azure Stack with Azure Active Directory or Active Directory Federation Services. Azure Stack, resource providers, and other applications work the same way with both. To learn more about what is supported with AD FS in Azure Stack TP3, see the [Key features and concepts](azure-stack-key-features.md) article.
+4. You can deploy Azure Stack with Azure Active Directory or Active Directory Federation Services. Azure Stack, resource providers, and other applications work the same way with both. To learn more about what is supported with AD FS in Azure Stack, see the [Key features and concepts](azure-stack-key-features.md) article.
 
     To deploy Azure Stack with Azure Active Directory, run the deploy command:
     
