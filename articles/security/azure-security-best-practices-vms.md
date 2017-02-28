@@ -44,7 +44,7 @@ Azure VMs security best practices discussed in this article include:
 
 ## Virtual machine authentication, and access control
 
-The first step in protecting your Virtual Machine is to ensure that only authorized users are able to provision new VMs. You can use [resource manager policies](../azure-resource-manager/resource-manager-policy.md) to establish conventions for resources in your organization, create customized policies, and apply these policies to resources, such as [resource group](../azure-resource-manager/resource-group-overview.md). The VMs that belong to that resource group will inherit these policies. While this is a the recommended approach to manage resources (including VMs) that have different needs, and are located in different resource groups, you can also control individual access to VMs by using [role-based access control (RBAC)](../azure/active-directory/role-based-access-control-configure.md).
+The first step in protecting your Virtual Machine is to ensure that only authorized users are able to provision new VMs. You can use [resource manager policies](../azure-resource-manager/resource-manager-policy.md) to establish conventions for resources in your organization, create customized policies, and apply these policies to resources, such as [resource group](../azure-resource-manager/resource-group-overview.md). The VMs that belong to that resource group will inherit these policies. While this is a the recommended approach to manage resources (including VMs) that have different needs, and are located in different resource groups, you can also control individual access to VMs by using [role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 
 By enabling resource manager policies and RBAC to control VM access, you are enhancing the overall security of your VM. It is recommended to tightly-coupled VMs that share the same life cycle into the same resource group. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. Use [least privilege](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) approach to enable access to users to provision VMs, and plan to use the following built in roles in Azure when assigning privileges to users:
 
@@ -67,7 +67,7 @@ When VMs are exposed to the Internet, it is important to ensure that have [netwo
 You can also use just in time VM access feature from Azure Security Center to control who and for how long someone can have remote access to a specific VM. Watch the video below for more information on how to use this capability:
 
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-Just-in-Time-VM-Access/player" width="675" height="480" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-Just-in-Time-VM-Access/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Organizations that are not enforcing network access restriction to Internet facing VMs are exposed to security risks, such as RDP Brute Force attack. 
 
@@ -108,7 +108,7 @@ You can use [Azure Security Center](../security-center/security-center-intro.md)
 
 Security Center can actively monitor for threats, and these threats will be exposed under Security Alerts. Threats that are correlated will be aggregated in a single view called *Security Incident*. You can watch the video below to understand how Security Center can help you identify potential threats in your VMs located in Azure.
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="675" height="480" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Organizations that are not enforcing a secure posture for their VMs are unaware of potential attempts to circumvent security controls that are in place.
 
