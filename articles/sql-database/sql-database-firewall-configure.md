@@ -54,7 +54,7 @@ When a computer attempts to connect to your database server from the Internet, t
 
 * If the IP address of the request is within one of the ranges specified in the database-level firewall rules, the connection is granted to the SQL Database that contains the rule.
 * If the IP address of the request is not within one of the ranges specified in the database-level firewall rule, the server-level firewall rules are checked. If the IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted. Server-level firewall rules apply to all SQL databases on the Azure SQL server.  
-* If the IP address of the request is not within the ranges specified in any of the database-level  or server-level firewall rules, the connection request fails.
+* If the IP address of the request is not within the ranges specified in any of the database-level or server-level firewall rules, the connection request fails.
 
 > [!NOTE]
 > To access Azure SQL Database from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.
@@ -112,15 +112,22 @@ In addition to the Azure portal, firewall rules can be managed programmatically 
  
 ### FAQ: When should you use a server-level firewall rule and when should you use a database-level firewall rule?   
 Q. Should users of one database be fully isolated from another database?   
-> If yes, grant access using database-level firewall rules. This avoids using server-level firewall rules which permit access through the firewall to all databases, reducing the depth of your defenses.  
+>  If yes, grant access using database-level firewall rules. This avoids using server-level firewall rules, which permit access through the firewall to all databases, reducing the depth of your defenses.   
+
 Q. Do users at the IP address’s need access to all databases?   
-> Use server-level firewall rules to reduce the number of times you must configure firewall rules.  
+>  Use server-level firewall rules to reduce the number of times you must configure firewall rules.   
+
 Q. Does the person or team configuring the firewall rules only have access through the Azure portal, PowerShell, or the REST API?   
-> You must use server-level firewall rules. Database-level firewall rules can only be configured using Transact-SQL.  
+>  You must use server-level firewall rules. Database-level firewall rules can only be configured using Transact-SQL.  
+
 Q. Is the person or team configuring the firewall rules prohibited from having high-level permission at the database level?   
-> Use server-level firewall rules. Configuring database-level firewall rules using Transact-SQL, requires at least `CONTROL DATABASE` permission at the database level.  
-Q. Is the person or team configuring or auditing the firewall rules, centrally managing firewall rules for many (perhaps 100’s) of databases?  
-> This depends upon your needs and environment. Server-level firewall rules might be easier to configure, but scripting can configure rules at the database-level. And even if you use server-level firewall rules, you might need to audit the database-firewall rules, to see if users with `CONTROL` permission on the database have created database-level firewall rules.  
+>  Use server-level firewall rules. Configuring database-level firewall rules using Transact-SQL, requires at least `CONTROL DATABASE` permission at the database level.  
+
+Q. Is the person or team configuring or auditing the firewall rules, centrally managing firewall rules for many (perhaps 100s) of databases?   
+>  This selection depends upon your needs and environment. Server-level firewall rules might be easier to configure, but scripting can configure rules at the database-level. And even if you use server-level firewall rules, you might need to audit the database-firewall rules, to see if users with `CONTROL` permission on the database have created database-level firewall rules.   
+
+Q. Can I use a mix of both server-level and database-level firewall rules?   
+>  Yes. Some users, such as administrators might need server-level firewall rules. Other users, such as users of a database application, might need database-level firewall rules.   
 
 ## Troubleshooting the database firewall
 Consider the following points when access to the Microsoft Azure SQL Database service does not behave as you expect:
