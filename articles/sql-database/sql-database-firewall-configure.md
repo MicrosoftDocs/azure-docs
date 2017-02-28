@@ -1,4 +1,4 @@
---
+---
 title: Overview of SQL Database firewall rules | Microsoft Docs
 description: Learn how to configure a SQL database firewall with server-level and database-level firewall rules to manage access.
 keywords: database firewall
