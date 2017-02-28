@@ -3,8 +3,8 @@ title: Managing access to Azure billing | Microsoft Docs
 description: 
 services: ''
 documentationcenter: ''
-author: vikdesai
-manager: vikdesai
+author: vikramdesai01
+manager: vikramdesai01
 editor: ''
 tags: billing
 
@@ -18,7 +18,7 @@ ms.date: 02/22/2017
 ms.author: vikdesai
 
 ---
-# How to manage access to billing information for Azure
+# Managing access to billing information for Azure
 
 Access to viewing billing information in Azure portal is granted to users in certain roles on the Azure subscription. The user roles who have access to billing information are Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader. They would have access to billing information in the [Azure portal](https://portal.azure.com/), and they can use the Billing API to download invoices.
 

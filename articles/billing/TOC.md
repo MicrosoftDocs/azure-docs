@@ -28,7 +28,8 @@
 
 # Reference
 ## [API Overview](billing-usage-rate-card-overview.md)
-## [REST API reference](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
+## [Invoice REST](/rest/api/billing)
+## [Usage and RateCard REST](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Partner solution: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [Partner solution: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 

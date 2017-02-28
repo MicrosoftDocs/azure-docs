@@ -22,12 +22,13 @@ ms.author: mobandyo;bryanla
 The Azure Billing, Resource Usage, and Rate Card APIs discussed in this article lets you programmatically get billing information and usage details. These APIs are implemented as a Resource Provider, as part of the family of APIs exposed by the Azure Resource Manager.  
 
 ## Azure Invoice Download API (Preview)
-You can download your invoice using the preview version of Azure Billing API. The features include:
+You can download your invoice using the preview version of [Invoice API](/rest/api/billing). The features include:
 
 * **Azure Role-based Access Control** - You can configure your access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.
-* **Date Filtering** - You can 
+* **Date Filtering** - You can use the `$filter` parameter to get all the invoices in reverse chronological order by the invoice period end date. 
+
 ### Azure Resource Usage API (Preview)
-You can use the Azure Resource Usage API to get your estimated Azure consumption data. The features include:
+You can use the [Azure Resource Usage API](https://msdn.microsoft.com/library/azure/mt219003.aspx) to get your estimated Azure consumption data. The features include:
 
 * **Azure Role-based Access Control** - You can configure your access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.
 * **Hourly or Daily Aggregations** - Callers can specify whether they want your Azure usage data in hourly buckets or daily buckets. The default is daily.
@@ -36,7 +37,7 @@ You can use the Azure Resource Usage API to get your estimated Azure consumption
 * **Usage for all offer types** – Usage data will be accessible for all offer types including Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, and EA among others.
 
 ### Azure Resource RateCard API (Preview)
-You can use the Azure Resource RateCard API to get the list of available Azure resources, along with estimated pricing information for each. The features include:
+You can use the [Azure Resource RateCard API](https://msdn.microsoft.com/library/azure/mt219005.aspx) to get the list of available Azure resources, along with estimated pricing information for each. The features include:
 
 * **Azure Role-based Access Control** - You can configure your access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) to specify which users or applications can get access to the RateCard data. Callers must use standard Azure Active Directory tokens for authentication. The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.
 * **Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)** - This API provides Azure offer-level rate information, vs. subscription-level.  The caller of this API must pass in the offer information to get resource details and rates.  As EA offers have customized rates per enrollment, we are unable to provide the EA rates at this time.
@@ -58,8 +59,9 @@ Here are some of the scenarios that are made possible with the combination of th
 
 [Cloud Cruiser and Microsoft Azure Billing API Integration](billing-usage-rate-card-partner-solution-cloudcruiser.md) describes how [Cloud Cruiser's Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) works directly from the  WAP portal, enabling customers to seamlessly manage both the operational and financial aspects of your Microsoft Azure private or hosted public cloud from a single user interface.   
 
-## Next Steps
-* Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more details on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
+## API reference
+
+Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more details on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
 
 ## Learn more
 * See the [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md) article to learn more about the Azure Resource Manager.
