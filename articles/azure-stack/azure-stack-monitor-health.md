@@ -72,6 +72,6 @@ After the infrastructure role instance is back online, this alert automatically 
 Now that you know more about health and viewing alerts in Azure Stack, it’s time to learn more about how to update Azure Stack.
 
 ## Next steps
-[Updates management in Azure Stack](azure-stack-updates.md)
+[Update management in Azure Stack](azure-stack-updates.md)
 
 [Region management in Azure Stack](azure-stack-region-management.md)
