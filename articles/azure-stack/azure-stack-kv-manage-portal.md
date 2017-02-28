@@ -52,7 +52,7 @@ Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack b
 
 8.	Choose an existing **Access policies** or create a new one. Access policy allows you to grant permissions for a user, application or a security group to perform operations with this vault.  
 
-9.	Optionally, choose an **Advanced access policy** to enable the features like access to virtual machines for deployment, access to Resource Manager for template deployment and access to Azure Disk Encryption for volume encryption. 
+9.	Optionally, choose an **Advanced access policy** to enable the features like access to Virtual Machines for deployment, access to Resource Manager for template deployment and access to Azure Disk Encryption for volume encryption. 
   
 10.	After configuring the settings, click **OK** and then **Create**. This starts the key vault deployment. 
 
