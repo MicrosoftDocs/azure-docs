@@ -60,7 +60,7 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
 
 #### Verify
 1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Run:  csexport "Name of Connector" export.xml /f:x
+2. Run: `csexport "Name of Connector" export.xml /f:x`
    The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
 3. Copy the PowerShell script from the section [CSAnalyzer](#Appendix-CSExportAnalyzer) to a file named `csanalyzer.ps1`.
 4. Open a PowerShell window and browse to the folder where you created the PowerShell script.
