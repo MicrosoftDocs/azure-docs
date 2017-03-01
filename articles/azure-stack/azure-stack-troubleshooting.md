@@ -49,7 +49,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
         * A health system component is not operating correctly
         * Template for FaultType Microsoft.Health.FaultType.VirtualDisks.NeedsRepair is missing
 * All Infrastructure Roles will display with a known health state, however the health state is not accurate for roles outside of Compute Controller and Health Controller
-* Some alerts may recommend a “Restart” action on a specific infrastructure role.  The restart action for infrastructure roles is not available with TP3.
+* Some alerts may recommend a “Restart” action on a specific infrastructure role.  The restart action for infrastructure roles is not available in Azure Stack TP3.
 * You will see an HSM option when creating Key Vault vaults through the portal.  HSM backed vaults are not supported in Azure Stack TP3.  
    
 
