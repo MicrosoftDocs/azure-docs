@@ -1,6 +1,6 @@
 ---
-title: How to change profile information of your Azure account| Microsoft Docs
-description: Describes how to change the profile of your Azure account, and answers the common questions such as why cannot change country in the Azure Account Center
+title: Change your Azure account profile information | Microsoft Docs
+description: Describes how to change the profile of your Azure account, and answers the common questions such as why you cannot change country in the Azure Account Center
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: genli
-
+ms.custom: H1Hack27Feb2017
 ---
-# How to change profile information of your Azure account such as contact email, address and phone number
+# Change your Azure account profile information such as contact email, address and phone number
 The email address in the Account Administrator’s profile is used by Microsoft to notify you about important billing-related updates about the subscription. We recommend that you specify a contact email address that you check regularly.
 
 ## How to change your profile information
