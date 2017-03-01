@@ -20,7 +20,7 @@ ms.author: juliako
 
 # Task Presets for MES (Media Encoder Standard)
 
-**Media Encoder Standard** defines a set of encoding presets you can use when creating encoding jobs. It is recommended to use the "Adaptive Streaming" preset. When you specify this preset, the Azure Media Standard will [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). 
+**Media Encoder Standard** defines a set of encoding presets you can use when creating encoding jobs. It is recommended to use the "Adaptive Streaming" preset. When you specify this preset, Media Encoder Standard will [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). 
 
 However, if you need to customize an encoding preset, you should take one of the encoding presets defined in this section as a template for your custom configuration. For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
   
