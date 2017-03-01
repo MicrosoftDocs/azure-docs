@@ -139,43 +139,35 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ## Dependency actions
 
-Dependency actions provide granular control over how a dependent task behaves, based on the success or failure of the upstream task. For example, suppose that a dependent task is awaiting data from the completion of the upstream task. If the upstream task fails, the dependent task may still be able to run using older data. Using a dependency action is one way to design your Batch application to be more resilient.  
+Dependency actions provide granular control over how a dependent task behaves, based on the success or failure of the upstream task. For example, suppose that a dependent task is awaiting data from the completion of the upstream task. If the upstream task fails, the dependent task may still be able to run using older data. Using a dependency action is one way to design your Batch application to be resilient.  
 
-To specify a dependency action, set the DependencyAction property of the ExitOptions class. The DependencyAction property takes one of two values:
+To specify a dependency action in .NET, set the **DependencyAction** property of the [ExitOptions](net_exitoptions) class. The **DependencyAction** property takes one of two values:
 
-- Setting the DependencyAction property to Satisfy indicates that dependent tasks should run even if the parent task exits with a non-zero exit code or a scheduling error.
-- Setting the DependencyAction property to Block indicates that dependent tasks should not be run.
+- Setting the **DependencyAction** property to **Satisfy** indicates that dependent tasks should run even if the parent task exits with a non-zero exit code or a scheduling error.
+- Setting the **DependencyAction** property to **Block** indicates that dependent tasks should not be run.
 
+The default setting for the **DependencyAction** property is **Satisfy**.
+
+The following code snippet shows how to set the **DependencyAction** property for a task that exits with a non-zero exit code, and for a task that exits with a scheduling error.
 
 ```csharp
 // Task A is a parent task that exits with a non-zero exit code.
-new CloudTask("A", "cmd.exe /c echo A exit 1"),
+new CloudTask("A", "cmd.exe /c echo A"),
 // Task B depends on task A
 new CloudTask("B", "cmd.exe /c echo B")
 {
     DependsOn = TaskDependencies.OnId("A"),
     ExitConditions = new ExitConditions()
     {
-        // If task A exits with a non-zero exit code, run downstream task B.
-        Default = new ExitOptions()
-        {
-            DependencyAction = DependencyAction.Satisfy
-        }
-    }
-},
-
-// Task C is a parent task that cannot run and so causes a scheduling error.
-new CloudTask("C", "NonExistentProgram.exe"),
-// Task D depends on task C.
-new CloudTask("D", "cmd.exe /c echo D")
-{
-    DependsOn = TaskDependencies.OnId("C"),
-    ExitConditions = new ExitConditions()
-    {
-        // When task C exits with a scheduling error, the downstream task D will not run.
+        // If task A exits with a scheduling error, block downstream task B.
         SchedulingError = new ExitOptions()
         {
             DependencyAction = DependencyAction.Block
+        },
+        // If task succeeds or fails with any other error, run downstream task B.
+        Default = new ExitOptions()
+        {
+            DependencyAction = DependencyAction.Satisfy
         },
     }
 },
