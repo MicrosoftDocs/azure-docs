@@ -64,7 +64,8 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
 6. Click **Run**. 
 7. Click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** to deploy the web service.
 
-> [!Note] To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 The user of the web service can now specify a new destination for the [Export Data][writer] module when accessing the web service.
 

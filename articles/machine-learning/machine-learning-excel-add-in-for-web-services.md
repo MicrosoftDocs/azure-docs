@@ -27,7 +27,7 @@ Excel makes it easy to call web services directly without the need to write any 
 2. Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.
    
     ![Select Web service][01]
-3. This will take you to the **Predict** section.  This workbook already contains sample data, but for a blank workbook you can select a cell in Excel and click **Use sample data**.
+3. This takes you to the **Predict** section.  This workbook already contains sample data, but for a blank workbook you can select a cell in Excel and click **Use sample data**.
 4. Select the data with headers and click the input data range icon.  Make sure the "My data has headers" box is checked.
 5. Under **Output**, enter the cell number where you want the output to be, for example "H1" here.
 6. Click **Predict**.
@@ -36,7 +36,7 @@ Excel makes it easy to call web services directly without the need to write any 
 
 Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Walkthrough Step 5: Deploy the Azure Machine Learning Web service](machine-learning-walkthrough-5-publish-web-service.md).
 
-Get the API key for your web service. Where you do this depends on whether you published a Classic Machine Learning web service of a New Machine Learning web service.
+Get the API key for your web service. Where you perform this action depends on whether you published a Classic Machine Learning web service of a New Machine Learning web service.
 
 **Use a Classic web service** 
 

@@ -116,7 +116,8 @@ On completion of the run, a new table is added to the database containing the sc
 
 ### Deploy a New Web Service
 
-> [!Note] To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 To deploy as a New Web Service and create an application to consume it:
 
