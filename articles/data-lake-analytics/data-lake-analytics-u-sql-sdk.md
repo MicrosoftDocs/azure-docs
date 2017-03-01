@@ -22,11 +22,11 @@ ms.author: yanacai
 
 When developing U-SQL script, it is common to run and test U-SQL script locally before submit it to cloud. Azure Data Lake provides a Nuget package called Azure Data Lake U-SQL SDK for this scenario, through which you can easily scale U-SQL local run and test. It is also possible to integrate this U-SQL test with CI (Continuous Integration) system to automate the compile and test.
 
-If you care about how to manually local run and debug U-SQL script with GUI tooling, then you can use Azure Data Lake Tools for Visual Studio for that.
+If you care about how to manually local run and debug U-SQL script with GUI tooling, then you can use Azure Data Lake Tools for Visual Studio for that. You can learn more from [here](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-local-run).
 
 ## Install Azure Data Lake U-SQL SDK
 
-You can get the Azure Data Lake U-SQL SDK [here](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) on Nuget.org. And before using it, you need to make sure you have dependencies as follows:
+You can get the Azure Data Lake U-SQL SDK [here](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) on Nuget.org. And before using it, you need to make sure you have dependencies as follows.
 
 ### Dependencies
 
@@ -65,7 +65,7 @@ You can use both a relative path and a local absolute path in U-SQL scripts. The
 
 ### Working directory
 
-When you're running the U-SQL script locally, a working directory is created during compilation under current running directory. In addition to the compilation outputs, the needed runtime files for local execution will be shadow copied to this working directory. The working directory root folder is called "ScopeWorkDir" and the files under the working directory are as follows:
+When running the U-SQL script locally, a working directory is created during compilation under current running directory. In addition to the compilation outputs, the needed runtime files for local execution will be shadow copied to this working directory. The working directory root folder is called "ScopeWorkDir" and the files under the working directory are as follows:
 
 |Directory/file|Directory/file|Directory/file|Definition|Description|
 |--------------|--------------|--------------|----------|-----------|
@@ -76,7 +76,7 @@ When you're running the U-SQL script locally, a working directory is created dur
 | | |\_ScopeCodeGenEngine\_.*|Compiler output|Generated native code|
 | | |referenced assemblies|Assembly reference|Referenced assembly files|
 | | |deployed_resources|Resource deployment|Resource deployment files|
-| | |xxxxxxxx.xxx[1..n]\_*.*|Execution log|Log of execution steps|
+| | |xxxxxxxx.xxx[1..n]\_\*.*|Execution log|Log of execution steps|
 
 
 ## Use the SDK from the command line
@@ -132,7 +132,7 @@ U-SQL local run needs a specified data root as local storage account, as well as
 
 ### SDK command line usage samples
 
-- **Compile and run**
+#### Compile and run
 
 The **run** command is used to compile the script and then execute compiled results. Its command-line arguments are a combination of those from **compile** and **execute**.
 
@@ -164,7 +164,7 @@ Here's an example:
 
 Besides combining **compile** and **execute**, you can compile and execute the compiled executables separately.
 
-- **Compile a U-SQL script**
+#### Compile a U-SQL script
 
 The **compile** command is used to compile a U-SQL script to executables.
 
@@ -203,7 +203,7 @@ Compile a U-SQL script and set a working directory, reference assembly, and data
 
 	LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
 
-- **Execute compiled results**
+#### Execute compiled results
 
 The **execute** command is used to execute compiled results.   
 
@@ -234,7 +234,7 @@ The programming interfaces are all located in the LocalRunHelper.exe. You can us
 
     ![Azure Data Lake U-SQL SDK Add Reference](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-add-reference.png)
 
-- U-SQL SDK only support x64 environment, make sure to set build platform target as x64. You can set that through Project Property > Build > Platform target.
+- U-SQL SDK **only** support x64 environment, make sure to set build platform target as x64. You can set that through Project Property > Build > Platform target.
 
     ![Azure Data Lake U-SQL SDK Configure x64 Project](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-x64.png)
 
@@ -246,6 +246,15 @@ The programming interfaces are all located in the LocalRunHelper.exe. You can us
 
 ### Step 2: Create U-SQL script test case
 
+Below is the sample code for U-SQL script test. For testing, you need to prepare scripts, input files and expected output files.
+
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.IO;
+    using System.Text;
+    using System.Security.Cryptography;
+    using Microsoft.Analytics.LocalRun;
+
     namespace UnitTestProject1
     {
         [TestClass]
@@ -254,8 +263,6 @@ The programming interfaces are all located in the LocalRunHelper.exe. You can us
             [TestMethod]
             public void TestUSQLScript()
             {
-                string TestDirectory = Directory.GetCurrentDirectory();
-
                 //Specify the local run message output path
                 StreamWriter MessageOutput = new StreamWriter("../../../log.txt");
 
@@ -269,8 +276,10 @@ The programming interfaces are all located in the LocalRunHelper.exe. You can us
                 //Run U-SQL script
                 localrun.DoRun();
 
+                //Script output 
                 string Result = Path.Combine(localrun.DataRoot, "Output/result.csv");
 
+                //Expected script output
                 string ExpectedResult = "../../../ExpectedOutput/result.csv";
 
                 Test.Helpers.FileAssert.AreEqual(Result, ExpectedResult);
@@ -319,13 +328,9 @@ The programming interfaces are all located in the LocalRunHelper.exe. You can us
     }
 
 
-
-
-For more information about the interfaces, see the appendix.
-
 ### Programming interfaces in LocalRunHelper.exe
 
-LocalRunHelper.exe provides the programming interfaces for U-SQL local compile, run, etc. The interfaces are listed as follows:
+LocalRunHelper.exe provides the programming interfaces for U-SQL local compile, run, etc. The interfaces are listed as follows.
 
 **Constructor**
 
@@ -340,13 +345,13 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |Property|Type|Description|
 |--------|----|-----------|
 |AlgebraPath|string|The path to algebra file (algebra file is one of the compilation results)|
-|HasCodeBehind|bool|If the script has code behind|
 |CodeBehindReferences|string|If the script has additional code behind references, specify the paths separated with ';'|
 |CppSdkDir|string|CppSDK directory|
 |CurrentDir|string|Current directory|
 |DataRoot|string|Data root path|
 |DebuggerMailPath|string|The path to debugger mailslot|
 |GenerateUdoRedirect|bool|If we want to generate assembly loading redirection override config|
+|HasCodeBehind|bool|If the script has code behind|
 |InputDir|string|Directory for input data|
 |MessagePath|string|Message dump file path|
 |OutputDir|string|Directory for output data|
@@ -368,15 +373,13 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |public bool DoCompile()|Compile the U-SQL script|True on success| |
 |public bool DoExec()|Execute the compiled result|True on success| |
 |public bool DoRun()|Run the U-SQL script (Compile + Execute)| |
-|public bool IsValidRuntimeDir(string path)|Check if the given path is valid runtime path|
+|public bool IsValidRuntimeDir(string path)|Check if the given path is valid runtime path|The path of runtime direcotory|
 
 
 ## FAQ about common issue
 
 1. Error: E_CSC_SYSTEM_INTERNAL: Internal error! Could not load file or assembly 'ScopeEngineManaged.dll' or one of its dependencies. The specified module could not be found.
-
 Please check the following:
-
 - Make sure you have x64 environment. The build target platform and the test environment should be x64, refer to **Step 1: Create C# unit test project and configuration** above.
 - Make sure you have copied all dependency files under NugetPackage\build\runtime\ to project working directory.
 
