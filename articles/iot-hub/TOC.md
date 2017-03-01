@@ -3,7 +3,7 @@
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Overview of device management](iot-hub-device-management-overview.md)
 
-# Get Started
+# [Get Started](iot-hub-get-started.md)
 ## Use a simulated device
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
@@ -172,7 +172,7 @@
 ### [Scale your solution](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
-## Develop
+## [Develop](iot-hub-how-to.md)
 ### [Developer guide](iot-hub-devguide.md)
 #### [Send and receive messages](iot-hub-devguide-messaging.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)

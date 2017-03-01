@@ -4,7 +4,7 @@ description: This topic describes how to create filters so your client can use t
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c

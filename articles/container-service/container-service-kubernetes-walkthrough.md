@@ -79,7 +79,7 @@ az acs kubernetes install-cli
 Once `kubectl` is installed, run the following command to download the master Kubernetes cluster configuration to the ~/.kube/config file:
 
 ```console
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 At this point you should be ready to access your cluster from your machine. Try running:

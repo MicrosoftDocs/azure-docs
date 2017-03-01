@@ -1,5 +1,5 @@
 ---
-title: Collecting logs and metrics for Azure services in Log Analytics | Microsoft Docs
+title: Collect Azure service logs and metrics for Log Analytics | Microsoft Docs
 description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Collecting logs and metrics for Azure services in Log Analytics
+# Collect Azure service logs and metrics for use in Log Analytics
 
 There are four different ways of collecting logs and metrics for Azure services:
 

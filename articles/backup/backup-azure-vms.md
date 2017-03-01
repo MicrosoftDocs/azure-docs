@@ -18,7 +18,7 @@ ms.date: 02/15/2017
 ms.author: markgal;trinadhk;
 
 ---
-# Back up Azure virtual machines
+# Back up Azure virtual machines (classic portal)
 > [!div class="op_single_selector"]
 > * [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
 > * [Back up VMs to Backup vault](backup-azure-vms.md)

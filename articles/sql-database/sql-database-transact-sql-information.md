@@ -12,7 +12,7 @@ ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/22/2017

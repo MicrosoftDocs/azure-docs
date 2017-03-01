@@ -4,7 +4,7 @@ description: Learn how easy it is to run web apps in App Service by deploying a 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
