@@ -64,7 +64,7 @@
 ## Firewall rules, authentication, and authorization
 ### Learn
 #### [Access control](sql-database-control-access.md)
-#### [Firewall](sql-database-firewall-configure.md)
+#### [Firewall rules](sql-database-firewall-configure.md)
 #### [Manage logins](sql-database-manage-logins.md)
 #### [Azure AD authentication](sql-database-aad-authentication.md)
 #### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
@@ -144,7 +144,7 @@
 ### Do
 #### [SQL Server development](https://msdn.microsoft.com/library/ms179422.aspx)
 #### [Adopt in-memory OLTP](sql-database-in-memory-oltp-migration.md)
-## Monitoring and Tuning
+## Monitor and tune
 ### Learn
 #### [Single databases](sql-database-single-database-monitor.md)
 #### [SQL Database Advisor overview](sql-database-advisor.md)
@@ -174,7 +174,7 @@
 ### Firewall rules
 #### [Create using the Azure portal](sql-database-configure-firewall-settings.md)
 #### [Create using PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Create rules using REST API](sql-database-configure-firewall-settings-rest.md)
+#### [Create using REST API](sql-database-configure-firewall-settings-rest.md)
 #### [Create using T-SQL](sql-database-configure-firewall-settings-tsql.md)
 ### Multiple databases
 #### [Upgrade client library in client applications](sql-database-elastic-scale-upgrade-client-library.md)
@@ -234,7 +234,7 @@
 ### [Load from CSV file using BCP](sql-database-load-from-csv-with-bcp.md)
 ## Query
 ### [Query using SSMS](sql-database-connect-query-ssms.md)
-## Backup and Restore
+## Backup and restore
 ### Long-term backup retention
 #### [Manage long-term backup retention using the Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
 #### [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
