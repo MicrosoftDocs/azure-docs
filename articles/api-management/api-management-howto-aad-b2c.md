@@ -21,7 +21,7 @@ ms.author: apimpm
 Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your developer portal. This guide shows you the configuration that's required in your API Management service to integrate with Azure Active Directory B2C. For information about enabling access to the developer portal by using classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory].
 
 > [!NOTE]
-> To complete the steps in this guide, you must first have an Azure Active Directory B2C tenant to create an application in. Also, you need to have sign-up and sign-in policies ready. For more information, see [Azure Active Directory B2C overview].
+> To complete the steps in this guide, you must first have an Azure Active Directory B2C tenant to create an application in. Also, you need to have signup and signin policies ready. For more information, see [Azure Active Directory B2C overview].
 
 ## Authorize developer accounts by using Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
   ![Register a new application 2][api-management-howto-aad-b2c-add-button]
 
-6. In the **New application** blade, enter a name for the application. Choose **Yes** under **Web App/Web API**, and choose **Yes** under **Allow implicit flow**. Then copy the **Redirect URL** from the **Azure Active Directory B2C** section of the **Identities** tab in the publisher portal and paste it into the **Reply URL** text box.
+6. In the **New application** blade, enter a name for the application. Choose **Yes** under **Web App/Web API**, and choose **Yes** under **Allow implicit flow**. Then copy the **Redirect URL** from the **Azure Active Directory B2C** section of the **Identities** tab in the publisher portal, and paste it into the **Reply URL** text box.
 
   ![Register a new application 3][api-management-howto-aad-b2c-app-details]
 
@@ -64,7 +64,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
   ![Application ID 2][api-management-howto-aad-b2c-client-id]
 
-10. Switch back to the Azure portal, click the **Keys** button, then click **Generate key**. Click **Save** to save the configuration and display the **App key**. Copy the key to the clipboard.
+10. Switch back to the Azure portal, click the **Keys** button, and then click **Generate key**. Click **Save** to save the configuration and display the **App key**. Copy the key to the clipboard.
 
   ![App key 1][api-management-howto-aad-b2c-app-key]
 
@@ -72,11 +72,11 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
   ![App key 2][api-management-howto-aad-b2c-client-secret]
 
-12. Specify the **Allowed Tenant** field with the domain name of the Azure Active Directory B2C tenant.
+12. Specify the domain name of the Azure Active Directory B2C tenant in **Allowed Tenant**.
 
   ![Allowed tenant][api-management-howto-aad-b2c-allowed-tenant]
 
-13. Specify the **Signup Policy** and **Signin Policy**. Optionally, you can also provide **Profile Editing Policy** and **Password Reset Policy**.
+13. Specify the **Signup Policy** and **Signin Policy**. Optionally, you can also provide the **Profile Editing Policy** and **Password Reset Policy**.
 
   ![Policies][api-management-howto-aad-b2c-policies]
 
@@ -100,7 +100,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 3. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
 
    > [!NOTE]
-   > If Azure Active Directory B2C is the only option that's enabled in the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
+   > If Azure Active Directory B2C is the only option that's enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
 
    ![Developer portal][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
