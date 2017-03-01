@@ -110,7 +110,7 @@ In this case, one or both of the operations will time out.
 
 Note that the above deadlock scenario is a great example of how an Update lock can prevent deadlocks.
 
-#i# Persistence model
+## Persistence model
 The Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.
 This is a model where each state change is logged on disk and applied only in memory.
 The complete state itself is persisted only occasionally (a.k.a. Checkpoint).
