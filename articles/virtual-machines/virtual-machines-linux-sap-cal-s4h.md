@@ -20,10 +20,10 @@ ms.author: hermannd
 
 ---
 # Deploy SAP S/4HANA or BW/4HANA on Microsoft Azure
-This article describes how to deploy S/4HANA on Microsoft Azure by using SAP Cloud Appliance Library 3.0. Deploying other SAP HANA-based solutions, like BW/4HANA, works the same way from a process perspective. You just select a different solution.
+This article describes how to deploy S/4HANA on Microsoft Azure by using SAP Cloud Appliance Library (SAP CAL) 3.0. Deploying other SAP HANA-based solutions, like BW/4HANA, works the same way from a process perspective. You just select a different solution.
 
 > [!NOTE]
-For more information about the SAP Cloud Appliance Library (SAP CAL), see the [home page of their site](https://cal.sap.com/). There is also a blog from SAP about [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+For more information about the SAP Cloud Appliance Library, see the [home page of their site](https://cal.sap.com/). There is also a blog from SAP about [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
 ## Step-by-step process to deploy the solution
 
@@ -37,7 +37,7 @@ First, create a new SAP CAL account. In **Accounts**, you see two choices for Az
 
 ![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-2.jpg)
 
-Then, enter the Azure subscription ID that can be found on the Azure portal. Afterwards, download an Azure management certificate.
+Then, enter the Azure subscription ID that can be found on the Azure portal. Afterward, download an Azure management certificate.
 
 ![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic3b.jpg)
 
@@ -57,7 +57,7 @@ A dialog box pops up for you to select the downloaded certificate file.
 
 ![Screenshot of Upload a management certificate dialog box](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic8.jpg)
 
-Once the certificate is uploaded, the connection between SAP CAL and the Azure subscription can be tested within SAP CAL. A message should pop up that indicates that the connection is valid.
+After the certificate is uploaded, the connection between SAP CAL and the Azure subscription can be tested within SAP CAL. A message should pop up that indicates that the connection is valid.
 
 ![Screenshot of SAP Cloud Appliance Library Accounts window](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic9.jpg)
 
@@ -77,7 +77,7 @@ You can see some details of the solution, such as which kind of VMs were deploye
 
 In the Azure classic portal, these virtual machines can be found starting with the same instance name that was given in SAP CAL.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic13.jpg)
+![Screenshot that shows three virtual machines in the Azure classic portal](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic13.jpg)
 
 Now it's possible to connect to the solution by using the connect button in the SAP CAL portal. The dialog box contains a link to a user guide that describes all the default credentials to work with the solution.
 
@@ -85,4 +85,4 @@ Now it's possible to connect to the solution by using the connect button in the 
 
 Another option is to sign in to the client Windows VM, and start the pre-configured SAP GUI, for example.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
+![Screenshot of the pre-configured SAP GUI](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
