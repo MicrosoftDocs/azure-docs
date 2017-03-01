@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 
 ---
 # Use direct methods on your IoT device with Node.js
