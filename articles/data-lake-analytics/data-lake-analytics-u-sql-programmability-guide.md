@@ -466,7 +466,7 @@ For more information about how to use the JSON functionality, see [this blog pos
 ### Register assemblies that use native C++ assemblies (using the SQL Server 2016 spatial type assembly from the feature pack)
 Now let’s look at a slightly different scenario. Let’s assume the assembly that we want to use has a dependency on code that is not .NET based, in particular, the assembly has a dependency on a native C++ assembly. An example of such an assembly is the SQL Server type assembly [Microsoft.SqlServer.Types.dll](https://www.microsoft.com/download/details.aspx?id=52676) that provides .NET-based implementations of the SQL Server hierarchyID, geometry, and geography types to be used by SQL Server client-side applications for handling the SQL Server types (it was also originally the assembly providing the implementation for the SQL Server spatial types before the SQL Server 2016 release).
 
-Let’s look at how to register this assembly in U-SQL!
+Let’s look at how to register this assembly in U-SQL.
 
 First we download and install the assembly from the [SQL Server 2016 feature pack](https://www.microsoft.com/download/details.aspx?id=52676). Select the 64-bit version of the installer (ENU\x64\SQLSysClrTypes.msi), since we want to make sure that we have the 64-bit version of the libraries.
 
@@ -474,7 +474,7 @@ The installer installs the managed assembly Microsoft.SqlServer.Types.dll into C
 
 Since the installer has installed the native library into the system folder c:\Windows\System32, we have to make sure that we either copy SqlServerSpatial130.dll out from that folder before uploading it, or make sure that the tool we use does not perform the [File System Redirection](https://msdn.microsoft.com/library/windows/desktop/aa384187(v=vs.85).aspx) of system folders. For example, if you want to upload it with the current Visual Studio ADL File Explorer, you have to copy the file into another directory first. Otherwise--as of the time of the writing of this article--you get the 32-bit version uploaded (since Visual Studio is a 32-bit application, which does File System Redirection in its ADL upload file selection window). Then, when you run a U-SQL script that calls into the native assembly, you get the following (inner) error at runtime:
 
-*Inner exception from user expression: An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)*
+**Inner exception from user expression: An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)**
 
 After uploading the two assembly files, we now register them in a database SQLSpatial with the following script:
 
@@ -745,9 +745,9 @@ namespace USQLApplication21
 }
 ```
 
-Global variable `static public string globalSession;` used inside `getStampUserSession` function and is getting reinitialized every time when Session parameter is changed.
+This example shows the global variable `static public string globalSession;` used inside `getStampUserSession` function and is getting reinitialized each time the Session parameter is changed.
 
-U-SQL base script
+The U-SQL base script is as follows:
 
 ```sql
 DECLARE @in string = @"\UserSession\test1.tsv";
@@ -795,7 +795,7 @@ USING Outputters.Csv();
 
 Function `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` is called here during the second memory rowset calculation. It passes the `UserSessionTimestamp` column and returns the value until `UserSessionTimestamp` has changed.
 
-The output file
+The output file is as follows:
 
 ```
 "2016-02-19T07:32:36.8420000-08:00","User1",,True,"72a0660e-22df-428e-b672-e0977007177f"
@@ -887,7 +887,7 @@ To define a UDT, we have to:
 	using System.IO;
 ```
 
-* `Microsoft.Analytics.Interfaces` is required for the UDT interfaces and `System.IO` might be needed to define IFormatter interface.
+* Add `Microsoft.Analytics.Interfaces`, which is required for the UDT interfaces. In addition, `System.IO` might be needed to define the IFormatter interface.
 
 * Define used-defined type with SqlUserDefinedType attribute.
 
@@ -933,23 +933,23 @@ The constructor of the class:
 
 \<typeparam name="T">The root type for the object graph to serialize and de-serialize.
 
-* Deserialize: De-serializes the data on the provided stream and reconstitutes the graph of objects.
+* **Deserialize**: De-serializes the data on the provided stream and reconstitutes the graph of objects.
 
-* Serialize: Serializes an object, or graph of objects, with the given root to the provided stream.
+* **Serialize**: Serializes an object, or graph of objects, with the given root to the provided stream.
 
 `MyType` instance: Instance of the type.  
 `IColumnWriter` writer / `IColumnReader` reader: The underlying column stream.  
 `ISerializationContext` context: Enum that defines a set of flags that specifies the source or destination context for the stream during serialization.
 
-   * *Intermediate*: Specifies that the source or destination context is not a persisted store.
+   * **Intermediate**: Specifies that the source or destination context is not a persisted store.
 
-   * *Persistence*: Specifies that the source or destination context is a persisted store.
+   * **Persistence**: Specifies that the source or destination context is a persisted store.
 
 As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=. It can also include static methods. For example, if we are going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.
 
 Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format Qn:Pn (Q1:P10). The following example shows how to define a custom type for fiscal period values.
 
-Code-behind section with custom UDT and IFormatter interface:
+Following is an example of a code-behind section with custom UDT and IFormatter interface:
 
 ```c#
         [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
@@ -1093,7 +1093,7 @@ Now let’s discuss usage of UDT. In a code-behind section, we changed our GetFi
 
 As you can see, it returns the value of our FiscalPeriod type.
 
-Here we show how to use it further in U-SQL base script. This example demonstrates different forms of UDT invocation from U-SQL script.
+Here we provide an example of how to use it further in U-SQL base script. This example demonstrates different forms of UDT invocation from U-SQL script.
 
 ```sql
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
@@ -1135,7 +1135,7 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
 OUTPUT @rs2 TO @output_file USING Outputters.Text();
 ```
 
-Full code-behind section:
+Here's an example of a full code-behind section:
 
 ```c#
 using Microsoft.Analytics.Interfaces;
@@ -1297,7 +1297,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 ```
 
 ## Use user-defined aggregates: UDAGG
-User-defined aggregates are any aggregation-related functions that are not shipped out of the box with U-SQL. The example can be an aggregate to perform a custom math calculation, perform string concatenations, or manipulations with strings, and so on.
+User-defined aggregates are any aggregation-related functions that are not shipped out of the box with U-SQL. The example can be an aggregate to perform a custom math calculation, perform string concatenations, manipulations with strings, and so on.
 
 The user-defined aggregate base class definition is as follows:
 
@@ -1315,7 +1315,7 @@ The user-defined aggregate base class definition is as follows:
 
 **SqlUserDefinedAggregate** indicates that the type should be registered as a user-defined aggregate. This class cannot be inherited.
 
-SqlUserDefinedType attribute is **optional** for UDAGG definition
+SqlUserDefinedType attribute is **optional** for UDAGG definition.
 
 
 The base class allows you to pass three abstract parameters: two as input parameters and one as the result. The data types are variable and should be defined during class inheritance.
@@ -1353,9 +1353,9 @@ To declare correct input and output data types, use class definition as follows:
 	public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* T1 – first parameter to Accumulate
-* T2 – first parameter to Accumulate
-* TResult – return type of Terminate
+* T1: First parameter to accumulate
+* T2: First parameter to accumulate
+* TResult: Return type of terminate
 
 For example:
 
@@ -1447,7 +1447,7 @@ The following is a list of UDO in U-SQL:
 
 * User-defined processors
 	* Take one row and produce one row
-	* Used to reduce the number of columns or produce new columns with values derived from existent column set
+	* Used to reduce the number of columns or produce new columns with values derived from an existing column set
 
 * User-defined appliers
 	* Take one row and produce 0 to n rows
@@ -1478,13 +1478,13 @@ different encodings.
 
 * *Extractors.Tsv()*: Provides extraction from tab-separated value (TSV) files of different encodings.
 
-However, it can be useful to develop a custom extractor. This can be helpful during data import if we want to do any of the following tasks:
+It can be useful to develop a custom extractor. This can be helpful during data import if we want to do any of the following tasks:
 
-* Modify input data by splitting columns and  modifying individual values. The PROCESSOR functionality is better for combining columns.
+* Modify input data by splitting columns and modifying individual values. The PROCESSOR functionality is better for combining columns.
 * Parse unstructured data such as Web pages and emails or semi-unstructured data such as XML/JSON.
 * Parse data in unsupported encoding.
 
-To define a user-defined extractor, or UDE, we need to create `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for `IEnumerable<IRow>` override as follows:
+To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for `IEnumerable<IRow>` override as follows:
 
 ```c#
      [SqlUserDefinedExtractor]
@@ -1512,11 +1512,11 @@ SqlUserDefinedExtractor is an optional attribute for UDE definition. It used to 
 * **true**  = Indicates this Extractor requires atomic input files (JSON, XML, ...)
 * **false** = Indicates this Extractor can deal with split / distributed files (CSV, SEQ, ...)
 
-The main UDE programmability objects are *input* and *output*. Input object is used to enumerate input data as `IUnstructuredReader` and *output* – to set output data as a result of the extractor activity.
+The main UDE programmability objects are *input* and *output*. Input object is used to enumerate input data as `IUnstructuredReader`. *Output* is used to set output data as a result of the extractor activity.
 
 The input data is accessed through the `System.IO.Stream` and `System.IO.StreamReader`.
 
-For input columns enumeration, we first split the input stream using row delimiter
+For input columns enumeration, we first split the input stream using a row delimiter.
 
 ```c#
 	foreach (Stream current in input.Split(my_row_delimiter))
@@ -1608,7 +1608,7 @@ Following is the extractor example:
      }
 ```
 
-In this use-case scenario, the extractor regenerates GUID for “guid” column and converts the values of “user” column to UPPER case. Custom extractors can produce more complicated results by parsing input data and manipulating it.
+In this use-case scenario, the extractor regenerates GUID for “guid” column and converts the values of “user” column to upper case. Custom extractors can produce more complicated results by parsing input data and manipulating it.
 
 Following is base U-SQL script that uses a custom extractor:
 
@@ -1629,7 +1629,7 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ```
 
 ## Use user-defined outputters
-User-defined outputter is another U-SQL UDO that allows you to extend a built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
+User-defined outputter is another U-SQL UDO that allows you to extend  built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
 
 * *Outputters.Text()*: Writes data to delimited text files of different encodings.
 * *Outputters.Csv()*: Writes data to comma-separated value (CSV) files of
@@ -1656,7 +1656,7 @@ Following is the base `IOutputter` class implementation:
     }
 ```
 
-All input parameters to the outputter, such as column/row delimiters, encoding, and so on,  needs to be defined in the constructor of the class. The `IOutputter` interface should also contain definition for `void Output` override. The attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can be optionally set for atomic file processing – please see the details below.
+All input parameters to the outputter, such as column/row delimiters, encoding, and so on,  needs to be defined in the constructor of the class. The `IOutputter` interface should also contain a definition for `void Output` override. The attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can optionally be set for atomic file processing. For more information, see the following details.
 
 ```c#
         [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1680,24 +1680,24 @@ All input parameters to the outputter, such as column/row delimiters, encoding, 
         }
 ```
 
-* `Output` is called for each input row. Returns the `IUnstructuredWriter output` rowset.
+* `Output` is called for each input row. It returns the `IUnstructuredWriter output` rowset.
 * The Constructor class is used to pass parameters to the user-defined outputter.
-* `Close` optionally override to release expensive state or know when the last row has been written.
+* `Close` is used to optionally override to release expensive state or determine when the last row was written.
 
 **SqlUserDefinedOutputter** attribute indicates that the type should be registered as a user-defined outputter. This class cannot be inherited.
 
-SqlUserDefinedOutputter is an optional attribute for a user-defined outputter definition. It used to define AtomicFileProcessing property.
+SqlUserDefinedOutputter is an optional attribute for a user-defined outputter definition. It used to define the AtomicFileProcessing property.
 
 * bool     AtomicFileProcessing   
 
 * **true**  = Indicates this Outputter requires atomic output files (JSON, XML, ...)
 * **false** = Indicates this Outputter can deal with split / distributed files (CSV, SEQ, ...)
 
-The main programmability objects are *row* and *output*. *row* object is used to enumerate output data as `IRow` interface and *output* – to set output data to the target file.
+The main programmability objects are *row* and *output*. The *row* object is used to enumerate output data as `IRow` interface. *Output* is used to set output data to the target file.
 
 The output data is accessed through the `IRow` interface. Output data is passed a row at a time.
 
-The individual values are enumerated by calling Get method of IRow interface:
+The individual values are enumerated by calling the Get method of the IRow interface:
 
 ```c#
 	row.Get<string>("column_name")
@@ -1711,11 +1711,11 @@ Individual column names can be determined by calling `row.Schema`:
 	string val = row.Get<string>(col.Name)
 ```
 
-This approach allows you to build a flexible outputter for any metadata schema.
+This approach enables you to build a flexible outputter for any metadata schema.
 
-The output data is written to file by using `System.IO.StreamWriter` with the stream parameter set to `output.BaseStrea` as part of `IUnstructuredWriter output`.
+The output data is written to file by using `System.IO.StreamWriter`. The stream parameter is set to `output.BaseStrea` as part of `IUnstructuredWriter output`.
 
-Note that it's important to flush the data buffer to the file after each row iteration. In addition, the `StreamWriter` object must be used with the Disposable attribute enabled(default) and with the *using* keyword:
+Note that it's important to flush the data buffer to the file after each row iteration. In addition, the `StreamWriter` object must be used with the Disposable attribute enabled (default) and with the *using* keyword:
 
 ```c#
 	using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
@@ -1724,7 +1724,7 @@ Note that it's important to flush the data buffer to the file after each row ite
             }
 ```
 
-Otherwise, call Flush() method explicitly after each iteration. We demonstrate this further in the following example example.
+Otherwise, call Flush() method explicitly after each iteration. We show this in the following example.
 
 ### Set headers and footers for user-defined outputter
 To set a header, use single iteration execution flow.
@@ -1748,11 +1748,11 @@ To set a header, use single iteration execution flow.
         }
 ```
 
-The code in first `if (isHeaderRow)` block is executed only once.
+The code in the first `if (isHeaderRow)` block is executed only once.
 
-For the footer, use the reference to the instance of `System.IO.Stream` object (`output.BaseStream`) and write footer inthe  Close() method of `IOutputter` interface.  (For more information, see the following example.)
+For the footer, use the reference to the instance of `System.IO.Stream` object (`output.BaseStream`). Write the footer in the  Close() method of the `IOutputter` interface.  (For more information, see the following example.)
 
-Here an the example of a user-defined outputter:
+Following is an example of a user-defined outputter:
 
 ```c#
         [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1774,7 +1774,7 @@ Here an the example of a user-defined outputter:
             }
 
             // The Close method is used to write the footer to the file. It's executed only once, after all rows
-            public override void Close()
+            public override void Close().
             {
                 //Reference to IO.Stream object - g_writer
                 StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
@@ -1927,7 +1927,7 @@ This interface should contain the definition for the `IRow` interface rowset ove
 
 SqlUserDefinedProcessor attribute is **optional** for UDP definition.
 
-The main programmability objects are *input* and *output*. Input object is used to enumerate input columns and Output, and to set output data as a result of the processor activity.
+The main programmability objects are *input* and *output*. Input object is used to enumerate input columns and output, and to set output data as a result of the processor activity.
 
 For input columns enumeration, we use the `input.Get` method.
 
@@ -1937,15 +1937,15 @@ For input columns enumeration, we use the `input.Get` method.
 
 The parameter for `input.Get` method is a column that's passed as part of the `PRODUCE` clause of the `PROCESS` statement of the U-SQL base script. We need to use the correct data type here.
 
-For output – output.Set method
+For output, use the output.Set method.
 
-It is important to understand that custom producer will only output columns and values that are defined with output.Set method call.
+It's important to note that custom producer only outputs columns and values that are defined with the output.Set method call.
 
 ```c#
 	output.Set<string>("mycolumn", mycolumn);
 ```
 
-The actual processor output is triggered by calling to `return output.AsReadOnly()`;
+The actual processor output is triggered by calling `return output.AsReadOnly()`;.
 
 Following is a processor example:
 
@@ -1967,11 +1967,11 @@ Following is a processor example:
      }
 ```
 
-In this use-case scenario, the processor is generating new column “full_description” by combining the existent ones – “user” in upper case and “des”. It also regenerates a guid and returns the original and new guid values.
+In this use-case scenario, the processor is generating a new column “full_description” by combining the existing columns in this case, “user” in upper case, and “des”. It also regenerates a guid and returns the original and new guid values.
 
-As you can see from above, you can call on C# methods during output.Set call.
+As you can see from the previous example, you can call C# methods during output.Set call.
 
-Base U-SQL script that uses a custom processor
+Following is an example of base U-SQL script that uses a custom processor:
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1997,7 +1997,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
 ## Use user-defined appliers
-USQL User-defined applier allows you to invoke a custom C# function for each row returned by outer table expression of a query. The right input is evaluated for each row from the left input and the rows produced are combined for the final output. The list of columns produced by the APPLY operator is the combination of the set of columns in the left and the right input.
+A U-SQL user-defined applier enables you to invoke a custom C# function for each row that's returned by the outer table expression of a query. The right input is evaluated for each row from the left input and the rows that are produced are combined for the final output. The list of columns that are produced by the APPLY operator is the combination of the set of columns in the left and the right input.
 
 User-defined applier is being invoked as part of the USQL SELECT expression.
 
@@ -2010,9 +2010,9 @@ The typical call to the user-defined applier looks like the following:
 	new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-See [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx) for more information about using appliers in SELECT expression.
+See [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx) for more information about using appliers in a SELECT expression.
 
-User-defined applier base class definition is
+The user-defined applier base class definition is as follows:
 
 ```c#
     public abstract class IApplier : IUserDefinedOperator
@@ -2023,7 +2023,7 @@ User-defined applier base class definition is
     }
 ```
 
-To define a User-defined applier, we need to create `IApplier` interface with [`SqlUserDefinedCombiner`] attribute, which is optional for User-defined applier definition.
+To define a user-defined applier, we need to create `IApplier` interface with [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined applier definition.
 
 ```c#
     [SqlUserDefinedApplier]
@@ -2042,21 +2042,21 @@ To define a User-defined applier, we need to create `IApplier` interface with [`
     }
 ```
 
-* Apply called for each row of the Outer table. Returns the `IUpdatableRow` output rowset
+* Apply is called for each row of the outer table. It returns the `IUpdatableRow` output rowset.
 * Constructor class is used to pass parameters to the user-defined applier
 
 **SqlUserDefinedApplier** indicates that the type should be registered as a user-defined applier. This class cannot be inherited.
 
-SqlUserDefinedApplier attribute is **optional** for user-defined applier definition
+SqlUserDefinedApplier attribute is **optional** for aa user-defined applier definition.
 
 
-The main programmability objects are
+The main programmability objects are as follows:
 
 ```c#
         public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 ```
 
-Input rowsets are passed as `IRow` input. The output rows are generated as `IUpdatableRow` output interface
+Input rowsets are passed as `IRow` input. The output rows are generated as `IUpdatableRow` output interface.
 
 Individual column names can be determined by calling to `IRow` Schema method.
 
@@ -2066,29 +2066,29 @@ Individual column names can be determined by calling to `IRow` Schema method.
 	string val = row.Get<string>(col.Name)
 ```
 
-To get the actual data values from the incoming `IRow`, we use Get() method of `IRow` interface
+To get the actual data values from the incoming `IRow`, we use the Get() method of `IRow` interface.
 
 ```c#
 	mycolumn = row.Get<int>("mycolumn")
 ```
 
-or using schema column name
+Or we use the schema column name:
 
 ```c#
 	row.Get<int>(row.Schema[0].Name)
 ```
 
-The output values must be set with `IUpdatableRow` output
+The output values must be set with `IUpdatableRow` output:
 
 ```c#
 	output.Set<int>("mycolumn", mycolumn)
 ```
 
-It is important to understand that custom applier will only output columns/values defined with output.Set method call.
+It is important to understand that custom appliers only output columns/values that are defined with output.Set method call.
 
 The actual output is triggered by calling to `yield return output.AsReadOnly()`;
 
-The user-defined applier parameters can be passed to the constructor. Applier can return variable number of columns that needs to be defined during Applier call in base U-SQL Script.
+The user-defined applier parameters can be passed to the constructor. Applier can return a variable number of columns that need to be defined during the applier call in base U-SQL Script.
 
 ```c#
   new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
@@ -2152,7 +2152,7 @@ Here is the user-defined applier example:
     }
 ```
 
-and the base U-SQL script for this user-defined applier
+And the base U-SQL script for this user-defined applier:
 
 ```sql
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
@@ -2181,7 +2181,7 @@ DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-In this use case scenario user-defined applier acts as a comma-delimited value parser for the car fleet properties. The input file rows look like:
+In this use case scenario, user-defined applier acts as a comma-delimited value parser for the car fleet properties. The input file rows look like the following:
 
 ```
 103	Z1AB2CD123XY45889	Ford,Explorer,2005,SUV,152345
@@ -2189,30 +2189,30 @@ In this use case scenario user-defined applier acts as a comma-delimited value p
 210	X5AB2CD45XY458893	Nissan,Altima,2011,4Dr,74000
 ```
 
-It is a typical TAB-delimited TSV file with Properties column containing car properties such as Make, Model, etc. Those properties need to be parsed to the table columns. The provided Applier also allows you to generate a dynamic number of properties in result rowset, based on the parameter that passed - ether all or specific set of properties only.
+It is a typical tab-delimited TSV file with a properties column that contains car properties such as make, model, and so on. Those properties need to be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or specific set of properties only.
 
 	…USQL_Programmability.ParserApplier ("all")
 	…USQL_Programmability.ParserApplier ("make")
 	…USQL_Programmability.ParserApplier ("make&model")
 
-User-defined applier can either be called as a new instance of applier object
+User-defined applier can either be called as a new instance of applier object:
 
 ```c#
 	CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
-or with invocation of a wrapper factory method
+Or with the invocation of a wrapper factory method:
 
 ```c#
 	CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
 ## Use user-defined combiners
-User-defined combiner or UDC allows you to combine rows from left and right rowsets, based on a custom logic. User-defined combiner is used with COMBINE expression.
+User-defined combiner, or UDC, enables you to combine rows from left and right rowsets, based on custom logic. User-defined combiner is used with COMBINE expression.
 
-A combiner is being invoked with the COMBINE expression that provides the necessary information about both the input rowsets, the grouping columns, the expected result schema and additional information.
+A combiner is being invoked with the COMBINE expression that provides the necessary information about both the input rowsets, the grouping columns, the expected result schema, and additional information.
 
-To call a combiner in a base U-SQL script, we use the following syntax
+To call a combiner in a base U-SQL script, we use the following syntax:
 
 ```sql
 Combine_Expression :=
@@ -2227,9 +2227,9 @@ Combine_Expression :=
 
 For more information, see [COMBINE Expression (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
 
-To define a user-defined combiner, we need to create `ICombiner` interface with [`SqlUserDefinedCombiner`] attribute, which is optional for user-defined Combiner definition.
+To define a user-defined combiner, we need to create the `ICombiner` interface with [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined Combiner definition.
 
-Base `ICombiner` class definition
+Base `ICombiner` class definition:
 
 ```c#
     public abstract class ICombiner : IUserDefinedOperator
@@ -2242,7 +2242,7 @@ Base `ICombiner` class definition
     }
 ```
 
-The custom implementation of `ICombiner` interface should contain definition for `IEnumerable<IRow>` Combine override.
+The custom implementation of an `ICombiner` interface should contain the definition for an `IEnumerable<IRow>` Combine override.
 
 ```c#
     [SqlUserDefinedCombiner]
@@ -2259,46 +2259,46 @@ The custom implementation of `ICombiner` interface should contain definition for
 
 **SqlUserDefinedCombiner** attribute indicates that the type should be registered as a user-defined combiner. This class cannot be inherited.
 
-SqlUserDefinedCombiner is an optional attribute for a user-defined combiner definition. It used to define Combiner mode property.
+SqlUserDefinedCombiner is used to define the Combiner mode property. It is an optional attribute for a user-defined combiner definition. .
 
 CombinerMode     Mode
 
 CombinerMode enum can take the following values:
 
 * Full   (0)	Every output row potentially depends on all the input rows from left and right
-		with the same key value
+		with the same key value.
 
 * Left  (1)	Every output row depends on a single input row from the left (and potentially all rows
-		from the right with the same key value)
+		from the right with the same key value).
 
 * Right (2)     Every output row depends on a single input row from the right (and potentially all rows
-		from the left with the same key value)
+		from the left with the same key value).
 
-* Inner (3)	Every output row depends on a single input row from left and right with the same value
+* Inner (3)	Every output row depends on a single input row from left and right with the same value.
 
 Example: 	[`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 
-The main programmability objects are
+The main programmability objects are:
 
 ```c#
 	public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 		IUpdatableRow output
 ```
 
-Input rowsets are passed as *left* and *right* `IRowset` type of interface. Both rowsets have to be enumerated for processing. It only allowed to enumerate once of each interface, so we have to enumerate and cache it in necessary.
+Input rowsets are passed as **left** and **right** `IRowset` type of interface. Both rowsets have to be enumerated for processing. You can only enumerate each interface once, so we have to enumerate and cache it if necessary.
 
-For caching purposes, we can create List\<T\> type of memory structure as a result of LINQ query execution. Specifically List<`IRow`>. The anonymous data type can be used during enumeration as well.
+For caching purposes, we can create a List\<T\> type of memory structure as a result of a LINQ query execution, specifically List<`IRow`>. The anonymous data type can be used during enumeration as well.
 
 See [Introduction to LINQ Queries (C#)](https://msdn.microsoft.com/library/bb397906.aspx) for more information about LINQ queries and [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) for more information about IEnumerable\<T\> interface.
 
-To get the actual data values from the incoming `IRowset`, we use Get() method of `IRow` interface
+To get the actual data values from the incoming `IRowset`, we use the Get() method of `IRow` interface.
 
 ```c#
 	mycolumn = row.Get<int>("mycolumn")
 ```
 
-Individual column names can be determined by calling to `IRow` Schema method.
+Individual column names can be determined by calling the `IRow` Schema method.
 
 ```c#
 	ISchema schema = row.Schema;
@@ -2306,13 +2306,13 @@ Individual column names can be determined by calling to `IRow` Schema method.
 	string val = row.Get<string>(col.Name)
 ```
 
-or using schema column name
+Or by using the schema column name:
 
 ```
 	c# row.Get<int>(row.Schema[0].Name)
 ```
 
-The general enumeration with LINQ looks like:
+The general enumeration with LINQ looks like the following:
 
 ```c#
 var myRowset =
@@ -2323,9 +2323,9 @@ var myRowset =
                           }).ToList();
 ```
 
-After enumerating both rowsets, we are going to loop through all rows and for each row in the left rowset, find all rows that satisfy the condition of our combiner.
+After enumerating both rowsets, we are going to loop through all rows. For each row in the left rowset, we are going to find all rows that satisfy the condition of our combiner.
 
-The output values must be set with `IUpdatableRow` output
+The output values must be set with `IUpdatableRow` output.
 
 ```c#
 	output.Set<int>("mycolumn", mycolumn)
@@ -2333,7 +2333,7 @@ The output values must be set with `IUpdatableRow` output
 
 The actual output is triggered by calling to `yield return output.AsReadOnly()`;
 
-Here is a combiner example
+Following is a combiner example:
 
 ```c#
     [SqlUserDefinedCombiner]
@@ -2387,9 +2387,9 @@ Here is a combiner example
     }
 ```
 
-In this use case scenario, we are building analytics report for the retailer. The goal is to find all products that cost more than $20000 and sells through the internet Web site faster than through the regular retailer within certain time frame.
+In this use-case scenario, we are building analytics report for the retailer. The goal is to find all products that cost more than $20,000 and that sell through the Web site faster than through the regular retailer within a certain time frame.
 
-Here is the base U-SQL script. You can compare the logic between regular JOIN and a combiner:
+Here is the base U-SQL script. You can compare the logic between a regular JOIN and a combiner:
 
 ```sql
 DECLARE @LocalURI string = @"\usql-programmability\";
@@ -2484,27 +2484,27 @@ OUTPUT @rs1 TO @output_file1 USING Outputters.Tsv();
 OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
 ```
 
-User-defined combiner can either be called as a new instance of applier object
+A user-defined combiner can be called as a new instance of applier object:
 
 ```c#
     USING new MyNameSpace.MyCombiner();
 ```
 
 
-or with invocation of a wrapper factory method
+Or with the invocation of a wrapper factory method:
 
 ```c#
     USING MyNameSpace.MyCombiner();
 ```
 
 ## Use user-defined reducers
-U-SQL provides the ability to write custom rowset reducers in C# using the user-defined operator extensibility framework by implementing an IReducer interface.
+U-SQL provides the ability for you to write custom rowset reducers in C# by using the user-defined operator extensibility framework and implementing an IReducer interface.
 
-User-defined reducer or UDR can be used to eliminate unnecessary rows during data extraction (import). It also can be used to manipulate and evaluate rows/columns and based on programmability logic define which rows need to be extracted.
+User-defined reducer, or UDR, can be used to eliminate unnecessary rows during data extraction (import). It also can be used to manipulate and evaluate rows and columns. Based on programmability logic, it can also define which rows need to be extracted.
 
-To define a UDR class, we need create `IReducer` interface with optional `SqlUserDefinedReducer` attribute
+To define a UDR class, we need to an create `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.
 
-This class interface should contain definition for `IEnumerable` interface rowset override
+This class interface should contain a definition for the `IEnumerable` interface rowset override.
 
 ```c#
         [SqlUserDefinedReducer]
@@ -2525,9 +2525,9 @@ SqlUserDefinedReducer is an optional attribute for a user-defined reducer defini
 * bool     IsRecursive    
 * **true**  = Indicates whether this Reducer is idempotent
 
-The main programmability objects are *input* and *output*. Input object is used to enumerate input rows and Output – to set output rows as a result of reducing activity.
+The main programmability objects are **input** and **output**. The input object is used to enumerate input rows. Output is used to set output rows as a result of reducing activity.
 
-For input rows enumeration, we use `Row.Get` method
+For input rows enumeration, we use the `Row.Get` method.
 
 ```c#
             foreach (IRow row in input.Rows)
@@ -2536,19 +2536,19 @@ For input rows enumeration, we use `Row.Get` method
             }
 ```
 
-Some important points here. The parameter to `Row.Get` method is a column passed as part of `PRODUCE` class of `REDUCE` statement of U-SQL base script. We need to use the correct data type here as well.
+Note that the parameter fo the `Row.Get` method is a column that's passed as part of the `PRODUCE` class of the `REDUCE` statement of the U-SQL base script. We need to use the correct data type here as well.
 
-For output – output.Set method
+For output, use the output.Set method.
 
-It is important to understand that custom reducer will only output values defined with output.Set method call.
+It is important to understand that custom reducer only outputs values thatare defined with the output.Set method call.
 
 ```c#
 	output.Set<string>("mycolumn", guid);
 ```
 
-The actual reducer output is triggered by calling to `yield return output.AsReadOnly()`;
+The actual reducer output is triggered by calling `yield return output.AsReadOnly()`;.
 
-Here is a reducer example
+Following is a reducer example:
 
 ```c#
         [SqlUserDefinedReducer]
@@ -2584,9 +2584,9 @@ Here is a reducer example
         }
 ```
 
-In this use case scenario, the reducer is skipping rows with empty user name. For each row in row set it reads each required column, then evaluates length of user name and outputs the actual row only if user name value length is more than 0.
+In this use-case scenario, the reducer is skipping rows with an empty user name. For each row in rowset, it reads each required column, then evaluates the length of the user name and outputs the actual row only if user name value length is more than 0.
 
-Base U-SQL script that uses a custom reducer
+Following is base U-SQL script that uses a custom reducer:
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file_reducer.tsv";
