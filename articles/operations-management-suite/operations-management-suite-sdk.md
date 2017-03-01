@@ -42,7 +42,7 @@ ms.author: bwren
 
 ## Service Map
 * [Service Map documentation](operations-management-suite-service-map.md)
-* [Service Map REST API]()
+* [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/)
 
 ## Site Recovery
 * [Site Recovery PowerShell cmdlets](https://msdn.microsoft.com/library/mt637930.aspx)
@@ -52,5 +52,5 @@ ms.author: bwren
 
 ## Next steps
 * Read about the different options for [integrating with OMS services](operations-management-suite-integration.md).
-* Create a custom solution in OMS (Coming soon).
+* Create a [custom solution in OMS](operations-management-suite-solutions-creating.md).
 
