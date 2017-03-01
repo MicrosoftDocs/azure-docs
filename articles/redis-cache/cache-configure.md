@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 02/28/2017
 ms.author: sdanie
 
 ---
@@ -48,6 +48,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Redis data persistence](#redis-data-persistence)
 	* [Schedule updates](#schedule-updates)
 	* [Virtual Network](#virtual-network)
+	* [Firewall](#firewall)
 	* [Properties](#properties)
 	* [Locks](#locks)
 	* [Automation script](#automation-script)
@@ -100,6 +101,7 @@ The **Settings** section allows you to access and configure the following settin
 * [Redis data persistence](#redis-data-persistence)
 * [Schedule updates](#schedule-updates)
 * [Virtual Network](#virtual-network)
+* [Firewall](#firewall)
 * [Properties](#properties)
 * [Locks](#locks)
 * [Automation script](#automation-script)
@@ -258,7 +260,7 @@ To specify a maintenance window, check the desired days and specify the maintena
 
 
 
-## Virtual Network
+### Virtual Network
 The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -266,6 +268,20 @@ The **Virtual Network** section allows you to configure the virtual network sett
 > 
 > 
 
+### Firewall
+
+Click **Firewall** to view and configure firewall rules for your Premium Azure Redis Cache.
+
+![Firewall](./media/cache-configure/redis-firewall-rules.png)
+
+You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved there is a short delay before the rule is effective. This delay is typically less than one minute.
+
+> [!IMPORTANT]
+> Connections from Azure Redis Cache monitoring systems are always permitted, even if firewall rules are configured.
+> 
+> Firewall rules are only available for Premium tier caches.
+> 
+> 
 
 ### Properties
 Click **Properties** to view information about your cache, including the cache endpoint and ports.

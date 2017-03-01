@@ -4,7 +4,7 @@ description: This tutorial shows you how to use the Azure Toolkit for Eclipse to
 services: app-service\web
 documentationcenter: java
 author: selvasingh
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 321d2d19-9ce0-4165-8555-b6b15e671393

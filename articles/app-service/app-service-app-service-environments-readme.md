@@ -5,7 +5,7 @@ keywords: azure app service environment, virtual network, secure networking
 services: app-service
 documentationcenter: ''
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 1db5c057-3c56-4537-b580-cdd21fe3f3a7
