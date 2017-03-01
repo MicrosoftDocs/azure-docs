@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 
 ---
@@ -44,6 +44,7 @@ You also learn how to create hybrid topologies that use C# and Java components.
   * Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
   * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+  * Visual Studio 2017 (any edition)
 
 * Azure SDK 2.9.5 or later
 
@@ -93,7 +94,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
 2. Open Visual Studio, select **File** > **New**, and then **Project**.
 
-3. From the **New Project** screen, expand **Installed** > **Templates**, and select **HDInsight**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
+3. From the **New Project** screen, expand **Installed** > **Templates**, and select **Azure Data Lake**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
    
     ![image](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
 

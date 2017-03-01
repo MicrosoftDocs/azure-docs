@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 
 ---
@@ -46,6 +46,7 @@ In this document, you will learn how to use Power BI to create a report from dat
   * Visual Studio 2012 with [update 4](http://www.microsoft.com/download/details.aspx?id=39305)
   * Visual Studio 2013 with [update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+  * Visual Studio 2017 (any edition)
 
 * The HDInsight Tools for Visual Studio: See [Get started using the HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) for information on installation information.
 
