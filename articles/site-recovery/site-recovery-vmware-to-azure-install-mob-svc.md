@@ -97,7 +97,7 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 
 ## Uninstall Mobility Service on Linux computers
-1. Log in as **ROOT** on you Linux server
+1. Log in as **ROOT** on your Linux server
 2. In a **Terminal** browse to /user/local/ASR
 3. Run the following command to uninstall Mobility Service
 
