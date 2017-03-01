@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/15/2017
 ms.author: markgal;jimpark
+ms.custom: H1Hack27Feb2017
 
 ---
-# First look: Protect Azure VMs with a recovery services vault
+# Back up Azure virtual machines to Recovery Services vaults
 > [!div class="op_single_selector"]
 > * [Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
 > * [Protect VMs with a backup vault](backup-azure-vms-first-look.md)
