@@ -30,8 +30,8 @@ With a Remote Desktop connection, a single concurrent user can work with the por
 2. Open a Remote Desktop Connection and connect to MAS-CON01. Enter **AzureStack\AzureStackAdmin** as the username, and the administrative password you provided during Azure Stack setup.  
 3. On the MAS-CON01 desktop, open Server Manager, click **Local Server**, turn off Internet Explorer Enhanced Security, and
 then close Server Manager.
-4. To open the user [portal](azure-stack-key-features.md#portal), navigate to (https://publicportal.local.azurestack.global/) and sign in using user credentials.
-    To open the administrator [portal](azure-stack-key-features.md#portal), navigate to (https://portal.local.azurestack.global/) and sign in using the Azure Active Directory credentials specified during installation.
+4. To open the user [portal](azure-stack-key-features.md#portal), navigate to (https://publicportal.local.azurestack.external/) and sign in using user credentials.
+    To open the administrator [portal](azure-stack-key-features.md#portal), navigate to (https://portal.local.azurestack.external/) and sign in using the Azure Active Directory credentials specified during installation.
 
 ## Connect with VPN
 
