@@ -96,7 +96,7 @@ Before you start, make sure that you at least 60 GB of space and that you have .
     > Azure Stack requires access to the Internet, either directly or through a transparent proxy. The POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
     
 2. Open an elevated PowerShell console.
-3. In PowerShell, run this command: `cd C:\CloudDeployment\Configuration`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
+3. In PowerShell, run this command: `cd C:\CloudDeployment\Setup`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
 4. You can deploy Azure Stack with Azure Active Directory or Active Directory Federation Services. Azure Stack, resource providers, and other applications work the same way with both. To learn more about what is supported with AD FS in Azure Stack, see the [Key features and concepts](azure-stack-key-features.md) article.
 
     To deploy Azure Stack with Azure Active Directory, run the deploy command:
@@ -134,31 +134,31 @@ You can script the entire AAD deployment. Here are some examples.
 
 If your AAD Identity is only associated with ONE AAD Directory:
 
-    cd C:\CloudDeployment\Configuration
+    cd C:\CloudDeployment\Setup
     $adminpass = ConvertTo-SecureString "<LOCAL ADMIN PASSWORD>" -AsPlainText -Force
     $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
     $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT>", $aadpass)
-    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred
 
 If your AAD Identity is associated with GREATER THAN ONE AAD Directory:
 
-    cd C:\CloudDeployment\Configuration
+    cd C:\CloudDeployment\Setup
     $adminpass = ConvertTo-SecureString "<LOCAL ADMIN PASSWORD>" -AsPlainText -Force
     $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
     $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT> example: user@AADDirName.onmicrosoft.com>", $aadpass)
-    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred -AADDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
 
 If your environment DOESN'T have DHCP enabled, you must include the following ADDITIONAL parameters to one of the options above (example usage provided):
 
-    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred
     -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1
 
 
 ### InstallAzureStackPOC.ps1 optional parameters
 | Parameter | Required/Optional | Description |
 | --- | --- | --- |
-| AADAdminCredential |Optional |Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
-| AADDirectoryTenantName |Required |Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of <directoryName>.onmicrosoft.com. |
+| InfraAzureDirectoryTenantAdminCredential |Optional |Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
+| InfraAzureDirectoryTenantName |Required |Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of <directoryName>.onmicrosoft.com. |
 | AdminPassword |Required |Sets the local administrator account and all other user accounts on all the virtual machines created as part of POC deployment. This password must match the current local administrator password on the host. |
 | AzureEnvironment |Optional |Select the Azure Environment with which you want to register this Azure Stack deployment. Options include *Public Azure*, *Azure - China*, *Azure - US Government*. |
 | EnvironmentDNS |Optional |A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server. |
