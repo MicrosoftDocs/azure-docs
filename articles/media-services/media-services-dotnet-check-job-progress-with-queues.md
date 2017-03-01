@@ -184,7 +184,7 @@ The code example in this section does the following:
                 // Create a task with the conversion details, using a configuration file.
                 ITask task = job.Tasks.AddNew("My encoding Task",
                     processor,
-                    "H264 Multiple Bitrate 720p",
+                    "Adaptive Streaming",
                     Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
 
                 // Specify the input asset to be encoded.
