@@ -33,7 +33,7 @@ You can get the Azure Data Lake U-SQL SDK [here](https://www.nuget.org/packages/
 The Data Lake U-SQL SDK requires the following dependencies:
 
 - [Microsoft .NET Framework 4.6 or newer](https://www.microsoft.com/en-us/download/details.aspx?id=17851).
-- Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0 or newer (which is called CppSDK in this artical). There are two ways to get CppSDK:
+- Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0 or newer (which is called CppSDK in this article). There are two ways to get CppSDK:
 
     - Install [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you have this installed with Visual Studio, the U-SQL local compiler will find it automatically.
 
@@ -83,7 +83,7 @@ When running the U-SQL script locally, a working directory is created during com
 
 ### Command-line interface of the helper application
 
-Uder SDK directory\build\runtime, LocalRunHelper.exe is the command-line helper application that provides interfaces to most of the commonly used local-run functions. Note that both the command and the argument switches are case-sensitive. To invoke it:
+Under SDK directory\build\runtime, LocalRunHelper.exe is the command-line helper application that provides interfaces to most of the commonly used local-run functions. Note that both the command and the argument switches are case-sensitive. To invoke it:
 
     LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Arguments]
 
@@ -144,18 +144,18 @@ The following are optional arguments for **run**:
 |Argument|Description|
 |--------|-----------|
 |-CodeBehind [default value 'False']|The script has .cs code behind|
-|-CppSDK parm [default value '']|CppSDK Directory|
-|-DataRoot parm [default value 'DataRoot environment variable']|DataRoot for localrun, default to 'LOCALRUN_DATAROOT' environment variable|
-|-MessageOut parm [default value '']|Dump messages on console to a file|
-|-Parallel parm [default value '1']|Run the plan with the specified parallelism|
-|-References parm [default value '']|List of paths to extra reference assemblies or data files of code behind, separated by ';'|
+|-CppSDK [default value '']|CppSDK Directory|
+|-DataRoot [default value 'DataRoot environment variable']|DataRoot for local run, default to 'LOCALRUN_DATAROOT' environment variable|
+|-MessageOut [default value '']|Dump messages on console to a file|
+|-Parallel [default value '1']|Run the plan with the specified parallelism|
+|-References [default value '']|List of paths to extra reference assemblies or data files of code behind, separated by ';'|
 |-UdoRedirect [default value 'False']|Generate Udo assembly redirect config|
-|-UseDatabase parm [default value 'master']|Database to use for code behind temporary assembly registration|
+|-UseDatabase [default value 'master']|Database to use for code behind temporary assembly registration|
 |-Verbose [default value 'False']|Show detailed outputs from runtime|
-|-WorkDir parm [default value 'Current Directory']|Directory for compiler usage and outputs|
-|-RunScopeCEP parm [default value '0']|ScopeCEP mode to use|
-|-ScopeCEPTempPath parm [default value 'temp']|Temp path to use for streaming data|
-|-OptFlags parm [default value '']|Comma-separated list of optimizer flags|
+|-WorkDir [default value 'Current Directory']|Directory for compiler usage and outputs|
+|-RunScopeCEP [default value '0']|ScopeCEP mode to use|
+|-ScopeCEPTempPath [default value 'temp']|Temp path to use for streaming data|
+|-OptFlags [default value '']|Comma-separated list of optimizer flags|
 
 
 Here's an example:
@@ -176,17 +176,17 @@ The following are optional arguments for **compile**:
 |Argument|Description|
 |--------|-----------|
 | -CodeBehind [default value 'False']|The script has .cs code behind|
-| -CppSDK parm [default value '']|CppSDK Directory|
-| -DataRoot parm [default value 'DataRoot environment variable']|DataRoot for localrun, default to 'LOCALRUN_DATAROOT' environment variable|
-| -MessageOut parm [default value '']|Dump messages on console to a file|
-| -References parm [default value '']|List of paths to extra reference assemblies or data files of code behind, separated by ';'|
+| -CppSDK [default value '']|CppSDK Directory|
+| -DataRoot [default value 'DataRoot environment variable']|DataRoot for local run, default to 'LOCALRUN_DATAROOT' environment variable|
+| -MessageOut [default value '']|Dump messages on console to a file|
+| -References [default value '']|List of paths to extra reference assemblies or data files of code behind, separated by ';'|
 | -Shallow [default value 'False']|Shallow compile|
 | -UdoRedirect [default value 'False']|Generate Udo assembly redirect config|
-| -UseDatabase parm [default value 'master']|Database to use for code behind temporary assembly registration|
-| -WorkDir parm [default value 'Current Directory']|Directory for compiler usage and outputs|
-| -RunScopeCEP parm [default value '0']|ScopeCEP mode to use|
-| -ScopeCEPTempPath parm [default value 'temp']|Temp path to use for streaming data|
-| -OptFlags parm [default value '']|Comma-separated list of optimizer flags|
+| -UseDatabase [default value 'master']|Database to use for code behind temporary assembly registration|
+| -WorkDir [default value 'Current Directory']|Directory for compiler usage and outputs|
+| -RunScopeCEP [default value '0']|ScopeCEP mode to use|
+| -ScopeCEPTempPath [default value 'temp']|Temp path to use for streaming data|
+| -OptFlags [default value '']|Comma-separated list of optimizer flags|
 
 
 Here are some usage examples.
@@ -356,7 +356,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |MessagePath|string|Message dump file path|
 |OutputDir|string|Directory for output data|
 |Parallelism|int|Parallelism to run the algebra|
-|ParentPid|int|Pid of the parent on which the service monitors to exit, set to 0 or negative to ignore|
+|ParentPid|int|PID of the parent on which the service monitors to exit, set to 0 or negative to ignore|
 |ResultPath|string|Result dump file path|
 |RuntimeDir|string|Runtime directory|
 |ScriptPath|string|Where to find the script|
@@ -373,7 +373,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |public bool DoCompile()|Compile the U-SQL script|True on success| |
 |public bool DoExec()|Execute the compiled result|True on success| |
 |public bool DoRun()|Run the U-SQL script (Compile + Execute)|True on success| |
-|public bool IsValidRuntimeDir(string path)|Check if the given path is valid runtime path|True for valid|The path of runtime direcotory|
+|public bool IsValidRuntimeDir(string path)|Check if the given path is valid runtime path|True for valid|The path of runtime directory|
 
 
 ## FAQ about common issue
