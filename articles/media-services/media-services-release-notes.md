@@ -43,7 +43,7 @@ For information about the Media Services REST API version history, see [Azure Me
 
 ## March 2017 Release
 
-You can now use Azure Media Standard to [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) by specifying to use the "Adaptive Streaming" preset. "Adaptive Streaming" is the recommended preset. If you need to customize an encoding preset, use one of [these](media-services-mes-presets-overview.md) presets.
+You can now use Azure Media Standard to [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) by specifying the "Adaptive Streaming" preset string when creating an encoding task. "Adaptive Streaming" is the recommended preset. If you need to customize an encoding preset, use one of [these](media-services-mes-presets-overview.md) presets.
 
 You can now use Azure Media Standard or Media Encoder Premium Workflow to [create an encoding task that generates fMP4 chunks](media-services-generate-fmp4-chunks.md). 
 
