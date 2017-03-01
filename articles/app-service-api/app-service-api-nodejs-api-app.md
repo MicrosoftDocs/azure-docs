@@ -96,7 +96,7 @@ While App Service supports many ways to deploy your code to an API app, this tut
                 res.json(repository.all())
             }
         };
-3. Replace the code in the **handlers/contacts/{id}.js** file with the fofllowing code. 
+3. Replace the code in the **handlers/contacts/{id}.js** file with the following code. 
    
         'use strict';
    

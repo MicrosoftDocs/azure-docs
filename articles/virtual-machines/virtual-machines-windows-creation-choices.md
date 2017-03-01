@@ -1,5 +1,5 @@
 ---
-title: Different ways to create a Windows VM | Microsoft Docs
+title: Different ways to create a Windows VM in Azure | Microsoft Docs
 description: Lists the different ways to create a Windows virtual machine with Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 
 ---
-# Different ways to create a Windows VM
+# Different ways to create a Windows virtual machine
+
 Azure offers different ways to create a virtual machine because virtual machines are suited for different users and purposes. This means that you need to make some choices about the virtual machine and how to create it. This article gives you a summary of these choices and links to instructions.
 
 ## Azure portal
