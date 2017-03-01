@@ -52,10 +52,11 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 
 ## Write some code to send messages to the Event Hub
 
-1. Add the following `using` statement to the top of the Program.cs file.
+1. Add the following `using` statements to the top of the Program.cs file.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
+	using System.Text;
     ```
 
 2. Add constants to the `Program` class for the Event Hubs connection string and entity path (individual Event Hub name). Replace the placeholders in brackets with the proper values that were obtained when creating the Event Hub.
@@ -66,7 +67,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
-3. Add a new method named `MainAsync` to the `Program` class like the following:
+3. Add a new method named `MainAsync` to the `Program` class, as follows:
 
     ```csharp
     private static async Task MainAsync(string[] args)
@@ -85,7 +86,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 
         await eventHubClient.CloseAsync();
 
-        Console.WriteLine("Press any key to exit.");
+        Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
     }
     ```
@@ -159,7 +160,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 	    
 	            await eventHubClient.CloseAsync();
 	    
-	            Console.WriteLine("Press any key to exit.");
+	            Console.WriteLine("Press ENTER to exit.");
 	            Console.ReadLine();
 	        }
 	    
