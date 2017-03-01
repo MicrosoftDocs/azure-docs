@@ -63,6 +63,8 @@ Nested virtualization is not supported or tested with Azure Stack Technical Prev
 ### Does Azure Stack support dynamic disks for virtual machines?
 Azure Stack does not support dynamic disks.
 
+
+
 ## Next steps
 [Troubleshooting](azure-stack-troubleshooting.md)
 
