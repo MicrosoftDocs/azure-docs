@@ -178,6 +178,23 @@ Consider the following points when you are deciding whether to deploy background
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
 * [Azure Virtual Machines FAQ](virtual-machines/virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
+## Azure Batch
+An option if you need to run mid to huge parallel and high-performance computing (HPC) workloads across several 10s, 100s or 1000s VMs (or Nodes, according to its terminology). You can do Linux and Windows to solve different scenarios. It has monitoring capabilities so you know where you are at any given point.
+
+It's great to run batches paying only for what you use (basically, computing time + azure storage space for I/O). Scale on demand to attend your needs. Allows your most intensive, complex and orchestrated worklods to run. Please check the links below at "More Information" if you're interested in deep understanding Azure Batch capabilities, use cases, etc`.
+
+Considerations
+
+* Target batches: consider Azure Batch if your needs include any of these: Big Data or Big Compute, Azure Batch offers a balanced solution that fits.
+* Accounts: you'll need an Azure Subscription, a Batch account and, potentially, a Storage account.
+* You have at your fingertips, capabilities and infrastructure such as: MPI (Message Passing Interface), RDMA (Remote Direct Memory Access) for inter-task-communications, and H and N series for compute intensive taks. [Discuss with reviewer: no mention on FPGA in documentation.]
+* During Batch executions, resources might become scarce or unavailable from time to time. Code accordingly to contemplate such situations.
+
+### More information
+* [Basics of Azure Batch](batch/batch-technical-overview)
+* [Batch feature overview for developers](batch/batch-api-basics)
+* [Batch and HPC solutions in the Azure cloud](batch/batch-hpc-solutions)
+
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
 
