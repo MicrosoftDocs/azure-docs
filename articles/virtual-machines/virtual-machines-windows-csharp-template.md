@@ -29,7 +29,7 @@ It takes about 10 minutes to do these steps.
 
 In this step, you make sure that Visual Studio is installed and you create a console application used to deploy the template.
 
-1. If you haven't aready, install [Visual Studio](https://www.visualstudio.com/).
+1. If you haven't already, install [Visual Studio](https://www.visualstudio.com/).
 2. In Visual Studio, click **File** > **New** > **Project**.
 3. In **Templates** > **Visual C#**, select **Console Application**, enter the name and location of the project, and then click **OK**.
 
@@ -78,7 +78,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     
     - *{client-id}* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
     - *{client-secret}* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *{tenant-id}* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal, it is labeled *Directory ID*.
+    - *{tenant-id}* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal. It is labeled *Directory ID*.
 
 3. To call the method that you just added, add this code to the Main method:
 
@@ -91,9 +91,9 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 ## Step 4: Create a resource group
 
-Although you can create a resource group from a template, the template that you use from the gallery doesn't create one. In this step you add the code to create a resource group.
+Although you can create a resource group from a template, the template that you use from the gallery doesn't create one. In this step, you add the code to create a resource group.
 
-1. Add variables to the Main method of the Program class to specify values for the application:
+1. To specify values for the application, add variables to the Main method of the Program class:
 
     ```
     var groupName = "myResourceGroup";
@@ -109,7 +109,7 @@ Although you can create a resource group from a template, the template that you 
     - *deploymentName* with the name of the deployment.
     - *location* with the [Azure region](https://azure.microsoft.com/regions/) where you want to create the resources.
 
-2. Add this method to the Program class to create the resource group:
+2. To create the resource group, add this method to the Program class:
 
     ```
     public static async Task<ResourceGroup> CreateResourceGroupAsync(
@@ -169,9 +169,9 @@ In Visual Studio, do these steps:
 
 ## Step 6: Deploy a template
 
-In this example, you deploy a template from the Azure template gallery and supply parameter values to the template from the local file that you created. 
+In this example, you deploy a template from the Azure template gallery and supply parameter values to it from the local file that you created. 
 
-1. Add this method to the Program class to create the resource group:
+1. To deploy the template, add this method to the Program class:
 
     ```
     public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(

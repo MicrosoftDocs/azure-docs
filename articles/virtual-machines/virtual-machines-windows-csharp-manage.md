@@ -28,7 +28,7 @@ The tasks in this article show you how to manage virtual machines, such as start
 
 Make sure Visual Studio is installed and create a console application used to manage your virtual machines.
 
-1. If you haven't aready, install [Visual Studio](https://www.visualstudio.com/).
+1. If you haven't already, install [Visual Studio](https://www.visualstudio.com/).
 2. In Visual Studio, click **File** > **New** > **Project**.
 3. In **Templates** > **Visual C#**, select **Console Application**, enter the name and location of the project, and then click **OK**.
 
@@ -86,7 +86,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
     
     - *{client-id}* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
     - *{client-secret}* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *{tenant-id}* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal, it is labeled *Directory ID*.
+    - *{tenant-id}* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal. It is labeled *Directory ID*.
 
 4. To call the method that you previously added, add this code to the Main method in the Program.cs file:
    

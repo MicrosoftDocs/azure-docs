@@ -20,7 +20,7 @@ ms.author: davidmu
 ---
 # Deploy an Azure Virtual Machine Using C# #
 
-This article shows you how use C# to create an Azure resource group, storage account, IP sddress, virtual network, network interface, availability set, and virtual machine.
+This article shows you how use C# to create an Azure virtual machine and its supporting resources.
 
 It takes about 20 minutes to do these steps.
 
@@ -28,7 +28,7 @@ It takes about 20 minutes to do these steps.
 
 In this step, you make sure that Visual Studio is installed and you create a console application used to create the resources.
 
-1. If you haven't aready, install [Visual Studio](https://www.visualstudio.com/).
+1. If you haven't already, install [Visual Studio](https://www.visualstudio.com/).
 2. In Visual Studio, click **File** > **New** > **Project**.
 3. In **Templates** > **Visual C#**, select **Console Application**, enter the name and location of the project, and then click **OK**.
 
@@ -86,7 +86,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     
     - *{client-id}* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
     - *{client-secret}* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *{tenant-id}* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal, it is labeled *Directory ID*.
+    - *{tenant-id}* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal. It is labeled *Directory ID*.
 
 3. To call the method that you previously added, add this code to the Main method in the Program.cs file:
    
@@ -564,7 +564,7 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 2. Press **Enter** after the *Succeeded* status appears. 
    
-3. After the virtual machine is created and before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal.
+3. After the virtual machine is created and before you press **Enter** to start deleting resources, you could take a few minutes to inspect the resources in the Azure portal.
 
 ## Next Steps
 * Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
