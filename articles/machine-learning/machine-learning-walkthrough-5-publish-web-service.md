@@ -111,7 +111,8 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 
 ### Deploy as a New Web service
 
-> [!Note] To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 To deploy a New Web service derived from our experiment:
 
