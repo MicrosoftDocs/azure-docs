@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 
 ---
@@ -32,7 +32,7 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 * Dynamic routing between your network and Microsoft over industry standard protocols (BGP).
 * Built-in redundancy in every peering location for higher reliability.
 * Connection uptime [SLA](https://azure.microsoft.com/support/legal/sla/).
-* QoS and support for multiple classes of service for special applications, such as Skype for Business.
+* QoS support for Skype for Business.
 
 For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
 

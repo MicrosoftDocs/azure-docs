@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2017
+ms.date: 02/28/2017
 ms.author: nepeters
 
 ---
-# Azure Virtual Machine CLI samples
+# Azure CLI Samples for Linux virtual machines
 
 The following table includes links to bash scripts built using the Azure CLI.
 
