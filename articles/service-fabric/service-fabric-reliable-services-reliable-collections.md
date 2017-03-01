@@ -63,8 +63,7 @@ There are two isolation levels that are supported in Reliable Collections:
   Snapshots are consistent across Reliable Collections.
   For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
-Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica at the time of transaction's creation.
-Following is the table that depicts isolation level defaults for Reliable Dictionary and Queue operations.
+Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica at the time of transaction's creation.Following is the table that depicts isolation level defaults for Reliable Dictionary and Queue operations.
 
 | Operation \ Role | Primary | Secondary |
 | --- |:--- |:--- |
