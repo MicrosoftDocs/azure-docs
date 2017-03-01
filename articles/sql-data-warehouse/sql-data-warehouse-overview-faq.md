@@ -24,7 +24,7 @@ ms.author: elbutter
 
 Q. What does SQL DW offer for data security?
 
-A. SQL DW offers several solutions for protecting data such as TDE and auditing. For more information see [Security]
+A. SQL DW offers several solutions for protecting data such as TDE and auditing. For more information see [Security].
 
 Q. Where can I find out what legal or business standards is SQL DW compliant with?
 
@@ -75,15 +75,12 @@ Q. What client drivers do you support?
 A. Driver support for DW can be found on the [Connection Strings] page
 
 
-
-
-
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Connection Strings]: ./sql-data-warehouse-connection-strings.md
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Support Tickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Security] ./sql-data-warehouse-overview-manage-security.md
+[Security]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits
 [data types]: ./sql-data-warehouse-tables-data-types
