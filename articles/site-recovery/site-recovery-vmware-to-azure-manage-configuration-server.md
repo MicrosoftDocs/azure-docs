@@ -169,11 +169,11 @@ Ensure the following before you start decommissioning your Configuration Server.
 1. Log on to the Configuration Server as an Administrator.
 2. Open up Control Panel > Program > Uninstall Programs
 3. Uninstall the programs in the following sequence:
+  * Microsoft Azure Recovery Services Agent
   * Microsoft Azure Site Recovery Mobility Service/Master Target server
+  * Microsoft Azure Site Recovery Provider
   * Microsoft Azure Site Recovery Configuration Server/Process Server
   * Microsoft Azure Site Recovery Configuration Server Dependencies
-  * Microsoft Azure Recovery Services Agent
-  * Microsoft Azure Site Recovery Provider
   * MySQL Server 5.5
 4. Run the following command from and admin command prompt.
   ```

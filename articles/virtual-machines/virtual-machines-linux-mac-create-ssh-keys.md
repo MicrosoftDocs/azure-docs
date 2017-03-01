@@ -1,6 +1,6 @@
 ---
 title: Create an SSH key pair for Linux VMs on Azure | Microsoft Docs
-description: Securely create an SSH public and private key pair for Linux VMs.
+description: Securely create an SSH public and private key pair for Azure Linux VMs.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -38,6 +38,9 @@ Add the newly created key to `ssh-agent`:
 ```bash
 ssh-add ~/.ssh/id_rsa
 ```
+
+> [!NOTE] 
+> The above commands work on Linux operating systems of almost all distributions, but do not necessarily work in containers, as the environment can be radically constrained.
 
 ## Detailed Walkthrough
 

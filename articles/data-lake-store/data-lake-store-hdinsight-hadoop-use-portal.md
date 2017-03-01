@@ -26,7 +26,9 @@ ms.author: nitinme
 >
 >
 
-Learn how to use the Azure portal to create HDInsight clusters with access to Azure Data Lake Store. For supported cluster types, you can use Data Lake Store as default storage or as an additional storage account. When you use Data Lake Store as additional storage, the default storage account for the clusters remains Azure Blob storage. Also, the cluster-related files (such as logs) are still written to the default storage. However, the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to storage from the cluster.
+This article discusses how to use the Azure portal to create HDInsight clusters with access to Azure Data Lake Store. For supported cluster types, you can use Data Lake Store as default storage or as an additional storage account. When you use Data Lake Store as additional storage, the default storage account for the clusters remains Azure Blob storage. Also, the cluster-related files (such as logs) are still written to the default storage. However, the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to storage from the cluster.
+
+## Using Data Lake Store for HDInsight cluster storage
 
 Here are some important considerations for using HDInsight with Data Lake Store:
 
