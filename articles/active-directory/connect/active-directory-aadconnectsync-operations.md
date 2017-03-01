@@ -65,7 +65,7 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
 3. Copy the PowerShell script from the section [CSAnalyzer](#Appendix-CSAnalyzer) to a file named `csanalyzer.ps1`.
 4. Open a PowerShell window and browse to the folder where you created the PowerShell script.
 5. Run: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. You now have a file named **processedusers1.csv** that can be examined in Microsoft Excel. This file contains all changes that are staged to be exported to Azure AD.
+6. You now have a file named **processedusers1.csv** that can be examined in Microsoft Excel. All changes staged to be exported to Azure AD are found in this file.
 7. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes that are about to be exported are expected.
 
 #### Switch active server
@@ -74,7 +74,7 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## Disaster recovery
-Part of the implementation design is to plan for what to do if there is a disaster where you lose the sync server. There are different models to use and which one to use depends on several factors including:
+Part of the implementation design is to plan for what to do in case there is a disaster where you lose the sync server. There are different models to use and which one to use depends on several factors including:
 
 * What is your tolerance for not being able make changes to objects in Azure AD during the downtime?
 * If you use password synchronization, do the users accept that they have to use the old password in Azure AD in case they change it on-premises?
@@ -96,7 +96,7 @@ The sync engine server does not store any state about the objects so the databas
 ### Have a spare standby server - staging mode
 If you have a more complex environment, then having one or more standby servers is recommended. During installation, you can enable a server to be in **staging mode**.
 
-For more details, see [staging mode](#staging-mode).
+For more information, see [staging mode](#staging-mode).
 
 ### Use virtual machines
 A common and supported method is to run the sync engine in a virtual machine. In case the host has an issue, the image with the sync engine server can be migrated to another server.
