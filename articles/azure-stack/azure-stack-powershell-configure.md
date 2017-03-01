@@ -44,6 +44,7 @@ Set-ExecutionPolicy Unrestricted
 Use the following steps to configure your Azure Stack environment:
 
 1. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. You can get the GUID value in the following two scenarios:  
+
     a. If you already know the Azure Active Directory(AAD) tenant name, you can get the associated GUID by using the following command:  
     
     ```PowerShell
