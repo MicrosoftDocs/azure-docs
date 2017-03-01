@@ -173,5 +173,5 @@ On the **User sign-in** page, select the desired user sign-in.
 >
 
 ## Next steps
-- Learn more about [integrating on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 - Learn more about [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md).
