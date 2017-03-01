@@ -141,7 +141,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 Dependency actions provide granular control over how a dependent task behaves, based on the success or failure of the upstream task. For example, suppose that a dependent task is awaiting data from the completion of the upstream task. If the upstream task fails, the dependent task may still be able to run using older data. Using a dependency action is one way to design your Batch application to be resilient.  
 
-To specify a dependency action in .NET, set the **DependencyAction** property of the [ExitOptions][net_exitoptions] class. The **DependencyAction** property takes one of two values:
+To specify a dependency action in .NET, set the [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] property. The **DependencyAction** property takes one of two values:
 
 - Setting the **DependencyAction** property to **Satisfy** indicates that dependent tasks should run even if the parent task exits with a non-zero exit code or a scheduling error.
 - Setting the **DependencyAction** property to **Block** indicates that dependent tasks should not be run.
