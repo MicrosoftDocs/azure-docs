@@ -16,8 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2017
 ms.author: bwren
 
+
+
 ---
-# Automation resources in OMS solutions (Preview)
+# Adding an Automation resource to an OMS management solution (Preview)
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   
 > 
