@@ -35,8 +35,8 @@ This command returns a list of PowerShell module repositories that are registere
 
 You can install Azure Stack PowerShell commands in the following scenarios:  
 
-a.	[Install the required version.](#install-the-required-version)  
-b.	[Uninstall the existing version and install the required version.](#uninstall-the-existing-version-and-install-the-required-version)  
+a. [Install the required version.](#install-the-required-version)  
+b. [Uninstall the existing version and install the required version.](#uninstall-the-existing-version-and-install-the-required-version)  
 
 ## Install the required version
 
@@ -67,7 +67,7 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
     Install-Module -Name AzureStack
 ```
 
-3.	To confirm the installation of AzureRM modules, run the following command:
+3. To confirm the installation of AzureRM modules, run the following command:
   ```powershell
     Get-Module -ListAvailable
  ```
@@ -78,12 +78,12 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
 
 To install the Azure Stack PowerShell modules on a computer, which already contains a different version of PowerShell modules, use the following steps:  
 
-1.	Uninstall the existing Azure PowerShell commands (AzureRM and Azure modules). To uninstall, close all the active PowerShell sessions and run the following command:
+1. Uninstall the existing Azure PowerShell commands (AzureRM and Azure modules). To uninstall, close all the active PowerShell sessions and run the following command:
   ```powershell
     Get-Module -ListAvailable | where-Object ($_.Name -like “Azure*”) | Uninstall-Module
 ```
 
-2.	After uninstalling, follow the steps described in [Install the required version](#install-the-required-version) section. 
+2. After uninstalling, follow the steps described in [Install the required version](#install-the-required-version) section. 
 
 ## Next steps
 * [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
