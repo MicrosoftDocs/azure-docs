@@ -36,23 +36,21 @@ This tutorial shows how to write a .NET Core console application that sends a se
 
 4. An Event Hubs namespace.
 
-## Send messages to an Event Hub
-
 To send messages to an Event Hub, we will write a C# console application using Visual Studio.
 
-### Create an Event Hubs namespace and an Event Hub
+## Create an Event Hubs namespace and an Event Hub
 
 The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.
 
-### Create a console application
+## Create a console application
 
 Launch Visual Studio and create a new .NET Core console application.
 
-### Add the Event Hubs NuGet package
+## Add the Event Hubs NuGet package
 
 Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package to your project.
 
-### Write some code to send messages to the Event Hub
+## Write some code to send messages to the Event Hub
 
 1. Add the following `using` statement to the top of the Program.cs file.
 
@@ -124,71 +122,71 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     MainAsync(args).GetAwaiter().GetResult();
     ```
 
-Here is what your Program.cs should look like.
+   Here is what your Program.cs should look like.
 
-```csharp
-namespace SampleSender
-{
-    using System;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.EventHubs;
-   
-    public class Program
-    {
-        private static EventHubClient eventHubClient;
-        private const string EhConnectionString = "{Event Hubs connection string}";
-        private const string EhEntityPath = "{Event Hub path/name}";
-    
-        public static void Main(string[] args)
-        {
-            MainAsync(args).GetAwaiter().GetResult();
-        }
-    
-        private static async Task MainAsync(string[] args)
-        {
-            // Creates an EventHubsConnectionStringBuilder object from a the connection string, and sets the EntityPath.
-            // Typically the connection string should have the Entity Path in it, but for the sake of this simple scenario
-            // we are using the connection string from the namespace.
-            var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
-            {
-                EntityPath = EhEntityPath
-            };
-    
-            eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-    
-            await SendMessagesToEventHub(100);
-    
-            await eventHubClient.CloseAsync();
-    
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadLine();
-        }
-    
-        // Creates an Event Hub client and sends 100 messages to the event hub.
-        private static async Task SendMessagesToEventHub(int numMessagesToSend)
-        {
-            for (var i = 0; i < numMessagesToSend; i++)
-            {
-                try
-                {
-                    var message = $"Message {i}";
-                    Console.WriteLine($"Sending message: {message}");
-                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
-                }
-    
-                await Task.Delay(10);
-            }
-    
-            Console.WriteLine($"{numMessagesToSend} messages sent.");
-        }
-    }
-}
-```
+	```csharp
+	namespace SampleSender
+	{
+	    using System;
+	    using System.Text;
+	    using System.Threading.Tasks;
+	    using Microsoft.Azure.EventHubs;
+	   
+	    public class Program
+	    {
+	        private static EventHubClient eventHubClient;
+	        private const string EhConnectionString = "{Event Hubs connection string}";
+	        private const string EhEntityPath = "{Event Hub path/name}";
+	    
+	        public static void Main(string[] args)
+	        {
+	            MainAsync(args).GetAwaiter().GetResult();
+	        }
+	    
+	        private static async Task MainAsync(string[] args)
+	        {
+	            // Creates an EventHubsConnectionStringBuilder object from a the connection string, and sets the EntityPath.
+	            // Typically the connection string should have the Entity Path in it, but for the sake of this simple scenario
+	            // we are using the connection string from the namespace.
+	            var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+	            {
+	                EntityPath = EhEntityPath
+	            };
+	    
+	            eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
+	    
+	            await SendMessagesToEventHub(100);
+	    
+	            await eventHubClient.CloseAsync();
+	    
+	            Console.WriteLine("Press any key to exit.");
+	            Console.ReadLine();
+	        }
+	    
+	        // Creates an Event Hub client and sends 100 messages to the event hub.
+	        private static async Task SendMessagesToEventHub(int numMessagesToSend)
+	        {
+	            for (var i = 0; i < numMessagesToSend; i++)
+	            {
+	                try
+	                {
+	                    var message = $"Message {i}";
+	                    Console.WriteLine($"Sending message: {message}");
+	                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+	                }
+	                catch (Exception exception)
+	                {
+	                    Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
+	                }
+	    
+	                await Task.Delay(10);
+	            }
+	    
+	            Console.WriteLine($"{numMessagesToSend} messages sent.");
+	        }
+	    }
+	}
+	```
   
 6. Run the program, and ensure that there are no errors.
   
