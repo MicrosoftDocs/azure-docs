@@ -37,7 +37,6 @@ You can install Azure Stack PowerShell commands in the following scenarios:
 
 a.	[Install the required version.](#install-the-required-version)  
 b.	[Uninstall the existing version and install the required version.](#uninstall-the-existing-version-and-install-the-required-version)  
-c.	[Install the required version along with the existing version.](#install-the-required-version-along-with-the-existing-version)  
 
 ## Install the required version
 
@@ -84,20 +83,7 @@ To install the Azure Stack PowerShell modules on a computer, which already conta
     Get-Module -ListAvailable | where-Object ($_.Name -like “Azure*”) | Uninstall-Module
 ```
 
-2.	After uninstalling, follow the steps described in [Install the required version](#install-the-required-version) section.
- 
-## Install the required version along with the existing version
-
-You can install a new version of PowerShell modules along with an existing version. When you do so, it is recommended that you install the existing and new versions of PowerShell modules in the same user scope. 
-
-For example, If the 1.2.6 version PowerShell modules are already installed in the **CurrentUser scope**, it is recommended that you install the 1.2.8 version PowerShell modules in the same scope. For CurrentUser scope, the modules are installed at `C:\Users\<username>\Documents\WindowsPowerShell\Modules` location.
-
-If the 1.2.6 version PowerShell modules are already installed in the **AllUsers** scope, it is recommended that you install the 1.2.8 version PowerShell modules in the same scope. For AllUsers scope, the modules are installed at `C:\Program Files\WindowsPowerShell\Modules` location.
-
-The steps required to install are same as the steps described in the [Install the required version](#install-the-required-version) section.
-
-> [!NOTE]
-> Installing more than one version of PowerShell modules on the same computer is not a recommended option. This is because both the module are installed in the same location and whenever you load a module, you must make sure to specify the full path.
+2.	After uninstalling, follow the steps described in [Install the required version](#install-the-required-version) section. 
 
 ## Next steps
 * [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  

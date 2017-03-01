@@ -23,16 +23,16 @@ ms.author: sngun
 Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack by using the Azure Stack portal. This article helps you get started to create and manage Key Vault in Azure Stack. 
 
 >[!NOTE]
-> In TP3, you can create and manage  a key vault from the tenant portal only. If you are an administrator, you should login to the user portal to access and perform operations on a key vault.   
+> In TP3, you can create and manage  a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, you should login to the user portal to access and perform operations on a key vault.   
 
 ## Prerequisites  
 
 * Azure Stack administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
-* Tenants must subscribe to an offer that includes the Key Vault service.  
+* Tenants must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
  
 ## Create a key vault 
 
-1.	Sign in to the user portal   (https://publicportal.local.azurestack.external).  
+1.	Sign in to the user portal(https://publicportal.local.azurestack.external).  
 
 2.	If you haven’t already done, subscribe to an offer that includes the Key Vault service.  
 

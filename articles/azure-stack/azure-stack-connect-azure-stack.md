@@ -37,7 +37,7 @@ then close Server Manager.
 
 ## Connect with VPN
 
-In an Azure Stack Proof of Concept (POC) environment, you can use a Virtual Private Network (VPN) to connect your local Windows-based computer to Azure Stack. VPN connections enable multiple clients to connect to Azure Stack at the same time.
+In an Azure Stack Proof of Concept (POC) environment, you can use a Virtual Private Network (VPN) to connect your local Windows-based computer to Azure Stack.VPN connectivity is supported for Azure Stack instances deployed through Azure Active Directory(AAD) or Active Directory Federation Services(AD FS) . VPN connections enable multiple clients to connect to Azure Stack at the same time.
  
 Through the VPN connection, you can access the administrator portal, user portal, and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources.
 
@@ -48,8 +48,8 @@ The following sections describe the steps that are required to establish VPN con
 
 ### Prerequisites
 
-* Install Azure Stack compatible Azure PowerShell on your local computer.  
-* Download the tools required to work with Azure Stack to your local computer.  
+* [Install Azure Stack compatible Azure PowerShell on your local computer.](azure-stack-powershell-install.md)  
+* [Download the tools required to work with Azure Stack to your local computer.](azure-stack-powershell-download.md)  
 
 ### Import the Connect PowerShell module
 

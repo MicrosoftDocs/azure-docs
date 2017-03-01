@@ -23,14 +23,14 @@ ms.author: sngun
 This article helps you get started to create and manage Key Vault in Azure Stack by using PowerShell. 
 
 > [!NOTE]
-> In Technical Preview 3, you can create and manage a key vault from the user portal only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault. 
+> In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault. 
 
 The Key Vault PowerShell commands described in this article are available as a part of the Azure PowerShell SDK.  Following sections describe the PowerShell commands required to create a vault, store and manage cryptographic keys and secrets as well as authorize users or applications to invoke operations in the vault. 
 
 ## Prerequisites
-* Install PowerShell for Azure Stack.  
+* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
 * Azure Stack administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
-* Tenants must subscribe to an offer that includes the Key Vault service.  
+* Tenants must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service. 
 
 ## Enable your tenant subscription for vault operations
 
