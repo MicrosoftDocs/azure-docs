@@ -50,7 +50,7 @@ If you see **The sync command or cmdlet is not available** when you run this cmd
 * **SyncCycleEnabled**. Indicates if the scheduler is running the import, sync, and export processes as part of its operation.
 * **MaintenanceEnabled**. Shows if the maintenance process is enabled. It updates the certificates/keys and purges the operations log.
 * **StagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled. If this setting is enabled, then it suppresses the exports from running but still run import and synchronization.
-* **SchedulerSuspended**.
+* **SchedulerSuspended**. Set by Connect during an upgrade to temporarily block the scheduler from running.
 
 You can change some of these settings with `Set-ADSyncScheduler`. The following parameters can be modified:
 
@@ -59,9 +59,8 @@ You can change some of these settings with `Set-ADSyncScheduler`. The following 
 * PurgeRunHistoryInterval
 * SyncCycleEnabled
 * MaintenanceEnabled
-* SchedulerSuspended
 
-In earlier builds of Azure AD Connect, **isStagingModeEnabled** was exposed in Set-ADSyncScheduler. It is **unsupported** to set this property.
+In earlier builds of Azure AD Connect, **isStagingModeEnabled** was exposed in Set-ADSyncScheduler. It is **unsupported** to set this property. The property **SchedulerSuspended** should only be modified by Connect. It is **unsupported** to set this with PowerShell directly.
 
 The scheduler configuration is stored in Azure AD. If you have a staging server, any change on the primary server also affects the staging server (except IsStagingModeEnabled).
 
