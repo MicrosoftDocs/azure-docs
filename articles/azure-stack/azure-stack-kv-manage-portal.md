@@ -23,7 +23,7 @@ ms.author: sngun
 Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack by using the Azure Stack portal. This article helps you get started to create and manage Key Vault in Azure Stack. 
 
 >[!NOTE]
-> In TP3, you can create and manage  a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, you should login to the user portal to access and perform operations on a key vault.   
+> In TP3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, you should sign in to the user portal to access and perform operations on a key vault.   
 
 ## Prerequisites  
 
@@ -42,7 +42,7 @@ Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack b
 
 4. On the **Create Key Vault** blade, assign a **Name** for your vault. Vault name can contain only alphanumeric characters, the special character hyphen (-), and it shouldn’t start with a number.  
 
-5. Choose a **Subscription** from the list of available subscriptions. All subscriptions that offer the Key Vault service are displayed in the drop down.  
+5. Choose a **Subscription** from the list of available subscriptions. All subscriptions that offer the Key Vault service are displayed in the drop-down.  
 
 6. Select an existing **Resource Group** or create a new one.  
 
@@ -50,7 +50,7 @@ Starting in Technical Preview 3 (TP3), you can manage Key Vault in Azure Stack b
     >[!NOTE]
     > At the TP3 release, key vault supports the **Standard** SKU only.
 
-8. Choose an existing **Access policies** or create a new one. Access policy allows you to grant permissions for a user, application or a security group to perform operations with this vault.  
+8. Choose an existing **Access policies** or create a new one. Access policy allows you to grant permissions for a user, application, or a security group to perform operations with this vault.  
 
 9. Optionally, choose an **Advanced access policy** to enable the features like access to Virtual Machines for deployment, access to Resource Manager for template deployment and access to Azure Disk Encryption for volume encryption. 
   
@@ -64,17 +64,17 @@ After creating a vault, use the following steps to create and manage keys and se
 
 1. Sign in to the user portal (https://publicportal.local.azurestack.external).  
 
-2. From the dashboard, click  **All resources** > select the key vault that you created earlier> click on the **Keys** tile.  
+2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Keys** tile.  
 
     ![Keys tile](media/azure-stack-kv-manage-portal/image3.png)  
 
 3. From the **Keys** blade, click **Add**. 
 
-4. On the **Create a key** blade, form the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload**  an existing key or **Restore Backup** key.  
+4. On the **Create a key** blade, form the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or **Restore Backup** key.  
 
 5. Enter a **Name** for your key. The key name can contain only alphanumeric characters and the special character hyphen (-).  
 
-6. Optionally, configure **Set activation date** and **Set expiration date**  values for your key.  
+6. Optionally, configure **Set activation date** and **Set expiration date** values for your key.  
 
 7. Click **Create** to start the deployment.  
 
@@ -85,7 +85,7 @@ After the key is successfully created, you can select it from the **Keys** blade
 ## Create a secret 
 
 1. Sign in to the user portal (https://publicportal.local.azurestack.external).  
-2. From the dashboard, click **All resources** > select the key vault that you created earlier> click on the **Secrets** tile.  
+2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Secrets** tile.  
 
 3. From the **Secrets** blade, click **Add**.  
 
@@ -93,7 +93,7 @@ After the key is successfully created, you can select it from the **Keys** blade
 
 5. Enter a **Name** for the secret. The secret name can contain only alphanumeric characters and the special character hyphen (-).  
 
-6. Optionally, specify the **Content type**, and configure values for **Set activation date** and **Set expiration date** values  for the secret.  
+6. Optionally, specify the **Content type**, and configure values for **Set activation date** and **Set expiration date** values for the secret.  
 
 7. Click Create to start the deployment.  
 

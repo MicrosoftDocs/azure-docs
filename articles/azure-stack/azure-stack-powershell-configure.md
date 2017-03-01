@@ -34,7 +34,7 @@ Import-Module .\AzureStack.Connect.psm1
 ```
 
 > [!NOTE]
-> When importing the above module, if you receive an error that “AzureStack.Connect.psm1 is not digitally signed and you cannot run this script on the current system”, you can resolve it by executing the following command in an elevated PowerShell window:  
+> When importing the module specified earlier, if you receive an error that “AzureStack.Connect.psm1 is not digitally signed and you cannot run this script on the current system”, you can resolve it by executing the following command in an elevated PowerShell window:  
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
@@ -63,7 +63,7 @@ Use the following steps to configure your Azure Stack environment:
     $AadTenant = Get-AzureStackAadTenant -HostComputer <Host IP Address> -Password $Password
     ```
 
-2. Register an AzureRM environment that targets your Azure Stack instance. AzureRM command can be targeted at multiple clouds such as Azure Stack, Azure China, Azure Government etc. To target it to your Azure Stack instance, you should register the AzureRM environment as follows:
+2. Register an AzureRM environment that targets your Azure Stack instance. AzureRM commands can be targeted at multiple clouds such as Azure Stack, Azure China, Azure Government etc. To target it to your Azure Stack instance, you should register the AzureRM environment as follows:
 
     ```PowerShell
     # Use this command to access the administrative portal
@@ -72,7 +72,7 @@ Use the following steps to configure your Azure Stack environment:
     # Use this command to access the tenant portal
     Add-AzureStackAzureRmEnvironment -AadTenant $AadTenant -ArmEndpoint https://publicapi.local.azurestack.global -Name AzureStack
     ```
-    ![Get environemnt details](media/azure-stack-powershell-configure/getenvdetails.png)  
+    ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)  
 
 ## Sign in to Azure Stack 
 After the AzureRM environment is registered to target the Azure Stack instance, you can use all the AzureRM commands in your Azure Stack environment. Use the following command to sign in to your Azure Stack administrator or user account:
@@ -92,7 +92,7 @@ After you sign in to the administrator or user portal, you can issue operations 
 
 ![unregistered PowerShell](media/azure-stack-powershell-configure/unregisteredrps.png)  
 
-You should manually register these resource providers on the user subscriptions before you can use them. To register providers on the current subscription, use the following command:
+Whereas on the user subscriptions, manually register these resource providers before you use them. To register providers on the current subscription, use the following command:
 
 ```PowerShell
 Register-AllAzureRmProviders
