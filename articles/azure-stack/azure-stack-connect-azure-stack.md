@@ -120,7 +120,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
     ![connect with UI](media/azure-stack-connect-azure-stack/image5.png)  
 
-        At the sign in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a **connected** state.
+    At the sign in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a **connected** state.
 
 ### Validate the VPN connectivity
 

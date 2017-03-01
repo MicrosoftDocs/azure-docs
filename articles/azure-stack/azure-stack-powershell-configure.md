@@ -50,7 +50,7 @@ Use the following steps to configure your Azure Stack environment:
     ```PowerShell
     $AadTenant = Get-AADTenantGUID -AADTenantName "<myaadtenant>.onmicrosoft.com"
     ```
-    b. If you don’t know the Azure Active Directory (AAD) tenant name, for example in an ADFS environment, you can run the following commands to get the GUID:
+    b. If you don’t know the Azure Active Directory (AAD) tenant name, for example in an ADFS environment, you can run the following commands to get the GUID:  
     
     ```PowerShell
     # Add your Azure Stack host to the list of trusted hosts by running the following command in an elevated PowerShell session
