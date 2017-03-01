@@ -123,14 +123,14 @@ You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-
 
 [img-overview]: media/iot-suite-security-deployment/overview.png
 
-[lnk-security-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure
-[lnk-sas-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
-[lnk-identity-registry]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-protocols]: ../articles/iot-hub/iot-hub-devguide-security.md
-[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-authentication
+[lnk-security-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-token-structure
+[lnk-sas-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-protocols]: ../iot-hub/iot-hub-devguide-security.md
+[lnk-custom-auth]: ../iot-hub/iot-hub-devguide-security.md#custom-device-authentication
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
-[lnk-service-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
+[lnk-service-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
 [lnk-docdb]: https://azure.microsoft.com/services/documentdb/
 [lnk-asa]: https://azure.microsoft.com/services/stream-analytics/
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
