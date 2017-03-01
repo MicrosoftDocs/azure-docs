@@ -67,6 +67,13 @@ Q. What table features do you support?
 
 A. While SQL Data Warehouse supports many features, some are not supported and are documented in [Unsupported Table Features].
 
+## Tooling and Administration
+
+Q. Do you support Database projects in Visual Studio.
+
+A. We currently do not support Database projects in Visual Studio for SQL Data Warehouse. If you'd like to cast a vote to get this feature, visit our User Voice 
+[Database projects feature request].
+
 
 ## Loading
 
@@ -99,8 +106,9 @@ A: HDI can use either ADLS or WASB as the HDFS component. If this is your config
 [Support Tickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Security]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits
-[data types]: ./sql-data-warehouse-tables-data-types
-[Unsupported Table Features]: ./sql-data-warehouse-tables-overview#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store 
-[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase
+[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+[data types]: ./sql-data-warehouse-tables-data-types.md
+[Unsupported Table Features]: ./sql-data-warehouse-tables-overview#unsupported-table-features.md
+[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md 
+[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
