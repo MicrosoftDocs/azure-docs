@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2016
+ms.date: 01/13/2017
 ms.author: rasquill
 
 ---
