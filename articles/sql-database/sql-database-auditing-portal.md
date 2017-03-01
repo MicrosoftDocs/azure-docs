@@ -3,7 +3,8 @@ title: 'Azure portal: Manage SQL Database Auditing | Microsoft Docs'
 description: Configure Azure SQL Database auditing in the Azure portal to track database events and write them to an audit log in your Azure Storage account.
 services: sql-database
 documentationcenter: ''
-author: ronitrmanager: jhubbard
+author: ronitr
+manager: jhubbard
 editor: giladm
 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
