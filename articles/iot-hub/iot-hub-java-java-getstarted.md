@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with Azure IoT Hub (Java)
+# Set up communication between an IoT Hub and a simulated device using Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three Java console apps:
