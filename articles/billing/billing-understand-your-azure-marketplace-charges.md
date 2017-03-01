@@ -19,7 +19,7 @@ ms.author: adpick
 ms.custom: H1Hack27Feb2017
 ---
 # Understand your Azure billing for external service charges
-External services used to be called Azure Marketplace. Generally, they're services published by third-parties available for Azure but are integrated completely within the Azure ecosystem. For example, ClearDB and SendGrid are external services that you can purchase in Azure, but are not published by Microsoft.
+External services used to be called Azure Marketplace. Generally, they're services published by third-parties available for Azure but are integrated completely within Azure. For example, ClearDB and SendGrid are external services that you can purchase in Azure, but are not published by Microsoft.
 
 When you provision a new external service or resource, a warning is shown:
 
@@ -46,7 +46,7 @@ You can view a list of the external services that are on each subscription withi
 3. In the **Subscriptions** blade, select the subscription that you want to view, and then select **External services**.
    
     ![Select a subscription in the billing blade](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
-4. You should see each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status. Select an external service to see past bills.
+4. You should see each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status. To see past bills, select an external service.
    
     ![Select an external service](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
 5. From here, you can view past bill amounts including the tax breakdown.
@@ -60,7 +60,7 @@ EA customers can see external service spending and download reports in the EA po
 Update your payment methods for external service orders from the [Account Center](https://account.windowsazure.com/).
 
 > [!NOTE]
-> If you purchased your subscription with a Work or School account you should [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment method.
+> If you purchased your subscription with a Work or School account, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment method.
 > 
 > 
 
@@ -78,10 +78,10 @@ Update your payment methods for external service orders from the [Account Center
     ![Select edit info](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
 
 ## Cancel an external service order
-If you want to cancel your external service order, you need to delete the resource in the [Azure portal](https://portal.azure.com).
+If you want to cancel your external service order, delete the resource in the [Azure portal](https://portal.azure.com).
 
 ![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
 ## Need help? Contact support.
-If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
