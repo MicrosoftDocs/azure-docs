@@ -32,7 +32,7 @@ I also know some of you will still skip it :), so I have tried to cover the basi
 
 As a first step, let's create an Azure Batch account. You can create it from the [portal](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) or from commandline ([Powershell](https://docs.microsoft.com/en-us/azure/batch/batch-powershell-cmdlets-get-started) /[Azure cli](https://docs.microsoft.com/en-us/azure/batch/batch-cli-get-started)).
 
-Following are the commands to create one through Nodejs CLI.
+Following are the commands to create one through Azure CLI.
 
 Create a Resource Group, skip this step if you already have one where you want to create the Batch Account:
 
