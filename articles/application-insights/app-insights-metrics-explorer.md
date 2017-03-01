@@ -182,6 +182,12 @@ What you see is what gets exported. Change the time range or filters if you want
 
 *Export works only for Internet Explorer and Chrome at present. We're working on adding support for other browsers.*
 
+> [!NOTE]
+> The Metric Explorer to an Excel file is currently disabled. Export is now available in the Analytics Dashboard.
+>
+>
+
+
 ## Continuous Export
 If you want data continuously exported so that you can process it externally, consider using [Continuous export](app-insights-export-telemetry.md).
 
