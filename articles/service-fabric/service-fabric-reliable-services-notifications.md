@@ -1,4 +1,4 @@
-7---
+---
 title: Reliable Services notifications | Microsoft Docs
 description: Conceptual documentation for Service Fabric Reliable Services notifications
 services: service-fabric
