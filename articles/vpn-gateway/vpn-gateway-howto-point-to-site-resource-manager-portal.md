@@ -217,9 +217,17 @@ Each client computer must have a client certificate to authenticate. When instal
             NetBIOS over Tcpip..............: Enabled
 
 ## <a name="add"></a>Add or remove trusted root certificates
-You can remove trusted root certificate from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
+You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
 
-See the section [Upload a trusted root certificate](#uploadfile) in this article for instructions.
+### To add a trusted root certificate
+
+You can add up to 20 trusted root certificate .cer files to Azure. For instructions, see the section [Upload a trusted root certificate](#uploadfile) in this article.
+
+### To remove a trusted root certificate
+
+1. To remove a trusted root certificate, navigate to the **Point-to-site configuration** blade for your virtual network gateway.
+2. In the **Root certificate** section of the blade, locate the certificate that you want to remove.
+3. Click the ellipsis next to the certificate, and then click 'Remove'.
 
 ## <a name="revokeclient"></a>Revoke a client certificate
 You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This differs from removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication for the Point-to-Site connection.

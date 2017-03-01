@@ -227,9 +227,9 @@ Each client computer must have a client certificate in order to authenticate. Wh
             NetBIOS over Tcpip..............: Enabled
 
 ## <a name="addremovecert"></a>Add or remove a trusted root certificate
-Certificates are used to authenticate VPN clients for Point-to-Site VPNs. The following steps walk you through adding and removing root certificates. When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents. 
 
-You can add or remove trusted root certificates by using PowerShell, or in the Azure portal. If you want to do this using the Azure portal, go to your **virtual network gateway > settings > Point-to-site configuration > Root certificates**. The following steps walk you through these tasks using PowerShell. 
+You can add and remove trusted root certificates from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
+
 
 ### To add a trusted root certificate
 You can add up to 20 trusted root certificate .cer files to Azure. Follow the steps below to add a root certificate.
