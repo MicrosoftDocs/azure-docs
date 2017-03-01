@@ -1,6 +1,6 @@
 ---
-title: Create SharePoint server farms | Microsoft Docs
-description: Quickly create a new SharePoint 2013 or SharePoint 2016 farm in Azure.
+title: Create SharePoint server farms in Azure | Microsoft Docs
+description: Quickly create a new SharePoint 2013 or SharePoint 2016 farm in Azure using the Azure portal marketplace.
 services: virtual-machines-windows
 documentationcenter: ''
 author: JoeDavies-MSFT
@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: josephd
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create SharePoint server farms
+# Create SharePoint server farms using the Azure portal marketplace
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
