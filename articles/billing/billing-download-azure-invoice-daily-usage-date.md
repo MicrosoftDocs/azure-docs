@@ -17,6 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: genli
+ms.custom: H1Hack27Feb2017
 
 ---
 # Download or view your Azure billing invoice and daily usage data
@@ -25,7 +26,7 @@ You can download your invoice from the [Azure portal](https://portal.azure.com/#
 ## Get your invoice in email (.pdf)
 You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
 
-1. Select your subscription from the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). You have to opt-in for each subscription you own. Click **Invoices** then **Email my invoice**. If you are not the Account Admin you may not see this option.
+1. Select your subscription from the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). You have to opt-in for each subscription you own. Click **Invoices** then **Email my invoice**. Only the Account Admin will see this option.
 
     ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -84,7 +85,7 @@ For more information about your daily usage, see [Understand your bill for Micro
 
 ## <a name="noinvoice"></a> Why don't I see an invoice for the last billing period?
 There could be several reasons that you don't see an invoice:
-- You have a monthly credit amount with your subscription that you didn't exceed or you have a Free Trial. An invoice isn't generated unless you owe money.
+- You have a monthly credit amount with your subscription that you didn't exceed or you have a Free Trial. An invoice is only generated when you owe money.
 - It's less than 30 days from the day you subscribed to Azure.
 - The invoice isn't generated yet. Wait until the end of the billing period.
 
