@@ -111,6 +111,6 @@
 ## [Known issues](azure-stack-troubleshooting.md)
 
 # Resources
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
