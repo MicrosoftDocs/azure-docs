@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 
 ---
@@ -68,33 +68,61 @@ You can view details about your workspace in the Azure portal. You can also view
 ## Manage accounts and users
 Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple workspaces.
 
-By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace. The administrator can then invite additional Microsoft accounts or pick users from Azure Active Directory.
+By default, the Microsoft account or Organizational account that creates the workspace becomes the Administrator of the workspace.
 
-Giving people access to the workspace is controlled in two places:
+There are two permission models that control access to a Log Analytics workspace:
 
-* In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. These permissions are also used for PowerShell and REST API access.
-* In the OMS portal, access to only the OMS portal - not the associated Azure subscription.
+1. Legacy Log Analytics user roles
+2. [Azure role-based access](../active-directory/role-based-access-control-configure.md) 
 
-To see data in the Backup and Site Recovery solution tiles, it is necessary to have administrator or co-administrator permission to the Azure subscription that the workspace is linked to.   
+The following table summarizes the access that can be set using each permission model:
 
-### Managing access to Log Analytics using the Azure portal
-If you give people access to the Log Analytics workspace using Azure permissions, in the Azure portal for example, then the same users can access the Log Analytics portal. If users are in the Azure portal, they can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace resource.
+|                          | Log Analytics Portal | Azure Portal | API (including PowerShell) |
+|--------------------------|----------------------|--------------|----------------------------|
+| Log Analytics user roles | Yes                  | No           | No                         |
+| Azure role-based access  | Yes                  | Yes          | Yes                        |
+
+> [!NOTE]
+> Log Analytics is moving to use Azure role based access as the permissions model, replacing the Log Analytics user roles.
+>
+>
+
+The legacy Log Analytics user roles only control access to activites performed in the [Log Analytics portal](https://mms.microsoft.com).
+
+The following activities in the Log Analytics portal also require Azure permissions:
++ Adding management solutions
++ Changing the pricing tier
++ Viewing data in the *Backup* and *Site Recovery* solution tiles
+ - For these solutions it is necessary to have administrator or co-administrator permission to the Azure subscription that the workspace is linked to since these tiles make calls to the service management API.   
+
+For example, in order to add or remove management solutions, the user must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, the user must be a member of the OMS workspace contributor or administrator role in the OMS portal.
+
+### Managing access to Log Analytics using Azure permissions
+To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+
+A user with Azure read access permission on the Log Analytics workspace also has the ability to navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace resource.
+
+When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. Your role assignment in the Log Analytics portal is determined as follows:
+* If your account is assigned to a legacy Log Analytics user role, you are assigned to that role
+* If your account is not assigned to a legacy Log Analytics user role, and
+ + you have full access to the workspace (\* permission), you are assigned to the *Administrator* role  
+ + you have write permission but not delete permission, you are assigned to the *Contributor* role  
+ + you have read permission or your permissions are not understood, you are assigned to the *Read Only* role
+* For Cloud Solution Provider (CSP) managed subscriptions, if the account you are signed-in with is in the Azure Active Directory linked to the workspace, then you are an *Administrator* in the OMS portal, otherwise you are a *Contributor*. 
+ + This means a CSP will have *Contributor* permissions on the Log Analytics workspace.
 
 Some points to keep in mind about the Azure portal:
 
-* This is not *Role-Based Access Control*. If you have *Reader* access permissions in the Azure portal for the Log Analytics workspace, then you can make changes using the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are signed-in with is in the Azure Active Directory linked to the workspace, then you are an Administrator in the OMS portal, otherwise you are a Contributor.
 * When you sign in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, you need to specify a tenant as part of the URL. For example:
 
   `mms.microsoft.com/?tenant=contoso.com` The tenant identifier is often that last part of the e-mail address that you use to sign in.
-* If the account you sign in with is an account in the tenant Azure Active Directory, then you are an *Administrator* in the OMS portal. This is usually the case unless you’re signing in as a CSP.  If your account is not in the tenant Azure Active Directory, then you are a *User* in the OMS portal.
+* If the account you sign in with is an account in the tenant Azure Active Directory, then you are an *Administrator* in the OMS portal. This is usually the case unless you’re signing in as a CSP.  If your account is not in the tenant Azure Active Directory, then you are a *Contributor* in the OMS portal.
 * If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
   For example, `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
   The URL looks like:
   `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
-
-For example, in order to add or remove management solutions, the user must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, the user must be a member of the OMS workspace contributor or administrator role in the OMS portal.
 
 ### Managing users in the OMS portal
 You manage users and group on the **Manage Users** tab under the **Accounts** tab in the Settings page.   
