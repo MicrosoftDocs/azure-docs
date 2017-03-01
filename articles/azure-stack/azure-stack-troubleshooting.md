@@ -92,7 +92,7 @@ You can read more about configuring the retention threshold and on-demand reclam
 
 ## PowerShell
 ### Resource Providers not registered
-When connecting to tenant subscriptions with PowerShell, you will noticethat the resource providers are not automatically registered. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
+When connecting to tenant subscriptions with PowerShell, you will notice that the resource providers are not automatically registered. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
   
        Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
 
