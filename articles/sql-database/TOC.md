@@ -12,7 +12,6 @@
 ### [SQL versus NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
 ## [SQL Database tools](sql-database-manage-overview.md)
 ## [SQL Database tutorials](sql-database-explore-tutorials.md)
-## [Solution quick-starts](sql-database-solution-quick-starts.md)
 ## Security
 ### [Security overview](sql-database-security-overview.md)
 ### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
