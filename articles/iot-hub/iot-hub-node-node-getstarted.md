@@ -18,7 +18,7 @@ ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
 ---
-# Set up communication between an IoT Hub and a simulated device using Node
+# Connect your simulated device to your IoT hub using Node
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three Node.js console apps:

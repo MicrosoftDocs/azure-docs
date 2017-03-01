@@ -18,7 +18,7 @@ ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
 ---
-# Build device applications and services with Azure IoT SDKs
+# Understand and use Azure IoT SDKs
 ## Azure IoT device SDK
 The Microsoft Azure IoT device SDKs contain code that facilitates building devices and applications that connect to and are managed by Azure IoT Hub services.
 

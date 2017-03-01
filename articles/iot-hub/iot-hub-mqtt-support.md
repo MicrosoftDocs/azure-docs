@@ -18,7 +18,7 @@ ms.author: kdotchko
 ms.custom: H1Hack27Feb2017
 
 ---
-# Communicate with your IoT Hub using MQTT protocol
+# Communicate with your IoT hub using the MQTT protocol
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol on port 8883 or MQTT v3.1.1 over WebSocket protocol on port 443. IoT Hub requires all device communication to be secured using TLS/SSL (hence, IoT Hub doesn’t support non-secure connections over port 1883).
 
 ## Connecting to IoT Hub

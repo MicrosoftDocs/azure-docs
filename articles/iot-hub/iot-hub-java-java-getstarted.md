@@ -18,7 +18,7 @@ ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
 ---
-# Set up communication between an IoT Hub and a simulated device using Java
+# Connect your simulated device to your IoT hub using Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three Java console apps:
