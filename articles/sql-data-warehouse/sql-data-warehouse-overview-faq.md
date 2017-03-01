@@ -31,10 +31,6 @@ Q. Where can I find out what legal or business standards is SQL DW compliant wit
 A. Visit the [Microsoft Compliance] page for various compliance offerings by product such as SOC and ISO. 
 First choose by Compliance title, then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure services are compliant.
  
-Q. Where can I find benchmark data?
-
-A. SQL Data Warehouse currently does testing in lab with TPC-H and a variety of other benchmarking data sets for performance testing. We have found however that synthetic datasets can often be misleading to customers when they are not like production workloads. 
-
 Q. Can I connect PowerBI?
 
 A. Yes! Though PowerBI supports direct query with SQL DW, it’s not intended for large number of users or real-time data. For production use of PowerBI, we recommend using PowerBI on top of Azure Analysis Services or Analysis Service IaaS. 
