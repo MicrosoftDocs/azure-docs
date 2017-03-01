@@ -21,7 +21,7 @@ ms.author: erikje
 To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
 ## Download and extract Microsoft Azure Stack POC
-Before you start, make sure that you at least 85 GB of space and that you have .NET Framework 4.6 installed.
+Before you start, make sure that you at least 60 GB of space and that you have .NET Framework 4.6 installed.
 
 1. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
 2. Under **Download the software**, click **Azure Stack**.
@@ -32,7 +32,7 @@ Before you start, make sure that you at least 85 GB of space and that you have .
 7. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
 8. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~52 GB) and ThirdPartyLicenses.rtf files.
+9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
 
 > [!NOTE]
 > After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
