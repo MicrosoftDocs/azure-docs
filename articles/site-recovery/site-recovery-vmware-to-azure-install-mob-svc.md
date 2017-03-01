@@ -78,5 +78,29 @@ To be able to perform push installation of Mobility Service using Azure Site Rec
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 
-## Next steps
+> [!NOTE]
 Once the Mobility Service is installed you can use the **+Replicate** button in Azure portal to start enabling protection for these VMs.
+
+## Uninstall Mobility Service on Windows servers
+There are two ways in which you can uninstall Mobility Service on a Windows Server
+
+### Uninstall using Graphical User Interface
+1. Open Control Panel > Programs
+2. Select  **Microsoft Azure Site Recovery Mobility Service/Master Target server** and click on Uninstall.
+
+## Uninstall using Command-line
+1. Open an admin command prompt
+2. Run the following command to uninstall Mobility Service.
+
+```
+MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+```
+
+## Uninstall Mobility Service on Linux computers
+1. Log in as **ROOT** on you Linux server
+2. In a **Terminal** browse to /user/local/ASR
+3. Run the following command to uninstall Mobility Service
+
+```
+uninstall.sh -Y
+```
