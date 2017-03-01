@@ -92,7 +92,15 @@ The metrics you selected in the Diagnostics settings determines the resolution o
 
 ## How to: Configure metrics alerts
 
-TODO
+You can create alerts to notify you when thresholds have been reached for storage resource metrics.
+
+1. To open the **Alert rules blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Alert rules**.
+1. Select **Add alert** to open the **Add an alert rule** blade
+1. Select a **Resource** (blob, file, queue, table) from the drop-down, and enter a **Name** and **Description** for your new alert rule.
+1. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type will change depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *Availability* metric is a percentage.
+1. Select the **Period**. Metrics that reach or exceed the Threshold within the period will trigger an alert. TODO: Make this better--it's muddy.
+
+IMAGE-HERE
 
 ## How to: Add metrics charts to the portal dashboard
 
