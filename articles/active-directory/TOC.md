@@ -34,15 +34,13 @@
 ##### [Adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [Next steps](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## Manage users
 ### Add users
 #### [Azure portal](active-directory-users-create-azure-portal.md)
 #### [Classic portal](active-directory-create-users.md)
 
-### Add users from other directories
-#### [Azure portal](active-directory-users-create-external-azure-portal.md)
-#### [Classic portal](active-directory-create-users-external.md)
-
+### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Delete users](active-directory-users-delete-user-azure-portal.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
@@ -67,9 +65,9 @@
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Classic portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Group-based licensing](active-directory-licensing-whatis-azure-portal.md)
-#### [Assigning licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifying and resolving license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [How to migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identify and resolve license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
@@ -236,6 +234,7 @@
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
 #### [B2B user properties](active-directory-b2b-user-properties.md)
 #### [Add a guest user to a role](active-directory-b2b-add-guest-to-role.md)
+#### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
 #### [API and customization](active-directory-b2b-api.md)
 #### [Delegate invitations](active-directory-b2b-delegate-invitations.md)
 #### [Dynamic groups and B2B](active-directory-b2b-dynamic-groups.md)
