@@ -37,19 +37,19 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
     -   **Subscription:** Select one of the available Azure
     subscriptions in which you have at least Contributor permissions.
 
-    -   **API Type:** Choose the Cognitive Services API you want to use. For more information about the various Cognitive Services APIs available, please refer to the [Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) site.
+    -   **API Type:** Choose the Cognitive Services API you want to use. For more information about the various Cognitive Services APIs available, please refer to the [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) site.
 
     ![Select API type](media/cognitive-services-apis-create-account/list-of-apis.png)
 
     -   **Pricing tier:** The cost of your Cognitive Services account
     depends on the actual usage and the options you choose. For more
     information about pricing for each API, please refer to the [pricing
-    pages](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/).
+    pages](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
     -   **Resource Group:** A resource group is a collection of resources
     that share the same lifecycle, permissions, and policies. To
     learn more about Resource Groups, see
-    [Manage Azure resources through portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+    [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
     -   **Resource Group Location:** This is required only if the API selected is
     global (not bound to a location). If the API is global and not bound
@@ -58,17 +58,17 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
     account will reside. This location will have no impact on the
     runtime availability of your account. To learn more about resource
     group, please refer
-    to [Manage Azure resources through portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+    to [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
     -   **API Setting:** By default, account creation is disabled until your
     [Azure subscription service
-    administrator](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles)
+    administrator](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles)
     explicitly enables it.
     
     Microsoft may use data you send to the Cognitive Services to improve
     Microsoft products and services. For more information, please refer
     to the [Microsoft Cognitive Services
-    section](http://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx)
+    section](http://www.microsoft.com/Licensing/product-licensing/products.aspx)
     in the Online Services Terms.
      
     This setting change will apply only to the currently selected API
