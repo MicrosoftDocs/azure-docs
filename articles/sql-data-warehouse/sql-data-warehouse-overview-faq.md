@@ -74,6 +74,23 @@ Q. What client drivers do you support?
 
 A. Driver support for DW can be found on the [Connection Strings] page
 
+Q: What file formats are supported by PolyBase with SQL Data Warehouse?
+
+A: Orc, RC, Parquet and delimited text
+
+Q: What can I connect to from SQL DW using PolyBase? 
+
+A: [Azure Data Lake Store] and [Azure Storage Blobs]
+
+
+Q: Is computation pushdown possible  when connecting to Azure Storage Blobs or ADLS? 
+
+A: No, SQL DW PolyBase only interacts the storage components. 
+
+Q: Can I connect to HDI?
+
+A: HDI can use either ADLS or WASB as the HDFS component. If this is your configuration, then you can load that data into SQL DW. However, you cannot generate push down computation to the HDI instance. 
+
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
@@ -85,3 +102,5 @@ A. Driver support for DW can be found on the [Connection Strings] page
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits
 [data types]: ./sql-data-warehouse-tables-data-types
 [Unsupported Table Features]: ./sql-data-warehouse-tables-overview#unsupported-table-features
+[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store 
+[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase
