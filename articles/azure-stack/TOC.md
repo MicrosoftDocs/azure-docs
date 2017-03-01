@@ -26,10 +26,10 @@
 ### Set up management environment
 #### [Install PowerShell](azure-stack-powershell-install.md)
 #### [Download tools](azure-stack-powershell-download.md)
-#### [Configure PowerShell](azure-stack-connect-powershell.md)
+#### [Configure PowerShell](azure-stack-powershell-configure.md)
 ## How to
 ### [Manage updates](azure-stack-updates.md)
-### [Manage health and alerts](azure-stack-monitor-health.md)
+### [Monitor health and alerts](azure-stack-monitor-health.md)
 ### [Manage network resources](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Manage storage resources](azure-stack-manage-storage-accounts.md)
 
@@ -95,7 +95,7 @@
 ### Set up development environment
 #### [Install PowerShell](azure-stack-powershell-install.md)
 #### [Download tools](azure-stack-powershell-download.md)
-#### [Configure PowerShell](azure-stack-connect-powershell.md)
+#### [Configure PowerShell](azure-stack-powershell-configure.md)
 #### [Install Visual Studio](azure-stack-install-visual-studio.md)
 ## How to
 ### [Use policy module](azure-stack-policy-module.md)

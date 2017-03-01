@@ -13,15 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 3/1/2017
 ms.author: erikje
 
 ---
 # Deploy Azure Stack POC
 To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
+> [!NOTE]
+> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 Eval can be activated at deployment time. If Windows Server 2016 Eval is not activated within 10 days, it will shut down.
+> 
+> 
+
 ## Download and extract Microsoft Azure Stack POC
-Before you start, make sure that you at least 85 GB of space and that you have .NET Framework 4.6 installed.
+Before you start, make sure that you at least 60 GB of space and that you have .NET Framework 4.6 installed.
 
 1. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
 2. Under **Download the software**, click **Azure Stack**.
@@ -32,7 +37,7 @@ Before you start, make sure that you at least 85 GB of space and that you have .
 7. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
 8. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~52 GB) and ThirdPartyLicenses.rtf files.
+9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
 
 > [!NOTE]
 > After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
