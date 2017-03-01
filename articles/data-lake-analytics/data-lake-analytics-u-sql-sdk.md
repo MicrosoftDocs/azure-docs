@@ -372,8 +372,8 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |------|-----------|------|---------|
 |public bool DoCompile()|Compile the U-SQL script|True on success| |
 |public bool DoExec()|Execute the compiled result|True on success| |
-|public bool DoRun()|Run the U-SQL script (Compile + Execute)| |
-|public bool IsValidRuntimeDir(string path)|Check if the given path is valid runtime path|The path of runtime direcotory|
+|public bool DoRun()|Run the U-SQL script (Compile + Execute)|True on success| |
+|public bool IsValidRuntimeDir(string path)|Check if the given path is valid runtime path|True for valid|The path of runtime direcotory|
 
 
 ## FAQ about common issue
