@@ -107,7 +107,8 @@
 #### [Deploy with PowerShell](azure-stack-deploy-template-powershell.md)
 #### [Deploy with Visual Studio](azure-stack-deploy-template-visual-studio.md)
 
-# [Troubleshoot](azure-stack-troubleshooting.md)
+# Troubleshoot
+## [Known Issues](azure-stack-troubleshooting.md)
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack)  
