@@ -61,7 +61,7 @@ Use the following steps to copy data from the production cluster to the test clu
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
 
-2. To createa  test environment, follow the steps in the Create Linux-based clusters in HDInsight document. Stop before creating the cluster, and instead select **Optional Configuration**.
+2. To create a test environment, follow the steps in the Create Linux-based clusters in HDInsight document. Stop before creating the cluster, and instead select **Optional Configuration**.
 3. From the Optional Configuration blade, select **Linked Storage Accounts**.
 4. Select **Add a storage key**, and when prompted, select the storage account that was returned by the PowerShell script in step 1. Click **Select** on each blade. Finally, create the cluster.
 5. Once the cluster has been created, connect to it using **SSH.** If you are not familiar with using SSH with HDInsight, see one of the following documents:
