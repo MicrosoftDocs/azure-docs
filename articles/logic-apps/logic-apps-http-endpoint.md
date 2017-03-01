@@ -104,8 +104,8 @@ they cannot generate a valid signature.
 After you create the endpoint for your trigger, you can trigger your logic app 
 through a `POST` to the full URL. You can include more headers and any content in the body. 
 If the content's type is `application/json`, you can reference properties from inside the request. 
-Otherwise, the content is treated as a single binary unit that can be passed to other APIs 
-but cannot be referenced inside the workflow without converting the content. 
+Otherwise, the content is treated as a single binary unit that can be passed to other APIs, 
+but can't be referenced inside the workflow unless the content is converted. 
 For example, if you pass `application/xml` content, you can use `@xpath()` 
 for an XPath extraction, or `@json()` to convert from XML to JSON. 
 Learn about [working with content types](../logic-apps/logic-apps-content-type.md).
@@ -187,16 +187,17 @@ Responses have these properties:
 | body |A body object that can be a string, a JSON object, or even binary content referenced from a previous step. |
 | headers |You can define any number of headers to include in the response. |
 
-All the steps of your logic app that are required for the response 
-must complete within *60 seconds* for the original request to receive the response 
-*unless the workflow is called as a nested logic app*. 
-If no response action is reached within 60 seconds, 
+In your logic app, all the steps required for the response 
+must finish within *60 seconds* for the original request to get the response, 
+*unless the workflow is called as a nested logic app*.  
+If no response happens within 60 seconds, 
 the incoming request times out and receives a **408 Client timeout** HTTP response. 
-For nested logic apps, the parent Logic App will continue to wait for a response until completed, regardless of the amount of time it takes.
+For nested logic apps, the parent logic app continues to wait for a 
+response until completed, regardless of how much time is required.
 
 ## Advanced endpoint configuration
 
-Logic apps have built-in support for the direct access endpoint 
+Logic apps have built-in support for the direct-access endpoint 
 and always use the `POST` method to start running the logic app. 
 Previously, the **HTTP Listener** API App also supported changing 
 the URL segments and the HTTP method. You can even set up additional security 
