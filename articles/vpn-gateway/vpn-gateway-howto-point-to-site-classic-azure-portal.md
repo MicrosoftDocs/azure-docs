@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: cherylmc
 
 ---
@@ -202,8 +202,8 @@ Each client computer must have a client certificate in order to authenticate. Wh
 ### Part 2: Install the VPN client configuration package
 You can use the same VPN client configuration package on each client computer, provided that the version matches the architecture for the client.
 
-1. Copy the configuration file locally to the computer that you want to connect to your virtual network and double-click the .exe file.
-2. Once the package has installed, you can start the VPN connection. The configuration package is not signed by Microsoft. You may want to sign the package using your organization's signing service, or sign it yourself using [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). It's OK to use the package without signing. However, if the package isn't signed, a warning appears when you install the package.
+1. Copy the configuration file locally to the computer that you want to connect to your virtual network. 
+2. Double-click the .exe file to install the package on the client computer. The configuration package is not signed because you created it. This means you may see a warning. If you get a Windows SmartScreen popup, click **More info** (on the left), then **Run anyway** to install the package.
 3. On the client computer, navigate to **Network Settings** and click **VPN**. You will see the connection listed. It shows the name of the virtual network that it will connect to and will look similar to this:
 
     ![VPN client](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vpn.png)
@@ -239,6 +239,39 @@ Example:
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
+
+## <a name="add"></a>To add or remove trusted root certificates
+You can remove trusted root certificate from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
+
+### Remove a trusted root certificate
+
+1. On the **VPN connections** section of the blade for your VNet, click the **clients** graphic to open the **Point-to-site VPN connection** blade.
+
+    ![Clients](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
+2. On the **Point-to-site connection** blade, click **Manage certificates** to open the **Certificates** blade.<br>
+
+    ![Certificates blade](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
+3. On the **Certificates** blade, click the ellipsis next to the certificate that you want to remove, then click **Delete**.
+
+ 	![Delete root certificate](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deleteroot.png)<br>
+
+
+## <a name="revokeclient"></a>To revoke a client certificate
+You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This differs from removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication for the Point-to-Site connection.
+
+The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
+
+### Revoke a client certificate
+
+You can revoke a client certificate by adding the thumbprint to the revocation list.
+
+1. Retrieve the client certificate thumbprint. For more information, see [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
+2. Copy the information to a text editor and remove all spaces so that it is a continuous string.
+3. Navigate to the **'classic virtual network name' > Point-to-site VPN connection > Certificates** blade and then click **Revocation list** to open the Revocation list blade. 
+4. On the **Revocation list** blade, click **+Add certificate** to open the **Add certificate to revocation list** blade.
+5. On the **Add certificate to revocation list** blade, paste the certificate thumbprint as one continuous line of text, with no spaces. Click **OK** at the bottom of the blade.
+6. After updating has completed, the certificate can no longer be used to connect. Clients that try to connect using this certificate will receive a message saying that the certificate is no longer valid.
+
 
 ## <a name="faq"></a>Point-to-Site FAQ
 
