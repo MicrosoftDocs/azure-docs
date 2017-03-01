@@ -28,7 +28,7 @@ This release provides new features for both tenants and administrators.
 * Marketplace Syndication allows you to use content from the Azure Marketplace and make available in Azure Stack.
 
 ## Infrastructure and operations
-* Isolated administrative and user portals and APIs provide enhanced security.
+* Isolated administrator and user portals and APIs provide enhanced security.
 * Use enhanced infrastructure management functionality, such as improved alerting.
 * Using the Windows Azure Pack connector, you can view and manage IaaS virtual machines that are hosted on a Cloud Platform System (CPS) stamp. For this preview release, you can try this only with a CPS environment and additional configuration is required.
 
