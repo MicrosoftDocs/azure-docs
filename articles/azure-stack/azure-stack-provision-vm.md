@@ -20,8 +20,13 @@ ms.author: erikje
 # Provision a virtual machine
 As an administrator, you can create virtual machines to evaluate resources before offering them in plans.
 
+> [!NOTE]
+> Before you can provision virtual machines, you must [add the Windows Server 2016 Eval image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> 
+> 
+
 ## Provision a virtual machine
-1. On the Azure Stack POC computer, log in to `https://publicportal.local.azurestack.global` as [an admin](azure-stack-connect-azure-stack.md), and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
+1. On the Azure Stack POC computer, log in to `https://portal.local.azurestack.external` as [an admin](azure-stack-connect-azure-stack.md), and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
 
 2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
 3. In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
