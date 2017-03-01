@@ -6,6 +6,11 @@
 ## [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 ## [Manage role-based access control](automation-role-based-access-control.md)
 # How to
+## Set up authentication
+### [Authentication in Azure Automation](automation-security-overview.md)
+### [Azure Run As account](automation-sec-configure-azure-runas-account.md)
+### [Azure Service Management and Resource Manager](automation-sec-configure-aduser-account.md)
+### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Create runbooks
 ### [Runbook types](automation-runbook-types.md)
 ### [Create and import runbooks](automation-creating-importing-runbook.md)
@@ -32,11 +37,6 @@
 ### [Onboarding machines for management](automation-dsc-onboarding.md)
 ### [Compiling DSC configurations](automation-dsc-compile.md)
 ### [Continuous deployment using Chocolatey](automation-dsc-cd-chocolatey.md)
-## Set up authentication
-### [Authentication in Azure Automation](automation-security-overview.md)
-### [Azure Run As account](automation-sec-configure-azure-runas-account.md)
-### [Azure Service Management and Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Manage automation assets
 ### [Certificates](automation-certificates.md)
 ### [Connections](automation-connections.md)
