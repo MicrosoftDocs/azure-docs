@@ -79,12 +79,45 @@ If you require a background task to communicate with the calling task to indicat
 ## Hosting environment
 You can host background tasks by using a range of different Azure platform services:
 
+* [**Azure Functions**](#azure-functions). Funtions are the evolution of WebJobs (and their foundation is its own SDK). They're the Serverless option for running background specialized to mid complex Jobs.
 * [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of scripts or executable programs within the context of a web app.
 * [**Azure Cloud Services web and worker roles**](#azure-cloud-services-web-and-worker-roles). You can write code within a role that executes as a background task.
 * [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
-* [**Azure Batch**](batch/batch-technical-overview.md). It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+* [**Azure Batch**](#azure-batch). It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
+
+## Azure Functions
+Much like WebJobs, you can use Azure Functions to execute jobs as background tasks. The difference, is that you don't need to worry about being tied to a specific Web App nor scalability, as it can grow/shrink automatically and independently. They're serverless in nature, but you can assign an App Service Plan, for predictable costs, or run them freely in the wild, by choosing a convenient pay-as-you-go Consumption Plan. They can be triggered by a plethora of events, timers and direct calls (Queues, Blobs, WebSockets, REST, etc.).
+
+How to write an Azure Funtion
+
+* You'll need to create an App Function Service, or you may try it for free if you don't have an Azure account yet. Then, you have these options:
+ * Code functions directly from the portal
+ * Use Visual Studio with tools for Azure Functions
+ * Use Visual Studio Code and a Git repo for Continuous Delivery
+ 
+Azure Functions can be coded in different languages (including as of today: JavaScript, C#, F#, as well as scripting options such as Python, PHP, Bash, Batch, and PowerShell). Azure Functions run within the context of a container Azure Function App. This allows them to access environment variables and share information, such as connection strings, with its parent Azure Function App. The job has access to the unique identifier of the machine that is running it. The connection string named **AzureWebJobsStorage** provides access to Azure storage queues, blobs, and tables for application data, and access to Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
+
+Azure Functions have the following characteristics:
+
+* **Security**: anonumous access or Authentication/Authorization thru various providers can be setup. Also, CORS settings are ready to be configured at App Settings
+* **Monitoring**: Azure Functions activity can be monitored onva per-function basis
+* **Deployment**: Git can be used as CD source origin, right after playground phase is completed and robust source control is required for better maintenance.
+
+### Considerations
+
+*	Type of tasks: short lived, specialized, low complexity and few/simple dependencies.
+*	Not designed for long running workflow
+*	On Consuption Plan there's a max timeout of 5 minutes to avoid errors to become costly. [Check this disussion](https://github.com/Azure/azure-webjobs-sdk-script/issues/18) and [this other one as well](https://github.com/Azure/Azure-Functions/issues/75).
+*	Fault isolation will vary depending if runs on Consumption or App Service Plan. The first one auto scales in terms of assigned resources while the latter is constrained. This means that on Consumption Plan, a Function that eats resources intensively, can become a wallet drainer if gets out of control (*), but won't affect performance for others as resources are facilitated on demand. Opposedly, if running on App Service Plan, given that all Functions on a single App are bounded by predetermined hardware constraints, a resource intensive Function will affect others running in parallel.
+
+(*) A Fuction running on Consuption Plan is topped at 5 minutes before forced expiration.
+
+
+### More information
+* [Azure Functions recommended resources](azure-functions/functions-best-practices.md) extends over best practices for Azure Functions.
+
 
 ## Azure Web Apps and WebJobs
 You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process. WebJobs also run in response to a trigger event from Azure Scheduler or external factors, such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it is automatically restarted. Retry and error actions are configurable.
@@ -177,6 +210,23 @@ Consider the following points when you are deciding whether to deploy background
 ### More information
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
 * [Azure Virtual Machines FAQ](virtual-machines/virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+
+## Azure Batch
+An option if you need to run mid to huge parallel and high-performance computing (HPC) workloads across several 10s, 100s or 1000s VMs (or Nodes, according to its terminology). You can do Linux and Windows to solve different scenarios. It has monitoring capabilities so you know where you are at any given point.
+
+It's great to run batches paying only for what you use (basically, computing time + azure storage space for I/O). Scale on demand to attend your needs. Allows your most intensive, complex and orchestrated worklods to run. Please check the links below at "More Information" if you're interested in deep understanding Azure Batch capabilities, use cases, etc`.
+
+Considerations
+
+* Target batches: consider Azure Batch if your needs include any of these: Big Data or Big Compute, Azure Batch offers a balanced solution that fits.
+* Accounts: you'll need an Azure Subscription, a Batch account and, potentially, a Storage account.
+* You have at your fingertips, capabilities and infrastructre such as: MPI (Message Passing Interface), RDMA (Remote Direct Memory Access) for inter-task-communications, and H and N series for compute intensive taks. [Discuss with reviewer: no mention on FPGA in documentation.]
+* During Batch executions, resources might become scarce or unavailable from time to time. Code accordingly to contemplate such situations.
+
+### More information
+* [Basics of Azure Batch](batch/batch-technical-overview)
+* [Batch feature overview for developers](batch/batch-api-basics)
+* [Batch and HPC solutions in the Azure cloud](batch/batch-hpc-solutions)
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
