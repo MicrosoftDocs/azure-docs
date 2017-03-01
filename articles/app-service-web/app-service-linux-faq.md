@@ -1,14 +1,14 @@
 ---
-title: Azure App Service Web Apps on Linux FAQ | Microsoft Docs
-description: Azure App Service Web Apps on Linux FAQ.
+title: Azure App Service web apps on Linux FAQ | Microsoft Docs
+description: Azure App Service web apps on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss
 services: app-service
 documentationCenter: ''
-authors: aelnably
+authors: ahmedelnably
 manager: erikre
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,85 +19,83 @@ ms.author: aelnably
 
 ---
 
-# Azure App Service Web Apps on Linux FAQ #
+# Azure App Service web apps on Linux FAQ
 
-With the release of Azure App Service on Linux (Currently in preview), we are working on adding features and making improvements to our platform. Here are a number of frequently asked question that our customer have been asking us over the last months.
-If you have a question, please comment on the article and we will answer it as soon as possible.
+With the release of Azure App Service on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
+If you have a question, please comment on the article and we'll answer it as soon as possible.
 
-## Built-in Images ##
+## Built-in images
 
 **Q:** I want to fork the built-in Docker containers that the platform provides. Where can I find those files?
 
-**A:** All Docker files can be found here: https://github.com/azure-app-service. All Docker containers can be found here: https://hub.docker.com/u/appsvc/.
+**A:** You can find all Docker files on [GitHub](https://github.com/azure-app-service). You can find all Docker containers on [Docker Hub](https://hub.docker.com/u/appsvc/).
 
-## Management ##
+**Q:** What are the expected values for the Startup File section when I configure the runtime stack?
 
-**Q:** I press the restart button in the portal but my webapp did not restart, why is that?
+**A:** For Node.Js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name. For Ruby, you can specify the Ruby script that you want to initialize your app with.
 
-**A:** We are working on enabling the reset button in the near future, right now you have two options.
-1. Add or change a dummy application setting, this will force your webapp to restart. 
-2. Stop and then Start your webapp.
+## Management
 
-**Q:** Can I SSH to the VM?
+**Q:** I pressed the restart button in the Azure portal, but my web app didn't restart. How come?
 
-**A:** No, we will be providing a way to SSH into your app container in a future release.
+**A:** We're working on enabling the restart button in the near future. Right now, you have two options:
+- Add or change a dummy application setting. This will force your web app to restart.
+- Stop and then start your web app.
 
-## Continuous Integration / Deployment ##
+**Q:** Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?
 
-**Q:** My webapp still uses an old Docker Container image after updating the image on DockerHub? Do you support continuous integration/deployment of custom containers?
+**A:** No. We'll be providing a way to use SSH to connect to your app container in a future release.
 
-**A:** you can refresh the container either by stopping and then starting your web app or changing/adding a dummy application setting to force a refresh of your container, we will be having a CI/CD feature for custom containers in a future release.
+## Continuous integration/deployment
 
-## Language Support ##
+**Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
-**Q:** Do you support uncompiled .net core apps?
+**A:** You can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container. We're planning to have a continuous integration/deployment feature for custom containers in a future release.
 
-**A:** No, you need to deploy the compiled .net core app with all the dependencies, a full deploy and build experience will be coming in a future release.
+## Language support
 
-## Built-in Images ##
+**Q:** Do you support uncompiled .NET Core apps?
 
-**Q:** What is the expected values for the Startup File section, when I configure the Runtime Stack
+**A:** No. You need to deploy compiled .NET Core apps with all the dependencies. We're planning a full deployment and build experience in a future release.
 
-**A:** For Node.Js, you can specify the PM2 configuration file or your script file. For .Net Core, you should specify your compiled dll name. For Ruby, you can specify a Ruby script that you want to initialize your app with.
+## Custom containers
 
-## Custom Containers ##
+**Q:** I'm using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?
 
-**Q:** I am using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content using the SCM site or a ftp client. Where are my files?
-
-**A:** We mount an SMB share to \home\ directory; thus overriding any content there.
+**A:** We mount an SMB share to the \home\ directory. This overrides any content that's there.
 
 **Q:** I want to expose more than one port on my custom container image. Is that possible?
 
-**A:** Currently that is not supported.
+**A:** Currently, that isn't supported.
 
 **Q:** Can I bring my own storage?
 
-**A:** Currently that is not supported.
+**A:** Currently that isn't supported.
 
 **Q:** I can't browse my custom container's file system or running processes from the SCM site. Why is that?
 
-**A:** The SCM site runs in a separate container, you can't check the file system or running processes of the app container.
+**A:** The SCM site runs in a separate container. You can't check the file system or running processes of the app container.
 
-**Q:** My custom container listen to a port other than port 80. How can I configure my app to route the requests to that port?
+**Q:** My custom container listens to a port other than port 80. How can I configure my app to route the requests to that port?
 
-**A:** You can specify an Application setting called **PORT** and give it the value of the expected port number.
+**A:** You can specify an application setting called **PORT**, and give it the value of the expected port number.
 
-## Pricing and SLA ##
+## Pricing and SLA
 
-**Q:** What is the pricing while in public preview?
+**Q:** What's the pricing while you're using the public preview?
 
-**A:** You will be charged half the number of hours your app runs, with the normal Azure App Service pricing; effectively meaning a 50% discount on normal Azure App Service pricing.
+**A:** You'll be charged half the number of hours that your app runs, with the normal Azure App Service pricing. This means that you get a 50 percent discount on normal Azure App Service pricing.
 
-## Other ##
+## Other
 
 **Q:** What are the supported characters in application settings names?
 
-**A:** You can only use A-Z, a-z, 0-9 and underscore for application settings.
+**A:** You can only use A-Z, a-z, 0-9, and the underscore for application settings.
 
 **Q:** Where can I request new features?
 
-**A:** You can submit your idea here: https://aka.ms/webapps-uservoice. Please add [Linux] to the title of your idea.
+**A:** You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps-uservoice). Please add "[Linux]" to the title of your idea.
 
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
-* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
+* [Creating web apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
