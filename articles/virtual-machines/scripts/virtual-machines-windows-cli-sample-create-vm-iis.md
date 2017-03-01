@@ -26,37 +26,9 @@ Before running this script, ensure that a connection with Azure has been created
 
 This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
-## Create VM sample
+## Sample script
 
-```azurecli
-#!/bin/bash
-
-# Update for your admin password
-AdminPassword=ChangeYourAdminPassword1
-
-# Create a resource group.
-az group create --name myResourceGroup --location westeurope
-
-# Create a virtual machine. 
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image win2016datacenter \
-    --admin-username azureuser \
-    --admin-password $AdminPassword
-
-# Open port 80 to allow web traffic to host.
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM 
-
-# Use CustomScript extension to install Apache.
-az vm extension set \
-  --publisher Microsoft.Compute \
-  --version 1.8 \
-  --name CustomScriptExtension \
-  --vm-name myVM \
-  --resource-group myResourceGroup \
-  --settings '{"commandToExecute":"powershell.exe Install-WindowsFeature -Name Web-Server"}'
-```
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Quick Create VM")]
 
 ## Clean up deployment 
 
