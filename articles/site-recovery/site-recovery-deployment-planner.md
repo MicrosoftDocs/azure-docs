@@ -70,7 +70,7 @@ The tool has two main phases – profiling and report generation. There is also 
 
 Copy the zip file to the Windows Server from where you want to run the tool. Though you can run the tool from any Windows Server 2012 R2 which has network access to connect to the VMware vCenter server or the VMware vSphere ESXi host which holds the virtual machines to be profiled, it is recommended to run the tool on a server whose hardware configuration is as per the [Configuration Server sizing guideline](https://aka.ms/asr-v2a-on-prem-components).  If you have already deployed Azure Site Recovery components on-premises, you should run the tool from the Configuration Server. Having the same hardware configuration as the Configuration Server (which has an in-built Process Server) on the server where you run the tool is recommended so that the achieved throughput that the tool reports will match the actual throughput that Azure Site Recovery can achieve during replication – the throughput calculation depends on available network bandwidth on the server and hardware configuration (CPU, storage, etc.) of the server. If you run the tool from any other server, throughput will be calculated from that server to Microsoft Azure, plus the hardware configuration of the server may be different than the Configuration Server, and so the achieved throughput that the tool reports will not be accurate.
 
-Extract the zip folder. You can see multiple files and subfolders. The executable is ASRDeploymentPlanner.exe in the parent folder.
+Extract the zip folder. You can see multiple files and subfolders. The executable is ASRDeploymentPlanner.exe in the parent folder. 
 
 Example:
 Copy the .zip file to E:\ drive and extract it.
