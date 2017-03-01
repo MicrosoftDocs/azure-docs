@@ -22,7 +22,7 @@ ms.author: yanacai
 
 When developing U-SQL script, it is common to run and test U-SQL script locally before submit it to cloud. Azure Data Lake provides a Nuget package called Azure Data Lake U-SQL SDK for this scenario, through which you can easily scale U-SQL local run and test. It is also possible to integrate this U-SQL test with CI (Continuous Integration) system to automate the compile and test.
 
-If you care about how to manually local run and debug U-SQL script with GUI tooling, then you can use Azure Data Lake Tools for Visual Studio for that. You can learn more from [here](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-local-run).
+If you care about how to manually local run and debug U-SQL script with GUI tooling, then you can use Azure Data Lake Tools for Visual Studio for that. You can learn more from [here](data-lake-analytics-data-lake-tools-local-run.md).
 
 ## Install Azure Data Lake U-SQL SDK
 
