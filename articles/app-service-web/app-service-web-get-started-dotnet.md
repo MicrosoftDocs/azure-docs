@@ -140,7 +140,7 @@ the first time. For example, every time you want to push a new change that you'v
 Find out how to create, develop, and deploy .NET web apps to Azure directly in Visual Studio at 
 [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](web-sites-dotnet-get-started.md).
 
-Or, do more with your first web app. For example:
+Or, do more with your first web application. For example:
 
 * Try out [other ways to deploy your code to Azure](web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select
   **GitHub** instead of **Local Git Repository** in **Deployment options**.
