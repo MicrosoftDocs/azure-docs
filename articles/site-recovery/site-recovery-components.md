@@ -95,7 +95,7 @@ This replication scenario uses also the same components and process as [VMware t
 **Azure** | In Azure you need a Microsoft Azure account, an Azure storage account, and a Azure network. | Storage and network can be Resource Manager-based, or classic accounts.<br/><br/> Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover from your on-premises site occurs.<br/><br/> The Azure VMs connect to the Azure virtual network when they're created.
 **VMM server** | Hyper-V hosts located in VMM clouds | If Hyper-V hosts are managed in VMM clouds, you register the VMM server in the Recovery Services vault.<br/><br/> On the VMM server you install the Site Recovery Provider to orchestrate replication with Azure.<br/><br/> You need logical and VM networks set up to configure network mapping. A VM network should be linked to a logical network that's associated with the cloud.
 **Hyper-V host** | Hyper-V servers can be deployed with or without VMM server. | If there's no VMM server, the Site Recovery Provider is installed on the host to orchestrate replication with Site Recovery over the internet. If there's a VMM server, the Provider is installed on it, and not on the host.<br/><br/> The Recovery Services agent is installed on the host to handle data replication.<br/><br/> Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
-**Hyper-V VMs** | You need one or more VMs on the Hyper-V host server. |
+**Hyper-V VMs** | You need one or more VMs on the Hyper-V host server. | Nothing needs to explicitly installed on VMs
 
 
 ### Replication process
@@ -166,7 +166,7 @@ You can replicate the following to your secondary site:
 
 
 **Area** | **Component** | **Details**
---- | ---
+--- | --- | ---
 **Azure** | You need a Microsoft Azure account. |
 **VMM server** | We recommend a VMM server in the primary site, and one in the secondary site | Each VMM server should be connected to the internet.<br/><br/> Each server should have at least one VMM private cloud, with the Hyper-V capability profile set.<br/><br/> You install the Azure Site Recovery Provider on the VMM server. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. Communications between the Provider and Azure are secure and encrypted.
 **Hyper-V server** |  One or more Hyper-V host servers in the primary and secondary VMM clouds.<br/><br/> Servers should be connected to the internet.<br/><br/> Data is replicated between the primary and secondary Hyper-V host servers over the LAN or VPN, using Kerberos or certificate authentication.  
