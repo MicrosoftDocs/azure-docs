@@ -24,10 +24,10 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 There are two varieties of users for Microsoft Azure Stack, the cloud administrator (provider) and the tenant (consumer).
 
 * A **cloud administrator** can configure Azure Stack and manage offers, plans, services, quotas, and pricing to provide resources for their tenants.  Cloud administrators also manage capacity and respond to alerts.  
-* A **tenant** consumes services that the cloud administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
+* A **tenant** (also referred to as a user) consumes services that the cloud administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
 
 ## Portal
-The primary methods of interacting with Microsoft Azure Stack are the administrative portal, user portal, and PowerShell.
+The primary methods of interacting with Microsoft Azure Stack are the administrator portal, user portal, and PowerShell.
 
 ![](media/azure-stack-key-features/image3.png)
 
