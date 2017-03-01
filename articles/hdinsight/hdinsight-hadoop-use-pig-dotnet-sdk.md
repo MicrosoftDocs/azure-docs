@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 
 ---
@@ -34,7 +34,7 @@ To complete the steps in this article, you need the following.
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* Visual Studio 2012 or 2013 or 2015.
+* Visual Studio 2012, 2013, 2015 or 2017.
 
 ## Create the application
 
@@ -44,24 +44,11 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 2. For the new project, type or select the following values.
    
-    <table>
-    <tr>
-    <th>Property</th>
-    <th>Value</th>
-    </tr>
-    <tr>
-    <th>Category</th>
-    <th>Templates/Visual C#/Windows</th>
-    </tr>
-    <tr>
-    <th>Template</th>
-    <th>Console Application</th>
-    </tr>
-    <tr>
-    <th>Name</th>
-    <th>SubmitPigJob</th>
-    </tr>
-    </table>
+   | Property | Value |
+   | ------ | ------ |
+   | Category | Templates/Visual C#/Windows |
+   | Template | Console Application |
+   | Name | SubmitPigJob |
 
 3. Click **OK** to create the project.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 
 ---
@@ -27,7 +27,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 * The Hortonworks Sandbox running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox, which was configured using the information in the [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md) document.
 
-* Visual Studio 2013 or 2015, any edition.
+* Visual Studio 2013, 2015, or 2017 any edition.
 
 * The [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 or higher.
 

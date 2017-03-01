@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 
 ---
@@ -39,9 +39,14 @@ In this document, learn how to use C# with Hive and Pig.
 
   * Visual Studio 2015
 
+  * Visual Studio 2017
+
 * Hadoop on HDInsight cluster - see [Provision an HDInsight cluster](hdinsight-provision-clusters.md) for steps to create a cluster
 
-* Hadoop Tools for Visual Studio. See [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) for steps on installing and configuring the tools.
+* Hadoop Tools for Visual Studio or Data Lake tools for Visual Studio. See [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) for steps on installing and configuring the tools.
+
+    > [!NOTE]
+    > Data Lake tools are installed in Visual Studio 2017 by selecting the __Azure development__ workload during installation.
 
 ## .NET on HDInsight
 
@@ -55,13 +60,13 @@ The .NET common language runtime (CLR) and frameworks are installed by default o
 
 Streaming involves Hive and Pig passing data to an external application over stdout, and receiving the results over stdin. For C# applications, this is most easily accomplished via `Console.ReadLine()` and `Console.WriteLine()`.
 
-Since Hive and Pig need to invoke the application at run time, the **Console Application** template should be used for your C# projects.
+Since Hive and Pig need to invoke the application at run time, the **Console App (.NET Framework)** template should be used for your C# projects.
 
 ## Hive and C&#35;
 
 ### Create the C# project
 
-1. Open Visual Studio and create a new solution. For the project type, select **Console Application**, and name the new project **HiveCSharp**.
+1. Open Visual Studio and create a new solution. For the project type, select **Console App (.NET Framework)**, and name the new project **HiveCSharp**.
 
 2. Replace the contents of **Program.cs** with the following:
 
