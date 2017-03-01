@@ -14,12 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/01/2016
 ms.author: garye;haining
 
 ---
 # PowerShell module for Microsoft Azure Machine Learning
-The PowerShell module for Azure Machine Learning is a powerful tool that allows you to use Windows PowerShell to manage workspaces, experiments, datasets, web serivces, and more.
+The PowerShell module for Azure Machine Learning is a powerful tool that allows you to use Windows PowerShell to manage workspaces, experiments, datasets, Classic web serivces, and more.
 
 You can view the documentation and download the module, along with the full source code, at [https://aka.ms/amlps](https://aka.ms/amlps). 
 
@@ -27,7 +27,8 @@ You can view the documentation and download the module, along with the full sour
 > The Azure Machine Learning PowerShell module is currently in preview mode. The module will continue to be improved and expanded during this preview period. Keep an eye on the [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) for news and information.
 
 ## What is the Machine Learning PowerShell module?
-The Machine Learning PowerShell module is a .NET-based DLL module that allows you to fully manage Azure Machine Learning workspaces, experiments, datasets, web services, and web service endpoints from Windows PowerShell. 
+The Machine Learning PowerShell module is a .NET-based DLL module that allows you to fully manage Azure Machine Learning workspaces, experiments, datasets, Classic web services, and Classic web service endpoints from Windows PowerShell. 
+
 Along with the module, you can download the full source code which includes a cleanly-separated [C# API layer](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs). This means you can reference this DLL from your own .NET project and manage Azure Machine Learning through .NET code. In addition, the DLL depends on underlying REST APIs that you can leverage directly from your favorite client.
 
 ## What can I do with the PowerShell module?
