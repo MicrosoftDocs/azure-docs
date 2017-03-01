@@ -4,7 +4,7 @@ description: Learn how easy it is to run web apps in App Service by deploying a 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 845cfeab-6744-46e6-94a8-aef12657376e
@@ -18,7 +18,7 @@ ms.author: cephalin
 
 ---
 # Deploy your first Python web app to Azure in five minutes
-[!INCLUDE [app-service-web-selector-get-started-cli](../../includes/app-service-web-selector-get-started-cli.md)]  
+[!INCLUDE [app-service-web-selector-get-started-nodejs-cli](../../includes/app-service-web-selector-get-started-nodejs-cli.md)]  
 
 This tutorial helps you deploy your first Python web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),

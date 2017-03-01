@@ -18,15 +18,15 @@ ms.author: erikje
 
 ---
 # Deploy Azure Stack POC
-To deploy the Azure Stack POC, you first need to [prepare the deployment machine](#prepare-the-deployment-machine), [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
+To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
-## Download and extract Microsoft Azure Stack POC TP2
+## Download and extract Microsoft Azure Stack POC
 Before you start, make sure that you at least 85 GB of space and that you have .NET Framework 4.6 installed.
 
 1. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
-2. Under **Download the software**, click **Azure Stack Technical Preview 2**.
+2. Under **Download the software**, click **Azure Stack**.
 3. Run the downloaded AzureStackDownloader.exe file.
-4. In the **Azure Stack POC Downloader** window, click **Download**, and choose a folder to download the files.
+4. In the **Azure Stack POC Downloader** window, follow steps 1 through 5. After you click **Download**, choose a folder to download the files.
 5. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
 6. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
 7. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
@@ -40,8 +40,8 @@ Before you start, make sure that you at least 85 GB of space and that you have .
 > 
 
 ## Prepare the deployment machine
-1. Make sure that you can physically connect to the deployment machine, or have physical console access (such as KVM). You will need such access after you reboot the deployment machine in step 9.
-2. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack Technical Preview 2](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
+1. Make sure that you can physically connect to the deployment machine, or have physical console access (such as KVM). You will need such access after you reboot the deployment machine in step 9 below.
+2. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
 3. Log in as the Local Administrator to your POC machine.
 4. Copy the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
    
@@ -49,12 +49,12 @@ Before you start, make sure that you at least 85 GB of space and that you have .
    > If you choose not to use the recommended script to prepare your POC host computer (steps 5 – step 7), do not enter any license key at the activation page. A trial version of Windows Server 2016 image is included, and entering a license key causes expiration warning messages.
    > 
    > 
-5. On the POC machine, run the following PowerShell script to download the Azure Stack TP2 support files:
+5. On the POC machine, run the following PowerShell script to download the Azure Stack support files:
    
     ```powershell
     # Variables
     $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
-    $LocalPath = 'c:\AzureStack_TP2_SupportFiles'
+    $LocalPath = 'c:\AzureStack_SupportFiles'
    
     # Create folder
     New-Item $LocalPath -type directory
@@ -63,7 +63,7 @@ Before you start, make sure that you at least 85 GB of space and that you have .
     ( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | foreach { Invoke-WebRequest ($uri + $_) -OutFile ($LocalPath + '\' + $_) } 
     ```
    
-    This script downloads the Azure Stack TP2 support files to the folder specified by the $LocalPath parameter.
+    This script downloads the Azure Stack support files to the folder specified by the $LocalPath parameter.
 6. Open an elevated PowerShell console and change the directory to where you copied the support files.
 7. Run the PrepareBootFromVHD.ps1 script. This script and the unattend files are available with the other support scripts provided along with this build.
     There are five parameters for this PowerShell script:
@@ -88,14 +88,32 @@ Before you start, make sure that you at least 85 GB of space and that you have .
 1. Log in as the Local Administrator to your POC machine. Use the credentials specified in the previous steps.
 
     > [!IMPORTANT]
-    > Azure Stack requires access to the Internet, either directly or through a transparent proxy. The TP2 POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
+    > Azure Stack requires access to the Internet, either directly or through a transparent proxy. The POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
     
 2. Open an elevated PowerShell console.
 3. In PowerShell, run this command: `cd C:\CloudDeployment\Configuration`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
-4. Run the deploy command: `.\InstallAzureStackPOC.ps1`
-5. At the **Enter the password** prompt, enter the same password as the one in Step 8 of the previous section, and then confirm it. This is the password to all the virtual machines. Be sure to record it.
-6. Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
-7. The deployment process can take a couple of hours, during which the system automatically reboots once.
+4. You can deploy Azure Stack with Azure Active Directory or Active Directory Federation Services. Azure Stack, resource providers, and other applications work the same way with both. To learn more about what is supported with AD FS in Azure Stack, see the [Key features and concepts](azure-stack-key-features.md) article.
+
+    To deploy Azure Stack with Azure Active Directory, run the deploy command:
+    
+    ```powershell
+    cd C:\CloudDeployment\Setup 
+    $adminpass = ConvertTo-SecureString "〈LOCAL_ADMIN_PASSWORD〉" -AsPlainText -Force 
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass
+    ```
+
+    To deploy the Azure Stack POC with Active Directory Federation Services instead, run the following script (you just need to add the -UseADFS parameter):
+
+    ```powershell
+    cd C:\CloudDeployment\Setup 
+    $adminpass = ConvertTo-SecureString "〈LOCAL_ADMIN_PASSWORD〉" -AsPlainText -Force 
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -UseADFS
+    ```
+
+    In this AD FS deployment, the default stamp Directory Service is used as the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
+
+5. If you used the AAD option, enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
+6. The deployment process can take a few hours, during which the system automatically reboots once.
    
    > [!IMPORTANT]
    > If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
@@ -106,7 +124,9 @@ Before you start, make sure that you at least 85 GB of space and that you have .
    
     If the deployment fails, you can try run the script again using the -rerun parameter. Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
-### Deployment script examples
+### AAD deployment script examples
+You can script the entire AAD deployment. Here are some examples.
+
 If your AAD Identity is only associated with ONE AAD Directory:
 
     cd C:\CloudDeployment\Configuration
