@@ -64,6 +64,7 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
    
         using System;
+        using System.IO;
         using System.Threading;
    
         using Microsoft.Rest.Azure.Authentication;
@@ -91,9 +92,9 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
                     _subId = "<SUBSCRIPTION-ID>";
 
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
+                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = remoteFolderPath + "file.txt";
+                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
                 }
             }
         }
@@ -229,9 +230,10 @@ The following snippet shows a `AppendToFile` method that you use append data to 
     // Append to file
     public static void AppendToFile(string path, string content)
     {
-        var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
-
-        _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
+        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
+        {
+            _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
+        }
     }
 
 ## Download a file
@@ -240,12 +242,11 @@ The following snippet shows a `DownloadFile` method that you use to download a f
     // Download file
     public static void DownloadFile(string srcPath, string destPath)
     {
-        var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
-        var fileStream = new FileStream(destPath, FileMode.Create);
-
-        stream.CopyTo(fileStream);
-        fileStream.Close();
-        stream.Close();
+        using (var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath))
+        using (var fileStream = new FileStream(destPath, FileMode.Create))
+        {
+            stream.CopyTo(fileStream);
+        }
     }
 
 ## Next steps
