@@ -47,7 +47,30 @@ The name of their Automation account is in the name of each Automation resource.
 
 
 ## Runbooks
-[Azure Automation runbook](../automation/automation-runbook-types.md) resources have a type of **Microsoft.Automation/automationAccounts/runbooks** and have the properties in the following table.
+[Azure Automation runbook](../automation/automation-runbook-types.md) resources have a type of **Microsoft.Automation/automationAccounts/runbooks** and have the following structure. 
+
+
+    "name": "<name-of-automation-resource>",
+    "type": "Microsoft.Automation/automationAccounts/runbooks",
+    "apiVersion": "<api-version-of-resource>",
+    "location": "<resource-group-region>",
+    "dependsOn": [
+		"<name-of-required-modules>"
+    ],
+    "tags": { },
+    "properties": {
+        "runbookType": "<type-of-runbook>",
+        "logProgress": "<log-progress>",
+        "logVerbose": "<log-verbose>",
+        "description": "<runbook-description>",
+        "publishContentLink": {
+            "uri": "<uri-to-runbook-content>",
+            "version": "<runbook-version>"
+        }
+    }
+
+
+The properties for runbooks are described in the following table.
 
 | Property | Description |
 |:--- |:--- |
@@ -57,26 +80,6 @@ The name of their Automation account is in the name of each Automation resource.
 | description |Optional description for the runbook. |
 | publishContentLink |Specifies the content of the runbook. <br><br>uri - Uri to the content of the runbook.  This will be a .ps1 file for PowerShell and Script runbooks, and an exported graphical runbook file for a Graph runbook.  <br> version - Version of the runbook for your own tracking. |
 
-An example of a runbook resource is below.  In this case, it retrieves the runbook from the [PowerShell Gallery](https://www.powershellgallery.com).
-
-    "name": "[concat(parameters('accountName'), '/Start-AzureV2VMs'))]",
-    "type": "Microsoft.Automation/automationAccounts/runbooks",
-    "apiVersion": "[variables('AutomationApiVersion')]",
-    "location": "[parameters('regionId')]",
-    "dependsOn": [
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('startVmsRunbookName'))]"
-    ],
-    "tags": { },
-    "properties": {
-        "runbookType": "PowerShell",
-        "logProgress": "true",
-        "logVerbose": "true",
-        "description": "",
-        "publishContentLink": {
-            "uri": "https://www.powershellgallery.com/api/v2/items/psscript/package/Update-ModulesInAutomationToLatestVersion/1.0/Start-AzureV2VMs.ps1",
-            "version": "1.0"
-        }
-    }
 
 ### Starting a runbook
 There are two methods to start a runbook in a management solution.
@@ -85,7 +88,29 @@ There are two methods to start a runbook in a management solution.
 * To start the runbook on a schedule, create a [schedule resource](#schedules) as described below. 
 
 ## Automation jobs
-In order to start a runbook when the management solution is installed, you create a **job** resource.  Job resources have a type of **Microsoft.Automation/automationAccounts/jobs** and have the properties in the following table.
+In order to start a runbook when the management solution is installed, you create a **job** resource.  Job resources have a type of **Microsoft.Automation/automationAccounts/jobs** and have the following structure.
+
+    {
+        "name": "<name-of-job-resource>",
+        "type": "Microsoft.Automation/automationAccounts/jobs",
+        "apiVersion": "<api-version-of-resource>",
+        "location": "<resource-group-region>",
+        "dependsOn": [
+            "<name-of-runbook>",
+            "<name-of-previous-jobs>"
+        ],
+        "tags": { },
+        "properties": {
+            "runbook": {
+                "name": "<name-of-runbook>"
+            },
+            "parameters": {
+                "<runbook-parameter-values>"
+            }
+        }
+    }
+
+The properties for automation jobs are described in the following table.
 
 | Property | Description |
 |:--- |:--- |
@@ -95,29 +120,6 @@ In order to start a runbook when the management solution is installed, you creat
 The job includes the runbook name and any parameter values to be sent to the runbook.  The job must [depend on](operations-management-suite-solutions-creating.md#resources) the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
 
 The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md#parameters).  
-
-Following is an example of a job resource that starts a runbook when the management solution is installed.  One other runbooks must be completed before this one starts, so it has dependencies on the jobs for that runbook.  The details for the job are provided through parameters and variables rather than being specified directly.
-
-    {
-        "name": "[concat(parameters('accountName'), '/', parameters('startVmsRunbookGuid'))]",
-        "type": "Microsoft.Automation/automationAccounts/jobs",
-        "apiVersion": "[variables('AutomationApiVersion')]",
-        "location": "[parameters('regionId')]",
-        "dependsOn": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('startVmsRunbookName'))]",
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('initialPrepRunbookGuid'))]"
-        ],
-        "tags": { },
-        "properties": {
-            "runbook": {
-                "name": "[variables('startVmsRunbookName')]"
-            },
-            "parameters": {
-                "AzureConnectionAssetName": "[variables('AzureConnectionAssetName')]",
-                "ResourceGroupName": "[variables('ResourceGroupName')]"
-            }
-        }
-    }
 
 
 ## Certificates
@@ -202,15 +204,15 @@ Use one of the following two strategies when using schedule resources in a solut
 ## Variables
 [Azure Automation variables](../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the following structure.
 
-    "name": "[concat(parameters('accountName'), '/', variables('StartTargetResourceGroupsAssetName')) ]",
+    "name": "<name-of-variable-resource>",
     "type": "microsoft.automation/automationAccounts/variables",
-    "apiVersion": "[variables('AutomationApiVersion')]",
+    "apiVersion": "<api-version-of-resource>",
     "tags": { },
     "dependsOn": [
     ],
     "properties": {
         "description": "<variable-description>",
-        "isEncrypted": "<>",
+        "isEncrypted": "<true-false>",
         "type": "<variable-datatype>",
         "value": "<variable-value>"
     }
