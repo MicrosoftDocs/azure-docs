@@ -1,6 +1,6 @@
 ---
 title: Deploy a Docker container cluster in Azure | Microsoft Docs
-description: Deploy an Azure Container Service cluster by using the Azure portal or Azure Resource Manager template.
+description: Deploy a Kubernetes, DC/OS, or Docker Swarm solution in Azure Container Service by using the Azure portal or a Resource Manager template.
 services: container-service
 documentationcenter: ''
 author: rgardler
