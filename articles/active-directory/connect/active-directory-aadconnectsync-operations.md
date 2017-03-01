@@ -60,20 +60,14 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
 
 #### Verify
 1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`  
-   The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
-3. Run: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
-4. You have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all changes that are about to be exported.
-5. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes that are about to be exported are expected.
-
-**Understanding the export.csv file**
-
-Most of the file is self-explanatory. Some abbreviations to understand the content:
-
-* OMODT – Object Modification Type. Indicates if the operation at an object level is an Add, Update, or Delete.
-* AMODT – Attribute Modification Type. Indicates if the operation at an attribute level is an Add, Update, or delete.
-
-If the attribute value is multi-valued, then not every change is displayed. Only the number of values added and removed is visible.
+2. Run: `csexport "Name of Connector" export.xml /f:x`   
+   The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.  
+3. Download the [ZIP](https://github.com/EvanBasalik/csanalyzer/archive/master.zip) file from GitHub that contains the CSAnalyzer script and extract it. 
+4. Find the csanalyzer.ps1 PowerShell script in the extracted files and unblock it (right-click -> Properties -> Check 'Unblock'). 
+5. Open a PowerShell window and browse to the folder where you extracted the PowerShell script  
+6. Run: `.\csanalyzer.ps1 -xmltoimport export.xml` (Be sure to fully qualify export.xml if not running the script from the same folder as where you created the export.xml in Step 2) 
+7. You now have a file in named processedusers1.csv that can be examined in Microsoft Excel. This file contains all changes that will be exported to Azure AD on the next sync. 
+8. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes that are about to be exported are expected. 
 
 #### Switch active server
 1. On the currently active server, either turn off the server (DirSync/FIM/Azure AD Sync) so it is not exporting to Azure AD or set it in staging mode (Azure AD Connect).
