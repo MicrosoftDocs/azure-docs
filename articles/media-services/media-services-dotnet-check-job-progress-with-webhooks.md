@@ -404,7 +404,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 
 			    ITask task = job.Tasks.AddNew("My encoding task",
 				processor,
-				"H264 Multiple Bitrate 720p",
+				"Adaptive Streaming",
 				TaskOptions.None);
 
 
