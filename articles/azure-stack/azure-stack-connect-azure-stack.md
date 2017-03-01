@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/16/2016
+ms.date: 3/1/2017
 ms.author: erikje
 
 ---
@@ -30,10 +30,8 @@ With a Remote Desktop connection, a single concurrent user can work with the por
 2. Open a Remote Desktop Connection and connect to MAS-CON01. Enter **AzureStack\AzureStackAdmin** as the username, and the administrative password you provided during Azure Stack setup.  
 3. On the MAS-CON01 desktop, open Server Manager, click **Local Server**, turn off Internet Explorer Enhanced Security, and
 then close Server Manager.
-4. Double-click **Microsoft Azure Stack Portal** icon (https://publicportal.local.azurestack.global/) to open the [portal](azure-stack-key-features.md#portal).
-   
-   ![Azure Stack portal icon](media/azure-stack-connect-azure-stack/image0.png)
-5. Log in using the Azure Active Directory credentials specified during installation.
+4. To open the user [portal](azure-stack-key-features.md#portal), navigate to (https://publicportal.local.azurestack.external/) and sign in using user credentials.
+    To open the administrator [portal](azure-stack-key-features.md#portal), navigate to (https://portal.local.azurestack.external/) and sign in using the Azure Active Directory credentials specified during installation.
 
 ## Connect with VPN
 
@@ -68,14 +66,14 @@ Set-ExecutionPolicy Unrestricted
 
 To create a VPN connection to the Azure Stack PoC computer, use the following steps:
 
-1.	Add the Azure Stack PoC computer’s host IP address & certificate authority(CA) to the list of trusted hosts on your client computer. To do this, run the following commands in an elevated PowerShell session:
+1.	Add the Azure Stack PoC computer’s host IP address & certificate authority(CA) to the list of trusted hosts on your client computer by running the following commands in an elevated PowerShell session:
 
     ```PowerShell
     Set-Item wsman:\localhost\Client\TrustedHosts -Value $hostIP -Concatenate
     Set-Item wsman:\localhost\Client\TrustedHosts -Value mas-ca01.azurestack.local -Concatenate  
     ```
 
-2.	Assign the Azure Stack host IP address and administrator password to the **$hostIP** and **$Password** variables. To do this, run the following PowerShell commands and make sure that you populate the administrator password and fields:
+2.	Assign the Azure Stack host IP address and administrator password to the **$hostIP** and **$Password** variables by running the following PowerShell commands and make sure that you populate the administrator password and fields:
 
     ```PowerShell
     #Change the IP address in the following command to match your Azure Stack host IP address
@@ -92,7 +90,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
     ```
     ![get NAT IP](media/azure-stack-connect-azure-stack/image1.png)  
 
-    This command remotes into the **MAS-BGPNAT01** infrastructure VM and gets the NAT IP address.
+    This command remotely connects into the **MAS-BGPNAT01** infrastructure VM and gets the NAT IP address.
 
 4.	Create a VPN connection entry for your local user by using the **Add-AzureStackVpnConnection** command:
 
@@ -105,7 +103,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
     ![Network connections](media/azure-stack-connect-azure-stack/image3.png)  
 
-5.	Connect to the Azure Stack instance by using either of the following:
+5.	Connect to the Azure Stack instance by using either of the following methods:
 
     a.	**Connect-AzureStackVpn** command:
 
