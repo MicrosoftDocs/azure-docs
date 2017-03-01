@@ -101,7 +101,8 @@ The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/C
 * Remove BOM in shell and Python scripts automatically.
 * Protect sensitive data in CommandToExecute.
 
-[!NOTE]FreeBSD VM only supports CustomScript version 1.x by now.  
+> [!NOTE]
+> FreeBSD VM only supports CustomScript version 1.x by now.  
 
 ## Authentication: user names, passwords, and SSH keys
 When you're creating a FreeBSD virtual machine by using the Azure portal, you must provide a user name, password, or SSH public key.
@@ -119,7 +120,7 @@ After you're logged in through this user account, you can run commands as root b
 You can optionally obtain a root shell by using `sudo -s`.
 
 ## Known issues
-1. The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
+The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
 
 ## Next steps
 * Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
