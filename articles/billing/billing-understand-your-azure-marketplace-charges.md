@@ -21,6 +21,19 @@ ms.custom: H1Hack27Feb2017
 # Understand your Azure billing for external service charges
 External services used to be called Azure Marketplace. Generally, they're services published by third-parties available for Azure but are integrated completely within the Azure ecosystem. For example, ClearDB and SendGrid are external services that you can purchase in Azure, but are not published by Microsoft.
 
+When you provision a new external service or resource, a warning is shown:
+
+![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+> [!NOTE]
+> External services are published by companies that are not Microsoft, but sometimes Microsoft products are also categorized as external services.
+> 
+> 
+
+## How external services are billed
+- External services are billed separately. They are treated as individual orders within your Azure subscription. The billing period for each service is set when you purchase the service. Not to be confused with the billing period of the subscription under which you purchased it. You also receive separate bills and your credit card is charged separately.
+- Each external service has a different billing model. Some services are billed in a pay-as-you-go fashion while others use a monthly based payment model. You need a credit card for Azure external services, you can't buy external services with invoice pay.
+- You can't use monthly free credits for external services. If you are using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to external service bills. Use a credit card to purchase external services.
 
 
 ## View external service spending and history in the Azure portal
@@ -68,25 +81,6 @@ Update your payment methods for external service orders from the [Account Center
 If you want to cancel your external service order, you need to delete the resource in the [Azure portal](https://portal.azure.com).
 
 ![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
-
-## Learn more about external services
-When you provision a new external service or resource, a warning is shown:
-
-![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
-
-> [!NOTE]
-> External services are published by companies that are not Microsoft, but sometimes Microsoft products are also categorized as external services.
-> 
-> 
-
-### External services are billed separately
-External services are treated as individual orders within your Azure subscription. The billing period for each service is set when you purchase the service. Not to be confused with the billing period of the subscription under which you purchased it. You also receive separate bills and your credit card is charged separately.
-
-### Each external service has a different billing model
-Some services are billed in a pay-as-you-go fashion while others use a monthly based payment model. You need a credit card for Azure external services, you can't buy external services with invoice pay.
-
-### You can't use monthly free credits for external services
-If you are using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to external service bills. Use a credit card to purchase external services.
 
 ## Need help? Contact support.
 If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
