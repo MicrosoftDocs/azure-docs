@@ -22,8 +22,8 @@ ms.author: padmavc
 You can define custom metadata for artifacts in integration accounts and retrieve 
 that metadata during runtime for your logic app. For example, you can specify metadata 
 for artifacts like partners, agreements, schemas, and maps - all store metadata using key-value pairs. 
-Currently, artifacts don't have the capability for creating metadata through UI, 
-but you can use REST APIs to create metadata. To add metadata when you create or select a partner, 
+Currently, artifacts can't create metadata through UI, but you can use REST APIs to create metadata. 
+To add metadata when you create or select a partner, 
 agreement, or schema in the Azure portal, choose **Edit as JSON**. To retrieve artifact 
 metadata in logic apps, you can use the Integration Account Artifact LookUp feature.
 
@@ -49,7 +49,7 @@ or [schema](logic-apps-enterprise-integration-schemas.md).
 3. In Logic App Designer, add a trigger like *Request* or *HTTP* to your logic app.
 
 4.	Choose **Next Step** > **Add an action**. Search for *integration* 
-so you can find and then select **Integration Account - Integration Account Artifact LookUp**.
+so you can find and then select **Integration Account - Integration Account Artifact Lookup**.
 
 	![Select Integration Account Artifact Lookup](media/logic-apps-enterprise-integration-metadata/image2.png)
 
@@ -59,12 +59,13 @@ so you can find and then select **Integration Account - Integration Account Arti
 
 ## Example: Retrieve partner metadata
 
-Partner metdata has these `routingUrl` details:
+Partner metadata has these `routingUrl` details:
 
-![Find partner "routingURL" metdata](media/logic-apps-enterprise-integration-metadata/image6.png)
+![Find partner "routingURL" metadata](media/logic-apps-enterprise-integration-metadata/image6.png)
 
-1. In your logic app, set up your trigger, 
-the **Integration Account Artifact LookUp** for your partner, and an **HTTP**:
+1. In your logic app, add your trigger, 
+an **Integration Account - Integration Account Artifact Lookup** action for your partner, 
+and an **HTTP**.
 
 	![Add trigger, artifact lookup, and "HTTP" to your logic app](media/logic-apps-enterprise-integration-metadata/image4.png)
 
