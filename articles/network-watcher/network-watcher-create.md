@@ -43,6 +43,28 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcher Microsoft.Network Registered
 ```
 
+####Instructions for CLI
+
+To register
+
+```CLI
+azure feature register  Microsoft.Network AllowNetworkWatcher
+```
+To verify the registration was succesfull run the following CLI command:
+
+```CLI
+azure feature show Microsoft.Network AllowNetworkWatcher
+```
+
+If the feature was was properly registered the output should match the following:
+```CLI
+info:    Executing command feature show
+data:    Feature Name:       AllowNetworkWatcher
+data:    Provider Name:      Microsoft.Network
+data:    Registration State: Registered
+info:    feature show command OK
+```
+
 ## Create a Network Watcher in the portal
 
 Navigate to **More Services** > **Networking** > **Network Watcher**. You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.

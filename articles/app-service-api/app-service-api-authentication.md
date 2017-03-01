@@ -4,7 +4,7 @@ description: Learn about the authentication and authorization services that Azur
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7

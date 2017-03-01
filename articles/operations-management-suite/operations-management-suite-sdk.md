@@ -34,6 +34,7 @@ ms.author: bwren
 
 ## Log Analytics
 * [Log Analytics documentation](http://azure.microsoft.com/documentation/services/log-analytics)
+* [Log Analytics REST API](/rest/api/loganalytics)
 * [Log Analytics HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md)
 * [Log Search REST  API](../log-analytics/log-analytics-log-search-api.md)
 * [Alert REST API](../log-analytics/log-analytics-api-alerts.md)

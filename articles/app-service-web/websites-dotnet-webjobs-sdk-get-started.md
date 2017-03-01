@@ -4,7 +4,7 @@ description: Create a multi-tier app using ASP.NET MVC and Azure. The front end 
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: 99cb9917-483a-45f8-a98d-07d19c68c753

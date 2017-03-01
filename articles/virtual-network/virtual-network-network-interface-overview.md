@@ -1,6 +1,6 @@
 ---
 title: Network interfaces in Azure | Microsoft Docs
-description: Learn about Azure network interfaces in the Azure Resource Manager deployment model.
+description: Learn about Azure network interfaces and how they're used with virtual machines.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 02/24/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Network interfaces in Azure
+# What are network interfaces?
+
 A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
 
 Microsoft recommends deploying new resources using the Resource Manager deployment model, but you can also deploy VMs with network connectivity in the [classic](virtual-network-ip-addresses-overview-classic.md) deployment model. If you're familiar with the classic model, there are important differences in VM networking in the Resource Manager deployment model. Learn more about the differences by reading the [Virtual machine networking - Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) article.
@@ -31,7 +33,7 @@ In Azure, a network interface:
 4. May be attached to a VM, but can only be attached to a single VM that exists in the same location as the NIC.
 5. Has a MAC address, which is persisted with the NIC for as long as it remains attached to a VM. The MAC address is persisted whether the VM is restarted (from within the operating system) or stopped (de-allocated) and started using the Azure Portal, Azure PowerShell, or the Azure Command-Line Interface. If it's detached from a VM and attached to a different VM, the NIC receives a different MAC address. If the NIC is deleted, the MAC address is assigned to other NICs.
 6. Must have one primary **private** *IPv4* static or dynamic IP address assigned to it.
-7. May have one public IP address resource associated to it.
+7. May have one or more public IP address resources associated to it, read the [Multiple IP addresses per NIC](virtual-network-multiple-ip-addresses-portal.md) documentation for more information.
 8. Supports accelerated networking with single-root I/O virtualization (SR-IOV) for specific VM sizes running specific versions of the Microsoft Windows Server operating system. To learn more about this PREVIEW feature, read the [Accelerated networking for a virtual machine](virtual-network-accelerated-networking-powershell.md) article.
 9. Can receive traffic not destined to private IP addresses assigned to it if IP forwarding is enabled for the NIC. If a VM is running firewall software for example, it routes packets not destined for its own IP addresses. The VM must still run software capable of routing or forwarding traffic, but to do so, IP forwarding must be enabled for a NIC.
 10. Is often created in the same resource group as the VM it's attached to or the same VNet that it's connected to, though it isn't required to be.

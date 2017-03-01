@@ -4,7 +4,7 @@ description: Configure performance, availability, and usage analytics for your A
 services: application-insights
 documentationcenter: .net
 author: NumberByColors
-manager: douge
+manager: carmonm
 
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/13/2016
+ms.date: 02/28/2017
 ms.author: awills
 
 ---
@@ -31,16 +31,23 @@ There are alternative topics to look at if you are interested in:
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> Step 1: Add the Application Insights SDK
-If it's a new project, make sure Application Insights is selected when you create a new project in Visual Studio.
 
-![Screenshot of new ASP.NET project](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
-
-If it's an existing project, right-click the project in Solution Explorer, and choose **Add Application Insights Telemetry...** or **Configure Application Insights**.
+Right-click your web app project in Solution Explorer, and choose **Add**, **Application Insights Telemetry...** or **Configure Application Insights**.
 
 ![Screenshot of Solution Explorer, with Add Application Insights Telemetry highlighted](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-> [!NOTE]
-> If you're working with an ASP.NET Core project, [follow these instructions to fix a few lines of code](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
+(In Visual Studio 2015, there's also an option to add Application Insights in the New Project dialog.)
+
+Continue to the Application Insights configuration page:
+
+![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/visual-studio-register-dialog.png)
+
+1. Select the account and subscription that you use to access Azure.
+2. Select the resource in Azure where you want to see the data from your app. Usually you create a separate resource for a each app. If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
+3. Application Insights is free up to a certain volume of telemetry. You can impose a cap at that volume to avoid charges. After the resource is created, you can change your selection in the portal by opening  **Features + pricing**, **Data volume management**, **Daily volume cap**.
+4. Click **Register** to go ahead and configure Application Insights for your web app. Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
+5. Alternatively, you can just add the Application Insights SDK to your app. In this case, you will be able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](app-insights-monitor-performance-live-website-now.md).
+
 
 ## <a name="run"></a> Step 2: Run your app
 Run your app with F5. Open different pages to generate some telemetry.

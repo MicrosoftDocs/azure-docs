@@ -15,17 +15,19 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/21/2017
+  ms.date: 02/27/2017
   ms.author: curtand
+
+  ms.custom: H1Hack27Feb2017
 
 ---
 
-# What is group-based licensing in Azure Active Directory?
+# Group-based licensing basics in Azure Active Directory
 
 Microsoft cloud services such as Office 365, Enterprise Mobility + Security, Dynamics CRM, and other similar products require licenses to be assigned to each user who needs access to these services. License management is exposed to administrators via one of the management portals (Office, Azure) and PowerShell cmdlets. License assignment state is stored in Azure Active Directory –- the underlying infrastructure supporting identity management for all Microsoft cloud
 services.
 
-Until now, licenses could only be assigned at individual user level, which can male large-scale management difficult for our customers. For example, to add or remove user licenses based on organizational changes, such as users joining or leaving the organization or a department, an administrator often must write a complex PowerShell script to make individual calls to the cloud service.
+Until now, licenses could only be assigned at individual user level, which can make large-scale management difficult for our customers. For example, to add or remove user licenses based on organizational changes, such as users joining or leaving the organization or a department, an administrator often must write a complex PowerShell script to make individual calls to the cloud service.
 
 To address those challenges, we have introduced a new capability of the Azure AD license management system: group-based licensing. It is now possible to assign one or more product licenses to a group. Azure AD will make sure that the licenses are assigned to all members of the group. Any new members joining the group will be assigned the appropriate licenses and when they leave the group those licenses will be removed. This eliminates the need for automating license management via PowerShell to reflect changes in the organization and departmental structure on a per-user basis.
 
