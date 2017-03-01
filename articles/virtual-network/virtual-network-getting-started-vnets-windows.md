@@ -19,38 +19,32 @@ ms.author: jdial
 
 ---
 
-# Create you first virtual network and connect two Windows virtual machines to it
+# Create your first virtual network and connect two Windows virtual machines to it
 
-An Azure virtual network (VNet) is a representation of your own network in the cloud. You can control your Azure network settings and define DHCP address blocks, DNS settings, security policies, and routing. You can segment your VNet into subnets and connect Azure Virtual Machines (VM) and other Azure resources to the VNet, similar to how you connect on-premises resources to your on-premises networks, as shown in the following picture:
+Learn how to create a virtual network (VNet) with two subnets, create two virtual machines (VM), and connect each VM to one of the subnets, as shown in the following picture:
 
 ![Virtual network diagram](./media/virtual-network-getting-started-vnets-windows/vnet-diagram.png)
 
-Read the [Virtual Network overview](virtual-networks-overview.md) article if you’re not familiar with VNet concepts. In this exercise you deploy the configuration shown in the previous picture by completing the following tasks:
+An Azure virtual network (VNet) is a representation of your own network in the cloud. You can control your Azure network settings and define DHCP address blocks, DNS settings, security policies, and routing. To learn more about VNet concepts, read the [Virtual Network overview](virtual-networks-overview.md) article. Complete the following steps to create the resources shown in the picture:
 
 1. [Create a VNet with two subnets](#create-vnet)
 2. [Create two VMs, each with one network interface (NIC)](#create-vms), and associate a network security group (NSG) to each NIC
 3. [Connect to and from the VMs](#connect-to-from-vms)
 4. [Delete all resources](#delete-resources). You incur charges for some of the resources created in this exercise while they're provisioned. To minimize the charges, after you complete the exercise, be sure to complete the steps in this section to delete the resources you create.
 
-Upon completion of this exercise, you will have a basic understanding of how you can use a VNet. Next steps are provided so you can learn more about how to use VNets at a deeper level.
+You will have a basic understanding of how you can use a VNet after completing the steps in this article. Next steps are provided so you can learn more about how to use VNets at a deeper level.
 
 ## <a name="create-vnet"></a>Create a virtual network with two subnets
 
 Complete the following steps to create a virtual network with two subnets. Different subnets are typically used to control the flow of traffic between subnets.
 
 1. Log in to the [Azure portal](<https://portal.azure.com>). You can sign up for a [free one-month trial](https://azure.microsoft.com/en-us/free/) if you don’t already have an account.
-2. In the **Favorites** pane, click **New**, as shown in the following picture:
-
-	![Virtual network diagram](./media/virtual-network-getting-started-vnets-windows/favorites.png)
-
+2. In the **Favorites** pane, of the portal, click **New**.
 3. In the **New** blade, click **Networking**. In the **Networking** blade, click **Virtual network**, as shown in the following picture:
 
 	![Virtual network diagram](./media/virtual-network-getting-started-vnets-windows/virtual-network.png)
 
-4.  In the **Virtual network** blade, leave *Resource Manager* selected as the deployment model, and click **Create**, as shown in the following picture:
-
-	![Virtual network diagram](./media/virtual-network-getting-started-vnets-windows/deployment-model.png)
-
+4.  In the **Virtual network** blade, leave *Resource Manager* selected as the deployment model, and click **Create**.
 5.  In the **Create virtual network blade** that appears, enter the following values, then click **Create**:
 
 	|**Setting**|**Value**|**Details**|
