@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 
 ---
@@ -107,6 +107,11 @@ __Canada Central__ region:
 
 * 52.228.37.66
 * 52.228.45.222
+
+__Central India__ region:
+
+* 52.172.153.209
+* 52.172.152.49
 
 __West Central US__ region:
 

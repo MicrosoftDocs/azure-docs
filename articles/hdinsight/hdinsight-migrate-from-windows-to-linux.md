@@ -177,7 +177,7 @@ The following chart provides guidance on migrating your Hive workloads.
 | --- | --- |
 | Storm Dashboard |The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
 | Storm UI |The Storm UI is available at https://CLUSTERNAME.azurehdinsight.net/stormui |
-| Visual Studio to create, deploy, and manage C# or hybrid topologies |Visual Studio can be used to create, deploy, and manage C# (SCP.NET) or hybrid topologies on Linux-based Storm on HDInsight clusters created after 10/28/2017. |
+| Visual Studio to create, deploy, and manage C# or hybrid topologies |Visual Studio can be used to create, deploy, and manage C# (SCP.NET) or hybrid topologies on Linux-based Storm on HDInsight clusters created after 10/28/2016. |
 
 ## HBase
 On Linux-based clusters, the znode parent for HBase is `/hbase-unsecure`. You must set this in the configuration for any Java client applications that use native HBase Java API.
