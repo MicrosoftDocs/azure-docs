@@ -27,11 +27,11 @@ If you’re already familiar with the Azure AD identity model and want to learn 
 * [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## Choosing the user sign-in method for your organization
-For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD–based resources, we recommend the default password synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
+For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
 
 I need to | PS with SSO| PA with SSO| AD FS |
  --- | --- | --- | --- |
-Sync new user, contact, and group accounts in my on-premises Active Directory to the cloud automatically.|x|x|x|
+Sync new user, contact, and group accounts in on-premises Active Directory to the cloud automatically.|x|x|x|
 Set up my tenant for Office 365 hybrid scenarios.|x|x|x|
 Enable my users to sign in and access cloud services by using their on-premises password.|x|x|x|
 Implement single sign-on by using corporate credentials.|x|x|x|
@@ -44,9 +44,9 @@ Enable on-premises multi-factor authentication solutions.|||x|
 > Pass-through authentication currently has some limitations with rich clients. See [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) for more details.
 
 ### Password synchronization
-With password synchronization, hashes of user passwords are synchronized from your on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new passwords are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password synchronization together with password write-back to enable self-service password reset in Azure AD.
+With password synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new passwords are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password synchronization together with password write-back to enable self-service password reset in Azure AD.
 
-In addition, you can also enable [SSO](active-directory-aadconnect-sso.md) for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
+In addition, you can enable [SSO](active-directory-aadconnect-sso.md) for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
 
 ![Password synchronization](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
@@ -65,7 +65,7 @@ For more information, see:
 - [Single sign-on](active-directory-aadconnect-sso.md)
 
 ### Federation that uses a new or existing farm with AD FS in Windows Server 2012 R2
-With federated sign-in, your users can sign in to Azure AD–based services with their on-premises passwords--and, while they're on the corporate network, they don't even have to enter their passwords. By using the federation option with AD FS, you can deploy a new or existing farm with AD FS in Windows Server 2012 R2. If you choose to specify an existing farm, Azure AD Connect configures the trust between your farm and Azure AD so that your users can sign in.
+With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords. By using the federation option with AD FS, you can deploy a new or existing farm with AD FS in Windows Server 2012 R2. If you choose to specify an existing farm, Azure AD Connect configures the trust between your farm and Azure AD so that your users can sign in.
 
 <center>![Federation with AD FS in Windows Server 2012 R2](./media/active-directory-aadconnect-user-signin/federatedsignin.png)</center>
 
@@ -91,9 +91,9 @@ If you've already configured cloud sign-in by using an earlier version of AD FS 
 For more information, see the [Azure AD third-party federation compatibility list](active-directory-aadconnect-federation-compatibility.md).
 
 
-## User sign-in and user principal name (UPN)
+## User sign-in and user principal name
 ### Understanding user principal name
-In Active Directory, the default UPN suffix is the DNS name of the domain where the user account was created. In most cases, this is the domain name that's registered as the enterprise domain on the Internet. However, you can add more UPN suffixes by using Active Directory Domains and Trusts.
+In Active Directory, the default user principal name (UPN) suffix is the DNS name of the domain where the user account was created. In most cases, this is the domain name that's registered as the enterprise domain on the Internet. However, you can add more UPN suffixes by using Active Directory Domains and Trusts.
 
 The UPN of the user has the format username@domain. For example, for an Active Directory domain named "contoso.com", a user named John might have the UPN "john@contoso.com". The UPN of the user is based on RFC 822. Although the UPN and email share the same format, the value of the UPN for a user might or might not be the same as the email address of the user.
 
@@ -104,10 +104,10 @@ Every directory in Azure Active Directory comes with a built-in domain name, wit
 
 ## Azure AD sign-in configuration
 ### Azure AD sign-in configuration with Azure AD Connect
-The Azure AD sign-in experience depends on whether Azure AD can match the user principal name suffix of a user that's being synced to one of the custom domains that's verified in the Azure AD directory. Azure AD Connect provides help while you configure Azure AD sign-in settings, so that the user sign-in experience in the cloud is similar to the on-premises experience.
+The Azure AD sign-in experience depends on whether Azure AD can match the user principal name suffix of a user that's being synced to one of the custom domains that are verified in the Azure AD directory. Azure AD Connect provides help while you configure Azure AD sign-in settings, so that the user sign-in experience in the cloud is similar to the on-premises experience.
 
-Azure AD Connect lists the UPN suffixes that are defined for the domain(s) and tries to match them with a custom domain in Azure AD. Then it helps you with the appropriate action that needs to be taken.
-The Azure AD sign-in page lists the UPN suffixes that are defined for the on-premises Active Directory and displays the corresponding status against each suffix. The status values can be one of the following:
+Azure AD Connect lists the UPN suffixes that are defined for the domains and tries to match them with a custom domain in Azure AD. Then it helps you with the appropriate action that needs to be taken.
+The Azure AD sign-in page lists the UPN suffixes that are defined for on-premises Active Directory and displays the corresponding status against each suffix. The status values can be one of the following:
 
 | State | Description | Action needed |
 |:--- |:--- |:--- |
@@ -115,7 +115,7 @@ The Azure AD sign-in page lists the UPN suffixes that are defined for the on-pre
 | Not verified |Azure AD Connect found a matching custom domain in Azure AD, but it isn't verified. The UPN suffix of the users of this domain will be changed to the default .onmicrosoft.com suffix after synchronization if the domain isn't verified. | [Verify the custom domain in Azure AD.](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
 | Not added |Azure AD Connect didn't find a custom domain that corresponded to the UPN suffix. The UPN suffix of the users of this domain will be changed to the default .onmicrosoft.com suffix if the domain isn't added and verified in Azure. | [Add and verify a custom domain that corresponds to the UPN suffix.](../active-directory-add-domain.md) |
 
-The Azure AD sign-in page lists the UPN suffixes that are defined for the on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In a custom installation, you can now select the attribute for the user principal name on the **Azure AD sign-in** page.
+The Azure AD sign-in page lists the UPN suffixes that are defined for on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In a custom installation, you can now select the attribute for the user principal name on the **Azure AD sign-in** page.
 
 ![Azure AD sign-in page](./media/active-directory-aadconnect-user-signin/custom_azure_sign_in.png)
 
@@ -134,14 +134,13 @@ We strongly recommend that you keep the default attribute userPrincipalName. If 
 #### Different custom domain states and their effect on the Azure sign-in experience
 It's very important to understand the relationship between the custom domain states in your Azure AD directory and the UPN suffixes that are defined on-premises. Let's go through the different possible Azure sign-in experiences when you're setting up synchronization by using Azure AD Connect.
 
-For the information below, let's assume that we're concerned with the UPN suffix contoso.com, which is used in the on-premises directory as part of UPN--for example user@contoso.com.
+For the following information, let's assume that we're concerned with the UPN suffix contoso.com, which is used in the on-premises directory as part of UPN--for example user@contoso.com.
 
 ###### Express settings/Password synchronization
 | State | Effect on user Azure sign-in experience |
 |:---:|:--- |
 | Not added |In this case, no custom domain for contoso.com has been added in the Azure AD directory. Users who have UPN on-premises with the suffix @contoso.com won't be able to use their on-premises UPN to sign in to Azure. They'll instead have to use a new UPN that's provided to them by Azure AD by adding the suffix for the default Azure AD directory. For example, if you're syncing users to the Azure AD directory azurecontoso.onmicrosoft.com, then the on-premises user user@contoso.com will be given a UPN of user@azurecontoso.onmicrosoft.com. |
-| Not verified |In this case, we have a custom domain contoso.com that's added in Azure AD directory. However, it's not yet verified. If you go ahead with syncing users without verifying the domain, then the users will be assigned a new UPN by Azure AD, just like in the
-"Not added" scenario. |
+| Not verified |In this case, we have a custom domain contoso.com that's added in the Azure AD directory. However, it's not yet verified. If you go ahead with syncing users without verifying the domain, then the users will be assigned a new UPN by Azure AD, just like in the "Not added" scenario. |
 | Verified |In this case, we have a custom domain contoso.com that's already added and verified in Azure AD for the UPN suffix. Users will be able to use their on-premises user principal name, for example user@contoso.com, to sign in to Azure after they're synced to Azure AD. |
 
 ###### AD FS federation
@@ -174,5 +173,5 @@ On the **User sign-in** page, select the desired user sign-in.
 >
 
 ## Next steps
-- Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- Learn more about [integrating on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 - Learn more about [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md).
