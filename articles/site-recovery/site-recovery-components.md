@@ -117,11 +117,11 @@ This replication scenario uses also the same components and process as [VMware t
 5. You then commit the failover to start accessing the workload from the replica Azure VM.
 6. When your primary on-premises site is available again, you can [fail back](site-recovery-failback-from-azure-to-hyper-v.md). You kick off a planned failover from Azure to the primary site. For a planned failover you can select to failback to the same VM or to an alternate location, and synchronize changes between Azure and on-premises, to ensure no data loss. When VMs are created on-premises, you commit the failover.
 
-**Figure 5: Hyper-V site to Azure replication**
+**Figure 4: Hyper-V site to Azure replication**
 
 ![Components](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
-**Figure 6: Hyper-V in VMM clouds to Azure replication**
+**Figure 5: Hyper-V in VMM clouds to Azure replication**
 
 ![Components](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
@@ -156,7 +156,7 @@ You can replicate the following to your secondary site:
 2. After initial replication, the agent on each machine sends delta replication changes to the process server.
 3. The process server optimizes the data, and transfers it to the master target server on the secondary site. The configuration server manages the replication process.
 
-**Figure 4: VMware to VMware replication**
+**Figure 6: VMware to VMware replication**
 
 ![VMware to VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
