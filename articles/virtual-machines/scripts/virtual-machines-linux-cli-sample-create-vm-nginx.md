@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a Linux VM with Apache| Microsoft Docs
-description: Azure CLI Script Sample - Create a Linux VM with Apache
+title: Azure CLI Script Sample - Create a Linux VM with NGINX| Microsoft Docs
+description: Azure CLI Script Sample - Create a Linux VM with NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -18,36 +18,49 @@ ms.date: 02/21/2017
 ms.author: nepeters
 ---
 
-# Create a VM with Apache
+# Create a VM with NGINX
 
-This script creates an Azure Virtual Machine and then uses the Azure Virtual Machine Custom Script Extension to install Apache. Once the script has been run, a demo website can be reached on the public IP address of the virtual machine.
-
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
+This script creates an Azure Virtual Machine and then uses the Azure Virtual Machine Custom Script Extension to install NGINX. Once the script has been run, a demo website can be reached on the public IP address of the virtual machine.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
+
+Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
 ## Sample script
 
 The following script creates the virtual machine and invokes the custom script extension.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-apache/create-vm-apache.sh "Create VM Apache")]
+```azurecli
+#!/bin/bash
 
+# Create a resource group.
+az group create --name myResourceGroup --location westeurope
+
+# Create a new virtual machine, this creates SSH keys if not present.
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+
+# Open port 80 to allow web traffic to host.
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM 
+
+# Use CustomScript extension to install Apache.
+az vm extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --vm-name myVM \
+  --resource-group myResourceGroup \
+  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install nginx"}'
+ ``` 
 ## Custom Script Extension
 
-The custom script extension copies this script onto the virtual machine. The script is then run to install and configure an Apache web server. 
+The custom script extension copies this script onto the virtual machine. The script is then run to install and configure an NGINX web server. 
 
 ```bash
 #!/bin/bash
 apt-get -y update
 
-# install Apache2
-apt-get -y install apache2 
-
-# write some HTML
-echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/demo.html
-
-# restart Apache
-apachectl restart
+# install NGINX
+apt-get -y install nginx
 ```
 
 ## Clean up deployment 
@@ -67,7 +80,7 @@ This script uses the following commands to create a resource group, virtual mach
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates the virtual machine. This command also specifies the virtual machine image to be used, and administrative credentials.  |
 | [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | Creates a network security group rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#set) | Adds and runs a virtual machine extension to a VM. In this sample, the custom script extension is used to install Apache.|
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#set) | Adds and runs a virtual machine extension to a VM. In this sample, the custom script extension is used to install NGINX.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
