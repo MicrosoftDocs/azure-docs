@@ -9,7 +9,6 @@ You can install azure-batch SDK for node through npm:
 This installs the latest version of azure-batch node SDK.
 
 Now, let's understand the batch scenario we want to work with in more detail and we get into mapping it into Azure batch components right after that.
-
 ## The scenario
 I was working with a customer, helping them process large number of csv files into JSON. I have a csv to JSON processor Python console app that takes in the storage account details, container name and a blob pattern. It iterates through the blobs in the container that match the pattern downloads them and converts them into JSON, and re-uploads them with a /json pattern. Following figure explains the flow of the processor.
 
@@ -31,7 +30,7 @@ I also know some of you will still skip it :), so I have tried to cover the basi
 
 ### Step 1: Create an Azure Batch Account
 
-As a first step, let's create an Azure Batch account. You can create it from the [portal](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) or from commandline ([Powershell](https://docs.microsoft.com/en-us/azure/batch/batch-powershell-cmdlets-get-started) /[Nodejs Azure cli](https://docs.microsoft.com/en-us/azure/batch/batch-cli-get-started)).
+As a first step, let's create an Azure Batch account. You can create it from the [portal](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) or from commandline ([Powershell](https://docs.microsoft.com/en-us/azure/batch/batch-powershell-cmdlets-get-started) /[Azure cli](https://docs.microsoft.com/en-us/azure/batch/batch-cli-get-started)).
 
 Following are the commands to create one through Nodejs CLI.
 
@@ -44,11 +43,10 @@ Then create an Azure Batch account.
 
 Each Batch account has its corresponding access keys, these keys are needed to create further resources in Azure batch account. A good practice for production environment is to use Azure Key Vault to store these keys, and create a Service principal for the application that can access and download the keys from vault.
 
-`$acc_keys = Get-AzureRmBatchAccountKeys -AccountName "<batch-account-name>"`
+`azure batch account keys list --resource-group "<resource-group-name>" "<batch-account-name>"`
 
-You can print the account keys from the variable `$acc_keys` by using the following command. Please copy and store the key for further use below.
+Please copy and store the key for further use below.
 
-`$acc_keys.PrimaryAccountKey`
 
 ### Azure Batch Architecture
 
