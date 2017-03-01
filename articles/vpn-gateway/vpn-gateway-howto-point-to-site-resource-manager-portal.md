@@ -155,7 +155,7 @@ The VPN client package contains information to configure the VPN client software
 
 You can use the same VPN client configuration package on each client computer, provided that the version matches the architecture for the client.
 
-### Download the client configuration package
+### Step 1 - Download the client configuration package
 
 1. On the **Point-to-site configuration** blade, click **Download VPN client** to open the **Download VPN client** blade. It takes a minute or two for the package to generate.
    
@@ -167,7 +167,7 @@ You can use the same VPN client configuration package on each client computer, p
    * For 64-bit clients, select **AMD64**.
    * For 32-bit clients, select **x86**.
 
-### Install the client configuration package
+### Step 2 - Install the client configuration package
 
 1. Copy the configuration file locally to the computer that you want to connect to your virtual network. 
 2. Double-click the .exe file to install the package on the client computer. Because you created the configuration package, it is not signed. This means you may see a warning. If you get a Windows SmartScreen popup, click **More info** (on the left), then **Run anyway** to install the package.
@@ -216,21 +216,21 @@ Each client computer must have a client certificate to authenticate. When instal
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
 
-## <a name="add"></a>To add or remove trusted root certificates
+## <a name="add"></a>Add or remove trusted root certificates
 You can remove trusted root certificate from Azure. When you remove a trusted certificate, the client certificates that were generated from the root certificate will no longer be able to connect to Azure via Point-to-Site. If you want clients to connect, they need to install a new client certificate that is generated from a certificate that is trusted in Azure.
 
 See the section [Upload a trusted root certificate](#uploadfile) in this article for instructions.
 
-## <a name="revokeclient"></a>To revoke a client certificate
+## <a name="revokeclient"></a>Revoke a client certificate
 You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This differs from removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication for the Point-to-Site connection.
 
 The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 
-### Revoke a client certificate
+### To revoke a client certificate
 
 You can revoke a client certificate by adding the thumbprint to the revocation list.
 
-1. Retrieve the client certificate thumbprint. For more information, see [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Retrieve the client certificate thumbprint. For more information, see [How to retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copy the information to a text editor and remove all spaces so that it is a continuous string.
 3. Navigate to the virtual network gateway **Point-to-site-configuration** blade. This is the blade that you used to [upload a trusted root certificate](#uploadfile).
 4. In the **Revoked certificates** section, input a friendly name for the certificate (it doesn't have to be the certificate CN).

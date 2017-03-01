@@ -226,12 +226,12 @@ Each client computer must have a client certificate in order to authenticate. Wh
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
 
-## <a name="addremovecert"></a>To add or remove a trusted root certificate
+## <a name="addremovecert"></a>Add or remove a trusted root certificate
 Certificates are used to authenticate VPN clients for Point-to-Site VPNs. The following steps walk you through adding and removing root certificates. When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents. 
 
 You can add or remove trusted root certificates by using PowerShell, or in the Azure portal. If you want to do this using the Azure portal, go to your **virtual network gateway > settings > Point-to-site configuration > Root certificates**. The following steps walk you through these tasks using PowerShell. 
 
-### Add a trusted root certificate
+### To add a trusted root certificate
 You can add up to 20 trusted root certificate .cer files to Azure. Follow the steps below to add a root certificate.
 
 1. Create and prepare the new root certificate that you will add to Azure. Export the public key as a Base-64 encoded X.509 (.CER) and open it with a text editor. Then copy only the section shown below. 
@@ -274,12 +274,12 @@ You can remove trusted root certificate from Azure. When you remove a trusted ce
         Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
         -VirtualNetworkGatewayName "VNet1GW"
 
-## <a name="revoke"></a>To revoke client certificates
+## <a name="revoke"></a>Revoke a client certificate
 You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This differs from removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication for the Point-to-Site connection.
 
 The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 
-### Revoke a client certificate
+### To revoke a client certificate
 
 1. Retrieve the client certificate thumbprint. For more information, see [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copy the information to a text editor and remove all spaces so that it is a continuous string. You will declare this as a variable.
@@ -299,7 +299,7 @@ The common practice is to use the root certificate to manage access at team or o
         Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 6. After the thumbprint has been added, the certificate can no longer be used to connect. Clients that try to connect using this certificate will receive a message saying that the certificate is no longer valid.
 
-### Reinstate a client certificate
+### To reinstate a client certificate
 You can reinstate a client certificate by removing the thumbprint from the list of revoked client certificates.
 
 1. Declare the variables. Make sure you declare the correct thumbprint for the certificate that you want to reinstate.
