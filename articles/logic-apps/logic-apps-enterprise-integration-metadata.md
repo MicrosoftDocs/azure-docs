@@ -18,7 +18,7 @@ ms.date: 11/21/2016
 ms.author: padmavc
 ---
 
-# Manage artifact metadata in integration accounts for Azure Logic Apps
+# Manage artifact metadata in integration accounts for logic apps
 
 You can define custom metadata for artifacts in integration accounts and retrieve 
 that metadata during runtime for your logic app. For example, you can specify metadata 
@@ -26,7 +26,7 @@ for artifacts like partners, agreements, schemas, and maps - all store metadata 
 Currently, artifacts can't create metadata through UI, but you can use REST APIs to create metadata. 
 To add metadata when you create or select a partner, 
 agreement, or schema in the Azure portal, choose **Edit as JSON**. To retrieve artifact 
-metadata in logic apps, you can use the Integration Account Artifact LookUp feature.
+metadata in logic apps, you can use the Integration Account Artifact Lookup feature.
 
 ## Add metadata to artifacts in integration accounts
 
