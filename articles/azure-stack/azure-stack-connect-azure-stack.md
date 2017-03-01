@@ -105,13 +105,12 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
     ![Network connections](media/azure-stack-connect-azure-stack/image3.png)  
 
-5. Connect to the Azure Stack instance by using either of the following:
+5. Connect to the Azure Stack instance by using either of the following:  
 
-    a.	**Connect-AzureStackVpn** command:
-
-        ```PowerShell
-        Connect-AzureStackVpn -Password $Password
-        ```
+    a.	**Connect-AzureStackVpn** command:  
+    ```PowerShell
+    Connect-AzureStackVpn -Password $Password
+    ```
     ![connect with cmd](media/azure-stack-connect-azure-stack/image4.png)  
 
     When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** into your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
