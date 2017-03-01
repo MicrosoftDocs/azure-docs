@@ -378,8 +378,11 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 ## FAQ about common issue
 
-1. Error: E_CSC_SYSTEM_INTERNAL: Internal error! Could not load file or assembly 'ScopeEngineManaged.dll' or one of its dependencies. The specified module could not be found.
+### Error 1:
+E_CSC_SYSTEM_INTERNAL: Internal error! Could not load file or assembly 'ScopeEngineManaged.dll' or one of its dependencies. The specified module could not be found.
+
 Please check the following:
+
 - Make sure you have x64 environment. The build target platform and the test environment should be x64, refer to **Step 1: Create C# unit test project and configuration** above.
 - Make sure you have copied all dependency files under NugetPackage\build\runtime\ to project working directory.
 
