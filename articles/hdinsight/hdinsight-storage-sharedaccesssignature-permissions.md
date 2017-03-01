@@ -28,6 +28,7 @@ Shared Access Signatures (SAS) are a feature of Azure storage accounts that allo
   
   * Visual Studio must be version 2013, 2015, or 2017
   * Python must be version 2.7 or higher
+  
 * A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a new cluster and add a Shared Access Signature during cluster creation.
 
     > [!IMPORTANT]
