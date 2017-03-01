@@ -29,7 +29,7 @@ To download marketplace items, you must first [register Azure Stack with Azure](
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
 
-3. Click **More Services** > **Marketplace Management**
+3. Click **More Services** > **Marketplace Management**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image02.png)
 
