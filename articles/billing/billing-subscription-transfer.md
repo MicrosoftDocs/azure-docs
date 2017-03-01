@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: genli
-
+ms.custom: H1Hack27Feb2017
 ---
 # Transfer ownership of an Azure subscription to another account
 
-You can transfer your subscription to another user for Pay-As-You-Go,  Visual Studio, Action Pack, or BizSpark subscriptions in the Account Center. We support the transfer of Azure external services for these subscription types as well. 
+You can transfer your subscription to another user for Pay-As-You-Go, Visual Studio, Action Pack, or BizSpark subscriptions in the Account Center. We support the transfer of Azure external services for these subscription types as well. 
 
 You might want to transfer ownership of an Azure subscription if you:
 
@@ -44,7 +44,7 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 3. Click the **Transfer Subscription** option. See [FAQ](#no-button) if you do not see the button.
 
    ![Azure account subscriptions tab](./media/billing-subscription-transfer/image1.png)
-4. Follow the prompts to specify the recipient.
+4. Specify the recipient.
 
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
 5. The recipient automatically gets an email with an acceptance link.
@@ -65,7 +65,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com). [Learn more about RBAC](../active-directory/role-based-access-control-configure.md)
 
-3. Update credentials associated with this subscription's services. These include:
+3. Update credentials associated with this subscription's services including:
    
    * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    
@@ -91,7 +91,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 * **Does everything transfer? Including resource groups, VMs, disks, and other running services?**
 
-  Yes, all your resources like VMs, disks, and websites would transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) policies you've set up do not transfer. 
+  Yes, all your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) policies you've set up do not transfer. 
 
 * <a id="no-button"></a> **Why don't I see the Transfer Subscription button?**
 
@@ -113,7 +113,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
   * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
   * Remote Access credentials for services like Azure Virtual Machines.
 
-  This is not a complete list. The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources. Most resources can be updated as follows:
+ If the recipient needs to restrict access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
     1. Go to the [Azure portal](https://portal.azure.com).
     2. On the Hub menu, select **All resources**.
@@ -142,11 +142,11 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 * **Is the payment method impacted after I transferred an Azure subscription?**
 
-  To accept a subscription transfer, a credit card, or similar payment method must be provided to pay for the subscription. For example, if Bob transfers a subscription to Jane and Jane accepts the transfer, Jane must also provide a payment method that she used to pay for the subscription. After the transfer is complete, Bob is no longer charged for the subscription he transferred to Jane.
+  To accept a subscription transfer, a credit card, or similar payment method must be provided to pay for the subscription. For example, if Bob transfers a subscription to Jane and Jane accepts the transfer, Jane must provide a payment method to pay for the subscription. After the transfer is complete, Jane is billed for the subscription not Bob.
 
 * **How do I migrate data and services for my Azure subscription to new subscription?**
 
-  If you cannot transfer subscription ownership, you could manually migrate your resources over. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+  If you can't transfer subscription ownership, you can manually migrate your resources. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 
 
