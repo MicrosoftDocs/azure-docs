@@ -62,7 +62,7 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
 1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`
    The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
-3. Copy the PowerShell script from the section [CSAnalyzer](#Appendix-CSExportAnalyzer) to a file named `csanalyzer.ps1`.
+3. Copy the PowerShell script from the section [CSAnalyzer](#Appendix-CSAnalyzer) to a file named `csanalyzer.ps1`.
 4. Open a PowerShell window and browse to the folder where you created the PowerShell script.
 5. Run: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
 6. You now have a file named **processedusers1.csv** that can be examined in Microsoft Excel. This file contains all changes that are staged to be exported to Azure AD.
@@ -104,7 +104,7 @@ A common and supported method is to run the sync engine in a virtual machine. In
 ### SQL High Availability
 If you are not using the SQL Server Express that comes with Azure AD Connect, then high availability for SQL Server should also be considered. The only high availability solution supported is SQL clustering. Unsupported solutions include mirroring and Always On.
 
-## Appendix - CSExportAnalyzer
+## Appendix CSAnalyzer
 
 ```
 <#
