@@ -24,18 +24,7 @@ ms.author: juliako
 
 This topic shows how to customize Media Encoder Standard presets. The [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) topic shows how to use .NET to create an encoding task and a job that executes this task. Once you customize a preset, supply the custom presets to the encoding task. 
 
-In this topic, the custom presets that perform the following encoding tasks are demonstrated:
-
-- [Generate thumbnails](#thumbnails)
-- [Trim a video (clipping)](#trim_video)
-- [Create an overlay](#overlay)
-- [Insert a silent audio track when input has no audio](#silent_audio)
-- [Disable auto de-interlacing](#deinterlacing)
-- [Audio-only presets](#audio_only)
-- [Concatenate two or more video files](#concatenate)
-- [Crop videos with Media Encoder Standard](#crop)
-- [Insert a video track when input has no video](#no_video)
-- [Rotate a video](#rotate_video)
+In this topic, the custom presets that perform the following encoding tasks are demonstrated.
 
 ## Support for relative sizes
 
