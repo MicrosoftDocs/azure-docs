@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: juliako
 
 ---
@@ -40,6 +40,13 @@ These release notes summarize changes from previous releases and known issues.
 
 ## <a id="rest_version_history"></a>REST API Version History
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+## March 2017 Release
+
+You can now use Azure Media Standard to [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). This is the recommended encoding preset.
+
+You can now use Azure Media Standard or Media Encoder Premium Workflow to [create an encoding task that generates fMP4 chunks](media-services-generate-fmp4-chunks.md). 
+
 
 ## Febuary 2017 Release
 
