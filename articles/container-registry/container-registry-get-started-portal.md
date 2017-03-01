@@ -6,7 +6,8 @@ documentationcenter: ''
 author: stevelas
 manager: balans
 editor: dlepow
-tags: ''keywords: ''
+tags: ''
+keywords: ''
 
 ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
