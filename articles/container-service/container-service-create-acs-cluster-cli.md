@@ -1,6 +1,6 @@
 ---
 title: Deploy a Docker container cluster - Azure CLI | Microsoft Docs
-description: Deploy an Azure Container Service cluster using Azure CLI 2.0
+description: Deploy a Kubernetes, DC/OS, or Docker Swarm cluster in Azure Container Service by using Azure CLI 2.0
 services: container-service
 documentationcenter: ''
 author: sauryadas
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 
 ---
-# Use the Azure CLI 2.0 to create an Azure Container Service cluster
+# Deploy a Docker container hosting solution using the Azure CLI 2.0
 
 Use the `az acs` commands in the Azure CLI 2.0 to create and manage clusters in Azure Container Service. You can also deploy an Azure Container Service cluster by using the [Azure portal](container-service-deployment.md) or the Azure Container Service APIs.
 
