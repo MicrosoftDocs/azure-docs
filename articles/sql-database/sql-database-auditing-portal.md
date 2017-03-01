@@ -13,10 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/23/2017
+ms.date: 2/24/2017
 ms.author: ronitr; giladm
 
 ---
+
 # Configure and manage SQL database auditing in the Azure portal
 
 The following section describes how to configure and manage auditing using the Azure Portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](sql-database-auditing-powershell.md). To configure and manage auditing using the REST API, see [Configure auditing with the REST API](sql-database-auditing-rest.md).
