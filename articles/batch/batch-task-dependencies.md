@@ -139,23 +139,47 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ## Dependency actions
 
-In some scenarios, you may wish to specify the behavior of dependent tasks, regardless of whether the parent task completed successfully. 
+Dependency actions provide granular control over how a dependent task behaves, based on the success or failure of the upstream task. For example, suppose that a dependent task is awaiting data from the completion of the upstream task. If the upstream task fails, the dependent task may still be able to run using older data. Using a dependency action is one way to design your Batch application to be more resilient.  
 
-- You can run dependent tasks regardless of whether parent task has completed successfully. Setting the DependencyAction property to Satisfy indicates that dependent tasks should run even if the parent task exits with a non-zero exit code or a scheduling error.
-- You can block dependent tasks even if the parent task has completed successfully. Setting the DependencyAction property to Block indicates that dependent tasks should be blocked even if the parent task exits with an exit code of zero. 
+To specify a dependency action, set the DependencyAction property of the ExitOptions class. The DependencyAction property takes one of two values:
 
-
-
- You can now specify that dependent tasks proceed even if the task that they depend on fails. Set the new **dependencyAction** property of a task resource to *satisfy* to run dependent tasks even if the parent task fails. Alternately, set **dependencyAction** to *block* to block running of dependent tasks if the parent task fails.  
-+
-+    Specify the **dependencyAction** property in requests to [Add Task](~/docs-ref-autogen/batchservice/task.json#Task_Add) or [Add Task Collection](~/docs-ref-autogen/batchservice/task.json#Task_AddCollection). 
-
-Beginning with version XXX/YYY, you can now specify how a dependent tasks behaves, based on whether the task on which it depends completes successfully. 
+- Setting the DependencyAction property to Satisfy indicates that dependent tasks should run even if the parent task exits with a non-zero exit code or a scheduling error.
+- Setting the DependencyAction property to Block indicates that dependent tasks should not be run.
 
 
+```csharp
+// Task A is a parent task that exits with a non-zero exit code.
+new CloudTask("A", "cmd.exe /c echo A exit 1"),
+// Task B depends on task A
+new CloudTask("B", "cmd.exe /c echo B")
+{
+    DependsOn = TaskDependencies.OnId("A"),
+    ExitConditions = new ExitConditions()
+    {
+        // If task A exits with a non-zero exit code, run downstream task B.
+        Default = new ExitOptions()
+        {
+            DependencyAction = DependencyAction.Satisfy
+        }
+    }
+},
 
-the exit condition of
-
+// Task C is a parent task that cannot run and so causes a scheduling error.
+new CloudTask("C", "NonExistentProgram.exe"),
+// Task D depends on task C.
+new CloudTask("D", "cmd.exe /c echo D")
+{
+    DependsOn = TaskDependencies.OnId("C"),
+    ExitConditions = new ExitConditions()
+    {
+        // When task C exits with a scheduling error, the downstream task D will not run.
+        SchedulingError = new ExitOptions()
+        {
+            DependencyAction = DependencyAction.Block
+        },
+    }
+},
+```
 
 ## Code sample
 The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to enable task dependency on a job, create tasks that depend on other tasks, and execute those tasks on a pool of compute nodes.
