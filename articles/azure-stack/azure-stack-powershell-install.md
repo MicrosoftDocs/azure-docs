@@ -50,8 +50,7 @@ To install the Azure Stack PowerShell modules on a computer, which doesn’t alr
     # To install the module for all users on your computer. Run this command in an elevated PowerShell session
     Install-Module -Name AzureRM -RequiredVersion 1.2.8
  ```
-
-    The **Scope** parameter is optional. 
+   The **Scope** parameter is optional. 
 
         •	If set to **CurrentUser**, the module installs only in the current user account.  
         •	If set to **All Users** or not specified, the AzureRM module installs to a location that all users can access.  
