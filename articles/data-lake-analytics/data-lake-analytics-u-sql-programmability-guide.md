@@ -1,11 +1,11 @@
 ---
-title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
-description: Learn about the set of services in Azure Data Lake that enable you to create a cloud-based big data platform.
-services: data-lake-analytics
-cloud:
-documentationcenter: usually not applicable; if applicable, use value listed below for the correct dev center
-author: MikeRys
-manager: arindamc
+  title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
+  description: Learn about the set of services in Azure Data Lake that enable you to create a cloud-based big data platform.
+  services: data-lake-analytics
+  cloud:
+  documentationcenter:
+  author: MikeRys
+  manager: arindamc
 
 
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
@@ -2008,7 +2008,7 @@ The typical call to the user-defined applier looks like the following:
 ```sql
 	SELECT …
 	FROM …
-	CROSS APPLY
+	CROSS APPLYis used to pass parameters
 	new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
@@ -2025,7 +2025,7 @@ The user-defined applier base class definition is as follows:
     }
 ```
 
-To define a user-defined applier, we need to create `IApplier` interface with [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined applier definition.
+To define a user-defined applier, we need to create the `IApplier` interface with [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined applier definition.
 
 ```c#
     [SqlUserDefinedApplier]
@@ -2045,11 +2045,11 @@ To define a user-defined applier, we need to create `IApplier` interface with [`
 ```
 
 * Apply is called for each row of the outer table. It returns the `IUpdatableRow` output rowset.
-* The Constructor class is used to pass parameters to the user-defined applier
+* The Constructor class is used to pass parameters to the user-defined applier.
 
 **SqlUserDefinedApplier** indicates that the type should be registered as a user-defined applier. This class cannot be inherited.
 
-SqlUserDefinedApplier attribute is **optional** for a user-defined applier definition.
+**SqlUserDefinedApplier** is **optional** for a user-defined applier definition.
 
 
 The main programmability objects are as follows:
@@ -2060,7 +2060,7 @@ The main programmability objects are as follows:
 
 Input rowsets are passed as `IRow` input. The output rows are generated as `IUpdatableRow` output interface.
 
-Individual column names can be determined by calling to `IRow` Schema method.
+Individual column names can be determined by calling the `IRow` Schema method.
 
 ```c#
 	ISchema schema = row.Schema;
@@ -2088,7 +2088,7 @@ The output values must be set with `IUpdatableRow` output:
 
 It is important to understand that custom appliers only output columns/values that are defined with `output.Set` method call.
 
-The actual output is triggered by calling to `yield return output.AsReadOnly()`;
+The actual output is triggered by calling to `yield return output.AsReadOnly()`;.
 
 The user-defined applier parameters can be passed to the constructor. Applier can return a variable number of columns that need to be defined during the applier call in base U-SQL Script.
 
@@ -2154,7 +2154,7 @@ Here is the user-defined applier example:
     }
 ```
 
-And the base U-SQL script for this user-defined applier:
+Following is the base U-SQL script for this user-defined applier:
 
 ```sql
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
@@ -2191,13 +2191,13 @@ In this use case scenario, user-defined applier acts as a comma-delimited value 
 210	X5AB2CD45XY458893	Nissan,Altima,2011,4Dr,74000
 ```
 
-It is a typical tab-delimited TSV file with a properties column that contains car properties such as make, model, and so on. Those properties need to be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or specific set of properties only.
+It is a typical tab-delimited TSV file with a properties column that contains car properties such as make, model, and so on. Those properties need to be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or a specific set of properties only.
 
 	…USQL_Programmability.ParserApplier ("all")
 	…USQL_Programmability.ParserApplier ("make")
 	…USQL_Programmability.ParserApplier ("make&model")
 
-User-defined applier can either be called as a new instance of applier object:
+The user-defined applier can be called as a new instance of applier object:
 
 ```c#
 	CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
@@ -2229,7 +2229,7 @@ Combine_Expression :=
 
 For more information, see [COMBINE Expression (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
 
-To define a user-defined combiner, we need to create the `ICombiner` interface with [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined Combiner definition.
+To define a user-defined combiner, we need to create the `ICombiner` interface with the [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined Combiner definition.
 
 Base `ICombiner` class definition:
 
@@ -2259,9 +2259,9 @@ The custom implementation of an `ICombiner` interface should contain the definit
     }
 ```
 
-**SqlUserDefinedCombiner** attribute indicates that the type should be registered as a user-defined combiner. This class cannot be inherited.
+The **SqlUserDefinedCombiner** attribute indicates that the type should be registered as a user-defined combiner. This class cannot be inherited.
 
-SqlUserDefinedCombiner is used to define the Combiner mode property. It is an optional attribute for a user-defined combiner definition. .
+**SqlUserDefinedCombiner** is used to define the Combiner mode property. It is an optional attribute for a user-defined combiner definition.
 
 CombinerMode     Mode
 
@@ -2292,7 +2292,7 @@ Input rowsets are passed as **left** and **right** `IRowset` type of interface. 
 
 For caching purposes, we can create a List\<T\> type of memory structure as a result of a LINQ query execution, specifically List<`IRow`>. The anonymous data type can be used during enumeration as well.
 
-See [Introduction to LINQ Queries (C#)](https://msdn.microsoft.com/library/bb397906.aspx) for more information about LINQ queries and [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) for more information about IEnumerable\<T\> interface.
+See [Introduction to LINQ Queries (C#)](https://msdn.microsoft.com/library/bb397906.aspx) for more information about LINQ queries, and [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) for more information about IEnumerable\<T\> interface.
 
 To get the actual data values from the incoming `IRowset`, we use the Get() method of `IRow` interface.
 
@@ -2333,7 +2333,7 @@ The output values must be set with `IUpdatableRow` output.
 	output.Set<int>("mycolumn", mycolumn)
 ```
 
-The actual output is triggered by calling to `yield return output.AsReadOnly()`;
+The actual output is triggered by calling to `yield return output.AsReadOnly()`;.
 
 Following is a combiner example:
 
@@ -2389,7 +2389,7 @@ Following is a combiner example:
     }
 ```
 
-In this use-case scenario, we are building analytics report for the retailer. The goal is to find all products that cost more than $20,000 and that sell through the Web site faster than through the regular retailer within a certain time frame.
+In this use-case scenario, we are building an analytics report for the retailer. The goal is to find all products that cost more than $20,000 and that sell through the Web site faster than through the regular retailer within a certain time frame.
 
 Here is the base U-SQL script. You can compare the logic between a regular JOIN and a combiner:
 
@@ -2486,7 +2486,7 @@ OUTPUT @rs1 TO @output_file1 USING Outputters.Tsv();
 OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
 ```
 
-A user-defined combiner can be called as a new instance of applier object:
+A user-defined combiner can be called as a new instance of the applier object:
 
 ```c#
     USING new MyNameSpace.MyCombiner();
@@ -2521,8 +2521,8 @@ This class interface should contain a definition for the `IEnumerable` interface
         }
 ```
 
-**SqlUserDefinedReducer** attribute indicates that the type should be registered as a user-defined reducer. This class cannot be inherited.s
-SqlUserDefinedReducer is an optional attribute for a user-defined reducer definition. It's used to define IsRecursive property.
+The **SqlUserDefinedReducer** attribute indicates that the type should be registered as a user-defined reducer. This class cannot be inherited.
+**SqlUserDefinedReducer** is an optional attribute for a user-defined reducer definition. It's used to define IsRecursive property.
 
 * bool     IsRecursive    
 * **true**  = Indicates whether this Reducer is idempotent
@@ -2538,7 +2538,7 @@ For input rows enumeration, we use the `Row.Get` method.
             }
 ```
 
-Note that the parameter fo the `Row.Get` method is a column that's passed as part of the `PRODUCE` class of the `REDUCE` statement of the U-SQL base script. We need to use the correct data type here as well.
+Note that the parameter for the `Row.Get` method is a column that's passed as part of the `PRODUCE` class of the `REDUCE` statement of the U-SQL base script. We need to use the correct data type here as well.
 
 For output, use the `output.Set` method.
 
