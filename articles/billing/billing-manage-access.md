@@ -1,5 +1,5 @@
 ---
-title: Managing access to Azure billing | Microsoft Docs
+title: Manage access to Azure billing using roles | Microsoft Docs
 description: 
 services: ''
 documentationcenter: ''
@@ -18,16 +18,13 @@ ms.date: 02/22/2017
 ms.author: vikdesai
 
 ---
-# Managing access to billing information for Azure
+# Manage access to billing information for Azure using role-based access control
 
-Access to viewing billing information in Azure portal is granted to users in certain roles on the Azure subscription. The user roles who have access to billing information are Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader. They would have access to billing information in the [Azure portal](https://portal.azure.com/), and they can use the Billing API to download invoices.
-
-> [!NOTE]
-> Only the Account Administrator can access the [Azure Account Center](https://account.windowsazure.com). 
+You can grant access to view Azure billing information to members of your team by assigning one of the following user roles: Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader. They would have access to billing information in the [Azure portal](https://portal.azure.com/), and they can use the Billing API to download invoices. For more information about who can grant roles, and which roles can do what, see [Roles in Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
 
 ## Adding users to the Billing Reader role
 
-A Billing Reader has read-only access to subscription billing information in Azure portal, and no access to services such as VMs and storage accounts. The common use case for the Billing Reader role is delegating access to billing information for a subscription without giving the ability to manage Azure service. This role is appropriate for users in an organization who only perform financial and cost management for Azure subscriptions. Users in this role can view billing information in the Azure portal and download invoices for the subscription.
+The Billing Reader role has read-only access to subscription billing information in Azure portal, and no access to services such as VMs and storage accounts. Assign the Billing Reader role to someone that needs access to the subscription billing information but not the ability to manage Azure services. This role is appropriate for users in an organization who only perform financial and cost management for Azure subscriptions.
 
 1. Select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.
     
@@ -47,11 +44,12 @@ A Billing Reader has read-only access to subscription billing information in Azu
 
     ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
+> [!NOTE]
+> The Billing Reader feature is in preview, and may not be available for Azure Germany, Azure China, and Azure Government.
+
 ## Adding users to other roles 
 
 Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
-
-The user roles who have access to billing information are Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader.
 
 ## Who can access the [Account Center](https://account.windowsazure.com)?
 
