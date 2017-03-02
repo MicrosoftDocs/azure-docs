@@ -136,13 +136,12 @@ Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPN
  
 If you are using an enterprise solution, you can use your existing certificate chain. Obtain the .cer file for the root certificate that you want to use.
 
-If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. The recommended method for creating a self-signed root certificate for P2S connections is makecert. Self-signed certificates created by using makecert contain the fields necessary for P2S connections. We are aware that makecert is deprecated. [Create a self-signed root certificate for P2S connections](vpn-gateway-certificates-point-to-site.md) will walk you through the steps to create a self-signed root certificate.
+If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. To create a self-signed certificate that contains the necessary fields for P2S authentication, use makecert. [Create a self-signed root certificate for P2S connections](vpn-gateway-certificates-point-to-site.md) will walk you through the steps to create a self-signed root certificate. We are aware that makecert is deprecated, but at this time, it is the supported solution.
 
 >[!NOTE]
 >Although it is possible to use PowerShell to create self-signed certificates, the certificate that is generated using PowerShell does not contain the fields necessary for P2S connections.
 >
 >
-
 
 1. To obtain a .cer file from a self-signed certificate created on your computer, open **certmgr.msc** and locate the root certificate. The certificate is typically located in 'Certificates-Current User/ Personal/Certificates'. Right-click the self-signed root certificate, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, select **No, do not export the private key**, and then click **Next**.
