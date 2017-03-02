@@ -20,10 +20,10 @@ ms.author: marsma
 # Monitor a storage account in the Azure portal
 
 ## Overview
-You can use the [Azure portal](https://portal.azure.com) to monitor your Azure Storage account. Azure Storage uses [Storage Analytics](storage-analytics.md) to track metrics for your account and log request data, and by using the portal, you can configure both.
+You can use the [Azure portal](https://portal.azure.com) to monitor your Azure Storage account. Azure Storage uses [Storage Analytics](storage-analytics.md) to track metrics for your account and log request data. By using the Azure portal, you can configure both metrics and request logging, and view metrics data.
 
 > [!NOTE]
-> There are costs associated with examining monitoring data in the Azure portal. For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
+> There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
 > 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -38,13 +38,13 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 
    There are two types of metrics you can enable for each service, both of which are enabled by default for new storage accounts:
 
-   * **Aggregate**: Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the blob, queue, table, and file services.
+   * **Aggregate**: Collects metrics such as ingress/egress, availability, latency, and success percentages. These metrics are aggregated for the blob, queue, table, and file services.
    * **Per API**: In addition to the aggregate metrics, collects the same set of metrics for each storage operation in the Azure Storage service API.
 
-   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is 7 days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
+   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
 
-   > [!TIP]
-   > We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by the system at no cost. You are charged when you manually delete metrics data. See [What charges do you incur when you enable storage metrics?](storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
+   > [!WARNING]
+   > You are charged when you manually delete metrics data. Stale analytics data (data older than your retention policy) is deleted by the system at no cost. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account. See [What charges do you incur when you enable storage metrics?](storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
    >
 
 1. When you finish the monitoring configuration, select **Save**.
@@ -57,7 +57,7 @@ A default set of metrics is displayed in charts for each service. Once you've en
 
 ## How to: Customize metrics charts
 
-Use the following procedure to choose which storage metrics to view in a metrics chart. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account, only the viewing of the metrics data.
+Use the following procedure to choose which storage metrics to view in a metrics chart.
 
 1. Open the chart blade for the chart you wish to customize by clicking anywhere within the chart's tile. In this example, we work with the chart highlighted in the following image:
 
@@ -75,20 +75,24 @@ Use the following procedure to choose which storage metrics to view in a metrics
 
    ![Individual metric selection in Edit Chart blade](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
 
+> [NOTE!]
+> Your chart settings do not affect the collection, aggregation, or storage of monitoring data in the storage account, only the viewing of metrics data.
+>
+
 ### Metrics availability in charts
 
 The list of available metrics changes based on which service you've chosen in the drop-down, and the type of chart you're editing. Only the checkboxes of the metrics applicable to the selected service and chart type are displayed and enabled.
 
-For example, to select any of the error percentage metrics (*PercentAuthorizationError*, *PercentNetworkError*, *PercentThrottlingError*, etc.), you must open and configure the error percentage chart highlighted in the following image:
+For example, to select error percentage metrics like *PercentAuthorizationError*, *PercentNetworkError*, and *PercentThrottlingError*, you must configure the error percentage chart highlighted in the following image:
 
 ![Request error percentage chart in the Azure portal](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
 
 ### Metrics resolution
 
-The metrics you selected in the Diagnostics settings determines the resolution of the metrics that are available for your account:
+The metrics you selected in Diagnostics determines the resolution of the metrics that are available for your account:
 
-* If your storage account has **aggregate** monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.
-* If your storage account has **per API** monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.
+* **Aggregate** monitoring provides metrics such as ingress/egress, availability, latency, and success percentages. These metrics are aggregated from the blob, table, and queue services.
+* **Per API** provides finer resolution, with metrics available for individual storage operations, in addition to the service-level aggregates.
 
 ## How to: Configure metrics alerts
 
@@ -97,9 +101,9 @@ You can create alerts to notify you when thresholds have been reached for storag
 1. To open the **Alert rules blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Alert rules**.
 1. Select **Add alert** to open the **Add an alert rule** blade
 1. Select a **Resource** (blob, file, queue, table) from the drop-down, and enter a **Name** and **Description** for your new alert rule.
-1. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type will change depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
-1. Select the **Period**. Metrics that reach or exceed the Threshold within the period will trigger an alert.
-1. (Optional) Enter a URI in the **Webhook** text box to which alerts will be routed. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+1. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type changes depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
+1. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
+1. (Optional) Enter a URI in the **Webhook** text box to which alerts are to be routed. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 
@@ -112,16 +116,16 @@ You can add Azure Storage metrics charts for any of your storage accounts to you
 1. Select **Type** > **Storage accounts**.
 1. In **Resources**, select the storage account whose metrics you wish to add to the dashboard.
 1. Select **Categories** > **Monitoring**.
-1. Drag-and-drop the chart tile onto your dashboard for the metric you'd like displayed. Repeat for all metrics you'd like displayed on the dashboard. In the following image, the "Blobs - Total requests" chart is highlighted as an example, but all of the charts are available for placement on your dashboard.
+1. Drag-and-drop the chart tile onto your dashboard for the metric you'd like displayed. Repeat for all metrics you'd like displayed on the dashboard. In the following image, the "Blobs - Total requests" chart is highlighted as an example, but all the charts are available for placement on your dashboard.
 1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
-![Selecting a metrics chart to add to the portal dashboard](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
+a metric
 
 Once you've added charts to your dashboard, you can further customize them as described in [How to: Customize metrics charts](#how-to-customize-metrics-charts).
 
 ## How to: Configure logging
 
-For each of the storage services available with your storage account (blob, table, and queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.
+You can instruct Azure Storage to save diagnostics logs for read, write, and delete requests for the blob, table, and queue services. The data retention policy you set also applies to these logs.
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
 1. Open the **Diagnostic blade**--scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
