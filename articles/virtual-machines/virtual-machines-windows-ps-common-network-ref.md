@@ -18,16 +18,16 @@ ms.date: 03/02/2017
 ms.author: davidmu
 
 ---
-# Common PowerShell commands for Azure Virtual Machines
+# Common PowerShell commands for Azure Virtual Networks
 
 If you want to create a virtual machine, you need to create a [virtual network](../virtual-network/virtual-networks-overview.md) or know about an existing virtual network in which the VM can be added. Typically, when you create a VM, you also need to consider creating the resources described in this article.
 
 See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
-Some variables might be useful for you is you are running more than one of the commands in this article:
+Some variables might be useful for you if running more than one of the commands in this article:
 
-- $location - You can use [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) to find a [geographical region](https://azure.microsoft.com/regions/) that works for you.
-- $myResourceGroup - Most commands require you to specify the name of the resource group where the network resources are located.
+- $location - The location of the network resources. You can use [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) to find a [geographical region](https://azure.microsoft.com/regions/) that works for you.
+- $myResourceGroup - The name of the resource group where the network resources are located.
 
 ## Create network resources
 
