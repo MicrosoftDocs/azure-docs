@@ -72,7 +72,7 @@ let's start at the top. We must use a **Request** trigger because the parent log
 
 ### Logic app trigger
 
-We are using a **Request** trigger as shown in the following example.
+We are using a **Request** trigger as shown in the following example:
 
 ```` json
 "triggers": {
@@ -119,7 +119,7 @@ We must log the source (request) of the patient record from the Dynamics CRM Onl
     The trigger coming from CRM provides us with the **CRM PatentId**, 
 	**record type**, **New or Updated Record** (new or update Boolean value), 
 	and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
-    We will get the CRM record by using the CRM **PatientID** and the **Record Type**.
+    We get the CRM record by using the CRM **PatientID** and the **Record Type**.
 
 2. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
 
@@ -149,7 +149,7 @@ The following logic app code sample shows how to handle logging.
 
 #### Log entry
 
-This is the logic app source code for inserting a log entry.
+Here is the logic app source code for inserting a log entry.
 
 ``` json
 "InsertLogEntry": {
@@ -177,7 +177,7 @@ This is the logic app source code for inserting a log entry.
 
 #### Log request
 
-This is the log request message posted to the API app.
+Here is the log request message posted to the API app.
 
 ``` json
     {
@@ -197,7 +197,7 @@ This is the log request message posted to the API app.
 
 #### Log response
 
-This is the log response message from the API app.
+Here is the log response message from the API app.
 
 ``` json
 {
@@ -239,7 +239,7 @@ The following logic app code sample shows how you can implement error handling.
 
 #### Create error record
 
-This is the logic app source code for creating an error record.
+Here is the logic app source code for creating an error record.
 
 ``` json
 "actions": {
@@ -367,7 +367,7 @@ This is the logic app source code for creating an error record.
 
 ### Return the response back to parent logic app
 
-After you have the response, you can pass it back to the parent logic app.
+After you get the response, you can pass the response back to the parent logic app.
 
 #### Return success response to parent logic app
 
@@ -425,7 +425,7 @@ To view the errors, you can create an MVC web app to display the error records f
 The **List**, **Details**, **Edit**, and **Delete** operations are included in the current version.
 
 > [!NOTE]
-> Edit operation: DocumentDB does a replace of the entire document.
+> Edit operation: DocumentDB replaces the entire document. 
 > The records shown in the **List** and **Detail** views are samples only. 
 > They are not actual patient appointment records.
 
@@ -469,7 +469,7 @@ We truncate the value to remove the fractional value.
 You can view the source code of our error controller API 
 [from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-We call the API from a logic app by using the following syntax.
+We call the API from a logic app by using the following syntax:
 
 ``` json
  "actions": {
