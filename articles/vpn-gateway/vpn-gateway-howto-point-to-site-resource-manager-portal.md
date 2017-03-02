@@ -105,11 +105,13 @@ If you are not using an enterprise certificate solution, you need to create a se
 >[!NOTE]
 >Although it is possible to use PowerShell to create self-signed certificates, the certificate that is generated using PowerShell does not contain the fields necessary for Point-to-Site authentication.
 >
->
 
-1. To obtain a .cer file from a self-signed certificate created on your computer, open **certmgr.msc** and locate the root certificate. The certificate is typically located in 'Certificates-Current User/ Personal/Certificates'. Right-click the self-signed root certificate, click **all tasks**, and then click **export**. The **Certificate Export Wizard** will open.
+
+#### To obtain the .cer file from a self-signed root certificate
+
+1. To obtain a .cer file from a self-signed root certificate, open **certmgr.msc** and locate the root certificate that you created. The certificate is typically located in 'Certificates-Current User/ Personal/Certificates' and is named whatever you chose to name it when you created it. Right-click the self-signed root certificate, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 2. In the Wizard, click **Next**, select **No, do not export the private key**, and then click **Next**.
-3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).** Then, click **Next**. 
+3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).** Then, click **Next**.
 4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
 5. Click **Finish** to export the certificate.
 
