@@ -121,7 +121,7 @@ We must log the source (request) of the patient record from the Dynamics CRM Onl
 	and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
     We get the CRM record by using the CRM **PatientID** and the **Record Type**.
 
-2. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
+2. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown here.
 
 ### Insert log entry designer view
 
