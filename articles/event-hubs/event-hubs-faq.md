@@ -22,10 +22,10 @@ ms.author: sethm;jotaub
 ## General
 
 ### What is the difference between Event Hubs Basic and Standard tiers?
-Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
+Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. Standard also offers Event Hubs [Archive](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-archive-overview) feature.For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### What are Event Hubs throughput units?
-You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs Resource Manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
+You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
 
 * Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.
 * Up to 2 MB per second of egress events (events consumed from an Event Hub).
@@ -45,7 +45,7 @@ There is a default quota of 20 throughput units per namespace. You can request a
 Yes, as long as all of the Event Hubs are in the same namespace.
 
 ### What is the maximum retention period for events?
-Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that Event Hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data.
+Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that Event Hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Archive](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-archive-overview) on your Event Hub will pull the data from your Event Hub to the storage of your choosing. Enabling Archive will incur a charge based on your purchased Throughput Unit.
 
 ### Where is Azure Event Hubs available?
 Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  
@@ -53,11 +53,11 @@ Azure Event Hubs is available in all supported Azure regions. For a list, visit 
 ## Best practices
 
 ### How many partitions do I need?
-Note that the partition count on an Event Hub cannot be modified after setup. With that in mind, it is important to think about how many partitions you need before getting started. The number of partitions you choose determines the availability factor in sending, and unit-of-scale while receiving.
+Please keep in mind that the partition count on an Event Hub cannot be modified after setup. With that in mind, it is important to think about how many partitions you need before getting started. 
 
-Event Hubs is designed to allow a single partition reader per consumer group. In most cases, the default setting of 4 partitions is sufficient. If you want to scale your event processing, you can consider adding additional partitions. There is no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
+Event Hubs is designed to allow a single partition reader per consumer group. In most use cases, the default setting of four partitions is sufficient. If you are looking to scale your event processing, you may want to consider adding additional partitions. There is no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
 
-However, if you have a model in which your application has an affinity to a particular partition, increasing the number of partitions may not be of any benefit to you. Instead of processing the desired batch size, this may be inefficient and provide sparse processing with a higher checkpoint rate. For more information about availability versus consistency, see [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md).
+However, if you have a model in which your application has an affinity to a particular partition, increasing the number of partitions may not be of any benefit to you. For more information on this please see [availability and consistency](event-hubs-availability-and-consistency.md).
 
 ## Pricing
 
@@ -77,6 +77,12 @@ Events consumed from an Event Hub, as well as management operations and control 
 
 ### Do brokered connection charges apply to Event Hubs?
 Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), please refer to the [Even Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details regarding how many connections are included in each service tier.
+
+### How is Event Hubs Archive billed?
+Archive is enabled when any Event Hub in the namespace has the Archive feature enabled. Archive is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Archive billing will reflect these changes in whole hour increments.
+
+### Will I billed for the storage account I select for Event Hubs Archive?
+Archive uses a storage account you provide when enabled on an Event Hub. As this is your storage account, any changes for this will be billed to your Azure subscription.
 
 ## Quotas
 
