@@ -17,7 +17,7 @@ ms.date: 01/23/2017
 ms.author: TomSh
 
 ---
-# Introduction to Microsoft Azure log integration (Preview)
+# Introduction to Microsoft Azure log integration
 Learn about Azure log integration, its key capabilities, and how it works.
 
 ## Overview
