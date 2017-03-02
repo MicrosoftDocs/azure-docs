@@ -426,7 +426,11 @@ We recommend you that you start with the Standard S1 tier and monitor your servi
 
 **Which regions are the new plans available in?**
 
-For information about regional availability, see [Products available by region](https://azure.microsoft.com/regions/services/).
+The new billing plans are available in the three production regions in which we support the new web services:
+
+* South Central US
+* West Europe
+* South East Asia
 
 **I have web services in multiple regions. Do I need a plan for every region?**
 
@@ -461,7 +465,13 @@ Yes, Classic web services are still available in Azure Machine Learning.
 ### Azure Machine Learning Free and Standard tier
 **What is included in the Azure Machine Learning Free tier?**
 
-The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). In this tier, you can use up to 10 GB of storage and operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. Free tier workloads can't access data by connecting to an on-premises server that runs SQL Server.
+The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). In this tier, you can use up to 10 GB of storage and operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. 
+
+Free tier workspaces have the following limitations:
+
+* Workloads can't access data by connecting to an on-premises server that runs SQL Server.
+* You cannot deploy New Resource Manager base web services.
+
 
 **What is included in the Azure Machine Learning Standard tier and plans?**
 
