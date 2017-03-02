@@ -31,7 +31,7 @@ Start [Synchronization Service Manager](active-directory-aadconnectsync-service-
 In **Synchronization Service Manager** click **Metaverse Search**. Create a query you know finds the user. You can search for common attributes, such as accountName (sAMAccountName) and userPrincipalName. For more information, see [Metaverse search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
 
-In the **Search Results** window, click on the object.
+In the **Search Results** window, click the object.
 
 If you did not find the object, then it has not yet reached the metaverse. Continue to search for the object in the Active Directory [connector space](#connector-space-object-properties).
 
@@ -48,7 +48,7 @@ The Connectors tab shows all connector spaces that have a representation of the 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvconnectors.png)  
 You should have a connector to:
 
-- Each Active Directory forest the user is represented in. This can include foreignSecurityPrincipals and Contact objects.
+- Each Active Directory forest the user is represented in. This representation can include foreignSecurityPrincipals and Contact objects.
 - A connector in Azure AD.
 
 If you are missing the connector to Azure AD, then read [MV attributes](#MV-attributes) to verify the criteria for being provisioned to Azure AD.
@@ -58,14 +58,14 @@ This tab also allows you to navigate to the [connector space object](#connector-
 ## Connector Space Object Properties
 ### Search for an object in the CS
 
-In **Synchronization Service Manager** click **Connectors**, select the Connector, and **Search Connector Space**.
+In **Synchronization Service Manager**, click **Connectors**, select the Connector, and **Search Connector Space**.
 
-In **Scope** select **RDN** (when you want to search on the CN attribute) or **DN or achor** (when you want to search on the distinguishedName attribute).  
+In **Scope**, select **RDN** (when you want to search on the CN attribute) or **DN or anchor** (when you want to search on the distinguishedName attribute).  
 ![Connector Space search](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearch.png)  
 
 Another useful search is to select the Azure AD Connector, in **Scope** select **Pending Import**, and select the **Add** checkbox. This search gives you all synchronized objects in Azure AD that cannot be associated with an on-premises object.  
 ![Connector Space search orphan](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Those objects have been created by another sync engine or a sync engine with a different filtering configuration. This is a list of **orphan** objects no longer managed. You should review this list and consider removing these using the [Azure AD PowerShell](http://aka.ms/aadposh) cmdlets.
+Those objects have been created by another sync engine or a sync engine with a different filtering configuration. This view is a list of **orphan** objects no longer managed. You should review this list and consider removing these objects using the [Azure AD PowerShell](http://aka.ms/aadposh) cmdlets.
 
 ### CS Import
 When you open a cs object, there are several tabs at the top. The **Import** tab shows the data that is staged after an import.  
@@ -74,7 +74,7 @@ The **Old Value** shows what currently is stored in the system and the **New Val
 
 **Error**  
 ![CS object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
-The **Synchronization error** tab is only visible if there is a problem with the object. See the details on the operations page for more information on how to [troubleshoot synchronization errors](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab).
+The **Synchronization error** tab is only visible if there is a problem with the object. For more information, see [troubleshoot synchronization errors](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab).
 
 ### CS Lineage
 The lineage tab shows how the connector space object is related to the metaverse object. You can see when the Connector last imported a change from the connected system and which rules applied to populate data in the metaverse.  
