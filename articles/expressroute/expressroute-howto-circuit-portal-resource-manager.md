@@ -134,7 +134,7 @@ To modify an ExpressRoute circuit, click on the **Configuration** as shown in th
 
 ![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
 
-You can modify the bandwidth, SKU, billing model and classic operations within the configuration blade.
+You can modify the bandwidth, SKU, billing model and allow classic operations within the configuration blade.
 
 > [!IMPORTANT]
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
