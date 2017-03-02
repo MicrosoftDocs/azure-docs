@@ -54,7 +54,7 @@ Complete the following steps to create a virtual network with two subnets. Diffe
 	|**Subnet name**|*Front-end*|The subnet name must be unique within the virtual network.|
 	|**Subnet address range**|*10.0.0.0/24*| The range you specify must exist within the address space you defined for the virtual network.|
 	|**Subscription**|*[Your subscription]*|Select a subscription to create the VNet in. A VNet exists within a single subscription.|
-	|**Resource group**|**Create new:** *MyRG*|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups) overview article.|
+	|**Resource group**|**Create new:** *MyRG*|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) overview article.|
 	|**Location**|*West US*| Typically the location that is closest to your physical location is selected.|
 
 	The VNet takes a few seconds to create. Once it’s created, you see the Azure portal dashboard.
