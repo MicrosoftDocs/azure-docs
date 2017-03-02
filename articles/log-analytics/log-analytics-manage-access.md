@@ -103,13 +103,16 @@ To grant access to the Log Analytics workspace using Azure permissions, follow t
 If you have at least Azure read access permission on the Log Analytics workspace, you can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
 
 When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. Your role assignment in the Log Analytics portal is determined as follows:
-* If your account is assigned to a legacy Log Analytics user role, you are assigned to that role
-* If your account is not assigned to a legacy Log Analytics user role, and
- + you have full access to the workspace (*action* \* permission), you are assigned to the *Administrator* role  
- + you have *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write, you are assigned to the *Contributor* role  
- + you have read permission, or your permissions are not understood, you are assigned to the *Read Only* role
-* For Cloud Solution Provider (CSP) managed subscriptions, if the account you are signed-in with is in the Azure Active Directory linked to the workspace, then you are an *Administrator* in the OMS portal, otherwise you are a *Contributor*. 
- + This means a CSP has *Contributor* permissions on the Log Analytics workspace.
+
+| Conditions                                                   | Log Analytics user role assigned |
+|--------------------------------------------------------------|----------------------------------|
+| Your account belongs to a legacy Log Analytics user role     | The specified Log Analytics user role |
+| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (*action* \* permission) | *Administrator* |
+| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (*action* \* permission) <br> *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write | *Contributor* |
+| Your account does not belong to a legacy Log Analytics user role <br> Azure read permission | *Read Only* |
+| Your account does not belong to a legacy Log Analytics user role <br> Azure permissions are not understood | *Read Only* |
+| For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is in the Azure Active Directory linked to the workspace <br> Typically the customer of a CSP | *Administrator* |
+| For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is not in the Azure Active Directory linked to the workspace <br> Typically the CSP | *Contributor* |
 
 Some points to keep in mind about the Azure portal:
 
