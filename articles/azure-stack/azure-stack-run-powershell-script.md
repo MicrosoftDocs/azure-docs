@@ -13,15 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 3/1/2017
 ms.author: erikje
 
 ---
 # Deploy Azure Stack POC
 To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
+> [!NOTE]
+> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 Eval can be activated at deployment time. If Windows Server 2016 Eval is not activated within 10 days, it will shut down.
+> 
+> 
+
 ## Download and extract Microsoft Azure Stack POC
-Before you start, make sure that you at least 85 GB of space and that you have .NET Framework 4.6 installed.
+Before you start, make sure that you at least 60 GB of space and that you have .NET Framework 4.6 installed.
 
 1. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
 2. Under **Download the software**, click **Azure Stack**.
@@ -32,7 +37,7 @@ Before you start, make sure that you at least 85 GB of space and that you have .
 7. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
 8. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~52 GB) and ThirdPartyLicenses.rtf files.
+9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
 
 > [!NOTE]
 > After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
@@ -91,7 +96,7 @@ Before you start, make sure that you at least 85 GB of space and that you have .
     > Azure Stack requires access to the Internet, either directly or through a transparent proxy. The POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
     
 2. Open an elevated PowerShell console.
-3. In PowerShell, run this command: `cd C:\CloudDeployment\Configuration`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
+3. In PowerShell, run this command: `cd C:\CloudDeployment\Setup`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
 4. You can deploy Azure Stack with Azure Active Directory or Active Directory Federation Services. Azure Stack, resource providers, and other applications work the same way with both. To learn more about what is supported with AD FS in Azure Stack, see the [Key features and concepts](azure-stack-key-features.md) article.
 
     To deploy Azure Stack with Azure Active Directory, run the deploy command:
@@ -129,31 +134,31 @@ You can script the entire AAD deployment. Here are some examples.
 
 If your AAD Identity is only associated with ONE AAD Directory:
 
-    cd C:\CloudDeployment\Configuration
+    cd C:\CloudDeployment\Setup
     $adminpass = ConvertTo-SecureString "<LOCAL ADMIN PASSWORD>" -AsPlainText -Force
     $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
     $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT>", $aadpass)
-    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred
 
 If your AAD Identity is associated with GREATER THAN ONE AAD Directory:
 
-    cd C:\CloudDeployment\Configuration
+    cd C:\CloudDeployment\Setup
     $adminpass = ConvertTo-SecureString "<LOCAL ADMIN PASSWORD>" -AsPlainText -Force
     $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
     $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT> example: user@AADDirName.onmicrosoft.com>", $aadpass)
-    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred -AADDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
 
 If your environment DOESN'T have DHCP enabled, you must include the following ADDITIONAL parameters to one of the options above (example usage provided):
 
-    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred
     -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1
 
 
 ### InstallAzureStackPOC.ps1 optional parameters
 | Parameter | Required/Optional | Description |
 | --- | --- | --- |
-| AADAdminCredential |Optional |Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
-| AADDirectoryTenantName |Required |Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of <directoryName>.onmicrosoft.com. |
+| InfraAzureDirectoryTenantAdminCredential |Optional |Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
+| InfraAzureDirectoryTenantName |Required |Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of <directoryName>.onmicrosoft.com. |
 | AdminPassword |Required |Sets the local administrator account and all other user accounts on all the virtual machines created as part of POC deployment. This password must match the current local administrator password on the host. |
 | AzureEnvironment |Optional |Select the Azure Environment with which you want to register this Azure Stack deployment. Options include *Public Azure*, *Azure - China*, *Azure - US Government*. |
 | EnvironmentDNS |Optional |A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server. |
