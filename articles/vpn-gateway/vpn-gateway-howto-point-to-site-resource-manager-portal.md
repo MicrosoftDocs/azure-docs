@@ -103,7 +103,7 @@ If you are using an enterprise solution, you can use your existing certificate c
 If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. To create a self-signed certificate that contains the necessary fields for P2S authentication, use makecert. [Create a self-signed root certificate for P2S connections](vpn-gateway-certificates-point-to-site.md) will walk you through the steps to create a self-signed root certificate. We are aware that makecert is deprecated, but at this time, it is the supported solution.
 
 >[!NOTE]
->Although it is possible to use PowerShell to create self-signed certificates, the certificate that is generated using PowerShell does not contain the fields necessary for P2S connections.
+>Although it is possible to use PowerShell to create self-signed certificates, the certificate that is generated using PowerShell does not contain the fields necessary for Point-to-Site authentication.
 >
 >
 
