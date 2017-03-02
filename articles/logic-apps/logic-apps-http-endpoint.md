@@ -198,9 +198,9 @@ Responses have these properties:
 | body |A body object that can be a string, a JSON object, or even binary content referenced from a previous step. |
 | headers |You can define any number of headers to include in the response. |
 
-In your logic app, all the steps required for the response must finish 
+In your logic app, all steps required for the response must finish 
 within *60 seconds* for the original request to get the response, 
-*unless the workflow is called as a nested logic app*. 
+*unless you call the workflow as a nested logic app*. 
 If no response happens within 60 seconds, 
 the incoming request times out and receives a **408 Client timeout** HTTP response. 
 For nested logic apps, the parent logic app continues to wait for a 
