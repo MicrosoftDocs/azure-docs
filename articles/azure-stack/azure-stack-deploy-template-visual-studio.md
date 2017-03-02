@@ -18,6 +18,11 @@ ms.author: helaw
 
 ---
 # Deploy templates in Azure Stack using Visual Studio
+
+> [!IMPORTANT] 
+> This topic applies only to Azure Stack Technical Preview 2.
+>
+
 Use Visual Studio to deploy Azure Resource Manager templates to the Azure Stack POC.
 
 1. [Install and connect](azure-stack-install-visual-studio.md) to Azure Stack with Visual Studio.
