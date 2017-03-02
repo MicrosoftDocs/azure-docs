@@ -63,7 +63,7 @@ In **Synchronization Service Manager**, click **Connectors**, select the Connect
 In **Scope**, select **RDN** (when you want to search on the CN attribute) or **DN or anchor** (when you want to search on the distinguishedName attribute).  
 ![Connector Space search](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearch.png)  
 
-If you do not find the object you are looking for, then it might have been filtered with [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) or [OU-based filtering](active-directory-aadconnectsync-configure-filtering.md#ou-based-filtering).
+If you do not find the object you are looking for, then it might have been filtered with [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) or [OU-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
 
 Another useful search is to select the Azure AD Connector, in **Scope** select **Pending Import**, and select the **Add** checkbox. This search gives you all synchronized objects in Azure AD that cannot be associated with an on-premises object.  
 ![Connector Space search orphan](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
