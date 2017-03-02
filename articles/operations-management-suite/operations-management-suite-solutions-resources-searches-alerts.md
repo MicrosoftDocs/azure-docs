@@ -264,7 +264,7 @@ Following is a sample of a solution that include that includes the following res
 - Alert action
 - Webhook action
 
-The sample uses [standard solution parameters](operations-management-suite-solutions-creating.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
+The sample uses [standard solution parameters](operations-management-suite-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 	{
 	    "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
