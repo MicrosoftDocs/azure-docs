@@ -167,8 +167,8 @@ the logic app endpoint *immediately* responds with **202 Accepted**.
 		"conditions": [],
 		"inputs": {
 			"body": {
-				"name": "@{triggerBody()['name']}",
-							"title": "@{triggerBody()['title']}"
+				"name": "@{triggerBody()['name']}", 
+                   "title": "@{triggerBody()['title']}"
 			},
 			"headers": {
 				"content-type": "application/json"
