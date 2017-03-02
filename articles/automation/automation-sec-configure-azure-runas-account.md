@@ -125,7 +125,10 @@ Next we will perform a small test to confirm you are able to successfully authen
 During the lifetime of your Automation account, you will need to renew the certificate before it expires or if you believe the account has been compromised, you can delete the Run As account and re-create it.  This section will provide steps on how to perform these operations.  
 
 ### Self-signed certificate renewal
-The self-signed certificate created for the Azure Run As account can be renewed at anytime, up until it expires, which is one year from date of creation.  When you renew it, the old valid certificate will be retained in order to ensure that any runbooks queued up or actively running, which authenticate with the Run As account, will not be impacted.  The certificate will continue to exist until expiration.     
+The self-signed certificate created for the Azure Run As account can be renewed at anytime, up until it expires, which is one year from date of creation.  When you renew it, the old valid certificate will be retained in order to ensure that any runbooks queued up or actively running, which authenticate with the Run As account, will not be impacted.  The certificate will continue to exist until expiration.    
+
+> [!NOTE]
+> If you have configured your Automation Run As account to use a certificate issued by your enterprise certificate authority and you use this option, that certificate will be replaced by a self-signed certificate.  
 
 1. In the Azure portal, open the Automation account.  
 2. On the Automation account blade, in the account properties pane, select **Run As Accounts** under the section **Account Settings**.<br><br> ![Automation account properties pane](media/automation-sec-configure-azure-runas-account/automation-account-properties-pane.png)<br><br>
