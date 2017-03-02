@@ -20,39 +20,51 @@ ms.author: saysa
 # Build and deploy your Linux Java application using Jenkins
 Jenkins is one of the hugely used continuous integration and deployment tools, which is used by the developers. Here we have a similar provision with Jenkins such that, once you have your service-fabric application ready, you can build and deploy
 
-## Prerequisites
+## General Prerequisites
+1. You need to have git installed locally, as you would see later in the tutorial.
+2. You need to have the service-fabric jenkins plugin handy. In case you do not have it, try downloading it from [here](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
+
+## Setting up Jenkins using Service Fabric as the Container Orchestrator
+
+### Prerequisites
+1. You have a Service Fabric Linux Cluster ready (probably created from Azure portal directly), say ``http://SOME-IP:19080``. Service Fabric clusters created from azure portal already has docker installed but usually azure VMs do not. Check if docker is installed or not using the command ``docker info`` and if it is not installed then install it accordingly using -
+<br/>`` sudo apt-get install wget``
+<br/>`` wget -qO- https://get.docker.io/ | sh``
+<br/>
+2. Have the Service Fabric Container application deployed on the cluster ``http://SOME-IP:19080``. You can follow the steps below -
+  - Do - ``git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker && cd service-fabric-java-getting-started/Services/JenkinsDocker/``
+  - Connect to the Service Fabric cluster ``http://SOME-IP:19080`` using azure-cli - ``azure servicefabric cluster connect http://SOME-IP:19080``
+  - Run ``./install.sh``. It will install the Jenkins container to the cluster you connected. You can monitor your container app using the ususal service-fabric explorer - ``http://SOME-IP:19080``.
+
+### Steps
+1. Go to the URL ``http://SOME-IP:8081`` from your browser. It will display you from where you will get the initial-admin password required to login to the Jenkins portal, where you can change it and configure Jenkins.
+2. Now first get the container instance id using ``docker ps -a``. At this point, you can ssh login to the container using ``docker exec -t -i [first-four-digits-of-container-ID] /bin/bash `` and paste the path you were shown in portal here.
+3. The step of integrating it with github etc, will be same as point #5 of last section.
+4. Setup github to work with Jenkins using [this](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+	* Then, use the instructions provided from Github to generate the SSH key and add the ssh key to the github-account which is (would be) hosting the repository.
+	* You need to run the commands mentioned in the above link in the Jenkins-docker shell (and not on your host)
+	* To log on to the Jenkins shell from your host, you need to do - ``docker exec -t -i [first-four-digits-of-container-ID] /bin/bash ``
+
+## Setting up Jenkins as a Stand-alone Container
+
+### Prerequisites
 1. You need to have docker installed. If not you can type in the following commands in the terminal to install docker.
 <br/>`` sudo apt-get install wget``
 <br/>`` wget -qO- https://get.docker.io/ | sh``
 <br/> Now when you run ``docker info`` in the terminal, you would see in the output that docker service is running.
-2. You need to have service-fabric sdk installed locally so that you can start-up a one-box cluster locally or alternately, you need to have access to any service-fabric cluster where you can deploy your service fabric application.
-3. You need to have git installed locally, as you would see later in the tutorial.
-4. You need to have the service-fabric jenkins plugin handy. In case you do not have it, try downloading it from [here](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
 
-## Setting up Jenkins (Stand-alone Docker)
-
-1. Pull the docker container image: ``docker pull IMAGE_NAME ``
-2. Run the container-image: ``docker run -itd -p 8080:8080 IMAGE_NAME``
-3. Get the id of your docker container which has the jenkins image (which you just installed). You can list all the docker containers with the command ``docker ps –a``
-4. Get the admin password for the Jenkins account. For that you can do the following -
-  * ``docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword``, Here if container id is 2d24a73b5964, you need to insert just 2d24
-  * This password will be required for logging into the Jenkins dashboard from portal which is ``http://<HOST-IP>:8080``
-  * Once you login for the first time, you can create your own user-account and use that for future purpose or you can continue to use the administrator account. But once you create a new user, you need to continue with that.
-5. Setup github to work with Jenkins using [this](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-	* Then, use the instructions provided from Github to generate the SSH key and add the ssh key to the github-account which is (would be) hosting the repository.
-	* You need to run the commands mentioned in the above link in the Jenkins-docker shell (and not on your linux dev-box)
-	* To log on to the Jenkins shell from your linux box, you need to do - ``docker exec -t -i [first-four-digits-of-container-ID] /bin/bash ``
-
-
-## Setting up Jenkins (using ServiceFabric as the container-orchestrator)
-
-1. Ensure you have  azure-cli installed locally on your host. If not, you can the follow the steps mentioned [here](service-fabric-azure-cli.md).
-2. Do - ``git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker && cd service-fabric-java-getting-started/Services/JenkinsDocker/``
-3. Connect to a Service Fabric cluster (say ``http://SOME-IP:19080``) where you want to run the Jenkins-Container image using azure-cli - ``azure servicefabric cluster connect http://SOME-IP:19080``
-4. Run ``./install.sh``. It will install the Jenkins container to the cluster you connected. You can monitor your container app using the ususal service-fabric explorer - ``http://SOME-IP:19080``.
-5. Then go to the URL ``http://SOME-IP:8081`` from your browser. It will display you from where you will get the initial-admin password required to login to the Jenkins portal, where you can change it and configure Jenkins.
-6. Now first get the container instance id using ``docker ps -a``. At this point, you can ssh login to the container using ``docker exec -t -i [first-four-digits-of-container-ID] /bin/bash `` and paste the path you were shown in portal here.
-7. The step of integrating it with github etc, will be same as point #5 of last section.
+### Steps
+  1. Pull the docker container image: ``docker pull IMAGE_NAME ``
+  2. Run the container-image: ``docker run -itd -p 8080:8080 IMAGE_NAME``
+  3. Get the id of your docker container which has the jenkins image (which you just installed). You can list all the docker containers with the command ``docker ps –a``
+  4. Get the admin password for the Jenkins account. For that you can do the following -
+    * ``docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword``, Here if container id is 2d24a73b5964, you need to insert just 2d24
+    * This password will be required for logging into the Jenkins dashboard from portal which is ``http://<HOST-IP>:8080``
+    * Once you login for the first time, you can create your own user-account and use that for future purpose or you can continue to use the administrator account. But once you create a new user, you need to continue with that.
+  5. Setup github to work with Jenkins using [this](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+  	* Then, use the instructions provided from Github to generate the SSH key and add the ssh key to the github-account which is (would be) hosting the repository.
+  	* You need to run the commands mentioned in the above link in the Jenkins-docker shell (and not on your host)
+  	* To log on to the Jenkins shell from your host, you need to do - ``docker exec -t -i [first-four-digits-of-container-ID] /bin/bash ``
 
 ## Install the service-fabric Jenkins Plugin from portal
 
@@ -79,6 +91,9 @@ Here, you can upload a plugin. Select the ``Choose file`` option, then select th
   - Under the ``Post-Build Actions`` drop-down, select ``Deploy Service Fabric Project``. Here you need to provide the details like - Application Name, Application Type, Application manifest Path, cluster-IP, cluster-type etc. Please fill in the details accordingly. You might want to have a look at the following handy screen-shot as a reference -
 
     ![Service Fabric Jenkins Build action][post-build-step]
+
+### End to end scenario
+Given you now have your github and Jenkins are all set and integrated, you can make some sample change in your ``MyActor`` project in the repository e.g. https://github.com/sayantancs/SFJenkins and push your changes to remote ``master`` branch(or any branch that you have configured to work with). This will now trigger the Jenkins job ``MyJob``, you configured. What it would do is basically - fetch the changes from github, build them and deploy the application to the cluster endpoint you specified in post-build actions.  
 
   > [!NOTE]
   > You should keep in mind that the service-fabric cluster where you deployed your container application, must have a public-facing IP (this can be a SF cluster created from azure portal or one-box cluster created on an azure VM). Else, if the cluster is under some corpnet-proxy, then Github would not be able to talk to the Jenkins instance.
