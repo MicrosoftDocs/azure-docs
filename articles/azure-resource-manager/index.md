@@ -120,7 +120,7 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
                         <p><a href="/cli/azure/resource">Azure CLI</a></p>
                     </div>
                 </div>

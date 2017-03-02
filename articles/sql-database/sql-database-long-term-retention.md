@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/21/2016
+ms.date: 12/22/2016
 ms.author: sashan
 
 ---
@@ -29,9 +29,9 @@ The **Long-Term Backup Retention** feature enables you to store your Azure SQL D
 > 
 > 
 
-## How does SQL Database Long-Term Retention work?
+## How does SQL Database long-term backup retention work?
 
-Long-term retention of backups allows you to associate an Azure SQL Database server with an Azure Recovery Services vault. 
+Long-term backup retention of backups allows you to associate an Azure SQL Database server with an Azure Recovery Services vault. 
 
 * The vault must be created in the same Azure subscription that created the SQL server and in the same geographic region and resource group. 
 * You then configure a retention policy for any database. The policy causes the weekly full database backups be copied to the Recovery Services vault and retained for the specified retention period (up to 10 years). 
@@ -39,9 +39,9 @@ Long-term retention of backups allows you to associate an Azure SQL Database ser
 
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using the Azure portal](sql-database-get-started-backup-recovery.md), or [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using the Azure portal](sql-database-get-started-backup-recovery-portal.md), or [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md)
 
-## How do I enable Long-Term Retention?
+## How do I enable long-term backup retention?
 
 To configure long-term backup retention for a database:
 
@@ -50,11 +50,11 @@ To configure long-term backup retention for a database:
 3. Create an Azure Recovery Services Protection Policy
 4. Apply the protection policy to the databases that require long-term backup retention
 
-To configure long-term retention, see [configure long-term backup retention](sql-database-configure-long-term-retention.md).
+To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
-## How do I restore a database stored with the Long-Term Retention feature?
+## How do I restore a database stored with the long-term backup retention feature?
 
-To recover from a long-term retention backup:
+To recover from a long-term backup retention backup:
 
 1. List the vault where the backup is stored
 2. List the container that is mapped to your logical server
@@ -62,19 +62,17 @@ To recover from a long-term retention backup:
 4. List the recovery points available to restore
 5. Restore from the recovery point to the target server within your subscription
 
-To recover a database from a backup in long-term retention, see [recover from a backup in long-term retention](sql-database-restore-from-long-term-retention.md).
+To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
-## How much does Long-Term Retention cost?
+## How much does long-term backup retention cost?
 
-Long-term retention of an Azure SQL database is charged according to the [Azure backup services pricing rates](https://azure.microsoft.com/pricing/details/backup/).
+Long-term backup retention of an Azure SQL database is charged according to the [Azure backup services pricing rates](https://azure.microsoft.com/pricing/details/backup/).
 
 After the Azure SQL Database server is registered to the vault, you are charged for the total storage that is used by the weekly backups stored in the vault.
 
 ## View available backups stored in long-term backup retention
 
-To view backups in the Azure Recovery Services vault, see [view backups in long-term retention](sql-database-view-backups-in-vault.md).
-
-
+To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md). To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 ## Disabling Long-term Retention
 
@@ -90,11 +88,11 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 > The backups already in the vault are not be impacted. They are automatically deleted by the Recovery Service when their retention period expires.
 
 
-## Removing long-term retention backups from the Azure Recovery Services vault
+## Removing long-term backup retention backups from the Azure Recovery Services vault
 
-To remove long-term retention backups from the vault, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md)
+To remove long-term backup retention backups from the vault, see [Delete long-term backup retention backups](sql-database-manage-long-term-backup-retention-powershell.md)
 
-## Long-Term Retention FAQ:
+## Long-term backup retention FAQ:
 
 1. Q: Can I manually delete specific backups in the vault?
 
@@ -117,7 +115,7 @@ To remove long-term retention backups from the vault, see [Delete long-term rete
 7. Q. How many databases can I configure per day per vault?
 
     A. You can only set up 200 databases per day per vault.
-8. Q: Does long-term retention work with elastic pools?
+8. Q: Does long-term backup retention work with elastic pools?
 
     A: Yes. Any database in the pool can be configured with the retention policy.
 9. Q: Can I choose the time at which the backup is created?

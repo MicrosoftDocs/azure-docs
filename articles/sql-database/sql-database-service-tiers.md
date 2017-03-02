@@ -12,17 +12,18 @@ ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+wms.date: 02/21/2017
 ms.author: janeng
 
 ---
 # SQL Database options and performance: Understand what's available in each service tier
-[Azure SQL Database](sql-database-technical-overview.md) offers three service tiers, **Basic**, **Standard**, and **Premium**, with multiple performance levels to handle different workloads. Higher performance levels provide increasings resources designed to deliver increasingly higher throughput. You can change [service tiers and performance levels dynamically](sql-database-scale-up.md) without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
 
-You can create single databases with dedicated resource on the [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) selected. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across the databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
+[Azure SQL Database](sql-database-technical-overview.md) offers three [service tiers](sql-database-service-tiers.md), **Basic**, **Standard**, and **Premium**, with multiple performance levels to handle different workloads. Higher performance levels provide increasings resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
+
+You can create single databases with dedicated resources on the [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) selected. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across the databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
 
 In both cases, the service tiers include **Basic**, **Standard**, and **Premium**. 
 
@@ -45,7 +46,7 @@ First decide if you want to run a single database or if you want to group databa
 Once you have determined the minimum service tier, you are ready to determine the performance level for the database (the number of DTUs). The standard S2 and S3 performance levels are often a good starting point. For databases with high CPU or IO requirements, the Premium performance levels are the right starting point. Premium offers more CPU and starts at 10x more IO compared to the highest Standard performance level.
 
 ## Single database service tiers and performance levels
-For single databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
+For single databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands using the [Azure portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C#, and the REST API. 
 
 Regardless of the number of databases hosted, your database gets a guaranteed set of resources and the expected performance characteristics of your database are not affected.
 
@@ -57,7 +58,7 @@ Regardless of the number of databases hosted, your database gets a guaranteed se
 
 ## Scaling up or scaling down a single database
 
-After initially picking a service tier and performance level, you can scale a single database up or down dynamically based on actual experience. 
+After initially picking a service tier and performance level, you can scale a single database up or down dynamically based on actual experience. If you need to scale up or down, you can easily change the tiers of your database using the [Azure portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C#, and the REST API. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -93,9 +94,7 @@ After initially picking a service tier and performance level, you can scale the 
 * Changing the min eDTUs per database or max eDTUs per database typically completes in five minutes or less.
 * Time to change the pool size (eDTUs) depends on the combined size of all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space of all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
-> [!IMPORTANT]
-> For detailed steps, see [Managing elastic pools with the Azure portal](sql-database-elastic-pool-manage-portal.md), [Managing elastic pools with Powershell](sql-database-elastic-pool-manage-powershell.md), [Managing elastic pools with Transact-SQL](sql-database-elastic-pool-manage-tsql.md), or [Managing elastic pools with C#](sql-database-elastic-pool-manage-csharp.md).
->
+For detailed steps, see [Managing elastic pools with the Azure portal](sql-database-elastic-pool-manage-portal.md), [Managing elastic pools with Powershell](sql-database-elastic-pool-manage-powershell.md), [Managing elastic pools with Transact-SQL](sql-database-elastic-pool-manage-tsql.md), or [Managing elastic pools with C#](sql-database-elastic-pool-manage-csharp.md).
 
 ## Next steps
 

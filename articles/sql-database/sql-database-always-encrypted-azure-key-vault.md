@@ -20,11 +20,6 @@ ms.author: sstein
 
 ---
 # Always Encrypted: Protect sensitive data in SQL Database and store your encryption keys in Azure Key Vault
-> [!div class="op_single_selector"]
-> * [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
-> * [Windows certificate store](sql-database-always-encrypted.md)
-> 
-> 
 
 This article shows you how to secure sensitive data in a SQL database with data encryption using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
 
@@ -95,7 +90,7 @@ You can quickly create a key vault by running the following script. For a detail
 ## Create a blank SQL database
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **New** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal, see [Create a SQL database in minutes](sql-database-get-started.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal, see [Your first Azure SQL database](sql-database-get-started.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

@@ -1,6 +1,5 @@
 ---
-title: Use PowerShell to create Azure HDInsight and Data Lake Store | Microsoft Docs
-description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake
+title: "PowerShell: Azure HDInsight cluster with Data Lake Store as add-on storage | Microsoft Docs"
 services: data-lake-store,hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,30 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 02/14/2017
 ms.author: nitinme
 
 ---
-# Create an HDInsight cluster with Data Lake Store using Azure PowerShell
+# Use Azure PowerShell to create an HDInsight cluster with Data Lake Store (as additional storage)
 > [!div class="op_single_selector"]
 > * [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Using PowerShell (for default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Using PowerShell (for additional storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Learn how to use Azure PowerShell to configure an HDInsight cluster with access to Azure Data Lake Store. For supported cluster types, Data Lake Store be used as an default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
+Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Store, **as additional storage**. For instructions on how to create an HDInsight cluster with Azure Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store as default storage](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md).
 
-Some important considerations:
+For supported cluster types, Data Lake Store can be used as a default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
 
-* Option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
+## Using Data Lake Store for HDInsight cluster storage
+
+Here are some important considerations for using HDInsight with Data Lake Store:
 
 * Option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, and 3.5.
 
 * For HBase clusters (Windows and Linux), Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
 
-
-In this article, we provision a Hadoop cluster with Data Lake Store as additional storage. For instructions on how to create a Hadoop cluster with Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Configuring HDInsight to work with Data Lake Store using PowerShell involves the following steps:
 
@@ -158,8 +158,9 @@ In this section, you perform the steps to create a service principal for an Azur
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
-## Create an HDInsight Linux cluster with authentication to Data Lake Store
-In this section, we create an HDInsight Hadoop Linux cluster. For this release, the HDInsight cluster and the Data Lake Store must be in the same location.
+## Create an HDInsight Linux cluster with Data Lake Store as additional storage
+
+In this section, we create an HDInsight Hadoop Linux cluster with Data Lake Store as additional storage. For this release, the HDInsight cluster and the Data Lake Store must be in the same location.
 
 1. Start with retrieving the subscription tenant ID. You will need that later.
 

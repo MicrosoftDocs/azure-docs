@@ -4,7 +4,7 @@ description: This tutorial shows you how to use the Azure Toolkit for IntelliJ t
 services: app-service\web
 documentationcenter: java
 author: selvasingh
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 78148648-5a89-4b7d-98f1-9cf8f38dfe8d

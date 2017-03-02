@@ -15,26 +15,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# Frequently asked questions: Azure Container Service
+# Container Service frequently asked questions
 
 
 ## Orchestrators
 
 ### Which container orchestrators do you support on Azure Container Service? 
 
-There is support for open-source DC/OS, Docker Swarm, and Kubernetes. While support for DC/OS and Docker Swarm is generally available, Kubernetes support is currently in preview. For more information, see the [Overview](container-service-intro.md).
+There is support for open-source DC/OS, Docker Swarm, and Kubernetes. For more information, see the [Overview](container-service-intro.md).
  
-### Do you support Swarm mode? 
+### Do you support Docker Swarm mode? 
 
 Currently Swarm mode is not supported, but it is on the service roadmap. 
 
 ### Does Azure Container Service support Windows containers?  
 
-Currently Linux containers are supported. Support for Windows containers with the DC/OS, Docker Swarm, and Kubernetes orchestrators is on the service roadmap. 
+Currently Linux containers are supported with all orchestrators. Support for Windows containers with Kubernetes is in preview.
 
 ### Do you recommend a specific orchestrator in Azure Container Service? 
 Generally we do not recommend a specific orchestrator. If you have experience with one of the supported orchestrators, you can apply that experience in Azure Container Service. Data trends suggest, however, that DC/OS is production proven for Big Data and IoT workloads, Kubernetes is suited for cloud-native workloads, and Docker Swarm is known for its integration with Docker tools and easy learning curve.
@@ -52,29 +53,23 @@ Azure Container Service is an SLA-backed Azure service with features in the Azur
 
 You can use standard tools on your operating system to create an SSH RSA public and private key pair for authentication against the Linux virtual machines for your cluster. For steps, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
 
-If you use [Azure CLI 2.0 (Preview) commands](container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
+If you use [Azure CLI 2.0 commands](container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
 
 ### How do I create a service principal for my Kubernetes cluster?
 
-An Azure Active Directory service principal ID and password are also needed to create a Kubernetes cluster in Azure Container Service. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md)
+An Azure Active Directory service principal ID and password are also needed to create a Kubernetes cluster in Azure Container Service. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
 
-If you use [Azure CLI 2.0 (Preview) commands](container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
+If you use [Azure CLI 2.0 commands](container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
 
 
 ### How do I increase the number of masters after a cluster is created? 
-Once the cluster is created, the number of masters is fixed and cannot be changed. During the creation of the cluster, you should ideally select three or five masters for high availability.
+Once the cluster is created, the number of masters is fixed and cannot be changed. During the creation of the cluster, you should ideally select multiple masters for high availability.
 
-> [!NOTE]
-> In preview, a Kubernetes cluster in Azure Container Service can only have one master.
->
 
 ### How do I increase the number of agents after a cluster is created? 
 You can scale the number of agents in the cluster by using the Azure portal or command-line tools. See [Scale an Azure Container Service cluster](container-service-scale.md).
 
-> [!NOTE]
-> In preview, a Kubernetes cluster in Azure Container Service has a fixed number of agents. 
->
 
 ### What are the URLs of my masters and agents? 
 The URLs of cluster resources in Azure Container Service are based on the DNS name prefix you supply and the name of the Azure region you chose for deployment. For example, the fully qualified domain name (FQDN) of the master node is of this form:
@@ -84,6 +79,10 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 You can find commonly used URLs for your cluster in the Azure portal, the Azure Resource Explorer, or other Azure tools.
+
+### How do I upgrade the orchestrator after deployment?
+
+Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/).
  
 ### Where do I find the SSH connection string to my cluster?
 
@@ -111,4 +110,4 @@ For more information, see [Connect to an Azure Container Service cluster](contai
 ## Next steps
 
 * [Learn more](container-service-intro.md) about Azure Container Service.
-* Deploy a container service cluster using the [portal](container-service-deployment.md) or [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md).
+* Deploy a container service cluster using the [portal](container-service-deployment.md) or [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).

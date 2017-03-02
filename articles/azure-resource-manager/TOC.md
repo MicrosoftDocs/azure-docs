@@ -17,6 +17,7 @@
 ### [Authoring templates](resource-group-authoring-templates.md)
 ### [Template functions](resource-group-template-functions.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
+### [Set child resource name and type](resource-manager-template-child-resource.md)
 ### [Create multiple instances of resource type](resource-group-create-multiple.md)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 ### [Link to other templates](resource-group-linked-templates.md)
@@ -27,7 +28,6 @@
 ### [Azure CLI](resource-group-template-deploy-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Development and test environments](solution-dev-test-environments.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Manage
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -59,7 +59,7 @@
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
-## [Azure 2.0 CLI (Preview)](/cli/azure/resource)
+## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
