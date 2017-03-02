@@ -16,6 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: bwren
 
+ms.custom: H1Hack27Feb2017
+
 ---
 # Management solution files in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
