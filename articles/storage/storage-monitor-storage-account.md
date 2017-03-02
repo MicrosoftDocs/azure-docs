@@ -97,10 +97,11 @@ You can create alerts to notify you when thresholds have been reached for storag
 1. To open the **Alert rules blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Alert rules**.
 1. Select **Add alert** to open the **Add an alert rule** blade
 1. Select a **Resource** (blob, file, queue, table) from the drop-down, and enter a **Name** and **Description** for your new alert rule.
-1. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type will change depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *Availability* metric is a percentage.
-1. Select the **Period**. Metrics that reach or exceed the Threshold within the period will trigger an alert. TODO: Make this better--it's muddy.
+1. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type will change depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
+1. Select the **Period**. Metrics that reach or exceed the Threshold within the period will trigger an alert.
+1. (Optional) Enter a URI in the **Webhook** text box to which alerts will be routed. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
-IMAGE-HERE
+!['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 
 ## How to: Add metrics charts to the portal dashboard
 
@@ -114,7 +115,7 @@ You can add Azure Storage metrics charts for any of your storage accounts to you
 1. Drag-and-drop the chart tile onto your dashboard for the metric you'd like displayed. Repeat for all metrics you'd like displayed on the dashboard. In the following image, the "Blobs - Total requests" chart is highlighted as an example, but all of the charts are available for placement on your dashboard.
 1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
-   ![Selecting a metrics chart to add to the portal dashboard](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
+![Selecting a metrics chart to add to the portal dashboard](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
 
 Once you've added charts to your dashboard, you can further customize them as described in [How to: Customize metrics charts](#how-to-customize-metrics-charts).
 
