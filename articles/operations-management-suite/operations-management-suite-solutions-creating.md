@@ -59,7 +59,7 @@ Each solution will typically contain a single view with a [tile](../log-analytic
 
 
 ## Create solution file
-Once you've configured and tested the components that will be part of your solution, you can [create your solution file](operations-management-solution-solution-file.md).  You will implement the solution components in a Resource Manager template that includes a [solution resource]() with relationships to the other resources in the file.  
+Once you've configured and tested the components that will be part of your solution, you can [create your solution file](operations-management-solutions-solution-file.md).  You will implement the solution components in a Resource Manager template that includes a [solution resource]() with relationships to the other resources in the file.  
 
 You can get complete guidance on creating a solution file at []().  This section provides best practices for implementing different kinds of resources.
 
