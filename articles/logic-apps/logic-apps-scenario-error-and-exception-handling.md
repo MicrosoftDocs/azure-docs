@@ -1,6 +1,6 @@
 ---
 title: Exception handling & error logging scenario - Azure Logic Apps | Microsoft Docs
-description: View a real-life use case of advanced error handling and logging with Logic Apps
+description: Describes a real use case about advanced exception handling and error logging for Azure Logic Apps
 keywords: ''
 services: logic-apps
 author: hedidin
