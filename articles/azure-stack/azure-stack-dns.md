@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Stack DNS | Microsoft Docs
-description: What's new in Azure Stack DNS
+title: DNS in Azure Stack | Microsoft Docs
+description: DNS in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: vhorne
@@ -17,7 +17,7 @@ ms.date: 3/2/2017
 ms.author: victorh
 
 ---
-# What's new in Azure Stack DNS
+# DNS in Azure Stack
 Azure Stack TP3 introduces two new DNS features:
 * Support for DNS hostname resolution
 * Create and manage DNS zones and records using API
