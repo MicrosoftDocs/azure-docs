@@ -21,11 +21,11 @@ ms.author: negat
 
 # About this tutorial
 
-[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a minimum viable scale set template as well as how to modify this template to suit a variety of scenarios. All of the examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
+[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a minimum viable scale set template and how to modify this template to suit various scenarios. All examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
 
 ## A minimum viable scale set
 
-Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). Those already familiar with templates can safely skip to the "Next Steps" section to see how to modify this template for other scenarios. However, those less familiar with templates might find this piece by piece description helpful. To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
+Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json). If you are already familiar with templates, you can safely skip to the "Next Steps" section to see how to modify this template for other scenarios. However, if you are less familiar with templates, you might find this piece by piece description helpful. To start, let's examine the diff to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
 
 First, we define the `$schema` and `contentVersion` of the template. `$schema` defines the version of the template language and is used for Visual Studio syntax highlighting and similar validation features. `contentVersion` is actually not used by Azure at all. Instead, it is to help you keep track of which version of the template this is.
 
@@ -54,7 +54,7 @@ Resource Manager templates also allow you to define variables to be used later o
 +  "variables": {},
 ```
 
-Next we have the resources of the template. This is where we define what we actually want to deploy. Unlike the `parameters` and `variables` (which are JSON objects), `resources` is a JSON list of JSON objects.
+Next we have the resources of the template, where we define what we actually want to deploy. Unlike the `parameters` and `variables` (which are JSON objects), `resources` is a JSON list of JSON objects.
 
 ```diff
 +  "resources": [
@@ -97,7 +97,7 @@ Each Resource Manager resource has its own `properties` section for configuratio
 +    },
 ```
 
-In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource may optionally have a `dependsOn` list of strings that specifies what other resources from this deployment need to finish deploying before deploying this resource. In this case there is only one element in this list, the virtual network from above. We specify this dependency because the scale set needs the network to exist before creating any VMs. This way, the scale set can give these VMs private IP addresses from the IP address range specified in the network properties previously. The format of each string in the dependsOn list is `<type>/<name>` (the same `type` and `name` we used previously in the virtual network resource definition).
+In addition to the required `type`, `name`, `apiVersion`, and `location` properties, each resource may optionally have a `dependsOn` list of strings that specifies what other resources from this deployment must finish before deploying this resource. In this case, there is only one element in this list, the virtual network from above. We specify this dependency because the scale set needs the network to exist before creating any VMs. This way, the scale set can give these VMs private IP addresses from the IP address range specified in the network properties previously. The format of each string in the dependsOn list is `<type>/<name>` (the same `type` and `name` we used previously in the virtual network resource definition).
 
 ```diff
 +    {
@@ -110,7 +110,7 @@ In addition to the required `type`, `name`, `apiVersion`, and `location` propert
 +      ],
 ```
 
-The scale set needs to know what size of vm to create (the "sku name"), as well as how many such VMs to create (the "sku capacity"). To see which VM sizes are available, refer to the [VM Sizes documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes).
+The scale set needs to know what size of VM to create (the "sku name") and how many such VMs to create (the "sku capacity"). To see which VM sizes are available, refer to the [VM Sizes documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes).
 
 ```diff
 +      "sku": {
@@ -128,7 +128,7 @@ The scale set also needs to know how to handle updates on the scale set. Current
 +        },
 ```
 
-Of course, the scale set also needs to know what operating system to put on the VMs. Here we create the VMs with a fully patched Ubuntu 16.04-LTS image.
+The scale set also needs to know what operating system to put on the VMs. Here we create the VMs with a fully patched Ubuntu 16.04-LTS image.
 
 ```diff
 +        "virtualMachineProfile": {
@@ -142,7 +142,7 @@ Of course, the scale set also needs to know what operating system to put on the 
 +          },
 ```
 
-Since the scale set is deploying multiple VMs, instead of specifying each VM name, we specify a `computerNamePrefix`. The scale set appends an index to this prefix for each VM, so the VM names are of the form `<computerNamePrefix>_<auto-generated-index>`. In this snippet, we also see that we are using the parameters from before to set the administrator username and password for all VMs in the scale set. This is done using the `parameters` template function, which takes in a string specifying which parameter we wish to refer to and outputs the value for that parameter.
+Since the scale set is deploying multiple VMs, instead of specifying each VM name, we specify a `computerNamePrefix`. The scale set appends an index to this prefix for each VM, so the VM names are of the form `<computerNamePrefix>_<auto-generated-index>`. In this snippet, we also see that we are using the parameters from before to set the administrator username and password for all VMs in the scale set. We do this with the `parameters` template function, which takes in a string specifying which parameter we wish to refer to and outputs the value for that parameter.
 
 ```diff
 +          "osProfile": {
@@ -152,7 +152,7 @@ Since the scale set is deploying multiple VMs, instead of specifying each VM nam
 +          },
 ```
 
-Finally, we need specify the network configuration for the VMs in the scale set. In this case, we only need to specify the id of the subnet we created earlier so the scale set knows to put the network interfaces in this subnet. We can get the id of the virtual network containing the subnet using the `resourceId` template function. This function takes in the type and name of a resource and returns the fully qualified identifier of that resource (this id is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`). However, the identifier of the virtual network is not enough. We must specify the specific subnet the scale set VMs should be in, so we concatenate `/subnets/mySubnet` to the id of the virtual network. This gives us the fully qualified id of the subnet. We do this concatenation with the `concat` function, which takes in a series of strings and returns their concatenation.
+Finally, we need specify the network configuration for the VMs in the scale set. In this case, we only need to specify the id of the subnet we created earlier so the scale set knows to put the network interfaces in this subnet. We can get the id of the virtual network containing the subnet using the `resourceId` template function. This function takes in the type and name of a resource and returns the fully qualified identifier of that resource (this id is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`). However, the identifier of the virtual network is not enough. We must specify the specific subnet the scale set VMs should be in, so we concatenate `/subnets/mySubnet` to the id of the virtual network. The result is the fully qualified id of the subnet. We do this concatenation with the `concat` function, which takes in a series of strings and returns their concatenation.
 
 ```diff
 +          "networkProfile": {
@@ -185,6 +185,6 @@ Finally, we need specify the network configuration for the VMs in the scale set.
 
 ## Next Steps
 
-You can deploy the above template by following the [documentation here](../azure-resource-manager/resource-group-template-deploy.md).
+You can deploy the preceding template by following the [documentation here](../azure-resource-manager/resource-group-template-deploy.md).
 
 For more general information about scale sets, you can refer to the [scale set overview page](./virtual-machine-scale-sets-overview.md)
