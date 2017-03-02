@@ -38,10 +38,10 @@ After a virtual machine is restored, here is an example of what your Windows Eve
 <!--Image reference-->
 ![][image2]
 
-Use the viewer to determine which virtual machines are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, to determine which virtual machines are in a multi-instance configuration, you can browse the list of virtual machines with the Availability Set column added to the virtual machines browse dialog. In the following example, the Example-VM1 and Example-VM2 virtual machines are in a muilti-instance configuration:
+Use the viewer to determine which virtual machines are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, to determine which virtual machines are in a multi-instance configuration, you can browse the list of virtual machines with the Availability Set column added to the **virtual machines (classic)** browse dialog. In the following example, the SQLContoso01 and SQLContoso02 virtual machines are in a muilti-instance configuration:
 
 <!--Image reference-->
-![][image4]
+  ![Virtual machinces (classic) view from the Azure portal][image4]
 
 ## Single-instance configuration updates
 After the multi-instance configuration updates are complete, Azure will perform single-instance configuration updates. This update also causes a reboot to your virtual machines that are not running in availability sets.
@@ -82,11 +82,10 @@ Please refer to the following table for information regarding current region pai
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/AvailabilitySetExample.png
+[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
 
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
 [Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
-
