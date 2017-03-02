@@ -20,14 +20,14 @@ ms.author: allclark
 
 # Restart VMs by Tag
 
-This example creates virtual machines in multiple resource groups with a given tag. Creation of the
-virtual machines is done in parallel via `--no-wait` to illustrate how to start multiple VM creations
-and to then wait for their collective completion.
+This example creates virtual machines with a given tag in multiple resource groups.
+The virtual machines are created in parallel using `--no-wait`,
+and then it waits for their collective completion.
 
-After the virtual machines have been created, they are restarted using two different query
+After the virtual machines have been created, they're restarted using two different query
 mechanisms.
 
-The first restarts the VMs using the query used to wait on their asynchronous creation.
+The first restarts the VMs the same query that was used to wait on their asynchronous creation.
 ```bash
 az vm restart --ids $(az vm list --query "join(' ', ${GROUP_QUERY}] | [].id)" \
     -o tsv) $1>/dev/null
