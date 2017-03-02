@@ -102,7 +102,7 @@ API calls in your applications.
 
 ![Display account keys](media/cognitive-services-apis-create-account/account-keys.png)
 
-## Next Steps
+### Next Steps
 
 - For more information about all the Microsoft Cognitive Services available, see [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
 
