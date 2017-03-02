@@ -226,7 +226,7 @@ Add the following method to the Program class.
 
         IJob job = _context.Jobs.CreateWithSingleTask(
             "Media Encoder Standard",
-            "H264 Multiple Bitrate 720p",
+            "Adaptive Streaming",
             asset,
             "Adaptive Bitrate MP4",
             options);

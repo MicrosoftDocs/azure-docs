@@ -3,7 +3,7 @@ title: 'Best Practices: Azure AD Password Management | Microsoft Docs'
 description: Deployment and usage best practices, sample end-user documentation and training guides for Password Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 
 ---
 # Deploying Password Management and training users to use it
