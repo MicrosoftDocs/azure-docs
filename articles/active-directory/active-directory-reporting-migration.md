@@ -19,7 +19,7 @@ ms.author: dhanyahk;markvi
 ---
 # Find activity reports in the Azure portal
 
-If you are moving from the Azure classic portal to the Azure portal, you'll get a new look at Azure Active Directory (Azure AD) activity logs. In a recent [blog post](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), we explain how you can see activity logs in the context of the resource you are working on in the Azure portal. In this article, we describe how to find reports that you used in the Azure classic portal in the Azure portal.
+If you are moving from the Azure classic portal to the Azure portal, you get a new look at Azure Active Directory (Azure AD) activity logs. In a recent [blog post](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), we explain how you can see activity logs in the context of the resource you are working on in the Azure portal. In this article, we describe how to find reports that you used in the Azure classic portal in the Azure portal.
 
 ## What's new
 
@@ -90,16 +90,16 @@ Azure AD anomalous activity security reports from the Azure classic portal have 
 
 The following table lists the Azure AD anomalous activity security reports, and corresponding risk event types in the Azure portal.
 
-| Azure AD Anomalous Activity Report |  Identity Protection risk event type|
+| Azure AD anomalous activity report |  Identity protection risk event type|
 | :--- | :--- |
 | Users with leaked credentials | Leaked credentials |
 | Irregular sign-in activity | Impossible travel to atypical locations |
 | Sign-ins from possibly infected devices | Sign-ins from infected devices|
 | Sign-ins from unknown sources | Sign-ins from anonymous IP addresses |
 | Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
-| - | Signs in from unfamiliar locations |
+| - | Sign-ins from unfamiliar locations |
 
-The following Azure AD anomalous activity security reports are not included as risk events in Azure AD.
+The following Azure AD anomalous activity security reports are not included as risk events in the Azure portal:
 
 * Sign-ins after multiple failures
 * Sign-ins from multiple geographies
