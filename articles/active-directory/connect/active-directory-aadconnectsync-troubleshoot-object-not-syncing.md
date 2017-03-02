@@ -24,7 +24,7 @@ To find the errors, you are going to look at a few different places.
 
 - The operation logs for finding errors identified by the sync engine during import and synchronization.
 - The [connector space](#connector-space-object-properties) for finding missing objects and synchronization errors.
-- The [metaverse](#metaverse-object-properties) for finding data related problems.
+- The [metaverse](#metaverse-object-properties) for finding data-related problems.
 
 Start [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) before you start these steps.
 
@@ -62,7 +62,7 @@ Start by clicking the error string (**sync-rule-error-function-triggered** in th
 If the error itself does not give enough information, then it is time to look at the data itself. You can click the link with the object identifier and continue troubleshooting the [connector space imported object](#cs-import).
 
 ## Connector Space Object Properties
-If you do not have any errors found in the [operations](#operations) tab, then the next step is to follow the connector space object from Active Directory, to the metaverse, and to Azure AD. In this path you should find where the problem is.
+If you do not have any errors found in the [operations](#operations) tab, then the next step is to follow the connector space object from Active Directory, to the metaverse, and to Azure AD. In this path, you should find where the problem is.
 
 ### Search for an object in the CS
 
@@ -110,7 +110,7 @@ The Log page is used to see the password sync status and history. For more infor
 It is usually better to start searching from the source Active Directory [connector space](#connector-space). But you can also start searching from the metaverse.
 
 ### Search for an object in the MV
-In **Synchronization Service Manager** click **Metaverse Search**. Create a query you know finds the user. You can search for common attributes, such as accountName (sAMAccountName) and userPrincipalName. For more information, see [Metaverse search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
+In **Synchronization Service Manager**, click **Metaverse Search**. Create a query you know finds the user. You can search for common attributes, such as accountName (sAMAccountName) and userPrincipalName. For more information, see [Metaverse search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
 
 In the **Search Results** window, click the object.
