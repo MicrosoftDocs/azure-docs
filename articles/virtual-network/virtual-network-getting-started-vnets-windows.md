@@ -1,6 +1,6 @@
 ---
-title: Create your first Azure Virtual Network - Windows VMs | Microsoft Docs
-description: Learn how to create an Azure Virtual Network and connect two Windows virtual machines to it.
+title: Create your first Azure Virtual Network | Microsoft Docs
+description: Learn how to create an Azure Virtual Network and connect two virtual machines to it.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
@@ -19,7 +19,7 @@ ms.author: jdial
 
 ---
 
-# Create your first virtual network and connect two Windows virtual machines to it
+# Create your first virtual network and connect two virtual machines to it
 
 Learn how to create a virtual network (VNet) with two subnets, create two virtual machines (VM), and connect each VM to one of the subnets, as shown in the following picture:
 
@@ -77,7 +77,7 @@ Complete the following steps to create a virtual network with two subnets. Diffe
 
 ## <a name="create-vms"></a>Create virtual machines
 
-With the VNet and subnets created, you can create the VMs. For this exercise, both VMs run the Windows Server operating system, though they can run any operating system supported by Azure.
+With the VNet and subnets created, you can create the VMs. For this exercise, both VMs run the Windows Server operating system, though they can run any operating system supported by Azure, to include several Linux distributions.
 
 ### <a name="create-web-server-vm"></a>Create the web server VM
 
