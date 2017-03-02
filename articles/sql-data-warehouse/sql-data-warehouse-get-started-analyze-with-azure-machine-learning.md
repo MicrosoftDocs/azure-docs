@@ -4,7 +4,7 @@ description: Use Azure Machine Learning to build a predictive machine learning m
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
-manager: barbkess
+manager: jhubbard
 editor: ''
 
 ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
+ms.date: 03/02/2017
+ms.author: kevin
 
 ---
 # Analyze data with Azure Machine Learning
