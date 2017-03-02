@@ -182,3 +182,9 @@ Finally, we need specify the network configuration for the VMs in the scale set.
 +}
 
 ```
+
+## Next Steps
+
+You can deploy the above template by following the [documentation here](../azure-resource-manager/resource-group-template-deploy.md).
+
+For more general information about scale sets, you can refer to the [scale set overview page](./virtual-machine-scale-sets-overview.md)
