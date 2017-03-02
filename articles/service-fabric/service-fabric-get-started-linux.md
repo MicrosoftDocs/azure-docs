@@ -133,9 +133,9 @@ The Java SDK provides the libraries and templates required to build Service Fabr
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-You can install the Eclipse plugin for Service Fabric from within the Eclipse Neon IDE.
+You can install the Eclipse plugin for Service Fabric from within the **Eclipse IDE for Java Developers**.
 
-1. In Eclipse, ensure that you have Buildship version 1.0.17 or later installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
+1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
 2. To install the Service Fabric plugin, choose **Help > Install New Software...**
 3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
 4. Click Add.
@@ -143,6 +143,8 @@ You can install the Eclipse plugin for Service Fabric from within the Eclipse Ne
     ![Eclipse plugin][sf-eclipse-plugin]
 5. Choose the Service Fabric plugin and click next.
 6. Proceed through the installation and accept the end-user license agreement.
+
+For more details on how to use Service Fabric Eclipse Plugin, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
 
 ## Install the .NET Core SDK (optional)
 The .NET Core SDK provides the libraries and templates required to build Service Fabric services using cross-platform .NET Core.
@@ -172,7 +174,7 @@ For updating the CLI, navigate to the directory where you cloned the CLI and run
 
 ## Next steps
 * [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-* [Set up and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
+* [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)

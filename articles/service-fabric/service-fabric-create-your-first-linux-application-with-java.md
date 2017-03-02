@@ -100,7 +100,7 @@ Actor projects do not do anything on their own. They require another service or 
 
 ## Build and deploy an application with the Eclipse Neon plugin
 
-Service Fabric also gives you the provision to create, build and deploy service fabric Java application using Eclipse, which is one of the most used Java development tools. When installing Eclipse, choose the **Eclipse IDE for Java developers**. Also, **Neon** is the version, Service Fabric currently supports for eclipse plugin. Please refer to the detailed documentation - [Set up and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
+Service Fabric also gives you the provision to create, build and deploy service fabric Java application using Eclipse, which is one of the most used Java development tools. When installing Eclipse, choose the **Eclipse IDE for Java developers**. Also, Service Fabric currently supports the plugin for Eclipse **Neon**. Please refer to the detailed documentation - [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 
 ## Adding more services to an existing application using yo utility
 
@@ -110,7 +110,7 @@ To add another service to an application already created using `yo`, perform the
 
 
 ## Next steps
-* [Set up and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
+* [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
 * [Troubleshooting deployment](service-fabric-azure-cli.md#troubleshooting)

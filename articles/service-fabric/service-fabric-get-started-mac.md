@@ -83,7 +83,7 @@ Ensure you have gone through the steps mentioned in the [Service Fabric Eclipse 
 
 ## Next steps
 <!-- Links -->
-* [Set up and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
+* [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 * [Create your first Service Fabric application for Linux](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
 * [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
