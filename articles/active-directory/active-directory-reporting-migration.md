@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: dhanyahk;markvi
 
 ---
@@ -106,11 +106,28 @@ You can view the application usage for all apps or a single app through the **Ac
 
 ### Security reports
 
-The security reports have been consolidated to provide with a complete overview of a view of all security related risk events that Azure Active Directory can detect and report on. For a complete overview, see
-[Azure Active Directory risk events](active-directory-identity-protection-risk-events.md).  
-In this topic, you can find an overview of how the Azure Active Directry anomalous activity reports map to the risk events in Azure AD in the [Azure AD anomalous activity reports](active-directory-identity-protection-risk-events.md#azure-ad-anomalous-activity-reports) section.
+The **Azure AD anomalous activity** security reports from the Azure classic portal have been consolidated to provide you with one central view of all security related risk events that Azure Active Directory can detect and report on. 
 
-In the Azure portal, you can access the reports about detected risk events in the **Security** section of the **Azure Active Directory** blade. The detected risk events are tracked within the following reports:   
+The table below lists the various **azure AD anomalous activity** security reports and the corresponding risk event types in the Azure portal. 
+
+| Azure AD Anomalous Activity Report |  Identity Protection Risk Event Type|
+| :--- | :--- |
+| Users with leaked credentials | Leaked credentials |
+| Irregular sign-in activity | Impossible travel to atypical locations |
+| Sign-ins from possibly infected devices | Sign-ins from infected devices|
+| Sign-ins from unknown sources | Sign-ins from anonymous IP addresses |
+| Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
+| - | Signs in from unfamiliar locations |
+
+The following Azure AD anomalous activity security reports are not included as risk events in Azure AD. These reports are still available in the Azure classic portal. However, they will be deprecated at some time in the future.
+
+* Sign-ins after multiple failures
+* Sign-ins from multiple geographies
+
+For a complete overview, see
+[Azure Active Directory risk events](active-directory-identity-protection-risk-events.md).  
+
+In the Azure portal, you can access reports about detected risk events in the **Security** section of the **Azure Active Directory** blade. The detected risk events are tracked within the following reports:   
 
 - Users at Risk
 - Risky Sign-ins 

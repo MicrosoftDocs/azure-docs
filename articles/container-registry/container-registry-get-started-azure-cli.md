@@ -1,6 +1,6 @@
 ---
-title: Create Azure container registry - CLI | Microsoft Docs
-description: Get started creating and managing Azure container registries with the Azure CLI 2.0
+title: Create private Docker container registry - Azure CLI | Microsoft Docs
+description: Get started creating and managing private Docker container registries with the Azure CLI 2.0
 services: container-registry
 documentationcenter: ''
 author: stevelas
@@ -17,12 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 ---
-# Create a container registry using the Azure CLI
+# Create a private Docker container registry using the Azure CLI 2.0
 Use commands in the [Azure CLI 2.0](https://github.com/Azure/azure-cli) to create a container registry and manage its settings from your Linux, Mac, or Windows computer. You can also create and manage container registries using the [Azure portal](container-registry-get-started-portal.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
 
-* For background and concepts, see [What is Azure Container Registry?](container-registry-intro.md)
+* For background and concepts, see [the overview](container-registry-intro.md)
 * For help on Container Registry CLI commands (`az acr` commands), pass the `-h` parameter to any command.
 
 > [!NOTE]

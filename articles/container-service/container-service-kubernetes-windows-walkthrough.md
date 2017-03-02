@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
-ms.author: dlepow
+ms.date: 03/01/2017
+ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Get started with Windows containers in a Kubernetes cluster
+# Get started with Kubernetes and Windows containers in Container Service
 
 
 This article shows how to create a Kubernetes cluster in Azure Container Service that contains Windows nodes to run Windows containers. 
