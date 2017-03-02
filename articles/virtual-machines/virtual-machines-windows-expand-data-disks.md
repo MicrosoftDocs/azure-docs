@@ -25,6 +25,14 @@ If you need to increase the size of the data disk attached to your virtual machi
 
 ## Managed data disk
 
+To increase the size of the data disks, we will use the following PowerShell cmdlets:
+- [Get-AzureRMReseourceGroup](/powershell/Get-AzureRMReseourceGroup)
+- [Get-AzureRMVM](/powershell/getazurermvm)
+- [Stop-AzureRMVM](/powershell/stop-azurermvm)
+- [Set-AzureRmVMDataDisk](/powershell/Set-AzureRmVMDataDisk)
+- [Update-AzureRmVM](/powershell/update-azurermvm)
+- [Start-AzureRmVM](/powershell/start-azurermvm)
+
 ```powershell
 # Select resource group
      
