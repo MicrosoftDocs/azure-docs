@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/02/2017
+ms.date: 03/03/2017
 ms.author: banders
 
 ---
@@ -90,13 +90,13 @@ The following table summarizes the access that can be set using each permission 
 The legacy Log Analytics user roles only control access to activities performed in the [Log Analytics portal](https://mms.microsoft.com).
 
 The following activities in the Log Analytics portal also require Azure permissions:
-+ Adding or removing management solutions
-+ Changing the pricing tier
-+ Viewing data in the *Backup* and *Site Recovery* solution tiles
- - For these solutions, it is necessary to have administrator or co-administrator permission to the Azure subscription since these tiles access resources deployed using the classic deployment model.   
 
-For example, to add or remove management solutions, you must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, you must be a member of the OMS workspace *Contributor* or *Administrator* role in the OMS portal.
-
+| Action                                                          | Azure Permissions Needed | Notes |
+|-----------------------------------------------------------------|--------------------------|-------|
+| Adding and removing management solutions                        | Resource Group write <br> Microsoft.OperationalInsights/\* <br> Microsoft.OperationsManagement/\* <br> Microsoft.Automation/\* | |
+| Changing the pricing tier                                       | Microsoft.OperationalInsights/workspaces/write | |
+| Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
+ 
 ### Managing access to Log Analytics using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
@@ -113,7 +113,7 @@ When opening the Log Analytics portal, you switch to using the legacy Log Analyt
 
 Some points to keep in mind about the Azure portal:
 
-* When you sign in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, you need to specify a tenant as part of the URL. For example:  `mms.microsoft.com/?tenant=contoso.com`. The tenant identifier is often that last part of the e-mail address that you use to sign in.
+* When you sign in to the OMS portal using http://mms.microsoft.com, you see the **Select a workspace** list. This list only contains workspaces where you have a Log Analytics user role. To see the workspaces you have access to with Azure subscriptions, you need to specify a tenant as part of the URL. For example:  `mms.microsoft.com/?tenant=contoso.com`. The tenant identifier is often that last part of the e-mail address that you use to sign in.
 * If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
   For example, `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
