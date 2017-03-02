@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/22/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 
 ---
 
 # Expand OS disk on a Linux VM using the Azure CLI
-The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to provide for additional storage space, but you may also wish to expand the OS disk. This article details how to expand the OS disk for a Linux VM using the Azure CLI.
+The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to provide for additional storage space, but you may also wish to expand the OS disk. This article details how to expand the OS disk for a Linux VM using unmanaged disks with the Azure CLI.
 
 
 ## Prerequisites
@@ -43,7 +43,7 @@ In the following samples, replace example parameter names with your own values. 
     > [!NOTE]
     > `azure vm stop` does not release the compute resources. To release compute resources, use `azure vm deallocate`. The VM must be deallocated to expand the virtual hard disk.
 
-2. Update the size of the OS disk using the `azure vm set` command. The following example updates the VM named `myVM` in the resource group named `myResourceGroup` to be `50` GB:
+2. Update the size of the OS unmanaged disk using the `azure vm set` command. The following example updates the VM named `myVM` in the resource group named `myResourceGroup` to be `50` GB:
 
     ```azurecli
     azure vm set --resource-group myResourceGroup --name myVM --new-os-disk-size 50

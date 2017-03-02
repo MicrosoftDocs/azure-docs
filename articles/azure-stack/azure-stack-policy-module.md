@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use the Azure Stack Policy Module| Microsoft Docs
 description: Learn how to constrain an Azure subscription to behave like an Azure Stack subscription
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2016
+ms.date: 3/1/2016
 ms.author: helaw
 
 ---

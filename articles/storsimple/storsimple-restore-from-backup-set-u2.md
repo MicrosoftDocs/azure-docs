@@ -1,4 +1,4 @@
-﻿---
+---
 title: Restore a StorSimple volume from backup | Microsoft Docs
 description: Explains how to use the StorSimple Manager service Backup Catalog page to restore a StorSimple volume from a backup set.
 services: storsimple

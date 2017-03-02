@@ -1,11 +1,10 @@
-﻿---
+---
 title: Introduction to the Access Panel | Microsoft Docs
 description: Learn how to use the various flavors of the Access Panel (Web browser, Android app, iPhone and iPad app) to access the SaaS apps that are assigned to you.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
@@ -13,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 02/27/2017
+ms.author: markvi
+
+ms.custom: H1Hack27Feb2017
 
 ---
-# Introduction to the Access Panel
+# What is the Access Panel
 The Access Panel is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with Azure Active Directory editions, you can also utilize self-service group management capabilities through the Access Panel. <br>
 The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription. 
 

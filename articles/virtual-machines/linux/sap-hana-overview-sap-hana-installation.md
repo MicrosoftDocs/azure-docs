@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/23/2016
+ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 
 ---
-# Install SAP HANA on SAP HANA on Azure (Large Instances)
+# How to install and configure SAP HANA (large instances) on Azure
 
-Installation of SAP HANA is your responsibility and you can do this immediately after handoff of a new SAP HANA on Azure (Large Instances) server. Please note, per SAP policy, installation of SAP HANA must be performed by certified SAP HANA installer — someone who has passed the Certified SAP Technology Associate – SAP HANA Installation certification exam, or by an SAP-certified system integrator (SI).
+Installation of SAP HANA is your responsibility and you can do this immediately after handoff of a new SAP HANA on Azure (Large Instances) server. Please note, per SAP policy, installation of SAP HANA must be performed by certified SAP HANA installer — someone who has passed the Certified SAP Technology Associate – SAP HANA Installation certification exam, or by a SAP-certified system integrator (SI).
 
 There are specific connectivity considerations related to SAP HANA (server side) and SAP HANA (client side) that need to be considered. In many cases, the SAP HANA server sends its IP address to the client where it gets cached and used for subsequent connection attempts. Since SAP HANA on Azure (Large Instances) does NAT the internal server IP address used in the tenant network to an IP address range provided for specified Azure VNets, the SAP HANA database server, by design, would send the &quot;internal&quot; IP address range. For example, for hostname resolution, instead of SAP HANA providing the NATed IP address, the cached internal IP address is used. So an application using an SAP HANA client (ODBC, JDBC, etc.) would not be able to connect with this IP address. To instruct the SAP HANA server that it should propagate the NATed IP address to the client, the SAP HANA global system configuration file (global.ini) must be edited.
 

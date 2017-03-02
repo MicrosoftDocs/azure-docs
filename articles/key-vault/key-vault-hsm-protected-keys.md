@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to generate and transfer HSM-protected keys for Azure Key Vault | Microsoft Docs
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 services: key-vault
@@ -230,7 +230,7 @@ This step is optional but recommended so that you can validate the following:
 
 To validate the downloaded package:
 
-1. Run the verifykeypackage.py script by tying one of the following, depending on your geographic region or instance of Azure:
+1. Run the verifykeypackage.py script by typing one of the following, depending on your geographic region or instance of Azure:
    
    * For North America:
      

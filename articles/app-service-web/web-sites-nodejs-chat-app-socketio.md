@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 
 ---
@@ -287,7 +287,7 @@ For more information, see also the [Node.js Developer Center].
 [Install and Configure the Azure CLI]: ../xplat-cli-install.md
 [Azure App Service and Its Impact on Existing Azure Services]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Node.js Developer Center]: /develop/nodejs/
-[Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Try App Service]: https://azure.microsoft.com/try/app-service/
 [Instance Affinity in Azure Web Sites]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [Create a cache in Azure Redis Cache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 

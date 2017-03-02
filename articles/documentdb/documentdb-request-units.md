@@ -1,5 +1,5 @@
 ---
-title: Request Units in DocumentDB | Microsoft Docs
+title: Request units & estimating throughput - Azure DocumentDB | Microsoft Docs
 description: Learn about how to understand, specify, and estimate request unit requirements in DocumentDB.
 services: documentdb
 author: syamkmsft
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/22/2017
 ms.author: syamk
 
 ---
@@ -23,7 +23,11 @@ Now available: DocumentDB [request unit calculator](https://www.documentdb.com/c
 ![Throughput calculator][5]
 
 ## Introduction
-This article provides an overview of request units in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a fully managed, scalable NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection. Data in DocumentDB is stored within collections, which are elastic, highly available containers. Instead of thinking about and managing hardware resources like CPU, memory, and IOPs for a collection, you can reserve throughput in terms of requests per second. DocumentDB will automatically manage the provisioning, transparent partitioning, and scaling of your collection in order to serve the provisioned number of requests. 
+
+DocumentDB supports a number of APIs for reads, writes, queries, and stored procedure executions. Since not all requests are equal, they are assigned a normalized amount of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in DocumentDB via a response header.
+
+Each collection in DocumentDB can be reserved with throughput, also expressed in terms of request units. This is expressed in blocks of 100 request units per second, ranging from hundreds up to millions of request units per second. The provisioned throughput can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application. 
 
 After reading this article, you'll be able to answer the following questions:  
 
@@ -44,9 +48,45 @@ We recommend getting started by watching the following video, where Aravind Rama
 > 
 
 ## Specifying request unit capacity
-When creating a DocumentDB collection, you specify the number of request units per second (RUs) you want reserved for the collection.  Once the collection is created, the full allocation of RUs specified is reserved for the collection's use.  Each collection is guaranteed to have dedicated and isolated throughput characteristics.  
+When creating a DocumentDB collection, you specify the number of request units per second (RU per second) you want reserved for the collection. Based on the provisioned throughput, DocumentDB allocates physical partitions to host your collection and splits/rebalances data across partitions as it grows.
 
-It is important to note that DocumentDB operates on a reservation model; that is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*.  Keep in mind, however, that as your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through DocumentDB SDKs or using the [Azure Portal](https://portal.azure.com).  For more information on to scale throughput up and down, see [DocumentDB performance levels](documentdb-performance-levels.md).
+DocumentDB requires a partition key to be specified when a collection is provisioned with 10,000 request units or higher. A partition key is also required to scale your collection's throughput beyond 10,000 request units in the future. Therefore, it is highly recommended to configure a [partition key](documentdb-partition-data.md) when creating a collection regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100s to millions of distinct values) so that your collection and requests can be scaled uniformly by DocumentDB. 
+
+> [!NOTE]
+> A partition key is a logical boundary, and not a physical one. Therefore, you do not need to limit the number of distinct partition key values. It is in fact better to have more distinct partition key values than less, as DocumentDB has more load balancing options.
+
+Here is a code snippet for creating a collection with 3,000 request units per second using the .NET SDK:
+
+```C#
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 3000 });
+```
+
+DocumentDB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through DocumentDB SDKs or using the [Azure Portal](https://portal.azure.com).
+
+Each collection is mapped to an `Offer` resource in DocumentDB, which has metadata about the collection's provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a collection, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
+
+```C#
+// Fetch the resource to be updated
+Offer offer = client.CreateOfferQuery()
+                .Where(r => r.ResourceLink == collection.SelfLink)    
+                .AsEnumerable()
+                .SingleOrDefault();
+
+// Set the throughput to 5000 request units per second
+offer = new OfferV2(offer, 5000);
+
+// Now persist these changes to the database by replacing the original resource
+await client.ReplaceOfferAsync(offer);
+```
+
+There is no impact to the availability of your collection when you change the throughput. Typically the new reserved throughput is effective within seconds on application of the new throughput.
 
 ## Request unit considerations
 When estimating the number of request units to reserve for your DocumentDB collection, it is important to take the following variables into consideration:
@@ -66,6 +106,55 @@ A request unit is a normalized measure of request processing cost. A single requ
 > The baseline of 1 request unit for a 1KB document corresponds to a simple GET by self link or id of the document.
 > 
 > 
+
+For example, here's a table that shows how many request units to provision at three different document sizes (1KB, 4KB, and 64KB) and at two different performance levels (500 reads/second + 100 writes/second and 500 reads/second + 500 writes/second). The data consistency was configured at Session, and the indexing policy was set to None.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Document size</strong></p></td>
+            <td valign="top"><p><strong>Reads/second</strong></p></td>
+            <td valign="top"><p><strong>Writes/second</strong></p></td>
+            <td valign="top"><p><strong>Request units</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1,000 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 5) + (100 * 5) = 3,000 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 1.3) + (100 * 7) = 1,350 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 1.3) + (500 * 7) = 4,150 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9,800 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29,000 RU/s</p></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Use the request unit calculator
 To help customers fine tune their throughput estimations, there is a web based [request unit calculator](https://www.documentdb.com/capacityplanner) to help estimate the request unit requirements for typical operations, including:
@@ -96,7 +185,7 @@ Using the tool is simple:
 > 
 
 ### Use the DocumentDB request charge response header
-Every response from the DocumentDB service includes a custom header (x-ms-request-charge) that contains the request units consumed for the request. This header is also accessible through the  DocumentDB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the DocumentDB Query Explorer in the Azure portal provides request charge information for executed queries.
+Every response from the DocumentDB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the  DocumentDB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the DocumentDB Query Explorer in the Azure portal provides request charge information for executed queries.
 
 ![Examining RU charges in the Query Explorer][1]
 
@@ -119,53 +208,55 @@ For example:
 ## A request unit estimation example
 Consider the following ~1KB document:
 
+```JSON
+{
+ "id": "08259",
+  "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
+  "tags": [
     {
-     "id": "08259",
-      "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
-      "tags": [
-        {
-          "name": "cereals ready-to-eat"
-        },
-        {
-          "name": "kellogg"
-        },
-        {
-          "name": "kellogg's crispix"
-        }
-    ],
-      "version": 1,
-      "commonName": "Includes USDA Commodity B855",
-      "manufacturerName": "Kellogg, Co.",
-      "isFromSurvey": false,
-      "foodGroup": "Breakfast Cereals",
-      "nutrients": [
-        {
-          "id": "262",
-          "description": "Caffeine",
-          "nutritionValue": 0,
-          "units": "mg"
-        },
-        {
-          "id": "307",
-          "description": "Sodium, Na",
-          "nutritionValue": 611,
-          "units": "mg"
-        },
-        {
-          "id": "309",
-          "description": "Zinc, Zn",
-          "nutritionValue": 5.2,
-          "units": "mg"
-        }
-      ],
-      "servings": [
-        {
-          "amount": 1,
-          "description": "cup (1 NLEA serving)",
-          "weightInGrams": 29
-        }
-      ]
+      "name": "cereals ready-to-eat"
+    },
+    {
+      "name": "kellogg"
+    },
+    {
+      "name": "kellogg's crispix"
     }
+  ],
+  "version": 1,
+  "commonName": "Includes USDA Commodity B855",
+  "manufacturerName": "Kellogg, Co.",
+  "isFromSurvey": false,
+  "foodGroup": "Breakfast Cereals",
+  "nutrients": [
+    {
+      "id": "262",
+      "description": "Caffeine",
+      "nutritionValue": 0,
+      "units": "mg"
+    },
+    {
+      "id": "307",
+      "description": "Sodium, Na",
+      "nutritionValue": 611,
+      "units": "mg"
+    },
+    {
+      "id": "309",
+      "description": "Zinc, Zn",
+      "nutritionValue": 5.2,
+      "units": "mg"
+    }
+  ],
+  "servings": [
+    {
+      "amount": 1,
+      "description": "cup (1 NLEA serving)",
+      "weightInGrams": 29
+    }
+  ]
+}
+```
 
 > [!NOTE]
 > Documents are minified in DocumentDB, so the system calculated size of the document above is slightly less than 1KB.
@@ -221,7 +312,6 @@ If you have more than one client cumulatively operating above the request rate, 
 To learn more about reserved throughput with Azure DocumentDB databases, explore these resources:
 
 * [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Managing DocumentDB capacity](documentdb-manage.md) 
 * [Modeling data in DocumentDB](documentdb-modeling-data.md)
 * [DocumentDB performance levels](documentdb-partition-data.md)
 

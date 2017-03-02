@@ -28,6 +28,20 @@
 ### [Marketplace app](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)	
 
+# Common examples
+## CLI examples
+### [Create a web app and deploy code from GitHub](./scripts/app-service-cli-deploy-github.md)
+### [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
+### [Create a web app and deploy code from a local Git repository](./scripts/app-service-cli-deploy-local-git.md)
+### [Create a web app and deploy code to a staging environment](./scripts/app-service-cli-deploy-staging-environment.md)
+### [Create an ASP.NET Core web app in a Docker container](./scripts/app-service-cli-linux-docker-aspnetcore.md)
+### [Map a custom domain to a web app](./scripts/app-service-cli-configure-custom-domain.md)
+### [Scale a web app manually](./scripts/app-service-cli-scale-manual.md)
+### [Scale a web app worldwide with a high-availability architecture](./scripts/app-service-cli-scale-high-availability.md)
+### [Connect a web app to a SQL database](./scripts/app-service-cli-app-service-sql.md)
+### [Connect a web app to a storage account](./scripts/app-service-cli-app-service-storage.md)
+### [Monitor a web app with web server logs](./scripts/app-service-cli-monitor.md)
+
 # How to
 
 ## Plan & design
@@ -145,15 +159,13 @@
 ### [Streaming logs and the console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Reference
+# Resources
 ## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
-
-# Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/app-service/)  
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 

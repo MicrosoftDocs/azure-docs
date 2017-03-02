@@ -1,5 +1,5 @@
 ---
-title: 'The Team Data Science Process in action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Docs'
+title: 'The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset | Microsoft Docs'
 description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset
 services: machine-learning,hdinsight
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 
 ---
-# The Team Data Science Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
+# The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset
+
 In this walkthrough, we demonstrate using the Team Data Science Process in an end-to-end scenario with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. We use Azure Machine Learning to build a binary classification model on this data. We also show how to publish one of these models as a Web service.
 
 It is also possible to use an IPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
@@ -404,7 +405,9 @@ There is a final important component before we move on to Azure Machine Learning
 ## <a name="count"></a> A brief discussion on the count table
 As we saw, several categorical variables have a very high dimensionality. In our walkthrough, we present a powerful technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner. More information on this technique is in the link provided.
 
-**Note:** In this walkthrough, we focus on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing).
+[!NOTE]
+>In this walkthrough, we focus on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing).
+>
 
 To build count tables on the count data, we use the data in the folder raw/count. In the modeling section, we show users how to build these count tables for categorical features from scratch, or alternatively to use a pre-built count table for their explorations. In what follows, when we refer to "pre-built count tables", we mean using the count tables that we provide. Detailed instructions on how to access these tables are provided in the next section.
 
@@ -412,11 +415,10 @@ To build count tables on the count data, we use the data in the folder raw/count
 Our model building process in Azure Machine Learning follows these steps:
 
 1. [Get the data from Hive tables into Azure Machine Learning](#step1)
-2. [Create the experiment: clean the data, choose a learner, and featurize with count tables](#step2)
-3. [Train the model](#step3)
-4. [Score the model on test data](#step4)
-5. [Evaluate the model](#step5)
-6. [Publish the model as a web-service to be consumed](#step6)
+2. [Create the experiment: clean the data and featurize with count tables](#step2)
+3. [Build, train, and score the model](#step3)
+4. [Evaluate the model](#step4)
+5. [Publish the model as a web-service](#step5)
 
 Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We use the Azure Machine Learning **Import Data** module to read this data. The credentials to access the storage account of this cluster are provided in what follows.
 
@@ -469,7 +471,7 @@ The **Clean Missing Data** module does what its name suggests:  it cleans missin
 Here, we chose to replace all missing values with a 0. There are other options as well, which can be seen by looking at the dropdowns in the module.
 
 #### Feature engineering on the data
-There can be millions of unique values for some categorical features of large datasets. Using naive methods such as one-hot encoding for representing such high-dimensional categorical features is entirely infeasible. In this walkthrough, we demonstrate how to use count features using built-in Azure Machine Learning modules to generate compact representations of these high-dimensional categorical variables. The end-result is a smaller model size, faster training times, and performance metrics that are quite comparable to using other techniques.
+There can be millions of unique values for some categorical features of large datasets. Using naive methods such as one-hot encoding for representing such high-dimensional categorical features is entirely unfeasible. In this walkthrough, we demonstrate how to use count features using built-in Azure Machine Learning modules to generate compact representations of these high-dimensional categorical variables. The end-result is a smaller model size, faster training times, and performance metrics that are quite comparable to using other techniques.
 
 ##### Building counting transforms
 To build count features, we use the **Build Counting Transform** module that is available in Azure Machine Learning. The module looks like this:
@@ -477,7 +479,9 @@ To build count features, we use the **Build Counting Transform** module that is 
 ![Build Counting Transform module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
 ![Build Counting Transform module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
-**Important Note** : In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns: from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
+> [!IMPORTANT] 
+> In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns: from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
+> 
 
 To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration can be reused for this purpose as well) and its credentials. The  previous figures illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case).
 
@@ -529,8 +533,9 @@ In this excerpt, we show that for the columns that we counted on, we get the cou
 
 We are now ready to build an Azure Machine Learning model using these transformed datasets. In the next section, we show how this can be done.
 
-#### Azure Machine Learning model building
-##### Choice of learner
+### <a name="step3"></a> Step 3: Build, train, and score the model
+
+#### Choice of learner
 First, we need to choose a learner. We are going to use a two class boosted decision tree as our learner. Here are the default options for this learner:
 
 ![Two-Class Boosted Decision Tree parameters](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
@@ -547,7 +552,7 @@ Once we have a trained model, we are ready to score on the test dataset and to e
 
 ![Score Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step5"></a> Step 5: Evaluate the model
+### <a name="step4"></a> Step 4: Evaluate the model
 Finally, we would like to analyze model performance. Usually, for two class (binary) classification problems, a good measure is the AUC. To visualize this, we hook up the **Score Model** module to an **Evaluate Model** module for this. Clicking **Visualize** on the **Evaluate Model** module yields a graphic like the following one:
 
 ![Evaluate module BDT model](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
@@ -556,7 +561,7 @@ In binary (or two class) classification problems, a good measure of prediction a
 
 ![Visualize Evaluate Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step6"></a> Step 6: Publish the model as a Web service
+### <a name="step5"></a> Step 5: Publish the model as a Web service
 The ability to publish an Azure Machine Learning model as web services with a minimum of fuss is a valuable feature for making it widely available. Once that is done, anyone can make calls to the web service with input data that they need predictions for, and the web service uses the model to return those predictions.
 
 To do this, we first save our trained model as a Trained Model object. This is done by right-clicking the **Train Model** module and using the **Save as Trained Model** option.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: programmatically Monitor jobs on Stream Analytics | Microsoft Docs
 description: Learn how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell.
 keywords: .net monitor, job monitor, monitoring app
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---

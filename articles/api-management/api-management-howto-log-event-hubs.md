@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 
 ---
 # How to log events to Azure Event Hubs in Azure API Management
@@ -50,7 +50,7 @@ API Management loggers are configured using the [API Management REST API](http:/
 
 To create a logger, make an HTTP PUT request using the following URL template.
 
-    https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Replace `{your service}` with the name of your API Management service instance.
 * Replace `{new logger name}` with the desired name for your new logger. You will reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
@@ -63,25 +63,27 @@ Add the following headers to the request.
 
 Specify the request body using the following template.
 
-    {
-      "type" : "AzureEventHub",
-      "description" : "Sample logger description",
-      "credentials" : {
-        "name" : "Name of the Event Hub from the Azure Classic Portal",
-        "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+```json
+{
+  "type" : "AzureEventHub",
+  "description" : "Sample logger description",
+  "credentials" : {
+    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
+}
+```
 
 * `type` must be set to `AzureEventHub`.
 * `description` provides an optional description of the logger and can be a zero length string if desired.
 * `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
 
-When you make the request, if the logger is created a status code of `201 Created` is returned. 
+When you make the request, if the logger is created a status code of `201 Created` is returned.
 
 > [!NOTE]
 > For other possible return codes and their reasons, see [Create a Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). To see how perform other operations such as list, update, and delete, see the [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) entity documentation.
-> 
-> 
+>
+>
 
 ## Configure log-to-eventhubs policies
 Once your logger is configured in API Management, you can configure your log-to-eventhubs policies to log the desired events. The log-to-eventhubs policy can be used in either the inbound policy section or the outbound policy section.
@@ -98,9 +100,11 @@ Position your cursor in the `inbound` policy section and click the **Log to Even
 
 ![Policy editor][event-hub-policy]
 
-    <log-to-eventhub logger-id ='logger-id'>
-      @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
-    </log-to-eventhub>
+```xml
+<log-to-eventhub logger-id ='logger-id'>
+  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+</log-to-eventhub>
+```
 
 Replace `logger-id` with the name of the API Management logger you configured in the previous step.
 
@@ -110,8 +114,8 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 
 ## Next steps
 * Learn more about Azure Event Hubs
-  * [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
   * [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
@@ -120,8 +124,8 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 
 ## Watch a video walkthrough
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
-> 
-> 
+>
+>
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -131,9 +135,3 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 [sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
-
-
-
-
-
-

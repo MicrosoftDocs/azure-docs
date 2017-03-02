@@ -1,4 +1,3 @@
-﻿
 ---
 title: Sizing information for a VNET in Azure RemoteApp | Microsoft Docs
 description: Learn about the IP address requirements for Azure RemoteApp running with a VNET

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application lifecycle in Service Fabric | Microsoft Docs
 description: Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications.
 services: service-fabric
@@ -13,12 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2016
+ms.date: 02/16/2017
 ms.author: ryanwi
 
 ---
 # Service Fabric application lifecycle
 As with other platforms, an application on Azure Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. This article provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
+
+The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 ## Service model roles
 The service model roles are:

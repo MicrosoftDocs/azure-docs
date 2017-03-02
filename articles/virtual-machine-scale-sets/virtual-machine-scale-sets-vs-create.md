@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy Virtual Machine Scale Set using Visual Studio | Microsoft Docs
 description: Deploy Virtual Machine Scale Sets using Visual Studio and a Resource Manager template
 services: virtual-machine-scale-sets
@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 
 ---
-# Deploy Virtual Machine Scale Set using Visual Studio
+# How to create a Virtual Machine Scale Set with Visual Studio
 This article shows you how to deploy an Azure Virtual Machine Scale Set using a Visual Studio Resource Group Deployment.
 
 [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) are an Azure Compute resource to deploy and manage a collection of similar virtual machines with easily integrated options for auto-scale and load balancing. You can provision and deploy VM Scale Sets using [Azure Resource Manager (ARM) Templates](https://github.com/Azure/azure-quickstart-templates). ARM Templates can be deployed using Azure CLI, PowerShell, REST and also directly from Visual Studio. Visual Studio provides a set of example Templates which can be deployed as part of an Azure Resource Group Deployment project.

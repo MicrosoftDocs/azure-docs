@@ -1,4 +1,4 @@
-﻿---
+---
 title: Interacting with Service Fabric clusters using CLI | Microsoft Docs
 description: How to use Azure CLI to interact with a Service Fabric cluster
 services: service-fabric
@@ -95,16 +95,16 @@ If your certificate has Certificate Authorities (CAs), you need to add the --ca-
 ```
 If you have multiple CAs, use a comma as the delimiter.
 
-If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl` to bypass the verification as shown in the following command: 
+If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl-false` to bypass the verification as shown in the following command: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
-If you would like to skip the CA verification, you could add the --reject-unauthorized parameter as shown in the following command: 
+If you would like to skip the CA verification, you could add the --reject-unauthorized-false parameter as shown in the following command: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 After you connect, you should be able to run other CLI commands to interact with the cluster. 
@@ -165,6 +165,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Refer to [OpenSSL documentation](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) for details.
 
+<a id="troubleshooting"></a>
 ## Troubleshooting
 ### Copying of the application package does not succeed
 Check if `openssh` is installed. By default, Ubuntu Desktop doesn't have it installed. Install it using the following command:

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 
 ---
@@ -25,22 +25,17 @@ Services can be called with any programming language and from any device that sa
 
 * Has a network connection
 * Has SSL capabilities to perform HTTPS requests
-* Can parse JSON (by hand or support libraries)
+* Can parse JSON (directly or with support libraries)
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-An Azure Machine Learning Web service can be consumed in two ways, either as a request-response service or as a Batch Execution Service. In each scenario, the functionality is provided through the RESTFul Web service that is made available for consumption once you deploy the experiment.
+An Azure Machine Learning Web service can be consumed in two ways, either as a Request-Response Service or as a Batch Execution Service. In each scenario, the functionality is provided through the RESTFul Web service that is made available for consumption once you deploy the experiment.
 
 > [!TIP]
 > For a simple way to create a web app to access your predictive Web service, see [Consume an Azure Machine Learning Web service with a web app template](machine-learning-consume-web-service-with-web-app-template.md).
 > 
 > 
-
-<!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
--->
-
-For information about how to create and deploy an Azure Machine Learning Web service, see [Deploy an Azure Machine Learning Web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and deploying it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
+> For information about how to create and deploy an Azure Machine Learning Web service, see [Deploy an Azure Machine Learning Web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and deploying it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
 ## Request-Response Service (RRS)
 A Request-Response Service (RRS) is a low-latency, highly scalable Web service used to provide an interface to the stateless models that have been created and deployed from an Azure Machine Learning Studio experiment. It enables scenarios where the consuming application expects a response in real time.

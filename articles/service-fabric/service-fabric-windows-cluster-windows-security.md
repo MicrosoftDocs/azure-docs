@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 01/17/2017
 ms.author: ryanwi
 
 ---
@@ -25,8 +25,8 @@ To prevent unauthorized access to a Service Fabric cluster you must secure it, e
 > 
 > 
 
-## Configure Windows security
-The sample *ClusterConfig.Windows.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section:
+## Configure Windows security  
+The sample *ClusterConfig.Windows.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section: 
 
 ```
 "security": {
@@ -44,33 +44,38 @@ The sample *ClusterConfig.Windows.JSON* configuration file downloaded with the [
 
 | **Configuration Setting** | **Description** |
 | --- | --- |
-| ClusterCredentialType |Windows Security is enabled by setting the **ClusterCredentialType** parameter to *Windows*. |
-| ServerCredentialType |Windows Security for clients is enabled by setting the **ServerCredentialType** parameter to *Windows*. This indicates that the clients of the cluster, and the cluster itself, are running within an Active Directory Domain. |
-| WindowsIdentities |Contains the cluster and client identities. |
-| ClusterIdentity |Configures node-to-node security. A machine group name. |
-| ClientIdentities |Configures client-to-node security. An array of client user accounts. |
-| Identity |The client identity, a domain user. |
-| IsAdmin |True specifies that the domain user has administrator client access, false for user client access. |
+| ClusterCredentialType |Windows Security is enabled by setting the **ClusterCredentialType** parameter to *Windows*. | 
+| ServerCredentialType |Windows Security for clients is enabled by setting the **ServerCredentialType** parameter to *Windows*. This indicates that the clients of the cluster, and the cluster itself, are running within an Active Directory Domain. |  
+| WindowsIdentities |Contains the cluster and client identities. |  
+| ClusterIdentity |Configures node-to-node security. A machine group name. |  
+| ClientIdentities |Configures client-to-node security. An array of client user accounts. |  
+| Identity |The client identity, a domain user. |  
+| IsAdmin |True specifies that the domain user has administrator client access, false for user client access. |  
+  
+[Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting using **ClusterIdentity**. In order to build trust relationships between nodes, they must be made aware of each other. This can be accomplished by creating a domain group that includes all nodes in the cluster. This group name should be specified in **ClusterIdentity**. For more information, see [Create a Group in Active Directory](https://msdn.microsoft.com/library/aa545347(v=cs.70).aspx).  
+    
+[Client to node security](service-fabric-cluster-security.md#client-to-node-security) is configured using **ClientIdentities**. In order to establish trust between a client and the cluster, you must configure the cluster to know which client identities that it can trust. This can be done in two different ways: Specify the domain group users that can connect or specify the domain node users that can connect. Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control provides the ability for the cluster administrator to limit access to certain types of cluster operations for different groups of users, making the cluster more secure.  Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.  
 
-[Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting using **ClusterIdentity**. In order to build trust relationships between nodes, they must be made aware of each other. This can be accomplished by creating a domain group that includes all nodes in the cluster. This group name should be specified in **ClusterIdentity**. For more information, see [Create a Group in Active Directory](https://msdn.microsoft.com/en-us/library/aa545347(v=cs.70).aspx).
-
-[Client to node security](service-fabric-cluster-security.md#client-to-node-security) is configured using **ClientIdentities**. In order to establish trust between a client and the cluster, you must configure the cluster to know which client identities that it can trust. This can be done in two different ways: Specify the domain group users that can connect or specify the domain node users that can connect. Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control provides the ability for the cluster administrator to limit access to certain types of cluster operations for different groups of users, making the cluster more secure.  Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
-
-The following example **security** section configures Windows security and specifies that the machines in the machine group  *ServiceFabric\\ClusterNodes* are part of the cluster and that *CONTOSO\usera* has admin client access:
+The following example **security** section configures Windows security and specifies that the machines in *ServiceFabric/clusterA.contoso.com* are part of the cluster and that *CONTOSO\usera* has admin client access:
 
 ```
 "security": {
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
     "WindowsIdentities": {
-        "ClusterIdentity" : "ServiceFabric\\ClusterNodes",
+        "ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
         "ClientIdentities": [{
             "Identity": "CONTOSO\\usera",
-        "IsAdmin": true
+            "IsAdmin": true
         }]
     }
 },
 ```
+
+> [!NOTE]
+> Service Fabric should not be deployed on a domain controller. Make sure ClusterConfig.json does not include the IP of the domain controller when using machine groups or gMSA.
+> 
+> 
 
 ## Next steps
 After configuring Windows security in the *ClusterConfig.JSON* file, resume the cluster creation process in [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md).

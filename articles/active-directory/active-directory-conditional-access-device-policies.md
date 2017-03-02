@@ -1,10 +1,10 @@
-﻿---
+---
 title: Conditional access device policies for Office 365 services | Microsoft Docs
 description: Details on how device-based conditions control access to Office 365 services. While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure.IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing IWs on compliant devices to access the services.
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: swadhwa
+manager: femila
 editor: ''
 
 ms.assetid: 8664c0bb-bba1-4012-b321-e9c8363080a0
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 
 ---
 # Conditional access device policies for Office 365 services

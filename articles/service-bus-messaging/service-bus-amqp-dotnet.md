@@ -1,6 +1,6 @@
 ---
 title: Service Bus with .NET and AMQP 1.0 | Microsoft Docs
-description: Using Service Bus from .NET with AMQP
+description: Using Azure Service Bus from .NET with AMQP
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 01/13/2017
 ms.author: sethm
 
 ---
 # Using Service Bus from .NET with AMQP 1.0
-[!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 ## Downloading the Service Bus SDK
 AMQP 1.0 support is available in the Service Bus SDK version 2.1 or later. You can ensure you have the latest version by downloading the Service Bus bits from [NuGet][NuGet].
@@ -31,21 +30,23 @@ In the current release, there are a few API features that are not supported when
 ### Configuration using App.config
 It is good practice for applications to use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the settings for the Service Bus **ConnectionString** value. An example App.config file is as follows:
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <configuration>
-        <appSettings>
-            <add key="Microsoft.ServiceBus.ConnectionString"
-                 value="Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
-        </appSettings>
-    </configuration>
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <appSettings>
+        <add key="Microsoft.ServiceBus.ConnectionString"
+             value="Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
+    </appSettings>
+</configuration>
+```
 
 The value of the `Microsoft.ServiceBus.ConnectionString` setting is the Service Bus connection string that is used to configure the connection to Service Bus. The format is as follows:
 
-    Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
+`Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
 Where `[namespace]` and `SharedAccessKey` are obtained from the [Azure portal][Azure portal]. For more information, see [Get started with Service Bus queues][Get started with Service Bus queues].
 
-When using AMQP, append the connection string with `;TransportType=Amqp`. This notation informs the client library to make its connection to Service Bus using AMQP 1.0.
+When using AMQP, append the connection string with `;TransportType=Amqp`. This notation instructs the client library to make its connection to Service Bus using AMQP 1.0.
 
 ## Message serialization
 When using the default protocol, the default serialization behavior of the .NET client library is to use the [DataContractSerializer][DataContractSerializer] type to serialize a [BrokeredMessage][BrokeredMessage] instance for transport between the client library and the Service Bus service. When using the AMQP transport mode, the client library uses the AMQP type system for serialization of the [brokered message][BrokeredMessage] into an AMQP message. This serialization enables the message to be received and interpreted by a receiving application that is potentially running on a different platform, for example, a Java application that uses the JMS API to access Service Bus.
@@ -101,12 +102,12 @@ There are also some small differences in the behavior of the Service Bus .NET AP
 * Completing messages by lock tokens can only be done by the message receivers that initially received the messages.
 
 ## Controlling AMQP protocol settings
-The .NET APIs expose several settings to control the behavior of the AMQP protocol:
+The [.NET APIs](https://docs.microsoft.com/dotnet/api/) expose several settings to control the behavior of the AMQP protocol:
 
-* **MessageReceiver.PrefetchCount**: Controls the initial credit applied to a link. The default is 0.
-* **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize**: Controls the maximum AMQP frame size offered during the negotiation at connection open time. The default is 65,536 bytes.
-* **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval**: If transfers are batchable, this value determines the maximum delay for sending dispositions. Inherited by senders/receivers by default. Individual sender/receiver can override the default, which is 20 milliseconds.
-* **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity**: Controls whether AMQP connections are established over an SSL connection. The default is **true**.
+* **[MessageReceiver.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: Controls the initial credit applied to a link. The default is 0.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: Controls the maximum AMQP frame size offered during the negotiation at connection open time. The default is 65,536 bytes.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: If transfers are batchable, this value determines the maximum delay for sending dispositions. Inherited by senders/receivers by default. Individual sender/receiver can override the default, which is 20 milliseconds.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Controls whether AMQP connections are established over an SSL connection. The default is **true**.
 
 ## Next steps
 Ready to learn more? Visit the following links:
@@ -116,11 +117,10 @@ Ready to learn more? Visit the following links:
 * [AMQP in Service Bus for Windows Server]
 
 [Get started with Service Bus queues]: service-bus-dotnet-get-started-with-queues.md
-[DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-[Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
-[Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
-[OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
+[DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
+[OperationTimeout]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP overview]: service-bus-amqp-overview.md

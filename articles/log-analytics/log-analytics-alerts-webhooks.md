@@ -1,5 +1,5 @@
-﻿---
-title: Log Analytics alert webhook sample
+---
+title: Webhook alert action sample in OMS Log Analytics | Microsoft Docs
 description: One of the actions you can run in response to a Log Analytics alert is a *webhook*, which allows you to invoke an external process through a single HTTP request. This article walks through an example of creating a webhook action in a Log Analytics alert using Slack.
 services: log-analytics
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/27/2017
 ms.author: bwren
 
 ---
-# Webhooks in Log Analytics alerts
+
+# Create an alert webhook action in OMS Log Analytics to send message to Slack
 One of the actions you can run in response to a [Log Analytics alert](log-analytics-alerts.md) is a *webhook*, which allows you to invoke an external process through a single HTTP request.  You can read about details of alerts and webhooks in [Alerts in Log Analytics](log-analytics-alerts.md)
 
 In this article, we’ll walk through an example of creating a webhook action in a Log Analytics alert using Slack which is a messaging service.
@@ -106,6 +107,6 @@ With this alert rule in place, you would have a message sent to Slack every time
 This is only one example of an action that you can create in response to an alert.  You could create a webhook action that calls another external service, a runbook action to start a runbook in Azure Automation, or an email action to send a mail to yourself or other recipients.   
 
 ## Next Steps
-* Learn about more about [alerts in Log Analytics](log-analytics-alerts.md) including other actions.
-* [Create runbooks in Azure Automation](../automation/automation-webhooks.md) that can be called from a webhook.
+* Learn about other [alert actions in Log Analytics](log-analytics-alerts-actions.md) including other actions.
+
 

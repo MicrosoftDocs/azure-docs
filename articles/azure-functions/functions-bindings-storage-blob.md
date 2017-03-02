@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/11/2017
 ms.author: chrande
 
 ---
@@ -35,7 +35,7 @@ Azure Functions supports trigger, input, and output bindings for Azure Storage b
 <a name="trigger"></a>
 
 ## Storage blob trigger
-The Azure Storage blob trigger enables you to monitor a storage container for new and updated blobs and react to it. 
+The Azure Storage blob trigger lets you monitor a storage container for new and updated blobs and run your function code when changes are detected. 
 
 The Storage blob trigger to a function uses the following JSON objects in the `bindings` array of function.json:
 
@@ -55,6 +55,8 @@ Note the following:
 * `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
   editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
   one. To manually create this app setting, see [configure this app setting manually](). 
+
+When running on a Consumption plan, if a Function App has gone idle, there can be be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
 
 Also, see one of the following subheadings for more information:
 
@@ -352,9 +354,9 @@ The Storage blob output for a function uses the following JSON objects in the `b
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 

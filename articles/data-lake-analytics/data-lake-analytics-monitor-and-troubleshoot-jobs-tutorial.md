@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -57,7 +57,7 @@ Now you will create a U-SQL job with a bad source file name.
             TO "/output/SearchLog-from-adls.csv"
         USING Outputters.Csv();
 
-    The source file defined in the script is **/Samples/Data/SearchLog.tsv1**, where it shall be **/Samples/Data/SearchLog.tsv**.
+    The source file defined in the script is **/Samples/Data/SearchLog.tsv1**, where it should be **/Samples/Data/SearchLog.tsv**.
 5. Click **Submit Job** from the top. A new Job Details pane opens. On the title bar, it shows the job status. It takes a few minutes to finish. You can click **Refresh** to get the latest status.
 6. Wait until the job status is changed to **Failed**.  If the job is **Succeeded**, it is because you didn't remove the /Samples folder. See the **Prerequisite** section at the beginning of the tutorial.
 

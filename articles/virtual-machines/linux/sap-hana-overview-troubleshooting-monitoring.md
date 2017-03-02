@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/23/2016
+ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 
 ---
-# Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
+# How to troubleshoot and monitor SAP HANA (large instances) on Azure
 
 
 ## Monitoring in SAP HANA on Azure (Large Instances)
@@ -40,7 +41,7 @@ As with Azure Virtual Machines you need to figure out whether the resource class
 
 ## Monitoring and troubleshooting from HANA side
 
-In order to effectively analyze problems related to SAP HANA on Azure (Large Instances), it is useful to narrow down the root cause of a problem. SAP has published a large amount of documentation to help you do that.
+In order to effectively analyze problems related to SAP HANA on Azure (Large Instances), it is useful to narrow down the root cause of a problem. SAP has published a large amount of documentation to help you.
 
 Applicable FAQs related to SAP HANA performance can be found in the following SAP Notes:
 

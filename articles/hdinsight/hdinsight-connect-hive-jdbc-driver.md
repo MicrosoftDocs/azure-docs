@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 
 ---
@@ -31,6 +31,10 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 To complete the steps in this article, you will need the following:
 
 * A Hadoop on HDInsight cluster. Either Linux-based or Windows-based clusters will work.
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
 
 To build and run the example Java application linked from this article, you will need the following.
@@ -74,7 +78,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
             Replace **USERNAME** with the SSH user account name for the cluster. Replace **CLUSTERNAME** with the HDInsight cluster name.
         
         > [!NOTE]
-        > On Windows environments, you will need to use the PSCP utility instead of scp. You can download it from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+        > On Windows environments, you may not have the `scp` command. If so, use the PSCP utility instead. You can download it from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
     * For **Windows-based HDInsight**, use the following steps to download the jar files.
      

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Content Delivery Network (CDN) guidance | Microsoft Docs
 description: Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure.
 services: cdn
@@ -30,7 +30,7 @@ The major advantages of using the CDN are lower latency and faster delivery of c
 
 ![CDN diagram](./media/best-practices-cdn/CDN.png)
 
-Using the CDN should also help to reduce the load on on application because it is relieved of the processing required to access and deliver the content. This reduction in load can help to increase the performance and scalability of the application, as well as minimizing hosting costs by reducing the processing resources required to achieve a specific level of performance and availability.
+Using the CDN should also help to reduce the load on application because it is relieved of the processing required to access and deliver the content. This reduction in load can help to increase the performance and scalability of the application, as well as minimizing hosting costs by reducing the processing resources required to achieve a specific level of performance and availability.
 
 ## How and why a CDN is used
 Typical uses for a CDN include:  
@@ -63,7 +63,7 @@ The following list shows examples of the median time to first byte from various 
 There are several challenges to take into account when planning to use the CDN:  
 
 * **Deployment**. You must decide the origin from which the CDN will fetch the content, and whether you need to deploy the content in more than one storage system (such as in the CDN and an alternative location).
-  
+
   Your application deployment mechanism must take into account the process for deploying static content and resources as well as deploying the application files, such as ASPX pages. For example, you may need to implement a separate step to load content into Azure blob storage.
 * **Versioning and cache-control**. You must consider how you will update static content and deploy new versions. The CDN content may be [purged](cdn/cdn-purge-endpoint.md) using the Azure Portal when new versions of your assets are available. This is a similar challenge to managing client side caching, such as that which occurs in a web browser.
 * **Testing**. It can be difficult to perform local testing of your CDN settings when developing and testing an application locally or in a staging environment.
@@ -71,7 +71,7 @@ There are several challenges to take into account when planning to use the CDN:
 * **Content security**. Many CDN services such as Azure CDN do not currently offer any type of access control for the content.
 * **Client security**. Clients might connect from an environment that does not allow access to resources on the CDN. This could be a security-constrained environment that limits access to only a set of known sources, or one that prevents loading of resources from anything other than the page origin. A fallback implementation is required to handle these cases.
 * **Resilience**. The CDN is a potential single point of failure for an application. It has a lower availability SLA than blob storage (which can be used to deliver content directly) so you may need to consider implementing a fallback mechanism for critical content.
-  
+
   You can monitor your CDN content availability, bandwidth, data transferred, hits, cache hit ratio and cache metrics from the Azure Portal in [real-time](cdn/cdn-real-time-stats.md) and [aggregate reports](cdn/cdn-analyze-usage-patterns.md).
 
 Scenarios where CDN may be less useful include:  
@@ -148,7 +148,7 @@ If you deliver client-side scripts using the CDN, you may encounter issues if th
 * If the origin from which you are delivering content is a folder within the application, such as the *cdn* root folder, you can configure outbound rules in the application configuration file to set an *Access-Control-Allow-Origin* header on all responses. For more information about using rewrite rules, see [URL Rewrite Module](http://www.iis.net/learn/extensions/url-rewrite-module).
 
 ### Custom domains
-The Azure CDN allows you to specify a [custom domain name](cdn/cdn-map-content-to-custom-domain.md) nd use it to access resources through the CDN. You can also set up a custom subdomain name using a *CNAME* record in your DNS. Using this approach can provide an additional layer of abstraction and control.
+The Azure CDN allows you to specify a [custom domain name](cdn/cdn-map-content-to-custom-domain.md) and use it to access resources through the CDN. You can also set up a custom subdomain name using a *CNAME* record in your DNS. Using this approach can provide an additional layer of abstraction and control.
 
 If you use a *CNAME*, you cannot use SSL because the CDN uses its own single SSL certificate, and this certificate will not match your custom domain/subdomain names.
 
@@ -241,4 +241,3 @@ Note that using URL rewriting requires you to make some changes to the bundling 
 * [Using Azure CDN](cdn/cdn-create-new-endpoint.md)
 * [Integrate a cloud service with Azure CDN](cdn/cdn-cloud-service-with-cdn.md)
 * [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
-

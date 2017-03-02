@@ -1,12 +1,11 @@
 ---
 title: 'NoSQL tutorial: DocumentDB .NET Core SDK | Microsoft Docs'
 description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET Core SDK. DocumentDB is a NoSQL database for JSON.
-keywords: nosql tutorial, online database, c# console application
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: ''
 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
@@ -14,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 02/11/2017
 ms.author: arramac
 
 ---
@@ -22,6 +21,7 @@ ms.author: arramac
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
@@ -41,9 +41,12 @@ We'll cover:
 * Deleting a document
 * Deleting the database
 
-Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/arramac/documentdb-dotnet-core-getting-started). Jump to the [Get the complete solution section](#GetSolution) for quick instructions.
+Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Jump to the [Get the complete solution section](#GetSolution) for quick instructions.
 
 Afterwards, please use the voting buttons at the top or bottom of this page to give us feedback. If you'd like us to contact you directly, feel free to include your email address in your comments.
+
+> [!NOTE]
+> The DocumentDB .NET Core SDK used in this tutorial is not yet compatible with Universal Windows Platform (UWP) apps. For a preview version of the .NET Core SDK that does support UWP apps, send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 Now let's get started!
 
@@ -66,15 +69,15 @@ Let's create a DocumentDB account. If you already have an account you want to us
 1. Open **Visual Studio 2015** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **.NET Core**/**Console Application (.NET Core)**, name your project, and then click **OK**.
-   ![Screen shot of the New Project window](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Screen shot of the New Project window](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution.
 5. Then without leaving the menu, click on **Manage NuGet Packages...**
-   ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. In the **Nuget** tab, click **Browse**, and type **azure documentdb** in the search box.
 7. Within the results, find **Microsoft.Azure.DocumentDB.Core** and click **Install**.
-   The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
+   The package ID for the DocumentDB Client Library for .NET Core is [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). If you are targetting a .NET Framework version(like net461) that is not supported by this .NET Core Nuget package, then use [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) that supports all .NET Framework versions starting .NET Framework 4.5.
 
-Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/arramac/documentdb-dotnet-core-getting-started).
+Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
 ## <a id="Connect"></a>Step 3: Connect to a DocumentDB account
 First, add these references to the beginning of your C# application, in the Program.cs file:
@@ -107,7 +110,7 @@ Next, head to the [Azure Portal](https://portal.azure.com) to retrieve your URI 
 
 In the Azure Portal, navigate to your DocumentDB account, and then click **Keys**.
 
-Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`. If you are using the Azure DocumentDB Emulator, use `https://localhost:443` as the endpoint, and the well-defined authorization key from [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md).
+Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`. If you are using the Azure DocumentDB Emulator, use `https://localhost:8081` as the endpoint, and the well-defined authorization key from [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md).
 
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a C# console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
@@ -170,32 +173,6 @@ Copy and paste the **WriteToConsoleAndPromptToContinue** method underneath the *
 
 Your DocumentDB [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
 
-Copy and paste the **CreateDatabaseIfNotExists** method underneath the **WriteToConsoleAndPromptToContinue** method.
-
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDatabaseIfNotExists(string databaseName)
-    {
-            // Check to verify a database with the id=FamilyDB does not exist
-            try
-            {
-                    await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(databaseName));
-                    this.WriteToConsoleAndPromptToContinue("Found {0}", databaseName);
-            }
-            catch (DocumentClientException de)
-            {
-                    // If the database does not exist, create a new database
-                    if (de.StatusCode == HttpStatusCode.NotFound)
-                    {
-                            await this.client.CreateDatabaseAsync(new Database { Id = databaseName });
-                            this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
-                    }
-                    else
-                    {
-                            throw;
-                    }
-            }
-    }
-
 Copy and paste the following code to your **GetStartedDemo** method underneath the client creation. This will create a database named *FamilyDB*.
 
     private async Task GetStartedDemo()
@@ -203,7 +180,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
 Press **F5** to run your application.
 
@@ -216,42 +193,6 @@ Congratulations! You have successfully created a DocumentDB database.
 > 
 
 A [collection](documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
-
-Copy and paste the **CreateDocumentCollectionIfNotExists** method underneath your **CreateDatabaseIfNotExists** method.
-
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
-    {
-        try
-        {
-            await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
-            this.WriteToConsoleAndPromptToContinue("Found {0}", collectionName);
-        }
-        catch (DocumentClientException de)
-        {
-            // If the document collection does not exist, create a new collection
-            if (de.StatusCode == HttpStatusCode.NotFound)
-            {
-                DocumentCollection collectionInfo = new DocumentCollection();
-                collectionInfo.Id = collectionName;
-
-                // Configure collections for maximum query flexibility including string range queries.
-                collectionInfo.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
-
-                // Here we create a collection with 400 RU/s.
-                await this.client.CreateDocumentCollectionAsync(
-                    UriFactory.CreateDatabaseUri(databaseName),
-                    collectionInfo,
-                    new RequestOptions { OfferThroughput = 400 });
-
-                this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
-            }
-            else
-            {
-                throw;
-            }
-        }
-    }
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the database creation. This will create a document collection named *FamilyCollection_oa*.
 
@@ -425,7 +366,7 @@ Press **F5** to run your application.
 
 Congratulations! You have successfully created two DocumentDB documents.  
 
-![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a C# console application](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a C# console application](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Step 7: Query DocumentDB resources
 DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.
@@ -479,9 +420,9 @@ Congratulations! You have successfully queried against a DocumentDB collection.
 
 The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created, and the same logic applies to the LINQ query as well.
 
-![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-The [FROM](documentdb-sql-query.md#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
+The [FROM](documentdb-sql-query.md#FromClause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
 ## <a id="ReplaceDocument"></a>Step 8: Replace JSON document
 DocumentDB supports replacing JSON documents.  
@@ -602,7 +543,7 @@ To build the GetStarted solution that contains all the samples in this article, 
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * A [DocumentDB account][documentdb-create-account].
-* The [GetStarted](https://github.com/arramac/documentdb-dotnet-core-getting-started) solution available on GitHub.
+* The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) solution available on GitHub.
 
 To restore the references to the DocumentDB .NET Core SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the Program.cs file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).
 
@@ -614,5 +555,4 @@ To restore the references to the DocumentDB .NET Core SDK in Visual Studio, righ
 * Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png

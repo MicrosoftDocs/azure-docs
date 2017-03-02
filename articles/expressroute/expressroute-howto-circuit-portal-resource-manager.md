@@ -1,10 +1,10 @@
 ---
-title: Create and modify an ExpressRoute circuit by using Resource Manager and the Azure portal | Microsoft Docs
+title: 'Create and modify an ExpressRoute circuit: Azure portal | Microsoft Docs'
 description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -15,16 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: cherylmc
+ms.author: cherylmc;ganesr
 
 ---
 # Create and modify an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> * [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - Classic](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
+> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 This article describes how to create an Azure ExpressRoute circuit by using the Azure portal and the Azure Resource Manager deployment model. The following steps also show you how to check the status of the circuit, update it, or delete and deprovision it.
 
@@ -36,6 +37,7 @@ This article describes how to create an Azure ExpressRoute circuit by using the 
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 * Ensure that you have access to the [Azure portal](https://portal.azure.com).
 * Ensure that you have permissions to create new networking resources. Contact your account administrator if you do not have the right permissions.
+* You can [view a video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) before beginning in order to better understand the steps.
 
 ## Create and provision an ExpressRoute circuit
 ### 1. Sign in to the Azure portal

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Linux VM application access | Microsoft Docs
+title: Troubleshoot Linux VM application access in Azure | Microsoft Docs
 description: Use these detailed troubleshooting steps to isolate issues in connecting to applications running on Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 
 ---

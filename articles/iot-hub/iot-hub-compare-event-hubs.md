@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 01/31/2017
 ms.author: elioda
 
 ---
@@ -32,6 +32,7 @@ However, the services have many differences, which are detailed in the following
 | Scale |Is optimized to support millions of simultaneously connected devices. |Can support a more limited number of simultaneous connections--up to 5,000 AMQP connections, as per [Azure Service Bus quotas][Azure Service Bus quotas]. On the other hand, Event Hubs enables you to specify the partition for each message sent. |
 | Device SDKs |Provides [device SDKs][Azure IoT SDKs] for a large variety of platforms and languages, in addition to direct MQTT, AMQP, and HTTP APIs. |Is supported on .NET, Java, and C, in addition to AMQP and HTTP send interfaces. |
 | File upload |Enables IoT solutions to upload files from devices to the cloud. Includes a file notification endpoint for workflow integration and an operations monitoring category for debugging support. | Not supported. |
+| Route messages to multiple endpoints | Up to 10 custom endpoints are supported. Rules determine how messages are routed to custom endpoints. For more information, see [Send and receive messages with IoT Hub][lnk-devguide-messaging]. | Requires additional code to be written and hosted for message dispatching. |
 
 In summary, even if the only use case is device-to-cloud telemetry ingress, IoT Hub provides a service that is designed for IoT device connectivity. It continues to expand the value propositions for these scenarios with IoT-specific features. Event Hubs is designed for event ingress at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios.
 
@@ -52,11 +53,12 @@ To further explore the capabilities of IoT Hub, see:
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [Security section of the IoT Hub developer guide]: iot-hub-devguide-security.md
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hubs publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
+[Event Hubs publisher policies]: ../event-hubs/event-hubs-what-is-event-hubs.md#event-publishers
 [Azure Service Bus quotas]: ../service-bus-messaging/service-bus-quotas.md
-[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md

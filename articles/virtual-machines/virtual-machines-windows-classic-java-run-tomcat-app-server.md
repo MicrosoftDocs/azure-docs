@@ -1,5 +1,5 @@
 ---
-title: Tomcat on a virtual machine | Microsoft Docs
+title: Run Java application server on a classic Azure VM | Microsoft Docs
 description: This tutorial uses resources created with  the classic deployment model, and shows how to create a Windows Virtual machine and configure it to run Apache Tomcat application server.
 services: virtual-machines-windows
 documentationcenter: java
@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: robmcm
 
 ---

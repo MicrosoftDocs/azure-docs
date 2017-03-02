@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 
 ---
@@ -51,7 +51,7 @@ Set-AzureRmContext -SubscriptionId <subscriptionid>
 ```
 
 
-## Retrieve Audit logs for a subscription
+## Retrieve Activity log for a subscription
 Use the `Get-AzureRmLog` cmdlet.  Below are some common examples.
 
 Get log entries from this time/date to present:
@@ -187,7 +187,7 @@ The Add alert cmdlet also updates the rule if an alert rule already exists for t
 
 ### Alert on activity log event
 > [!NOTE]
-> This feature is still in Preview.
+> This feature is in preview and will be removed at some point in the future (it is being replaced).
 > 
 > 
 
@@ -353,7 +353,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ## Configure diagnostics logs
-Many Azure services provide additional logs and telemetry, including Azure Network Security Groups, Software Load Balancers, Key Vault, Azure Search Services, and Logic Apps and they can be configured to save data in your Azure Storage account. That operation can only be performed at a resource level and the storage account should be present in the same region as the target resource where the diagnostics setting is configured.
+Many Azure services provide additional logs and telemetry that can be configured to save data in your Azure Storage account, send to Event Hubs, and/or sent to an OMS Log Analytics workspace. That operation can only be performed at a resource level and the storage account or event hub should be present in the same region as the target resource where the diagnostics setting is configured.
 
 ### Get diagnostic setting
 ```PowerShell
@@ -382,4 +382,17 @@ Enable diagnostic setting with retention for a specific log category
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
+```
+
+Enable diagnostic setting for Event Hubs
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
+```
+
+Enable diagnostic setting for OMS
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
+
 ```

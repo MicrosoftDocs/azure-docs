@@ -5,7 +5,7 @@ keywords: push notification,push notifications,node.js push,ios push
 services: notification-hubs
 documentationcenter: nodejs
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
@@ -93,7 +93,7 @@ The **NotificationHubService** object exposes the following object instances for
 ### How to: Send push notifications to Android applications
 The **GcmService** object provides a **send** method that can be used to send push notifications to Android applications. The **send** method accepts the following parameters:
 
-* **Tags** - the tag identifier. If no tag is provided, the notification will be sent to al clients.
+* **Tags** - the tag identifier. If no tag is provided, the notification will be sent to all clients.
 * **Payload** - the message's JSON or raw string payload.
 * **Callback** - the callback function.
 

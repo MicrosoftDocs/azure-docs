@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell with Resource Manager | Microsoft Docs
-description: Introduction to using Azure PowerShell to deploy multiple resources as a resource group to Azure.
+title: Manage Azure solutions with PowerShell | Microsoft Docs
+description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -17,14 +17,14 @@ ms.date: 12/05/2016
 ms.author: tomfitz
 
 ---
-# Manage Azure resources with PowerShell and Resource Manager
+# Manage resources with Azure PowerShell and Resource Manager
 > [!div class="op_single_selector"]
-> * [Portal](resource-group-portal.md) 
+> * [Portal](resource-group-portal.md)
 > * [Azure CLI](xplat-cli-azure-resource-manager.md)
 > * [Azure PowerShell](powershell-azure-resource-manager.md)
 > * [REST API](resource-manager-rest-api.md)
-> 
-> 
+>
+>
 
 In this topic, you learn how to manage your solutions with Azure PowerShell and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This topic focuses on management tasks. You will:
 
@@ -38,7 +38,7 @@ In this topic, you learn how to manage your solutions with Azure PowerShell and 
 
 ## Get started with Azure PowerShell
 
-If you have not installed Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+If you have not installed Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 If you have installed Azure PowerShell in the past but have not updated it recently, consider installing the latest version. You can update the version through the same method you used to install it. For example, if you used the Web Platform Installer, launch it again and look for an update.
 
@@ -46,7 +46,7 @@ To check your version of the Azure Resources module, use the following cmdlet:
 
 ```powershell
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
-``` 
+```
 
 This topic was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources).
 
@@ -59,7 +59,7 @@ To log in to your Azure account, use the **Add-AzureRmAccount** cmdlet.
 Add-AzureRmAccount
 ```
 
-The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Azure PowerShell. 
+The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Azure PowerShell.
 
 The cmdlet returns information about your account and the subscription to use for the tasks.
 
@@ -105,9 +105,9 @@ Set-AzureRmContext -SubscriptionName "Example Subscription Two"
 ```
 
 ## Create a resource group
-Before deploying any resources to your subscription, you must create a resource group that will contain the resources. 
+Before deploying any resources to your subscription, you must create a resource group that will contain the resources.
 
-To create a resource group, use the **New-AzureRmResourceGroup** cmdlet. The command uses the **Name** parameter to specify a name for the resource group and the **Location** parameter to specify its location. 
+To create a resource group, use the **New-AzureRmResourceGroup** cmdlet. The command uses the **Name** parameter to specify a name for the resource group and the **Location** parameter to specify its location.
 
 ```powershell
 New-AzureRmResourceGroup -Name TestRG1 -Location "South Central US"
@@ -172,7 +172,7 @@ Set-AzureRmResource -Tag $tags -ResourceName mystoragename -ResourceGroupName Te
 
 ## Search for resources
 
-Use the **Find-AzureRmResource** cmdlet to retrieve resources for different search conditions. 
+Use the **Find-AzureRmResource** cmdlet to retrieve resources for different search conditions.
 
 * To get a resource by name, provide the **ResourceNameContains** parameter:
 
@@ -190,17 +190,17 @@ Use the **Find-AzureRmResource** cmdlet to retrieve resources for different sear
 
   ```powershell
   Find-AzureRmResource -TagName Dept -TagValue IT
-  ``` 
+  ```
 
 * To all the resources with a particular resource type, provide the **ResourceType** parameter:
 
   ```powershell
   Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
-  ```  
+  ```
 
 ## Lock a resource
 
-When you need to make sure a critical resource is not accidentally deleted or modified, apply a lock to the resource. You can specify either a **CanNotDelete** or **ReadOnly**. 
+When you need to make sure a critical resource is not accidentally deleted or modified, apply a lock to the resource. You can specify either a **CanNotDelete** or **ReadOnly**.
 
 To create or delete management locks, you must have access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.
 
@@ -226,8 +226,8 @@ For an existing resource group (deployed through PowerShell or one of the other 
 
 > [!NOTE]
 > The export template feature is in preview, and not all resource types currently support exporting a template. When attempting to export a template, you may see an error that states some resources were not exported. If needed, you can manually define these resources in your template after downloading it.
-> 
-> 
+>
+>
 
 To view the template for a resource group, run the **Export-AzureRmResourceGroup** cmdlet.
 
@@ -238,16 +238,16 @@ Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\
 There are many options and scenarios for exporting a Resource Manager template. For more information, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
 ## Remove resources or resource group
-You can remove a resource or resource group. When you remove a resource group, you also remove all the resources within that resource group. 
+You can remove a resource or resource group. When you remove a resource group, you also remove all the resources within that resource group.
 
 * To delete a resource from the resource group, use the **Remove-AzureRmResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
 
-  ```powershell  
+  ```powershell
   Remove-AzureRmResource -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
   ```
 
 * To delete a resource group and all its resources, use the **Remove-AzureRmResourceGroup** cmdlet.
-  
+
   ```powershell
   Remove-AzureRmResourceGroup -Name TestRG1
   ```
@@ -256,7 +256,7 @@ For both cmdlets, you are asked to confirm that you wish to remove the resource 
 
 ## Run Resource Manager scripts with Azure Automation
 
-This topic shows you how to perform basic operations on your resources with Azure PowerShell. For more advanced management scenarios, you typically want to create a script, and reuse that script as needed or on a schedule. [Azure Automation](../automation/automation-intro.md) provides a way for you to automate frequently used scripts that manage your Azure solutions. 
+This topic shows you how to perform basic operations on your resources with Azure PowerShell. For more advanced management scenarios, you typically want to create a script, and reuse that script as needed or on a schedule. [Azure Automation](../automation/automation-intro.md) provides a way for you to automate frequently used scripts that manage your Azure solutions.
 
 The following topics show you how to use Azure Automation, Resource Manager, and PowerShell to effectively perform management tasks:
 

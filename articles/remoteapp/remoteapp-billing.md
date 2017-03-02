@@ -1,4 +1,3 @@
-
 ---
 title: Change the billing for Azure RemoteApp | Microsoft Docs
 description: Learn how to stop being billed for Azure RemoteApp.

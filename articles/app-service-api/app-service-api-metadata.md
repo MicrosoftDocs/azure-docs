@@ -4,7 +4,7 @@ description: Learn how API Apps in Azure App Service use Swagger metadata to fac
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4
@@ -31,7 +31,7 @@ In the [Azure portal](https://portal.azure.com/) the endpoint URL can be seen an
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### Azure Resource Manager property
-You can also configure the API definition URL for an API app by using [Resource Explorer](https://resources.azure.com/) or [Azure Resource Manager templates](../resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](/powershell/azureps-cmdlets-docs) and the [Azure CLI](../xplat-cli-install.md). 
+You can also configure the API definition URL for an API app by using [Resource Explorer](https://resources.azure.com/) or [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](/powershell/azureps-cmdlets-docs) and the [Azure CLI](../xplat-cli-install.md). 
 
 In **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the `apiDefinition` property:
 

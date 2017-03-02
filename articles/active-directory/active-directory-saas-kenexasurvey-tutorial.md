@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with IBM Kenexa Survey Enterprise | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IBM Kenexa Survey Enterprise.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate IBM Kenexa Survey Enterprise with A
 Integrating IBM Kenexa Survey Enterprise with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to IBM Kenexa Survey Enterprise
-* You can enable your users to automatically get signed-on to IBM Kenexa Survey Enterprise (Single Sign-On) with their Azure AD accounts
+* You can enable your users to automatically get signed-on to IBM Kenexa Survey Enterprise single sign-on (SSO) with their Azure AD accounts
 * You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -32,24 +32,23 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with IBM Kenexa Survey Enterprise, you need the following items:
 
 * An Azure AD subscription
-* A IBM Kenexa Survey Enterprise single-sign on enabled subscription
+* A IBM Kenexa Survey Enterprise SSO enabled subscription
 
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-> 
+>[!NOTE]
+>To test the steps in this tutorial, we do not recommend using a production environment. 
 > 
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 * You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you test Azure AD SSO in a test environment. 
+The scenariofd outlined in this tutorial consists of two main building blocks:
 
 1. Adding IBM Kenexa Survey Enterprise from the gallery
-2. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD SSO
 
 ## Adding IBM Kenexa Survey Enterprise from the gallery
 To configure the integration of IBM Kenexa Survey Enterprise into Azure AD, you need to add IBM Kenexa Survey Enterprise from the gallery to your list of managed SaaS apps.
@@ -76,20 +75,20 @@ To configure the integration of IBM Kenexa Survey Enterprise into Azure AD, you 
    
     ![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_02.png)
 
-## Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with IBM Kenexa Survey Enterprise based on a test user called "Britta Simon".
+## Configure and test Azure AD single sign-on
+In this section, you configure and test Azure AD SSO with IBM Kenexa Survey Enterprise based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in IBM Kenexa Survey Enterprise is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in IBM Kenexa Survey Enterprise needs to be established.
+For SSO to work, Azure AD needs to know what the counterpart user in IBM Kenexa Survey Enterprise is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in IBM Kenexa Survey Enterprise needs to be established.
 
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in IBM Kenexa Survey Enterprise.
 
-To configure and test Azure AD single sign-on with IBM Kenexa Survey Enterprise, you need to complete the following building blocks:
+To configure and test Azure AD SSO with IBM Kenexa Survey Enterprise, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating an IBM Kenexa Survey Enterprise test user](#creating-an-kenexasurvey-test-user)** - to have a counterpart of Britta Simon in IBM Kenexa Survey Enterprise that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your IBM Kenexa Survey Enterprise application.
@@ -105,34 +104,25 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 3. On the **Configure App Settings** dialog page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_04.png)
+  1. In the **Identifier** textbox, type a URL using the following pattern: `https://surveys.kenexa.com/<company code>` 
+  2. In the **Reply URL** textbox, type a URL using the following pattern: `https://surveys.kenexa.com/<company code>/tools/sso.asp`
+  3. Click **Next**.
    
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://surveys.kenexa.com/<company code>`
-   
-    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://surveys.kenexa.com/<company code>/tools/sso.asp`
-   
-    c. Click **Next**.
-   
-   > [!NOTE]
-   > Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Contact IBM Kenexa Survey Enterprise support team to get these values.
-   > 
+   >[!NOTE]
+   >Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Contact IBM Kenexa Survey Enterprise support team to get these values. 
    > 
 4. On the **Configure single sign-on at IBM Kenexa Survey Enterprise** page, click **Download certificate** and then save the file on your computer:
    
     ![Configure Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_05.png) 
 5. To get SSO configured for your application, contact IBM Kenexa support team and provide them with the following:
+ * The downloaded certificate file
+ * The **Issuer URL**  
+ * The **SAML SSO URL**
+ * The **Single Sign-Out Service URL**
    
-    •  The downloaded certificate file
-   
-    •  The **Issuer URL**
-   
-    •  The **SAML SSO URL**
-   
-    •  The **Single Sign-Out Service URL**
-   
-   > [!NOTE]
-   > Please note that NameID claim value in the Response has to match with SSO ID configured in Kenexa system. So please work with Kenexa support team to map the appropriate user identifier in your organization as SSO ID. By default Azure AD will set the NameIdentifier as UPN value. You can change this from Attribute tab as shown in the screenshot below. The integration will only work after completing the correct mapping. 
-   > 
-   > 
+  >[!NOTE]
+  >Please note that NameID claim value in the Response has to match with SSO ID configured in Kenexa system. So please work with Kenexa support team to map the appropriate user identifier in your organization as SSO ID. By default Azure AD will set the NameIdentifier as UPN value. You can change this from Attribute tab as shown in the screenshot below. The integration will only work after completing the correct mapping. 
+  > 
    
     ![Configure Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_51.png)
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
@@ -145,16 +135,13 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
     ![Configure Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_06.png)
 9. On the **SAML token attributes** dialog, perform the following steps:
-   
-    a. Select the attribute of **NameIdentifier** and click **Edit** icon.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_07.png)
-   
-    b. From the **Attribute Value** list, type the attribute value of SSO ID which is configured in Kenexa system.
-   
-    c. Click **Complete**
+ 1. Select the attribute of **NameIdentifier** and click **Edit** icon.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_07.png)  
+ 2. From the **Attribute Value** list, type the attribute value of SSO ID which is configured in Kenexa system.  
+ 3. Click **Complete**.
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
 The objective of this section is to create a test user in the classic portal called Britta Simon.
 
 ![Create Azure AD User][20]
@@ -174,45 +161,36 @@ The objective of this section is to create a test user in the classic portal cal
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_05.png) 
-   
-    a. As Type Of User, select New user in your organization.
-   
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
+ 1. As Type Of User, select New user in your organization. 
+ 2. In the User Name **textbox**, type **BrittaSimon**. 
+ 3. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_06.png) 
-   
-   a. In the **First Name** textbox, type **Britta**.  
-   
-   b. In the **Last Name** textbox, type, **Simon**.
-   
-   c. In the **Display Name** textbox, type **Britta Simon**.
-   
-   d. In the **Role** list, select **User**.
-   
-   e. Click **Next**.
+   ![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_06.png)  
+ 1. In the **First Name** textbox, type **Britta**.    
+ 2. In the **Last Name** textbox, type, **Simon**. 
+ 3. In the **Display Name** textbox, type **Britta Simon**. 
+ 4. In the **Role** list, select **User**. 
+ 5. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_07.png) 
 8. On the **Get temporary password** dialog page, perform the following steps:
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_08.png) 
-   
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+    ![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_08.png)  
+ 1. Write down the value of the **New Password**.  
+ 2. Click **Complete**.   
 
-### Creating an IBM Kenexa Survey Enterprise test user
-In this section, you create a user called Britta Simon in IBM Kenexa Survey Enterprise. Please work with IBM Kenexa support team to map the SSO ID for all the users. Also this SSO ID value should be mapped to the NameIdentifier value from Azure AD. You can change this default settings in the Attribute tab.
+### Create an IBM Kenexa Survey Enterprise test user
+In this section, you create a user called Britta Simon in IBM Kenexa Survey Enterprise. 
 
-> [!NOTE]
-> If you need to create a user manually, you need to contact the IBM Kenexa Survey Enterprise support team.
+You can work with IBM Kenexa support team to map the SSO ID for all the users. Also this SSO ID value should be mapped to the NameIdentifier value from Azure AD. You can change this default settings in the Attribute tab.
+
+>[!NOTE]
+>If you need to create a user manually, you need to contact the IBM Kenexa Survey Enterprise support team. 
 > 
-> 
 
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 In this section, you enable Britta Simon to use Azure single sign-on by granting her access to IBM Kenexa Survey Enterprise.
 
 ![Assign User][200] 
@@ -233,7 +211,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
    
     ![Assign User][205]
 
-### Testing single sign-on
+### Test single sign-on
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the IBM Kenexa Survey Enterprise tile in the Access Panel, you should get automatically signed-on to your IBM Kenexa Survey Enterprise application.

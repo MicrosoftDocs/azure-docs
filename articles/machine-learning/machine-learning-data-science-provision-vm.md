@@ -1,4 +1,4 @@
-﻿---
+---
 title: Provision the Microsoft Data Science Virtual Machine | Microsoft Docs
 description: Configure and create a Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 
 ---

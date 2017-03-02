@@ -4,7 +4,7 @@ description: Learn how to deploy Azure WebJobs to Azure App Service Web Apps usi
 services: app-service
 documentationcenter: ''
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -117,7 +117,7 @@ For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an [A
 * The scheduler job is named *{webappname}-{webjobname}*. For example: MyWebApp-MyWebJob. 
 
 > [!NOTE]
-> * For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+> * For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
 > * If you configure a **Recurring Job** and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free. Other frequencies (hours, days, and so forth) are free.
 > * If you deploy a WebJob and then decide you want to change the type of WebJob and redeploy, you'll need to delete the webjobs-publish-settings.json file. This will make Visual Studio show the publishing options again, so you can change the type of WebJob.
 > * If you deploy a WebJob and later change the run mode from continuous to non-continuous or vice versa, Visual Studio creates a new WebJob in Azure when you redeploy. If you change other scheduling settings but leave run mode the same or switch between Scheduled and On Demand, Visual Studio updates the existing job rather than create a new one.

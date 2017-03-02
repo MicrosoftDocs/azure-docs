@@ -16,9 +16,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# About H-series and compute-intensive A-series VMs
+# About H-series and compute-intensive A-series VMs for Windows
 Here is background information and some considerations for using the newer Azure H-series and the earlier A8, A9, A10, and A11 instances, also known as *compute-intensive* instances. This article focuses on using these instances for Windows VMs. This article is also available for [Linux VMs](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -35,7 +36,7 @@ To access the Azure RDMA network for Windows MPI traffic, RDMA-capable instances
 * **MPI** - Microsoft MPI (MS-MPI) 2012 R2 or later, Intel MPI Library 5.x
 
   Supported MPI implementations use the Microsoft Network Direct interface to communicate between instances. 
-* **HpcVmDrivers VM extension** - On RDMA-capable VMs, the HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. (In cloud services and some VM deployments, the HpcVmDrivers extension is added automatically.) If you need to add the VM extension to a VM, you can use [Azure PowerShell](../powershell-install-configure.md) cmdlets for Azure Resource Manager.
+* **HpcVmDrivers VM extension** - On RDMA-capable VMs, the HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. (In some deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically.) If you need to add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlets for Azure Resource Manager.
 
   To get information about the latest HpcVmDrivers extension:
 

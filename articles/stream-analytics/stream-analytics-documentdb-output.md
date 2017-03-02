@@ -1,4 +1,4 @@
-﻿---
+---
 title: JSON output for Stream Analytics | Microsoft Docs
 description: Learn how Stream Analytics can target Azure DocumentDB for JSON output, for data archiving and low-latency queries on unstructured JSON data.
 keywords: JSON output
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/05/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -51,7 +51,7 @@ Creating DocumentDB as an output in Stream Analytics generates a prompt for info
 
 Partitioned Collection | Multiple “Single Partition” collections
 ---|---
-![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png) |  ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
+![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png) |  ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
 
   
@@ -65,5 +65,5 @@ Partitioned Collection | Multiple “Single Partition” collections
 * **Collection Name Pattern** – The collection name or their pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Following are sample valid inputs:  
   1\) MyCollection – One collection named “MyCollection” must exist.  
   2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
-* **Partition Key** – This is only needed if you are using a {parition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
+* **Partition Key** – Optional. This is only needed if you are using a {parition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
 * **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  

@@ -3,7 +3,7 @@ title: 'Azure Active Directory B2C: Call a web API from an iOS application using
 description: This article will show you how to create an iOS 'to-do list' app that calls a Node.js web API by using OAuth 2.0 bearer tokens using a third party library
 services: active-directory-b2c
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: objectivec
 ms.topic: hero-article
-ms.date: 07/26/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---

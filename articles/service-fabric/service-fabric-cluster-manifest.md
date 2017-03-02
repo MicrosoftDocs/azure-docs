@@ -3,7 +3,7 @@ title: Configure your standalone cluster | Microsoft Docs
 description: This article describes how to configure your standalone or private Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
-ms.author: dkshir
+ms.date: 2/17/2017
+ms.author: ryanwi
 
 ---
 # Configuration settings for standalone Windows cluster
@@ -33,7 +33,7 @@ This covers the broad cluster specific configurations, as shown in the JSON snip
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "apiVersion": "2016-09-26",
 
 You can give any friendly name to your Service Fabric cluster by assigning it to the **name** variable. The **clusterConfigurationVersion** is the version number of your cluster; you should increase it every time you upgrade your Service Fabric cluster. You should however leave the **apiVersion** to the default value.
 
@@ -129,6 +129,7 @@ The **nodeTypes** section describes the type of the nodes that your cluster has.
         "leaseDriverEndpointPort": "19002"
         "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
+        "reverseProxyEndpointPort": "19081",
         "applicationPorts": {
             "startPort": "20575",
             "endPort": "20605"
@@ -152,7 +153,7 @@ The **name** is the friendly name for this particular node type. To create a nod
 * *applicationPorts* are the ports that will be used by the Service Fabric applications. These should be a subset of the *ephemeralPorts*, enough to cover the endpoint requirement of your applications. Service Fabric will use these whenever new ports are required, as well as take care of opening the firewall for these ports. 
 * *reverseProxyEndpointPort* is an optional reverse proxy endpoint. See [Service Fabric Reverse Proxy](service-fabric-reverseproxy.md) for more details. 
 
-### Other Settings
+### Log Settings
 The **fabricSettings** section allows you to set the root directories for the Service Fabric data and logs. You can customize these only during the initial cluster creation. See below for a sample snippet of this section.
 
     "fabricSettings": [{
@@ -167,6 +168,18 @@ The **fabricSettings** section allows you to set the root directories for the Se
 
 We recommended using a non-OS drive as the FabricDataRoot and FabricLogRoot as it provides more reliability against OS crashes. Note that if you customize only the data root, then the log root will be placed one level below the data root.
 
+### Stateful Reliable Service Settings
+The **KtlLogger** section allows you to set the global configuration settings for Reliable Services. For more details on these settings read [Configure stateful reliable services](service-fabric-reliable-services-configuration.md).
+The example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
 ## Next steps
-Once you have a complete ClusterConfig.JSON file configured as per your standalone cluster setup, you can deploy your cluster by following the article [Create an Azure Service Fabric cluster on-premises or in the cloud](service-fabric-cluster-creation-for-windows-server.md) and then proceed to [visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Once you have a complete ClusterConfig.JSON file configured as per your standalone cluster setup, you can deploy your cluster by following the article [Create a standalone Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and then proceed to [visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 

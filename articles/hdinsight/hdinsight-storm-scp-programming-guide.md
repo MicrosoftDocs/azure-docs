@@ -1,4 +1,3 @@
-﻿
 ---
 title: SCP.NET programming guide | Microsoft Docs
 description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm on HDInsight.

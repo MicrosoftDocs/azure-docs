@@ -12,11 +12,11 @@ ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
 ms.service: sql-database
 ms.custom: business continuity
 ms.devlang: NA
-ms.topic: getting-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 
 ---
 # Overview of business continuity with Azure SQL Database
@@ -35,7 +35,7 @@ The following table compares the ERT and RPO for the three most common scenarios
 | Active Geo-Replication |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
 
 ### Use database backups to recover a database
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five minutes to protect your business from data loss. These backups are stored in locally redundant storage for 35 days for databases in the Standard and Premium service tiers and seven days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-scale-up.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. See [automatic database backups](sql-database-automated-backups.md) for more details.
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five minutes to protect your business from data loss. These backups are stored in geo-redundant storage for 35 days for databases in the Standard and Premium service tiers and seven days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-service-tiers.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. See [automatic database backups](sql-database-automated-backups.md) for more details.
 
 If the built-in retention period is not sufficient for your application, you can extend it by configuring the Long-term retention policy for your database(s). For more information, see [Long-term retention](sql-database-long-term-retention.md). 
 
@@ -72,6 +72,10 @@ Use Active Geo-Replication if your application meets any of these criteria:
 * Downtime will result in financial liability.
 * Has a high rate of data change is high and losing an hour of data is not acceptable.
 * The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## Recover a database after a user or application error
 *No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect. 

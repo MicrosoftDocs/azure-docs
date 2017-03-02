@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Storage Table Design Guide | Microsoft Docs
 description: Design Scalable and Performant Tables in Azure Table Storage
 services: storage
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 11/28/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 
 ---

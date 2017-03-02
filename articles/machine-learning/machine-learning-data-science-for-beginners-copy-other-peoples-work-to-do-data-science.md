@@ -1,6 +1,6 @@
-﻿---
-title: Copy others' data science work - machine learning example | Microsoft Docs
-description: 'Trade secret of data science: Get others to do your work for you. See examples in Cortana Analytics Gallery such as a clustering algorithm example.'
+---
+title: Copy others' data science examples – machine learning - Azure | Microsoft Docs
+description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Cortana Analytics Gallery.'
 keywords: data science examples,machine learning example,clustering algorithm,clustering algorithm example
 services: machine-learning
 documentationcenter: na
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 
 ---
 # Copy other people's work to do data science
 ## Video 5: Data Science for Beginners series
-One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example to use for your own machine learning experiment.
+One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example in Cortana Analytics Gallery to use for your own machine learning experiment.
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
+>
+>
 
 ## Other videos in this series
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
@@ -81,7 +81,7 @@ And now I have a starting point. I can swap out their data for my own and do my 
 ## Find experiments that demonstrate machine learning techniques
 There are other experiments in the [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) that were contributed specifically to provide how-to examples for people new to data science. For instance, there's an experiment in the gallery that demonstrates how to handle missing values ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). It walks you through 15 different ways of substituting empty values, and talks about the benefits of each method and when to use it.
 
-![Gallery experiment open in Machine Learning Studio - methods for missing values](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Gallery experiments open in Machine Learning Studio - methods for missing values](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
 [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) is a place to find working experiments that you can use as a starting point for your own solutions.
 
@@ -90,4 +90,3 @@ Be sure to check out the other videos in “Data Science for Beginners” from M
 ## Next steps
 * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
 * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
-

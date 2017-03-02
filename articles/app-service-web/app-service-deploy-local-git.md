@@ -4,7 +4,7 @@ description: Learn how to enable local Git deployment to Azure App Service.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
@@ -31,7 +31,7 @@ To complete this tutorial, you need:
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.  
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.  
 > 
 > 
 

@@ -167,7 +167,7 @@ Click any row for specific details.
 Click `...` for the full telemetry for an Ajax call.
 
 ### No Ajax calls reported?
-Ajax calls include any HTTP calls made from the script of your web page. If you don't see them reported, check that the code snippet doesn't set the `disableAjaxTracking` or `maxAjaxCallsPerView` [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Ajax calls include any HTTP/HTTPS  calls made from the script of your web page. If you don't see them reported, check that the code snippet doesn't set the `disableAjaxTracking` or `maxAjaxCallsPerView` [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## Browser exceptions
 On the Browsers blade, there's an exceptions summary chart, and a grid of exception types further down the blade.
@@ -190,7 +190,7 @@ Select any event to see more detail. In the details page, click "..." to see eve
 > 
 > 
 
-You can also use the powerful [Analytics query language](app-insights-analytics-tour.md) to search page views.
+You can also use the powerful [Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
 
 ### Page view properties
 * **Page view duration** 

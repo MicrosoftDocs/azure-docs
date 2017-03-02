@@ -9,9 +9,12 @@
       - name: Connect
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
+      - name: Connect Health
+        tocHref: /azure/active-directory/connect-health/
+        topicHref: /azure/active-directory/connect-health/
       - name: Develop
         tocHref: /azure/active-directory/develop/
-        topicHref: azure/active-directory/develop/
+        topicHref: /azure/active-directory/develop/
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
@@ -44,8 +47,8 @@
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/advisor-overview
   - name: Logic Apps
-    tocHref: /azure/app-service-logic/
-    topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
+    tocHref: /azure/logic-apps/
+    topicHref: /azure/logic-apps/logic-apps-what-are-logic-apps
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/application-gateway-introduction
@@ -63,7 +66,7 @@
     topicHref: /azure/azure-functions/functions-overview
   - name: Government
     tocHref: /azure/azure-government/
-    topicHref: /azure/azure-government/documentation-government-overview
+    topicHref: /azure/azure-government-overview
   - name: Portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/azure-portal-overview
@@ -84,7 +87,7 @@
     topicHref: /azure/batch/batch-technical-overview
   - name: Billing
     tocHref: /azure/billing/
-    topicHref: /azure/billing/../billing-use-existing-office-365-account-azure-subscription
+    topicHref: /azure/billing/billing-getting-started
   - name: Biztalk Services
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/integration-hybrid-connection-overview
@@ -182,6 +185,9 @@
       - name: User Guide
         tocHref: /azure/multi-factor-authentication/end-user/
         topicHref: /azure/multi-factor-authentication/end-user/
+  - name: Network Watcher
+    tocHref: /azure/network-watcher/
+    topicHref: /azure/network-watcher/network-watcher-monitoring-overview
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/notification-hubs-push-notification-overview
@@ -190,7 +196,7 @@
     topicHref: /azure/operations-management-suite/operations-management-suite-overview
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
-    topicHref: /azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded
+    topicHref: /azure/power-bi-embedded/
   - name: Redis Cache
     tocHref: /azure/redis-cache/
     topicHref: /azure/redis-cache/cache-faq

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrade to the latest elastic database client library | Microsoft Docs
 description: Upgrade apps and libraries using Nuget
 services: sql-database
@@ -8,6 +8,7 @@ author: ddove
 
 ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

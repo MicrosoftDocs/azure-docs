@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -24,12 +24,13 @@ Azure Media Services provides multiple options for the encoding of media in the 
 When starting out with Media Services, it is important to understand the difference between codecs and file formats.
 Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) without you having to re-package into these streaming formats.
 
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to do the following:
-
-* Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
-* Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-portal-manage-streaming-endpoints.md).
+>
+>Also, encode your source file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
 
 Media Services supports the following on demand encoders that are described in this article:
 
@@ -51,9 +52,9 @@ Note that by default each Media Services account can have one active encoding ta
 Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### Input and output metadata
-The encoders input metadata is described [here](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+The encoders input metadata is described [here](media-services-input-metadata-schema.md).
 
-The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+The encoders output metadata is described [here](media-services-output-metadata-schema.md).
 
 ### Generate thumbnails
 For information, see [How to generate thumbnails using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).

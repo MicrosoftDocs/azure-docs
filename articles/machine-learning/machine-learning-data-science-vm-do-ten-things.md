@@ -1,4 +1,4 @@
-﻿---
+---
 title: Ten things you can do on the Data science Virtual Machine  | Microsoft Docs
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 12/09/2016
 ms.author: gokuma;weig;bradsev
 
 ---

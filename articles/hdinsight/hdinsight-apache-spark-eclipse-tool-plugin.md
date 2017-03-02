@@ -1,5 +1,5 @@
 ---
-title: Create Spark Scala applications using HDInsight Tools in Azure Toolkit for Eclipse | Microsoft Docs
+title: Use Azure Toolkit for Eclipse to create Scala applications for Spark | Microsoft Docs
 description: Learn how to create a standalone Spark application to run on HDInsight Spark clusters.
 services: hdinsight
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 
 ---
-# Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications for HDInsight Spark Linux cluster
+# Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications for HDInsight Spark cluster
 This article provides step-by-step guidance on developing Spark applications written in Scala and submitting it to an HDInsight Spark cluster using HDInsight Tools in Azure Toolkit for Eclipse. You can use the tools in a few different ways:
 
 * To develop and submit a Scala Spark application on an HDInsight Spark cluster
@@ -32,7 +32,7 @@ This article provides step-by-step guidance on developing Spark applications wri
 
 ## Prerequisites
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development kit version 7 and version 8. 
   
   * **Java SDK 7** is used for compiling Spark projects as the HDInsight clusters support Java version 7. You can download Java SDK 7 from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).

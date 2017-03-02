@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Windows VM deployment-RM | Microsoft Docs
+title: Troubleshoot Windows VM deployment in Azure | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -14,21 +14,22 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/16/2016
 ms.author: cjiang
+ms.custom: H1Hack27Feb2017
 
 ---
-# Troubleshoot Resource Manager deployment issues with creating a new Windows virtual machine in Azure
+# Troubleshoot deployment issues when creating a new Windows VM in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Collect audit logs
-To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
+## Collect activity logs
+To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
-[Troubleshoot resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+[View deployment operations](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Audit operations with Resource Manager](../resource-group-audit.md)
+[View activity logs to manage Azure resources](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 

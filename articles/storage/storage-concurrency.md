@@ -1,4 +1,4 @@
-﻿---
+---
 title: Managing Concurrency in Microsoft Azure Storage
 description: How to manage concurrency for the Blob, Queue, Table, and File services
 services: storage
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 
 ---

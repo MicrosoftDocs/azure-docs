@@ -32,7 +32,7 @@ With Box, you can:
 * Use triggers when a file is created or updated.
 * Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a file is changed on Box, you can take that file and email it using Office 365.
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 Box includes the following trigger and actions.
@@ -259,5 +259,5 @@ Triggers a flow when a file is modified in a Box folder.
 | FileLocator |string |no |
 
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 

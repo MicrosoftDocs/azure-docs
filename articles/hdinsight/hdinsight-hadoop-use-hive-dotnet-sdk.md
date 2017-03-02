@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 02/09/2017
 ms.author: jgao
 
 ---
@@ -29,7 +29,7 @@ Learn how to submit Hive queries using HDInsight .NET SDK.
 > 
 
 ## Prerequisites
-Before you begin this article, you must have the following:
+Before you begin this article, you must have the following items:
 
 * **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 * **Visual Studio 2012/2013/2015**.
@@ -40,7 +40,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 **To Submit jobs**
 
 1. Create a C# console application in Visual Studio.
-2. From the Nuget Package Manager Console, run the following command.
+2. From the Nuget Package Manager Console, run the following command:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use the following code:
@@ -129,12 +129,16 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
     ```
 4. Press **F5** to run the application.
 
+The output of the application shall be similar to:
+
+![HDInsight Hadoop Hive job output](./media/hdinsight-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
 * [Create Hadoop clusters in HDInsight][hdinsight-provision]
-* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md)
+* [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use Sqoop with HDInsight](hdinsight-use-sqoop-mac-linux.md)

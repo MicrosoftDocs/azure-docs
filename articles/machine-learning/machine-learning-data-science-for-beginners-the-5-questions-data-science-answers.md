@@ -1,7 +1,7 @@
-﻿---
-title: The 5 data science questions - Data Science for Beginners | Microsoft Docs
+---
+title: The 5 data science questions - Data Science for Beginners - Azure | Microsoft Docs
 description: Get a quick introduction to data science from Data Science for Beginners, five short videos that start with The 5 Questions Data Science Answers.
-keywords: doing data science,data science beginners,data science for beginners, types of questions,data science questions, data science video
+keywords: doing data science,data science beginners,data science for beginners,data science basics,data science questions,data science video,data science introduction
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 
 ---
@@ -24,8 +24,8 @@ Get a quick introduction to data science from *Data Science for Beginners* in fi
 This first video is about the kinds of questions that data science can answer. To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
-> 
-> 
+>
+>
 
 ## Other videos in this series
 *Data Science for Beginners* is a quick introduction to data science taking about 25 minutes total. Check out the other four videos:
@@ -52,7 +52,7 @@ It might surprise you, but *there are only five questions that data science answ
 * How much – or – How many?
 * How is this organized?
 * What should I do next?
-  
+
   Each one of these questions is answered by a separate family of machine learning methods, called algorithms.
 
 It's helpful to think about an algorithm as a recipe and your data as the ingredients. An algorithm tells how to combine and mix the data in order to get an answer. Computers are like a blender. They do most of the hard work of the algorithm for you and they do it pretty fast.
@@ -137,4 +137,3 @@ So that's it - The 5 questions data science can answer.
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
 * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
-

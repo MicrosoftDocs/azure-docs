@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Azure Analysis Services | Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
 services: analysis-services
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 02/27/2017
 ms.author: owend
 
 ---
@@ -103,7 +103,7 @@ For preview, the following data sources are supported in tabular 1200 models dep
 | --- | --- |
 | SQL database |SQL Server |
 | SQL Data Warehouse |APS |
-| Oracle | |
+| Oracle | Oracle |
 | Teradata | |
 
 ### Data source providers
