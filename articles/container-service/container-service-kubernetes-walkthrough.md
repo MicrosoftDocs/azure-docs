@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: anhowe
-
+ms.custom: H1Hack27Feb2017
 ---
 
-# Azure Container Service - Kubernetes walkthrough
+# Get started with a Kubernetes cluster in Container Service
 
 
 The instructions in this article show how to use the Azure CLI 2.0 commands to create a Kubernetes cluster. Then you can use the `kubectl` command-line tool to start working with containers in the cluster.
@@ -79,7 +79,7 @@ az acs kubernetes install-cli
 Once `kubectl` is installed, run the following command to download the master Kubernetes cluster configuration to the ~/.kube/config file:
 
 ```console
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 At this point you should be ready to access your cluster from your machine. Try running:
