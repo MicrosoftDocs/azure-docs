@@ -38,7 +38,7 @@ You will have a basic understanding of how you can use a VNet after completing t
 
 To create a virtual network with two subnets, complete the steps that follow. Different subnets are typically used to control the flow of traffic between subnets.
 
-1. Log in to the [Azure portal](<https://portal.azure.com>). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/en-us/free/). 
+1. Log in to the [Azure portal](<https://portal.azure.com>). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free). 
 2. In the **Favorites** pane, of the portal, click **New**.
 3. In the **New** blade, click **Networking**. In the **Networking** blade, click **Virtual network**, as shown in the following picture:
 
