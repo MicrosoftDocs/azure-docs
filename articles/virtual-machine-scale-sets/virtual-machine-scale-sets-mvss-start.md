@@ -152,7 +152,7 @@ Since the scale set is deploying multiple VMs, instead of specifying each VM nam
 +          },
 ```
 
-Finally, we need specify the network configuration for the VMs in the scale set. In this case, we only need to specify id of the subnet we created earlier so the scale set knows to put the network interfaces in this subnet. We get the id of the subnet using the `resourceId` template function. This function takes in the type and name of a resource and returns the fully qualified identifier of that resource (this includes your subscription ID and resource group name). However, the identifier of the virtual network is not enough. We must specify the specific subnet the scale set VMs should be in, so we use the `concat` template function. This function takes in a series of strings and returns their concatenation, giving us the fully qualified identifier of the subnet for the scale set.
+Finally, we need specify the network configuration for the VMs in the scale set. In this case, we only need to specify the id of the subnet we created earlier so the scale set knows to put the network interfaces in this subnet. We get the id of the subnet using the `resourceId` template function. This function takes in the type and name of a resource and returns the fully qualified identifier of that resource (this includes your subscription ID and resource group name). However, the identifier of the virtual network is not enough. We must specify the specific subnet the scale set VMs should be in, so we use the `concat` template function. This function takes in a series of strings and returns their concatenation, giving us the fully qualified identifier of the subnet for the scale set.
 
 ```diff
 +          "networkProfile": {
