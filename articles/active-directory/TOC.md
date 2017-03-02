@@ -77,6 +77,7 @@
 ### [Audit activity](active-directory-reporting-activity-audit-logs.md)
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
+### [Risk events](active-directory-reporting-risk-events.md)
 ### [Named networks](active-directory-known-networks-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### [Report migration](active-directory-reporting-migration.md)
