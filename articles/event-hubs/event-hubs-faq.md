@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
-ms.author: sethm;jotaub
+ms.author: sethm;jotaub;shvija
 ---
 
 # Event Hubs frequently asked questions
@@ -80,8 +80,9 @@ Connection charges apply only when the AMQP protocol is used. There are no conne
 
 ### How is Event Hubs Archive billed?
 Archive is enabled when any Event Hub in the namespace has the Archive feature enabled. Archive is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Archive billing will reflect these changes in whole hour increments.
+please refer to the [Even Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details regarding Event Hubs Archive billing.
 
-### Will I billed for the storage account I select for Event Hubs Archive?
+### Will I be billed for the storage account I select for Event Hubs Archive?
 Archive uses a storage account you provide when enabled on an Event Hub. As this is your storage account, any changes for this will be billed to your Azure subscription.
 
 ## Quotas
