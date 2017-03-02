@@ -1,6 +1,6 @@
 ---
 title: Create your first Azure Virtual Network | Microsoft Docs
-description: Learn how to create an Azure Virtual Network and connect two virtual machines to it.
+description: Learn how to create an Azure Virtual Network (VNet), connect two virtual machines (VM) to the VNet, and connect to the VMs.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
@@ -19,7 +19,7 @@ ms.author: jdial
 
 ---
 
-# Create your first virtual network and connect two virtual machines to it
+# Create your first virtual network
 
 Learn how to create a virtual network (VNet) with two subnets, create two virtual machines (VM), and connect each VM to one of the subnets, as shown in the following picture:
 
@@ -87,7 +87,7 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 	|**Setting**| **Value**|**Details**|
 	|---|---|---|
-	|**Name**|*MyWebServer*|This VM serves as a web server that Internet resources communicate with.|
+	|**Name**|*MyWebServer*|This VM serves as a web server that Internet resources connect to.|
 	|**VM disk type**|*SSD*|
 	|**User name**|*Your choice*|
 	|**Password and Confirm password**|*Your choice*|
@@ -119,7 +119,7 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 	|**Setting**|**Value**|**Details**|
 	|---|---|---|
-	|**Name**|*MyDBServer*|This VM serves as a database server that the web server communicates to, but that the Internet cannot communicate to.|
+	|**Name**|*MyDBServer*|This VM serves as a database server that the web server connects to, but that the Internet cannot connect to.|
 	|**VM disk type**|*SSD*||
 	|**User name**|Your choice||
 	|**Password and Confirm password**|Your choice||
@@ -152,11 +152,11 @@ Though you created one VNet and two VMs, the Azure portal created several additi
 
 	![Resource group contents](./media/virtual-network-getting-started-vnets-windows/resource-group-contents.png)
 
-Read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles to learn more about those resources. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to communicate with other resources over the VNet. Read the [NIC](virtual-network-network-interface-overview.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. Read the [IP addresses(virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article to learn more about public IP addresses.
+Read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles to learn more about those resources. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface-overview.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. Read the [IP addresses(virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article to learn more about public IP addresses.
 
-##<a name="connect-to-from-vms"></a>VM communication
+##<a name="connect-to-from-vms"></a>Connecting to the VMs
 
-With your VNet and two VMs created, you can now communicate with the VMs by completing the steps in the following sections:
+With your VNet and two VMs created, you can now connect to the VMs by completing the steps in the following sections:
 
 ### <a name="connect-from-internet"></a>Connect to the MyWebServer VM from the Internet
 
@@ -211,7 +211,7 @@ Complete the following steps to connect to the MyDBServer VM from the MyWebServe
 You were able to make the connection to the MyDBServer VM from the MyWebServer VM because:
 
 - TCP/3389 inbound connections are enabled for any source IP in the default NSG created in step 5 of the [Create the database server VM](#create-database-server-vm) section of this article.
-- You initiated the connection from the MyWebServer VM, which is connected to the same VNet as the MyDBServer VM. To communicate with a VM that doesn’t have a public IP address assigned to it, you must connect from another VM connected to the same VNet, even if the VM is connected to a different subnet.
+- You initiated the connection from the MyWebServer VM, which is connected to the same VNet as the MyDBServer VM. To connect to a VM that doesn’t have a public IP address assigned to it, you must connect from another VM connected to the same VNet, even if the VM is connected to a different subnet.
 - Even though the VMs are connected to different subnets, Azure creates default routes that enable connectivity between subnets. You can override the default routes by creating your own however. Read the [User-defined routes](virtual-networks-udr-overview.md) article to learn more about routing in Azure.
 
 If you try to initiate a remote connection to the MyDBServer VM from the Internet, as you did in the [Connect to the MyWebServer VM from the Internet](#connect-from-internet) section of this article, you’ll notice the **Connect** option is grayed out. Connect is grayed out because there is no public IP address assigned to the VM, so inbound connections to it from the Internet are not possible.
