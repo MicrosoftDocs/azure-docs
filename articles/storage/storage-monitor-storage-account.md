@@ -31,7 +31,10 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 ## How to: Configure monitoring for a storage account
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the storage account name to open the account dashboard.
-1. To open the **Diagnostic blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
+1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
+
+    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+
 1. Select the **type** of metrics data for each **service** you wish to monitor, and the **retention policy** for the data. You can also disable monitoring by setting **Status** to **Off**.
 
     ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-01.png)
@@ -50,6 +53,8 @@ You can use the [Azure portal](https://portal.azure.com) to monitor your Azure S
 1. When you finish the monitoring configuration, select **Save**.
 
 A default set of metrics is displayed in charts for each service. Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to [configure which metrics](#how-to-customize-metrics-charts) are displayed in the chart.
+
+You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
 > Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see [How metrics are stored](storage-analytics.md#how-metrics-are-stored).
@@ -128,8 +133,11 @@ Once you've added charts to your dashboard, you can further customize them as de
 You can instruct Azure Storage to save diagnostics logs for read, write, and delete requests for the blob, table, and queue services. The data retention policy you set also applies to these logs.
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
-1. Open the **Diagnostic blade**--scroll down to the **MONITORING** section of the **Menu blade** and select **Diagnostics**.
-1. Select the **services** for which you'd like to enable logging.
+1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
+
+    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    
+1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
     ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
 1. Click **Save**.
