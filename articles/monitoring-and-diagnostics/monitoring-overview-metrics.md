@@ -1,4 +1,3 @@
-
 ---
 title: Overview of metrics in Microsoft Azure | Microsoft Docs
 description: Overview of metrics and their use in Microsoft Azure
@@ -16,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: ashwink
-
 ---
+
 # Overview of metrics in Microsoft Azure
 This article describes what metrics are in Microsoft Azure, their benefits, and how to start using them.  
 

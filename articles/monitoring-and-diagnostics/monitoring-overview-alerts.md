@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
+
 ---
 # What are alerts in Microsoft Azure?
 This article describes what alerts are, their benefits, and how to get started with using them. It specifically deal with Azure Monitor, but provides pointers to other services.  
@@ -26,8 +27,8 @@ Alerts are a method of monitoring Azure resource metrics, events, or logs and be
 Alerts are available across different services, including:
 
 * **Application Insights**: Enables web test and metric alerts. See [Set alerts in Application Insights](../application-insights/app-insights-alerts.md) and [Monitor availability and responsiveness of any website](../application-insights/app-insights-monitor-web-app-availability.md).
-* **Log Analytics (Operations Management Suite)**: Enables the routing of diagnostic logs to Log Analytics. Operations Management Suite allows metric, log, and other alert types. For more information, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).  
-* **Azure Monitor**: Enables alerts based on both metric values and activity log events. Azure Monitor includes the [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx).  For more information, see [Using the Azure portal, PowerShell, or the command-line interface to create alerts](insights-alerts-portal.md).
+* **Log Analytics (Operations Management Suite)**: Enables the routing of Activity and Diagnostic Logs to Log Analytics. Operations Management Suite allows metric, log, and other alert types. For more information, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).  
+* **Azure Monitor**: Enables alerts based on both metric values and activity log events. You can use the [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx) to manage alerts.  For more information, see [Using the Azure portal, PowerShell, or the command-line interface to create alerts](insights-alerts-portal.md).
 
 ## Visual Summary
 The following diagram summarizes alerts and what you can do with them specifically in "Azure Monitor". Other actions may be available for the services listed previously. For example, alerts on Diagnostics Logs are only available in Log Analytics at this time.
