@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 03/02/2017
 ms.author: banders
 
 ---
@@ -105,18 +105,15 @@ A user with Azure read access permission on the Log Analytics workspace also has
 When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. Your role assignment in the Log Analytics portal is determined as follows:
 * If your account is assigned to a legacy Log Analytics user role, you are assigned to that role
 * If your account is not assigned to a legacy Log Analytics user role, and
- + you have full access to the workspace (\* permission), you are assigned to the *Administrator* role  
- + you have write permission but not delete permission, you are assigned to the *Contributor* role  
+ + you have full access to the workspace (*action* \* permission), you are assigned to the *Administrator* role  
+ + you have *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write, you are assigned to the *Contributor* role  
  + you have read permission or your permissions are not understood, you are assigned to the *Read Only* role
 * For Cloud Solution Provider (CSP) managed subscriptions, if the account you are signed-in with is in the Azure Active Directory linked to the workspace, then you are an *Administrator* in the OMS portal, otherwise you are a *Contributor*. 
  + This means a CSP will have *Contributor* permissions on the Log Analytics workspace.
 
 Some points to keep in mind about the Azure portal:
 
-* When you sign in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, you need to specify a tenant as part of the URL. For example:
-
-  `mms.microsoft.com/?tenant=contoso.com` The tenant identifier is often that last part of the e-mail address that you use to sign in.
-* If the account you sign in with is an account in the tenant Azure Active Directory, then you are an *Administrator* in the OMS portal. This is usually the case unless you’re signing in as a CSP.  If your account is not in the tenant Azure Active Directory, then you are a *Contributor* in the OMS portal.
+* When you sign in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, you need to specify a tenant as part of the URL. For example:  `mms.microsoft.com/?tenant=contoso.com`. The tenant identifier is often that last part of the e-mail address that you use to sign in.
 * If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
   For example, `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
