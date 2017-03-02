@@ -76,7 +76,7 @@ To specify the location for the virtual network, we are using a [Resource Manage
 ```
 
 
-Each Resource Manager resource has its own `properties` section for configurations specific to the resource. In this case, we are specifying that the virtual network have one subnet using the non-routable IP address range `10.0.0.0/16`. A scale set is always contained within one subnet. It cannot span subnets.
+Each Resource Manager resource has its own `properties` section for configurations specific to the resource. In this case, we are specifying that the virtual network should have one subnet using the non-routable IP address range `10.0.0.0/16`. A scale set is always contained within one subnet. It cannot span subnets.
 
 ```diff
 +      "properties": {
