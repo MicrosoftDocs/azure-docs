@@ -119,7 +119,7 @@ As mentioned above, it is also possible to store your custom scripts in Azure Bl
 
 In the example below we have gone a step further. While it is possible to provide the storage account name and key as a parameter or variable during deployment, Resource Manager templates provide the `listKeys` function that can obtain the storage account key programmatically and insert it in to the template for you at deployment time.
 
-In the example CustomScriptExtension resource definition below, our custom script has already been uploaded to an Azure storage account called `mystorageaccount9999` which exists in another Resource Group called `mysa999rgname`. When we deploy a template containing this resource, the `listKeys` function programmatically obtains the storage account key for the storage account `mysa999rgname` and inserts it in to the template for us.
+In the example CustomScriptExtension resource definition below, our custom script has already been uploaded to an Azure storage account called `mystorageaccount9999` which exists in another Resource Group called `mysa999rgname`. When we deploy a template containing this resource, the `listKeys` function programmatically obtains the storage account key for the storage account `mystorageaccount9999` in the Resource Group `mysa999rgname` and inserts it in to the template for us.
 
 ```json
 {
