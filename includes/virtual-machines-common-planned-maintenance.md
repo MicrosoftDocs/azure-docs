@@ -46,9 +46,11 @@ Use the viewer to report the virtual machines that are configured in a multi-ins
 ## Single-instance configuration updates
 After the multi-instance configuration updates are complete, Azure performs single-instance configuration updates. These updates also cause reboots to your virtual machines that are not running in availability sets.
 
-Note that even if you have only one instance running in an availability set, the Azure platform treats it as a multi-instance configuration update.
+> [!NOTE]
+> If an availability set has only one virtual machine instance running, the Azure platform treats it as a multi-instance configuration update.
+>
 
-For virtual machines in a single-instance configuration, maintenance consists of shutting down each virtual machine running on a host machine, applying the update to the host machines, and then restarting the virtual machines. The maintenance requires approximately 15 minutes of downtime. These updates are run across all virtual machines in a region in a single maintenance window.
+Maintenance in a single-instance configuration consists of shutting down each virtual machine running on a host machine, updating the host machine, and then restarting the virtual machines. The maintenance requires approximately 15 minutes of downtime. The planned maintenance event runs across all virtual machines in a region in a single maintenance window.
 
 Planned maintenance events impact the availability of your application for single-instance configurations. Azure offers a one-week advanced notification for planned maintenance of virtual machines in single-instance configurations.
 
