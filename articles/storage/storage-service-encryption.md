@@ -39,7 +39,7 @@ SSE is now available for encrypting your data in File Storage. This is currently
 To participate in the SSE Files Preview please contact ssediscussions@microsoft.com.
 
 To learn more, please refer to the FAQ.
-Availability for File Storage
+### Availability for File Storage
 Storage Service Encryption for File Storage is currently available in East Asia, North Europe and East US 2 regions.
 
 

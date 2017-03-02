@@ -4,7 +4,7 @@ description: Enable users to reset their own passwords, discover pre-requisites 
 services: active-directory
 keywords: Active directory password management, password management, reset Azure AD password
 documentationcenter: ''
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/23/2017
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 
 ---
 # Getting started with Password Management

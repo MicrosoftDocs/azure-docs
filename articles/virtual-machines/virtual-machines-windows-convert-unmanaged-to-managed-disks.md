@@ -44,17 +44,6 @@ You cannot convert an unmanaged VM created in the Resource Manager deployment mo
 2.	Copy the OS VHD to a storage account that has never been enabled for SSE. To copy the disk to another storage account, use [AzCopy](../storage/storage-use-azcopy.md): `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.	Create a VM that uses managed disks and attach that VHD file as the OS disk during creation.
 
-
-## Before you begin
-If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
-
-
-
 ## Convert VMs in an availability set to managed disks in a managed availability set
 
 If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
@@ -83,7 +72,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## Convert existing Azure VMs to managed disks of the same storage type
 
 > [!IMPORTANT]
-> After performing the following procedure, there is a single block blob that remains in the default /vhds container. The name of the file is “VMName.xxxxxxx.status”. Do not delete this remaining status object. Future work should address this issue.
+> After performing the following procedure, there is a single blob that remains in the default /vhds container. The name of the file is “VMName.xxxxxxx.status”. This file is created by Azure only when you have installed [VM extensions](virtual-machines-windows-classic-agents-and-extensions.md) on the VM. Do not delete this remaining status object. Future work should address this issue.
 
 This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SSD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
 
