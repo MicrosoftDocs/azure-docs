@@ -18,14 +18,14 @@ ms.date: 07/29/2016
 ms.author: b-hoedid
 
 ---
-# Scenario: Exception handling and logging errors for your logic apps
+# Scenario: Exception handling and logging errors for logic apps
 
 This scenario describes how you can extend a logic app to better support exception handling. 
 We've used a real-life use case to answer the question: "Does Azure Logic Apps support exception and error handling?"
 
 > [!NOTE]
 > The current Azure Logic Apps schema provides a standard template for action responses. 
-> This includes both internal validation and error responses returned from an API app. 
+> This template includes both internal validation and error responses returned from an API app.
 
 ## Scenario and use case overview
 
