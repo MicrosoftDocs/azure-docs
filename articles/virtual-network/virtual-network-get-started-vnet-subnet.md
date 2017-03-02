@@ -38,7 +38,7 @@ You will have a basic understanding of how you can use a VNet after completing t
 
 To create a virtual network with two subnets, complete the steps that follow. Different subnets are typically used to control the flow of traffic between subnets.
 
-1. Log in to the [Azure portal](<https://portal.azure.com>). You can sign up for a [free one-month trial](https://azure.microsoft.com/en-us/free/) if you don’t already have an account.
+1. Log in to the [Azure portal](<https://portal.azure.com>). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/en-us/free/). 
 2. In the **Favorites** pane, of the portal, click **New**.
 3. In the **New** blade, click **Networking**. In the **Networking** blade, click **Virtual network**, as shown in the following picture:
 
@@ -119,7 +119,7 @@ To create the database server VM, complete the following steps:
 
 1.  In the Favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
 2.  In the **Windows Server 2016 Datacenter** blade, click **Create**.
-3.  In the **Basics blade**, enter or select the following values and click **OK**:
+3.  In the **Basics blade**, enter or select the following values, then click **OK**:
 
 	|**Setting**|**Value**|**Details**|
 	|---|---|---|
@@ -138,7 +138,7 @@ To create the database server VM, complete the following steps:
 	|----|----|---|
 	|**Storage: Use managed disks**|*Yes*||
 	|**Virtual network**|Select *MyVNet*|You can select any VNet that exists in the same location as the VM you’re creating.|
-	|**Subnet**|Select *Back-end* by clicking on the Subnet box, then selecting **Back-end** from the **Choose a subnet** blade|You can select any subnet that exists within the VNet.|
+	|**Subnet**|Select *Back-end* by clicking the **Subnet** box, then selecting **Back-end** from the **Choose a subnet** blade|You can select any subnet that exists within the VNet.|
 	|**Public IP address**|None – Click the default address, then click **None** from the **Choose public IP address** blade|Without a public IP address, you can only connect to the VM from another VM connected to the same VNet. You cannot connect to it directly from the Internet.|
 	|**Network security group (firewall)**|Accept the default| Like the default NSG created for the MyWebServer VM, this NSG also has the same default inbound rule. You might add an additional inbound rule for TCP/1433 (MS SQL) for a database server. There is no rule for outbound traffic because by default, all outbound traffic is allowed. You can add/remove rules to control traffic per your policies.|
 	|**All other values**|Accept the defaults||
@@ -151,12 +151,12 @@ Though you created one VNet and two VMs, the Azure portal created several additi
 
 1. In the **Favorites** pane, click **More services**.
 2. In the **More services** pane, type *Resource groups* in the box that has the word *Filter* in it. Click **Resource groups** when you see it in the filtered list.
-3. In the **Resource groups** pane, click the *MyRG* resource group. If you have a lot of existing resource groups in your subscription, you can type *MyRG* in the box that contains the text *Filter by name…* to quickly access the MyRG resource group.
-4.  In the **MyRG** blade, you’ll see that the resource group contains 12 resources, as shown in the following picture:
+3. In the **Resource groups** pane, click the *MyRG* resource group. If you have many existing resource groups in your subscription, you can type *MyRG* in the box that contains the text *Filter by name…* to quickly access the MyRG resource group.
+4.  In the **MyRG** blade, you see that the resource group contains 12 resources, as shown in the following picture:
 
 	![Resource group contents](./media/virtual-network-getting-started-vnets-windows/resource-group-contents.png)
 
-Read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles to learn more about those resources. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface-overview.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. Read the [IP addresses(virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article to learn more about public IP addresses.
+To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface-overview.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses(virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
 
 ##<a name="connect-to-from-vms"></a>Connecting to the VMs
 
@@ -218,7 +218,7 @@ You are able to make the connection to the database server VM from the web serve
 - You initiated the connection from the web server VM, which is connected to the same VNet as the database server VM. To connect to a VM that doesn’t have a public IP address assigned to it, you must connect from another VM connected to the same VNet, even if the VM is connected to a different subnet.
 - Even though the VMs are connected to different subnets, Azure creates default routes that enable connectivity between subnets. You can override the default routes by creating your own however. Read the [User-defined routes](virtual-networks-udr-overview.md) article to learn more about routing in Azure.
 
-If you try to initiate a remote connection to the database server VM from the Internet, as you did in the [Connect to the web server VM from the Internet](#connect-from-internet) section of this article, you’ll notice the **Connect** option is grayed out. Connect is grayed out because there is no public IP address assigned to the VM, so inbound connections to it from the Internet are not possible.
+If you try to initiate a remote connection to the database server VM from the Internet, as you did in the [Connect to the web server VM from the Internet](#connect-from-internet) section of this article, you see that the **Connect** option is grayed out. Connect is grayed out because there is no public IP address assigned to the VM, so inbound connections to it from the Internet are not possible.
 
 ### Connect to the Internet from the database server VM
 
@@ -236,9 +236,9 @@ The outbound connection to the Internet is allowed because all outbound traffic 
 
 To delete all resources created in this article, complete the following steps:
 
-1. To view the MyRG resource group created in this article, complete steps 1-3 in the [Review resources](#review) section of this article. Once again, review the resources in the resource group. If you created the MyRG resource group, per previous steps, you’ll see the 12 resources shown in the picture in step 3.
+1. To view the MyRG resource group created in this article, complete steps 1-3 in the [Review resources](#review) section of this article. Once again, review the resources in the resource group. If you created the MyRG resource group, per previous steps, you see the 12 resources shown in the picture in step 3.
 2. In the MyRG blade, click the **Delete** button.
-3. The portal requires you to type the name of the resource group to confirm that you want to delete it. If you see resources other than those shown in step 3 of the [Review resources](#review) section of this article, click **Cancel**. If you see only the 12 resources created as part of this article, type *MyRG* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
+3. The portal requires you to type the name of the resource group to confirm that you want to delete it. If you see resources other than the resources shown in step 3 of the [Review resources](#review) section of this article, click **Cancel**. If you see only the 12 resources created as part of this article, type *MyRG* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
 
 ## <a name="next-steps"></a>Next steps
 
