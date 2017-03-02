@@ -64,13 +64,24 @@ After PowerShell is installed, you can generate a template by using the followin
 After you create your logic app template, you can continue to add or modify parameters that you might need. For example, if your definition includes a resource ID to an Azure function or nested workflow that you plan to deploy in a single deployment, you can add more resources to your template and parameterize IDs as needed. The same applies to any references to custom APIs or Swagger endpoints you expect to deploy with each resource group.
 
 ## Deploy a logic app template
-You can deploy your template by using any number of tools, including PowerShell, REST API, Visual Studio Release Management, and the Azure Portal Template Deployment. See this article about [deploying resources by using Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md) for additional information. Also, we recommend that you create a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameters) to store values for the parameter.
+
+You can deploy your template by using any number of tools, including PowerShell, 
+REST API, [Visual Studio Team Services Release Management](#team-services), 
+and template deployment through the Azure portal. 
+Also, to store the values for parameters, 
+we recommend that you create a 
+[parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameters).
+Learn how to [deploy resources with Azure Resource Manager templates and PowerShell](../azure-resource-manager/resource-group-template-deploy.md) 
+or [deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 ### Authorize OAuth connections
 After deployment, the logic app works end-to-end with valid parameters. However, OAuth connections still will need to be authorized to generate a valid access token. You can do this by opening the logic app in the designer and then authorizing connections. Or, if you want to automate, you can use a script to consent to each OAuth connection. There's an example script on GitHub under the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
-## Visual Studio Release Management
-A common scenario for deploying and managing an environment is to use a tool like Visual Studio Release Management, with a logic app deployment template. Visual Studio Team Services includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release definition.
+<a name="team-services"></a>
+## Visual Studio Team Services Release Management
+
+A common scenario for deploying and managing an environment is to use a tool like Release Management in Visual Studio Team Services, 
+with a logic app deployment template. Visual Studio Team Services includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release definition.
 
 1. In Release Management, to create a new definition, select **Empty**  to start with an empty definition.
 
