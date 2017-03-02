@@ -16,9 +16,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 
 ---
-# List of Oracle virtual machine images
+# List of Oracle virtual machine images for Linux 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [!INCLUDE [virtual-machines-common-classic-oracle-images](../../includes/virtual-machines-common-classic-oracle-images.md)]
