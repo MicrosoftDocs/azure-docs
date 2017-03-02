@@ -57,7 +57,7 @@ A default set of metrics is displayed in charts for each service. Once you've en
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
-> Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see [How metrics are stored](storage-analytics.md#how-metrics-are-stored).
+> Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. How metrics are stored](storage-analytics.md#how-metrics-are-stored).
 >
 
 ## How to: Customize metrics charts
@@ -152,6 +152,5 @@ The diagnostics logs are saved in a blob container named $logs in your storage a
 
 The following articles contain additional information about working with Storage Analytics.
 
-* TODO link1
-* TODO link2
-
+* [Storage Analytics](storage-analytics.md): This article provides more detail about metrics, logging, and billing for Storage Analytics.
+* [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md): Enable and access metrics data by using PowerShell and programmatically with C#.
