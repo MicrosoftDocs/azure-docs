@@ -3,7 +3,7 @@ title: 'Get Insights: Azure AD password management reports | Microsoft Docs'
 description: This article describes how to use reports to get insight into password management operations in your organization.
 services: active-directory
 documentationcenter: ''
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 
 ---
 # How to get operational insights with password management reports

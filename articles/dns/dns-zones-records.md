@@ -12,12 +12,13 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 ---
 
-# DNS zones and records
+# Overview of DNS zones and records
 
 This page explains the key concepts of domains, DNS zones, and DNS records and record sets, and how they are supported in Azure DNS.
 

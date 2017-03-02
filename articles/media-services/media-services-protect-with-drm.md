@@ -292,7 +292,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
                 {
-                    var encodingPreset = "H264 Multiple Bitrate 720p";
+                    var encodingPreset = "Adaptive Streaming";
 
                     IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
                                             inputAsset.Name,
