@@ -102,9 +102,7 @@ Virtual Private Network connections let multiple concurrent users connect from c
 > 
 
 ## Next steps
-[First tasks](azure-stack-first-scenarios.md)
-
-[Install and connect with PowerShell](azure-stack-connect-powershell.md)
-
-[Install and connect with CLI](azure-stack-connect-cli.md)
+* [Provision a virtual machine](azure-stack-provision-vm.md)
+* [Provision a storage account](azure-stack-provision-storage-account.md)
+* [Develop for Azure Stack](azure-stack-developer.md)
 
