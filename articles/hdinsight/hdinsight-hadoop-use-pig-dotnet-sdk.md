@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 03/03/2017
 ms.author: larryfr
 
 ---
@@ -42,7 +42,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 1. From the **File** menu in Visual Studio, select **New** and then select **Project**.
 
-2. For the new project, type or select the following values.
+2. For the new project, type or select the following values:
    
    | Property | Value |
    | ------ | ------ |
@@ -54,7 +54,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 4. From the **Tools** menu, select **Library Package Manager** or **Nuget Package Manager**, and then select **Package Manager Console**.
 
-5. Run the following command in the console to install the .NET SDK packages.
+5. To install the .NET SDK packages, use the following command:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
@@ -113,9 +113,9 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
     }
     ```
     
-7. Press **F5** to start the application.
+7. To start the application, press **F5**.
 
-8. Press **ENTER** to exit the application.
+8. To exit the application, press **ENTER**.
 
 ## Summary
 
@@ -123,11 +123,9 @@ As you can see, the .NET SDK for Hadoop allows you to create .NET applications t
 
 ## Next steps
 
-For general information on Pig in HDInsight.
+For information on Pig in HDInsight, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-
-For information on other ways you can work with Hadoop on HDInsight.
+For more information on using Hadoop on HDInsight, see the following documents:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
