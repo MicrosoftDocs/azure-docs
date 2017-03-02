@@ -76,11 +76,11 @@ Each event sent to an Event Hub counts as a billable message. An *ingress event*
 Events consumed from an Event Hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.
 
 ### Do brokered connection charges apply to Event Hubs?
-Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), please refer to the [Even Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details regarding how many connections are included in each service tier.
+Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), please refer to the [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details regarding how many connections are included in each service tier.
 
 ### How is Event Hubs Archive billed?
 Archive is enabled when any Event Hub in the namespace has the Archive feature enabled. Archive is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Archive billing will reflect these changes in whole hour increments.
-please refer to the [Even Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details regarding Event Hubs Archive billing.
+please refer to the [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details regarding Event Hubs Archive billing.
 
 ### Will I be billed for the storage account I select for Event Hubs Archive?
 Archive uses a storage account you provide when enabled on an Event Hub. As this is your storage account, any changes for this will be billed to your Azure subscription.
