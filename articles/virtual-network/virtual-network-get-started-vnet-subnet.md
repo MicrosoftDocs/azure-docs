@@ -36,7 +36,7 @@ You will have a basic understanding of how you can use a VNet after completing t
 
 ## <a name="create-vnet"></a>Create a virtual network with two subnets
 
-Complete the following steps to create a virtual network with two subnets. Different subnets are typically used to control the flow of traffic between subnets.
+To create a virtual network with two subnets, complete the steps that follow. Different subnets are typically used to control the flow of traffic between subnets.
 
 1. Log in to the [Azure portal](<https://portal.azure.com>). You can sign up for a [free one-month trial](https://azure.microsoft.com/en-us/free/) if you don’t already have an account.
 2. In the **Favorites** pane, of the portal, click **New**.
@@ -81,6 +81,8 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 ### <a name="create-web-server-vm"></a>Create the web server VM
 
+To create the web server VM, complete the following steps:
+
 1. In the Azure portal favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
 2. In the **Windows Server 2016 Datacenter** blade, click **Create**.
 3. In the **Basics** blade that appears, enter or select the following values and click **OK**:
@@ -111,7 +113,9 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 6.  In the **Summary** blade, review the settings and click **OK** to create the VM. A status tile is displayed on the portal dashboard as the VM creates. It may take a few minutes to create. You don’t need to wait for it to complete. You can continue to the next step while the VM is created.
 
-### <a name="create-dabase-server-vm"></a>Create the database server VM
+### <a name="create-database-server-vm"></a>Create the database server VM
+
+To create the database server VM, complete the following steps:
 
 1.  In the Favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
 2.  In the **Windows Server 2016 Datacenter** blade, click **Create**.
@@ -158,9 +162,9 @@ Read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview
 
 With your VNet and two VMs created, you can now connect to the VMs by completing the steps in the following sections:
 
-### <a name="connect-from-internet"></a>Connect to the MyWebServer VM from the Internet
+### <a name="connect-from-internet"></a>Connect to the web server VM from the Internet
 
-Complete the following steps to connect to the MyWebServer VM from the Internet:
+To connect to the web server VM from the Internet, complete the following steps:
 
 1. In the portal, open the MyRG resource group by completing the steps in the [Review resources](#review) section of this article.
 2. In the **MyRG** blade, click the **MyWebServer** VM.
@@ -180,11 +184,11 @@ The remote connection is to the public IP address assigned to the public IP addr
 >If you add additional inbound rules to the NSG, ensure that the same ports are open on the Windows firewall, or the connection fails.
 >
 
-### <a name="connect-to-internet"></a>Connect to the Internet from the MyWebServer VM
+### <a name="connect-to-internet"></a>Connect to the Internet from the web server VM
 
-Connect outbound to the Internet from the MyWebServer VM by completing the following steps:
+To connect outbound to the Internet from the web server VM, complete the following steps:
 
-1. If you don’t already have a remote connection to the MyWebServerVM open, make a remote connection to the VM by completing the steps in the [Connect to the MyWebServer VM from the Internet](#connect-from-internet) section of this article.
+1. If you don’t already have a remote connection to the MyWebServerVM open, make a remote connection to the VM by completing the steps in the [Connect to the web server VM from the Internet](#connect-from-internet) section of this article.
 2. From the Windows desktop, open Internet Explorer. In the **Setup Internet Explorer 11** dialog box, click **Don’t use recommended settings**, then click **OK**. It’s recommended to accept the recommended settings for a production server.
 3. In the Internet Explorer address bar, enter [bing.com](http:www.bing.com). If you receive an Internet Explorer dialog box, click **Add**, then **Add** in the **Trusted sites** dialog box and click **Close**. Repeat this process for any other Internet Explorer dialog boxes.
 4. At the Bing search page, enter *whatsmyipaddress*, then click the magnifying glass button. Bing returns the public IP address assigned to the public IP address resource created by the portal when you created the VM. If you examine the settings for the **MyWebServer-ip** resource, you see the same IP address assigned to the public IP address resource, as shown in the picture that follows. The IP address assigned to your VM is different however.
@@ -197,31 +201,31 @@ You are able to connect to the Internet from the VM because all outbound connect
 
 If the VM is put in the stopped (deallocated) state using the portal, the public IP address can change. If you require that the public IP address never change, you can use the static allocation method for the IP address, rather than the dynamic allocation method (which is the default). To learn more about the differences between allocation methods, read the [IP address types and allocation methods](virtual-network-ip-addresses-overview-arm.md) article.
 
-### <a name="webserver-to-dbserver"></a>Connect to the MyDBServer VM from the MyWebServer VM
+### <a name="webserver-to-dbserver"></a>Connect to the database server VM from the web server VM
 
-Complete the following steps to connect to the MyDBServer VM from the MyWebServer VM
+To connect to the database server VM from the web server VM, complete the following steps:
 
-1. If you don’t already have a remote connection to the MyWebServer VM open, make a remote connection to the VM by completing the steps in the [Connect to the MyWebServer VM from the Internet](#connect-from-internet) section of this article.
+1. If you don’t already have a remote connection to the MyWebServer VM open, make a remote connection to the VM by completing the steps in the [Connect to the web server VM from the Internet](#connect-from-internet) section of this article.
 2. Click the Start button in the lower-left corner of the Windows desktop, then start typing *remote desktop*. When the Start menu list displays **Remote Desktop Connection**, click it.
 3. In the **Remote Desktop Connection** dialog box, enter *MyDBServer* for the computer name and click **Connect**.
 4. Enter the user name and passwords you entered in step 3 of the [Create the database server VM](#create-database-server-vm) section of this article, then click **OK**.
 5. If you receive a dialog box informing you that the identity of the remote computer cannot be verified, click **Yes**.
 6. Leave the remote desktop connection to both servers open to complete the steps in the next section.
 
-You were able to make the connection to the MyDBServer VM from the MyWebServer VM because:
+You are able to make the connection to the database server VM from the web server VM for the following reasons:
 
 - TCP/3389 inbound connections are enabled for any source IP in the default NSG created in step 5 of the [Create the database server VM](#create-database-server-vm) section of this article.
-- You initiated the connection from the MyWebServer VM, which is connected to the same VNet as the MyDBServer VM. To connect to a VM that doesn’t have a public IP address assigned to it, you must connect from another VM connected to the same VNet, even if the VM is connected to a different subnet.
+- You initiated the connection from the web server VM, which is connected to the same VNet as the database server VM. To connect to a VM that doesn’t have a public IP address assigned to it, you must connect from another VM connected to the same VNet, even if the VM is connected to a different subnet.
 - Even though the VMs are connected to different subnets, Azure creates default routes that enable connectivity between subnets. You can override the default routes by creating your own however. Read the [User-defined routes](virtual-networks-udr-overview.md) article to learn more about routing in Azure.
 
-If you try to initiate a remote connection to the MyDBServer VM from the Internet, as you did in the [Connect to the MyWebServer VM from the Internet](#connect-from-internet) section of this article, you’ll notice the **Connect** option is grayed out. Connect is grayed out because there is no public IP address assigned to the VM, so inbound connections to it from the Internet are not possible.
+If you try to initiate a remote connection to the database server VM from the Internet, as you did in the [Connect to the web server VM from the Internet](#connect-from-internet) section of this article, you’ll notice the **Connect** option is grayed out. Connect is grayed out because there is no public IP address assigned to the VM, so inbound connections to it from the Internet are not possible.
 
-### Connect to the Internet from the MyDBServer virtual machine
+### Connect to the Internet from the database server VM
 
-Connect outbound to the Internet from the MyDBServer VM by completing the following steps:
+Connect outbound to the Internet from the database server VM by completing the following steps:
 
-1. If you don’t already have a remote connection to the MyDBServer VM open from the MyWebServer VM, complete the steps in the [Connect to the MyDBServer VM from the MyWebServer VM](#webserver-to-dbserver) section of this article.
-2. From the Windows desktop on the MyDBServer VM, open Internet Explorer and respond to the dialog boxes as you did in steps 2 and 3 of the [Connect to the Internet from the MyWebServer VM](#connect-to-internet) section of this article.
+1. If you don’t already have a remote connection to the MyDBServer VM open from the MyWebServer VM, complete the steps in the [Connect to the database server VM from the web server VM](#webserver-to-dbserver) section of this article.
+2. From the Windows desktop on the MyDBServer VM, open Internet Explorer and respond to the dialog boxes as you did in steps 2 and 3 of the [Connect to the Internet from the web server VM](#connect-to-internet) section of this article.
 3. In the address bar, enter [bing.com](http:www.bing.com).
 4. Click **Add** in the Internet Explorer dialog box that appears, then **Add**, then **Close** in the **Trusted** sites dialog box. Complete these steps in any additional dialog boxes appear.
 5. At the Bing search page, enter *whatsmyipaddress*, then click the magnifying glass button. Bing returns the public IP address currently assigned to the VM by the Azure infrastructure. 6. Close the remote desktop to the MyDBServer VM from the MyWebServer VM, then close the remote connection to the MyWebServer VM.
@@ -234,7 +238,7 @@ To delete all resources created in this article, complete the following steps:
 
 1. To view the MyRG resource group created in this article, complete steps 1-3 in the [Review resources](#review) section of this article. Once again, review the resources in the resource group. If you created the MyRG resource group, per previous steps, you’ll see the 12 resources shown in the picture in step 3.
 2. In the MyRG blade, click the **Delete** button.
-3. The portal requires you to type the name of the resource group to confirm that you want to delete it. If you see resources other than those shown in step 3 from the [Review resources](#review) section of this article, click **Cancel**. If you see only the 12 resources created as part of this article, type *MyRG* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
+3. The portal requires you to type the name of the resource group to confirm that you want to delete it. If you see resources other than those shown in step 3 of the [Review resources](#review) section of this article, click **Cancel**. If you see only the 12 resources created as part of this article, type *MyRG* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
 
 ## <a name="next-steps"></a>Next steps
 
