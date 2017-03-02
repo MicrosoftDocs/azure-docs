@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/01/2017
 ms.author: markvi
 
 ---
@@ -113,35 +113,6 @@ For more information about how to address malware infections, see the [Malware P
 This risk event type identifies IP addresses from which a high number of failed sign-in attempts were seen, across multiple user accounts, over a short period of time. This matches traffic patterns of IP addresses used by attackers, and is a strong indicator that accounts are either already or are about to be compromised. This is a machine learning algorithm that ignores obvious "*false-positives*", such as IP addresses that are regularly used by other users in the organization.  The system has an initial learning period of 14 days where it learns the sign-in behavior of a new user and new tenant.
 
 We recommend that you contact the user to verify if they actually signed in from an IP address that was marked as suspicious. The risk level for this event type is “**Medium**” because several devices may be behind the same IP address, while only some may be responsible for the suspicious activity. 
-
-
-
-
-
-## Azure AD anomalous activity reports
-
-In the Azure classic portal, some of the risk events already have been made available through the Azure AD Anomalous Activity reports. 
-
-The table below lists the various risk event types and the corresponding **Azure AD Anomalous Activity** report. 
-
-| Identity Protection Risk Event Type | Corresponding Azure AD Anomalous Activity Report |
-|:--- |:--- |
-| Leaked credentials |Users with leaked credentials |
-| Impossible travel to atypical locations |Irregular sign-in activity |
-| Sign-ins from infected devices |Sign-ins from possibly infected devices |
-| Sign-ins from anonymous IP addresses |Sign-ins from unknown sources |
-| Sign-ins from IP addresses with suspicious activity |Sign-ins from IP addresses with suspicious activity |
-| Signs in from unfamiliar locations |- |
-
-
-The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD Identity Protection, and will therefore not be available through Identity Protection. These reports are still available in the Azure classic portal. However, they will be deprecated at some time in the future as they are being superseded by risk events in Identity Protection.
-
-* Sign-ins after multiple failures
-* Sign-ins from multiple geographies
-
-
-
-
 
 
 ## Next steps
