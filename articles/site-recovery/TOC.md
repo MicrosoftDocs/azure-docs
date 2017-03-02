@@ -4,7 +4,7 @@
 ## [What workloads can you protect?](site-recovery-workload.md)
 ## [Site Recovery support matrix](site-recovery-support-matrix-to-azure.md)
 ## [FAQ](site-recovery-faq.md)
-## [Watch an introduction](https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager)
+## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
 
 # Get Started
 ## [Replicate VMWare VMs to Azure](site-recovery-vmware-to-azure.md)
