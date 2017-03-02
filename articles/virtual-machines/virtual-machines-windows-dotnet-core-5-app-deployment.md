@@ -115,13 +115,11 @@ Notice in the below JSON that the script is stored in GitHub. This script could 
 }
 ```
 
-As mentioned above, it is also possible to store your script resources in Azure Blob storage. There are two options for storing the script resources in blob storage; either make the container/script public and follow the same approach as above, altering the fileUris as required, or it can also be kept in private blob storage. In order to use private blob storage, it is necessary to provide the storageAccountName and storageAccountKey to the CustomScriptExtension JSON settings section to allow the extension to access the storage account and download the script or resource(s).
+As mentioned above, it is also possible to store your custom scripts in Azure Blob storage. There are two options for storing the script resources in blob storage; either make the container/script public and follow the same approach as above, or it can also be kept in private blob storage which requires you to provide the storageAccountName and storageAccountKey to the CustomScriptExtension resource definition.
 
-In the example below, as well as altering the fileUris to obtain the file from the storageaccount, we provide additional settings within the protectedSettings section; specifically the name of the storageAccount that contains the files, and the storageAccountKey. While it is possible to provide the storage account key manually as a parameter or variable, ARM templates provide the listKeys function that will return the storageAccountKey programmatically - this means that if the storage account key is changed, your template will continue to work without an update.
+In the example below we have gone a step further. While it is possible to provide the storage account name and key as a parameter or variable during deployment, Resource Manager templates provide the `listKeys` function that can obtain the storage account key programmatically and insert it in to the template for you at deployment time.
 
-In order to use the listKeys function however, you must have appropriate permissions (list keys) on the storage account containing the script(s)/resource(s) defined in fileUris. The following example use of listKeys shows how to obtain the key from a storage account that contains the scripts, which is in a different resource group than that being deployed to but that is in the same subscription. Additionally, you must specify the resource group name of the storage account that contains the scripts, otherwise it is assumed the storage account with the scripts is in the same resource group you are deploying to, so providing the name of the resource group that contains the storage account with the scripts is also required when using listKeys.
-
-It should be noted that while the example below uses defined values for the storage account name and its resource group's name, these can be passed as parameters or variables.
+In the example CustomScriptExtension resource definition below, our custom script has already been uploaded to an Azure storage account called `mystorageaccount9999` which exists in another Resource Group called `mysa999rgname`. When we deploy a template containing this resource, the `listKeys` function programmatically obtains the storage account key for the storage account `mysa999rgname` and inserts it in to the template for us.
 
 ```json
 {
@@ -154,6 +152,8 @@ It should be noted that while the example below uses defined values for the stor
   }
 }
 ```
+
+The main benefit of this approach is that it does not require you to change your template or deployment parameters in the event of the storage account key changing.
 
 For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
