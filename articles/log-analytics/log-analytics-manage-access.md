@@ -77,7 +77,7 @@ There are two permission models that control access to a Log Analytics workspace
 
 The following table summarizes the access that can be set using each permission model:
 
-|                          | Log Analytics Portal | Azure Portal | API (including PowerShell) |
+|                          | Log Analytics portal | Azure portal | API (including PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
 | Log Analytics user roles | Yes                  | No           | No                         |
 | Azure role-based access  | Yes                  | Yes          | Yes                        |
@@ -109,7 +109,7 @@ When opening the Log Analytics portal, you switch to using the legacy Log Analyt
  + you have *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write, you are assigned to the *Contributor* role  
  + you have read permission, or your permissions are not understood, you are assigned to the *Read Only* role
 * For Cloud Solution Provider (CSP) managed subscriptions, if the account you are signed-in with is in the Azure Active Directory linked to the workspace, then you are an *Administrator* in the OMS portal, otherwise you are a *Contributor*. 
- + This means a CSP will have *Contributor* permissions on the Log Analytics workspace.
+ + This means a CSP has *Contributor* permissions on the Log Analytics workspace.
 
 Some points to keep in mind about the Azure portal:
 
