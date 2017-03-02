@@ -1,8 +1,8 @@
 ---
-  title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
+title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
   description: Learn about the set of services in Azure Data Lake that enable you to create a cloud-based big data platform.
   services: data-lake-analytics
-  cloud: cloud value assigned by ACOM for sovereign clouds such as Azure Government and Azure Stack
+  cloud:
   documentationcenter: usually not applicable; if applicable, use value listed below for the correct dev center
   author: MikeRys
   manager: arindamc
