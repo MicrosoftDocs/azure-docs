@@ -18,7 +18,7 @@ ms.date: 07/26/2016
 ms.author: jonfan
 
 ---
-# Create agreements to exchange EDIFACT messages with logic apps
+# Exchange EDIFACT messages with logic apps
 
 > [!NOTE]
 > This page covers the EDIFACT features of Azure Logic Apps. 
