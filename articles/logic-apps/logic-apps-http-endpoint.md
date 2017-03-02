@@ -18,7 +18,7 @@ ms.date: 10/18/2016
 ms.author: jehollan
 ---
 
-# Add HTTP endpoints to call, trigger, or nest workflows for logic apps
+# Add HTTP endpoints to call, trigger, or nest logic app workflows
 
 Logic apps can natively expose synchronous HTTP endpoints as triggers 
 so that you can call your logic apps. You can also use a pattern 
