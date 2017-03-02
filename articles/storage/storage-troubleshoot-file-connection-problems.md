@@ -189,7 +189,7 @@ Drives are mounted per user. If your application or service is running under a d
 ### Solution
 Mount drive from the same user account under which the application is. This can be done using tools such as psexec.
 
-Alternatively, you can create a new user that has the same privileges as the network service or system account, and then run **cmdkey** and **net use** under that account. The user name should be the storage account name, and password should be the storage account key. Another option for **net use** is to pass in the storage account name and key in the user name and password parameters of the **net use** command.
+Another option for **net use** is to pass in the storage account name and key in the user name and password parameters of the **net use** command.
 
 After you follow these instructions, you may receive the following error message: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated" when you run **net use** for the system/network service account. If this occurs, make sure that the username that is passed to **net use** includes domain information (for example: "[storage account name].file.core.windows.net").
 

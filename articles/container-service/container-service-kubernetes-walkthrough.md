@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: anhowe
-
+ms.custom: H1Hack27Feb2017
 ---
 
-# Azure Container Service - Kubernetes walkthrough
+# Get started with a Kubernetes cluster in Container Service
 
 
 The instructions in this article show how to use the Azure CLI 2.0 commands to create a Kubernetes cluster. Then you can use the `kubectl` command-line tool to start working with containers in the cluster.

@@ -127,9 +127,7 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 To test the portal connection, open an Internet browser and navigate to either the user portal (https://publicportal.local.azurestack.external) or the administrator portal (https://portal.local.azurestack.external), sign in and create resources.  
 
 ## Next steps
-[First tasks](azure-stack-first-scenarios.md)
-
-[Install and connect with PowerShell](azure-stack-connect-powershell.md)
-
-[Install and connect with CLI](azure-stack-connect-cli.md)
+* [Provision a virtual machine](azure-stack-provision-vm.md)
+* [Provision a storage account](azure-stack-provision-storage-account.md)
+* [Develop for Azure Stack](azure-stack-developer.md)
 
