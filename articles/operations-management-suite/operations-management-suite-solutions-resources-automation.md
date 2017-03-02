@@ -88,7 +88,7 @@ There are two methods to start a runbook in a management solution.
 * To start the runbook on a schedule, create a [schedule resource](#schedules) as described below. 
 
 ## Automation jobs
-In order to start a runbook when the management solution is installed, you create a **job** resource.  Job resources have a type of **Microsoft.Automation/automationAccounts/jobs** and have the following structure.
+When you start a runbook in Azure Automation, it creates an automation job.  You can add an automation job resource to your solution to start a runbook when the management solution is installed.  Job resources have a type of **Microsoft.Automation/automationAccounts/jobs** and have the following structure.
 
     {
         "name": "<name-of-job-resource>",
@@ -114,8 +114,8 @@ The properties for automation jobs are described in the following table.
 
 | Property | Description |
 |:--- |:--- |
-| runbook |Single **name** entity with the name of the runbook. |
-| parameters |Entity for each parameter required by the runbook. |
+| runbook |Single **name** entity with the name of the runbook to start. |
+| parameters |Entity for each parameter value required by the runbook. |
 
 The job includes the runbook name and any parameter values to be sent to the runbook.  The job must [depend on](operations-management-suite-solutions-creating.md#resources) the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
 
