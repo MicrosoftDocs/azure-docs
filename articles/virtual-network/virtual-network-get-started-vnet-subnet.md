@@ -23,7 +23,7 @@ ms.author: jdial
 
 Learn how to create a virtual network (VNet) with two subnets, create two virtual machines (VM), and connect each VM to one of the subnets, as shown in the following picture:
 
-![Virtual network diagram](./media/virtual-network-getting-started-vnets-windows/vnet-diagram.png)
+![Virtual network diagram](./media/virtual-network-get-started-vnet-subnet/vnet-diagram.png)
 
 An Azure virtual network (VNet) is a representation of your own network in the cloud. You can control your Azure network settings and define DHCP address blocks, DNS settings, security policies, and routing. To learn more about VNet concepts, read the [Virtual Network overview](virtual-networks-overview.md) article. Complete the following steps to create the resources shown in the picture:
 
@@ -42,7 +42,7 @@ To create a virtual network with two subnets, complete the steps that follow. Di
 2. In the **Favorites** pane, of the portal, click **New**.
 3. In the **New** blade, click **Networking**. In the **Networking** blade, click **Virtual network**, as shown in the following picture:
 
-	![Virtual network diagram](./media/virtual-network-getting-started-vnets-windows/virtual-network.png)
+	![Virtual network diagram](./media/virtual-network-get-started-vnet-subnet/virtual-network.png)
 
 4.  In the **Virtual network** blade, leave *Resource Manager* selected as the deployment model, and click **Create**.
 5.  In the **Create virtual network blade** that appears, enter the following values, then click **Create**:
@@ -62,7 +62,7 @@ To create a virtual network with two subnets, complete the steps that follow. Di
 6. With the virtual network created, in the Azure portal **Favorites** pane, click **All resources**. Click the **MyVNet** virtual network in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter *MyVNet* in the **Filter by name…** box to easily access the VNet.
 7. The **MyVNet** blade opens and displays information about the VNet, as shown in the following picture:
 
-	![Virtual network diagram](./media/virtual-network-getting-started-vnets-windows/myvnet.png)
+	![Virtual network diagram](./media/virtual-network-get-started-vnet-subnet/myvnet.png)
 
 8. As shown in the previous picture, click **Subnets** to display a list of the subnets within the VNet. The only subnet that exists is **Front-end**, the subnet you created in step 5.
 9. In the MyVNet - Subnets blade, click **+ Subnet** to create a subnet with the following information and click **OK** to create the subnet:
@@ -77,7 +77,7 @@ To create a virtual network with two subnets, complete the steps that follow. Di
 
 ## <a name="create-vms"></a>Create virtual machines
 
-With the VNet and subnets created, you can create the VMs. For this exercise, both VMs run the Windows Server operating system, though they can run any operating system supported by Azure, to include several Linux distributions.
+With the VNet and subnets created, you can create the VMs. For this exercise, both VMs run the Windows Server operating system, though they can run any operating system supported by Azure, including several different Linux distributions.
 
 ### <a name="create-web-server-vm"></a>Create the web server VM
 
@@ -154,11 +154,11 @@ Though you created one VNet and two VMs, the Azure portal created several additi
 3. In the **Resource groups** pane, click the *MyRG* resource group. If you have many existing resource groups in your subscription, you can type *MyRG* in the box that contains the text *Filter by name…* to quickly access the MyRG resource group.
 4.  In the **MyRG** blade, you see that the resource group contains 12 resources, as shown in the following picture:
 
-	![Resource group contents](./media/virtual-network-getting-started-vnets-windows/resource-group-contents.png)
+	![Resource group contents](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface-overview.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses(virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
+To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface-overview.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
 
-##<a name="connect-to-from-vms"></a>Connecting to the VMs
+## <a name="connect-to-from-vms"></a>Connect to the VMs
 
 With your VNet and two VMs created, you can now connect to the VMs by completing the steps in the following sections:
 
@@ -170,7 +170,7 @@ To connect to the web server VM from the Internet, complete the following steps:
 2. In the **MyRG** blade, click the **MyWebServer** VM.
 3. In the **MyWebServer** blade, click **Connect**, as shown in the following picture:
 
-	![Connect to web server VM](./media/virtual-network-getting-started-vnets-windows/webserver.png)
+	![Connect to web server VM](./media/virtual-network-get-started-vnet-subnet/webserver.png)
 
 4. Allow your browser to download the *MyWebServer.rdp* file, then open it.
 5. If you receive a dialog box informing you that the publisher of the remote connection cannot be verified, click **Connect**.
@@ -193,7 +193,7 @@ To connect outbound to the Internet from the web server VM, complete the followi
 3. In the Internet Explorer address bar, enter [bing.com](http:www.bing.com). If you receive an Internet Explorer dialog box, click **Add**, then **Add** in the **Trusted sites** dialog box and click **Close**. Repeat this process for any other Internet Explorer dialog boxes.
 4. At the Bing search page, enter *whatsmyipaddress*, then click the magnifying glass button. Bing returns the public IP address assigned to the public IP address resource created by the portal when you created the VM. If you examine the settings for the **MyWebServer-ip** resource, you see the same IP address assigned to the public IP address resource, as shown in the picture that follows. The IP address assigned to your VM is different however.
 
-	![Connect to web server VM](./media/virtual-network-getting-started-vnets-windows/webserver-pip.png)
+	![Connect to web server VM](./media/virtual-network-get-started-vnet-subnet/webserver-pip.png)
 
 5.  Leave the remote desktop connection open to complete the steps in the next section.
 
