@@ -225,7 +225,7 @@ These steps assume that you have already created a Virtual Network and subnet th
 
 **Using the Azure CLI**
 
-1. Use the following command to create a new network security group named `hdisecure`. Replace **RESOURCEGROUPNAME** with the resource group that contains the Azure Virtual Network. Repalce **LOCATION** with the location (region,) that the group was created in.
+1. Use the following command to create a new network security group named `hdisecure`. Replace **RESOURCEGROUPNAME** with the resource group that contains the Azure Virtual Network. Replace **LOCATION** with the location (region,) that the group was created in.
    
         az network nsg create -g RESOURCEGROUPNAME -n hdisecure -l LOCATION
 
