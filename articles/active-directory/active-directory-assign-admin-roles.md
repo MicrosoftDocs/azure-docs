@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/02/2017
 ms.author: curtand
 
 ---
@@ -46,6 +46,7 @@ The following administrator roles are available:
 * **Intune service administrator**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Skype for Business service administrator**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). This role was referred to previously as the **Lync service administrator** role.
 * **Guest inviter**: Users in this role can manage guest invitations. It does not include any other permissions.
+* **Mailbox Administrator**: This role is used only for Exchange Online email support for RIM Blackberry devices. If your organization does not use Exchange Online email on RIM Blackberry devices, do not use this role.
 * **Password administrator/Helpdesk administrator**: Resets passwords, manages service requests, and monitors service health. Password administrators can reset passwords only for users and other password administrators.
 
   > [!NOTE]
