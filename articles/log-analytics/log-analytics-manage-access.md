@@ -83,31 +83,31 @@ The following table summarizes the access that can be set using each permission 
 | Azure role-based access  | Yes                  | Yes          | Yes                        |
 
 > [!NOTE]
-> Log Analytics is moving to use Azure role based access as the permissions model, replacing the Log Analytics user roles.
+> Log Analytics is moving to use Azure role-based access as the permissions model, replacing the Log Analytics user roles.
 >
 >
 
-The legacy Log Analytics user roles only control access to activites performed in the [Log Analytics portal](https://mms.microsoft.com).
+The legacy Log Analytics user roles only control access to activities performed in the [Log Analytics portal](https://mms.microsoft.com).
 
 The following activities in the Log Analytics portal also require Azure permissions:
-+ Adding management solutions
++ Adding or removing management solutions
 + Changing the pricing tier
 + Viewing data in the *Backup* and *Site Recovery* solution tiles
- - For these solutions it is necessary to have administrator or co-administrator permission to the Azure subscription that the workspace is linked to since these tiles make calls to the service management API.   
+ - For these solutions, it is necessary to have administrator or co-administrator permission to the Azure subscription since these tiles access resources deployed using the classic deployment model.   
 
-For example, in order to add or remove management solutions, the user must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, the user must be a member of the OMS workspace contributor or administrator role in the OMS portal.
+For example, to add or remove management solutions, you must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, you must be a member of the OMS workspace *Contributor* or *Administrator* role in the OMS portal.
 
 ### Managing access to Log Analytics using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
-A user with Azure read access permission on the Log Analytics workspace also has the ability to navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace resource.
+If you have at least Azure read access permission on the Log Analytics workspace, you can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
 
 When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. Your role assignment in the Log Analytics portal is determined as follows:
 * If your account is assigned to a legacy Log Analytics user role, you are assigned to that role
 * If your account is not assigned to a legacy Log Analytics user role, and
  + you have full access to the workspace (*action* \* permission), you are assigned to the *Administrator* role  
  + you have *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write, you are assigned to the *Contributor* role  
- + you have read permission or your permissions are not understood, you are assigned to the *Read Only* role
+ + you have read permission, or your permissions are not understood, you are assigned to the *Read Only* role
 * For Cloud Solution Provider (CSP) managed subscriptions, if the account you are signed-in with is in the Azure Active Directory linked to the workspace, then you are an *Administrator* in the OMS portal, otherwise you are a *Contributor*. 
  + This means a CSP will have *Contributor* permissions on the Log Analytics workspace.
 
