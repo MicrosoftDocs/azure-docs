@@ -46,7 +46,7 @@ The integration between SCOM and Service Map is enabled by importing the Microso
 
     ![SCOM Configuration Wizard](media/oms-service-map/scom-configuration.png)
 
-3. The first step in the wizard is Connection Configuration where you enter the information for your Azure Service Principal. Enter the Tenant ID, Application ID (or Username or ClientID), and Password of the Service Principal.  [More information on creating a Service Principal](#creating-a-service-principal).
+3. The first step in the wizard is Connection Configuration where you enter the information for your Azure Service Principal. Enter the Tenant name or ID, Application ID (or Username or ClientID), and Password of the Service Principal.  [More information on creating a Service Principal](#creating-a-service-principal).
 
     ![SCOM Config SPN](media/oms-service-map/scom-config-spn.png)
 
