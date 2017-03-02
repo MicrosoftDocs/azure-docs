@@ -82,8 +82,8 @@
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
 ###	Programmatic Access 
-#### [Audit Reference](active-directory-reporting-api-audit-reference.md)
-#### [Audit Samples](active-directory-reporting-api-audit-samples.md)
+#### [Audit reference](active-directory-reporting-api-audit-reference.md)
+#### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites.md)
 #### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
