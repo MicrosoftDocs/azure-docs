@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/23/2017
+ms.date: 03/02/2017
 ms.author: danlep
 
 ---
@@ -29,73 +29,30 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
 
 
-## Supported GPU drivers
+## Supported distributions for NC VMs
 
+NVIDIA GPU drivers can be installed on NC VMs running one of the following supported Linux distributions from the Azure Marketplace.
 
+* Ubuntu 16.04 LTS
+* CentOS-based 7.3 (NC6, NC12, and NC24 VM sizes only)
+* Red Hat Enterprise Linux 7.3 (NC6, NC12, and NC24 VM sizes only)
 
-### NVIDIA Tesla drivers for NC VMs (Tesla K80)
-
-| OS | Driver version |
-| -------- |------------- |
-| Ubuntu 16.04 LTS | [375.39](http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run) (.run) |
-| CentOS 7.3 | [375.39](http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run) (.run) |
-
-> [!NOTE]
-> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website. 
+> [!WARNING] 
+> Installation of third-party software on Red Hat products affects the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
 >
 
 
-## Tesla driver installation
-
-Following are sample driver installation steps on Ubuntu 16.04 LTS. Follow comparable steps on other Linux distributions.
-
-1. Make an SSH connection to the Azure N-series VM.
-
-2. To verify that the system has a CUDA-capable GPU, run the following command:
-
-    ```bash
-    lspci | grep -i NVIDIA
-    ```
-    You will see output similar to the following example (showing an NVIDIA Tesla K80 card):
-
-    ![lspci command output](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
-
-3. Download the .run file for the driver for your distribution. The following example command downloads the Ubuntu 16.04 LTS Tesla driver to the /tmp directory:
-
-    ```bash
-    wget -O /tmp/NVIDIA-Linux-x86_64-375.39.run http://us.download.nvidia.com/XFree86/Linux-x86_64/375.39/NVIDIA-Linux-x86_64-375.39.run
-    ```
-
-4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
-
-    ```bash
-    sudo apt-get update
-    
-    sudo apt install gcc
-
-    sudo apt install make
-    ```
-
-4. Run commands similar to the following:
-
-    ```bash
-    chmod +x /tmp/NVIDIA-Linux-x86_64-375.39.run
-    
-    sudo sh /tmp/NVIDIA-Linux-x86_64-375.39.run
-    ```
-
-## Verify driver installation
 
 
-To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
-![NVIDIA device status](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
 
-## Optional installation of NVIDIA CUDA Toolkit 8
 
-You can optionally install drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. In addition to GPU drivers, the Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.
 
-Following are sample commands to install the CUDA Toolkit on Ubuntu 16.04 LTS. Follow comparable steps on other Linux distributions. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+## Install NVIDIA CUDA drivers
+
+Here are steps to involve NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+
+### Ubuntu 16.04 LTS
 
 ```bash
 CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
@@ -109,18 +66,59 @@ rm -f /tmp/${CUDA_REPO_PKG}
 sudo apt-get update
 
 sudo apt-get install cuda-drivers
+
 ```
 The installation can take several minutes.
 
-To install the complete cuda toolkit, type:
+To optionally install the complete CUDA toolkit, type:
 
 ```bash
 sudo apt-get install cuda
 ```
 
-### CUDA driver updates
+[REBOOT NEEDED HERE?]
 
-To update CUDA drivers manually after deployment, run commands similar to the following for Ubuntu 16.04 LTS:
+### CentOS 7.3 or Red Hat Enterprise Linux 7.3
+
+> [!IMPORTANT] 
+> Because of a known issue, NVIDIA CUDA driver installation fails on NC24r VMs running CentOS 7.3 or Red Hat Enterprise Linux 7.3.
+>
+
+```bash
+sudo yum update
+
+sudo yum install kernel-devel
+
+sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+sudo yum install dkms
+
+CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+
+wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+rm -f /tmp/${CUDA_REPO_PKG}
+
+sudo yum install cuda-drivers
+
+```
+Restart the VM.
+
+
+## Verify driver installation
+
+
+To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
+
+![NVIDIA device status](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
+
+## CUDA driver updates
+
+We recommend that you manually update CUDA drivers after deployment.
+
+### Ubuntu 16.04 LTS:
 
 ```bash
 sudo apt-get update
@@ -134,9 +132,20 @@ sudo apt-get install cuda-drivers
 
 After the update completes, restart the VM.
 
+### CentOS 7.3 or Red Hat Enterprise Linux 7.3
+
+```bash
+
+
+```
+
 [!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
 
 * We don't recommend installing X server or other systems that use the nouveau driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the nouveau driver.
+
+* We don't recommend installing NVIDIA CUDA drivers on NV VMs.
+
+* If you want to capture an image of a Linux VM on which you have installed NVIDIA drivers, see [How to generalize and capturea Linux virtual machine](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
 

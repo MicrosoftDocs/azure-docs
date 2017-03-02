@@ -312,7 +312,7 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 **Supported operating systems**
 
 * Windows Server 2016, Windows Server 2012 R2 - see [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
-* Ubuntu 16.04 LTS, CentOS 7.3 - see [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
+* Ubuntu 16.04 LTS, CentOS-based 7.3, Red Hat Enterprise Linux 7.3 - see [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
 
 <br>
 
