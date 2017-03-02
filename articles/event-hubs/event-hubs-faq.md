@@ -22,7 +22,7 @@ ms.author: sethm;jotaub;shvija
 ## General
 
 ### What is the difference between Event Hubs Basic and Standard tiers?
-Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. Standard also offers Event Hubs [Archive](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-archive-overview) feature.For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
+Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. Standard also offers Event Hubs [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) feature.For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### What are Event Hubs throughput units?
 You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
@@ -45,7 +45,7 @@ There is a default quota of 20 throughput units per namespace. You can request a
 Yes, as long as all of the Event Hubs are in the same namespace.
 
 ### What is the maximum retention period for events?
-Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that Event Hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Archive](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-archive-overview) on your Event Hub will pull the data from your Event Hub to the storage of your choosing. Enabling Archive will incur a charge based on your purchased Throughput Unit.
+Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that Event Hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) on your Event Hub will pull the data from your Event Hub to the storage of your choosing. Enabling Archive will incur a charge based on your purchased Throughput Unit.
 
 ### Where is Azure Event Hubs available?
 Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  
