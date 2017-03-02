@@ -32,7 +32,7 @@
 ### [Manage Azure Automation data](automation-managing-data.md)
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ## Deploy configuration management (DSC)
-### [Desired State Configuration (DSC) Overview](automation-dsc-overview.md)
+### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
 ### [Onboarding machines for management](automation-dsc-onboarding.md)
 ### [Compiling DSC configurations](automation-dsc-compile.md)
