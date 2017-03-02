@@ -25,7 +25,7 @@ ms.author: raynew
 >
 >
 
-This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal. Learn more about this [scenario architecture](site-recovery-components.md#replicate-hyper-v-vms-to-a-secondary-site).
+This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal. Learn more about this [scenario architecture](site-recovery-components.md#hyper-v-vm-replication-to-a-secondary-site).
 
 After reading this article, post any comments at the bottom, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -61,7 +61,7 @@ To prepare for deployment:
 
     - Make sure that VMs on the source Hyper-V host server are connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.
     Verify that the secondary cloud that you use for recovery has a corresponding VM network configured. That VM network should be linked to a logical network that's associated with the secondary cloud.
-    
+
 3. Prepare for a [single server deployment](#single-vmm-server-deployment), if you want to replicate VMs between clouds on the same VMM server.
 
 ## Create a Recovery Services vault
