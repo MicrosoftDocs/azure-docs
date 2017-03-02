@@ -64,18 +64,29 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
     [Azure subscription service
     administrator](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles)
     explicitly enables it.
+
+        This setting change will apply only to the currently selected API type and location or Resource group location on the panel to the left.
+
+        ![Create Cognitive Services APIs account](media/cognitive-services-apis-create-account/create-account.png)
+
+        > [!NOTE]
+        > If you receive a notification that the update setting failed, you are not logged in as an [Account Administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator#types-of-azure-admin-accounts). If you are not the Account Administrator, email the administrator mailbox identified in the notification, or contact your company or department IT. The Account Administrator should follow the previous steps to enable creation.
+        >
+        > ![Update setting failed message](./media/cognitive-services-apis-create-account/updatefailed.png)
+        
+        In some cases, the Account Administrator may not have access to the subscription. If so, have the Service Administrator follow the steps in the [Add or change Azure administrator roles that manage the subscription or service](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+        
+        If the Account Administrator does not know who the Service Administrator is, they can log in to the [Azure Account Center](https://account.windowsazure.com/) to find out.
+        
+        ![Account center](./media/cognitive-services-apis-create-account/accountcenter.png)
+        
+        ![Service administrator](./media/cognitive-services-apis-create-account/serviceadministrator.png)
     
     Microsoft may use data you send to the Cognitive Services to improve
     Microsoft products and services. For more information, please refer
     to the [Microsoft Cognitive Services
     section](http://www.microsoft.com/Licensing/product-licensing/products.aspx)
     in the Online Services Terms.
-     
-    This setting change will apply only to the currently selected API
-    type and location or Resource group location on the panel to
-    the left.
-
-    ![Create Cognitive Services APIs account](media/cognitive-services-apis-create-account/create-account.png)
 
 5. To pin the account to the Azure portal dashboard, click **Pin to Dashboard**.
 
