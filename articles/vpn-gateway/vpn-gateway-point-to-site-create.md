@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/17/2017
+ms.date: 03/02/2017
 ms.author: cherylmc
 
 ---
@@ -93,9 +93,14 @@ In this section you will do the following:
 * Generate client certificates.
 
 ### <a name="root"></a>Part 1: Obtain the .cer file for the root certificate
-If you are using an enterprise certificate system, obtain the .cer file for the root certificate that you want to use. In [Part 3](#createclientcert), you generate the client certificates from the root certificate.
+If you are using an enterprise solution, you can use your existing certificate chain. Obtain the .cer file for the root certificate that you want to use.
 
-If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. For Windows 10 steps, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). The article walks you through using makecert to generate a self-signed certificate, and then export the .cer file.
+If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. The recommended method for creating a self-signed root certificate for P2S is makecert. We are aware that makecert is deprecated, but at this time, it is the recommended way to create a self-signed certificate that is compatible with P2S connections. For the steps to create a self-signed certificate for Point-to-Site connections, see [Create a self-signed root certificate for P2S connections using makecert](vpn-gateway-certificates-point-to-site.md).
+
+>[!NOTE]
+>Although it is possible to use PowerShell to create self-signed certificates, the certificate that is generated using PowerShell does not contain the fields necessary for P2S connections.
+>
+>
 
 ### <a name="upload"></a>Part 2: Upload the root certificate .cer file to the Azure classic portal
 Add a trusted certificate to Azure. When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents.
