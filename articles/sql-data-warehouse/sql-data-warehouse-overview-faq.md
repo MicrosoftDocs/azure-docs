@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse Frequently Asked Questions | Microsoft Docs
-description: This article lists out frequently asked questions about SQL Data Warehouse from customers and developers
+title: Azure SQL Data Warehouse Frequently Asked Questions | Microsoft Docs
+description: This article lists out frequently asked questions about Azure SQL Data Warehouse from customers and developers
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -89,7 +89,6 @@ A: Orc, RC, Parquet and delimited text
 Q: What can I connect to from SQL DW using PolyBase? 
 
 A: [Azure Data Lake Store] and [Azure Storage Blobs]
-
 
 Q: Is computation pushdown possible  when connecting to Azure Storage Blobs or ADLS? 
 
