@@ -98,21 +98,21 @@ Here is a complete example of the public configuration file that
 </WadCfg>
 ```
 
-Some example configurations using the previous file and what that configuration does follows:
+In the previous configuration, the following lines have the following meanings.
 
-### Example: Send all the data that is being collected by Azure diagnostics
+### Send all the data that is being collected by Azure diagnostics
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
 ```
 
-### Example: Send only error logs to the Application Insights sink
+### Send only error logs to the Application Insights sink
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
 ```
 
-### Example: Send Verbose application logs to Application Insights
+### Send Verbose application logs to Application Insights
 
 ```XML
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>

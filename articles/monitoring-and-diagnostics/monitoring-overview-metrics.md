@@ -41,15 +41,13 @@ Metrics have the following characteristics:
 
 You can also:
 
-* Easily discover, access, and **view all metrics** via the Azure portal when you select a resource and plot the metrics on a chart.
-
 * Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Autoscale is a special automated action that enables you to scale out your resource to meet incoming requests or loads on your website or computing resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
 
-* **Archive** metrics for longer or use them for offline reporting. You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
+* **Route** all metrics Application Insights or Log Analytics (OMS) to enable instant analytics, search, and custom alerting on metrics data from your resources. You can also stream metrics to an Event Hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up Event Hub streaming using diagnostic settings.
 
-* **Stream** metrics to an event hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You set up this streaming using diagnostic settings.
+* **Archive metrics to storage** for longer retention or use them for offline reporting. You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
 
-* **Route** all metrics to Log Analytics (OMS) to unlock instant analytics, search, and custom alerting on metrics data from your resources.
+* Easily discover, access, and **view all metrics** via the Azure portal when you select a resource and plot the metrics on a chart.
 
 * **Consume** the metrics via the new Azure Monitor REST APIs.
 

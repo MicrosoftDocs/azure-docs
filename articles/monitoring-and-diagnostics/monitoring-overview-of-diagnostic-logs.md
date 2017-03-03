@@ -17,12 +17,14 @@ ms.date: 03/02/2017
 ms.author: johnkem; magoedte
 
 ---
-# Overview of Azure Diagnostic Logs
+# Collect and consume diagnostic data from your Azure resources
+
+## What are Azure Diagnostic Logs
 **Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
 
 Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](monitoring-overview-activity-logs.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
 
-Not all resources support the new type of Diagnostic Logs described here. The following list of Supported Services shows which resource types support the new Diagnostic Logs.
+Not all resources support the new type of Diagnostic Logs described here. This article contains a section listing  which resource types support the new Diagnostic Logs.
 
 ![Diagnostics Logs vs other types of logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
