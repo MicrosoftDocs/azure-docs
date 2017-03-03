@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 03/06/2017
 ms.author: banders
 
 ---
@@ -266,13 +266,13 @@ If you need to change the Azure subscription that the workspace is linked to, yo
 >
 >
 
-## Change your data plan in the OMS portal
+### Change a workspace to a paid pricing tier in the OMS portal
 
-To change a data plan using the OMS portal, the signed-in user must already have an Azure account.
+To change the pricing tier using the OMS portal, the signed-in user must already have an Azure account.
 
 1. In the OMS portal, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
-3. Click the data plan that you want use.
+3. Click the pricing tier you want to use.
 4. Click **Save**.  
    ![subscription and data plans](./media/log-analytics-manage-access/subscription-tab.png)
 
