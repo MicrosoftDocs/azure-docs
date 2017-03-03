@@ -60,7 +60,7 @@ Let’s have a quick look at what the compatibility level 130 brings at the tabl
   * Windowing aggregates now operate in batch mode such as TSQL LAG/LEAD statements.
   * Queries on Column Store tables with Multiple distinct clauses operate in Batch mode.
   * Queries running under DOP=1 or with a serial plan also execute in Batch Mode.
-* Last, Cardinality Estimation improvements are actually coming with compatibility level 120, but for those of you running at a lower Compatibility level (that is 100, or 110), the move to compatibility level 130 will also bring these improvements, and these can also benefit the query performance of your applications.
+* Last, Cardinality Estimation improvements are actually come with compatibility level 120, but for those of you running at a lower Compatibility level (that is 100, or 110), the move to compatibility level 130 also brings these improvements, and these can also benefit the query performance of your applications.
 
 ## Practicing compatibility level 130
 First let’s get some tables, indexes, and random data created to practice some of these new capabilities. The TSQL script examples can be executed under SQL Server 2016, or under Azure SQL Database. However, when creating an Azure SQL database, make sure you choose at the minimum a P2 database because you need at least a couple of cores to allow multi-threading and therefore benefit from these features.
@@ -140,7 +140,7 @@ SET STATISTICS XML OFF;
 ```
 
 
-By requesting the actual the query plan, looking at its graphical representation or its XML content, you can determine which Cardinality Estimation function is at play. Looking at the plans side by side on figure 1, we can clearly see that the Column Store INSERT execution goes from serial in 120 to parallel in 130. Also, note that the change of the iterator icon in the 130 plan showing two parallel arrows, illustrating the fact that now the iterator execution is indeed parallel. If you have large INSERT operations to complete, the parallel execution, linked to the number of core you have at your disposal for the database, will perform better; up to a 100 times faster depending on your situation!
+By requesting the actual the query plan, looking at its graphical representation or its XML content, you can determine which Cardinality Estimation function is at play. Looking at the plans side by side on figure 1, we can clearly see that the Column Store INSERT execution goes from serial in 120 to parallel in 130. Also, note that the change of the iterator icon in the 130 plan showing two parallel arrows, illustrating the fact that now the iterator execution is indeed parallel. If you have large INSERT operations to complete, the parallel execution, linked to the number of core you have at your disposal for the database, performs better; up to a 100 times faster depending on your situation!
 
 *Figure 1: INSERT operation changes from serial to parallel with compatibility level 130.*
 
@@ -184,7 +184,7 @@ SET STATISTICS XML OFF;
 ```
 
 
-By observing the query plans side by side on figure 2, we can see that the processing mode has changed with the compatibility level, and as a consequence, when executing the queries in both compatibility level altogether, we can see that most of the processing time is spent in row mode (86%) compared to the batch mode (14%), where 2 batches have been processed. Increase the dataset, the benefit will increase.
+By observing the query plans side by side on figure 2, we can see that the processing mode has changed with the compatibility level, and as a consequence, when executing the queries in both compatibility level altogether, we can see that most of the processing time is spent in row mode (86%) compared to the batch mode (14%), where 2 batches have been processed. Increase the dataset, increase the benefit.
 
 *Figure 2: SELECT operation changes from serial to batch mode with compatibility level 130.*
 
@@ -236,15 +236,15 @@ Visible side by side on figure 3, we can see that the sort operation in row mode
 
 ![Figure 3](./media/sql-database-compatibility-level-query-performance-130/figure-3.png)
 
-Obviously, these samples only contain tens of thousands of rows, which are nothing when looking at the data available in most SQL Servers these days. Just project these against millions of rows instead, and this can translate in several minutes of execution spared every day pending the nature of your workload.
+Obviously, these samples only contain tens of thousands of rows, which are nothing when looking at the data available in most SQL Servers these days. Project these against millions of rows instead, and this can translate in several minutes of execution spared every day pending the nature of your workload.
 
 ## Cardinality Estimation (CE) improvements
-Introduced with SQL Server 2014, any database running at a compatibility level 120 or above will make use of the new Cardinality Estimation functionality. Essentially, cardinality estimation is the logic used to determine how SQL server will execute a query based on its estimated cost. The estimation is calculated using input from statistics associated with objects involved in that query. Practically, at a high-level, Cardinality Estimation functions are row count estimates along with information about the distribution of the values, distinct value counts, and duplicate counts contained in the tables and objects referenced in the query. Getting these estimates wrong, can lead to unnecessary disk I/O due to insufficient memory grants (i.e. TempDB spills), or to a selection of a serial plan execution over a parallel plan execution, to name a few. Conclusion, incorrect estimates can lead to an overall performance degradation of the query execution. On the other side, better estimates, more accurate estimates, leads to better query executions!
+Introduced with SQL Server 2014, any database running at a compatibility level 120 or above makes use of the new Cardinality Estimation functionality. Essentially, cardinality estimation is the logic used to determine how SQL server executes a query based on its estimated cost. The estimation is calculated using input from statistics associated with objects involved in that query. Practically, at a high-level, Cardinality Estimation functions are row count estimates along with information about the distribution of the values, distinct value counts, and duplicate counts contained in the tables and objects referenced in the query. Getting these estimates wrong, can lead to unnecessary disk I/O due to insufficient memory grants (that is TempDB spills), or to a selection of a serial plan execution over a parallel plan execution, to name a few. Conclusion, incorrect estimates can lead to an overall performance degradation of the query execution. On the other side, better estimates, more accurate estimates, leads to better query executions!
 
 As mentioned before, query optimizations and estimates are a complex matter, but if you want to learn more about query plans and cardinality estimator, you can refer to the document at [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx) for a deeper dive.
 
 ## Which Cardinality Estimation do you currently use?
-To determine under which Cardinality Estimation your queries are running, let’s just use the following query samples. Note that this first example will run under compatibility level 110, implying the use of the old Cardinality Estimation functions.
+To determine under which Cardinality Estimation your queries are running, use the following query samples. This first example runs under compatibility level 110, implying the use of the old Cardinality Estimation functions.
 
 ```
 -- Old CE
@@ -270,7 +270,7 @@ Once execution is complete, click on the XML link, and look at the properties of
 
 ![Figure 4](./media/sql-database-compatibility-level-query-performance-130/figure-4.png)
 
-Alternatively, you can change the compatibility level to 130, and disable the use of the new Cardinality Estimation function by using the LEGACY_CARDINALITY_ESTIMATION set to ON with [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx). This will be exactly the same as using 110 from a Cardinality Estimation function point of view, while using the latest query processing compatibility level. Doing so, you can benefit from the new query processing features coming with the latest compatibility level (i.e. batch mode), but still rely on the old Cardinality Estimation functionality if necessary.
+Alternatively, you can change the compatibility level to 130, and disable the use of the new Cardinality Estimation function by using the LEGACY_CARDINALITY_ESTIMATION set to ON with [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx). This is the same as using 110 from a Cardinality Estimation function point of view, while using the latest query processing compatibility level. Doing so, you can benefit from the new query processing features coming with the latest compatibility level (that is batch mode), but still rely on the old Cardinality Estimation functionality if necessary.
 
 ```
 -- Old CE
@@ -295,7 +295,7 @@ SET STATISTICS XML OFF;
 ```
 
 
-Simply moving to the compatibility level 120 or 130 enables the new Cardinality Estimation functionality. In such a case, the default CardinalityEstimationModelVersion will be set accordingly to 120 or 130.
+Simply moving to the compatibility level 120 or 130 enables the new Cardinality Estimation functionality. In such a case, the default CardinalityEstimationModelVersion is set to 120 or 130.
 
 ```
 -- New CE
@@ -356,7 +356,7 @@ SET STATISTICS XML OFF;
 ```
 
 
-Executing this query effectively returns 200,704 rows, while the row estimate with the old Cardinality Estimation functionality claims 194,284 rows. Obviously, as said before, these row count results will also depend how often you ran the previous samples, which populates the sample tables over and over again at each run. Obviously, the predicates in your query will also have an influence on the actual estimation aside from the table shape, data content, and how this data actually correlate with each other.
+Executing this query effectively returns 200,704 rows, while the row estimate with the old Cardinality Estimation functionality claims 194,284 rows. Obviously, as said before, these row count results also depend how often you ran the previous samples, which populates the sample tables over and over again at each run. Obviously, the predicates in your query also have an influence on the actual estimation aside from the table shape, data content, and how this data actually correlate with each other.
 
 *Figure 6: The row count estimate is 194,284 or 6,000 rows off from the 200,704 rows expected.*
 
@@ -403,29 +403,25 @@ In reality, the result set is 200,704 rows (but all of it depends how often you 
 
 Obviously, in this case, being ~6000 rows off from actual count does not represent a lot of data in some situations. Now, transpose this to millions of rows across several tables and more complex queries, and at times the estimate can be off by millions of rows, and therefore, the risk of picking-up the wrong execution plan, or requesting insufficient memory grants leading to TempDB spills, and so more I/O, are much higher.
 
-If you have the opportunity, practice this comparison with your most typical queries and datasets, and see for yourself by how the old and new estimates are affected, while some could just become more off from the reality, or some others just simply closer to the actual row counts actually returned in the result sets. All of it depends on the shape of your queries, the Azure SQL database characteristics, the nature and the size of your datasets, and the statistics available about them. If you just created your Azure SQL Database instance, the query optimizer will have to build its knowledge from scratch instead of reusing statistics made of the previous query runs. So, the estimates are very contextual and almost specific to every server and application situation. It is an important aspect to keep in mind!
+If you have the opportunity, practice this comparison with your most typical queries and datasets, and see for yourself by how the old and new estimates are affected, while some could become more off from the reality, or some others simply closer to the actual row counts actually returned in the result sets. All of it depends on the shape of your queries, the Azure SQL database characteristics, the nature and the size of your datasets, and the statistics available about them. If you just created your Azure SQL Database instance, the query optimizer has to build its knowledge from scratch instead of reusing statistics made of the previous query runs. So, the estimates are very contextual and almost specific to every server and application situation. It is an important aspect to keep in mind!
 
 ## Some considerations to take into account
 Although most workloads would benefit from the compatibility level 130, before you adopting the compatibility level for your production environment, you basically have 3 options:
 
-1. You move to compatibility level 130, and see how things perform. In case you notice some regressions, you just simply set the compatibility level back to its original level, or keep 130, and only reverse the Cardinality Estimation back to the legacy mode (As explained above, this alone could address the issue).
+1. You move to compatibility level 130, and see how things perform. In case you notice some regressions, you simply set the compatibility level back to its original level, or keep 130, and only reverse the Cardinality Estimation back to the legacy mode (As explained above, this alone could address the issue).
 2. You thoroughly test your existing applications under similar production load, fine-tune, and validate the performance before going to production. In case of issues, same as above, you can always go back to the original compatibility level, or simply reverse the Cardinality Estimation back to the legacy mode.
 3. As a final option, and the most recent way to address these questions, is to use Query Store. That’s today’s recommended option! To assist the analysis of your queries under compatibility level 120 or lower versus 130, we cannot encourage you enough to use Query Store. Query Store is available with the latest version of Azure SQL Database V12, and it’s designed to help you with query performance troubleshooting. Think of the Query Store as a flight data recorder for your database collecting and presenting detailed historic information about all queries. This greatly simplifies performance forensics by reducing the time to diagnose and resolve issues. You can find more information at [Query Store: A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/).
 
-At the high level, if you already have a set of databases running at compatibility level 120 or lower, and plan to move some of them to 130, or because your workload automatically provision new databases that will be set by default to 130, please consider the followings:
+At the high level, if you already have a set of databases running at compatibility level 120 or lower, and plan to move some of them to 130, or because your workload automatically provision new databases that are set by default to 130, please consider the followings:
 
 * Before changing to the new compatibility level in production, enable Query Store. You can refer to [Change the Database Compatibility Mode and Use the Query Store](https://msdn.microsoft.com/library/bb895281.aspx) for more information.
 * Next, test all critical workloads using representative data and queries of a production-like environment, and compare the performance experienced and as reported by Query Store. If you experience some regressions, you can identify the regressed queries with the Query Store and use the plan forcing option from Query Store (aka plan pinning). In such a case, you definitively stay with the compatibility level 130, and use the former query plan as suggested by the Query Store.
 * If you want to use the new features and capabilities of Azure SQL Database (which is running SQL Server 2016), but are sensitive to changes brought by the compatibility level 130, as a last resort, you could consider forcing the compatibility level back to the level that suits your workload by using an ALTER DATABASE statement. But first, be aware that the Query Store plan pinning option is your best option because not using 130 is basically staying at the functionality level of an older SQL Server version.
 * If you have multitenant applications spanning multiple databases, it may be necessary to update the provisioning logic of your databases to ensure a consistent compatibility level across all databases; old and newly provisioned ones. Your application workload performance could be sensitive to the fact that some databases are running at different compatibility levels, and therefore, compatibility level consistency across any database could be required in order to provide the same experience to your customers all across the board. Note that it is not a mandate, it really depends on how your application is affected by the compatibility level.
-* Last, regarding the Cardinality Estimation, and just like changing the compatibility level, before proceeding in production, it is recommended to test your production workload under the new conditions to determine if your application benefits from the Cardinality Estimation improvements.
+* Last, regarding the Cardinality Estimation, it is recommended to test your production workload under the new conditions to determine if your application benefits from the Cardinality Estimation improvements.
 
 ## Conclusion
-Using Azure SQL Database to benefit from all SQL Server 2016 enhancements can clearly improve your query executions. Just as-is! Of course, like any new feature, a proper evaluation must be done to determine the exact conditions under which your database workload operates the best. Experience shows that most workload are expected to at least run transparently under compatibility level 130, while using new query processing functions, and new Cardinality Estimation. That said, realistically, there are always some exceptions and doing proper due diligence is an important assessment to determine how much you can benefit from these enhancements. And again, the Query Store can be of a great help in doing this work!
-
-As SQL Azure evolves, you can expect a compatibility level 140 in the future. When time is appropriate, we will start talking about what this future compatibility level 140 will bring, just as we briefly discussed here what compatibility level 130 is bringing today.
-
-For now, let’s not forget, starting June 2016, Azure SQL Database will change the default compatibility level from 120 to 130 for newly created databases. Be aware!
+Using Azure SQL Database to benefit from all SQL Server 2016 enhancements can clearly improve your query executions. Of course, like any new feature, a proper evaluation must be done to determine the exact conditions under which your database workload operates the best. Experience shows that most workload are expected to at least run transparently under compatibility level 130, while using new query processing functions, and new Cardinality Estimation. That said, realistically, there are always some exceptions and doing proper due diligence is an important assessment to determine how much you can benefit from these enhancements. And again, the Query Store can be of a great help in doing this work!
 
 ## References
 * [What’s New in Database Engine](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
