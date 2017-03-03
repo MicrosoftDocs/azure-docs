@@ -37,14 +37,14 @@ To complete this tutorial, you need an active Azure subscription.
 
 ## Scenario overview
 
-When you deploy the remote monitoring preconfigured solution, it is prepopulated with resources that enable you to step through a common remote monitoring scenario. In this scenario, a number of devices connected to the solution are reporting unexpected temperature values. The following sections show you how to:
+When you deploy the remote monitoring preconfigured solution, it is prepopulated with resources that enable you to step through a common remote monitoring scenario. In this scenario, several devices connected to the solution are reporting unexpected temperature values. The following sections show you how to:
 
 * Identify the devices sending unexpected temperature values.
 * Configure these devices to send more detailed telemetry.
 * Fix the problem by updating the firmware on these devices.
 * Verify that your action has resolved the issue.
 
-A key feature of this scenario is that you can perform all of these actions remotely from the solution dashboard. You do not need physical access to the devices.
+A key feature of this scenario is that you can perform all these actions remotely from the solution dashboard. You do not need physical access to the devices.
 
 ## View the solution dashboard
 
@@ -111,19 +111,19 @@ You can use a filter to display only those devices that are sending unexpected t
 
 ## Update desired properties
 
-You have now identified a set of devices that may need remediation. However, you decide that the data frequency of 15 seconds is not sufficient for a clear diagnosis of the issue. Changing the telemetry frequency to 5 seconds to provide you with more data points to better diagnose the issue. You can push this configuration change to your remote devices from the solution portal. You can make the change once, evaluate the impact, and then act on the results.
+You have now identified a set of devices that may need remediation. However, you decide that the data frequency of 15 seconds is not sufficient for a clear diagnosis of the issue. Changing the telemetry frequency to five seconds to provide you with more data points to better diagnose the issue. You can push this configuration change to your remote devices from the solution portal. You can make the change once, evaluate the impact, and then act on the results.
 
-Follow these steps to run a job that changes the **TelemetryInterval** desired property for the affected devices. When the devices receive the new **TelemetryInterval** property value, they change their configuration to send telemetry every 5 seconds instead of every 15 seconds:
+Follow these steps to run a job that changes the **TelemetryInterval** desired property for the affected devices. When the devices receive the new **TelemetryInterval** property value, they change their configuration to send telemetry every five seconds instead of every 15 seconds:
 
 1. While you are showing the list of unhealthy devices in the device list, choose **Job Scheduler**, then **Edit Device Twin**.
 
 1. Call the job **Change telemetry interval**.
 
-1. Change the value of the **Desired Property** name **desired.Config.TelemetryInterval** to 5 seconds.
+1. Change the value of the **Desired Property** name **desired.Config.TelemetryInterval** to five seconds.
 
 1. Choose **Schedule**.
 
-    ![Change the TelemetryInterval property to 5 seconds][img-change-interval]
+    ![Change the TelemetryInterval property to five seconds][img-change-interval]
 
 1. You can monitor the progress of the job on the **Management Jobs** page in the portal.
 
@@ -138,7 +138,7 @@ While the job runs, you notice in the list of unhealthy devices that all these d
 
 ![View the reported firmware version for the unhealthy devices][img-old-firmware]
 
-This may be the root cause of the unexpected temperature values because you know that other healthy devices were recently updated to version 2.0. You can use the built-in **Old firmware devices** filter to identify any devices with old firmware versions. From the portal, you can then remotely update all the devices still running old firmware versions:
+This firmware version may be the root cause of the unexpected temperature values because you know that other healthy devices were recently updated to version 2.0. You can use the built-in **Old firmware devices** filter to identify any devices with old firmware versions. From the portal, you can then remotely update all the devices still running old firmware versions:
 
 1. Choose **Open saved filter** to display a list of available filters. Then choose **Old firmware devices** to apply the filter:
 
@@ -163,7 +163,7 @@ This may be the root cause of the unexpected temperature values because you know
 > [!NOTE]
 > If you want to invoke a method on an individual device, choose **Methods** in the **Device Details** panel instead of running a job.
 
-This job invokes the **InitiateFirmwareUpdate** direct method on all the devices selected by the filter. Devices respond immediately to IoT Hub and then initiate the firmware update process asynchronously. The devices provide status information about the firmware update process through reported property values, as shown in the following screenshots. Choose the **Refresh** icon to update the information in the device and job lists (you may see additional jobs appear in the job list as your job runs jobs on individual devices):
+This job invokes the **InitiateFirmwareUpdate** direct method on all the devices selected by the filter. Devices respond immediately to IoT Hub and then initiate the firmware update process asynchronously. The devices provide status information about the firmware update process through reported property values, as shown in the following screenshots. Choose the **Refresh** icon to update the information in the device and job lists:
 
 ![Job list showing the firmware update list running][img-update-1]
 ![Device list showing firmware update status][img-update-2]
@@ -174,9 +174,9 @@ This job invokes the **InitiateFirmwareUpdate** direct method on all the devices
 
 ## Scenario review
 
-In this scenario, you identified a potential issue with some of your remote devices using the alarm history on the dashboard and a filter. You then used the filter and a job to remotely configure the devices to provide more information to help diagnose the issue. Finally, you used a filter and a job to schedule maintenance on the affected devices. If you return to the dashboard, you can check that there are no longer any alarms coming from devices in your solution. You can use a filter to verify that the firmware is up to date on all the devices in your solution and that there are no more unhealthy devices:
+In this scenario, you identified a potential issue with some of your remote devices using the alarm history on the dashboard and a filter. You then used the filter and a job to remotely configure the devices to provide more information to help diagnose the issue. Finally, you used a filter and a job to schedule maintenance on the affected devices. If you return to the dashboard, you can check that there are no longer any alarms coming from devices in your solution. You can use a filter to verify that the firmware is up-to-date on all the devices in your solution and that there are no more unhealthy devices:
 
-![Filter showing that all devices have up to date firmware][img-updated]
+![Filter showing that all devices have up-to-date firmware][img-updated]
 
 ![Filter showing that all devices are healthy][img-healthy]
 
