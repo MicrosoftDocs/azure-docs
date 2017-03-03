@@ -31,7 +31,7 @@ Batch task dependencies allow you to create tasks that are scheduled for executi
 
 By default, dependent tasks are scheduled for execution only after the parent task has completed successfully. You can specify a dependency action to override the default behavior and run tasks when the parent task fails. See the [Dependency actions](#dependency-actions) section for details.  
 
-You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship. You can also create a range dependency where a task depends on the completion of a group of tasks within a specific range of task IDs. You can combine these three basic scenarios to create many-to-many relationships.
+You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship. You can also create a range dependency where a task depends on the completion of a group of tasks within a specified range of task IDs. You can combine these three basic scenarios to create many-to-many relationships.
 
 ## Task dependencies with Batch .NET
 In this article, we discuss how to configure task dependencies by using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and then demonstrate how to [configure a task with dependencies](#create-dependent-tasks). We also describe how to specify a dependency action to run dependent tasks if the parent fails. Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
@@ -50,7 +50,7 @@ unboundJob.UsesTaskDependencies = true;
 In the preceding code snippet, "batchClient" is an instance of the [BatchClient][net_batchclient] class.
 
 ## Create dependent tasks
-To create a task that is dependent on the completion of one or more other tasks, you indicate to the Batch service that the task "depends on" the other tasks. In Batch .NET, configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with an instance of the [TaskDependencies][net_taskdependencies] class:
+To create a task that depends on the completion of one or more parent tasks, you can specify that the task "depends on" the other tasks. In Batch .NET, configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with an instance of the [TaskDependencies][net_taskdependencies] class:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -61,7 +61,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
-This code snippet creates a task with the ID of "Flowers" that will be scheduled to run on a compute node only after the tasks with IDs of "Rain" and "Sun" have completed successfully.
+This code snippet creates a dependent task with task ID "Flowers". The "Flowers" task depends on tasks "Rain" and "Sun". Task "Flowers" will be scheduled to run on a compute node only after tasks "Rain" and "Sun" have completed successfully.
 
 > [!NOTE]
 > A task is considered to be completed when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
@@ -80,10 +80,10 @@ There are three basic task dependency scenarios that you can use in Azure Batch:
 > [!TIP]
 > You can create **many-to-many** relationships, such as where tasks C, D, E, and F each depend on tasks A and B. This is useful, for example, in parallelized preprocessing scenarios where your downstream tasks depend on the output of multiple upstream tasks.
 > 
-> In the examples in this section, a dependent task runs only after the parent tasks complete successfully. This is the default behavior for a dependent task. You can run a dependent task after a parent task fails by specifying a dependency action to override the default behavior. See the [Dependency actions](#dependency-actions) section for details.
+> In the examples in this section, a dependent task runs only after the parent tasks complete successfully. This behavior is the default behavior for a dependent task. You can run a dependent task after a parent task fails by specifying a dependency action to override the default behavior. See the [Dependency actions](#dependency-actions) section for details.
 
 ### One-to-one
-To create a task that has a dependency on the successful completion of one other task, you supply a single task ID to the [TaskDependencies][net_taskdependencies].[OnId][net_onid] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
+In a one-to-one relationship, a task depends on the successful completion of one parent task. To create the dependency, provide a single task ID to the [TaskDependencies][net_taskdependencies].[OnId][net_onid] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -97,7 +97,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### One-to-many
-To create a task that has a dependency on the completion of multiple tasks, supply a collection of task IDs to the [TaskDependencies][net_taskdependencies].[OnIds][net_onids] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
+In a one-to-many relationship, a task depends on the completion of multiple parent tasks. To create the dependency, provide a collection of task IDs to the [TaskDependencies][net_taskdependencies].[OnIds][net_onids] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -113,7 +113,8 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### Task ID range
-To create a task that depends on the completion of a group of tasks whose IDs lie within a range, you supply the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
+In a dependency on a range of parent tasks, a task depends on the the completion of tasks whose IDs lie within a range.
+To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
 > When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Additionally, every task in the range must complete successfully for the dependent task to be scheduled for execution.
@@ -194,14 +195,18 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## Code sample
-The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to enable task dependency on a job, create tasks that depend on other tasks, and execute those tasks on a pool of compute nodes.
+The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio solution demonstrates:
+
+- How to enable task dependency on a job
+- How to create tasks that depend on other tasks
+- How to execute those tasks on a pool of compute nodes.
 
 ## Next steps
 ### Application deployment
 The [application packages](batch-application-packages.md) feature of Batch provides an easy way to both deploy and version the applications that your tasks execute on compute nodes.
 
 ### Installing applications and staging data
-Check out the [Installing applications and staging data on Batch compute nodes][forum_post] post in the Azure Batch forum for an overview of the various methods to prepare your nodes to run tasks. Written by one of the Azure Batch team members, this post is a good primer on the different ways to get files (including both applications and task input data) onto your compute nodes.
+See [Installing applications and staging data on Batch compute nodes][forum_post] in the Azure Batch forum for an overview of methods for preparing your nodes to run tasks. Written by one of the Azure Batch team members, this post is a good primer on the different ways to copy applications, task input data, and other files to your compute nodes.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
