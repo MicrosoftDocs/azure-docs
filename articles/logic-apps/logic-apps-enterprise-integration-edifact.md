@@ -163,7 +163,7 @@ If you don't specify any rules, then validation uses the row that's marked "Defa
 | Message Type |Select the message type. |
 | EDI Validation |To perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators, select this property. |
 | Extended Validation |To enable extended (XSD) validation of interchanges received from the interchange sender and XSD data types, select this property. This property also validates field length, optionality, and repeat count. |
-| Allow Leading/Trailing Zeroes |Select **Allow** to allow leading/trailing zeros; **Not Allowed** to not allow leading/trailing zeros, or **Trim** to trim the leading and trailing zeroes. |
+| Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |To trim any leading or trailing zeroes, select this property.  |
 | Trailing Separator Policy |Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid. Select **Optional** to accept interchanges with or without trailing delimiters and separators. Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
 
@@ -256,7 +256,7 @@ If you don't specify any rules, then validation uses the row that's marked "Defa
 | Message Type |Select the message type. |
 | EDI Validation |Perform EDI validation on transaction-set data elements and data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators. |
 | Extended Validation |Enable extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
-| Allow Leading/Trailing Zeroes |Select **Allow** to allow leading/trailing zeros; **Not Allowed** to not allow leading/trailing zeros, or **Trim** to trim the leading and trailing zeroes. |
+| Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero characters. |
 | Trailing Separator Policy |Specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid.</br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
 
