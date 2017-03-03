@@ -1,12 +1,13 @@
 ---
-title: Create Azure container registry - portal | Microsoft Docs
-description: Get started creating and managing Azure container registries with the Azure portal
+title: Create private Docker registry - Azure portal | Microsoft Docs
+description: Get started creating and managing private Docker container registries with the Azure portal
 services: container-registry
 documentationcenter: ''
 author: stevelas
 manager: balans
 editor: dlepow
-tags: ''keywords: ''
+tags: ''
+keywords: ''
 
 ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
@@ -16,10 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
----# Create a container registry using the Azure portal
+ms.custom: H1Hack27Feb2017
+---
+
+# Create a private Docker container registry using the Azure portal
 Use the Azure portal to create a container registry and manage its settings. You can also create and manage container registries using the [Azure CLI 2.0 commands](container-registry-get-started-azure-cli.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
-For background and concepts, see [What is Azure Container Registry?](container-registry-intro.md)
+For background and concepts, see [the overview](container-registry-intro.md)
 
 
 > [!NOTE]
