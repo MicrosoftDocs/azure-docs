@@ -1,7 +1,7 @@
 ---
-title: Real-time Twitter sentiment analysis with Stream Analytics | Microsoft Docs
-description: Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.
-keywords: real-time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example
+title: Real time Twitter sentiment analysis with Stream Analytics | Microsoft Docs
+description: Learn how to use Stream Analytics for real time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.
+keywords: real time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example
 services: stream-analytics
 documentationcenter: ''
 author: jeffstokes72
@@ -18,15 +18,15 @@ ms.date: 03/03/2017
 ms.author: jeffstok
 ---
 
-# Social media analysis: Real-time Twitter sentiment analysis in Azure Stream Analytics
+# Social media analysis: Real time Twitter sentiment analysis in Azure Stream Analytics
 
-Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You'll write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real time.
+Learn how to build a sentiment analysis solution for social media analytics by bringing real time Twitter events into Azure Event Hubs. You'll write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real time.
 
-Social media analytics tools help organizations understand trending topics, that is, subjects and attitudes that have a high volume of posts in social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on. Real-time Twitter trend analysis is a great example because the hashtag subscription model enables you to listen to specific keywords and develop sentiment analysis on the feed.
+Social media analytics tools help organizations understand trending topics, that is, subjects and attitudes that have a high volume of posts in social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on. real time Twitter trend analysis is a great example because the hashtag subscription model enables you to listen to specific keywords and develop sentiment analysis on the feed.
 
-## Scenario: Social media sentiment analysis in real-time
+## Scenario: Social media sentiment analysis in real time
 
-A company that has a news media website is interested in getting an advantage over its competitors by featuring site content that is immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real-time sentiment analysis on Twitter data. Specifically, to identify trending topics in real time on Twitter, the company needs real-time analytics about the tweet volume and sentiment for key topics. So, in essence, the need is a sentiment analysis analytics engine that's based on this social media feed.
+A company that has a news media website is interested in getting an advantage over its competitors by featuring site content that is immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real time sentiment analysis on Twitter data. Specifically, to identify trending topics in real time on Twitter, the company needs real time analytics about the tweet volume and sentiment for key topics. So, in essence, the need is a sentiment analysis analytics engine that's based on this social media feed.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ A company that has a news media website is interested in getting an advantage ov
 
 ## Create an event hub input and a consumer group
 
-The sample application will generate events and push them to an Event Hubs instance (an event hub, for short). Service Bus event hubs are the preferred method of event ingestion for Stream Analytics. See the Event Hub documentation at [Azure Service Bus documentation](/azure/service-bus/) for more information.
+The sample application generates events and push them to an Event Hubs instance (an event hub, for short). Service Bus event hubs are the preferred method of event ingestion for Stream Analytics. For more information review the Event Hub documentation at [Azure Service Bus documentation](/azure/service-bus/).
 
 ### Use the following steps to create an event hub.
 
@@ -45,7 +45,7 @@ The sample application will generate events and push them to an Event Hubs insta
 2. Provide a name for the Event Hub and create a Resource Group. I have specified _socialtwitter-eh_ and _socialtwitter-rg_ respectively. Check the box to pin the account to the dashboard and then click the **Create** button.
 3. Once the deployment is complete click the Event Hub and then click **Event Hubs** under **Entities**.
 4. Click the **+ Event Hub** button to create your Event Hub. Provide your name again (mine was socialtwitter-eh) and click **Create**.
-5. To grant access to the event hub, we will need to create a shared access policy. Click the Event Hub and then click **Shared access policies** under **Settings**.
+5. To grant access to the event hub, we need to create a shared access policy. Click the Event Hub and then click **Shared access policies** under **Settings**.
 6. Under **SHARED ACCESS POLICIES**, create a new policy with **MANAGE** permissions by clicking **+ Add**. Give the policy a name and check **MANAGE** and then click **Create**.
 7. Click your new policy once it is created and then click the copy button for the **CONNECTION STRING - PRIMARY KEY** entity. We will need this further in the exercise. Then return to the dashboard.
 
@@ -66,7 +66,7 @@ Then, Tweet events are pushed to the event hub.
 
    [Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
-   Note that you will need to make an empty application to generate a token.  
+   You will need to make an empty application to generate a token.  
 
 3. Replace the EventHubConnectionString and EventHubName values in TwitterWpfClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub, so be sure to separate them and put each in the correct field. For example, consider the following connection string:  
    
@@ -99,14 +99,14 @@ Now that Tweet events are streaming in real time from Twitter, we can set up a S
    * **Resource group**: Select the resource group created earlier in this exercise from the "use existing" option.
    * **STORAGE ACCOUNT**: Choose the Azure storage account that you would like to use to store monitoring data for all Stream Analytics jobs that run within this region. You have the option to choose an existing storage account or to create a new one.   
 
-3. Once the job is created hte job will open in Azure portal.  
+3. Once the job is created the job will open in Azure portal.  
    
 
 ## Specify the job input
 
 In your Stream Analytics job, click **INPUTS** in the middle of the job pane, in Job Topology, and then click **ADD**. The portal will then prompt for some information listed below. Most of the default values will suffice but they are defined below for your information.
   
-   * **INPUT ALIAS**: Enter a friendly name for this job input, such as *TwitterStream*. Note that you will use this name in the query later.
+   * **INPUT ALIAS**: Enter a friendly name for this job input, such as *TwitterStream*. You will use this name in the query later.
    * **EVENT HUB NAME**: Select the name of the event hub.
    * **EVENT HUB POLICY NAME**: Select the event hub policy that you created earlier in this tutorial.
 
@@ -126,7 +126,7 @@ FROM TwitterStream TIMESTAMP BY CreatedAt
 GROUP BY TUMBLINGWINDOW(s, 5), Topic
 ```   
 
-This query uses the **TIMESTAMP BY** keyword to specify a timestamp field in the payload to be used in the temporal computation. If this field wasn't specified, the windowing operation would be performed by using the time that each event arrived at the event hub.  Learn more in the "Arrival Time Vs Application Time" section of [Stream Analytics Query Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+This query uses the **TIMESTAMP BY** keyword to specify a timestamp field in the payload to be used in the temporal computation. If this field wasn't specified, the windowing operation would be performed by using the time that each event arrived at the event hub.  Learn more in the "Arrival Time vs Application Time" section of [Stream Analytics Query Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
 This query also accesses a timestamp for the end of each window by using the **System.Timestamp** property.
 
@@ -157,7 +157,7 @@ In the dialog box that opens, click **JOB START TIME**, and then click the **CHE
 
 ## View output for sentiment analysis
 
-After your job is running and processing the real-time Twitter stream, choose how you want to view the output for sentiment analysis. Use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one in the following screenshot.
+After your job is running and processing the real time Twitter stream, choose how you want to view the output for sentiment analysis. Use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one in the following screenshot.
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
