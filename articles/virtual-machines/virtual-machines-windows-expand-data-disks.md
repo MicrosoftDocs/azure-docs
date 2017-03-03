@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/01/2017
+ms.date: 03/02/2017
 ms.author: cynthn
 
 ---
 
 # Increase the size of a data disk attached to a Windows VM
 
-If you need to increase the size of the data disk attached to your virtual machine, you can increase the size using the portal or PowerShell. After you increase the size of the data disk in the Azure VM settings, you also need to go into the VM and allocate the new disk space.
+If you need to increase the size of the data disk attached to your virtual machine, you can increase the size using PowerShell. After you increase the size of the data disk in the Azure VM settings, you also need to allocate the new disk space within the VM.
 
-## Managed data disk
 
-To increase the size of the data disks, use the following PowerShell cmdlets:
+## Use Powershell to increase the size of a managed data disk
+
+To increase the size of a managed data disk, use the following PowerShell cmdlets:
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
@@ -82,7 +83,15 @@ To increase the size of the data disks, use the following PowerShell cmdlets:
 
 ```
 
-## Unmanaged data disk in a storage account
+## Use PowerShell to increase the size of an unmanaged data disk
+
+To increase the size of unmanaged data disks in a storage account, use the following PowerShell cmdlets:
+
+|                                                                    |                                                            |
+|--------------------------------------------------------------------|------------------------------------------------------------|
+| [Get-AzureRMStorageAccount](/powershell/Get-AzureRMStorageAccount) | [Get-AzureRMVM](/powershell/getazurermvm)                  |
+| [Stop-AzureRMVM](/powershell/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](/powershell/Set-AzureRmVMDataDisk) |
+| [Update-AzureRmVM](/powershell/update-azurermvm)                   | [Start-AzureRmVM](/powershell/start-azurermvm)             |
 
 ```powershell
 
@@ -132,4 +141,25 @@ To increase the size of the data disks, use the following PowerShell cmdlets:
 	Start-AzureRmVM -ResourceGroupName $rgName `
 	-VMName $vm.name
 	
+```
+
+## Allocate the unallocated drive space 
+
+Once you have made the drive larger, you need to allocate the new unallocated space from within the VM. To allocate the space, you can connect to the VM use Disk Management (diskmgmt.msc). Or, if you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
+
+```powershell
+    $location = "location-name"
+    $scriptName = "script-name"
+    $fileName = "script-file-name"
+    Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
+```
+		
+The script file can contain something like this code to increase the drive allocation to the maximum size the disks:
+
+```powershell
+$driveLetter= "F"
+
+$MaxSize = (Get-PartitionSupportedSize -DriveLetter $driveLetter).sizeMax
+
+Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 ```
