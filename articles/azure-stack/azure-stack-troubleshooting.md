@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2017
+ms.date: 3/3/2017
 ms.author: helaw
 
 ---
@@ -36,7 +36,9 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * Opening Storage Explorer from the storage account blade will result in an error.  This is expected behavior for TP3.
 * Attempting to delegate or assign a offer to a user will result in an error due to a blank Azure AD tenant field.  To work around, make the offer public. 
 * Using the Marketplace Item to create a VM with guest OS diagnostics enabled will receive an error that the VM extension failed.  To workaround, enable the Guest OS diagnostics after VM deployment. 
-* There are known issues with VM resizing and this scenario shouldn't be validate at this time.
+* There are known issues with VM resizing and this scenario shouldn't be validated at this time.
+* You will see virtual machines reboot after configuration changes.
+* You may see an error after applying VM change, like VM extensions or adding additional resources. 
 * Deploying Azure Stack with ADFS and without internet access will result in licensing error messages and the host will expire after 10 days.  We advise having internet connectivity during deployment, and then testing disconnected scenarios once deployment is complete.
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
 * There is no marketplace experience for creating VM Scale Sets, though they can be created via template.
@@ -50,7 +52,10 @@ Code examples are provided as is and expected results cannot be guaranteed. This
         * Template for FaultType Microsoft.Health.FaultType.VirtualDisks.NeedsRepair is missing
 * All Infrastructure Roles will display with a known health state, however the health state is not accurate for roles outside of Compute Controller and Health Controller
 * Some alerts may recommend a “Restart” action on a specific infrastructure role.  The restart action for infrastructure roles is not available in Azure Stack TP3.
-* You will see an HSM option when creating Key Vault vaults through the portal.  HSM backed vaults are not supported in Azure Stack TP3.  
+* You will see an HSM option when creating Key Vault vaults through the portal.  HSM backed vaults are not supported in Azure Stack TP3.
+ 
+ 
+
    
 
 ## Deployment
@@ -89,6 +94,10 @@ Yes, this is behavior expected. It was designed this way because:
 If you see "orphan" VHDs, it is important to know if they are part of the folder for a storage account that was deleted. If the storage account was not deleted, it's normal they are still there.
 
 You can read more about configuring the retention threshold and on-demand reclamation in [manage storage accounts](azure-stack-manage-storage-accounts.md).
+
+## Storage
+### Storage reclamation
+It may take up to two hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed even when garbage collector runs.
 
 ## PowerShell
 ### Resource Providers not registered
