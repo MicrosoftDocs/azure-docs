@@ -18,7 +18,7 @@ ms.author: elbutter
 
 ---
 
-# SQL Data Warehouse Frequently Asked Questions
+# SQL Data Warehouse Frequently asked questions
 
 ## General
 
@@ -39,7 +39,7 @@ Q. What are SQL Data Warehouse Capacity Limits?
 
 A. See our current [capacity limits] page. 
 
-## User Support
+## User support
 
 Q. I have a feature request, where do I submit it?
 
@@ -53,7 +53,7 @@ Q. How do I submit a support ticket?
 
 A. [Support Tickets] can be filed through Azure portal.
 
-## SQL Language/Feature support 
+## SQL language/feature support 
 
 Q. What datatypes does SQL Data Warehouse support?
 
@@ -63,7 +63,7 @@ Q. What table features do you support?
 
 A. While SQL Data Warehouse supports many features, some are not supported and are documented in [Unsupported Table Features].
 
-## Tooling and Administration
+## Tooling and administration
 
 Q. Do you support Database projects in Visual Studio.
 
@@ -98,6 +98,9 @@ Q: Can I connect to HDI?
 
 A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, then you can load that data into SQL DW. However, you cannot generate pushdown computation to the HDI instance. 
 
+## Next steps
+For more information on SQL Data Warehouse as a whole, see our [Overview] page.
+
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
@@ -113,3 +116,4 @@ A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx
+[Overview]: ./sql-data-warehouse-overview-faq.md

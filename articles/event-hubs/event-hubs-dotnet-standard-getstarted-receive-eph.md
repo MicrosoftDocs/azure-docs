@@ -20,7 +20,7 @@ ms.author: jotaub
 # Get started receiving messages with the EventProcessorHost in .NET Standard
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleEphReceiver).
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
 
 ## What will be accomplished
 
