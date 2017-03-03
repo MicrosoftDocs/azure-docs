@@ -25,6 +25,7 @@ Eclipse is one of the most used IDEs for Java Developers. In this article we dis
 Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** that can simplify the process of building and deploying Java services.
 
 1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing ``Help => Installation Details``. You can update Buildship using the instructions [here][buildship-update]. To check and update if your eclipse neon is on latest version, you can go to ``Help => Check for Updates``.
+
 2. To install the Service Fabric plugin, choose ``Help => Install New Software...``.
   * In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric.
   * Click Add.
@@ -33,6 +34,7 @@ Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** tha
 
   * Choose the Service Fabric plugin and click next.
   * Proceed through the installation and accept the end-user license agreement.
+
 3. If you already have the Service Fabric eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
 
 ## Create Service Fabric application using Eclipse
@@ -75,16 +77,17 @@ Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** tha
 
 * You can choose to deploy, undeploy and publish your application too from this menu.
   - ``Deploy Application`` will deploy to your local cluster
-  - ``Publish Application..`` will ask for which publish-profile you want to select between ``Local.json`` and ``Cloud.json``
+  - ``Publish Application..`` will ask for which publish-profile you want to select between ``Local.json`` and ``Cloud.json``. By default, ``Local.json``
 
   ![Service Fabric Right Click Menu][publish/Publish]
 
 * There is an alternate way in which you can deploy your Service Fabric application using eclipse Run-configurations.
 
-  1. Choose ``Run => Run Configurations``. Select the ``ServiceFabricDeployer`` run-configuration.
-  2. Under the ``Arguments`` tab, Specify **local** or **cloud** as the ``publishProfile``. The default setup is **local**. For deploying to a remote cluster, select **cloud**.
-  3. Ensure the proper information is populated in the publish profiles, by editing the `Local.json` or `Cloud.json` as appropriate.
-  4. Click **Run**.
+  1. Choose ``Run => Run Configurations``. Select the ``ServiceFabricDeployer`` run-configuration, under ``Grade Project``.
+  2. Under the ``Arguments`` tab on the right pane, Specify **local** or **cloud** as the ``publishProfile``. The default setup is **local**. For deploying to a remote cluster, select **cloud**.
+  3. Ensure the proper information is populated in the publish profiles, by editing the `Local.json` or `Cloud.json` as appropriate, with end-point details, and security credentials, if any.
+  4. Ensure that ``Working Directory`` on the right-pane under ``Grade Project`` points to the application you want to deploy. If not, just click on the ``Workspace...`` button and select the application you want.
+  5. Click **Apply** and **Run**.
 
 Your app builds and deploys within a few moments. You can monitor its status from Service Fabric Explorer.  
 
@@ -108,6 +111,35 @@ Once you have created a Service-fabric application using Eclipse, you can add ne
 5. After the Service gets added successfully, the entire project structure now looks like something a as below -
 
     ![Service Fabric Add Service page 4][add-service/p4]
+
+## Upgrade your Service Fabric Java Application
+
+Let's assume that you have created the ``App1`` project using your the Service Fabric Eclipse plugin and deployed it using the plugin to create an application named ``fabric:/App1Application`` of application-type ``App1AppicationType`` and application-version 1.0. Now you want to upgrade your application without taking it down.
+
+Make the change to your application and rebuild the modified service.  Update the modified service’s manifest file (``ServiceManifest.xml``) with the updated versions for the Service (and Code or Config or Data as appropriate). Also modify the application’s manifest (``ApplicationManifest.xml``) with the updated version number for the application, and the modified service.  
+
+### Using azure-cli commands
+Now, assuming you are already connected to the cluster where you have installed your application and you are in the root directory of the project, copy and register your updated application using the following azure-cli commands:
+```
+ azure servicefabric application package copy App1Application fabric:ImageStore
+ azure servicefabric application type register App1Application
+```
+Now, you can start the application upgrade with the following command:
+```
+ azure servicefabric application upgrade start -–application-name fabric:/App1Application -–target-application-type-version 2.0  --rolling-upgrade-mode UnmonitoredAuto
+```
+For more details about how to use azure-cli from terminal, you can refer to our [azure-cli documentation](service-fabric-azure-cli,md).
+
+
+### Using Eclipse plugin for Service Fabric
+To upgrade your application using Eclipse, you can create a duplicate run-configuration, and use it to upgrade your application as and when you need, using the following steps -
+1. Choose ``Run => Run Configurations``. Click the arron on the left of ``Grade Project`` in the left pane.
+2. Right click on ``ServiceFabricDeployer`` and select ``Duplicate``. Give a new name to this configuration, say ``ServiceFabricUpgrader``.
+3. On the right panel, under the ``Arguments`` tab, change ``-Pconfig='deploy'`` to ``-Pconfig=upgrade`` and click on ``Apply``.
+4. Now, you created and saved a run-configuration for upgrading your application, which you can ``Run`` when you want. This will take care of getting the latest updated application-type version from the application-manifest file.
+
+
+You can now monitor the application upgrade using SFX. In a few minutes, the application would have been updated.  You can also try an updated app with an error and check the auto rollback functionality in service fabric.
 
 <!-- Images -->
 

@@ -139,12 +139,11 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 2. To install the Service Fabric plugin, choose **Help > Install New Software...**
 3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
 4. Click Add.
-
     ![Eclipse plugin][sf-eclipse-plugin]
 5. Choose the Service Fabric plugin and click next.
 6. Proceed through the installation and accept the end-user license agreement.
 
-For more details on how to use Service Fabric Eclipse Plugin, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+For more details on how to use Service Fabric Eclipse Plugin to create, build, deploy, upgrade a Service Fabric java application, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
 
 ## Install the .NET Core SDK (optional)
 The .NET Core SDK provides the libraries and templates required to build Service Fabric services using cross-platform .NET Core.
