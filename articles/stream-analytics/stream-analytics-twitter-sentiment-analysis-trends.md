@@ -18,7 +18,7 @@ ms.date: 03/03/2017
 ms.author: jeffstok
 ---
 
-# Social media analysis: Real-time Twitter sentiment analysis in Azure Stream Analytics
+# Real-time Twitter sentiment analysis in Azure Stream Analytics
 
 Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You'll write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real-time.
 
@@ -96,15 +96,15 @@ Now that Tweet events are streaming in real-time from Twitter, we can set up a S
 
 ### Provision a Stream Analytics job
 
-In the [Azure portal](https://portal.azure.com/), click **NEW** > type **STREAM ANALYTICS** > and click the Stream Analytics tile result. Specify the following values, and then click **CREATE**:
+In the [Azure portal](https://portal.azure.com/), click **NEW** > type **STREAM ANALYTICS** > and click the Stream Analytics tile result. Specify the following values, and then click **CREATE**.
 
    * **JOB NAME**: Enter a job name.
    * **Resource group**: Select the resource group created earlier in this exercise from the "use existing" option.
    * **STORAGE ACCOUNT**: Choose the Azure storage account that you would like to use to store monitoring data for all Stream Analytics jobs that run within this region. You have the option to choose an existing storage account or to create a new one.   
 
-Once the job is created the job will open in Azure portal.
-
 ![New Job](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
+
+Once the job is created the job will open in Azure portal.
 
 ## Specify the job input
 
