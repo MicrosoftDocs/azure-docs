@@ -36,9 +36,11 @@ pricing plan, location, and the workflow definition.
 and how the Logic Apps engine should execute the workflow. 
 You can view this definition in your logic app's **Code View** window. 
 In the logic app resource, you can find this definition in the `definition` property.
-* **Connections**: Separate resources that securely store metadata about any connector connections, 
+* **Connections**: Refers to separate resources that securely 
+store metadata about any connector connections, 
 such as a connection string and an access token. 
-In the logic app resource, your logic app references these resources in the `parameters` section.
+In the logic app resource, your logic app references 
+these resources in the `parameters` section.
 
 You can view all these pieces of existing logic apps by using a tool like 
 [Azure Resource Explorer](http://resources.azure.com).
