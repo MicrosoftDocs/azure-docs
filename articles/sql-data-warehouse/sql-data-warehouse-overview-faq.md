@@ -24,7 +24,7 @@ ms.author: elbutter
 
 Q. What does SQL DW offer for data security?
 
-A. SQL DW offers several solutions for protecting data such as TDE and auditing. For more information see [Security].
+A. SQL DW offers several solutions for protecting data such as TDE and auditing. For more information, see [Security].
 
 Q. Where can I find out what legal or business standards is SQL DW compliant with?
 
@@ -72,7 +72,7 @@ A. We currently do not support Database projects in Visual Studio for SQL Data W
 
 Q. Does SQL Data Warehouse support REST APIs?
 
-A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Data Warehouse. You can find this within REST documentation pages or
+A. Yes. Most REST functionality that can be used with SQL Database is also available with SQL Data Warehouse. You can find API information within REST documentation pages or
 [MSDN].
 
 
@@ -84,7 +84,7 @@ A. Driver support for DW can be found on the [Connection Strings] page
 
 Q: What file formats are supported by PolyBase with SQL Data Warehouse?
 
-A: Orc, RC, Parquet and delimited text
+A: Orc, RC, Parquet, and flat delimited text
 
 Q: What can I connect to from SQL DW using PolyBase? 
 
@@ -96,7 +96,7 @@ A: No, SQL DW PolyBase only interacts the storage components.
 
 Q: Can I connect to HDI?
 
-A: HDI can use either ADLS or WASB as the HDFS component. If this is your configuration, then you can load that data into SQL DW. However, you cannot generate push down computation to the HDI instance. 
+A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, then you can load that data into SQL DW. However, you cannot generate pushdown computation to the HDI instance. 
 
 
 <!-- Article references -->
