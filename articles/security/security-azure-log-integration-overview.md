@@ -32,9 +32,18 @@ Azure produces extensive logging for every Azure service. These logs are categor
 
 * **Control/management logs**, which gives visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations. Azure Activity Logs is an example of this type of log.
 * **Data plane logs**, which gives visibility into the events raised as part of the usage of an Azure resource. Examples of this type of log are the Windows event System, Security, and Application logs in a virtual machine as well as the Diagnostics Logs configured through Azure Monitor
-* **Processed events**, which gives analyzed event/alert processed on your behalf.Examples of this type is Azure Security Center Alerts where Azure Security Center has processed and analyzed your subscription and provides very concise security alerts 
+* **Processed events**, which gives analyzed event/alert processed on your behalf.Examples of this type is Azure Security Center Alerts where Azure Security Center has processed and analyzed your subscription and provides very concise security alerts
 
 Azure log integration currently supports integration of Azure Activity Logs, Windows Event log from Windows virtual machine in your Azure subscription, Azure Security Center alerts, Azure Diagnostic logs as well as Azure Active Directory audit logs.
+
+| Log type  |Log analytics supporting JSON (Splunk, ELK)| ArcSight  | QRadar  |   
+|---|---|---|---|
+|  AAD Audit logs |  yes | Requires the creation of a FlexConnector JSON parser file. Please refer to the ArcSight documentation for more information  |  You must create a Log Source Extension. Please refer to the QRadar documentation for more information. |  
+| Activity Logs  | Yes  |  FlexConnector JSON parser file available in the download center along with Azure log integration download |  [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html)(send over Syslog) |  
+| ASC Alerts  | Yes  |  Requires the creation of a FlexConnector JSON parser file. Please refer to the ArcSight documentation for more information. | [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (send over Syslog)   |   
+| Diagnostics Logs (resource logs) | Yes | Needs end user to create FlexConnector JSON parser file. Please refer to ArcSight documentation on how to do that. | You must create a Log Source Extension. Please refer to the QRadar documentation for more information |
+| VM logs | Yes via Forwarded events and not thru JSON | Yes via Forwarded events | Yes via Forwarded events |
+
 
 If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
 
