@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/03/2017
 ms.author: billmath
 
 ---
@@ -52,9 +52,9 @@ For a mailbox user, either on-premises or in Exchange Online, only values for ve
 
 In this case **smtp: abbie.spencer@fabrikam.com** was removed since that domain has not been verified. But Exchange also added **SIP: abbie.spencer@fabrikamonline.com**. Fabrikam has not used Lync/Skype on-premises, but Azure AD and Exchange Online prepare for it.
 
-This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invoked for a user when:
+This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invoked with every change on a user when:
 
-- The user has been assigned a service plan that includes Exchange Online even if the user was not licensed for Exchange. For example, if the user is assigned an Office E3 license but only was assigned SharePoint Online.
+- The user has been assigned a service plan that includes Exchange Online even if the user was not licensed for Exchange. For example, if the user is assigned the Office E3 SKU, but only was assigned SharePoint Online. This is true even if your mailbox is still on-premises.
 - The attribute msExchRecipientTypeDetails has a value.
 
 ### Quarantined attribute values
