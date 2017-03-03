@@ -16,10 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
+
 # Set up GPU drivers for N-series VMs running Linux
+
 To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is also available for [Windows VMs](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
 
 > [!IMPORTANT]
 > Currently, Linux GPU support is only available on Azure NC VMs.
