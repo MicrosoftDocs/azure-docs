@@ -32,7 +32,7 @@ More samples will be added over time, so check back here frequently for updates.
 
 ## .NET Standard
 
-The following samples demonstrate how to send and receive events using the [Event Hubs client](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md for the [.NET Standard library](/dotnet/articles/standard/library).
+The following samples demonstrate how to send and receive events using the [Event Hubs client](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) for the [.NET Standard library](/dotnet/articles/standard/library).
 
 ### Send events 
 
