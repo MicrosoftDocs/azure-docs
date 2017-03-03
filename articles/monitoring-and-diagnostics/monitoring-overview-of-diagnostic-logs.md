@@ -24,7 +24,7 @@ Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or O
 
 Not all resources support the new type of Diagnostic Logs described here. The following list of Supported Services shows which resource types support the new Diagnostic Logs.
 
-![Diagnostics Logs vs other types of logs ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+![Diagnostics Logs vs other types of logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
 Figure 1: Diagnostics Logs vs other types of logs
 

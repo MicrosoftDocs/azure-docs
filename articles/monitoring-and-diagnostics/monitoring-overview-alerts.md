@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # What are alerts in Microsoft Azure?
-This article describes what alerts are, their benefits, and how to get started with using them. It specifically deal with Azure Monitor, but provides pointers to other services.  
+This article describes what alerts are, their benefits, and how to get started with using them. It specifically applies to Azure Monitor, but provides pointers to other services.  
 
 Alerts are a method of monitoring Azure resource metrics, events, or logs and being notified when a condition you specify is met.  
 
