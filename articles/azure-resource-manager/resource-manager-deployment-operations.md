@@ -118,18 +118,15 @@ To see the deployment operations, use the following steps:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Get Details about any deployment operations
-Every deployment operation in Azure is associated with 'Request' and 'Response' content. "Request" content is simply what you are requesting Azure to create during deployment, e.g. during VM deployment a VM, OS disk etc. "Response" content is simply how Azure is responding your deployment request. To get this information you must specify "DeploymentDebugLogLevel" paramenter during deployment. 
+4. Every deployment operation in Azure includes request and response content. The request content is what you sent to Azure during deployment (for example, create a VM, OS disk, and other resources). The response content is what Azure sent back from your deployment request. During deployment, you can use **DeploymentDebugLogLevel** paramenter to specify that the request and/or response are retained in the log. 
 
-You can get those informations and save them locally by using the below powershell commands.
+  You get that information from the log, and save it locally by using the following PowerShell commands:
 
-```powershell
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-
-(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-
-```
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  ```
 
 ## Azure CLI
 
