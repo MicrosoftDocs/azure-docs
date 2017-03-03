@@ -108,7 +108,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 1. Select a **Resource** (blob, file, queue, table) from the drop-down, and enter a **Name** and **Description** for your new alert rule.
 1. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type changes depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
 1. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
-1. (Optional) Enter a URI in the **Webhook** text box to which alerts are to be routed. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+1. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 
@@ -135,14 +135,14 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
     
 1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
     ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
 1. Click **Save**.
 
-The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/library/azure/hh343262.aspx).
+The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data).
 
 > [!NOTE]
 > Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
@@ -152,5 +152,5 @@ The diagnostics logs are saved in a blob container named $logs in your storage a
 
 The following articles contain additional information about working with Storage Analytics.
 
-* [Storage Analytics](storage-analytics.md): This article provides more detail about metrics, logging, and billing for Storage Analytics.
+* [Storage Analytics](storage-analytics.md): Find more details about metrics, logging, and billing for Storage Analytics.
 * [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md): Enable and access metrics data by using PowerShell and programmatically with C#.
