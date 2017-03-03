@@ -1,7 +1,7 @@
 ---
-title: Real time Twitter sentiment analysis with Stream Analytics | Microsoft Docs
-description: Learn how to use Stream Analytics for real time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.
-keywords: real time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example
+title: Real-time Twitter sentiment analysis with Stream Analytics | Microsoft Docs
+description: Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.
+keywords: real-time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example
 services: stream-analytics
 documentationcenter: ''
 author: jeffstokes72
@@ -18,15 +18,15 @@ ms.date: 03/03/2017
 ms.author: jeffstok
 ---
 
-# Social media analysis: Real time Twitter sentiment analysis in Azure Stream Analytics
+# Social media analysis: Real-time Twitter sentiment analysis in Azure Stream Analytics
 
-Learn how to build a sentiment analysis solution for social media analytics by bringing real time Twitter events into Azure Event Hubs. You'll write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real time.
+Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You'll write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real-time.
 
-Social media analytics tools help organizations understand trending topics, that is, subjects and attitudes that have a high volume of posts in social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on. real time Twitter trend analysis is a great example because the hashtag subscription model enables you to listen to specific keywords and develop sentiment analysis on the feed.
+Social media analytics tools help organizations understand trending topics, that is, subjects and attitudes that have a high volume of posts in social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on. real-time Twitter trend analysis is a great example because the hashtag subscription model enables you to listen to specific keywords and develop sentiment analysis on the feed.
 
-## Scenario: Social media sentiment analysis in real time
+## Scenario: Social media sentiment analysis in real-time
 
-A company that has a news media website is interested in getting an advantage over its competitors by featuring site content that is immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real time sentiment analysis on Twitter data. Specifically, to identify trending topics in real time on Twitter, the company needs real time analytics about the tweet volume and sentiment for key topics. So, in essence, the need is a sentiment analysis analytics engine that's based on this social media feed.
+A company that has a news media website is interested in getting an advantage over its competitors by featuring site content that is immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real-time sentiment analysis on Twitter data. Specifically, to identify trending topics in real-time on Twitter, the company needs real-time analytics about the tweet volume and sentiment for key topics. So, in essence, the need is a sentiment analysis analytics engine that's based on this social media feed.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ A company that has a news media website is interested in getting an advantage ov
 * The [WPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub.
 * Optional: Source code for twitter client from [GitHub](https://aka.ms/azure-stream-analytics-twitterclient)
 
-## Create an event hub input and a consumer group
+## Create an event hub input
 
 The sample application generates events and push them to an Event Hubs instance (an event hub, for short). Service Bus event hubs are the preferred method of event ingestion for Stream Analytics. For more information review the Event Hub documentation at [Azure Service Bus documentation](/azure/service-bus/).
 
@@ -48,6 +48,8 @@ The sample application generates events and push them to an Event Hubs instance 
 5. To grant access to the event hub, we need to create a shared access policy. Click the Event Hub and then click **Shared access policies** under **Settings**.
 6. Under **SHARED ACCESS POLICIES**, create a new policy with **MANAGE** permissions by clicking **+ Add**. Give the policy a name and check **MANAGE** and then click **Create**.
 7. Click your new policy once it is created and then click the copy button for the **CONNECTION STRING - PRIMARY KEY** entity. We will need this further in the exercise. Then return to the dashboard.
+
+![shared access policy endpoints](./media/stream-analytics-twitter-sentiment-analysis-trends/keysandendpoints.png)
 
 ## Configure and start the Twitter client application
 
@@ -62,7 +64,7 @@ Then, Tweet events are pushed to the event hub.
 ### Follow these steps to set up the application:
 
 1. [Download the TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) and unzip it.
-2. Execute the TwitterWPFClient.exe file and enter your data for the Twitter API Key and Secret, Twitter Access Token and Secret and also the Azure Event Hub information. Finally define what keywords you wish to determine sentiment on. Note if you specify more than one word (using commas to define multiple values) and you want ANY you must flip the control to "Match ANY".
+2. Execute the `TwitterWPFClient.exe` application and enter your data for the Twitter API Key and Secret, Twitter Access Token and Secret and also the Azure Event Hub information. Finally define what keywords you wish to determine sentiment on. Note if you specify more than one word (using commas to define multiple values) and you want ANY you must flip the control to "Match ANY".
 
    [Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
@@ -82,13 +84,15 @@ Then, Tweet events are pushed to the event hub.
    It is important to note that the text "EntityPath=" does **not** appear in the EventHubName value.
    
    You may also enter the values for your Twitter and Azure connection information directly into the client. The same logic applies where "EntityPath=" is not used.
+   
+   ![wpfclient](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
 
 4. *Optional:* Adjust the keywords to search for.  As a default, this application looks for some game keywords.  You can adjust the values for **twitter_keywords** in TwitterWpfClient.exe.config, if desired.
 5. Run TwitterWpfClient.exe and click the green start button to collect social sentiment. You will see Tweet events with the **CreatedAt**, **Topic**, and **SentimentScore** values being sent to your event hub.
 
 ## Create a Stream Analytics job
 
-Now that Tweet events are streaming in real time from Twitter, we can set up a Stream Analytics job to analyze these events in real time.
+Now that Tweet events are streaming in real-time from Twitter, we can set up a Stream Analytics job to analyze these events in real-time.
 
 ### Provision a Stream Analytics job
 
@@ -98,8 +102,9 @@ In the [Azure portal](https://portal.azure.com/), click **NEW** > type **STREAM 
    * **Resource group**: Select the resource group created earlier in this exercise from the "use existing" option.
    * **STORAGE ACCOUNT**: Choose the Azure storage account that you would like to use to store monitoring data for all Stream Analytics jobs that run within this region. You have the option to choose an existing storage account or to create a new one.   
 
-Once the job is created the job will open in Azure portal.  
-   
+Once the job is created the job will open in Azure portal.
+
+![New Job](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
 ## Specify the job input
 
@@ -129,6 +134,7 @@ This query uses the **TIMESTAMP BY** keyword to specify a timestamp field in the
 
 This query also accesses a timestamp for the end of each window by using the **System.Timestamp** property.
 
+![Query Box](./media/stream-analytics-twitter-sentiment-analysis-trends/querybox.png)
 
 ## Create output sink
 
@@ -154,9 +160,13 @@ In the job overview pane simply click **START** at the top of the page.
 
 In the dialog box that opens, click **JOB START TIME**, and then click the **CHECK** button on the bottom of the dialog box. The job status will change to **Starting** and will shortly change to **Running**.
 
+![Job running](./media/stream-analytics-twitter-sentiment-analysis-trends/jobrunning.png)
+
 ## View output for sentiment analysis
 
-After your job is running and processing the real time Twitter stream, choose how you want to view the output for sentiment analysis. Use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one in the following screenshot.
+After your job is running and processing the real-time Twitter stream, choose how you want to view the output for sentiment analysis. Use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real-time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one in the following screenshot.
+
+![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
