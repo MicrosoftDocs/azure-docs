@@ -31,7 +31,7 @@ ms.author: tarcher
 The following list contains key DevTest Labs concepts and definitions:
 
 ## Labs
-A lab is the infrastructure that acts as a layer on top of a group of virtual machines (VMs) that lets you better manage the VMs and resources that are contained inside that lab.
+A lab is the infrastructure that encompasses a group of resources, such as Virtual Machines (VMs), that lets you better manage those resources by specifying limits and quotas.
 
 ## Virtual machine
 An Azure VM is one of several types of [on-demand, scalable computing resources](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it, although you still need to maintain the VM by performing certain tasks, such as configuring, patching, and installing the software that runs on it.
@@ -54,7 +54,7 @@ Artifacts are used to deploy and configure your application after a VM is provis
 Artifacts are [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) JSON files that contain instructions to perform deployment and apply configuration.
 
 ## Artifact repositories
-Artifact repositories are git repositories where artifacts are checked in. Same artifact repositories can be added to multiple labs in your organization enabling reuse and sharing.
+Artifact repositories are git repositories where artifacts are checked in. Artifact repositories can be added to multiple labs in your organization enabling reuse and sharing.
 
 ## Formulas
 Formulas, in addition to base images, provide a mechanism for fast VM provisioning. A formula in DevTest Labs is a list of default property values used to create a lab VM.
