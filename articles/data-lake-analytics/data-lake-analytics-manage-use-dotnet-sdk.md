@@ -35,11 +35,10 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
    3. Search for and install the following NuGet packages:
 
-    - Microsoft.Rest.ClientRuntime.Azure.Authentication - V2.2.12
-    - Microsoft.Azure.Management.DataLake.Analytics - V2.1.0 preview
-    - Microsoft.Azure.Management.DataLake.Store - V2.1.0 preview
+    - Microsoft.Rest.ClientRuntime.Azure.Authentication - This tutorial uses V2.2.12
+    - Microsoft.Azure.Management.DataLake.Analytics - This tutorial uses V2.1.0 preview
+    - Microsoft.Azure.Management.DataLake.Store - This tutorial uses V2.1.0 preview
 
- 
    4. Close the **Nuget Package Manager**.
 
 ## Client management objects
@@ -105,7 +104,7 @@ The following snippet shows the easiest authentication by the user providing cre
 We recommend creating your own application and service principal within your Azure Active Directory tenant, then using the client ID for that application, rather than the sample ID used here.
 
 ### Non-interactive with a client secret
-You can use the following snippet to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this authentiation option with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+You can use the following snippet to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this authentication option with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -132,7 +131,7 @@ As a third option, the following snippet can be used to authenticate your applic
 Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Also, a Data Lake Analytics account requires at least one Data Lake Store account. For more information, see [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md)
 
 ### Create an Azure Resource Group
-If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. You will need your authentication credials, subscription ID, and a location. The following code shows how to create a resource group:
+If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. You will need your authentication credentials, subscription ID, and a location. The following code shows how to create a resource group:
 
     string rgName == "<value>"; // specify name for the new resrouce group
     var resourceManagementClient = new ResourceManagementClient(credential) { SubscriptionId = subscriptionId };
