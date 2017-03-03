@@ -51,7 +51,7 @@ This article assumes you have the following resources:
 ### Step 1
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName testrg -Name VM1 
+$VM = Get-AzureRmVM -ResourceGroupName testrg -Name VM1
 ```
 
 ### Step 2
@@ -90,7 +90,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 To ensure that the agent is installed, run the `Get-AzureRmVMExtension` cmdlet and pass it the virtual machine name and the extension name.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName 
+Get-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
 The following sample is an example of the response from running `Get-AzureRmVMExtension`

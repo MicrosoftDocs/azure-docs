@@ -25,20 +25,20 @@ Network Watcher is a regional service that enables you to monitor and diagnose c
 
 ## Register the preview capability
 
-Network Watcher is currently in preview, in order to use the features of Network Watcher the feature needs to be registered. To do this run the following PowerShell sample:
+Network Watcher is currently in preview, to use the features of Network Watcher the feature needs to be registered. To do this, run the following PowerShell sample:
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace Microsoft.Network
 ```
 
-To verify the registration was succesfull run the following Powershell sample:
+To verify the registration was successful, run the following Powershell sample:
 
 ```powershell
 Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace  Microsoft.Network
 ```
 
-If the feature was was properly registered the output should match the following:
+If the feature was properly registered, the output should match the following:
 
 ```
 FeatureName         ProviderName      RegistrationState
@@ -54,13 +54,13 @@ To register
 azure provider register Microsoft.Network
 azure feature register  Microsoft.Network AllowNetworkWatcher
 ```
-To verify the registration was succesfull run the following CLI command:
+To verify the registration was successful, run the following CLI command:
 
 ```CLI
 azure feature show Microsoft.Network AllowNetworkWatcher
 ```
 
-If the feature was was properly registered the output should match the following:
+If the feature was properly registered, the output should match the following:
 ```CLI
 info:    Executing command feature show
 data:    Feature Name:       AllowNetworkWatcher
@@ -121,7 +121,7 @@ Now that you have an instance of Network Watcher, learn about the features avail
 * [NSG flow logging](network-watcher-nsg-flow-logging-overview.md)
 * [Virtual Network Gateway troubleshooting](network-watcher-troubleshoot-overview.md)
 
-Once a Network Watcher instance has been created, package capture can be configured by following the article [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+Once a Network Watcher instance has been created, package capture can be configured by following the article: [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
 [1]: ./media/network-watcher-create/figure1.png
 
