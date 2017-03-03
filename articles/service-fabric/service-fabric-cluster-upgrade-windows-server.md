@@ -26,7 +26,7 @@ ms.author: chackdan
 
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how you can make sure that the cluster always runs supported versions of the Service Fabric code and configurations.
 
-## Controlling the fabric version that runs on your cluster
+## Control the fabric version that runs on your cluster
 You can set your cluster to download the Service Fabric updates when Microsoft releases a new version. The other option is to select a supported fabric version for your cluster.
 
 To control the fabric version, set the "fabricClusterAutoupgradeEnabled" cluster configuration to true or false.
@@ -61,7 +61,6 @@ After you see the cluster health warning, you need to do the following:
 
 1. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that the following script runs on does not have to be part of the cluster.
 
-
     ```powershell
 
     ###### connect to the secure cluster using certs
@@ -76,9 +75,7 @@ After you see the cluster health warning, you need to do the following:
         -StoreName My
     ```
 
-
 2. Get the list of Service Fabric versions that you can upgrade to.
-
 
     ```powershell
 
@@ -92,7 +89,6 @@ After you see the cluster health warning, you need to do the following:
 
 3. Start a cluster upgrade to one of the available versions by using the
    [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) Windows PowerShell command.
-
 
     ```powershell
 
@@ -125,7 +121,6 @@ Use the procedures in this section to upgrade your cluster to a supported versio
 1. Modify your cluster configuration to set the following property to false.
 
         "fabricClusterAutoupgradeEnabled": false,
-
 
 2.      Start a configuration upgrade. For more information, see [Start-ServiceFabricClusterConfigurationUpgrade](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Before you start the configuration upgrade, update the clusterConfigurationVersion value in your JavaScript Object Notation (JSON) file.
 
