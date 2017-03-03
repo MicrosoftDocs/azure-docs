@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/03/2017
 ms.author: larryfr
 
 ---
 # Use Azure Data Lake Store with Apache Storm with HDInsight (Java)
 
-Azure Data Lake Store is an HDFS compatible cloud storage service that provides high throughput, availability, durability, and reliability for your data. In this document, you will learn how to use a Java-based Storm topology to write data to Azure Data Lake Store using the [HdfsBolt](http://storm.apache.org/releases/1.0.2/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component, which is provided as part of Apache Storm.
+Azure Data Lake Store is an HDFS compatible cloud storage service that provides high throughput, availability, durability, and reliability for your data. In this document, you learn how to use a Java-based Storm topology to write data to Azure Data Lake Store. The steps in this document using the [HdfsBolt](http://storm.apache.org/releases/1.0.2/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component, which is provided as part of Apache Storm.
 
 > [!IMPORTANT]
 > The example topology used in this document relies on components that are included with Storm on HDInsight clusters, and may require modification to work with Azure Data Lake Store when used with other Apache Storm clusters.
 
 ## How to work with Azure Data Lake Store
 
-Data Lake Store appears to HDInsight as an HDFS compatible file system, so you can use the Storm-HDFS bolt to write to it. The following code demonstrates how you can use the Storm-HDFS bolt to write data to a directory named `/stormdata` on a Data Lake Store account named `MYDATALAKE`.
+Data Lake Store appears to HDInsight as an HDFS compatible file system, so you can use the Storm-HDFS bolt to write to it. When working with Azure Data Lake from HDInsight, you can use a file scheme of `adl://`. 
+The following code demonstrates how you can use the Storm-HDFS bolt to write data to a directory named `/stormdata` on a Data Lake Store account named `MYDATALAKE`.
 
 ```java
 // 1. Create sync and rotation policies to control when data is synched
