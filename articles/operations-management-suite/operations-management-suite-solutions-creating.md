@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2017
+ms.date: 03/03/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -21,16 +21,20 @@ ms.custom: H1Hack27Feb2017
 ---
 # Design and build a management solution in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
-> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.  
+> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   j
 
-Every [management solution in Operations Management Suite (OMS)](operations-management-suite-solutions.md) has unique requirements, and each one can include any set of Azure resources required to perform a particular management function. This article presents a basic process to design and build a management solution that is suitable for the most common requirements.  If you are new to building management solutions then you can use this process as a starting point and then leverage the concepts for more complex solutions as your requirements evolve.
+[Management solutions](operations-management-suite-solutions.md) extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace. 
 
 
-## Solution design
+Management solutions contain OMS and Azure resources that work together to achieve a particular monitoring scenario.  They are implemented as [Resource Management templates](../azure-resource-manager/resource-manager-template-walkthrough.md) that contain details of how to install and configure their contained resources when the solution is installed.
 
-You should start your management solution by building the individual components in your Azure environment.  Once you have the functionality working properly, then you can start packaging them into a [management solution file](operations-management-suite-solutions-solution-file.md).
+This article presents a basic process to design and build a management solution that is suitable for most common requirements.  If you are new to building management solutions then you can use this process as a starting point and then leverage the concepts for more complex solutions as your requirements evolve.
 
-The most common pattern for a management solution is shown in the following diagram.  The different components in this pattern are discussed in the following section.
+The basic strategy is to start your management solution by building the individual components in your Azure environment.  Once you have the functionality working properly, then you can start packaging them into a [management solution file](operations-management-suite-solutions-solution-file.md).  Guidance and best practices are available to assist you in this process.
+
+
+## Design your solution
+The most common pattern for a management solution is shown in the following diagram.  The different components in this pattern are discussed in the below.
 
 ![OMS solution overview](media/operations-management-suite-solutions/solution-overview.png)
 
@@ -48,33 +52,33 @@ If you require data that's not accessible through any of the data sources, then 
 You should define any queries that you think will be helpful to the user even if they aren't used by any views or alerts.  These will be available to them as Saved Searches in the portal, and you can also include then in a [List of Queries visualization part](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) in your custom view.
 
 ### Alerts
-Alerts identify issues identified in your solution and either notify the user or automatically run an action in response. You should identify different alert conditions and include corresponding alert rules in your solution file.
+[Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) identify issues through log searches against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions and include corresponding alert rules in your solution file.
 
-In addition to notifying the user of the detected issue, alerts can create responses such as starting a runbook or calling a webhook.  
+If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets]() which the runbook would leverage to perform required functionality.
+
+If your solution requires external functionality in response to an alert, then you can use a webhook response.  This allows you to call an external web service sending information from the alert.
 
 ### Views
-Views in Log Analytics are used to visualize data from the Log Analytics repository.  You can [create custom views using  the View Designer](../log-analytics/log-analytics-view-designer.md) which you can later export for inclusion in your solution file.
+Views in Log Analytics are used to visualize data from the Log Analytics repository.  Each solution will typically contain a single view with a [tile](../log-analytics/log-analytics-view-designer-tiles.md) that is displayed on the user's main dashboard.  The view can contain any number of [visualization parts](../log-analytics/log-analytics-view-designer-parts.md) to provide different visualizations of the collected data to the user.
 
-Each solution will typically contain a single view with a [tile](../log-analytics/log-analytics-view-designer-tiles.md) that is displayed on the user's main dashboard.  The view can contain any number of [visualization parts](../log-analytics/log-analytics-view-designer-parts.md) to provide different visualizations of the collected data to the user.
+You [create custom views using  the View Designer](../log-analytics/log-analytics-view-designer.md) which you can later export for inclusion in your solution file.  
 
 
 ## Create solution file
 Once you've configured and tested the components that will be part of your solution, you can [create your solution file](operations-management-suite-solutions-solution-file.md).  You will implement the solution components in a Resource Manager template that includes a [solution resource](operations-management-suite-solutions-solution-file.md#solution-resource) with relationships to the other resources in the file.  
 
-### Best practices
-See [Best practices in Operations Management Suite (OMS) management solutions](operations-management-suite-solutions-best-practices.md) for best practices that you should follow in translating the logic of your management solution into a solution file.
-
-### Editing tools
 You can use any text editor to work with solution files, but we recommend leveraging the features provided in Visual Studio or Visual Studio Code as described in the following articles.
 
 - [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [Working with Azure Resource Manager Templates in Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
 
+See [Best practices in Operations Management Suite (OMS) management solutions](operations-management-suite-solutions-best-practices.md) for best practices that you should follow in translating the logic of your management solution into a solution file.
 
-## Testing a management solution
-Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  This will validate your solution file and help you identify any problems before attempting to deploy it.
 
-## Publish solution
+## Test your solution
+While you are developing your solution, you will need to install and test it in your workspace.  You can do this using any of the available methods to [test and install Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
+
+## Publish your solution
 Once you have completed and tested your solution, you can make it available to customers through either the following sources.
 
 ### Azure Quickstart templates
@@ -86,8 +90,7 @@ The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) all
 
 
 ## Next steps
-* [Add saved searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md) to your management solution.
-* [Add views](operations-management-suite-solutions-resources-views.md) to your management solution.
-* [Add Automation runbooks and other resources](operations-management-suite-solutions-resources-automation.md) to your management solution.
 * Learn the details of [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.
+* Learn how to [create a solution file](operations-management-suite-solutions-solution-file.md).
+* Read [best practices](operations-management-suite-solutions-best-practices.md) for implementing different solution resources.

@@ -23,11 +23,11 @@ ms.custom: H1Hack27Feb2017
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.  
 
-Management solutions are implemented as [Resource Management templates](../azure-resource-manager/resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../azure-resource-manager/resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to define typical solution resources.
+Management solutions in Operations Management Suite (OMS) are implemented as [Resource Manager templates](../azure-resource-manager/resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../azure-resource-manager/resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to configure typical solution resources.
 
 
 ## Structure
-The basic structure of a management solution file is the same as a [Resource Manager Template](../azure-resource-manager/resource-group-authoring-templates.md#template-format) which is as follows.  Each of the following sections describes the top level elements and and their contents in a solution.  
+The basic structure of a management solution file is the same as a [Resource Manager Template](../azure-resource-manager/resource-group-authoring-templates.md#template-format) which is as follows.  Each of the sections below describes the top level elements and and their contents in a solution.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -178,7 +178,83 @@ The **dependsOn** elements specifies a [dependency](../azure-resource-manager/re
 Management solutions require an [OMS workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
 
 ## Solution resource
-Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions**.  Following is an example of a solution resource.  Its different elements are described in the sections below.
+Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions** and have the following structure. 
+
+
+    "name": "<name-of-solution>",
+    "location": "<resource-group-region>",
+    "tags": { },
+    "type": "Microsoft.OperationsManagement/solutions",
+    "apiVersion": "<log-analytics-api-version>",
+    "dependsOn": [
+        "<list-of-resources>"
+    ]
+    "properties": {
+        "workspaceResourceId": "<name-of-workspace>",
+        "referencedResources": [
+            "<list-of-referenced-resources>"
+        ],
+        "containedResources": [
+            "<list-of-referenced-resources>"
+        ]
+    },
+    "plan": {
+        "name": "<name-of-solution>",
+        "Version": "<solution-version>",
+        "product": "<product-name>",
+        "publisher": "<publisher-name>",
+        "promotionCode": ""
+    }
+
+### Solution name
+The solution name must be unique in your Azure subscription. The recommended value to use is the following.  This uses a variable called **SolutionName** for the base name and the **workspaceName** parameter to ensure that the name is unique.
+
+    [concat(variables('SolutionName'), ' [' ,parameters('workspaceName'), ']')]
+
+This would resolve to a name like the following.
+
+    My Solution Name [MyWorkspace]
+
+
+### Dependencies
+The solution resource must have a [dependency](../azure-resource-manager/resource-group-define-dependencies.md) on every other resource in the solution since they need to exist before the solution can be created.  You do this by adding an entry for each resource in the **dependsOn** element.
+
+### Properties
+The solution resource has the properties in the following table.  This includes the resources referenced and contained by the solution which defines how the resource is managed after the solution is installed.  Each resource in the solution should be listed in either the **referencedResources** or the **containedResources** property.
+
+| Property | Description |
+|:--- |:--- |
+| workspaceResourceId |ID of the Log Analytics workspace in the form *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
+| referencedResources |List of resources in the solution that should not be removed when the solution is removed. |
+| containedResources |List of resources in the solution that should be removed when the solution is removed. |
+
+The example  above is for a solution with a runbook, a schedule, and view.  The schedule and runbook are *referenced* in the  **properties**  element so they are not removed when the solution is removed.  The view is *contained* so it is removed when the solution is removed.
+
+### Plan
+The **plan** entity of the solution resource has the properties in the following table.
+
+| Property | Description |
+|:--- |:--- |
+| name |Name of the solution. |
+| version |Version of the solution as determined by the author. |
+| product |Unique string to identify the solution. |
+| publisher |Publisher of the solution. |
+
+
+## Extras
+Each solution should be self contained and define each resource that it requires, even if one or more resources are also defined by other solutions.  When a management solution is installed, each resource is created unless it already exists, and you can define what happens to resources when a solution is removed.  
+
+For example, a management solution might include an [Azure Automation runbook](../automation/automation-intro.md) that collects data to the Log Analytics repository using a [schedule](../automation/automation-schedules.md) and a [view](../log-analytics/log-analytics-view-designer.md) that provides various visualizations of the collected data.  The same schedule might be used by another solution.  As the management solution author, you would define all three resources but specify that the runbook and view should be automatically removed when the solution is removed.    You would also define the schedule but specify that it should remain in place if the solution were removed in case it was still in use by the other solution.
+
+
+
+## Sample
+Following is a sample solution file with a solution resource.   
+
+
+
+
+
 
     "name": "[concat(variables('SolutionName'), '[ ' ,parameters('workspacename'), ' ]')]",
     "location": "[parameters('workspaceRegionId')]",
@@ -208,53 +284,10 @@ Each solution requires a resource entry in the **resources** element that define
         "promotionCode": ""
     }
 
-### Solution name
-The solution name must be unique in your Azure subscription. The recommended value to use is the following.  This uses a variable called **SolutionName** for the base name and the **workspaceName** parameter to ensure that the name is unique.
-
-    [concat(variables('SolutionName'), ' [' ,parameters('workspaceName'), ']')]
-
-This would resolve to a name like the following.
-
-    My Solution Name [MyWorkspace]
 
 
-### Dependencies
-The solution resource must have a [dependency](../azure-resource-manager/resource-group-define-dependencies.md) on every other resource in the solution since they need to exist before the solution can be created.  You do this by adding an entry for each resource in the **dependsOn** element.
 
-### Properties
-The solution resource has the properties in the following table.  This includes the resources referenced and contained by the solution which defines how the resource is managed after the solution is installed.  Each resource in the solution should be listed in either the **referencedResources** or the **containedResources** property.
 
-| Property | Description |
-|:--- |:--- |
-| workspaceResourceId |ID of the OMS workspace in the form *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
-| referencedResources |List of resources in the solution that should not be removed when the solution is removed. |
-| containedResources |List of resources in the solution that should be removed when the solution is removed. |
-
-The example  above is for a solution with a runbook, a schedule, and view.  The schedule and runbook are *referenced* in the  **properties**  element so they are not removed when the solution is removed.  The view is *contained* so it is removed when the solution is removed.
-
-### Plan
-The **plan** entity of the solution resource has the properties in the following table.
-
-| Property | Description |
-|:--- |:--- |
-| name |Name of the solution. |
-| version |Version of the solution as determined by the author. |
-| product |Unique string to identify the solution. |
-| publisher |Publisher of the solution. |
-
-## Other resources
-You can get the details and samples of resources that are common to management solutions in the following articles.
-
-* [Views and dashboards](operations-management-suite-solutions-resources-views.md)
-* [Automation resources](operations-management-suite-solutions-resources-automation.md)
-
-## Testing a management solution
-Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  This will validate your solution file and help you identify any problems before attempting to deploy it.
-
-## Extras
-Each solution should be self contained and define each resource that it requires, even if one or more resources are also defined by other solutions.  When a management solution is installed, each resource is created unless it already exists, and you can define what happens to resources when a solution is removed.  
-
-For example, a management solution might include an [Azure Automation runbook](../automation/automation-intro.md) that collects data to the Log Analytics repository using a [schedule](../automation/automation-schedules.md) and a [view](../log-analytics/log-analytics-view-designer.md) that provides various visualizations of the collected data.  The same schedule might be used by another solution.  As the management solution author, you would define all three resources but specify that the runbook and view should be automatically removed when the solution is removed.    You would also define the schedule but specify that it should remain in place if the solution were removed in case it was still in use by the other solution.
 
 ## Next steps
 * [Add saved searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md) to your management solution.
