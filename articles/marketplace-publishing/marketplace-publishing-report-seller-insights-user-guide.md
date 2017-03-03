@@ -1,11 +1,11 @@
 ﻿---
 title: How to use the Microsoft Azure Marketplace Seller Insights Portal | Microsoft Docs
-description: As a seller on the Azure Marketplace, understand use the Azure Marketplace Seller Insights Portal
-services: Azure Marketplace
+description: As a seller on the Azure Marketplace, understand use the Azure Marketplace Seller Insights Portal.
+services: marketplace publishing
 documentationcenter: na
 author: v-dabosl
 manager: todorb
-editor: ''
+editor: v-dabosl
 
 ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: marketplace
