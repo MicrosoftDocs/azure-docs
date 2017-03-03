@@ -64,10 +64,10 @@ $Nics = Get-AzureRmNetworkInterface | Where {$_.Id -eq $vm.NetworkInterfaceIDs.F
 
 ## Run IP flow verify
 
-Now that we have the information needed to run the cmdlet, we run the `Test-AzureRmNetworkWatcherIPflow` cmdlet to test the traffic. In this example, we are using the first IP address on the first NIC.
+Now that we have the information needed to run the cmdlet, we run the `Test-AzureRmNetworkWatcherIPFlow` cmdlet to test the traffic. In this example, we are using the first IP address on the first NIC.
 
 ```powershell
-Test-AzureRmNetworkWatcherIPflow -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id `
+Test-AzureRmNetworkWatcherIPFlow -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id `
 -Direction Outbound -Protocol TCP `
 -LocalIPAddress $nics[0].IpConfigurations[0].PrivateIpAddress -LocalPort 6895 -RemoteIPAddress 204.79.197.200 -RemotePort 80
 ```
@@ -77,7 +77,7 @@ Test-AzureRmNetworkWatcherIPflow -NetworkWatcher $networkWatcher -TargetVirtualM
 
 ## Review Results
 
-After running `Test-AzureRmNetworkWatcherIPflow` the results are returned, the following example is the results returned from the preceding step.
+After running `Test-AzureRmNetworkWatcherIPFlow` the results are returned, the following example is the results returned from the preceding step.
 
 ```
 Access RuleName                                  
