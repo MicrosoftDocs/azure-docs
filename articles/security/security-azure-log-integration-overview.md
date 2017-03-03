@@ -1,4 +1,4 @@
- ---
+---
 title: Integrate logs from Azure resources into your SIEM systems | Microsoft Docs
 description: Learn about Azure log integration, its key capabilities, and how it works.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/03/2017
 ms.author: TomSh
 
 ---
