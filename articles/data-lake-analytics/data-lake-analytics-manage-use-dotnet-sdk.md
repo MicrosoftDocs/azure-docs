@@ -23,7 +23,6 @@ ms.author: jgao
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .NET SDK. To see management topics using other tools, click the tab select above.
 
 ## Prerequisites
-To develop .NET applictions for Azure Data Lake Analytics, you need the following:
 
 * **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
 * **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -34,12 +33,12 @@ To develop .NET applictions for Azure Data Lake Analytics, you need the followin
    1. In Visual Studio, right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
    2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
 
-   3. Search for and install the following NuGet packages, installing the preview (-pre) versions as indicated.
+   3. Search for and install the following NuGet packages, installing the preview versions as indicated.
 
-    - Microsoft.Rest.ClientRuntime.Azure.Authentication -pre
-    - Microsoft.Azure.Management.ResourceManager -pre
+    - Microsoft.Rest.ClientRuntime.Azure.Authentication (preview)
+    - Microsoft.Azure.Management.ResourceManager (preview)
     - Microsoft.Azure.Management.DataLake.Analytics
-    - Microsoft.Azure.Management.DataLake.Store -pre
+    - Microsoft.Azure.Management.DataLake.Store preview
  
    4. Close the **Nuget Package Manager**.
 
@@ -66,12 +65,12 @@ Although you can create links to Azure Storage from Data Lake, you cannot access
 
 ### Data Lake Analytics management client objects:
 * DataLakeAnalyticsAccountManagementClient - Use to create and manage Data Lake Analytics accounts.
-* DataLakeAnalyticsCatalogManagementClient - Use to explore the catalog items in Data Lake Analytics..
+* DataLakeAnalyticsCatalogManagementClient - Use to explore the catalog items in Data Lake Analytics.
 * DataLakeAnalyticsJobManagementClient - Submit and manage jobs in Data Lake Analytics.
 
 ### Example
 
-Initialize client management objects using your credentials (creds) as obtined by  your preferred authentication method, described next in this article. 
+Initialize client management objects using your credentials (creds) as obtained by your preferred authentication method, described next in this article. 
 
     // Only the Data Lake Analytics and Data Lake Store  
     // objects need a subscription ID.
@@ -96,17 +95,17 @@ You have multiple options for logging on to Azure Data Lake Analytics.
 The following snippet shows the easiest authentication by the user providing credentials, such as a username and password or a pin number.
 
     // User login via interactive popup
-    // Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD "native nlient" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var tenantId = "<Tenant ID>"; // Replace this string with the user's Azure Active Directory tenant ID.
     var clientId = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(_tenantId, activeDirectoryClientSettings).Result;
 
-For this approach, we recommend creating your own 'native' application and service principal within your Azure Active Directory tenant, then using the client ID for that application, rather than the ID used above.
+We recommend creating your own application and service principal within your Azure Active Directory tenant, then using the client ID for that application, rather than the sample ID used here.
 
 ### Non-interactive with a client secret
-You can use the following snippet to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+You can use the following snippet to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this authentiation option with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -118,7 +117,7 @@ You can use the following snippet to authenticate your application non-interacti
     var creds = ApplicationTokenProvider.LoginSilentAsync(tenantId, clientCredential).Result;
 
 ### Non-interactive with a service principal
-As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal. Use this authentication option with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -149,7 +148,7 @@ If you haven't already created one, you must have an Azure Resource Group to cre
         return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
     }
 
-See [Azure Resource Groups and Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics) for more information.
+For more information, see [Azure Resource Groups and Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
 
 
 ### Create a Data Lake Store account
@@ -350,7 +349,7 @@ The following code checks if an Azure Storage account (storageAccntName) exists 
 The DataLakeAnalyticsCatalogManagementClient object provides methods for managing the SQL database provided for each Azure Data Lake Store. The DataLakeAnalyticsJobManagementClient provides methods to submit and manage jobs run on the database with U-SQL scripts.
 
 ### List databases and schemas
-Among the several things you can list, the most common are databases and their schema. The following code obtains a collection of databases, and then enumerates the schema for each database.
+Among the several things, you can list, the most common are databases and their schema. The following code obtains a collection of databases, and then enumerates the schema for each database.
 
     var databases = adlaCatalogClient.Catalog.ListDatabases(adlaAccountName);
     foreach (var db in databases)
