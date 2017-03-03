@@ -24,14 +24,6 @@ ms.author: jotaub;sethm
 
 This tutorial shows how to write a .NET Core console application that receives messages from an Event Hub using the **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) solution as-is, replacing the strings with your Event Hub and storage account values, or you can follow the steps in this tutorial to create your own. 
 
-> [!NOTE]
-> This tutorial shows how to write a .NET Core application, but if you want to target the full .NET Framework, add the following line of code to the project.json file, in the "frameworks" section:
->
->```json
->"net451": {
->},
->``` 
-
 ## Prerequisites
 
 1. [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com).
@@ -61,7 +53,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 	![][2]
 
-2. In Solution Explorer, double-click the project.json file to open it in the Visual Studio editor.
+2. In Solution Explorer, double-click the **project.json** file to open it in the Visual Studio editor.
 3. Add the string `"portable-net45+win8"` to the `"imports"` declaration, within the `"frameworks`" section. That section should now appear as follows. This string is necessary due to the Azure Storage dependency on OData:
 
 	```json
@@ -77,6 +69,13 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 4. From the File menu, click **Save All**.
 
+Note that this tutorial shows how to write a .NET Core application, but if you want to target the full .NET Framework, add the following line of code to the project.json file, in the "frameworks" section:
+
+```json
+"net451": {
+},
+``` 
+
 ## Add the Event Hubs NuGet package
 
 * Add the following NuGet packages to the project:
@@ -85,7 +84,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 ## Implement the IEventProcessor interface
 
-1. In Solution Explorer, right click the project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**.
+1. In Solution Explorer, right-click the project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**.
 
 2. Open the SimpleEventProcessor.cs file and add the following `using` statements to the top of the file.
 
@@ -95,7 +94,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
     using Microsoft.Azure.EventHubs.Processor;
     ```
 
-3. Implement the `IEventProcessor` interface. Replace the contents of the `SimpleEventProcessor` class with the following code:
+3. Implement the `IEventProcessor` interface. Replace the entire contents of the `SimpleEventProcessor` class with the following code:
 
     ```csharp
     public class SimpleEventProcessor : IEventProcessor
@@ -131,7 +130,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
     }
     ```
 
-## Write a main console method that uses `SimpleEventProcessor` to receive messages from an Event Hub
+## Write a main console method that uses the SimpleEventProcessor class to receive messages
 
 1. Add the following `using` statements to the top of the Program.cs file.
   
@@ -140,7 +139,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
     using Microsoft.Azure.EventHubs.Processor;
     ```
 
-2. Add constants to the `Program` class for the Event Hubs connection string, Event Hub name, storage container name, storage account name, and storage account key. Replace the following placeholders with their corresponding values.
+2. Add constants to the `Program` class for the Event Hubs connection string, Event Hub name, storage container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
