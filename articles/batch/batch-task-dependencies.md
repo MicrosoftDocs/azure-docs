@@ -27,7 +27,7 @@ You can define task dependencies to run a task or set of tasks only after a pare
 * Pre-rendering and post-rendering processes, where each task must complete before the next task can begin.
 * Any other job in which downstream tasks depend on the output of upstream tasks.
 
-Batch task dependencies allow you to create tasks that are scheduled for execution on compute nodes only after the completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all frames have been successfully rendered.
+With Batch task dependencies, you can create tasks that are scheduled for execution on compute nodes only after the completion of one or more parent tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all frames have been successfully rendered.
 
 By default, dependent tasks are scheduled for execution only after the parent task has completed successfully. You can specify a dependency action to override the default behavior and run tasks when the parent task fails. See the [Dependency actions](#dependency-actions) section for details.  
 
