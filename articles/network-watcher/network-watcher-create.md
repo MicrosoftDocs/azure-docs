@@ -26,6 +26,7 @@ Network Watcher is a regional service that enables you to monitor and diagnose c
 Network Watcher is currently in preview, in order to use the features of Network Watcher the feature needs to be registered. To do this run the following PowerShell sample:
 
 ```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace Microsoft.Network
 ```
 
@@ -48,6 +49,7 @@ AllowNetworkWatcher Microsoft.Network Registered
 To register
 
 ```CLI
+azure provider register Microsoft.Network
 azure feature register  Microsoft.Network AllowNetworkWatcher
 ```
 To verify the registration was succesfull run the following CLI command:
