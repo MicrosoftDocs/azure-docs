@@ -21,7 +21,7 @@ ms.author: saysa
 # Set up Eclipse development environment for Service Fabric Java application
 Eclipse is one of the most used IDEs for Java Developers. In this article we discuss how you can set up your eclipse development environment to work with Service Fabric. Here we will show you - how you can install the plugin, create Service fabric applications and deploy your service-fabric application to local or remote Service Fabric cluster.
 
-## Install Service Fabric Plugin Eclipse Neon
+## Install/Update Service Fabric Plugin on Eclipse Neon
 Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** that can simplify the process of building and deploying Java services.
 
 1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing ``Help => Installation Details``. You can update Buildship using the instructions [here][buildship-update]. To check and update if your eclipse neon is on latest version, you can go to ``Help => Check for Updates``.
@@ -35,7 +35,7 @@ Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** tha
   * Choose the Service Fabric plugin and click next.
   * Proceed through the installation and accept the end-user license agreement.
 
-3. If you already have the Service Fabric eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
+If you already have the Service Fabric eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
 
 ## Create Service Fabric application using Eclipse
 
@@ -128,16 +128,15 @@ Now, you can start the application upgrade with the following command:
 ```
  azure servicefabric application upgrade start -–application-name fabric:/App1Application -–target-application-type-version 2.0  --rolling-upgrade-mode UnmonitoredAuto
 ```
-For more details about how to use azure-cli from terminal, you can refer to our [azure-cli documentation](service-fabric-azure-cli,md#upgrading-your-application).
+For more details about how to use azure-cli from terminal, you can refer to our [azure-cli documentation](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-azure-cli#upgrading-your-application).
 
 
 ### Using Eclipse plugin for Service Fabric
 To upgrade your application using Eclipse, you can create a duplicate run-configuration, and use it to upgrade your application as and when you need, using the following steps -
-1. Choose ``Run => Run Configurations``. Click the arron on the left of ``Grade Project`` in the left pane.
+1. Choose ``Run => Run Configurations``. Click the small-arrow on the left of ``Grade Project`` in the left pane.
 2. Right click on ``ServiceFabricDeployer`` and select ``Duplicate``. Give a new name to this configuration, say ``ServiceFabricUpgrader``.
 3. On the right panel, under the ``Arguments`` tab, change ``-Pconfig='deploy'`` to ``-Pconfig=upgrade`` and click on ``Apply``.
 4. Now, you created and saved a run-configuration for upgrading your application, which you can ``Run`` when you want. This will take care of getting the latest updated application-type version from the application-manifest file.
-
 
 You can now monitor the application upgrade using SFX. In a few minutes, the application would have been updated.  You can also try an updated app with an error and check the auto rollback functionality in service fabric.
 
