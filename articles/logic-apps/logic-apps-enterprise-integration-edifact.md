@@ -18,31 +18,34 @@ ms.date: 07/26/2016
 ms.author: jonfan
 
 ---
-# Exchange EDIFACT messages with logic apps
+# Exchange EDIFACT messages for enterprise integration with logic apps
+
+Before you can exchange EDIFACT messages, you must create an EDIFACT agreement 
+and store that agreement in your integration account. 
+Here are the steps for how to create an EDIFACT agreement.
 
 > [!NOTE]
-> This page covers the EDIFACT features of Azure Logic Apps. 
+> This page covers the EDIFACT features for Azure Logic Apps. 
 > For more information, see [X12](logic-apps-enterprise-integration-x12.md).
 
-## Create an EDIFACT agreement
-Before you can exchange EDIFACT messages, you must create an EDIFACT agreement and store the agreement in your integration account. 
-The following steps walk you through how to create an EDIFACT agreement.
-
-### Before you get started
+## Before you get started
 
 You'll need these items:
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
-* At least two [partners](logic-apps-enterprise-integration-partners.md) already defined in your integration account  
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
+defined in your Azure subscription  
+* At least two [partners](logic-apps-enterprise-integration-partners.md) 
+already defined in your integration account  
 
 > [!NOTE]
 > When you create an agreement, the content in the messages that you 
 > receive or send to and from the partner must match the agreement type.
 
-After you've [created an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
-and [added partners](logic-apps-enterprise-integration-partners.md), you can create an EDIFACT agreement by following these steps:  
+After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
+and [add partners](logic-apps-enterprise-integration-partners.md), 
+you can create an EDIFACT agreement by following these steps.
 
-### From the Azure portal home page
+## Create an EDIFACT agreement 
 
 1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
 From the left menu, select **More services**.
@@ -51,86 +54,116 @@ From the left menu, select **More services**.
     > If you don't see **More services**, you might have to expand the menu first. 
     > At the top of the collapsed menu, select **Show menu**.
 
-	![On left menu, choose "More services"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+	![On left menu, select "More services"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. In the filter search box, type "integration". 
+2. In the search box, type "integration" for your filter. 
 In the results list, select **Integration Accounts**.
 
 	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
 
-3. In the **Integration Accounts** blade that opens, select the integration account where you want to create the agreement.
+3. In the **Integration Accounts** blade that opens, 
+select the integration account where you want to create the agreement.
 If you don't see any integration accounts, 
 [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
 
 	![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-4. Select the **Agreements** tile. If you don't see the agreements tile, add the tile first.   
+4. Choose the **Agreements** tile. If you don't see the agreements tile, 
+add the tile first.   
 
-	![Select "Agreements"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+	![Choose "Agreements"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
 5. In the Agreements blade that opens, choose **Add**.
 
 	![Choose "Add"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
-6. Under **Add**, enter a **Name** for your agreement. For **Agreement type**, select **EDIFACT**. 
-Select the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity** for your agreement.
+6. Under **Add**, enter a **Name** for your agreement. 
+For **Agreement type**, select **EDIFACT**. 
+Select the **Host Partner**, **Host Identity**, 
+**Guest Partner**, and **Guest Identity** for your agreement.
 
 	![Provide agreement details](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-7. After you set the agreement properties, 
-configure how to handle messages received through this agreement. Select **Receive Settings**.
+	| Property | Description |
+	| --- | --- |
+	| Name |Name of the agreement |
+	| Agreement Type | Should be EDIFACT |
+	| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
+	| Host Identity |An identifier for the host partner |
+	| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
+	| Guest Identity |An identifier for the guest partner |
+	| Receive Settings |These properties apply to all messages received by an agreement. |
+	| Send Settings |These properties apply to all messages sent by an agreement. |
 
-8. The Receive Settings control is divided into the following sections, 
-including Identifiers, Acknowledgment, Schemas, Control Numbers, Validations, Internal Settings, and Inbound batch processing. 
-Configure these properties based on your agreement with the partner that exchanges messages with you. 
-Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
+## Configure how your agreement handles received messages
+
+Now that you've set the agreement properties, 
+you can configure how this agreement identifies and 
+handles incoming messages received from your partner through this agreement.
+
+1.	Under **Add**, select **Receive Settings**.
+Configure these properties based on your agreement 
+with the partner that exchanges messages with you. 
+For property descriptions, see the tables in this section.
+
+	**Receive Settings** is organized into these sections: 
+	Identifiers, Acknowledgment, Schemas, Control Numbers, 
+	Validation, and Internal Settings.
 
 	![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
-9. To save your settings, choose **OK**.
+2. After you're done, 
+make sure to save your settings by choosing **OK**.
+
+	Now your agreement is ready to handle incoming 
+	messages that conform to your selected settings.
 
 ### Identifiers
 
 | Property | Description |
 | --- | --- |
-| UNB6.1 (Recipient Reference Password) | Enter an alphanumeric value ranging between 1 and 14 characters. |
-| UNB6.2 (Recipient Reference Qualifier) | Enter an alphanumeric value with a minimum of one character and a maximum of two characters. |
+| UNB6.1 (Recipient Reference Password) |Enter an alphanumeric value ranging between 1 and 14 characters. |
+| UNB6.2 (Recipient Reference Qualifier) |Enter an alphanumeric value with a minimum of one character and a maximum of two characters. |
 
 ### Acknowledgments
 
 | Property | Description |
 | --- | --- |
-| Receipt of Message (CONTRL) | Select this checkbox to return a technical (CONTRL) acknowledgment to the interchange sender. The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement. |
-| Acknowledgement (CONTRL) | Select this checkbox to return a functional (CONTRL) acknowledgment to the interchange sender The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement. |
+| Receipt of Message (CONTRL) |Select this checkbox to return a technical (CONTRL) acknowledgment to the interchange sender. The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement. |
+| Acknowledgement (CONTRL) |Select this checkbox to return a functional (CONTRL) acknowledgment to the interchange sender The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement. |
 
 ### Schemas
 
 | Property | Description |
 | --- | --- |
-| UNH2.1 (TYPE) | Select a transaction set type. |
-| UNH2.2 (VERSION) | Enter the message version number. (Minimum, one character; maximum, three characters). |
-| UNH2.3 (RELEASE) | Enter the message release number. (Minimum, one character; maximum, three characters). |
-| UNH2.5 (ASSOCIATED ASSIGNED CODE) | Enter the assigned code. (Maximum, six characters. Must be alphanumeric). |
-| UNG2.1 (APP SENDER ID) | Enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. |
-| UNG2.2 (APP SENDER CODE QUALIFIER) | Enter an alphanumeric value, with a maximum of four characters. |
-| SCHEMA | Select the previously uploaded schema you want to use from your associated Integration Account. |
+| UNH2.1 (TYPE) |Select a transaction set type. |
+| UNH2.2 (VERSION) |Enter the message version number. (Minimum, one character; maximum, three characters). |
+| UNH2.3 (RELEASE) |Enter the message release number. (Minimum, one character; maximum, three characters). |
+| UNH2.5 (ASSOCIATED ASSIGNED CODE) |Enter the assigned code. (Maximum, six characters. Must be alphanumeric). |
+| UNG2.1 (APP SENDER ID) |Enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. |
+| UNG2.2 (APP SENDER CODE QUALIFIER) |Enter an alphanumeric value, with a maximum of four characters. |
+| SCHEMA |Select the previously uploaded schema you want to use from your associated Integration Account. |
 
 ### Control Numbers
 | Property | Description |
 | --- | --- |
-| Disallow Interchange Control Number duplicates | To block duplicate interchanges, select this property. If selected, the EDIFACT Decode Action checks that the interchange control number (UNB5) for the received interchange does not match a previously processed interchange control number. If a match is detected, then the interchange is not processed. |
-| Check for duplicate UNB5 every (days) | If you opted to disallow duplicate interchange control numbers, you can specify the number of days at which the check is performed by giving the appropriate value for **Check for duplicate UNB5 every (days)** option. |
-| Disallow Group control number duplicates | To block interchanges with duplicate group control numbers (UNG5), select this property. |
-| Disallow Transaction set control number duplicates | To block interchanges with duplicate transaction set control numbers (UNH1), select this property. |
+| Disallow Interchange Control Number duplicates |To block duplicate interchanges, select this property. If selected, the EDIFACT Decode Action checks that the interchange control number (UNB5) for the received interchange does not match a previously processed interchange control number. If a match is detected, then the interchange is not processed. |
+| Check for duplicate UNB5 every (days) |If you chose to disallow duplicate interchange control numbers, you can specify the number of days when to perform the check by giving the appropriate value for this setting. |
+| Disallow Group control number duplicates |To block interchanges with duplicate group control numbers (UNG5), select this property. |
+| Disallow Transaction set control number duplicates |To block interchanges with duplicate transaction set control numbers (UNH1), select this property. |
 | EDIFACT Acknowledgement Control Number |To designate the transaction set reference numbers for use in an acknowledgment, enter a value for the prefix, a range of reference numbers, and a suffix. |
 
 ### Validations
+
+When you complete each validation row, another is automatically added. 
+If you don't specify any rules, then validation uses the row that's marked "Default".
+
 | Property | Description |
 | --- | --- |
-| Message Type |Specify the message type. As each validation row is completed, another is automatically added. If no rules are specified, then the row marked as default is used for validation. |
+| Message Type |Select the message type. |
 | EDI Validation |To perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators, select this property. |
-| Extended Validation |To enable extended (XSD) validation of interchanges received from the interchange sender, select this property. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. |
-| Allow Leading/Trailing Zeroes |Select **Allow** to allow leading/trailing zeros; **NotAllowed** to not allow leading/trailing zeros, or **Trim** to trim the leading and trailing zeroes. |
+| Extended Validation |To enable extended (XSD) validation of interchanges received from the interchange sender and XSD data types, select this property. This property also validates field length, optionality, and repeat count. |
+| Allow Leading/Trailing Zeroes |Select **Allow** to allow leading/trailing zeros; **Not Allowed** to not allow leading/trailing zeros, or **Trim** to trim the leading and trailing zeroes. |
 | Trim Leading/Trailing Zeroes |To trim any leading or trailing zeroes, select this property.  |
 | Trailing Separator Policy |Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid. Select **Optional** to accept interchanges with or without trailing delimiters and separators. Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
 
@@ -141,19 +174,27 @@ Here is a view of these controls, configure them based on how you want this agre
 | Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
 | Inbound batching processing |Options include:</br></br>**Split Interchange as Transaction Sets - suspend Transaction Sets on Error**: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, if one or more transaction sets in the interchange fail validation, then only those transaction sets are suspended. Split Interchange as Transaction Sets - suspend Interchange on Error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, if one or more transaction sets in the interchange fail validation, then the entire interchange is suspended.</br></br>**Preserve Interchange - suspend Transaction Sets on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then only those transaction sets are suspended, while all other transaction sets are processed.</br></br>**Preserve Interchange - suspend Interchange on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then the entire interchange is suspended. |
 
-Your agreement is ready to handle incoming messages that conform to the settings you selected.
+## Configure how your agreement sends messages
 
-1.	To configure the settings that handle messages that you send to partners through this agreement, 
-select **Send Settings**.
+You can configure how this agreement identifies and handles outgoing 
+messages that you send to your partners through this agreement.
 
-	The Send Settings control is divided into the following sections, including Identifiers, 
-	Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers, and Validation. 
+1.	Under **Add**, select **Send Settings**.
+Configure these properties based on your agreement 
+with your partner who exchanges messages with you. 
+For property descriptions, see the tables in this section.
 
-	Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
+	**Send Settings** is organized into these sections: 
+	Identifiers, Acknowledgment, Schemas, Envelopes, 
+	Character Sets and Separators, Control Numbers, and Validations.
 
 	![Configure "Send Settings"](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
-2. To save your settings, choose **OK**.
+2. After you're done, 
+make sure to save your settings by choosing **OK**.
+
+	Now your agreement is ready to handle outgoing 
+	messages that conform to your selected settings.
 
 ### Identifiers
 
@@ -206,21 +247,31 @@ Other than the character set, you can enter a different set of delimiters to be 
 | UNH1 (Message Header Reference Number) |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the message header reference number. The prefix and suffix are optional, while the reference number is required. The reference number is incremented for each new message; the prefix and suffix remain the same. |
 
 ### Validations
+
+When you complete each validation row, another is automatically added. 
+If you don't specify any rules, then validation uses the row that's marked "Default".
+
 | Property | Description |
 | --- | --- |
-| Message Type |Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction-set data elements, validating data types, length restrictions, and empty data elements and training separators. |
-| EDI Validation |Select this check box to perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators. |
-| Extended Validation |Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
-| Allow leading/trailing zeroes |Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed. |
-| Trim Leading/Trailing Zeroes |Selecting this option trims the leading and trailing zeroes. |
-| Trailing separator |Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid.</br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
+| Message Type |Select the message type. |
+| EDI Validation |Perform EDI validation on transaction-set data elements and data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators. |
+| Extended Validation |Enable extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
+| Allow Leading/Trailing Zeroes |Select **Allow** to allow leading/trailing zeros; **Not Allowed** to not allow leading/trailing zeros, or **Trim** to trim the leading and trailing zeroes. |
+| Trim Leading/Trailing Zeroes |Remove leading or trailing zero characters. |
+| Trailing Separator Policy |Specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared not valid.</br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the received interchange must contain trailing delimiters and separators. |
 
-After you select **OK** on the open blade:  
+## Find your newly created agreement
 
-1. On the integration account blade, select the **Agreements** tile. 
-The newly added agreement appears.  
+1.	After you finish setting all your agreement properties, 
+on the **Add** blade, choose **OK** to finish creating your agreement 
+and return to your integration account blade.
 
-	![Select "Agreements" to see new agreements](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+	Your newly added agreement now appears in your **Agreements** list.
+
+2.	You can also view your agreements in your integration account overview. 
+On your integration account blade, choose **Overview**, then select the **Agreements** tile. 
+
+	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

@@ -1,6 +1,6 @@
 ---
-title: Create X12 agreements - Azure Logic Apps | Microsoft Docs
-description: How to create X12 agreements for Azure Logic Apps by using the Enterprise Integration Pack
+title: X12 messages for enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange X12 messages for enterprise integration with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -17,36 +17,48 @@ ms.date: 01/31/2017
 ms.author: padmavc
 
 ---
-# Enterprise integration with X12
+# Exchange X12 messages for enterprise integration with logic apps
 
-## Prerequisites
+Before you can exchange X12 messages, you must create an X12 agreement 
+and store that agreement in your integration account. 
+Here are the steps for how to an X12 agreement.
 
-Before you can exchange X12 messages, you must create an X12 agreement and store that agreement in your integration account. 
-The following steps walk you through the process of creating an X12 agreement.
+## Before you get started
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
-* At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) configured with EDI X12 qualifier under business identities.   
-* Required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) to be uploaded to [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+You'll need these items:
+
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
+defined in your Azure subscription  
+* At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) 
+configured with EDI X12 qualifier under business identities.   
+* Required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) for uploading to your 
+[integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
 
 ## Create an X12 agreement
 
 1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
+From the left menu, select **More services**. 
 
-2. From the left menu, select **More services**. 
+    > [!TIP]
+    > If you don't see **More services**, you might have to expand the menu first. 
+    > At the top of the collapsed menu, select **Show menu**.
 
-	![Select "More services"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+	![On left menu, select "More services"](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-3.	In the search box, type "integration" as your filter. 
+2.	In the search box, type "integration" as your filter. 
 In the results list, select **Integration Accounts**.  
 
 	![Filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
-3. Select the integration account where you want to add the certificate.
+3. In the **Integration Accounts** blade that opens, 
+select the integration account where you want to add the agreement.
+If you don't see any integration accounts, 
+[create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").
 
 	![Select integration account for adding certificate](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Choose the **Agreements** tile. If you don't see the agreements tile, 
-add the tile. 
+add the tile first. 
 
 	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
@@ -55,7 +67,9 @@ add the tile.
 	![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
-Select **X12** for the agreement type, then select the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity**.
+For the agreement type, select **X12**. 
+Select the **Host Partner**, **Host Identity**, 
+**Guest Partner**, and **Guest Identity** for your agreement.
 
 	![Provide agreement details](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
@@ -63,27 +77,38 @@ Select **X12** for the agreement type, then select the **Host Partner**, **Host 
 	| --- | --- |
 	| Name |Name of the agreement |
 	| Agreement Type | Should be X12 |
-	| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that is configuring the agreement |
+	| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
 	| Host Identity |An identifier for the host partner |
-	| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner |
+	| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
 	| Guest Identity |An identifier for the guest partner |
-	| Receive Settings |These properties apply to all messages received by an agreement |
-	| Send Settings |These properties apply to all messages sent by an agreement |  
+	| Receive Settings |These properties apply to all messages received by an agreement. |
+	| Send Settings |These properties apply to all messages sent by an agreement. |  
 
   > [!NOTE]
   > Resolution of X12 agreement depends on matching the sender qualifier and identifier, 
   > and the receiver qualifier and identifier defined in the partner and incoming message. 
   > If these values change for your partner, update the agreement too.
 
-## Receive Settings
+## Configure how your agreement handles received messages
 
-To specify how to handle messages received from your partner through this agreement, 
-select **Receive Settings**. Configure these settings based on your agreement with your partner 
-and on how you want to identify and handle incoming messages from your partner through this agreement. 
+Now that you've set the agreement properties, 
+you can configure how this agreement identifies and 
+handles incoming messages received from your partner through this agreement.
 
-The Receive Settings control is organized into these sections: Identifiers, 
-Acknowledgment, Schemas, Envelopes, Control Numbers, Validation, and Internal Settings, 
-described here.
+1.	Under **Add**, select **Receive Settings**.
+Configure these properties based on your agreement 
+with the partner that exchanges messages with you. 
+For property descriptions, see the tables in this section.
+
+	**Receive Settings** is organized into these sections: 
+	Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, 
+	Validations, and Internal Settings.
+
+2. After you're done, 
+make sure to save your settings by choosing **OK**.
+
+	Now your agreement is ready to handle incoming 
+	messages that conform to your selected settings.
 
 ### Identifiers
 
@@ -147,14 +172,17 @@ in the incoming message with the values you set here, and the schema of the inco
 
 ![Set Validation properties for received messages](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
+When you complete each validation row, another is automatically added. 
+If you don't specify any rules, then validation uses the row that's marked "Default".
+
 | Property | Description |
 | --- | --- |
-| Message Type |EDI Message types, like 850-Purchase Order or 999-Implementation Acknowledgement |
+| Message Type |Select the EDI message type. |
 | EDI Validation |Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
-| Allow Leading/Trailing Zeroes |Retain any additional leading (or trailing) zero and space characters. Don't remove these characters. |
-| Trim Leading/Trailing Zeroes |Remove leading (or trailing) zero and space characters. |
-| Trailing Separator Policy |Generates trailing separators on the interchange received from the interchange sender.</br></br>Select Not Allowed when you want to prohibit trailing delimiters and separators in the received interchange. If the interchange contains trailing delimiters and separators, the interchange is declared not valid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the interchange must contain trailing delimiters and separators. |
+| Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
+| Trim Leading/Trailing Zeroes |Remove leading or trailing zero and space characters. |
+| Trailing Separator Policy |Generate trailing separators.<br></br>Select **Not Allowed** to prohibit trailing delimiters and separators in a received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid.<br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the interchange must have trailing delimiters and separators. |
 
 ### Internal Settings
 
@@ -172,15 +200,25 @@ in the incoming message with the values you set here, and the schema of the inco
 After you set the Receive Settings properties, choose **OK**.
 Your agreement is ready to handle incoming messages that conform to the schema you selected.
 
-## Send Settings
+## Configure how your agreement sends messages
 
-To specify how to handle messages sent through this agreement, 
-select **Send Settings**. Configure these settings based on your agreement with your partner 
-and on how you want to identify and handle outgoing messages to your partner.
+You can configure how this agreement identifies and handles outgoing 
+messages that you send to your partner through this agreement.
 
-The Send Settings control is organized into these sections: Identifiers, 
-Acknowledgment, Schemas, Envelopes, Character Sets and Separators, 
-Control Numbers, and Validation, described here.
+1.	Under **Add**, select **Send Settings**.
+Configure these properties based on your agreement 
+with your partner who exchanges messages with you. 
+For property descriptions, see the tables in this section.
+
+	**Send Settings** is organized into these sections: Identifiers, 
+	Acknowledgment, Schemas, Envelopes, Character Sets and Separators, 
+	Control Numbers, and Validation.
+
+2. After you're done, 
+make sure to save your settings by choosing **OK**.
+
+	Now your agreement is ready to handle outgoing 
+	messages that conform to your selected settings.
 
 ### Identifiers
 
@@ -271,23 +309,30 @@ If a character set isn't specified for a given message schema, then the default 
 
 ![Set Validation properties for sending messages](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
 
+When you complete each validation row, another is automatically added. 
+If you don't specify any rules, then validation uses the row that's marked "Default".
+
 | Property | Description |
 | --- | --- |
-| Message Type |Select the message type from the list |
-| EDI Validation |Enable validation on the interchange receiver. This validation performs EDI validation on transaction set data elements, validating data types, length restrictions, and empty data elements and trailing separators |
-| Extended Validation |Enable extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
-| Allow Leading/Trailing Zeroes |Specifies that an EDI interchange received from the party does not fail validation when a data element in an EDI interchange does not conform to its length requirement. The data element might not conform due to leading (or trailing) zeros or spaces, but does conform to its length requirement when those characters are removed. |
-| Trim Leading/Trailing Zeroes |Remove leading (or trailing) zero characters. |
-| Trailing Separator Policy |Generates trailing separators on the interchange sent.</br></br>Select Not Allowed if you want to prohibit trailing delimiters and separators in the sent interchange. If the interchange contains trailing delimiters and separators, the interchange is declared invalid.</br></br>Select Optional to send interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the sent interchange must contain trailing delimiters and separators. |
+| Message Type |Select the EDI message type. |
+| EDI Validation |Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
+| Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
+| Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
+| Trim Leading/Trailing Zeroes |Remove leading or trailing zero characters. |
+| Trailing Separator Policy |Generate trailing separators on the interchange sent.</br></br>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid.</br></br>Select **Optional** to send interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
 
-1.	After you set the **Send settings** properties, choose **OK**. 
-Your agreement is ready to handle outgoing messages that conform to the schema you selected.
+## Find your newly created agreement
 
-2.	To create the agreement, choose **OK**.
+1.	After you finish setting all your agreement properties, 
+on the **Add** blade, choose **OK** to finish creating your agreement 
+and return to your integration account blade.
 
-3.	On the Integration Account blade, select the **Agreements** tile. The newly added agreement appears. 
+	Your newly added agreement now appears in your **Agreements** list.
 
-	![View the agreement that you created](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+2.	You can also view your agreements in your integration account overview. 
+On your integration account blade, choose **Overview**, then select the **Agreements** tile.
+
+	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
