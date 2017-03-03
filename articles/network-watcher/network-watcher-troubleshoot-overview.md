@@ -21,6 +21,8 @@ ms.author: gwallace
 
 Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called by PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Results
 
 The preliminary results returned give an overall picture of the health of the resource. Deeper information can be provided for resources as shown in the following section:

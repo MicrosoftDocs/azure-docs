@@ -32,6 +32,8 @@ This article covers scenario and resource level monitoring. Network monitoring i
 
 Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 Network Watcher currently has the following capabilities:
 
 * **[Topology](network-watcher-topology-overview.md)** - Provides a network level view showing the various interconnections and associations between network resources in a resource group.
