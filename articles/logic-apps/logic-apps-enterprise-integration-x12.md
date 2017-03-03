@@ -182,7 +182,7 @@ If you don't specify any rules, then validation uses the row that's marked "Defa
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero and space characters. |
-| Trailing Separator Policy |Generate trailing separators.<br></br>Select **Not Allowed** to prohibit trailing delimiters and separators in a received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid.<br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the interchange must have trailing delimiters and separators. |
+| Trailing Separator Policy |Generate trailing separators. <br></br>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators. </br></br>Select **Mandatory** if the interchange must have trailing delimiters and separators. |
 
 ### Internal Settings
 
@@ -319,7 +319,7 @@ If you don't specify any rules, then validation uses the row that's marked "Defa
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero characters. |
-| Trailing Separator Policy |Generate trailing separators on the interchange sent.</br></br>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid.</br></br>Select **Optional** to send interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
+| Trailing Separator Policy |Generate trailing separators. </br></br>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid.</br></br>Select **Optional** to send interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
 
 ## Find your newly created agreement
 
