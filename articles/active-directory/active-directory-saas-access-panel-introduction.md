@@ -41,22 +41,18 @@ Users access the Access Panel by visiting the following URL in a web browser: <b
 If you have custom branding configured for your sign-in page, you can load this branding by default by appending your organization’s domain to the end of the URL: <br>
 **http://myapps.microsoft.com/contosobuild.com**
 
-In this case, any active or verified domain name that has been configured under the Domains tab of your directory in the Azure portal may be used, as illustrated in the screenshot below.
+In this case, you can use any active or verified domain name that has been configured under the **Domains** tab of your directory in the Azure portal, as illustrated in the following screenshot:
 
-![Wingtip toys][2]  
+![Wingtip Toys domain name][2]  
 
-This URL must be distributed to all users who will be signing into applications integrated with Azure AD.
+This URL must be distributed to all users who will sign in to applications that are integrated with Azure AD.
 
 ## Authentication
-In order to reach the Access Panel, a user must be authenticated using a work or school account in Azure AD. <br>
-A user can be authenticated to Azure AD directly. <br>
-Alternatively, if an organization has configured federation using ADFS or other technologies, users can be authenticated by Windows Server Active Directory.
+To reach the Access Panel, a user must be authenticated through a work or school account in Azure AD. A user can be authenticated to Azure AD directly. Alternatively, if an organization has configured federation by using Active Directory Federation Services (AD FS) or other technologies, users can be authenticated by Windows Server Active Directory.
 
-If a user has a subscription for Azure or Office 365 and has been using the Azure portal or an Office 365 application, then they will be presented the list of applications without needing to sign in again. Users who are not authenticated will be prompted to sign in using the username and password for their account in Azure AD.
-If the organization has configured federation, then typing the username is sufficient.
+If a user has a subscription for Azure or Office 365 and has been using the Azure portal or an Office 365 application, they'll see the list of applications without needing to sign in again. Users who are not authenticated will be prompted to sign in by using the username and password for their account in Azure AD. If the organization has configured federation, then typing the username is sufficient.
 
-Once authenticated, users will be able to interact with the applications that have been integrated with the directory by the administrator.
- To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+After authentication, users can interact with the applications that the administrator has integrated with the directory. To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Web browser requirements
 At a minimum, the Access Panel requires a browser with support for JavaScript and CSS enabled. In order for the user to be signed on to applications using Password-based SSO, the Access Panel extension must be installed in the user’s browser. This Access Panel extension is downloaded automatically when a user selects an application that is configured for Password-based SSO.
