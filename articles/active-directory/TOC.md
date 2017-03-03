@@ -72,7 +72,7 @@
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
-## [Manage reports](active-directory-view-access-usage-reports.md)
+## [Manage reports](active-directory-reporting-azure-portal.md)
 ### [Sign-ins activity](active-directory-reporting-activity-sign-ins.md)
 ### [Audit activity](active-directory-reporting-activity-audit-logs.md)
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
@@ -88,11 +88,10 @@
 #### [Prerequisites](active-directory-reporting-api-prerequisites.md)
 #### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
-### Classic portal
+### [Classic portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD reporting](active-directory-reporting-getting-started.md)
 #### [Reporting guide](active-directory-reporting-guide.md)
 #### [Known networks](active-directory-known-networks.md)
-#### [Preview](active-directory-reporting-azure-portal.md)
 #### [API](active-directory-reporting-api-getting-started.md)
 #### [Audit events](active-directory-reporting-audit-events.md)
 #### [Latencies](active-directory-reporting-latencies.md)

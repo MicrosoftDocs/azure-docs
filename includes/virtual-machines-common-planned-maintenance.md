@@ -16,16 +16,17 @@ The multi-instance configuration provides redundancy across physical machines, p
 
 For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of your Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.
+By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA) that requires deploying two or more virtual machines in the same availability set.
 
-For more information about SLAs, see the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+For more information about SLAs, see the "Cloud Services and Virtual Machines" sections of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 ## Multi-instance configuration updates
-During planned maintenance, the Azure platform shuts down, updates, and then reboots the set of virtual machines that are hosted in a multi-instance configuration. The update process requires about 15 minutes of downtime on the targeted virtual machines.
+During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. The update causes a reboot to these virtual machines with approximately 15 minutes of downtime.
 
-In a multi-instance configuration update, virtual machines are updated in a way that preserves availability throughout the process. The underlying assumption is that all the virtual machines in the set provide the same service.
+A multi-instance configuration update assumes that each virtual machine serves a similar function as the others in the availability set. In this setting, virtual machines are updated in a way that preserves availability throughout the process.
 
-Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that are rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
+Each virtual machine in an availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
+
 
 For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
@@ -37,6 +38,7 @@ After a virtual machine is restored, here is an example of what your Windows Eve
 
 <!--Image reference-->
 ![][image2]
+
 
 Use the viewer to report the virtual machines that are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, using the Azure portal, you can add the _Availability Set_ to the **virtual machines (classic)** browse dialog. The virtual machines that report the same availability set are part of a multi-instance configuration. In the following example, the multi-instance configuration consists of virtual machines SQLContoso01 and SQLContoso02.
 
@@ -52,6 +54,7 @@ After the multi-instance configuration updates are complete, Azure performs sing
 
 Maintenance in a single-instance configuration consists of shutting down each virtual machine running on a host machine, updating the host machine, and then restarting the virtual machines. The maintenance requires approximately 15 minutes of downtime. The planned maintenance event runs across all virtual machines in a region in a single maintenance window.
 
+
 Planned maintenance events impact the availability of your application for single-instance configurations. Azure offers a one-week advanced notification for planned maintenance of virtual machines in single-instance configurations.
 
 ## Email notification
@@ -61,9 +64,11 @@ For single-instance and multi-instance virtual machine configurations only, Azur
 ![][image1]
 
 ## Region pairs
-When executing maintenance, Azure only update the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure does not update any Virtual Machines in South Central US at the same time. Maintenance for the South Central US region is scheduled for a different time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
 
-See the following table for current region pairings:
+When executing maintenance, Azure only updates the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a separate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
+
+See the following table for current region pairs:
+
 
 | Region 1 | Region 2 |
 |:--- | ---:|
