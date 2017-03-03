@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/1/2017
+ms.date: 3/3/2017
 ms.author: erikje
 
 ---
@@ -26,18 +26,21 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
 > 
 
 ## Download and extract Microsoft Azure Stack POC
-Before you start, make sure that you at least 60 GB of space and that you have .NET Framework 4.6 installed.
+1. Before you start the download, make sure that your computer meets the following prerequisites:
 
-1. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
-2. Under **Download the software**, click **Azure Stack**.
-3. Run the downloaded AzureStackDownloader.exe file.
-4. In the **Azure Stack POC Downloader** window, follow steps 1 through 5. After you click **Download**, choose a folder to download the files.
-5. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
-6. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
-7. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
-8. Select the Destination for the files to be extracted, click **Next**.
+   * The computer must have at least 60 GB of free disk space.
+   * [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
+
+2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
+3. Under **Download the software**, click **Azure Stack**.
+4. Run the downloaded AzureStackDownloader.exe file.
+5. In the **Azure Stack POC Downloader** window, follow steps 1 through 5. After you click **Download**, choose a folder to download the files.
+6. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
+7. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
+8. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
+9. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
+10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
 
 > [!NOTE]
 > After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
