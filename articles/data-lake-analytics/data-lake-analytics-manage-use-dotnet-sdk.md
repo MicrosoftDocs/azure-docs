@@ -35,10 +35,10 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
    3. Search for and install the following NuGet packages, installing the preview versions as indicated.
 
-    - Microsoft.Rest.ClientRuntime.Azure.Authentication (preview)
-    - Microsoft.Azure.Management.ResourceManager (preview)
-    - Microsoft.Azure.Management.DataLake.Analytics
-    - Microsoft.Azure.Management.DataLake.Store preview
+    - Microsoft.Rest.ClientRuntime.Azure.Authentication V2.1.0 preview
+    - Microsoft.Azure.Management.ResourceManager V2.2.12
+    - Microsoft.Azure.Management.DataLake.Analytics V2.1.0 preview
+    - Microsoft.Azure.Management.DataLake.Store - V2.1.0 preview
  
    4. Close the **Nuget Package Manager**.
 
@@ -280,24 +280,23 @@ The first parameter for these methods is the name of the Data Lake Store Account
 
 The following example shows how to download a folder in the Data Lake Store.
 
-    void DownloadFolder(string account, string sourcePath, string destinationPath)
+
+    try
     {
-        try
+        if (adlsFileSystemClient.FileSystem.PathExists(account, sourcePath))
         {
-            if (adlsFileSystemClient.FileSystem.PathExists(account, sourcePath))
-            {
-                adlsFileSystemClient.FileSystem.DownloadFolder(account, sourcePath, destinationPath);
-            }
-            else
-            {
-                Console.WriteLine("Path does not exist");
-            }
+            adlsFileSystemClient.FileSystem.DownloadFolder(account, sourcePath, destinationPath);
         }
-        catch (IOException ioex)
+        else
         {
-            Console.WriteLine(ioex.Message);
+            Console.WriteLine("Path does not exist");
         }
     }
+    catch (IOException ioex)
+    {
+        Console.WriteLine(ioex.Message);
+    }
+
 
 ### Create a file in a Data Lake Store account
 You can use .NET Framework IO operations to create content for a file in a Data Lake Store. The following code writes the first four values of 100 random byte arrays to .csv file.
