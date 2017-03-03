@@ -120,7 +120,7 @@ Click the **Create** button.
 
 Stream Analytics supports a simple, declarative query model that describes transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx).  This tutorial will help you author and test several queries over Twitter data.
 
-To compare the number of mentions among topics, we'll use a [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx) to get the count of mentions by topic every five seconds.
+To compare the number of mentions among topics, we'll use a [Tumbling Window](https://msdn.microsoft.com/library/azure/dn835055.aspx) to get the count of mentions by topic every five seconds.
 
 Change the query in the code editor to the code below and then click **Save**:
 
@@ -167,7 +167,18 @@ In the dialog box that opens, click **JOB START TIME**, and then click the **CHE
 After your job is running and processing the real-time Twitter stream, choose how you want to view the output for sentiment analysis. Use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real-time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one in the following screenshot.
 
 ![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
-          
+
+## Another query of interest  in this scenario
+
+Another sample query we created for this scenario are based on [Sliding Window](https://msdn.microsoft.com/library/azure/dn835051.aspx). To identify trending topics, we'll look for topics that cross a threshold value for mentions in a given amount of time. For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in the last five seconds.
+
+```
+SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
+FROM TwitterStream TIMESTAMP BY CreatedAt
+GROUP BY SLIDINGWINDOW(s, 5), topic
+HAVING COUNT(*) > 20
+```
+
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
