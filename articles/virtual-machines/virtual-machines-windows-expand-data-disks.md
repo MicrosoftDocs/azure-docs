@@ -35,6 +35,8 @@ To increase the size of a managed data disk, use the following PowerShell cmdlet
 | [Update-AzureRmVM](/powershell/update-azurermvm)                   | [Start-AzureRmVM](/powershell/start-azurermvm)             |
 <br>
 
+The following script will walk you through getting the VM information, selecting the data disk and specifying the new size.
+
 ```powershell
 # Select resource group
      
@@ -95,6 +97,8 @@ To increase the size of unmanaged data disks in a storage account, use the follo
 | [Update-AzureRmVM](/powershell/update-azurermvm)                   | [Start-AzureRmVM](/powershell/start-azurermvm)             |
 
 <br>
+
+The following script will walk you through getting the VM and storage account information, selecting the data disk and specifying the new size.
 
 ```powershell
 
