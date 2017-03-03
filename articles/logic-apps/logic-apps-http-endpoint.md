@@ -1,6 +1,6 @@
 ---
-title: Call logic apps as triggers - Azure Logic Apps | Microsoft Docs
-description: Create and configure trigger endpoints so you can call logic apps
+title: Call, trigger, or nest logic apps through HTTP endpoints - Azure Logic Apps | Microsoft Docs
+description: Add and configure HTTP endpoints to call, trigger, or nest workflows for logic apps in Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -13,15 +13,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
+ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 ---
 
-# Call logic apps by creating and configuring trigger endpoints
+# Add HTTP endpoints to call, trigger, or nest logic app workflows
 
-Logic apps can natively expose a synchronous HTTP endpoint as a trigger. 
-You can also use the pattern of callable endpoints to invoke logic apps 
-as a nested workflow through the "workflow" action in your logic app.
+Logic apps can natively expose synchronous HTTP endpoints as triggers 
+so that you can call your logic apps. You can also use a pattern 
+of callable endpoints to invoke logic apps as nested workflows by 
+adding the **Choose a Logic Apps workflow** action to your logic app.
 
 You can use these triggers for receiving requests:
 
@@ -29,46 +31,55 @@ You can use these triggers for receiving requests:
 * ApiConnectionWebhook
 * HttpWebhook
 
-This topic uses the `request` trigger as examples, 
+This topic uses the **Request** trigger as examples, 
 but all principles apply identically to the other trigger types.
 
 ## Add a trigger to your logic app definition
 
-First, add a trigger that can receive incoming requests to your logic app definition. 
-For example, in the Logic App Designer, find and add the **HTTP Request** trigger to your logic app. 
-You can define a request body JSON Schema, so the designer generates tokens to help you parse 
-and pass data from the manual trigger through the workflow. If you do not have a schema ready, 
-choose **Use sample payload to generate schema** for generating a JSON schema from a sample payload.
+1. In Logic App Designer, add a trigger that can receive 
+incoming requests for your logic app definition. 
+For example, add the **Request** trigger to your logic app.
 
-![Add the Request trigger][2]
+2.	Under **Request Body JSON Schema**, 
+you can enter a JSON schema for the payload that you expect to receive. 
+If you don't have a schema ready, 
+you can choose **Use sample payload to generate schema** 
+to generate a JSON schema from a sample payload.
 
-After you save your logic app definition, 
-a callback URL is generated, like this example:
+	The designer uses this schema for generating tokens 
+	that help you consume, parse, and pass data 
+	from the manual trigger through your workflow.
 
-``` text
-https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?*signature*...
-```
+	![Add the Request action][2]
 
-This URL contains a Shared Access Signature (SAS) key in the query parameters used for authentication. 
-You can also get this endpoint in the Azure portal:
+2.	After you save your logic app definition, under **HTTP POST to this URL**, 
+you'll get a generated callback URL, like this example:
 
-![URL endpoint][1]
+	``` text
+	https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?*signature*...
+	```
 
-Or by calling:
+	This URL contains a Shared Access Signature (SAS) key 
+	in the query parameters used for authentication. 
+	You can also get this endpoint from the Azure portal:
 
-``` text
-POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
-```
+	![URL endpoint][1]
+
+	Or by calling:
+
+	``` text
+	POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
+	```
 
 ### Change the HTTP method for your trigger
 
-By default, the logic app Request trigger expects an HTTP POST request. 
+By default, the Request trigger expects an HTTP POST request. 
 To configure a different HTTP method, choose **Show advanced options**.
 
- > [!NOTE]
- > Only one type of method is allowed.
+> [!NOTE]
+> Only one type of method is allowed.
 
-### Customize relative trigger URL
+### Customize the relative trigger URL
 
 You can also customize the relative path for the request URL to accept parameters.
 
@@ -167,8 +178,8 @@ the logic app endpoint *immediately* responds with **202 Accepted**.
 		"conditions": [],
 		"inputs": {
 			"body": {
-				"name": "@{triggerBody()['name']}",
-							"title": "@{triggerBody()['title']}"
+				"name": "@{triggerBody()['name']}", 
+					"title": "@{triggerBody()['title']}"
 			},
 			"headers": {
 				"content-type": "application/json"
@@ -187,9 +198,9 @@ Responses have these properties:
 | body |A body object that can be a string, a JSON object, or even binary content referenced from a previous step. |
 | headers |You can define any number of headers to include in the response. |
 
-In your logic app, all the steps required for the response 
-must finish within *60 seconds* for the original request to get the response, 
-*unless the workflow is called as a nested logic app*.  
+In your logic app, all steps required for the response must finish 
+within *60 seconds* for the original request to get the response, 
+*unless you call the workflow as a nested logic app*. 
 If no response happens within 60 seconds, 
 the incoming request times out and receives a **408 Client timeout** HTTP response. 
 For nested logic apps, the parent logic app continues to wait for a 
