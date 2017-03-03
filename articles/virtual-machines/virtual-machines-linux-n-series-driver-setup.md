@@ -48,14 +48,44 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
     You will see output similar to the following example (showing an NVIDIA Tesla K80 card):
 
     ![lspci command output](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
+    
+3. Ubuntu installs the Nouveau drivers by default. You must first blacklist and uninstall these drivers prior to installing the NVIDIA drivers.
 
-3. Download the .run file for the driver for your distribution. The following example command downloads the Ubuntu 16.04 LTS Tesla driver to the /tmp directory:
+    ```bash
+    sudo nano /etc/modprobe.d/blacklist.conf
+    ```
+    At the bottom of the file add the following entries:
+
+    ```
+    blacklist amd76x_edac #this might not be required for x86 32 bit users.
+    blacklist vga16fb
+    blacklist nouveau
+    blacklist rivafb
+    blacklist nvidiafb
+    blacklist rivatv
+    ```
+    
+    Remove all existing NVIDIA Nouvea packages with the following command:
+
+    ```bash
+    sudo apt-get remove --purge nvidia*
+    ```
+    
+    Restart your Virtual Machine with the following command:
+
+    ```bash
+    sudo reboot
+    ```
+
+4. Reconnect to the Azure N-series VM. 
+
+5. Download the .run file for the driver for your distribution. The following example command downloads the Ubuntu 16.04 LTS Tesla driver to the /tmp directory:
 
     ```bash
     wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
     ```
 
-4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
+6. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
 
     ```bash
     sudo apt-get update
@@ -65,12 +95,12 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
     sudo apt install make
     ```
 
-4. Change to the directory containing the driver installer and run commands similar to the following:
+7. Change to the directory containing the driver installer and run commands similar to the following:
 
     ```bash
-    chmod +x NVIDIA-Linux-x86_64-367.48.run
+    chmod +x /tmp/NVIDIA-Linux-x86_64-367.48.run
     
-    sudo sh ./NVIDIA-Linux-x86_64-367.48.run
+    sudo sh /tmp/NVIDIA-Linux-x86_64-367.48.run
     ```
 
 ## Verify driver installation
