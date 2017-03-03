@@ -46,7 +46,7 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcher Microsoft.Network Registered
 ```
 
-####Instructions for CLI
+### Instructions for CLI
 
 To register
 
@@ -54,6 +54,7 @@ To register
 azure provider register Microsoft.Network
 azure feature register  Microsoft.Network AllowNetworkWatcher
 ```
+
 To verify the registration was successful, run the following CLI command:
 
 ```CLI
@@ -61,6 +62,7 @@ azure feature show Microsoft.Network AllowNetworkWatcher
 ```
 
 If the feature was properly registered, the output should match the following:
+
 ```CLI
 info:    Executing command feature show
 data:    Feature Name:       AllowNetworkWatcher

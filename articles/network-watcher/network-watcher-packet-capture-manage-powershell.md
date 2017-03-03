@@ -40,8 +40,9 @@ This article takes you through the different management tasks that are currently
 
 This article assumes you have the following resources:
 
-- An instance of Network Watcher in the region you want to create a packet capture
-- A virtual machine with the packet capture extension enabled.
+* An instance of Network Watcher in the region you want to create a packet capture
+
+* A virtual machine with the packet capture extension enabled.
 
 > [!IMPORTANT]
 > Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
