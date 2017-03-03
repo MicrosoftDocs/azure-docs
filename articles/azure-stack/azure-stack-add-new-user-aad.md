@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2017
+ms.date: 3/2/2017
 ms.author: erikje
 
 ---
@@ -66,5 +66,5 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
     ```
 
 1. Sign in to Microsoft Azure with the new account. Change the password when prompted.
-2. Sign in to `https://publicportal.local.azurestack.global` with the new account to see the tenant portal.
+2. Sign in to `https://publicportal.local.azurestack.external` with the new account to see the tenant portal.
 
