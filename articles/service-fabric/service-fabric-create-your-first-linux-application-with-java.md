@@ -102,7 +102,7 @@ Actor projects do not do anything on their own. They require another service or 
 
 Service Fabric also gives you the provision to create, build and deploy service fabric Java application using Eclipse, which is one of the most used Java development tools. When installing Eclipse, choose the **Eclipse IDE for Java developers**. Also, Service Fabric currently supports the plugin for Eclipse **Neon**. Please refer to the detailed documentation - [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 
-## Adding more services to an existing application using yo utility
+## Adding more services to an existing application using command line-utility
 
 To add another service to an application already created using `yo`, perform the following steps:
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.

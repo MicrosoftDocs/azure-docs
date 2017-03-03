@@ -128,7 +128,7 @@ Now, you can start the application upgrade with the following command:
 ```
  azure servicefabric application upgrade start -–application-name fabric:/App1Application -–target-application-type-version 2.0  --rolling-upgrade-mode UnmonitoredAuto
 ```
-For more details about how to use azure-cli from terminal, you can refer to our [azure-cli documentation](service-fabric-azure-cli,md).
+For more details about how to use azure-cli from terminal, you can refer to our [azure-cli documentation](service-fabric-azure-cli,md#upgrading-your-application).
 
 
 ### Using Eclipse plugin for Service Fabric
