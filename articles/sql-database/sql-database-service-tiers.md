@@ -34,6 +34,7 @@ The following table provides examples of the tiers best suited for different app
 | **Standard** |The go-to option for cloud applications with low to medium IO performance requirements, supporting multiple concurrent queries. Examples include workgroup or web applications. |
 | **Premium** | Designed for high transactional volume with high IO performance requirements, supporting many concurrent users. Examples are databases supporting mission critical applications. |
 | **Premium RS** | Designed for customers that have IO-intensive workloads but do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record. |
+|||
 
 First decide if you want to run a single database with a defined amount of dedicated resource or if you share a pool of resources acrosss a group of databases. Review the [elastic pool considerations](sql-database-elastic-pool-guidance.md). To decide on a service tier, start by determining the minimum database features that you need:
 
@@ -43,6 +44,7 @@ First decide if you want to run a single database with a defined amount of dedic
 | Maximum total storage in an elastic pool | 117 GB | 1200 GB | 750 GB | 750 GB |
 | Maximum number of databases per pool | 400  | 400 | 50 | 50 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
+||||||
 
 > [IMPORTANT]
 > Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the unlikely event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
