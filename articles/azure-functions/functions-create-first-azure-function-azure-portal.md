@@ -47,7 +47,7 @@ A function app hosts the execution of your functions in Azure. If you don't alre
 When creating a Function App, you must create or link a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a new Function App.
 When using the Consumption hosting plan, Function App content (such as function code files and binding configuration) are stored on Azure Files shares on the main storage account. If you delete the main storage account, this content will be deleted and cannot be recovered.
 
-To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/storage-introduction#introducing-the-azure-storage-services).
+To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/storage-introduction#introducing-the-azure-storage-services.md).
 
 ## Create a function
 These steps create a function from the Azure Functions quickstart.
