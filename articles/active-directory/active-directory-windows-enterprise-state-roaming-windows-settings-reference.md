@@ -4,8 +4,8 @@ description: A complete list of all the settings that will be roamed or backed u
 services: active-directory
 keywords: enterprise state roaming, windows cloud
 documentationcenter: ''
-author: femila
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: curtand
 
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 
 ---
 # Windows 10 roaming settings reference

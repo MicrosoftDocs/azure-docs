@@ -100,11 +100,32 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  If you have Scale-out Process servers attached to this Configuration Server, you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) in your deployment.
+  If you have Scale-out Process servers attached to this Configuration Server, you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) in your deployment.
+
+## Re-register a Configuration Server with the same Recovery Services Vault
+  1. Login to your Configuration Server.
+  2. Launch the cspsconfigtool.exe using the shortcut on your.
+  3. Click the **Vault Registration** tab.
+  4. Download a new Registration file from the portal and provide it as input to the tool.
+        ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
+  5. Provide the Proxy Server details and click the **Register** button.  
+  6. Open an Admin PowerShell command window.
+  7. Run the following command
+
+      ```
+      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      net stop obengine
+      net start obengine
+      ```
+
+  >[!WARNING]
+  If you have Scale-out Process servers attached to this Configuration Server, you need to [re-register all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) in your deployment.
 
 ## Registering a Configuration Server with a different Recovery Services Vault.
 1. Login to your Configuration Server.
 2. from and admin command prompt, run the command
+
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 net stop dra
@@ -148,11 +169,11 @@ Ensure the following before you start decommissioning your Configuration Server.
 1. Log on to the Configuration Server as an Administrator.
 2. Open up Control Panel > Program > Uninstall Programs
 3. Uninstall the programs in the following sequence:
+  * Microsoft Azure Recovery Services Agent
   * Microsoft Azure Site Recovery Mobility Service/Master Target server
+  * Microsoft Azure Site Recovery Provider
   * Microsoft Azure Site Recovery Configuration Server/Process Server
   * Microsoft Azure Site Recovery Configuration Server Dependencies
-  * Microsoft Azure Recovery Services Agent
-  * Microsoft Azure Site Recovery Provider
   * MySQL Server 5.5
 4. Run the following command from and admin command prompt.
   ```

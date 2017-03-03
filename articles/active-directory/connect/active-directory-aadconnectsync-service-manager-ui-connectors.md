@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Docs'
+title: Connectors in the Azure AD Synchronization Service Manager UI | Microsoft Docs'
 description: Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/02/2017
 ms.author: billmath
-
+ms.custom: H1Hack27Feb2017
 ---
-# Azure AD Connect sync: Synchronization Service Manager
+# Using connectors with the Azure AD Connect Sync Service Manager
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 

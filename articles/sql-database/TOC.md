@@ -93,7 +93,7 @@
 ## Data movement
 ### [Copy a SQL database](sql-database-copy.md)
 ### [Export a database](sql-database-export.md)
-## Monitoring and Tuning
+## Monitor and Tune
 ### [Single databases](sql-database-single-database-monitor.md)
 ### [SQL Database Advisor overview](sql-database-advisor.md)
 ### [Query Performance Insight](sql-database-query-performance.md)
@@ -229,6 +229,7 @@
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (Elastic DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)

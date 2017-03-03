@@ -5,7 +5,7 @@ keywords: azure app service, web app, linux, oss
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 3a71d10a-a0fe-4d28-af95-03b2860057d5

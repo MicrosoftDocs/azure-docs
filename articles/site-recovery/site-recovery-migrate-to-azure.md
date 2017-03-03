@@ -44,7 +44,7 @@ You can:
 
 To migrate on-premises Hyper-V VMs, VMware VMs, and physical servers, you follow almost the same steps as those used for regular replication. You set up a Recovery Services vault, configure the required management servers (depending on what you want to migrate), add them to the vault, and specify replication settings. You enable replication for the machines you want to migrate, and run a quick test failover to ensure that everything's working as it should.
 
-After you verify that your replication environment is working, you use a planned or unplanned failover depending on [what's supported](site-recovery-failover.md#failover-and-failback) for your scenario. For migration, you don't need to commit a failover. Instead, you select the **Complete Migration** option for each machine you want to migrate. The **Complete Migration** action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
+After you verify that your replication environment is working, you use a planned or unplanned failover depending on [what's supported](site-recovery-failover.md) for your scenario. For migration, you don't need to commit a failover. Instead, you select the **Complete Migration** option for each machine you want to migrate. The **Complete Migration** action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

@@ -1,6 +1,6 @@
 ---
 
-  title: Get started with Azure Active Directory licensing in the Azure portal | Microsoft Docs
+  title: Get started with licensing in the Azure Active Directory preview | Microsoft Docs
   description: Description of Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions
   services: active-directory
   keywords: Azure AD licensing
@@ -15,12 +15,14 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/06/2017
+  ms.date: 02/27/2017
   ms.author: curtand
+
+  ms.custom: H1Hack27Feb2017
 
 ---
 
-# Get started with Azure Active Directory licensing in the Azure portal
+# License yourself and your users in Azure Active Directory preview
 
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-licensing-get-started-azure-portal.md)
