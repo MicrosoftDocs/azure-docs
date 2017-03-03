@@ -187,10 +187,6 @@ Note that this tutorial shows how to write a .NET Core application, but if you w
     ```csharp
     namespace SampleEphReceiver
     {
-        using System;
-        using System.Threading.Tasks;
-        using Microsoft.Azure.EventHubs;
-        using Microsoft.Azure.EventHubs.Processor;
     
         public class Program
         {
