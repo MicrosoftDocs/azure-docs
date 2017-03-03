@@ -17,13 +17,12 @@ ms.date: 03/02/2016
 ms.author: robb
 
 ---
-# Configure Azure Diagnostics to send data to Application Insights
-Azure diagnostics send data to Azure Storage tables.  However, you can also pipe all or a subset of the data to other locations using Azure Diagnostics extension 1.5 or later.
+# Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights
+Cloud services, Virtual Machines, Virtual Machine Scale Sets and Service Fabric all use the Azure Diagnostics extension to collect data.  Azure diagnostics sends data to Azure Storage tables.  However, you can also pipe all or a subset of the data to other locations using Azure Diagnostics extension 1.5 or later.
 
 This article describes how to send data from the Azure Diagnostics extension to Application Insights.
 
-
-## Configuring Application Insights as a Sink
+## Diagnostics configuration explained
 The Azure diagnostics extension 1.5 introduced sinks, which are additional locations where you can send diagnostic data.
 
 Example configuration of a sink for Application Insights:
@@ -61,19 +60,14 @@ The following graphic shows this relationship.
 
 ![Diagnostics Public Configuration](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
 
-## Send data to the Application Insights sink
 The following graphic summarizes the configuration values and how they work. You can include multiple sinks in the configuration at different levels in the hierarchy. The sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element acts like an override to that global setting.
 
 ![Diagnostics Sinks  Configuration with Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
 
-To add a sink:
-1. Create and name a sink in the SinksConfig section.
-2. Create and name any channel filters for the data being sent in the Channels section.
-3. Add the *sinks* attribute to elements under the **DiagnosticMonitorConfiguration** to send data to that sink. Use the form "Sink" or "Sink.Channel" to specify where to send the data.
-
-
 ## Complete sink configuration example
-Here is a complete example of the public configuration file that sends all errors to Application Insights (specified at the **DiagnosticMonitorConfiguration** node) and in addition Verbose level logs for the Application Logs (specified at the **Logs** node).
+Here is a complete example of the public configuration file that
+1. sends all errors to Application Insights (specified at the **DiagnosticMonitorConfiguration** node)
+2. also sends Verbose level logs for the Application Logs (specified at the **Logs** node).
 
 ```XML
 <WadCfg>
