@@ -1,0 +1,41 @@
+---
+title: Azure PowerShell Samples for SQL Database | Microsoft Docs
+description: Azure CLI Samples - Create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
+services: sql-database
+documentationcenter: sql-database
+author: CarlRabeler
+manager: jhubbard
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid:
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: sql-database
+ms.workload: database
+ms.date: 03/01/2017
+ms.author: janeng
+---
+
+# Azure PowerShell Samples for Azure SQL Database
+
+The following table includes links to sample Azure PowerShell scripts for Azure SQL Database.
+
+| |  |
+|---|---|
+|**Create a single database and an elastic pool**||
+| [Create a single database and configure a firewall rule](sql-database-create-and-configure-database-powershell.md) | Creates a single Azure SQL database and configures a server-level firewall rule. |
+| [Create elastic pools and move pooled databases](sql-database-move-database-between-pools-powershell.md) | Creates elastic pools, and moves pooled databases, and changes performance levels.|
+|**SConfigure geo-replication**||
+| [Configure and failover a single database using Active Geo-Replication](sql-database-setup-geodr-and-failover-database-powershell.md)| Configures Active Geo-Replication for a single Azure SQL database and fails it over to the secondary replica. |
+| [Configure and failover a pooled database using Active Geo-Replication](sql-database-setup-geodr-and-failover-pool-powershell.md)| Configures Active Geo-Replication for an Azure SQL database in an elastic pool and fails it over to the secondary replica. |
+|**Scale a single databases and an elastic pool**||
+| [Scale a single database](sql-database-monitor-and-scale-database-powershell.md) | Monitors the performance metrics of an Azure SQL database, scales it to a higher performance level and creates an alert rule on one of the performance metrics. |
+| [Scale an elastic pool](sql-database-monitor-and-scale-pool-powershell.md) | Monitors the performance metrics of an elastic pool, scales it to a higher performance level, and creates an alert rule on one of the performance metrics.  |
+| [Configure auditing and threat-detection](sql-database-auditing-and-threat-detection-powershell.md)| Configures auditing and threat detection policies for an Azure SQL database. |
+| **Restore, copy, and import a database**||
+| [Restore a database](sql-database-restore-database-powershell.md)| Restores an Azure SQL database from a geo-redundant backup and restores a deleted Azure SQL database to the latest backup. |
+| [Copy a database to new server](sql-database-copy-database-to-new-server-powershell.md)| Creates a copy of an existing Azure SQL database in a new Azure SQL server. |
+| [Import a database from a bacpac file](sql-database-import-from-bacpac-powershell.md)| Imports a database to an Azure SQL server from a bacpac file. |
+|||
