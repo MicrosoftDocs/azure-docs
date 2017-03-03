@@ -530,7 +530,7 @@ The example defines the UpdatePlayReadyConfigurationXMLFile method that you can 
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -879,7 +879,7 @@ The example in this section encodes a mezzanine file (in this case MP4) into mul
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -1252,7 +1252,7 @@ Make sure to update the following code to point to the folder where your input M
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 03/02/2017
 ms.author: nitinme
 
 ---
@@ -33,6 +33,8 @@ This article discusses how to use the Azure portal to create HDInsight clusters 
 Here are some important considerations for using HDInsight with Data Lake Store:
 
 * The option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
+
+* The option to create HDInsight clusters with access to Data Lake Store as default storage is *not available* for HDInsight Premium clusters.
 
 * The option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, and 3.5.
 
