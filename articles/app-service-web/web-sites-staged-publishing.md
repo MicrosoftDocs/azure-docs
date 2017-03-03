@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: ''
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450

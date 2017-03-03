@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: magoedte
 
 ---
@@ -35,7 +35,7 @@ The Update Management solution in OMS allows you to manage updates for your Wind
 Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents. Windows agents are added automatically with no additional configuration.
 
 > [!NOTE]
-> Currently if you enable this solution, any Windows computer connected to your OMS workspace will be automatically configured as a Hybrid Runbook Worker in order to support runbooks that are part of this solution.  However, it is not registered with any Hybrid Worker groups you have created in your Automation account, and you cannot add it to a Hybrid Worker group to run your own runbooks.  If a Windows computer is already designated as a Hybrid Runbook Worker and connected to the OMS workspace, you will need to remove it from the OMS workspace before adding the solution in order to prevent your runbooks from failing to function as expected.  
+> If you enable this solution, any Windows computer connected to your OMS workspace will automatically be configured as a Hybrid Runbook Worker in order to support runbooks that are included in this solution.  However, it is not registered with any Hybrid Worker groups you may already have defined in your Automation account.  It can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.   
 
 1. Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
 2. In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.

@@ -15,12 +15,14 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/23/2017
+  ms.date: 02/27/2017
   ms.author: curtand
+
+  ms.custom: H1Hack27Feb2017
 
 ---
 
-# What is group-based licensing in Azure Active Directory?
+# Group-based licensing basics in Azure Active Directory
 
 Microsoft cloud services such as Office 365, Enterprise Mobility + Security, Dynamics CRM, and other similar products require licenses to be assigned to each user who needs access to these services. License management is exposed to administrators via one of the management portals (Office, Azure) and PowerShell cmdlets. License assignment state is stored in Azure Active Directory –- the underlying infrastructure supporting identity management for all Microsoft cloud
 services.
