@@ -66,9 +66,9 @@ These steps also work to move from Azure AD Sync or a solution with FIM + Azure 
 7. If you're upgrading Azure AD Connect, upgrade the server that's now in staging mode to the latest release. Follow the same steps as before to get the data and configuration upgraded. If you upgraded from Azure AD Sync, you can now turn off and decommission your old server.
 
 ### Move a custom configuration from the active server to the staging server
-If you've made configuration changes to the active server, you need to make sure that the same changes are applied to the staging server.
+If you've made configuration changes to the active server, you need to make sure that the same changes are applied to the staging server. To help with this move, you can  use the [Azure AD Connect configuration documenter](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-You can move the custom sync rules that you've created by using PowerShell. You must apply other changes the same way on both systems, and you can't migrate the changes.
+You can move the custom sync rules that you've created by using PowerShell. You must apply other changes the same way on both systems, and you can't migrate the changes. the [configuration documenter](https://github.com/Microsoft/AADConnectConfigDocumenter) can help you comparing the two systems to make sure they are identical. The tool can also help in automating the steps found in this section.
 
 You need to configure the following things the same way on both servers:
 
