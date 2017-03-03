@@ -197,9 +197,6 @@ If you don't specify any rules, then validation uses the "Default" row.
 | Preserve Interchange - suspend transaction sets on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends only the transaction sets that fail validation, while continuing to process all other transaction sets. |
 | Preserve Interchange - suspend interchange on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends the entire interchange when one or more transaction sets in the interchange fail validation. |
 
-After you set the Receive Settings properties, choose **OK**.
-Your agreement is ready to handle incoming messages that conform to the schema you selected.
-
 ## Configure how your agreement sends messages
 
 You can configure how this agreement identifies and handles outgoing 
