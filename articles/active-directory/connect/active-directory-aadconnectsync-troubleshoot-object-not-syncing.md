@@ -52,7 +52,7 @@ When you have errors, both the object in error and the error itself are links th
 
 Start by clicking the error string (**sync-rule-error-function-triggered** in the picture). You are first presented with an overview of the object. To see the actual error, click the button **Stack Trace**. This trace provides debug level information for the error.
 
-**TIP:** You can right-click in the **call stack information** box, choose **select all**, and **copy**. You can then copy the stack and look at the error in your favorite editor, such as Notepad.
+You can right-click in the **call stack information** box, choose **select all**, and **copy**. You can then copy the stack and look at the error in your favorite editor, such as Notepad.
 
 * If the error is from **SyncRulesEngine**, then the call stack information first has a list of all attributes on the object. Scroll down until you see the heading **InnerException =>**.  
   ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorinnerexception.png)  
@@ -60,7 +60,7 @@ Start by clicking the error string (**sync-rule-error-function-triggered** in th
 
 If the error itself does not give enough information, then it is time to look at the data itself. You can click the link with the object identifier and continue troubleshooting the [connector space imported object](#cs-import).
 
-## Connector Space Object Properties
+## Connector space object properties
 If you do not have any errors found in the [operations](#operations) tab, then the next step is to follow the connector space object from Active Directory, to the metaverse, and to Azure AD. In this path, you should find where the problem is.
 
 ### Search for an object in the CS
@@ -105,7 +105,7 @@ You can inspect the object and which rule applied for a particular attribute flo
 ### Log
 The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
-## Metaverse Object Properties
+## Metaverse object properties
 It is usually better to start searching from the source Active Directory [connector space](#connector-space). But you can also start searching from the metaverse.
 
 ### Search for an object in the MV
