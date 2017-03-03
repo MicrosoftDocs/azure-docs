@@ -33,12 +33,12 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
    1. In Visual Studio, right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
    2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
 
-   3. Search for and install the following NuGet packages, installing the preview versions as indicated.
+   3. Search for and install the following NuGet packages:
 
-    - Microsoft.Rest.ClientRuntime.Azure.Authentication V2.1.0 preview
-    - Microsoft.Azure.Management.ResourceManager V2.2.12
-    - Microsoft.Azure.Management.DataLake.Analytics V2.1.0 preview
+    - Microsoft.Rest.ClientRuntime.Azure.Authentication - V2.2.12
+    - Microsoft.Azure.Management.DataLake.Analytics - V2.1.0 preview
     - Microsoft.Azure.Management.DataLake.Store - V2.1.0 preview
+
  
    4. Close the **Nuget Package Manager**.
 
