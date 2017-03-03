@@ -1,6 +1,6 @@
 ---
 title: Create deployment templates for Azure Logic Apps | Microsoft Docs
-description: Create Azure Resource Manager templates for logic apps deployment and release management
+description: Create Azure Resource Manager templates for logic apps deployment, and release management
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -103,9 +103,10 @@ or [deploy resources with Azure Resource Manager templates and the Azure portal]
 ### Authorize OAuth connections
 
 After deployment, the logic app works end-to-end with valid parameters. 
-However, OAuth connections still need to be authorized to generate a valid access token. 
-To authorize OAuth connections, open the logic app in the Logic Apps Designer, and authorize these connections. 
-Or, if you want to automate, you can use a script to consent to each OAuth connection. 
+However, you must still authorize OAuth connections to generate a valid access token. 
+To authorize OAuth connections, open the logic app in the Logic Apps Designer, 
+and authorize these connections. Or for automated deployment, 
+you can use a script to consent to each OAuth connection. 
 There's an example script on GitHub under the 
 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
