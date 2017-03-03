@@ -21,9 +21,9 @@ By contrast, a single-instance configuration is used for standalone virtual mach
 For more information about SLAs, see the "Cloud Services and Virtual Machines" sections of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 ## Multi-instance configuration updates
-During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. This causes a reboot to these virtual machines with approximately 15 minutes of downtime.
+During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. The update causes a reboot to these virtual machines with approximately 15 minutes of downtime.
 
-In a multi-instance configuration update, virtual machines are updated in a way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.
+A multi-instance configuration update assumes that each virtual machine serves a similar function as the others in the availability set. In this setting, virtual machines are updated in a way that preserves availability throughout the process.
 
 Each virtual machine in an availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
 
