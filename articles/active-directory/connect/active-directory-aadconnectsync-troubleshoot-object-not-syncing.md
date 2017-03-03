@@ -18,20 +18,19 @@ ms.author: billmath
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
 
-If an object is not synchronizing as expected to Azure AD, then it can be because of several reasons. If you have received an error email from Azure AD or you see the error in Azure AD Connect health, then read [troubleshoot export errors](active-directory-aadconnect-troubleshoot-sync-errors.md) instead. But if you are troubleshooting a problem where the object is not in Azure AD, then this topic is for you. It describes how to find errors in the on-premises component Azure AD Connect sync.
+If an object is not synchronizing as expected to Azure AD, then it can be because of several reasons. If you have received an error email from Azure AD or you see the error in Azure AD Connect Health, then read [troubleshoot export errors](active-directory-aadconnect-troubleshoot-sync-errors.md) instead. But if you are troubleshooting a problem where the object is not in Azure AD, then this topic is for you. It describes how to find errors in the on-premises component Azure AD Connect sync.
 
-To find the errors, you are going to look at a few different places.
+To find the errors, you are going to look at a few different places in the following order:
 
-- The operation logs for finding errors identified by the sync engine during import and synchronization.
-- The [connector space](#connector-space-object-properties) for finding missing objects and synchronization errors.
-- The [metaverse](#metaverse-object-properties) for finding data-related problems.
+1. The [operation logs](#operations) for finding errors identified by the sync engine during import and synchronization.
+2. The [connector space](#connector-space-object-properties) for finding missing objects and synchronization errors.
+3. The [metaverse](#metaverse-object-properties) for finding data-related problems.
 
-Start [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) before you start these steps.
+Start [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) before you begin these steps.
 
 ## Operations
 The operations tab in the Synchronization Service Manager is where you should start your troubleshooting. The operations tab shows the results from the most recent operations.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
-
 
 The top half shows all runs in chronic order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
 
@@ -49,7 +48,7 @@ When you select a row, the bottom updates to show the details of that run. To th
 
 ### Troubleshoot errors in operations tab
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorsync.png)  
-When you have errors, both the object in error and the error itself are links that provides more information.
+When you have errors, both the object in error and the error itself are links that provide more information.
 
 Start by clicking the error string (**sync-rule-error-function-triggered** in the picture). You are first presented with an overview of the object. To see the actual error, click the button **Stack Trace**. This trace provides debug level information for the error.
 
@@ -66,12 +65,12 @@ If you do not have any errors found in the [operations](#operations) tab, then t
 
 ### Search for an object in the CS
 
-In **Synchronization Service Manager**, click **Connectors**, select the Connector, and **Search Connector Space**.
+In **Synchronization Service Manager**, click **Connectors**, select the Active Directory Connector, and **Search Connector Space**.
 
-In **Scope**, select **RDN** (when you want to search on the CN attribute) or **DN or anchor** (when you want to search on the distinguishedName attribute).  
+In **Scope**, select **RDN** (when you want to search on the CN attribute) or **DN or anchor** (when you want to search on the distinguishedName attribute). Enter a value and click **Search**.  
 ![Connector Space search](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearch.png)  
 
-If you do not find the object you are looking for, then it might have been filtered with [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) or [OU-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Read the [configure filtering](active-directory-aadconnectsync-configure-filtering.md) topic to verify that the filtering is expected.
+If you do not find the object you are looking for, then it might have been filtered with [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) or [OU-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Read the [configure filtering](active-directory-aadconnectsync-configure-filtering.md) topic to verify that the filtering is configured as expected.
 
 Another useful search is to select the Azure AD Connector, in **Scope** select **Pending Import**, and select the **Add** checkbox. This search gives you all synchronized objects in Azure AD that cannot be associated with an on-premises object.  
 ![Connector Space search orphan](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
@@ -80,11 +79,11 @@ Those objects have been created by another sync engine or a sync engine with a d
 ### CS Import
 When you open a cs object, there are several tabs at the top. The **Import** tab shows the data that is staged after an import.  
 ![CS object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
-The **Old Value** shows what currently is stored in the system and the **New Value** what has been received from the source system and has not been applied yet. If there is an error, then changes are not processed.
+The **Old Value** shows what currently is stored in Connect and the **New Value** what has been received from the source system and has not been applied yet. If there is an error on the object, then changes are not processed.
 
 **Error**  
 ![CS object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
-The **Synchronization error** tab is only visible if there is a problem with the object. For more information, see [troubleshoot synchronization errors](#troubleshoot-errors-in-operations-tab).
+The **Synchronization Error** tab is only visible if there is a problem with the object. For more information, see [troubleshoot synchronization errors](#troubleshoot-errors-in-operations-tab).
 
 ### CS Lineage
 The lineage tab shows how the connector space object is related to the metaverse object. You can see when the Connector last imported a change from the connected system and which rules applied to populate data in the metaverse.  
@@ -98,7 +97,7 @@ From the lineage tab, you can get to the metaverse by clicking [Metaverse Object
 At the bottom of all tabs are two buttons: **Preview** and **Log**.
 
 ### Preview
-The preview page is used to synchronize one single object. It is useful if you are troubleshooting some customer sync rules and want to see the effect of a change on a single object. You can select between **Full Sync** and **Delta sync**. You can also select between **Generate Preview**, which only keeps the change in memory, and **Commit Preview**, which stages all changes to target connector spaces.  
+The preview page is used to synchronize one single object. It is useful if you are troubleshooting some custom sync rules and want to see the effect of a change on a single object. You can select between **Full sync** and **Delta sync**. You can also select between **Generate Preview**, which only keeps the change in memory, and **Commit Preview**, which updated the metaverse and stages all changes to target connector spaces.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
 You can inspect the object and which rule applied for a particular attribute flow.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
@@ -123,7 +122,7 @@ On the attributes tab, you can see the values and which Connector contributed it
 
 If an object is not synchronizing, then look at the following attributes in the metaverse:
 - Is the attribute **cloudFiltered** present and set to **true**? If it is, then it has been filtered according to the steps in [attribute based filtering](active-directory-aadconnectsync-configure-filtering.md#attribute-based-filtering).
-- Is the attribute **sourceAnchor** present? If not, do you have an account-resource forest topology? If an object is identified as a linked mailbox (the attribute **msExchRecipientTypeDetails** has the value 2), then the sourceAnchor is contributed by the forest with an enabled Active Directory account. Make sure the master account has been imported and synchronized correctly.
+- Is the attribute **sourceAnchor** present? If not, do you have an account-resource forest topology? If an object is identified as a linked mailbox (the attribute **msExchRecipientTypeDetails** has the value 2), then the sourceAnchor is contributed by the forest with an enabled Active Directory account. Make sure the master account has been imported and synchronized correctly. The master account must be listed in the [connectors](#mv-connectors) for the object.
 
 ### MV Connectors
 The Connectors tab shows all connector spaces that have a representation of the object.  
