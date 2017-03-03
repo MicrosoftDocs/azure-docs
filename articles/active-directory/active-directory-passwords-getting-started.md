@@ -298,8 +298,8 @@ For Azure AD Connect tool versions **1.0.8667.0** to **1.1.380.0**:
 
 Once the network appliances have been configured, reboot the machine running Azure AD Connect tool.
 
-#### Idle connections on Azure AD Connect tool (1.1.439.0 and up)
-The Azure AD Connect tool will send periodic pings/keepalives to ServiceBus endpoints to ensure that the connections stay alive. Should the tool detect that too many connections are being killed, it will automatically increase the number of pings to the endpoint. The lowest 'ping' interval is set to 60 seconds, however, **we strongly advise that proxies/firewall allow idle connections to persist for at least 2-3 minutes.** \*For older versions, we suggest 4 minutes or more.
+#### Idle connections on Azure AD Connect (1.1.439.0 and up)
+The Azure AD Connect tool will send periodic pings/keepalives to ServiceBus endpoints to ensure that the connections stay alive. Should the tool detect that too many connections are being killed, it will automatically increase the frequency of pings to the endpoint. The lowest 'ping intervals' will drop to is 1 ping every 60 seconds, however, **we strongly advise that proxies/firewalls allow idle connections to persist for at least 2-3 minutes.** \*For older versions, we suggest 4 minutes or more.
 
 ### Step 4: Set up the appropriate Active Directory permissions
 For every forest that contains users whose passwords will be reset, if X is the account that was specified for that forest in the configuration wizard (during initial configuration), then X must be given the **Reset Password**, **Change Password**, **Write Permissions** on `lockoutTime`, and **Write Permissions** on `pwdLastSet`, extended rights on the root object of each domain in that forest. The right should be marked as inherited by all user objects.  
