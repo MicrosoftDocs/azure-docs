@@ -76,6 +76,7 @@
 ### [Differences and considerations](azure-stack-acs-differences-tp2.md)
 ## Network
 ### [iDNS for Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [DNS in Azure Stack](azure-stack-dns.md)
 ### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault
 ### [Overview](azure-stack-kv-intro.md)
@@ -107,7 +108,10 @@
 #### [Deploy with PowerShell](azure-stack-deploy-template-powershell.md)
 #### [Deploy with Visual Studio](azure-stack-deploy-template-visual-studio.md)
 
+# Troubleshoot
+## [Known issues](azure-stack-troubleshooting.md)
+
 # Resources
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
