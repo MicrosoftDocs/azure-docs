@@ -97,7 +97,7 @@ You can read more about configuring the retention threshold and on-demand reclam
 
 ## Storage
 ### Storage reclamation
-It may take up to two hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed even when garbage collector runs.
+It may take up to two hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
 
 ## PowerShell
 ### Resource Providers not registered
