@@ -48,9 +48,9 @@ If you require data that's not accessible through any of the data sources, then 
 You should define any queries that you think will be helpful to the user even if they aren't used by any views or alerts.  These will be available to them as Saved Searches in the portal, and you can also include then in a [List of Queries visualization part](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) in your custom view.
 
 ### Alerts
-Alerts notify the user to important information in the Log Analytics repository.  This could be information such as an error detected in the application or a performance counter crossing a critical threshold.  
+Alerts identify issues identified in your solution and either notify the user or automatically run an action in response. You should identify different alert conditions and include corresponding alert rules in your solution file.
 
-In addition to notifying the user of the detected issue, alerts can create responses such as starting a runbook or calling a webhook.  You should 
+In addition to notifying the user of the detected issue, alerts can create responses such as starting a runbook or calling a webhook.  
 
 ### Views
 Views in Log Analytics are used to visualize data from the Log Analytics repository.  You can [create custom views using  the View Designer](../log-analytics/log-analytics-view-designer.md) which you can later export for inclusion in your solution file.
@@ -59,64 +59,31 @@ Each solution will typically contain a single view with a [tile](../log-analytic
 
 
 ## Create solution file
-Once you've configured and tested the components that will be part of your solution, you can [create your solution file](operations-management-solutions-solution-file.md).  You will implement the solution components in a Resource Manager template that includes a [solution resource]() with relationships to the other resources in the file.  
+Once you've configured and tested the components that will be part of your solution, you can [create your solution file](operations-management-suite-solutions-solution-file.md).  You will implement the solution components in a Resource Manager template that includes a [solution resource](operations-management-suite-solutions-solution-file.md#solution-resource) with relationships to the other resources in the file.  
 
-You can get complete guidance on creating a solution file at []().  This section provides best practices for implementing different kinds of resources.
+### Best practices
+See [Best practices in Operations Management Suite (OMS) management solutions](operations-management-suite-solutions-best-practices.md) for best practices that you should follow in translating the logic of your management solution into a solution file.
 
-### Data sources
-Data sources can be [configured with a Resource Manager template](../log-analytics/log-analytics-template-workspace-configuration.md), but we do not recommend that you include them in a solution file.  The reason is that configuring data sources is not currently idempotent meaning that your solution could overwrite existing configuration in the user's workspace.  
+### Editing tools
+You can use any text editor to work with solution files, but we recommend leveraging the features provided in Visual Studio or Visual Studio Code as described in the following articles.
 
-For example, your solution may require Warning and Error events from the Application event log.  If you specify this as a data source in your solution, you risk removing Information events if the user had this configured in their workspace.  If you included all events, then you may be collecting excessive Information events in the user's workspace.
+- [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+- [Working with Azure Resource Manager Templates in Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
 
-**Best practices**
-
-- If your solution requires data from one of the standard data sources, then you should define this as a prerequisite.  State in documentation that the customer must configure the data source on their own.  
-- Add a [Data Flow Verification](../log-analytics/log-analytics-view-designer-tiles.md) message to any views in your solution to instruct the user on data sources that need to be configured for required data to be collected.
-
-
-### Runbooks
-You can include any runbooks in the solution file so that their created when the solution is installed.  You cannot contain the body of the runbook in the template though, so you should publish the runbook to a public location where 
-
-**Best practices**
-
-- Create an [Automation schedule](../automation/automation-schedules.md) for each runbook in your solution that needs to run on a schedule.
-- Contain runbooks in the solution so they're removed when the solution is removed.
-- Include the [IngestionAPI module](../log-analytics/log-analytics-data-collector-api.md) in your runbook to simplify writing data to the Log Analytics repository.  Do not contain this module in the solution so that it remains if the solution is removed.  This allows multiple solutions to share the module.
-
-
-### Views
-You include a view in a solution by [exporting it and then adding it to the solution file]().  
-
-**Best practices**
-
-- All solutions should include a single view that is displayed in the user's portal.  The view can contain multiple automation parts to illustrate different sets of data.
-- Add a [Data Flow Verification](../log-analytics/log-analytics-view-designer-tiles.md) message to any views in your solution to instruct the user on data sources that need to be configured for required data to be collected.
-
-### Alerts
-Alerts identify issues identified in your solution and either notify the user or automatically run an action in response. You should identify different alert conditions and include corresponding alert rules in your solution file.
-
-**Best practices**
-
-- Define the recipients list as a parameter in the solution file so the user can define them when they install the solution.
-- Don't contain the alert rules in the solution to allow the user to change their configuration.  They may want to make changes such as modifying the recipient list, changing the threshold of the alert, or disabling the rule. 
-
-
-
-## Publish solution
-
-
-
-
-
-
-## Other resources
-You can get the details and samples of resources that are common to management solutions in the following articles.
-
-* [Views and dashboards](operations-management-suite-solutions-resources-views.md)
-* [Automation resources](operations-management-suite-solutions-resources-automation.md)
 
 ## Testing a management solution
 Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  This will validate your solution file and help you identify any problems before attempting to deploy it.
+
+## Publish solution
+Once you have completed and tested your solution, you can make it available to customers through either the following sources.
+
+### Azure Quickstart templates
+[Azure Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/) is a set of Resource Manager templates contributed by the community through GitHub.  You can make your solution available by following information in the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
+
+### Azure Marketplace
+The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) allows you to distribute and sell your solution to other developers, ISVs, and IT professionals.  You can learn how to publish your solution to Azure Marketplace at [How to publish and manage an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+
+
 
 ## Next steps
 * [Add saved searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md) to your management solution.

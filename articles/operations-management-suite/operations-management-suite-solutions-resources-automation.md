@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2017
+ms.date: 03/02/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -47,6 +47,8 @@ The name of their Automation account is in the name of each Automation resource.
 
 
 ## Runbooks
+You can include any runbooks in the solution file so that their created when the solution is installed.  You cannot contain the body of the runbook in the template though, so you should publish the runbook to a public location where it can be accessed by any user installing your solution.
+
 [Azure Automation runbook](../automation/automation-runbook-types.md) resources have a type of **Microsoft.Automation/automationAccounts/runbooks** and have the following structure. 
 
 
@@ -125,46 +127,51 @@ The name of a job resource must contain a GUID which is typically assigned by a 
 ## Certificates
 [Azure Automation certificates](../automation/automation-certificates.md) have a type of **Microsoft.Automation/automationAccounts/certificates** and have the properties in the following table.
 
+An example of a certificate resource is below.
+
+    "name": "<name-of-certificate>",
+    "type": "certificates",
+    "apiVersion": "<api-version-of-resource>",
+    "location": "<resource-group-region>",
+    "tags": {},
+    "dependsOn": [
+    ],
+    "properties": {
+        "base64Value": "<certificate-base64>",
+        "thumbprint": "<certificate-thumbprint>"
+    }
+
+The properties for Certificates resources are described in the following table.
+
 | Property | Description |
 |:--- |:--- |
 | base64Value |Base 64 value for the certificate. |
 | thumbprint |Thumbprint for the certificate. |
 
-An example of a certificate resource is below.
 
-    "name": "[concat(parameters('accountName'), '/MyCertificate')]",
-    "type": "certificates",
-    "apiVersion": "2015-01-01-preview",
-    "location": "[parameters('regionId')]",
-    "tags": {},
+
+## Credentials
+[Azure Automation credentials](../automation/automation-credentials.md) have a type of **Microsoft.Automation/automationAccounts/credentials** and have the following sructure.
+
+
+    "name": "<name-of-credential-resource>",
+    "type": "Microsoft.Automation/automationAccounts/runbooks/credentials",
+    "apiVersion": "<api-version-of-resource>",
+    "location": "<resource-group-region>",
+    "tags": { },
     "dependsOn": [
     ],
     "properties": {
-        "base64Value": "MIIC1jCCAA8gAwIAVgIYJY4wXCXH/YAHMtALh7qEFzANAgkqhkiG5w0AAQUFGDAUMRIwEBYDVQQDEwlsA3NhAGevc3QqHhcNMTZwNjI5MHQxMjAsWhcNOjEwNjI5NKWwMDAwWjAURIwEAYDVQQBEwlsA2NhAGhvc3QwggEiMA0GCSqGSIA3DQEAAQUAA4IADwAwggEKAoIAAQDIyzv2A0RUg1/AAryI9W1DGAHAqqGdlFfTkUSDfv+hEZTAwKv0p8daqY6GroT8Du7ctQmrxJsy8JxIpDWxUaWwXtvv1kR9eG9Vs5dw8gqhjtOwgXvkOcFdKdQwA82PkcXoHlo+NlAiiPPgmHSELGvcL1uOgl3v+UFiiD1ro4qYqR0ITNhSlq5v2QJIPnka8FshFyPHhVtjtKfQkc9G/xDePW8dHwAhfi8VYRmVMmJAEOLCAJzRjnsgAfznP8CZ/QUczPF8LuTZ/WA/RaK1/Arj6VAo1VwHFY4AZXAolz7xs2sTuHplVO7FL8X58UvF7nlxq48W1Vu0l8oDi2HjvAgMAAAGjJDAiMAsGA1UdDwREAwIEsDATAgNVHSUEDDAKAggrAgEFNQcDATANAgkqhkiG9w0AAQUFAAOCAQEAk8ak2A5Ug4Iay2v0uXAk95qdAthJQN5qIVA13Qay8p4MG/S5+aXOVz4uMXGt18QjGds1A7Q8KDV4Slnwn95sVgA5EP7akvoGXhgAp8Dm90sac3+aSG4fo1V7Y/FYgAgpEy4C/5mKFD1ATeyyhy3PmF0+ZQRJ7aLDPAXioh98LrzMZr1ijzlAAKfJxzwZhpJamAwjZCYqiNZ54r4C4wA4QgX9sVfQKd5e/gQnUM8gTQIjQ8G2973jqxaVNw9lZnVKW3C8/QyLit20pNoqX2qQedwsqg3WCUcPRUUqZ4NpQeHL/AvKIrt158zAfU903yElAEm2Zr3oOUR4WfYQ==",
-        "thumbprint": "F485CBE5569F7A5019CB68D7G6D987AC85124B4C"
+        "userName": "<user-name>",
+        "password": "<password>"
     }
 
-## Credentials
-[Azure Automation credentials](../automation/automation-credentials.md) have a type of **Microsoft.Automation/automationAccounts/credentials** and have the properties in the following table.
+The properties for Credential resources are described in the following table.
 
 | Property | Description |
 |:--- |:--- |
 | userName |User name for the credential. |
 | password |Password for the credential. |
-
-An example of a credential resource is below.
-
-    "name": "[concat(parameters('accountName'), '/', variables('credentialName'))]",
-    "type": "Microsoft.Automation/automationAccounts/runbooks/credentials",
-    "apiVersion": "[variables('AutomationApiVersion')]",
-    "location": "[parameters('regionId')]",
-    "tags": { },
-    "dependsOn": [
-    ],
-    "properties": {
-        "userName": "User01",
-        "password": "password"
-    }
 
 
 ## Schedules
@@ -202,6 +209,8 @@ Use one of the following two strategies when using schedule resources in a solut
 - Create the schedules using a runbook that starts when the solution is installed.  This removes the requirement of the user to specify a time, but you can't contain the schedule in your solution so it will be removed when the solution is removed.
 
 ## Variables
+Variables 
+
 [Azure Automation variables](../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the following structure.
 
     "name": "<name-of-variable-resource>",
@@ -231,24 +240,29 @@ Your management solution does not need to define [global modules](../automation/
 
 [Integration modules](../automation/automation-integration-modules.md) have a type of **Microsoft.Automation/automationAccounts/modules** and have the properties in the following table.
 
-| Property | Description |
-|:--- |:--- |
-| contentLink |Specifies the content of the module. <br><br>uri - Uri to the content of the runbook.  This will be a .ps1 file for PowerShell and Script runbooks, and an exported graphical runbook file for a Graph runbook.  <br> version - Version of the runbook for your own tracking. |
 
 An example of a module resource is below.
 
     {        
-        "name": "[concat(parameters('accountName'), '/', variables('OMSIngestionModuleName'))]",
+        "name": "name-of-module-resource",
         "type": "Microsoft.Automation/automationAccounts/modules",
-        "apiVersion": "[variables('AutomationApiVersion')]",
+        "apiVersion": "<api-version-of-resource>",
         "dependsOn": [
         ],
         "properties": {
             "contentLink": {
-                "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/omsingestionapi.1.3.0.nupkg"
+                "uri": "<uri-to-module>"
             }
         }
     }
+
+The properties for module resources are described in the following table.
+
+| Property | Description |
+|:--- |:--- |
+| contentLink |Specifies the content of the module. <br><br>uri - Uri to the content of the module.  This will be a .ps1 file for PowerShell and Script runbooks, and an exported graphical runbook file for a Graph runbook.  <br> version - Version of the module for your own tracking. |
+
+### 
 
 ### Updating modules
 If you update a management solution that includes a runbook that uses a schedule, and the new version of your solution has a new module used by that runbook, then the runbook may use the old version of the module.  You should include the following runbooks in your solution and create a job to run them before any other runbooks.  This will ensure that any modules are updated as required before the runbooks are loaded.
@@ -361,6 +375,25 @@ Following is a sample of the required elements of a solution to support the modu
             }
         }
     ]
+
+
+
+
+## Example
+
+    "name": "[concat(parameters('accountName'), '/MyCertificate')]",
+    "type": "certificates",
+    "apiVersion": "2015-01-01-preview",
+    "location": "<resource-group-region>",
+    "tags": {},
+    "dependsOn": [
+    ],
+    "properties": {
+        "base64Value": "MIIC1jCCAA8gAwIAVgIYJY4wXCXH/YAHMtALh7qEFzANAgkqhkiG5w0AAQUFGDAUMRIwEBYDVQQDEwlsA3NhAGevc3QqHhcNMTZwNjI5MHQxMjAsWhcNOjEwNjI5NKWwMDAwWjAURIwEAYDVQQBEwlsA2NhAGhvc3QwggEiMA0GCSqGSIA3DQEAAQUAA4IADwAwggEKAoIAAQDIyzv2A0RUg1/AAryI9W1DGAHAqqGdlFfTkUSDfv+hEZTAwKv0p8daqY6GroT8Du7ctQmrxJsy8JxIpDWxUaWwXtvv1kR9eG9Vs5dw8gqhjtOwgXvkOcFdKdQwA82PkcXoHlo+NlAiiPPgmHSELGvcL1uOgl3v+UFiiD1ro4qYqR0ITNhSlq5v2QJIPnka8FshFyPHhVtjtKfQkc9G/xDePW8dHwAhfi8VYRmVMmJAEOLCAJzRjnsgAfznP8CZ/QUczPF8LuTZ/WA/RaK1/Arj6VAo1VwHFY4AZXAolz7xs2sTuHplVO7FL8X58UvF7nlxq48W1Vu0l8oDi2HjvAgMAAAGjJDAiMAsGA1UdDwREAwIEsDATAgNVHSUEDDAKAggrAgEFNQcDATANAgkqhkiG9w0AAQUFAAOCAQEAk8ak2A5Ug4Iay2v0uXAk95qdAthJQN5qIVA13Qay8p4MG/S5+aXOVz4uMXGt18QjGds1A7Q8KDV4Slnwn95sVgA5EP7akvoGXhgAp8Dm90sac3+aSG4fo1V7Y/FYgAgpEy4C/5mKFD1ATeyyhy3PmF0+ZQRJ7aLDPAXioh98LrzMZr1ijzlAAKfJxzwZhpJamAwjZCYqiNZ54r4C4wA4QgX9sVfQKd5e/gQnUM8gTQIjQ8G2973jqxaVNw9lZnVKW3C8/QyLit20pNoqX2qQedwsqg3WCUcPRUUqZ4NpQeHL/AvKIrt158zAfU903yElAEm2Zr3oOUR4WfYQ==",
+        "thumbprint": "F485CBE5569F7A5019CB68D7G6D987AC85124B4C"
+    }
+
+
 
 
 ## Next steps
