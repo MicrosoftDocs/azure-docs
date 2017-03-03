@@ -156,7 +156,7 @@ in the incoming message with the values you set here, and the schema of the inco
 
 | Property | Description |
 | --- | --- |
-| ISA11 Usage |Specifies the separator in a transaction set:</br></br>Select Standard identifier to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition Separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
+| ISA11 Usage |Specifies the separator in a transaction set: <p>Select Standard identifier to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>Select Repetition Separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
 ### Control Numbers
 
@@ -182,7 +182,7 @@ If you don't specify any rules, then validation uses the row that's marked "Defa
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero and space characters. |
-| Trailing Separator Policy |Generate trailing separators. <br></br>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators. </br></br>Select **Mandatory** if the interchange must have trailing delimiters and separators. |
+| Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to accept interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** if the interchange must have trailing delimiters and separators. |
 
 ### Internal Settings
 
@@ -319,7 +319,7 @@ If you don't specify any rules, then validation uses the row that's marked "Defa
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero characters. |
-| Trailing Separator Policy |Generate trailing separators. </br></br>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid.</br></br>Select **Optional** to send interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
+| Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to send interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
 
 ## Find your newly created agreement
 
