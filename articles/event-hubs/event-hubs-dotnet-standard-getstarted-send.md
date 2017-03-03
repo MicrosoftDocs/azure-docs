@@ -20,17 +20,15 @@ ms.author: jotaub
 # Get started sending messages to Event Hubs in .NET Standard
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender).
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender).
 
-## What will be accomplished
-
-This tutorial shows how to write a .NET Core console application that sends a set of messages to an Event Hub. You can run the [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender) solution as-is, replacing the `EhConnectionString` and `EhEntityPath` variables with your Event Hub values, or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that sends a set of messages to an Event Hub. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) solution as-is, replacing the `EhConnectionString` and `EhEntityPath` strings with your Event Hub values, or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
 1. [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com).
 
-2. [.NET Core Visual Studio 2015 or 2017 Tooling](http://www.microsoft.com/net/core).
+2. [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
 
 3. An Azure subscription.
 
