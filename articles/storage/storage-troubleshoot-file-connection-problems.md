@@ -40,9 +40,9 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 **Linux client problems**
 
-* [Intermittent IO Error - Error 112 - "Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
+* [Intermittent IO Error - "Host is down (Error 112)" on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 * [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
-* [Azure files mounted on Linux VM experiencing slow performance](#delayproblem)
+* [Azure file share mounted on Linux VM experiencing slow performance](#delayproblem)
 
 
 **Accessing from other applications**
@@ -215,7 +215,7 @@ However, note that setting the registry key affects all copy operations to netwo
 
 <a id="errorhold"></a>
 
-## "Host is down" error on existing file shares, or the shell hangs when you run list commands on the mount point
+## "Host is down (Error 112)" on existing file shares, or the shell hangs when you run list commands on the mount point
 ### Cause
 This error occurs on the Linux client when the client has been idle for an extended period of time. When this error occurs, the client disconnects, and the client connection times out. Also, this error may indicate a communication failures that prevent re-establishing a TCP connection to the server when “soft” mount option is used, which is the default.
 
@@ -256,7 +256,7 @@ If the Linux SMB client that is used does not support encryption, mount Azure Fi
 
 <a id="delayproblem"></a>
 
-## Azure files mounted on Linux VM experiencing slow performance
+## Azure file share mounted on Linux VM experiencing slow performance
 
 A possible reason for slow performance could be that caching is disabled. In order to check if caching is enabled, look for "cache=".  *cache=none* indicates that caching is disabled. Please remount the share with default mount command or explicitly adding **cache=strict** option to mount command to ensure default caching or "strict" caching mode is enabled.
 
