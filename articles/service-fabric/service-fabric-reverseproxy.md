@@ -58,7 +58,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 
 * **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. For HTTPS traffic, secure sockets layer (SSL) termination occurs at the reverse proxy. The reverse proxy uses HTTP to forward requests to services in the cluster.
 
-    [!]Note]
+    [!NOTE]
     HTTPS services are not currently supported.
 * **Cluster fully qualified domain name (FQDN) | internal IP:** For external clients, you can configure the reverse proxy so that it is reachable through the cluster domain, such as, mycluster.eastus.cloudapp.azure.com. By default, the reverse proxy runs on every node. For internal traffic, the reverse proxy can be reached on localhost or on any internal node IP, such as, 10.0.0.1.
 * **Port:** This is the port, such as, 19008, that has been specified for the reverse proxy.
