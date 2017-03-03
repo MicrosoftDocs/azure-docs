@@ -48,7 +48,7 @@ Connect by Remote Desktop to each N-series VM. Download, extract, and install th
 | Windows Server 2012 R2 | [369.30](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)  |
 
 > [!NOTE]
-> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/Download/index.aspx) website.
+> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
 >
 
 ## Verify GPU driver installation
@@ -73,7 +73,7 @@ To install the latest version 1.1 HpcVMDrivers extension on an existing RDMA-cap
   ```
   For more information, see [Virtual machine extensions and features for Windows](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-The RDMA network supports Message Passing Interface (MPI) traffic for applications running under [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) or Intel MPI 5.x. 
+The RDMA network supports Message Passing Interface (MPI) traffic for applications running with [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) or Intel MPI 5.x. 
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
 
