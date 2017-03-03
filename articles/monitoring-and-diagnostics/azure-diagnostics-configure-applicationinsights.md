@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2016
+ms.date: 03/02/2016
 ms.author: robb
 
 ---
@@ -66,29 +66,13 @@ The following graphic summarizes the configuration values and how they work. You
 
 ![Diagnostics Sinks  Configuration with Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
 
+To add a sink:
 1. Create and name a sink in the SinksConfig section.
 2. Create and name any channel filters for the data being sent in the Channels section.
+3. Add the *sinks* attribute to elements under the **DiagnosticMonitorConfiguration** to send data to that sink. Use the form "Sink" or "Sink.Channel" to specify where to send the data.
 
-Add the *sinks* attribute to elements under the **DiagnosticMonitorConfiguration** to send data to that sink. Use the form "Sink" or "Sink.Channel" to specify where to send the data.
 
-**Example: Send all the data that is being collected by Azure diagnostics. **
-
-```XML
-<DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
-```
-
-**Example: Send only error logs to the Application Insights sink**
-
-```XML
-<DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
-```
-
-**Example: Send Verbose application logs to Application Insights**
-
-```XML
-<Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
-```
-
+## Complete sink configuration example
 Here is a complete example of the public configuration file that sends all errors to Application Insights (specified at the **DiagnosticMonitorConfiguration** node) and in addition Verbose level logs for the Application Logs (specified at the **Logs** node).
 
 ```XML
@@ -120,7 +104,27 @@ Here is a complete example of the public configuration file that sends all error
 </WadCfg>
 ```
 
-There are some limitations to be aware of with this functionality
+Some example configurations using the previous file and what that configuration does follows:
+
+### Example: Send all the data that is being collected by Azure diagnostics
+
+```XML
+<DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
+```
+
+### Example: Send only error logs to the Application Insights sink
+
+```XML
+<DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
+```
+
+### Example: Send Verbose application logs to Application Insights
+
+```XML
+<Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
+```
+
+## Limitations
 
 - **Channels only log type and not performance counters.** If you specify a channel with a performance counter element it is ignored.
 - **The log level for a channel cannot exceed the log level for what is being collected by Azure diagnostics.** For example: you cannot collect Application Log errors in the Logs element and try to send Verbose logs to the Application Insight sink. The *scheduledTransferLogLevelFilter* attribute must always collect equal or more logs than the logs you are trying to send to a sink.
