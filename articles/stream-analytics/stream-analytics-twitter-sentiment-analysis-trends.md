@@ -167,7 +167,7 @@ In the dialog box that opens, click **JOB START TIME**, and then click the **CHE
 After your job is running and processing the real-time Twitter stream, choose how you want to view the output for sentiment analysis. Use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real-time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one in the following screenshot.
 
 ![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
-
+          
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
