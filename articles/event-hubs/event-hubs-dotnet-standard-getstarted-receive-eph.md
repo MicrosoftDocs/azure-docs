@@ -69,7 +69,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 4. From the File menu, click **Save All**.
 
-Note that this tutorial shows how to write a .NET Core application, but if you want to target the full .NET Framework, add the following line of code to the project.json file, in the "frameworks" section:
+Note that this tutorial shows how to write a .NET Core application, but if you want to target the full .NET Framework, add the following line of code to the project.json file, in the `"frameworks`" section:
 
 ```json
 "net451": {
