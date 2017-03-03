@@ -23,7 +23,7 @@ Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack POC
 ## Run AzureRM PowerShell cmdlets
 In this example, you run a script to deploy a virtual machine to Azure Stack POC using a Resource Manager template.  Before proceeding, ensure you have [configured PowerShell](azure-stack-powershell-configure.md)  
 
-The VHD used in this example template is a default image [WindowsServer-2012-R2-Datacenter](azure-stack-add-default-image.md).
+The VHD used in this example template is a default image WindowsServer-2012-R2-Datacenter.
 
 1. Go to <http://aka.ms/AzureStackGitHub>, search for the **101-simple-windows-vm** template, and save it to the following location: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
 2. In PowerShell, run the following deployment script. Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter to prevent overwriting your deployment.
