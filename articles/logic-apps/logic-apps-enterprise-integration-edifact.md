@@ -240,7 +240,12 @@ Other than the character set, you can enter a different set of delimiters to be 
 | Property | Description |
 | --- | --- |
 | UNB1.1 (System Identifier) |Select the EDIFACT character set to be applied on the outgoing interchange. |
-| Schema |Select a schema from the drop-down list. After each row is completed, a new row is added. For the selected schema, select the separators set to be used: <br></br><br></br>**Component element separator** – Enter a single character to separate composite data elements. <br></br><br></br>**Data Element Separator** – Enter a single character to separate simple data elements within composite data elements. <p>**Replacement Character** – Select this check box when the payload data has characters that are also used as data, segment, or component separators. You can then enter a replacement character. When generating the outbound EDIFACT message, all instances of separator characters in the payload data are replaced with the specified character. <br></br><br></br>**Segment Terminator** – Enter a single character to indicate the end of an EDI segment. <br></br><br></br>**Suffix** – Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
+| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the following separator descriptions. |
+| Input Type |Select an input type from the drop-down list. |
+| Component Separator |Enter a single character to separate composite data elements. |
+| Data Element Separator |Enter a single character to separate simple data elements within composite data elements. |
+| Segment Terminator |Enter a single character to indicate the end of an EDI segment. |
+| Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
 
 ### Control Numbers
 | Property | Description |
