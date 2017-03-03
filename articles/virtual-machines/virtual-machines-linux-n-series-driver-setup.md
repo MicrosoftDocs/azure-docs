@@ -130,7 +130,7 @@ The installation can take several minutes.
  export PATH=/usr/local/cuda-8.0/bin:${PATH}
  ```
  
- ### CUDA Samples Silent Install
+ ## CUDA Samples Install
  
  [CUDA Samples](http://docs.nvidia.com/cuda/cuda-samples/#new-features-in-cuda-toolkit-8-0) can be installed in a location as follows:
  
