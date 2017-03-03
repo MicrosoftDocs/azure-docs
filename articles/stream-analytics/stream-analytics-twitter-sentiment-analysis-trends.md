@@ -61,7 +61,7 @@ Then, Tweet events are pushed to the event hub.
 
 ### Follow these steps to set up the application:
 
-1. [Download the WPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) and unzip it.
+1. [Download the TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) and unzip it.
 2. Execute the TwitterWPFClient.exe file and enter your data for the Twitter API Key and Secret, Twitter Access Token and Secret and also the Azure Event Hub information. Finally define what keywords you wish to determine sentiment on. Note if you specify more than one word (using commas to define multiple values) and you want ANY you must flip the control to "Match ANY".
 
    [Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
@@ -92,14 +92,13 @@ Now that Tweet events are streaming in real time from Twitter, we can set up a S
 
 ### Provision a Stream Analytics job
 
-1. In the [Azure portal](https://portal.azure.com/), click **NEW** > type **STREAM ANALYTICS** > and click the Stream Analytics tile result.
-2. Specify the following values, and then click **CREATE**:
+In the [Azure portal](https://portal.azure.com/), click **NEW** > type **STREAM ANALYTICS** > and click the Stream Analytics tile result. Specify the following values, and then click **CREATE**:
 
    * **JOB NAME**: Enter a job name.
    * **Resource group**: Select the resource group created earlier in this exercise from the "use existing" option.
    * **STORAGE ACCOUNT**: Choose the Azure storage account that you would like to use to store monitoring data for all Stream Analytics jobs that run within this region. You have the option to choose an existing storage account or to create a new one.   
 
-3. Once the job is created the job will open in Azure portal.  
+Once the job is created the job will open in Azure portal.  
    
 
 ## Specify the job input
