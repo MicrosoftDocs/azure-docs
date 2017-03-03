@@ -38,7 +38,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * Using the Marketplace Item to create a VM with guest OS diagnostics enabled will receive an error that the VM extension failed.  To workaround, enable the Guest OS diagnostics after VM deployment. 
 * There are known issues with VM resizing and this scenario shouldn't be validated at this time.
 * You will see virtual machines reboot after configuration changes.
-* You may see an error after applying VM change, like VM extensions or adding additional resources. 
+* You may see an error after applying a change to an existing VM, like VM extensions or adding additional resources such as data disks. 
 * Deploying Azure Stack with ADFS and without internet access will result in licensing error messages and the host will expire after 10 days.  We advise having internet connectivity during deployment, and then testing disconnected scenarios once deployment is complete.
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
 * There is no marketplace experience for creating VM Scale Sets, though they can be created via template.
