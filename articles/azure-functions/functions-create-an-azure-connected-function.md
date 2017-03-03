@@ -15,8 +15,8 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 
 ---
 # Use Azure Functions to create a function that connects to other Azure services
@@ -122,7 +122,7 @@ Now that you have messages being added to the queue, you can create another func
 
 	![Add a binding to an Azure Storage table](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Enter `TableItem` for **Table name** and `functionbindings` for **Table parameter name**, choose a **Storage account connection** or create a new one, and then click **Save**.
+2. Enter `functionbindings` for **Table name** and `myTable` for **Table parameter name**, choose a **Storage account connection** or create a new one, and then click **Save**.
 
 	![Configure the Storage table binding](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
