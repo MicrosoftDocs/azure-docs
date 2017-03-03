@@ -31,9 +31,9 @@ As a reminder of history, the alignment of SQL versions to default compatibility
 * 130: in SQL Server 2016 and Azure SQL Database V12.
 
 > [!IMPORTANT]
-> Starting in **mid-June 2016**, in Azure SQL Database, the default compatibility level will be 130 instead of 120 for **newly created** databases.
+> The default compatibility level is 130 for **newly created** databases.
 > 
-> Databases created before mid-June 2016 will *not* be affected, and will maintain their current compatibility level (100, 110, or 120). Databases that migrated from Azure SQL Database version V11 to V12 will have a compatibility level of either 100 or 110. 
+> Databases created before mid-June 2016 have the compatibility level in place at their creation time. Databases that migrated from an earlier version of Azure SQL Database have a compatibility level of either 100 or 110. The compability level of the master database for a server created prior to mid-June 2016 has the compatibility level in place when the server was created and cannot be changed (and a different compatibility level between the master database and a user database is not something that impacts functionality or performance for user databases).
 > 
 
 ## About compatibility level 130
