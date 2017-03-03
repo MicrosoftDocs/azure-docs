@@ -53,8 +53,14 @@ Run the `azure vm extension set` cmdlet to install the packet capture agent on t
 For Windows virtual machines:
 
 ```azurecli
-azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.Azure.NetworkWatcher -r anyExtensionReferenceName -n NetworkWatcherAgentWindows -o 1.4
+azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.Azure.NetworkWatcher -r AzureNetworkWatcherExtension -n NetworkWatcherAgentWindows -o 1.4
 ```
+
+For Linux virtual machines:
+
+```azurecli
+azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.Azure.NetworkWatcher -r AzureNetworkWatcherExtension -n NetworkWatcherAgentLinux -o 1.4
+````
 
 ### Step 2
 
