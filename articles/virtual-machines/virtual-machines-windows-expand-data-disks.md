@@ -150,7 +150,7 @@ The following script will walk you through getting the VM and storage account in
 	
 ```
 
-## Allocate the unallocated drive space 
+## Allocate the unallocated disk space 
 
 Once you have made the drive larger, you need to allocate the new unallocated space from within the VM. To allocate the space, you can connect to the VM use Disk Management (diskmgmt.msc). Or, if you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
 
@@ -172,4 +172,4 @@ Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 ```
 
 ## Next Steps
-- [Learn more about disks and VHDs](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json))
+- [Learn more about disks and VHDs](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
