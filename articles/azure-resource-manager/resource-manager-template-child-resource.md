@@ -13,18 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/02/2017
 ms.author: tomfitz
 
 ---
 # Set name and type for child resource in Resource Manager template
-When creating a template, you frequently need to include a child resource that is related a parent resource. For example, your template may include a SQL server and a database. The SQL server is the parent resource, and the database is the child resource. 
+When creating a template, you frequently need to include a child resource that is related to a parent resource. For example, your template may include a SQL server and a database. The SQL server is the parent resource, and the database is the child resource. 
 
 The format of the child resource type is: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
 The format of the child resource name is: `{parent-resource-name}/{child-resource-name}`
 
-However, you specify the type and name in a template differently based on whether it is nested it within the parent resource, or on its own at the top level. This topic shows how to handle both approaches.
+However, you specify the type and name in a template differently based on whether it is nested within the parent resource, or on its own at the top level. This topic shows how to handle both approaches.
 
 ## Nested child resource
 The easiest way to define a child resource is to nest it within the parent resource. The following example shows a SQL database nested within in a SQL Server.

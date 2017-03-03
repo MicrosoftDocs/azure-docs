@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 03/02/2017
 ms.author: sstein
 
 ---
@@ -56,8 +56,8 @@ You must enable your client application to access the SQL Database service by se
 7. Copy your **CLIENT ID**. (You will need this value in your code later.)
 8. In the **keys** section, select **1 year** from the  **Select duration** drop-down list. (You will copy the key after you save in step 13.)
 9. Scroll down and click **Add application**.
-10. Leave **SHOW** set to **Microsoft Apps** and select **Microsoft Azure Service Management**. Click the checkmark to continue.
-11. Select **Access Azure Service Management** from the **Delegated Permissions** drop-down list.
+10. Leave **SHOW** set to **Microsoft Apps** and select **Microsoft Azure Service Management API**. Click the checkmark to continue.
+11. Select **Access Azure Service Management...** from the **Delegated Permissions** drop-down list.
 12. Click **SAVE**.
 13. After the save finishes, copy the key value in the **keys** section. (You will need this value in your code later.)
 
