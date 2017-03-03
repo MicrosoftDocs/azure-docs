@@ -47,6 +47,12 @@ The Consumption plan automatically scales CPU and memory resources by adding add
 
 When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
 
+When creating a Function App, you must create or link a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a new Function App.
+
+When using the Consumption hosting plan, Function App content (such as function code files and binding configuration) are stored on Azure Files shares on the main storage account. If you delete the main storage account, this content will be deleted and cannot be recovered.
+
+To learn more about storage account types, see [Introducing the Azure Storage Services] (../storage/storage-introduction#introducing-the-azure-storage-services.md).
+
 ### Runtime scaling
 
 Functions uses a central listener to evaluate compute needs based on the configured triggers and to decide when to scale out or scale in. The central listener continuously processes hints for memory requirements and trigger-specific data points. For example, in the case of an Azure Queue Storage trigger, the data points include the queue length and queue time of the oldest entry.
