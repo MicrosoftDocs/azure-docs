@@ -26,7 +26,7 @@ ms.author: nitinme
 >
 >
 
-This article discusses how to use the Azure portal to create HDInsight clusters with access to Azure Data Lake Store. For supported cluster types, you can use Data Lake Store as default storage or as an additional storage account. When you use Data Lake Store as additional storage, the default storage account for the clusters remains Azure Blob storage. Also, the cluster-related files (such as logs) are still written to the default storage. However, the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to storage from the cluster.
+This article discusses how to use the Azure portal to create HDInsight clusters with access to Azure Data Lake Store. For supported cluster types, you can use Data Lake Store as default storage or as an additional storage account. When you use Data Lake Store as additional storage, the default storage account for the clusters remains Azure Blob storage, and the cluster-related files (such as logs) are still written to the default storage. However, the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to storage from the cluster.
 
 ## Using Data Lake Store for HDInsight cluster storage
 
@@ -53,7 +53,7 @@ Before you begin this tutorial, ensure that you've met the following requirement
 * **An Azure Active Directory service principal**. This tutorial provides instructions on how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
  >[!NOTE]
- >Unless you are an Azure AD administrator, you cannot create a service principal. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. Also, the service principal must be created with a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+ >You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. Also, the service principal must be created with a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
 ## Create an HDInsight cluster with access to a Data Lake Store
 In this section, you create an HDInsight Hadoop cluster that uses the Data Lake Store as additional storage. In this release, for a Hadoop cluster, you can use Data Lake Store only as additional storage for the cluster. The default storage remains Azure Blob storage. So, you first create the storage account and the storage containers that are required for the cluster.
