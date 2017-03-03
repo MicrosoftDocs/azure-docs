@@ -5,7 +5,7 @@ keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
 authors: aelnably
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e

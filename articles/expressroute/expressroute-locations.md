@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 03/02/2017
 ms.author: cherylmc
 
 ---
@@ -80,7 +80,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Paris+, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Supported |Supported |Amsterdam |
-| **Global Cloud Exchange (GCX)** | Coming Soon | Coming Soon | Chennai |
+| **Global CloudXchange (GCX)** | Supported| Supported | Chennai |
 | **GÉANT** |Supported |Supported |Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supported |Supported |Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, London, Singapore, Washington DC |
@@ -101,7 +101,7 @@ The following table shows locations by service provider. If you want to view ava
 | **Sejong Telecom** |Supported |Supported |Busan, Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supported |Supported |Chennai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported |Singapore |
-| **Softbank** |Supported |Supported |Osaka, Tokyo |
+| **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Supported |Supported |Osaka, Tokyo |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Supported |Supported |Amsterdam, Chennai, Hong Kong, London, Mumbai, Silicon Valley, Singapore, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |Supported |Supported |Amsterdam, Dublin, London |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Supported |Supported |Sao Paulo |
