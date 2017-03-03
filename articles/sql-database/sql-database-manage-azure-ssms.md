@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-manage-overview.md
+redirect_url: /azure/sql-database/sql-database-manage-overview
 --- 
