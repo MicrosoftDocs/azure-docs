@@ -267,23 +267,23 @@ The Resource Manager template used in this document is located in a public blob 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.5.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. From the **Parameters** blade, enter the following values:
+2. From the **Custom deployment** blade, enter the following values:
    
     ![HDInsight parameters](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
    
-   * **BASECLUSTERNAME**: This value is used as the base name for the Storm and HBase clusters. For example, entering **abc** creates a Storm cluster named **storm-abc** and an HBase cluster named **hbase-abc**.
-   * **CLUSTERLOGINUSERNAME**: The admin user name for the Storm and HBase clusters.
-   * **CLUSTERLOGINPASSWORD**: The admin user password for the Storm and HBase clusters.
-   * **SSHUSERNAME**: The SSH user to create for the Storm and HBase clusters.
-   * **SSHPASSWORD**: The password for the SSH user for the Storm and HBase clusters.
-   * **LOCATION**: The region that the clusters are created in.
+   * **Base Cluster Name**: This value is used as the base name for the Storm and HBase clusters. For example, entering **abc** creates a Storm cluster named **storm-abc** and an HBase cluster named **hbase-abc**.
+   * **Cluster Login User Name**: The admin user name for the Storm and HBase clusters.
+   * **Cluster Login Password**: The admin user password for the Storm and HBase clusters.
+   * **SSH User Name**: The SSH user to create for the Storm and HBase clusters.
+   * **SSH Password**: The password for the SSH user for the Storm and HBase clusters.
+   * **Location**: The region that the clusters are created in.
      
      Click **OK** to save the parameters.
 
-3. Use the **Resource group** section to create a resource group or select an existing one.
-4. In the **Resource group location** dropdown menu, select the same location as you selected for the **LOCATION** parameter.
-5. Select **Legal terms**, and then select **Create**.
-6. Finally, check **Pin to dashboard** and then select **Create**. It takes about 20 minutes to create the clusters.
+3. Use the **Basics** section to create a resource group or select an existing one.
+4. In the **Resource group location** dropdown menu, select the same location as you selected for the **Location** parameter in the **Settings** section.
+5. Read the terms and conditions, and then select **I agree to the terms and conditions stated above**.
+6. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
 Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
 
