@@ -1,6 +1,6 @@
 ---
 title: Expand a data disk attached to a Windows VM in Azure | Microsoft Docs
-description: Expand the size of a data disk that is attached to a Windows virtual machine using either the portal or PowerShell.
+description: Expand the size of a data disk that is attached to a Windows virtual machine using PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
 author: cynthn
@@ -33,6 +33,7 @@ To increase the size of a managed data disk, use the following PowerShell cmdlet
 | [Get-AzureRMReseourceGroup](/powershell/Get-AzureRMReseourceGroup) | [Get-AzureRMVM](/powershell/getazurermvm)                  |
 | [Stop-AzureRMVM](/powershell/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](/powershell/Set-AzureRmVMDataDisk) |
 | [Update-AzureRmVM](/powershell/update-azurermvm)                   | [Start-AzureRmVM](/powershell/start-azurermvm)             |
+<br>
 
 ```powershell
 # Select resource group
@@ -92,6 +93,8 @@ To increase the size of unmanaged data disks in a storage account, use the follo
 | [Get-AzureRMStorageAccount](/powershell/Get-AzureRMStorageAccount) | [Get-AzureRMVM](/powershell/getazurermvm)                  |
 | [Stop-AzureRMVM](/powershell/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](/powershell/Set-AzureRmVMDataDisk) |
 | [Update-AzureRmVM](/powershell/update-azurermvm)                   | [Start-AzureRmVM](/powershell/start-azurermvm)             |
+
+<br>
 
 ```powershell
 
@@ -163,3 +166,6 @@ $MaxSize = (Get-PartitionSupportedSize -DriveLetter $driveLetter).sizeMax
 
 Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 ```
+
+## Next Steps
+- [Learn more about disks and VHDs](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json))
