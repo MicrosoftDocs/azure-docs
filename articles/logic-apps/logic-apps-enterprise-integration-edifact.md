@@ -235,16 +235,18 @@ make sure to save your settings by choosing **OK**.
 | Apply UNG Segments (Function Group Header) |Select this checkbox to create grouping segments in the functional group header in the messages sent to the guest partner. The following values are used to create the UNG segments: <p>For **UNG1**, enter an alphanumeric value with a minimum of one character and a maximum of six characters. <p>For **UNG2.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG2.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG3.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG3.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG6**, enter an alphanumeric value with a minimum of one and a maximum of three characters. <p>For **UNG7.1**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.2**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.3**, enter an alphanumeric value with a minimum of 1 character and a maximum of 6 characters. <p>For **UNG8**, enter an alphanumeric value with a minimum of one character and a maximum of 14 characters. |
 
 ### Character Sets and Separators
-Other than the character set, you can enter a different set of delimiters to be used for each message type. If a character set is not specified for a given message schema, then the default character set is used.
+
+Other than the character set, you can enter a different set of delimiters to be used for each message type. 
+If a character set is not specified for a given message schema, then the default character set is used.
 
 | Property | Description |
 | --- | --- |
 | UNB1.1 (System Identifier) |Select the EDIFACT character set to be applied on the outgoing interchange. |
 | Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the following separator descriptions. |
 | Input Type |Select an input type from the drop-down list. |
-| Component Separator |Enter a single character to separate composite data elements. |
-| Data Element Separator |Enter a single character to separate simple data elements within composite data elements. |
-| Segment Terminator |Enter a single character to indicate the end of an EDI segment. |
+| Component Separator |To separate composite data elements, enter a single character. |
+| Data Element Separator |To separate simple data elements within composite data elements, enter a single character. |
+| Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
 
 ### Control Numbers

@@ -292,12 +292,12 @@ If a character set isn't specified for a given message schema, then the default 
 | Property | Description |
 | --- | --- |
 | Character Set to be used |To validate the properties, select the X12 character set. The options are Basic, Extended, and UTF8. |
-| Schema |Select a schema from the drop-down list. For the selected schema, select the separators set to use. |
+| Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the following separator descriptions. |
 | Input Type |Select an input type from the drop-down list. |
-| Component element separator |To separate composite data elements, enter a single character. |
+| Component Separator |To separate composite data elements, enter a single character. |
 | Data Element Separator |To separate simple data elements within composite data elements, enter a single character. |
-| Replacement Character |Enter a replacement character. When generating the outbound X12 message, all instances of separator characters in the payload data are replaced with the specified character. |
-| Segment Terminator |Enter a single character to indicate the end of an EDI segment. |
+| Replacement Character |Enter a replacement character used for replacing all separator characters in the payload data when generating the outbound X12 message. |
+| Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
 
 ### Validation
