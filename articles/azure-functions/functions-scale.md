@@ -51,7 +51,7 @@ When creating a Function App, you must create or link a general-purpose Azure St
 
 When using the Consumption hosting plan, Function App content (such as function code files and binding configuration) are stored on Azure Files shares on the main storage account. If you delete the main storage account, this content will be deleted and cannot be recovered.
 
-To learn more about storage account types, see [Introducing the Azure Storage Services] (../storage/storage-introduction#introducing-the-azure-storage-services.md).
+To learn more about storage account types, see [Introducing the Azure Storage Services] (../storage/storage-introduction.md#introducing-the-azure-storage-servicesS).
 
 ### Runtime scaling
 
