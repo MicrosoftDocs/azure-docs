@@ -1,4 +1,4 @@
----
+ ---
 title: Integrate logs from Azure resources into your SIEM systems | Microsoft Docs
 description: Learn about Azure log integration, its key capabilities, and how it works.
 services: security
@@ -17,7 +17,7 @@ ms.date: 01/23/2017
 ms.author: TomSh
 
 ---
-# Introduction to Microsoft Azure log integration (Preview)
+# Introduction to Microsoft Azure log integration
 Learn about Azure log integration, its key capabilities, and how it works.
 
 ## Overview
@@ -41,12 +41,13 @@ If you have questions about Azure Log Integration, please send an email to [AzSI
 ## Next steps
 In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:
 
-* [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
+* [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
 * [Get started with Azure log integration](security-azure-log-integration-get-started.md) - This tutorial walks you through installation of Azure log integration and integrating logs from Azure WAD storage, Azure Activity Logs, Azure Security Center alerts and Azure Active Directory audit logs.
+* [Integrate Diagnostics Logs](https://blogs.msdn.microsoft.com/azuresecurity/2016/09/25/integrate-azure-logs-streamed-to-event-hubs-to-siem/) – This blog post provides the steps for integrating diagnostics logs using Azure log integration
 * [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – This blog post shows you how to configure Azure log integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar.
+* [Activity and ASC alerts over syslog to QRadar](https://blogs.msdn.microsoft.com/azuresecurity/2016/09/24/integrate-azure-logs-to-qradar/) – This blog post provides the steps to send Activity and Azure Security Center alerts over syslog to QRadar
 * [Azure log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) - This FAQ answers questions about Azure log integration.
 * [Integrating Security Center alerts with Azure log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md) – This document shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with your log analytics or SIEM solution.
-* [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – This blog post introduces you to Azure Audit Logs and other features that help you gain insights into the operations of your Azure resources.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
