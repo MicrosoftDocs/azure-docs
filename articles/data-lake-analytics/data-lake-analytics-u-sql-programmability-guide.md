@@ -36,7 +36,7 @@ In this guide, we concentrate on the extensibility and programmability of the U-
 To begin with ADL development, you need to download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
 ## Get started with U-SQL  
-The description of U-SQL language is outside of the scope of this document. However, we describe basic U-SQL constructs to gradually introduce U-SQL programmability features. For more information, see the [U-SQL Language Reference](http://aka.ms/usql_reference) guide.
+The description of U-SQL language is outside the scope of this document. However, we describe basic U-SQL constructs to gradually introduce U-SQL programmability features. For more information, see the [U-SQL Language Reference](http://aka.ms/usql_reference) guide.
 
 Let’s look at the following example:
 
@@ -111,7 +111,7 @@ U-SQL-based script example:
 	DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 ```
 
-C# expressions can provide extended functionality when you're manipulating columns as part of a rowset. For example, if you want to convert a datetime column to the date with zero hours, we can use the following SELECT part of a U-SQL-based script:
+C# expressions can provide extended functionality when you're manipulating columns as part of a rowset. For example, if you want to convert a datetime column to the date with zero hours, you can use the following SELECT part of a U-SQL-based script:
 
 ```sql
 @rs1 =
@@ -128,7 +128,7 @@ AS start_zero_time,
 
 As you can see, we use `System.Convert.ToDateTime` method to run through the conversion.
 
-Following is a slightly more complicated scenario that demonstrates the usage of some basic C# operators:
+Following is a slightly more complicated scenario that demonstrates the use of some basic C# operators:
 
 ```sql
 @rs1 =
@@ -144,7 +144,7 @@ Following is a slightly more complicated scenario that demonstrates the usage of
 
 This shows an example of a C# conditional operator expression.
 
-The previous examples demonstrates the usage of C# expressions in the base U-SQL script. However U-SQL enables more extensible programmability features that are covered later in this document.  
+The previous examples demonstrates the use of C# expressions in the base U-SQL script. However, U-SQL enables more extensible programmability features that are covered later in this document.  
 
 Full script:
 
@@ -176,7 +176,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
 ### Use C# expressions for data type conversions
-The following example demonstrates the how you can do a datetime data conversion by using C# expressions. In this particular scenario, string datetime data is converted to standard datetime with midnight 00:00:00 time notation.
+The following example demonstrates \how you can do a datetime data conversion by using C# expressions. In this particular scenario, string datetime data is converted to standard datetime with midnight 00:00:00 time notation.
 
 ```sql
 DECLARE @dt String = "2016-07-06 10:23:15";
@@ -238,7 +238,7 @@ Example:
 
 In this example, we define an inline function with string input parameter input_p. Inside this function, we verify if input string is a valid datetime value. If it is, return it, otherwise return null.
 
-The inline function is needed in this scenario since DateTime.TryParse function contains the output parameter `out dt_result`. We define it the as `DateTime dt_result`;.
+The inline function is needed in this scenario because the DateTime.TryParse function contains the output parameter `out dt_result`. We define it the as `DateTime dt_result`;.
 
 
 ## Verify data type values
@@ -388,7 +388,7 @@ The advantage of code-behind is that the tooling takes care of the following ste
 
 2. It adds a prologue to the script that uses the [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) statement to register the assembly file. It also uses [REFERENCE ASSEMBLY]  (https://msdn.microsoft.com/library/azure/mt763294.aspx) to load the assembly into the script’s context.
 
-3. It adds an epilogue to the script that uses [DROP ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763295.aspx) to remove the temporarily registered assembly again.
+3. It adds an epilogue to the script, whichuses [DROP ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763295.aspx) to remove the temporarily registered assembly again.
 
 You can see the generated prologue and epilogue when you open the script:
 
