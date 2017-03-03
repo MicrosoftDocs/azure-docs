@@ -60,7 +60,7 @@ The following graphic shows this relationship.
 
 ![Diagnostics Public Configuration](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
 
-The following graphic summarizes the configuration values and how they work. You can include multiple sinks in the configuration at different levels in the hierarchy. The sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element acts like an override to that global setting.
+The following graphic summarizes the configuration values and how they work. You can include multiple sinks in the configuration at different levels in the hierarchy. The sink at the top level acts as a global setting and the one specified at the individual element acts like an override to that global setting.
 
 ![Diagnostics Sinks  Configuration with Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
 
@@ -120,7 +120,7 @@ Some example configurations using the previous file and what that configuration 
 
 ## Limitations
 
-- **Channels only log type and not performance counters.** If you specify a channel with a performance counter element it is ignored.
+- **Channels only log type and not performance counters.** If you specify a channel with a performance counter element, it is ignored.
 - **The log level for a channel cannot exceed the log level for what is being collected by Azure diagnostics.** For example: you cannot collect Application Log errors in the Logs element and try to send Verbose logs to the Application Insight sink. The *scheduledTransferLogLevelFilter* attribute must always collect equal or more logs than the logs you are trying to send to a sink.
 - **You cannot send blob data collected by Azure diagnostics extension to Application Insights.** For example anything specified under the *Directories* node. For Crash Dumps the actual crash dump is sent to blob storage and only a notification that the crash dump was generated is sent to Application Insights.
 
