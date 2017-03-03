@@ -21,7 +21,7 @@ ms.author: erikje
 To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
 > [!NOTE]
-> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 Eval can be activated at deployment time. If Windows Server 2016 Eval is not activated within 10 days, it will shut down.
+> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 evaluation version can be activated at deployment time. If the Windows Server 2016 evalation version is not activated within 10 days, it shuts down.
 > 
 > 
 
@@ -82,7 +82,7 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
     |DriverPath|Optional|Lets you add additional drivers for the host in the VHD.|
     |ApplyUnattend|Optional|Specify this switch parameter to automate the configuration of the operating system. If specified, the user must provide the AdminPassword to configure the OS at boot (requires provided accompanying file unattend_NoKVM.xml). If you do not use this parameter, the generic unattend.xml file is used without further customization. You'll need KVM access to complete customization after it reboots.|
     |AdminPassword|Optional|Only used when the ApplyUnattend parameter is set, requires a minimum of six characters.|
-    |VHDLanguage|Optional|Specifies the VHD language, defaulted to “en-US”.|
+    |VHDLanguage|Optional|Specifies the VHD language, defaulted to “en-US.”|
 
     The script is documented and contains example usage, though the most common usage is:
      
