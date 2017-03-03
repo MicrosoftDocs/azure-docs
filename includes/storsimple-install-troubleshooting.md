@@ -19,3 +19,6 @@ Run the cmdlet on both controllers.
 
 If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
 
+**What is see an update failure when updating your device to Update 4 and both the controllers are running Update 4?**
+
+Starting Update 4, if both the controllers are running the same software version and if there is an update failure, the controllers do not go into recovery mode. The controllers will go into recovery mode only if the two controllers are running different software versions. If the user sees an update 4 failure, we recommend that they wait a few minutes and then retry updating. If the retry does not succeed, then they should contact Microsoft Support.
