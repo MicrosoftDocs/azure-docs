@@ -18,7 +18,7 @@ ms.author: larryfr
 
 ---
 # Analyze sensor data with Apache Storm, Event Hub, and HBase in HDInsight (Hadoop)
-Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub. The data is then storeed into Apache HBase on HDInsight, and visualized using D3.js.
+Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub. The data is then stored into Apache HBase on HDInsight, and visualized using D3.js.
 
 The Azure Resource Manager template used in this document demonstrates how to create multiple Azure resources in a resource group. The template creates an Azure Virtual Network, two HDInsight clusters (Storm and HBase,) and an Azure Web App. A node.js implementation of a real-time web dashboard is automatically deployed to the web app.
 
@@ -351,11 +351,10 @@ In your development environment, use the following steps to deploy the Storm top
 2. Use scp to upload the **TemperatureMonitor-1.0-SNAPSHOT.jar** file to your Storm cluster. In the following example, replace **USERNAME** with the SSH user you provided when creating the cluster, and **BASENAME** with the base name you provided earlier. When prompted, enter the password for the SSH user.
    
         scp target/TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
-   
+
    > [!NOTE]
    > It may take several minutes to upload the file.
 
-   
     Use scp to upload the **dev.properties** file, as this file contains the information used to connect to Event Hubs and the dashboard.
    
         scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
