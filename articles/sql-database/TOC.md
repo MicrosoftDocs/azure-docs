@@ -136,6 +136,8 @@
 ### [SSMS using Azure RemoteApp](sql-database-ssms-remoteapp.md)
 ### [SSMS using multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
 ### [Excel](sql-database-connect-excel.md)
+### [Connectivity best practices](sql-database-connectivity-issues.md)
+### [Troublshoot connection issues](sql-database-troubleshoot-common-connection-issues.md)
 ## Configure auditing
 ### [Azure portal](sql-database-auditing-portal.md)
 ### [PowerShell](sql-database-auditing-powershell.md)
