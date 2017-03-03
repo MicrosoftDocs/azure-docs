@@ -32,7 +32,7 @@ More samples will be added over time, so check back here frequently for updates.
 
 ## .NET Standard
 
-The following samples demonstrate how to send and receive events using the [Event Hubs client](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) for the [.NET Standard library](/dotnet/articles/standard/library).
+The following samples demonstrate how to send and receive events using the [Event Hubs client](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md for the [.NET Standard library](/dotnet/articles/standard/library).
 
 ### Send events 
 
@@ -40,7 +40,7 @@ The [Get started sending](https://github.com/Azure/azure-event-hubs-dotnet/tree/
 
 ### Receive events 
 
-The [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleEphReceiver) sample is a .NET Core console application that receives messages from an Event Hub using the [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
+The [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) sample is a .NET Core console application that receives messages from an Event Hub using the [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
 
 ## .NET Framework	
 
