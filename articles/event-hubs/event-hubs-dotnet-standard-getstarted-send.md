@@ -42,7 +42,9 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 ## Create a console application
 
-Launch Visual Studio and create a new .NET Core console application.
+Launch Visual Studio. From the File menu, click **New**, and then click **Project**. Create a .NET Core console application.
+
+![][1]
 
 ## Add the Event Hubs NuGet package
 
@@ -198,3 +200,5 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
+
+[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png
