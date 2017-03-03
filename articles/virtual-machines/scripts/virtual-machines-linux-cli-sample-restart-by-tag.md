@@ -50,9 +50,9 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
 
 ```azurecli
-az group delete -n GROUP1 --no-wait --force && \ 
-az group delete -n GROUP2 --no-wait --force && \
-az group delete -n GROUP3 --no-wait --force
+az group delete -n GROUP1 --no-wait --yes && \ 
+az group delete -n GROUP2 --no-wait --yes && \
+az group delete -n GROUP3 --no-wait --yes
 ```
 
 ## Script explanation
