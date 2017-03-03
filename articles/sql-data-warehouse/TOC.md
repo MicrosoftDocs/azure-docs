@@ -3,7 +3,7 @@
 ## [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Data warehouse workload](sql-data-warehouse-overview-workload.md)
 ## [Distributed data](sql-data-warehouse-distributed-data.md)
-## [Frequently Asked Questions](sql-data-warehouse-overview-faq.md)
+## [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 # Get Started
 
