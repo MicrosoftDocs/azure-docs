@@ -24,9 +24,9 @@ This article describes how to send data from the Azure Diagnostics extension to 
 
 
 ## Configuring Application Insights as a Sink
-The Azure diagnostics extension 1.5 introduced sinks. Sinks are other locations where you can send diagnostic data.
+The Azure diagnostics extension 1.5 introduced sinks, which are additional locations where you can send diagnostic data.
 
-Example configuration for Application Insights:
+Example configuration of a sink for Application Insights:
 
 ```XML
     <SinksConfig>
@@ -48,7 +48,7 @@ Example configuration for Application Insights:
 
 - The **Channels** element contains one or more **Channel** elements.
     - The *name* attribute uniquely refers to that channel.
-    - The *loglevel* attribute lets you specify the log level that the channel allows. The available log levels in order of most least information are
+    - The *loglevel* attribute lets you specify the log level that the channel allows. The available log levels in order of most to least information are:
         - Verbose
         - Information
         - Warning
@@ -62,7 +62,7 @@ The following graphic shows this relationship.
 ![Diagnostics Public Configuration](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
 
 ## Send data to the Application Insights sink
-The following graphic summarizes the configuration values changes and how they work.
+The following graphic summarizes the configuration values and how they work. You can include multiple sinks in the configuration at different levels in the hierarchy. The sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element acts like an override to that global setting.
 
 ![Diagnostics Sinks  Configuration with Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
 
@@ -88,8 +88,6 @@ Add the *sinks* attribute to elements under the **DiagnosticMonitorConfiguration
 ```XML
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 ```
-
-You can also include multiple sinks in the configuration at different levels in the hierarchy. In that case the sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element acts like an override to that global setting.    
 
 Here is a complete example of the public configuration file that sends all errors to Application Insights (specified at the **DiagnosticMonitorConfiguration** node) and in addition Verbose level logs for the Application Logs (specified at the **Logs** node).
 
@@ -121,8 +119,6 @@ Here is a complete example of the public configuration file that sends all error
   </SinksConfig>
 </WadCfg>
 ```
-
-
 
 There are some limitations to be aware of with this functionality
 
