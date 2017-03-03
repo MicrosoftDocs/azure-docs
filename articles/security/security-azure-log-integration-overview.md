@@ -36,6 +36,8 @@ Azure produces extensive logging for every Azure service. These logs are categor
 
 Azure log integration currently supports integration of Azure Activity Logs, Windows Event log from Windows virtual machine in your Azure subscription, Azure Security Center alerts, Azure Diagnostic logs as well as Azure Active Directory audit logs.
 
+The following table explains the Log category and SIEM integration detail
+
 | Log type  |Log analytics supporting JSON (Splunk, ELK)| ArcSight  | QRadar  |   
 |---|---|---|---|
 |  AAD Audit logs |  yes | Requires the creation of a FlexConnector JSON parser file. Please refer to the ArcSight documentation for more information  |  You must create a Log Source Extension. Please refer to the QRadar documentation for more information. |  
