@@ -42,9 +42,9 @@ The sample application generates events and push them to an Event Hubs instance 
 ### Use the following steps to create an event hub.
 
 1. In the [Azure portal](https://portal.azure.com), click **NEW** > and type *Event Hubs* and then select **Event Hubs** from the resulting search. Then click **Create**.
-2. Provide a name for the Event Hub and create a Resource Group. I have specified _socialtwitter-eh_ and _socialtwitter-rg_ respectively. Check the box to pin the account to the dashboard and then click the **Create** button.
+2. Provide a name for the Event Hub and create a Resource Group. I have specified `socialtwitter-eh` and `socialtwitter-rg` respectively. Check the box to pin the account to the dashboard and then click the **Create** button.
 3. Once the deployment is complete click the Event Hub and then click **Event Hubs** under **Entities**.
-4. Click the **+ Event Hub** button to create your Event Hub. Provide your name again (mine was socialtwitter-eh) and click **Create**.
+4. Click the **+ Event Hub** button to create your Event Hub. Provide your name again (mine was `socialtwitter-eh`) and click **Create**.
 5. To grant access to the event hub, we need to create a shared access policy. Click the Event Hub and then click **Shared access policies** under **Settings**.
 6. Under **SHARED ACCESS POLICIES**, create a new policy with **MANAGE** permissions by clicking **+ Add**. Give the policy a name and check **MANAGE** and then click **Create**.
 7. Click your new policy once it is created and then click the copy button for the **CONNECTION STRING - PRIMARY KEY** entity. We will need this further in the exercise. Then return to the dashboard.
@@ -106,7 +106,7 @@ Now that Tweet events are streaming in real time from Twitter, we can set up a S
 
 In your Stream Analytics job, click **INPUTS** in the middle of the job pane, in Job Topology, and then click **ADD**. The portal will then prompt for some information listed below. Most of the default values will suffice but they are defined below for your information.
   
-   * **INPUT ALIAS**: Enter a friendly name for this job input, such as *TwitterStream*. You will use this name in the query later.
+   * **INPUT ALIAS**: Enter a friendly name for this job input, such as `TwitterStream`. You will use this name in the query later.
    * **EVENT HUB NAME**: Select the name of the event hub.
    * **EVENT HUB POLICY NAME**: Select the event hub policy that you created earlier in this tutorial.
 
@@ -139,11 +139,11 @@ Now that we have defined an event stream, an event hub input to ingest events, a
 
 In your Stream Analytics job, click **OUTPUT** in **Job Topology**, and then click **ADD**. Then type or select the following values on the pane:
    
-   * **OUTPUT ALIAS**: Enter a friendly name for this job output. This demonstration will use "Output".
+   * **OUTPUT ALIAS**: Enter a friendly name for this job output. This demonstration will use `Output`.
    * **Sink**: Select Blob storage.
    * **STORAGE ACCOUNT**: Select "Create a new storage account".
-    * **STORAGE account**: Give the new storage account a name (socialtwitter in this example)
-    * **CONTAINER**: Give the new container a name  (socialtwitter in this example)
+    * **STORAGE account**: Give the new storage account a name (`socialtwitter` in this example)
+    * **CONTAINER**: Give the new container a name  (`socialtwitter` in this example)
 
 Leave the rest of the entries as default values. Lastly, click **Create**.
 
