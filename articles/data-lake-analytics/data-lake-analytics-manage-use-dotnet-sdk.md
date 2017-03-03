@@ -132,21 +132,12 @@ As a third option, the following snippet can be used to authenticate your applic
 Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Also, a Data Lake Analytics account requires at least one Data Lake Store account. For more information, see [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md)
 
 ### Create an Azure Resource Group
-If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. The following code shows how to create a resource group:
+If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. You will need your authentication credials, subscription ID, and a location. The following code shows how to create a resource group:
 
-    public static async Task<ResourceGroup> CreateResourceGroupAsync(
-        ServiceClientCredentials credential,
-        string groupName,
-        string subscriptionId,
-        string location)
-    {
-
-        Console.WriteLine("Creating the resource group...");
-        var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-        var resourceGroup = new ResourceGroup { Location = location };
-        return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
-    }
+    string rgName == "<value>"; // specify name for the new resrouce group
+    var resourceManagementClient = new ResourceManagementClient(credential) { SubscriptionId = subscriptionId };
+    var resourceGroup = new ResourceGroup { Location = location };
+    resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rgName);
 
 For more information, see [Azure Resource Groups and Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
 
