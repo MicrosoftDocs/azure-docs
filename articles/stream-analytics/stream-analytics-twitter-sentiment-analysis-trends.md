@@ -32,7 +32,7 @@ A company that has a news media website is interested in getting an advantage ov
 
 * An Azure subscription
 * Twitter account and [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
-* The [WPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub.
+* The [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub.
 * Optional: Source code for twitter client from [GitHub](https://aka.ms/azure-stream-analytics-twitterclient)
 
 ## Create an event hub input
