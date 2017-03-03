@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 
+ms.custom: H1Hack27Feb2017
 ---
-# Analyze Twitter data using Hive in HDInsight
+# Analyze Twitter data using Hive on Linux-based HDInsight
 
 Learn how to use Apache Hive on an HDInsight cluster to process the Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
 

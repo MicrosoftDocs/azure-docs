@@ -4,7 +4,7 @@ description: Learn how secure the custom domain name for your app in Azure App S
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 tags: top-support-issue
 

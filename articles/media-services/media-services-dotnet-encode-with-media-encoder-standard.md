@@ -54,7 +54,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 * Create an encoding job.
 * Get a reference to the Media Encoder Standard encoder.
-* Specify to use the "H264 Multiple Bitrate 720p" preset. You can see all the presets [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). You can also examine the schema to which these presets must comply [here](https://msdn.microsoft.com/library/mt269962.aspx) topic.
+* Specify to use the [Adaptive Streaming](media-services-autogen-bitrate-ladder-with-mes.md) preset. 
 * Add a single encoding task to the job. 
 * Specify the input asset to be encoded.
 * Create an output asset that will contain the encoded asset.
@@ -70,10 +70,10 @@ The following code example uses Media Services .NET SDK to perform the following
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.None);
 
             // Specify the input asset to be encoded.

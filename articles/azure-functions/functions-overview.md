@@ -15,12 +15,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Azure Functions Overview
-Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Python or PHP. Pay only for the time your code runs and trust Azure to scale as needed.
+# An introduction to Azure Functions  
+Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Python or PHP. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop serverless applications on Microsoft Azure.
 
 This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Azure Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
 
@@ -63,6 +65,7 @@ Azure Functions integrates with various Azure and 3rd-party services. These serv
 * Azure Storage (blob, queues, and tables) 
 * GitHub (webhooks)
 * On-premises (using Service Bus)
+* Twilio (SMS messages)
 
 ## <a name="pricing"></a>How much does Functions cost?
 Azure Functions has two kinds of pricing plans, choose the one that best fits your needs: 

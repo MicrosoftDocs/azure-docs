@@ -3,7 +3,7 @@ title: 'Customize: Azure Active Directory password management | Microsoft Docs'
 description: How to customize password management look and feel, behavior, and notifications in Azure AD to meet your needs.
 services: active-directory
 documentationcenter: ''
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 
 ---
 # Customizing password management to fit your organization's needs
