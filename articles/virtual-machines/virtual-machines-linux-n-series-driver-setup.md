@@ -98,7 +98,7 @@ You can optionally install NVIDIA CUDA Toolkit 8.0 on NC VMs running Ubuntu 16.0
 To install the CUDA Toolkit, run commands similar to the following:
 
 ```bash
-CUDA_REPO_PKG=cuda_8.0.61-1_amd64.deb
+CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 
 wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -118,7 +118,7 @@ The installation can take several minutes.
  CUDA Toolkit may be silently and securely installed via scripts as follows
  
  ```bash
- CUDA_REPO_PKG=cuda_8.0.61-1_amd64.deb
+ CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
  DEBIAN_FRONTEND=noninteractive apt-mark hold walinuxagent
  export CUDA_DOWNLOAD_SUM=16b0946a3c99ca692c817fb7df57520c && export CUDA_PKG_VERSION=8-0 && curl -o cuda-repo.deb -fsSL http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} && \
      echo "$CUDA_DOWNLOAD_SUM  cuda-repo.deb" | md5sum -c --strict - && \
