@@ -25,7 +25,7 @@ Here are the steps for how to an X12 agreement.
 
 ## Before you get started
 
-You'll need these items:
+Here's the items you need:
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
 defined in your Azure subscription  
@@ -156,7 +156,7 @@ in the incoming message with the values you set here, and the schema of the inco
 
 | Property | Description |
 | --- | --- |
-| ISA11 Usage |Specifies the separator in a transaction set: <p>Select Standard identifier to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>Select Repetition Separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
+| ISA11 Usage |Specifies the separator to use in a transaction set: <p>Select **Standard identifier** to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>Select **Repetition Separator** to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
 ### Control Numbers
 
@@ -173,7 +173,7 @@ in the incoming message with the values you set here, and the schema of the inco
 ![Set Validation properties for received messages](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
 When you complete each validation row, another is automatically added. 
-If you don't specify any rules, then validation uses the row that's marked "Default".
+If you don't specify any rules, then validation uses the "Default" row.
 
 | Property | Description |
 | --- | --- |
@@ -261,9 +261,7 @@ make sure to save your settings by choosing **OK**.
 
 | Property | Description |
 | --- | --- |
-| ISA11 Usage |Use this field to specify the separator in a transaction |
-| Standard Identifier |Select the Standard identifier to use the decimal notation of “.” |
-| Repetition Separator |Select Repetition Separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
+| ISA11 Usage |Specifies the separator to use in a transaction set: <p>Select **Standard identifier** to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>Select **Repetition Separator** to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
 ### Control Numbers
 
@@ -289,10 +287,10 @@ make sure to save your settings by choosing **OK**.
 
 ### Character Sets and Separators
 
-Other than the character set, you can enter a different set of delimiters to use for each message type. 
+Other than the character set, you can enter a different set of delimiters for each message type. 
 If a character set isn't specified for a given message schema, then the default character set is used.
 
-![Specify delimiters to use for message types](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
+![Specify delimiters for message types](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
 
 | Property | Description |
 | --- | --- |
@@ -310,7 +308,7 @@ If a character set isn't specified for a given message schema, then the default 
 ![Set Validation properties for sending messages](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
 
 When you complete each validation row, another is automatically added. 
-If you don't specify any rules, then validation uses the row that's marked "Default".
+If you don't specify any rules, then validation uses the "Default" row.
 
 | Property | Description |
 | --- | --- |

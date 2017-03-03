@@ -30,7 +30,7 @@ Here are the steps for how to create an EDIFACT agreement.
 
 ## Before you get started
 
-You'll need these items:
+Here's the items you need:
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
 defined in your Azure subscription  
@@ -156,7 +156,7 @@ make sure to save your settings by choosing **OK**.
 ### Validations
 
 When you complete each validation row, another is automatically added. 
-If you don't specify any rules, then validation uses the row that's marked "Default".
+If you don't specify any rules, then validation uses the "Default" row.
 
 | Property | Description |
 | --- | --- |
@@ -165,14 +165,14 @@ If you don't specify any rules, then validation uses the row that's marked "Defa
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero and space characters. |
-| Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to accept interchanges with or without trailing delimiters and separators. <br></br>Select **Mandatory** when the received interchange must have trailing delimiters and separators. |
+| Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to accept interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** when the received interchange must have trailing delimiters and separators. |
 
 ### Internal Settings
 
 | Property | Description |
 | --- | --- |
 | Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
-| Inbound batching processing |Options include: <p>**Split Interchange as Transaction Sets - suspend Transaction Sets on Error**: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, suspend only the transaction sets that fail validation if any transaction sets in the interchange fail validation. Split Interchange as Transaction Sets - suspend Interchange on Error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, suspend the entire interchange when one or more transaction sets in the interchange fail validation. <p>**Preserve Interchange - suspend Transaction Sets on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then only those transaction sets are suspended, while all other transaction sets are processed. <p>**Preserve Interchange - suspend Interchange on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, suspend the entire interchagne when one or more transaction sets in the interchange fail validation. |
+| Inbound batching processing |Options include: <br></br><br></br>**Split Interchange as Transaction Sets - suspend Transaction Sets on Error**: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, suspend only the transaction sets that fail validation if any transaction sets in the interchange fail validation. <br></br><br></br>**Split Interchange as Transaction Sets - suspend Interchange on Error**: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, suspend the entire interchange when one or more transaction sets in the interchange fail validation. <br></br><br></br>**Preserve Interchange - suspend Transaction Sets on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, suspend only those transaction sets that fail validation, while all other transaction sets in the interchange are processed. <br></br><br></br>**Preserve Interchange - suspend Interchange on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, suspend the entire interchange when one or more transaction sets in the interchange fail validation. |
 
 ## Configure how your agreement sends messages
 
@@ -229,7 +229,7 @@ make sure to save your settings by choosing **OK**.
 | UNB10 (Communication Agreement) |Enter an alphanumeric value with a minimum of one character and a maximum of 40 characters. |
 | UNB11 (Test Indicator) |Select this checkbox to indicate that the interchange generated is test data |
 | Apply UNA Segment (Service String Advice) |Select this checkbox to generate a UNA segment for the interchange to be sent. |
-| Apply UNG Segments (Function Group Header) |Select this checkbox to create grouping segments in the functional group header in the messages sent to the guest partner. The following values are used to create the UNG segments: <p>For **UNG1**, enter an alphanumeric value with a minimum of one character and a maximum of six characters. <p>For **UNG2.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG2.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG3.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG3.2**, enter an alphanumeric value, with a maximum of four characters. <p>>For **UNG6**, enter an alphanumeric value with a minimum of one and a maximum of three characters. <p>For **UNG7.1**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.2**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.3**, enter an alphanumeric value with a minimum of 1 character and a maximum of 6 characters. <p>For **UNG8**, enter an alphanumeric value with a minimum of one character and a maximum of 14 characters. |
+| Apply UNG Segments (Function Group Header) |Select this checkbox to create grouping segments in the functional group header in the messages sent to the guest partner. The following values are used to create the UNG segments: <p>For **UNG1**, enter an alphanumeric value with a minimum of one character and a maximum of six characters. <p>For **UNG2.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG2.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG3.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG3.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG6**, enter an alphanumeric value with a minimum of one and a maximum of three characters. <p>For **UNG7.1**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.2**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.3**, enter an alphanumeric value with a minimum of 1 character and a maximum of 6 characters. <p>For **UNG8**, enter an alphanumeric value with a minimum of one character and a maximum of 14 characters. |
 
 ### Character Sets and Separators
 Other than the character set, you can enter a different set of delimiters to be used for each message type. If a character set is not specified for a given message schema, then the default character set is used.
@@ -237,7 +237,7 @@ Other than the character set, you can enter a different set of delimiters to be 
 | Property | Description |
 | --- | --- |
 | UNB1.1 (System Identifier) |Select the EDIFACT character set to be applied on the outgoing interchange. |
-| Schema |Select a schema from the drop-down list. After each row is completed, a new row is added. For the selected schema, select the separators set to be used: <p>**Component element separator** – Enter a single character to separate composite data elements. <p>**Data Element Separator** – Enter a single character to separate simple data elements within composite data elements. <p>**Replacement Character** – Select this check box when the payload data has characters that are also used as data, segment, or component separators. You can then enter a replacement character. When generating the outbound EDIFACT message, all instances of separator characters in the payload data are replaced with the specified character. <p>**Segment Terminator** – Enter a single character to indicate the end of an EDI segment. <p>**Suffix** – Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
+| Schema |Select a schema from the drop-down list. After each row is completed, a new row is added. For the selected schema, select the separators set to be used: <br></br><br></br>**Component element separator** – Enter a single character to separate composite data elements. <br></br><br></br>**Data Element Separator** – Enter a single character to separate simple data elements within composite data elements. <p>**Replacement Character** – Select this check box when the payload data has characters that are also used as data, segment, or component separators. You can then enter a replacement character. When generating the outbound EDIFACT message, all instances of separator characters in the payload data are replaced with the specified character. <br></br><br></br>**Segment Terminator** – Enter a single character to indicate the end of an EDI segment. <br></br><br></br>**Suffix** – Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
 
 ### Control Numbers
 | Property | Description |
@@ -249,7 +249,7 @@ Other than the character set, you can enter a different set of delimiters to be 
 ### Validations
 
 When you complete each validation row, another is automatically added. 
-If you don't specify any rules, then validation uses the row that's marked "Default".
+If you don't specify any rules, then validation uses the "Default" row.
 
 | Property | Description |
 | --- | --- |
