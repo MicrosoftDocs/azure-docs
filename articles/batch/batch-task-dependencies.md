@@ -144,7 +144,7 @@ By default, a dependent task or set of tasks runs only after a parent task has c
 
 For example, suppose that a dependent task is awaiting data from the completion of the upstream task. If the upstream task fails, the dependent task may still be able to run using older data. In this case, a dependency action can specify that the dependent task is eligible to run despite the failure of the parent task.
 
-A dependency action is based on an exit condition for a task. You can specify a dependency action for any of the following exit conditions; see the [ExitConditions][net_exitconditions] class for details:
+A dependency action is based on an exit condition for the parent task. You can specify a dependency action for any of the following exit conditions; for .NET, see the [ExitConditions][net_exitconditions] class for details:
 
 - When a scheduling error occurs
 - When the task exits with an exit code defined by the **ExitCodes** property
@@ -158,37 +158,39 @@ To specify a dependency action in .NET, set the [ExitOptions][net_exitoptions].[
 
 The default setting for the **DependencyAction** property is **Satisfy** for exit code 0, and **Block** for all other exit conditions.
 
-The following code snippet sets the **DependencyAction** property for a dependent task. If the parent task exits with a scheduling error, the dependent task is blocked. If the parent task exits with any other non-zero error, the dependent task is eligible to run.
+The following code snippet sets the **DependencyAction** property for a parent task. If the parent task exits with a scheduling error, or with the specified error codes, the dependent task is blocked. If the parent task exits with any other non-zero error, the dependent task is eligible to run.
 
 ```csharp
 // Task A is the parent task.
-new CloudTask("A", "cmd.exe /c echo A"),
-// Task B depends on task A.
-new CloudTask("B", "cmd.exe /c echo B")
+new CloudTask("A", "cmd.exe /c echo A")
 {
-    DependsOn = TaskDependencies.OnId("A"),
+    // Specify exit conditions for task A and their dependency actions.
     ExitConditions = new ExitConditions()
     {
-        // If task A exits with a scheduling error, block any downstream tasks (in this case, task B).
+        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
         SchedulingError = new ExitOptions()
         {
             DependencyAction = DependencyAction.Block
         },
-        // If task A exits with the specified error codes, block any downstream tasks (in this case, task B).
+        // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
         ExitCodes = new List<ExitCodeMapping>()
         {
-            new ExitCodeMapping(10, new ExitOptions() {DependencyAction = DependencyAction.Block }),
-            new ExitCodeMapping(20, new ExitOptions() {DependencyAction = DependencyAction.Block })
+            new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
+            new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
         // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
-        // (in this case, task B).
+        // (in this example, task B).
         Default = new ExitOptions()
         {
             DependencyAction = DependencyAction.Satisfy
-        },
+        }
     }
 },
-
+// Task B depends on task A. Whether it becomes eligible to run depends on how task A exits.
+new CloudTask("B", "cmd.exe /c echo B")
+{
+    DependsOn = TaskDependencies.OnId("A")
+},
 ```
 
 ## Code sample
