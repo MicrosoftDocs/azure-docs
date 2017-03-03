@@ -26,7 +26,7 @@ Before you begin protecting any VMware virtual machines (VMs) by using Site Reco
 
 You also need to create the right type and number of target Azure Storage accounts. You create either standard or premium accounts, factoring in growth on your source production servers because of increased usage over time. You'll also choose the storage type per VM based on workload characteristics (for example, read/write I/O operations per second [IOPS], or data churn) and Site Recovery limits.
 
-The Azure Site Recovery deployment planner public preview is a command-line tool that's currently available only for the VMware-to-Azure scenario. You can remotely profile your VMware VMs by using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and Test Failover. You can run the tool without installing any Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the Planner on a Windows Server that meets the minimum requirements of the Site Recovery configuration server that you would eventually need to deploy as one of the first steps in production deployment.
+The Azure Site Recovery deployment planner public preview is a command-line tool that's currently available only for the VMware-to-Azure scenario. You can remotely profile your VMware VMs by using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover. You can run the tool without installing any Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that meets the minimum requirements of the Site Recovery configuration server that you would eventually need to deploy as one of the first steps in production deployment.
 
 The tool provides the following details:
 
@@ -165,17 +165,17 @@ ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCen
 
 >[!NOTE]
 >
->* If the server that the tool is running on is rebooted or has crashed, or if you close the tool by using Ctrl + C, the profiled data is preserved. There is a chance of missing the last 15 minutes of profiled data because of this. You need to rerun the tool in profiling mode after the server restarts.
+>* If the server that the tool is running on is rebooted or has crashed, or if you close the tool by using Ctrl + C, the profiled data is preserved. However, there is a chance of missing the last 15 minutes of profiled data. In such an instance, rerun the tool in profiling mode after the server restarts.
 >* When the storage account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput is not calculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report will not contain the throughput information.
->* You can run multiple instances of the tool for different sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, you have profiled ten VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). But ensure that the second set of VMs do not have any VM names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect.
->* Virtual machine configuration is captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information will be used at the time of report generation. Any change in VM configuration (for example, an increased number of cores, disks, or NICs) from the time profiling started to when profiling ended will not be captured. If you have a situation where any profiled VM configuration has changed during the course of profiling, in the public preview, here is the workaround to get latest VM details when generating the report:  
+>* You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, you have profiled ten VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). But ensure that the second set of VMs does not contain any VM names from the first profiling instance or that you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect.
+>* The VM configuration is captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information is used when the report is generated. Any change in VM configuration (for example, an increased number of cores, disks, or NICs) from the beginning to the end of profiling is captured. If any profiled VM configuration has changed in the public preview, get the latest VM details by performing the following workaround:  
 >  * Back up VMdetailList.xml, and delete the file from its current location.  
 >  * Pass -User and -Password arguments at the time of report generation.  
 >  
 >* The profiling command generates several files in the profiling directory. Do not delete any of the files, because doing so affects report generation.
 
-## Generate report
-The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_<Unique Numeric Identifier>.xlsm and placed in the specified directory.
+## Generate a report
+The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_<*unique numeric identifier*>.xlsm and placed in the specified directory.
 
 After profiling is complete, you can run the tool in report-generation mode. The following table contains a list of mandatory and optional tool parameters to run in report-generation mode.
 
@@ -184,49 +184,55 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |Parameter name | Description |
 |-|-|
 | -Operation | GenerateReport |
-| -Server |  The vCenter/vSphere Server fully qualified domain name or IP address (use the exact same name or IP address as you used at the time of profiling) where the profiled VMs whose report is to be generated are located. Note that if you used a vCenter server at the time of profiling, you cannot use a vSphere Server for report generation, and vice-versa.|
-| -VMListFile | The file with the list of profiled VMs for which the report is to be generated. The file path can be absolute or relative. This file should contain one VM name/IP address per line. Virtual machine names specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host, and match what was used at profiling time.|
-| -Directory | (Optional) UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If not specified, ‘ProfiledData’ directory will be used. |
-| -GoalToCompleteIR | (Optional) Number of hours in which the initial replication of the profiled VMs needs to be completed. The generated report will provide the number of VMs for which initial replication can be completed in the specified time. Default is 72 hours. |
-| -User | (Optional) User name to connect to the vCenter/vSphere server. This is used to fetch the latest configuration information of the VMs like number of disks, number of cores, number of NICs, etc. to use in the report. If not provided, configuration information collected at the beginning of profiling kick-off is used. |
-| -Password | (Optional) Password to connect to the vCenter server/vSphere ESXi host. If not specified as a parameter, you will be prompted for it later when the command is executed. |
-| -DesiredRPO | (Optional) Desired recovery point objective, in minutes. Default is 15 minutes.|
-| -Bandwidth | Bandwidth in Mbps. This is used to calculate the RPO that can be achieved for the specified bandwidth. |
-| -StartDate | (Optional) Start date and time in MM-DD-YYYY:HH:MM (in 24 hours format). ‘StartDate’ needs to be specified along with ‘EndDate’. When specified, the report will be generated for the profiled data collected between StartDate and EndDate. |
-| -EndDate | (Optional) End date and time in MM-DD-YYYY:HH:MM (in 24 hours format). ‘EndDate’ needs to be specified along with ‘StartDate’. When specified, the report will be generated for the profiled data collected between StartDate and EndDate. |
-| -GrowthFactor | (Optional) Growth factor in percentage. Default is 30 percent. |
+| -Server |  The vCenter/vSphere server fully qualified domain name or IP address (use the same name or IP address that you used at the time of profiling) where the profiled VMs whose report is to be generated are located. Note that if you used a vCenter server at the time of profiling, you cannot use a vSphere server for report generation, and vice-versa.|
+| -VMListFile | The file that contains the list of profiled VMs that the report is to be generated for. The file path can be absolute or relative. The file should contain one VM name or IP address per line. The VM names that are specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host, and match what was used during profiling.|
+| -Directory | (Optional) The universal naming convention (UNC) or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, ‘ProfiledData’ directory will be used. |
+| -GoalToCompleteIR | (Optional) The number of hours in which the initial replication of the profiled VMs needs to be completed. The generated report provides the number of VMs for which initial replication can be completed in the specified time. The default is 72 hours. |
+| -User | (Optional) The user name to use to connect to the vCenter/vSphere server. The name is used to fetch the latest configuration information of the VMs, such as the number of disks, number of cores, and number of NICs, to use in the report. If the name isn't provided, the configuration information collected at the beginning of the profiling kickoff is used. |
+| -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If the password isn't specified as a parameter, you will be prompted for it later when the command is executed. |
+| -DesiredRPO | (Optional) The desired recovery point objective, in minutes. The default is 15 minutes.|
+| -Bandwidth | Bandwidth in Mbps. The parameter to use to calculate the RPO that can be achieved for the specified bandwidth. |
+| -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour format). *StartDate* must be specified along with *EndDate*. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
+| -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
+| -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
 
-##### Example 1: To generate report with default values when profiled data is on the local drive
+### Example 1: Generate a report with default values when the profiled data is on the local drive
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 
-##### Example 2: To generate report when profiled data is on a remote server. User should have read/write access on the remote directory.
+### Example 2: Generate a report when the profiled data is on a remote server.
+Users should have read/write access on the remote directory.
+
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
-##### Example 3: Generate report with specific bandwidth and goal to complete IR within specified time
+### Example 3: Generate a report with a specific bandwidth and goal to complete IR within specified time
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
 
-##### Example 4: Generate report with 5 percent growth factor instead of the default 30 percent
+### Example 4: Generate a report with a 5 percent growth factor instead of the default 30 percent
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-GrowthFactor** 5
 
-##### Example 5: Generate report with a subset of profiled data. Say you have 30 days of profiled data and want to generate the report for only 20 days.
+### Example 5: Generate a report with a subset of profiled data
+For example, you have 30 days of profiled data and want to generate a report for only 20 days.
+
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-StartDate**  01-10-2017:12:30 -**EndDate** 01-19-2017:12:30
 
-##### Example 6: Generate report for 5-minute RPO.
+### Example 6: Generate a report for 5-minute RPO.
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-DesiredRPO** 5
 
-### Percentile value used for the calculation
-**What default percentile value of the performance metrics collected during profiling is used at the time of report generation?**
+## The percentile value used for the calculation
+**What default percentile value of the performance metrics collected during profiling is used when a report is generated?**
 
-The tool defaults to 95th percentile values of read/write IOPS, write IOPS, and data churn collected during profiling of all the VMs. This ensures that the 100th percentile spike your VMs might see because of temporary events like say a backup job running once a day, a periodic database indexing or analytics report generation activity, or any other similar point in time short-lived event that happens during the profiling period is not used to determine your target Azure Storage and source bandwidth requirements. Using 95th percentile values gives a true picture of real workload characteristics and gives you the best performance when these workloads are running on Microsoft Azure. We do not expect you to change this number often, but if you choose to go even lower (for example, to the 90th percentile), you can update this configuration file ‘ASRDeploymentPlanner.exe.config’ in the default folder and save it to generate a new report on the existing profiled data.
+The tool defaults to the 95th percentile values of read/write IOPS, write IOPS, and data churn that are collected during profiling of all the VMs. This metric ensures that the 100th percentile spike your VMs might see because of temporary events is not used to determine your target Azure storage and source bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report generation activity, or other similar short-lived, point-in-time events.
+
+Using 95th percentile values gives a true picture of real workload characteristics, and it gives you the best performance when the workloads are running on Microsoft Azure. We do not anticipate that you would need to change this number. If you do change it (to the 90th percentile, for example), you can update the configuration file *ASRDeploymentPlanner.exe.config* in the default folder and save it to generate a new report on the existing profiled data.
 
 		&lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;>      
 		&lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;>      
 		&lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
 
-### Growth factor
-**Why should one consider growth factor while deployment planning?**
+## Growth-factor considerations
+**Why should I consider growth factor when I plan deployments?**
 
-It is critical to account for growth in your workload characteristics assuming potential increase in usage over time. This is because once protected if your workload characteristics change, there is currently no means to switch to a different Azure Storage account for protection without disabling and re-enabling protection. For example, if today a VM fits in a standard storage replication account, in say three months’ time, because of an increase in number of users of the application running on the VM, if say the churn on the VM increases and requires it to go to premium storage so that Site Recovery replication can keep up with the new higher churn, you will have to disable and re-enable protection to a premium storage account. So, it is strongly advised to plan for growth while deployment planning and the default value is 30 percent. You know your applications usage pattern and growth projections the best and can change this number accordingly while generating a report. You can in fact generate multiple reports with different growth factors with the same profiled data and see what target Azure Storage and source bandwidth recommendations work best for you.
+It is critical to account for growth in your workload characteristics, assuming a potential increase in usage over time. This is because once protected if your workload characteristics change, there is currently no means to switch to a different Azure Storage account for protection without disabling and re-enabling protection. For example, if today a VM fits in a standard storage replication account, in say three months’ time, because of an increase in number of users of the application running on the VM, if say the churn on the VM increases and requires it to go to premium storage so that Site Recovery replication can keep up with the new higher churn, you will have to disable and re-enable protection to a premium storage account. So, it is strongly advised to plan for growth while deployment planning and the default value is 30 percent. You know your applications usage pattern and growth projections the best and can change this number accordingly while generating a report. You can in fact generate multiple reports with different growth factors with the same profiled data and see what target Azure Storage and source bandwidth recommendations work best for you.
 
 The generated Microsoft Excel report contains the following information:
 
@@ -237,20 +243,20 @@ The generated Microsoft Excel report contains the following information:
 * [Compatible VMs](site-recovery-deployment-planner.md#compatible-vms)
 * [Incompatible VMs](site-recovery-deployment-planner.md#incompatible-vms)
 
-![Deployment Planner](./media/site-recovery-deployment-planner/dp-report.png)
+![Deployment planner](./media/site-recovery-deployment-planner/dp-report.png)
 
 ## Get throughput
 
 To estimate the throughput that Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server where the tool is running (ideally a server based on the configuration server sizing guide). If you have already deployed Site Recovery infrastructure components on-premises, run the tool on the configuration server.
 
-Open a command-line console and go to ASR deployment planning tool folder. Run ASRDeploymentPlanner.exe with following parameters. Parameters in [] are optional.
+Open a command-line console and go to ASR deployment planning tool folder. Run ASRDeploymentPlanner.exe with following parameters.
 
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 
 |Parameter name | Description |
 |-|-|
 | -operation | GetThroughput |
-| [-Directory] | UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If not specified, ‘ProfiledData’ directory will be used. |
+| -Directory | (Optional) UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If not specified, ‘ProfiledData’ directory will be used. |
 | -StorageAccountName | Azure Storage account name to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. |
 | -StorageAccountKey | Azure Storage Account Key used to access the storage account. Go to the Azure portal > Storage accounts > [Storage account name] > Settings > Access Keys > Key1(or Primary access key for classic storage account). |
 | -VMListFile | The file with the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. This file should contain one VM name/IP address per line. The VM names specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
