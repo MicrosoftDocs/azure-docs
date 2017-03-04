@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/1/2016
+ms.date: 03/4/2016
 ms.author: helaw
 
 ---
@@ -47,7 +47,7 @@ Resource Manager [functions](../azure-resource-manager/resource-group-template-f
 * Reference values from other resources
 * Iterating on resources to deploy multiple instances 
 
-As you build your templates, some functions are not available in Azure Stack Technical Preview 2, and should not be used. These functions are:
+As you build your templates, some functions are not available in Azure Stack Technical Preview 3, and should not be used. These functions are:
 
 * Skip
 * Take
