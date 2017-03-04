@@ -1,5 +1,5 @@
 ---
-title: Testing VM network throughput | Microsoft Docs
+title: Testing Azure VM network throughput | Microsoft Docs
 description: Learn how to test Azure virtual machine network throughput.
 services: virtual-network
 documentationcenter: na
@@ -36,7 +36,8 @@ Run the NTTTCP test for 300 seconds (or 5 minutes) on the sender VM and receiver
 
 Tip: When setting up this test for the first time, you might try a shorter test period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
 
-Note: The sender **and** receiver must specify **the same** test duration
+> [!NOTE]
+> The sender **and** receiver must specify **the same** test duration
 parameter (-t).
 
 To test a single TCP stream for 10 seconds:
@@ -45,7 +46,8 @@ Receiver parameters: ntttcp -r -t 10 -P 1
 
 Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 
-Note: the preceding sample should only be used to confirm your configuration. Valid examples of testing are covered later in this document.
+> [!NOTE]
+> The preceding sample should only be used to confirm your configuration. Valid examples of testing are covered later in this document.
 
 ## Testing VMs running WINDOWS:
 
@@ -116,12 +118,18 @@ As in the Windows example, we assume the Linux RECEIVER's IP is 10.0.0.4
 
 Start NTTTCP-for-Linux on the RECEIVER:
 
-./ntttcp -r -t 300
-
+``` bash
+ntttcp -r -t 300
+```
 
 And on the SENDER, run:
 
-./ntttcp -s10.0.0.4 -t 300
+``` bash
+ntttcp -s10.0.0.4 -t 300
+```
  
-
 Test length defaults to 60 seconds if no time parameter is given
+
+## Next steps
+* Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
+* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
