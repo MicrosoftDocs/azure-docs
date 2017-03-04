@@ -37,7 +37,7 @@ The URLs for Log Analytics are different in Azure Government:
 | --- | --- | --- |
 | HDInsight Cluster | \*.azurehdinsight.net | \*.azurehdinsight.us |
 
-For more information, see [Azure HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
+For more information, see [HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
 
 ## Power BI
 Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/> here</a>. 
