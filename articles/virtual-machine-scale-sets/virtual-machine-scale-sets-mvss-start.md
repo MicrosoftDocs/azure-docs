@@ -1,5 +1,5 @@
 ---
-title: Virtual Machine Scale Sets: Minimum Viable Scale Set | Microsoft Docs
+title: 'Azure Virtual Machine Scale Sets: Minimum Viable Scale Set | Microsoft Docs'
 description: Learn to create a minimum viable scale set template
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -110,7 +110,7 @@ In addition to the required `type`, `name`, `apiVersion`, and `location` propert
 +      ],
 ```
 
-The scale set needs to know what size of VM to create (the "sku name") and how many such VMs to create (the "sku capacity"). To see which VM sizes are available, refer to the [VM Sizes documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes).
+The scale set needs to know what size of VM to create (the "sku name") and how many such VMs to create (the "sku capacity"). To see which VM sizes are available, refer to the [VM Sizes documentation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 
 ```diff
 +      "sku": {
