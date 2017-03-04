@@ -33,7 +33,7 @@ In this tutorial, you sign in to the Azure portal, create a storage account, and
 1. In the [Azure portal](https://portal.azure.com), select **New** > **Storage** > **Storage account**.
    
       ![create storage](./media/resource-manager-export-template/create-storage.png)
-2. Create a storage account with the name **storage**, your initials, and the date. The storage account name must be unique across Azure. If the name is already in use, you see an error message indicating the name is in use. Try a variation. For resource group, create a new resource group and name it **ExportGroup**. You can use the default values for the other properties. Select **Create**.
+2. Create a storage account with the name **storage**, your initials, and the date. The storage account name must be unique across Azure. If the name is already in use, you see an error message indicating the name is in use. Try a variation. For resource group, select **Create new** and name it **ExportGroup**. You can use the default values for the other properties. Select **Create**.
    
       ![provide values for storage](./media/resource-manager-export-template/provide-storage-values.png)
 
@@ -54,6 +54,7 @@ The deployment may take a minute. After the deployment finishes, your subscripti
    1. **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
    2. **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment, but you can change any of these values when you redeploy the template.
    3. **CLI** - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
+   3. **CLI 2.0** - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
    4. **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
    5. **.NET** - A .NET class that you can use to deploy the template.
    6. **Ruby** - A Ruby class that you can use to deploy the template.
@@ -192,7 +193,7 @@ The exported template works fine if you want to create the same storage account 
 
 In this section, you add parameters to the exported template so that you can reuse the template when you deploy these resources to other environments. You also add some features to your template to decrease the likelihood of encountering an error when you deploy your template. You no longer have to guess a unique name for your storage account. Instead, the template creates a unique name. You restrict the values that can be specified for the storage account type to only valid options.
 
-1. Select **Edit** to customize the template.
+1. To customize the template, select **Edit**.
    
      ![show template](./media/resource-manager-export-template/show-template.png)
 2. Select the template.
@@ -315,7 +316,7 @@ Replace the contents of the parameters.json file with:
 The updated parameter file provides values only for parameters that do not have a default value. You can provide values for the other parameters when you want a value that is different from the default value.
 
 ## Fix export issues
-Not all resource types support the export template function. Resource Manager specifically does not export some resource types to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
+Not all resource types support the export template function. Resource Manager specifically does not export some resource types to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. To resolve this issue, manually add the missing resources back into your template.
 
 > [!NOTE]
 > You only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
