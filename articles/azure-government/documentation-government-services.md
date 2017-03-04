@@ -1,4 +1,4 @@
-l---
+---
 title: Azure Government available services | Microsoft Docs
 description: Provides an overview of the available services in Azure Government
 services: azure-government
@@ -55,7 +55,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-c## [Storage](documentation-government-services-storage.md)
+## [Storage](documentation-government-services-storage.md)
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
