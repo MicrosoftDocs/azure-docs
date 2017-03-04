@@ -47,7 +47,7 @@ Resource Manager [functions](../azure-resource-manager/resource-group-template-f
 * Reference values from other resources
 * Iterating on resources to deploy multiple instances 
 
-As you build your templates, some functions are not available in Azure Stack Technical Preview 3, and should not be used. These functions are:
+As you build your templates, some functions are not available in Azure Stack TP3, and should not be used. These functions are:
 
 * Skip
 * Take
