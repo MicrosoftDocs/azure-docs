@@ -136,7 +136,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 ```
 
 ## Code sample
-The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to enable task dependency on a job, create tasks that depend on other tasks, and execute those tasks on a pool of compute nodes.
+The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio solution demonstrates how to enable task dependency on a job, create tasks that depend on other tasks, and execute those tasks on a pool of compute nodes.
 
 ## Next steps
 ### Application deployment
