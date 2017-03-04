@@ -91,6 +91,12 @@ In the tables below, services specified as Resource Manager enabled have resourc
 | [Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
 
 
+## [Intelligene + Analytics](documentation-government-services-intelligenceandanalytics.md)
+
+| Service | Resource Manager Enabled | Portal |
+| --- | --- | --- |
+| [HDInsignts](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Yes | Yes |
+| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | No | No (Office 365 Admin Portal) |
 
 
 ## Internet of Things (IoT)
