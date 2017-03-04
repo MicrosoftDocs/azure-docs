@@ -32,7 +32,11 @@ If you have already deployed password management, or are just looking to learn m
   * [Password writeback bandwidth usage](#password-writeback-bandwidth-usage)
 * [**How does the password reset portal work?**](#how-does-the-password-reset-portal-work)
   * [What data is used by password reset?](#what-data-is-used-by-password-reset)
+  * [Deploying password reset without requiring end user registration](#deploying-password-reset-without-requiring-end-user-registration)
+  * [What happens when a user registers for password reset?](#what-happens-when-a-user-registers)
   * [How to access password reset data for your users](#how-to-access-password-reset-data-for-your-users)
+  * [Setting password reset data with PowerShell](#setting-password-reset-data-with-powershell)
+  * [Reading password reset data with PowerShell](#reading-password-reset-data-with-powershell)
 
 ## Password writeback overview
 Password writeback is an [Azure Active Directory Connect](connect/active-directory-aadconnect.md) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](active-directory-editions.md).
@@ -124,7 +128,7 @@ Learn more about how to deploy password writeback at [Getting Started: Azure AD 
 The following table outlines where and how this data is used during password reset and is designed to help you decide which authentication options are appropriate for your organization. This table also shows any formatting requirements for cases where you are providing data on behalf of users from input paths that do not validate this data.
 
 > [!NOTE]
-> Office Phone does not appear in the registration portal because users are currently not able to edit this property in the directory.
+> Office Phone does not appear in the registration portal because users are currently not able to edit this property in the directory. Only administrators may set this value.
 >
 >
 
@@ -133,6 +137,11 @@ The following table outlines where and how this data is used during password res
             <td>
               <p>
                 <strong>Contact Method Name</strong>
+              </p>
+            </td>
+            <td>
+              <p>
+                <strong>Active Directory Data Element</strong>
               </p>
             </td>
             <td>
@@ -154,6 +163,10 @@ The following table outlines where and how this data is used during password res
           <tr>
             <td>
               <p>Office Phone</p>
+            </td>
+            <td>
+              <p>telephoneNumber</p>
+              <p>This property can be synchronized to the PhoneNumber attribute in Azure Active Directory and immediately used for password reset WITHOUT requiring a user to register, first.</p>
             </td>
             <td>
               <p>PhoneNumber</p>
@@ -194,6 +207,11 @@ The following table outlines where and how this data is used during password res
               <p>Mobile Phone</p>
             </td>
             <td>
+              <p>Mobile</p>
+              <p>This property can be synchronized to the MobilePhone attribute in Azure Active Directory and immediately used for password reset WITHOUT requiring a user to register, first.</p>
+              <p>It is not possible to synchronize this property to AuthenticationPhone at this time.</p>
+            </td>
+            <td>
               <p>AuthenticationPhone</p>
               <p>OR</p>
               <p>MobilePhone</p>
@@ -206,7 +224,7 @@ The following table outlines where and how this data is used during password res
               <p>Registration Portal</p>
               <p>Settable from: </p>
               <p>AuthenticationPhone is settable from the password reset registration portal or MFA registration portal.</p>
-              <p>MobilePhone is settable from PowerShell, DirSync, Azure Management Portal, and the Office Admin Portal</p>
+              <p>MobilePhone is settable from PowerShell, Azure AD Connect, Azure Management Portal, and the Office Admin Portal</p>
             </td>
             <td>
               <p>+ccc xxxyyyzzzz (e.g. +1 1234567890)</p>
@@ -235,6 +253,11 @@ The following table outlines where and how this data is used during password res
           <tr>
             <td>
               <p>Alternate Email</p>
+            </td>
+            <td>
+              <p>Not available</p>
+              <p>It is not possible to synchronize values from Active Directory to either the AuthenticationEmail or AlternateEmailAddresses[0] property at this time. </p>
+              <p>You may use PowerShell to set AlternateEmailAddresses[0]. Instructions for this are in the section just below this table.</p>
             </td>
             <td>
               <p>AuthenticationEmail</p>
@@ -270,7 +293,12 @@ The following table outlines where and how this data is used during password res
               <p>Security Questions and Answers</p>
             </td>
             <td>
+              <p>Not available</p>
+              <p>It is not possible to synchronize Security Questions or Answers from Active Directory at this time.</p>
+            </td>
+            <td>
               <p>Not available to modify directly in the directory.</p>
+              <p>May only be set during the password reset end user registration process.</p>
             </td>
             <td>
               <p>Used in:</p>
@@ -287,28 +315,33 @@ The following table outlines where and how this data is used during password res
           </tr>
         </tbody></table>
 
-### How to access password reset data for your users
-#### Data settable via synchronization
-The following fields can be synchronized from on-premises:
+### Deploying password reset without requiring end user registration
+If you want to deploy password reset without requiring your users to register for it, you can do so easily by following one of the two below options. This can be a useful way to unblock large numbers of users to use SSPR while still allowing users to validate this information through the registration process.
+
+Many of our largest customers use this today to get started with password reset extremely quickly.
+
+#### Synchronize phone numbers with Azure AD Connect
+If you synchronize data to one or both of the below fields, it can immediately be used for password reset, without requiring users to register first:
 
 * Mobile Phone
 * Office Phone
 
-#### Data accessible with Azure AD PowerShell
-The following fields are accessible with Azure AD PowerShell & the Graph API:
+To learn about which properties need to be updated on premises, go to the [What data is used by password reset?](#what-data-is-used-by-password-reset) section and look up the fields mentioned above.  
 
+Make sure any phone numbers are in the format "+1 1234567890" so they work properly with our system.
+
+#### Set phone numbers or emails with PowerShell
+If you set one or more of these fields, it can immediately be used for password reset, without requiring users to register first:
+
+* Mobile Phone
+* Office Phone
 * Alternate Email
-* Mobile Phone
-* Office Phone
-* Authentication Phone
-* Authentication Email
 
-#### Data settable with registration UI only
-The following fields are only accessible via the SSPR registration UI (https://aka.ms/ssprsetup):
+To learn how to set these properties using PowerShell, go to the [Setting password reset data with PowerShell](#setting-password-reset-data-with-powershell) section.
 
-* Security Questions and Answers
+Make sure any phone numbers are in the format "+1 1234567890" so they work properly with our system.
 
-#### What happens when a user registers?
+### What happens when a user registers?
 When a user registers, the registration page will **always** set the following fields:
 
 * Authentication Phone
@@ -317,36 +350,103 @@ When a user registers, the registration page will **always** set the following f
 
 If you have provided a value for **Mobile Phone** or **Alternate Email**, users can immediately use those to reset their passwords, even if they haven't registered for the service.  In addition, users will see those values when registering for the first time, and modify them if they wish.  However, after they successfully register, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
 
-This can be a useful way to unblock large numbers of users to use SSPR while still allowing users to validate this information through the registration process.
+### How to access password reset data for your users
+#### Data settable via synchronization
+The following fields can be synchronized from on-premises:
 
-#### Setting password reset data with PowerShell
+* Mobile Phone
+* Office Phone
+
+#### Data settable with Azure AD PowerShell & Azure AD Graph
+The following fields can be set using Azure AD PowerShell & the Azure AD Graph API:
+
+* Alternate Email
+* Mobile Phone
+* Office Phone
+
+#### Data settable with registration UI only
+The following fields are only accessible via the SSPR registration UI (https://aka.ms/ssprsetup):
+
+* Security Questions and Answers
+
+#### Data readable with Azure AD PowerShell & Azure AD Graph
+The following fields are accessible with Azure AD PowerShell & the Azure AD Graph API:
+
+* Alternate Email
+* Mobile Phone
+* Office Phone
+* Authentication Phone
+* Authentication Email
+
+### Setting password reset data with PowerShell
 You can set values for the following fields with Azure AD PowerShell.
 
 * Alternate Email
 * Mobile Phone
 * Office Phone
 
+**_PowerShell V1_**
+
 To get started, you'll first need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule).  Once you have it installed, you can follow the steps below to configure each field.
 
-##### Alternate Email
+**_PowerShell V2_**
+
+To get started, you'll first need to [download and install the Azure AD V2 PowerShell module](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Once you have it installed, you can follow the steps below to configure each field.
+
+To install quickly from recent versions of PowerShell which support Install-Module, run these commands (the first line simply checks to see if it's installed already):
+
+```
+Get-Module AzureADPreview
+Install-Module AzureADPreview
+Connect-AzureAD
+```
+
+#### Alternate Email - How to Set Alternate Email with PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
 ```
 
-##### Mobile Phone
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
+```
+
+#### Mobile Phone - How to Set Mobile Phone with PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
 ```
 
-##### Office Phone
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 1234567890"
+```
+
+#### Office Phone - How to Set Office Phone with PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
 ```
 
-#### Reading password reset data with PowerShell
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
+```
+
+### Reading password reset data with PowerShell
 You can read values for the following fields with Azure AD PowerShell.
 
 * Alternate Email
@@ -355,36 +455,77 @@ You can read values for the following fields with Azure AD PowerShell.
 * Authentication Phone
 * Authentication Email
 
-To get started, you'll first need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule).  Once you have it installed, you can follow the steps below to configure each field.
+#### Alternate Email - How to Read Alternate Email with PowerShell
+**_PowerShell V1_**
 
-##### Alternate Email
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
 ```
 
-##### Mobile Phone
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Get-AzureADUser -ObjectID user@domain.com | select otherMails
+```
+
+#### Mobile Phone - How to Read Mobile Phone with PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
 ```
 
-##### Office Phone
+**_PowerShell v2_**
+
+```
+Connect-AzureAD
+Get-AzureADUser -ObjectID user@domain.com | select Mobile
+```
+
+#### Office Phone - How to Read Office Phone with PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 ```
 
-##### Authentication Phone
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
+```
+
+#### Authentication Phone - How to Read Authentication Phone with PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 ```
 
-##### Authentication Email
+**_PowerShell V2_**
+
+```
+Not possible in PowerShell V2
+```
+
+#### Authentication Email - How to Read Authentication Email with PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
+
+**_PowerShell V2_**
+
+```
+Not possible in PowerShell V2
 ```
 
 ## Next steps
