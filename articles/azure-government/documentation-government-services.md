@@ -124,7 +124,6 @@ c## [Storage](documentation-government-services-storage.md)
 | Azure Active Directory | Yes | Yes |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | No (Coming soon) |
 | Multi-Factory Authentication | Yes | Yes |
-| InTune | Yes | No |
 
 
 ## Intelligence + Analytics
