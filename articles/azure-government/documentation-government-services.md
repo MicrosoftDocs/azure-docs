@@ -95,7 +95,7 @@ In the tables below, services specified as Resource Manager enabled have resourc
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
-| [HDInsignts](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Yes | Yes |
+| [HDInsights](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Yes | Yes |
 | [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | No | No (Office 365 Admin Portal) |
 
 
