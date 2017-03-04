@@ -150,5 +150,5 @@ c## [Storage](documentation-government-services-storage.md)
 
 
 ## Next Steps
-For supplemental information and updates subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
 
