@@ -28,12 +28,11 @@ This article shows how to mount Azure File storage on a Linux VM by using the Se
 ## CLI versions to use
 You can complete the task by using one of the following command-line interface (CLI) versions:
 
-* Azure CLI 1.0: The CLI for the classic and Azure Resource Manager deployment models. Learn about it in the "Quick commands" section.
-* [Azure CLI 2.0 Preview](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): The next-generation CLI for the Resource Manager deployment model.
+- [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)- our next generation CLI for the resource management deployment model
 
 
 ## Quick commands
-
 To accomplish the task quickly, follow the steps in this section. For more detailed information and context, begin at the ["Detailed walkthrough"](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) section.
 
 ### Prerequisites

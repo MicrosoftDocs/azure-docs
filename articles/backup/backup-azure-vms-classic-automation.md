@@ -1,6 +1,6 @@
 ---
 title: Deploy and manage backup for Azure VMs using PowerShell | Microsoft Docs
-description: Learn how to deploy and manage Azure Backup using PowerShell
+description: Learn how to deploy and manage Azure Backup using PowerShell.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: markgal;trinadhk;jimpark
+ms.custom: H1Hack27Feb2017
 
 ---
-# Deploy and manage backup for Azure VMs using PowerShell
+# Use AzureRM.Backup cmdlets to back up virtual machines
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-vms-automation.md)
 > * [Classic](backup-azure-vms-classic-automation.md)

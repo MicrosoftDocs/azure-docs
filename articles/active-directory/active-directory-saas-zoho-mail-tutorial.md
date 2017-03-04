@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
-ms.author: markvi
+ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Zoho Mail

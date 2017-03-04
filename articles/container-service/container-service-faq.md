@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# Frequently asked questions: Azure Container Service
+# Container Service frequently asked questions
 
 
 ## Orchestrators
@@ -78,6 +79,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 You can find commonly used URLs for your cluster in the Azure portal, the Azure Resource Explorer, or other Azure tools.
+
+### How do I tell which orchestrator version is running in my cluster?
+
+* DC/OS: See the [Mesosphere documentation](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm: Run `docker version`
+* Kubernetes: Run `kubectl version`
+
+
+### How do I upgrade the orchestrator after deployment?
+
+Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/).
  
 ### Where do I find the SSH connection string to my cluster?
 

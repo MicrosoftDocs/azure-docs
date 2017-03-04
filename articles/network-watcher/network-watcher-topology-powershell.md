@@ -7,7 +7,7 @@ author: georgewallace
 manager: timlt
 editor: 
 
-ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
+ms.assetid: bd0e882d-8011-45e8-a7ce-de231a69fb85
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,11 @@ ms.author: gwallace
 ---
 
 # View Network Watcher topology with PowerShell
+
+> [!div class="op_single_selector"]
+> - [PowerShell](network-watcher-topology-powershell.md)
+> - [CLI](network-watcher-topology-cli.md)
+> - [REST API](network-watcher-topology-rest.md)
 
 The Topology feature of Network Watcher provides a visual representation of the network resources in a subscription. In the portal, this visualization is presented to you automatically. The information behind the topology view in the portal can be retrieved through PowerShell.
 This capability makes the topology information more versatile as the data can be consumed by other tools to build out the visualization.

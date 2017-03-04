@@ -21,6 +21,8 @@ ms.author: gwallace
 
 Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called by PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Results
 
 The preliminary results returned give an overall picture of the health of the resource. Deeper information can be provided for resources as shown in the following section:
@@ -39,7 +41,7 @@ The following list is the values returned with the troubleshoot API:
       * **actionUri** - This value provides the URI to documentation on how to act.
       * **actionUriText** - This value is a short description of the action text.
 
-The following tables shows the different fault types (id under results from the preceding list) that are available and if the fault creates logs.
+The following tables show the different fault types (id under results from the preceding list) that are available and if the fault creates logs.
 
 ### Gateway
 
@@ -53,8 +55,8 @@ The following tables shows the different fault types (id under results from the 
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
 | NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
-| ConnectionsNotConnected | None of the Connections are not connected. This is only a warning.| Yes|
-| GatewayCPUUsageExceeded | The current Gateway usage CPU usage is > 95%. | Yes |
+| ConnectionsNotConnected | No Connections are not connected. This is only a warning.| Yes|
+| GatewayCPUUsageExceeded | The current Gateway CPU usage is > 95%. | Yes |
 
 ### Connection
 

@@ -12,8 +12,7 @@
 ### [Name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Get Started
-## [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md)
-## [Deploy a VM to a virtual network](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
 
 # How To
 ## Plan and design

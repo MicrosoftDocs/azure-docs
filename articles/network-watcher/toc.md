@@ -39,6 +39,8 @@
 ## Configure NSG flow logs
 ### [Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+### [CLI](network-watcher-nsg-flow-logging-cli.md)
+### [REST](network-watcher-nsg-flow-logging-rest.md)
 # How to
 ## [Monitor VPN Gateway with Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnose On-Premises connectivity via VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)

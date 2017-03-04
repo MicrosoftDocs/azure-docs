@@ -1,6 +1,6 @@
 ---
 title: Deploy a Docker container cluster in Azure | Microsoft Docs
-description: Deploy an Azure Container Service cluster by using the Azure portal or Azure Resource Manager template.
+description: Deploy a Kubernetes, DC/OS, or Docker Swarm solution in Azure Container Service by using the Azure portal or a Resource Manager template.
 services: container-service
 documentationcenter: ''
 author: rgardler
@@ -18,11 +18,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 03/01/2017
 ms.author: rogardle
-
+ms.custom: H1Hack27Feb2017
 ---
-# Deploy an Azure Container Service cluster
+# Deploy a Docker container hosting solution using the Azure portal
 
 
 
@@ -66,7 +66,7 @@ For background, see [Azure Container Service introduction](container-service-int
 
 4. On the **Master configuration** blade, enter the following settings for the Linux master node or nodes in the cluster (some settings are specific to each orchestrator):
 
-    * **Master DNS name**: The prefix used to create a unique fully qualified domain name (FQDN) for the master. The master FQDN is of the form *prefix*.*location*.cloudapp.azure.com.
+    * **Master DNS name**: The prefix used to create a unique fully qualified domain name (FQDN) for the master. The master FQDN is of the form *prefix*mgmt.*location*.cloudapp.azure.com.
     * **User name**: The user name for an account on each of the Linux virtual machines in the cluster.
     * **SSH RSA public key**: Add the public key to be used for authentication against the Linux virtual machines. It is important that this key contains no line breaks, and it includes the `ssh-rsa` prefix. The `username@domain` postfix is optional. The key should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
     * **Service principal**: If you selected the Kubernetes orchestrator, enter an Azure Active Directory **Service principal client ID** (also called the appId) and **Service principal client secret** (password). For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
