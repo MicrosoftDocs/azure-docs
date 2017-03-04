@@ -184,14 +184,14 @@ During public preview, PowerShell cannot be used to fully control group license 
 4. The rest of the script gets all users and executes these functions on each user and then formats the output into a table.
 
   ```
-  \# the license SKU we are interested in
-  \$skuId = "reseller-account:EMS"
-  \# find all users that have the SKU license assigned
-  Get-MsolUser -All | where {\$\_.isLicensed -eq \$true -and \$\_.Licenses.AccountSKUID -eq \$skuId} | select \`
-      ObjectId, \`
-      @{Name="SkuId";Expression={\$skuId}}, \`
-      @{Name="AssignedDirectly";Expression={(UserHasLicenseAssignedDirectly \$\_ \$skuId)}}, \`
-      @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup \$\_ \$skuId)}}
+  # the license SKU we are interested in
+  $skuId = "reseller-account:EMS"
+  # find all users that have the SKU license assigned
+  Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID -eq $skuId} | select `
+      ObjectId, `
+      @{Name="SkuId";Expression={$skuId}}, `
+      @{Name="AssignedDirectly";Expression={(UserHasLicenseAssignedDirectly $_ $skuId)}}, `
+      @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
   ```
 
 5. The output of the complete script appears as the following:
