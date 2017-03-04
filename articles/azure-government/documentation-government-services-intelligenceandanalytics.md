@@ -29,7 +29,7 @@ HDInsight on Linux Premium is coming soon.
 The following HDInsight features are not currently available in Azure Government.
 
 * HDInsight is not available on Windows.
-* Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option at this time.
+* Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option currently.
 
 The URLs for Log Analytics are different in Azure Government:
 
@@ -40,7 +40,7 @@ The URLs for Log Analytics are different in Azure Government:
 For more information, see [HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
 
 ## Power BI
-Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/> here</a>. 
+Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/>here</a>. 
 You can see a demo on how to build data-centric solutions on Azure Government using Power BI <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>here</a>.
 
 Power BI Embedded is coming soon.
@@ -54,5 +54,5 @@ The URLs for Power BI are different in US Government:
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
 
 ## Next Steps
-For supplemental information and updates subscribe to the
+For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
