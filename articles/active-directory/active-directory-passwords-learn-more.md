@@ -25,18 +25,39 @@ ms.author: joflore
 
 If you have already deployed password management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
+* [**How does the password reset portal work?**](#how-does-the-password-reset-portal-work)
 * [**Password writeback overview**](#password-writeback-overview)
   * [How pasword writeback works](#how-password-writeback-works)
   * [Scenarios supported for password writeback](#scenarios-supported-for-password-writeback)
   * [Password writeback security model](#password-writeback-security-model)
   * [Password writeback bandwidth usage](#password-writeback-bandwidth-usage)
-* [**How does the password reset portal work?**](#how-does-the-password-reset-portal-work)
+* [**Deploying, managing, and accessing password reset data for your users**](#deploying-managing-and-accessing-password-reset-data-for-your-users)
   * [What data is used by password reset?](#what-data-is-used-by-password-reset)
   * [Deploying password reset without requiring end user registration](#deploying-password-reset-without-requiring-end-user-registration)
   * [What happens when a user registers for password reset?](#what-happens-when-a-user-registers)
   * [How to access password reset data for your users](#how-to-access-password-reset-data-for-your-users)
   * [Setting password reset data with PowerShell](#setting-password-reset-data-with-powershell)
   * [Reading password reset data with PowerShell](#reading-password-reset-data-with-powershell)
+
+## How does the password reset portal work?
+When a user navigates to the password reset portal, a workflow is kicked off to determine if that user account is valid, what organization that users belongs to, where that user’s password is managed, and whether or not the user is licensed to use the feature.  Read through the steps below to learn about the logic behind the password reset page.
+
+1. User clicks on the Can’t access your account link or goes directly to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+2. User enters a user id and passes a captcha.
+3. Azure AD verifies if the user is able to use this feature by doing the following:
+   * Checks that the user has this feature enabled and an Azure AD license assigned.
+     * If the user does not have this feature enabled or a license assigned, the user is asked to contact his or her administrator to reset his or her password.
+   * Checks that the user has the right challenge data defined on his or her account in accordance with administrator policy.
+     * If policy requires only one challenge, then it is ensured that the user has the appropriate data defined for at least one of the challenges enabled by the administrator policy.
+       * If the user is not configured, then the user is advised to contact his or her administrator to reset his or her password.
+     * If the policy requires two challenges, then it is ensured that the user has the appropriate data defined for at least two of the challenges enabled by the administrator policy.
+       * If the user is not configured, then we the user is advised to contact his or her administrator to reset his or her password.
+   * Checks whether or not the user’s password is managed on premises (federated or password hash sync’d).
+     * If writeback is deployed and the user’s password is managed on premises, then the user is allowed to proceed to authenticate and reset his or her password.
+     * If writeback is not deployed and the user’s password is managed on premises, then the user is asked to contact his or her administrator to reset his or her password.
+4. If it is determined that the user is able to successfully reset his or her password, then the user is guided through the reset process.
+
+Learn more about how to deploy password writeback at [Getting Started: Azure AD password management](active-directory-passwords-getting-started.md).
 
 ## Password writeback overview
 Password writeback is an [Azure Active Directory Connect](connect/active-directory-aadconnect.md) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](active-directory-editions.md).
@@ -104,25 +125,15 @@ Password writeback is an extremely low bandwidth service that sends requests bac
 
 The size of each of the message described above is typically under 1kb, which means, even under extreme loads, the password writeback service itself will be consuming at most a few kilobits per second of bandwidth. Since each message is sent in real time, only when required by a password update operation, and since the message size is so small, the bandwidth usage of the writeback capability is effectively too small to have any real measurable impact.
 
-## How does the password reset portal work?
-When a user navigates to the password reset portal, a workflow is kicked off to determine if that user account is valid, what organization that users belongs to, where that user’s password is managed, and whether or not the user is licensed to use the feature.  Read through the steps below to learn about the logic behind the password reset page.
+## Deploying, managing, and accessing password reset data for your users
+You can manage and access password reset data for your users through Azure AD Connect, PowerShell, the Graph, or our registration experiences.  You can even deploy password reset to your whole organization without requiring users to register for it by leveraging the options described below.
 
-1. User clicks on the Can’t access your account link or goes directly to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
-2. User enters a user id and passes a captcha.
-3. Azure AD verifies if the user is able to use this feature by doing the following:
-   * Checks that the user has this feature enabled and an Azure AD license assigned.
-     * If the user does not have this feature enabled or a license assigned, the user is asked to contact his or her administrator to reset his or her password.
-   * Checks that the user has the right challenge data defined on his or her account in accordance with administrator policy.
-     * If policy requires only one challenge, then it is ensured that the user has the appropriate data defined for at least one of the challenges enabled by the administrator policy.
-       * If the user is not configured, then the user is advised to contact his or her administrator to reset his or her password.
-     * If the policy requires two challenges, then it is ensured that the user has the appropriate data defined for at least two of the challenges enabled by the administrator policy.
-       * If the user is not configured, then we the user is advised to contact his or her administrator to reset his or her password.
-   * Checks whether or not the user’s password is managed on premises (federated or password hash sync’d).
-     * If writeback is deployed and the user’s password is managed on premises, then the user is allowed to proceed to authenticate and reset his or her password.
-     * If writeback is not deployed and the user’s password is managed on premises, then the user is asked to contact his or her administrator to reset his or her password.
-4. If it is determined that the user is able to successfully reset his or her password, then the user is guided through the reset process.
-
-Learn more about how to deploy password writeback at [Getting Started: Azure AD password management](active-directory-passwords-getting-started.md).
+  * [What data is used by password reset?](#what-data-is-used-by-password-reset)
+  * [Deploying password reset without requiring end user registration](#deploying-password-reset-without-requiring-end-user-registration)
+  * [What happens when a user registers for password reset?](#what-happens-when-a-user-registers)
+  * [How to access password reset data for your users](#how-to-access-password-reset-data-for-your-users)
+  * [Setting password reset data with PowerShell](#setting-password-reset-data-with-powershell)
+  * [Reading password reset data with PowerShell](#reading-password-reset-data-with-powershell)
 
 ### What data is used by password reset?
 The following table outlines where and how this data is used during password reset and is designed to help you decide which authentication options are appropriate for your organization. This table also shows any formatting requirements for cases where you are providing data on behalf of users from input paths that do not validate this data.
@@ -314,6 +325,7 @@ The following table outlines where and how this data is used during password res
             </td>
           </tr>
         </tbody></table>
+
 
 ### Deploying password reset without requiring end user registration
 If you want to deploy password reset without requiring your users to register for it, you can do so easily by following one of the two below options. This can be a useful way to unblock large numbers of users to use SSPR while still allowing users to validate this information through the registration process.
