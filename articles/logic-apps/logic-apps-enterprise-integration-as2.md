@@ -1,6 +1,6 @@
 ---
-title: Create AS2 agreements - Azure Logic Apps | Microsoft Docs
-description: How to create an AS2 agreement for Azure Logic Apps by using the Enterprise Integration Pack 
+title: AS2 agreements for enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange AS2 messages for enterprise integration with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -17,139 +17,203 @@ ms.date: 01/27/2017
 ms.author: mandia
 
 ---
-# Enterprise integration with AS2
+# Exchange AS2 messages for enterprise integration with logic apps
 
 To use the enterprise features for Azure Logic Apps, you must first create agreements.
 
-## Prerequisites
+Before you can exchange AS2 messages, you must create an AS2 agreement 
+and store that agreement in your integration account. 
+Here are the steps for how to create an AS2 agreement.
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) must be defined in your Azure subscription.  
-* At least two [partners](logic-apps-enterprise-integration-partners.md) must already be defined in your integration account.  
+## Before you start
+
+Here's the items you need:
+
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
+must be already defined in your Azure subscription  
+* At least two [partners](logic-apps-enterprise-integration-partners.md) 
+must be already defined in your integration account  
 
 > [!NOTE]
 > When you create an agreement, the content in the agreement file must match the agreement type.    
 
-After you've created an integration account and added partners, 
-you can create an agreement by following the steps in these sections.
+After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
+and [add partners](logic-apps-enterprise-integration-partners.md), 
+you can create an AS2 agreement by following these steps.
 
-## Create an agreement
+## Create an AS2 agreement
 
-1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal").  
-2. Select **More services**, enter **integration** in the filter search box, 
-and then select **Integration Accounts** in the results list.
+1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal").  
 
-	![Select "Integration Accounts" in the search results list](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+2.	From the left menu, select **More services**. 
+In the search box, enter **integration** as your filter.  
+In the results list, select **Integration Accounts**.
 
-3. To add the certificate, select the integration account.
+    > [!TIP]
+    > If you don't see **More services**, you might have to expand the menu first. 
+    > At the top of the collapsed menu, select **Show menu**.
 
-	![Select the integration account](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+	![More services, filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
 
-4. Select the **Agreements** tile. If the tile isn't displayed, add the tile.
+3. In the **Integration Accounts** blade that opens, 
+select the integration account where you want to create the agreement.
+If you don't see any integration accounts, 
+[create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
 
-	![Select the "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+	![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
-5. On the **Agreements** blade, select **Add**.
+4. Choose the **Agreements** tile. If you don't have an Agreements tile, 
+add the tile first.
 
-	![Select "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-6. Enter a name for your agreement, select **AS2** in the **Agreement type** list. 
-In the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity** lists, enter the appropriate information.
+5. In the Agreements blade that opens, choose **Add**.
 
-	![Enter a name for the agreement](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+	![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-	This table describes the properties in the **Add** dialog box:
+6. Under **Add**, enter a **Name** for your agreement. 
+For **Agreement type**, select **AS2**. 
+Select the **Host Partner**, **Host Identity**, 
+**Guest Partner**, and **Guest Identity** for your agreement.
+
+	![Provide agreement details](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
 
 	| Property | Description |
 	| --- | --- |
-	| Host Partner     |An agreement requires both a host and guest partner. The host partner represents the organization that's configuring the agreement. |
-	| Host Identity    |An identifier for the host partner. |
-	| Guest Partner    |An agreement requires both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-	| Guest Identity   |An identifier for the guest partner. |
-	| Receive Settings |The properties that apply to all messages that are received by the agreement. |
-	| Send Settings    |The properties that apply to all messages that are sent by the agreement. |
+	| Name |Name of the agreement |
+	| Agreement Type | Should be AS2 |
+	| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
+	| Host Identity |An identifier for the host partner |
+	| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
+	| Guest Identity |An identifier for the guest partner |
+	| Receive Settings |These properties apply to all messages received by an agreement. |
+	| Send Settings |These properties apply to all messages sent by an agreement. |
 
-7.	To configure how messages received via this agreement are to be handled, follow these steps:
+## Configure how your agreement handles received messages
 
-  a. Select **Receive Settings**.
+Now that you've set the agreement properties, 
+you can configure how this agreement identifies and 
+handles incoming messages received from your partner through this agreement.
 
-  b. Optionally, you can override the properties of incoming messages by selecting the **Override message properties** check box.
+1.	Under **Add**, select **Receive Settings**.
+Configure these properties based on your agreement 
+with the partner that exchanges messages with you. 
+For property descriptions, see the table in this section.
 
-  c. To require all incoming messages to be signed, select the **Message should be signed** check box. If you select this option, validate the signature on the messages by selecting **guest partner public certificate** in the **Certificate** list.
+	![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
 
-  d. To require all incoming messages to be encrypted, select the **Message should be encrypted** check box. If you select this option, decrypt the incoming messages by selecting **host partner private certificate** in the **Certificate** list.
+2. Optionally, you can override the properties of incoming messages by selecting **Override message properties**.
 
-  e. To require messages to be compressed, select the **Message should be compressed** check box.
+3. To require all incoming messages to be signed, select **Message should be signed**. 
+From the **Certificate** list, select an existing 
+[guest partner public certificate](../logic-apps/logic-apps-enterprise-integration-certificates.md) 
+for validating the signature on the messages. Or create the certificate, if you don't have one.
 
-  f. To send a synchronous message disposition notification (MDN) for received messages, select the **Send MDN** check box.
+4.	To require all incoming messages to be encrypted, select **Message should be encrypted**. 
+From the **Certificate** list, select an existing 
+[host partner private certificate](../logic-apps/logic-apps-enterprise-integration-certificates.md) 
+for decrypting incoming messages. Or create the certificate, if you don't have one.
 
-  g. To send signed MDNs for received messages, select the **Send signed MDN** check box.
+5. To require messages to be compressed, select **Message should be compressed**.
 
-  h. To send asynchronous MDNs for received messages, select the **Send asynchronous MDN** check box.
+6. To send a synchronous message disposition notification (MDN) for received messages, 
+select **Send MDN**.
 
-		![Set the "Receive Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+7. To send signed MDNs for received messages, select **Send signed MDN**.
 
-		This table describes the **Receive Settings** properties:
+8. To send asynchronous MDNs for received messages, 
+select **Send asynchronous MDN**.
 
-		| Property | Description |
-		| --- | --- |
-		| Override message properties |Indicates that properties in received messages can be overridden. |
-		| Message should be signed |Requires messages to be digitally signed. Configure the guest partner public certificate for signature verification.  |
-		| Message should be encrypted |Requires messages to be encrypted. Non-encrypted messages are rejected. Configure the host partner private certificate for decrypting the messages.  |
-		| Message should be compressed |Requires messages to be compressed. Non-compressed messages are rejected. |
-		| MDN Text |The default message disposition notification (MDN) to be sent to the message sender. |
-		| Send MDN |Requires MDNs to be sent. |
-		| Send signed MDN |Requires MDNs to be signed. |
-		| MIC Algorithm | |
-		| Send asynchronous MDN | Requires messages to be sent asynchronously. |
-		| URL | The URL that the MDNs are to be sent to. |
+9. After you're done, 
+make sure to save your settings by choosing **OK**.
 
-8.	To configure how to handle messages that are sent through this agreement, follow these steps.
+Now your agreement is ready to handle incoming 
+messages that conform to your selected settings.
 
-   a. Select **Send Settings**.
+| Property | Description |
+| --- | --- |
+| Override message properties |Indicates that properties in received messages can be overridden. |
+| Message should be signed |Requires messages to be digitally signed. Configure the guest partner public certificate for signature verification.  |
+| Message should be encrypted |Requires messages to be encrypted. Non-encrypted messages are rejected. Configure the host partner private certificate for decrypting the messages.  |
+| Message should be compressed |Requires messages to be compressed. Non-compressed messages are rejected. |
+| MDN Text |The default message disposition notification (MDN) to be sent to the message sender. |
+| Send MDN |Requires MDNs to be sent. |
+| Send signed MDN |Requires MDNs to be signed. |
+| MIC Algorithm |Select the algorithm to use for signing messages. |
+| Send asynchronous MDN | Requires messages to be sent asynchronously. |
+| URL | Specify the URL where to send the MDNs. |
 
-   b. To send signed messages to the partner, select the **Enable message signing** check box. If you select this option, sign the messages by selecting **host partner private certificate MIC Algorithm** in the **MIC Algorithm** list and **host partner private certificate** in the **Certificate** list.
+## Configure how your agreement sends messages
 
-   c. To send encrypted messages to the partner, select the **Enable message encryption** check box. If you select this option, encrypt the messages by selecting **guest partner public certificate algorithm** in the **Encryption Algorithm** list and **guest partner public certificate** in the **Certificate** list.
+You can configure how this agreement identifies and handles outgoing 
+messages that you send to your partners through this agreement.
 
-   d. To compress the message, select the **Enable message compression** check box.
+1.	Under **Add**, select **Send Settings**.
+Configure these properties based on your agreement 
+with the partner that exchanges messages with you. 
+For property descriptions, see the table in this section.
 
-   e. To unfold the HTTP content-type header into a single line, select the **Unfold HTTP headers** check box.
+	![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)
 
-   f. To receive synchronous MDNs for the sent messages, select the **Request MDN** check box.
+2. To send signed messages to your partner, select **Enable message signing**. 
+For signing the messages, in the **MIC Algorithm** list, 
+select the *host partner private certificate MIC Algorithm*. 
+And in the **Certificate** list, select an existing 
+[host partner private certificate](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
-   g. To receive signed MDNs for the sent messages, select the **Request signed MDN** check box.
+3. To send encrypted messages to the partner, select **Enable message encryption**. 
+For encrypting the messages, in the **Encryption Algorithm** list, 
+select the *guest partner public certificate algorithm*.
+And in the **Certificate** list, select an existing 
+[guest partner public certificate](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
-   h. To receive asynchronous MDNs for the sent messages, select the **Request asynchronous MDN** check box. If you select this option, enter the URL for where to send the MDNs.
+4. To compress the message, select **Enable message compression**.
 
-   i. To require non-repudiation of receipt, select the **Enable NRR** check box.
+5. To unfold the HTTP content-type header into a single line, select **Unfold HTTP headers**.
 
-   j. Select **OK**.
+6. To receive synchronous MDNs for the sent messages, select **Request MDN**.
 
-		![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
+7. To receive signed MDNs for the sent messages, select **Request signed MDN**.
 
-		The following table describes the **Send Settings** properties:
+8. To receive asynchronous MDNs for the sent messages, select **Request asynchronous MDN**. 
+If you select this option, enter the URL for where to send the MDNs.
 
-		| Property | Description |
-		| --- | --- |
-		| Enable message signing |Requires all messages that are sent from the agreement to be signed. |
-		| MIC Algorithm |The algorithm to use to sign messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
-		| Certificate |The certificate to use to sign messages. Configures the host partner private certificate for signing the messages. |
-		| Enable message encryption |Requires encryption of all messages that are sent from this agreement. Configures the guest partner public certificate algorithm for encrypting the messages. |
-		| Encryption Algorithm |The encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
-		| Certificate |The certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
-		| Enable message compression |Requires compression of all messages that are sent from this agreement. |
-		| Unfold HTTP headers |Places the HTTP content-type header onto a single line. |
-		| Request MDN |Requires an MDN for all messages that are sent from this agreement. |
-		| Request signed MDN |Requires all MDNs that are sent to this agreement to be signed. |
-		| Request asynchronous MDN |Requires asynchronous MDNs to be sent to this agreement. |
-		| URL |The URL that the MDNs are to be sent to. |
-		| Enable NRR |Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
+9. To require non-repudiation of receipt, select **Enable NRR**.
 
-## View the Agreements list
+10. After you're done, 
+make sure to save your settings by choosing **OK**.
 
-To view the newly added agreement, select the **Agreements** tile on the **Integration Account** blade.
+Now your agreement is ready to handle outgoing 
+messages that conform to your selected settings.
 
-![View the "Agreements" list](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+| Property | Description |
+| --- | --- |
+| Enable message signing |Requires all messages that are sent from the agreement to be signed. |
+| MIC Algorithm |The algorithm to use for signing messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
+| Certificate |Select the certificate to use for signing messages. Configures the host partner private certificate for signing the messages. |
+| Enable message encryption |Requires encryption of all messages that are sent from this agreement. Configures the guest partner public certificate algorithm for encrypting the messages. |
+| Encryption Algorithm |The encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
+| Certificate |The certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
+| Enable message compression |Requires compression of all messages that are sent from this agreement. |
+| Unfold HTTP headers |Places the HTTP content-type header onto a single line. |
+| Request MDN |Requires an MDN for all messages that are sent from this agreement. |
+| Request signed MDN |Requires all MDNs that are sent to this agreement to be signed. |
+| Request asynchronous MDN |Requires asynchronous MDNs to be sent to this agreement. |
+| URL |Specify the URL where to send the MDNs. |
+| Enable NRR |Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
+
+## Find your created agreement
+
+1.	After you finish setting all your agreement properties, 
+on the **Add** blade, choose **OK** to finish creating your agreement 
+and return to your integration account blade.
+
+	Your newly added agreement now appears in your **Agreements** list.
+
+2.	You can also view your agreements in your integration account overview. 
+On your integration account blade, choose **Overview**, then select the **Agreements** tile. 
+
+	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
 
 ## Next steps
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

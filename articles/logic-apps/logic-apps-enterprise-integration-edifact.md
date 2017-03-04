@@ -28,7 +28,7 @@ Here are the steps for how to create an EDIFACT agreement.
 > This page covers the EDIFACT features for Azure Logic Apps. 
 > For more information, see [X12](logic-apps-enterprise-integration-x12.md).
 
-## Before you get started
+## Before you start
 
 Here's the items you need:
 
@@ -68,10 +68,10 @@ If you don't see any integration accounts,
 
 	![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-4. Choose the **Agreements** tile. If you don't see the agreements tile, 
+4. Choose the **Agreements** tile. If you don't have an Agreements tile, 
 add the tile first.   
 
-	![Choose "Agreements"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
 5. In the Agreements blade that opens, choose **Add**.
 
@@ -115,8 +115,8 @@ For property descriptions, see the tables in this section.
 2. After you're done, 
 make sure to save your settings by choosing **OK**.
 
-	Now your agreement is ready to handle incoming 
-	messages that conform to your selected settings.
+Now your agreement is ready to handle incoming 
+messages that conform to your selected settings.
 
 ### Identifiers
 
@@ -196,8 +196,8 @@ For property descriptions, see the tables in this section.
 2. After you're done, 
 make sure to save your settings by choosing **OK**.
 
-	Now your agreement is ready to handle outgoing 
-	messages that conform to your selected settings.
+Now your agreement is ready to handle outgoing 
+messages that conform to your selected settings.
 
 ### Identifiers
 
@@ -270,7 +270,7 @@ If you don't specify any rules, then validation uses the "Default" row.
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero characters. |
 | Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to send interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
 
-## Find your newly created agreement
+## Find your created agreement
 
 1.	After you finish setting all your agreement properties, 
 on the **Add** blade, choose **OK** to finish creating your agreement 
