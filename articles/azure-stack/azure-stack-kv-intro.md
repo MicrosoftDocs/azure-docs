@@ -18,6 +18,10 @@ ms.author: sngun
 
 ---
 # Introduction to Key Vault in Azure Stack
+
+> [!NOTE]
+> In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault.
+
 ## Before you start
 This article assumes the following:
 

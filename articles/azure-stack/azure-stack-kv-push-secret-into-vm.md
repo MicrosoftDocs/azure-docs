@@ -18,6 +18,10 @@ ms.author: sngun
 
 ---
 # Create VMs and include certificates retrieved from Key Vault
+
+> [!NOTE]
+> In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault.
+
 In Azure Stack, VMs are deployed through Azure Resource Manager, and you
 can now store certificates in Azure Stack Key Vault. Then Azure Stack
 (Microsoft.Compute resource provider to be specific) pushes them into

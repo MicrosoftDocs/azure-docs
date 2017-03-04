@@ -18,6 +18,10 @@ ms.author: sngun
 
 ---
 # Deploy a VM by retrieving the password stored in Key Vault
+
+> [!NOTE]
+> In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault.
+
 When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Stack key vault and reference the value in other Azure Resource Manager templates. You include only a reference to the secret in your template so the secret is never exposed. You do not need to manually enter
 the value for the secret each time you deploy the resources. You specify which users or service principals can access the secret.
 
