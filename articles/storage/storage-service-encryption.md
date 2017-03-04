@@ -36,11 +36,11 @@ SSE works by encrypting the data when it is written to Azure Storage, and can be
 Storage Service Encryption – Files Preview
 SSE is now available for encrypting your data in File Storage. This is currently in preview. Given below is the list of regions where SSE for File Storage is available.
 
-To participate in the SSE Files Preview please contact ssdiscussions@microsoft.com.
+To participate in the SSE Files Preview please contact ssediscussions@microsoft.com.
 
 To learn more, please refer to the FAQ.
-Availability for File Storage
-Storage Service Encryption for File Storage is currently available in East Asia region.
+### Availability for File Storage
+Storage Service Encryption for File Storage is currently available in East Asia, North Europe and East US 2 regions.
 
 
 To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://azure.portal.com) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.

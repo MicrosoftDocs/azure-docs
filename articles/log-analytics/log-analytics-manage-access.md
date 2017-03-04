@@ -1,6 +1,6 @@
 ---
-title: Manage workspaces | Microsoft Docs
-description: Manage workspaces in Log Analytics using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
+title: Manage workspaces in Azure Log Analytics and the OMS portal | Microsoft Docs
+description: You can manage workspaces in Azure Log Analytics and the OMS portal using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: banders
 
 ---
@@ -94,10 +94,13 @@ Some points to keep in mind about the Azure portal:
   The URL looks like:
   `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+For example, in order to add or remove management solutions, the user must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, the user must be a member of the OMS workspace contributor or administrator role in the OMS portal.
+
 ### Managing users in the OMS portal
 You manage users and group on the **Manage Users** tab under the **Accounts** tab in the Settings page.   
 
 ![manage users](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### Add a user to an existing workspace
 Use the following steps to add a user or group to a workspace.
@@ -156,25 +159,16 @@ Use the following steps to remove a user from a workspace. Removing the user doe
 ## Link an existing workspace to an Azure subscription
 All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you next sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
 
-![link Azure subscription](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> To link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access the workspace. If not, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
->
->
-
 ### To link a workspace to an Azure subscription in the OMS portal
-To link a workspace to an Azure subscription in the OMS portal, the signed-in user must already have a paid Azure account.
 
-1. In the OMS portal, click the **Settings** tile.
-2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
-3. Click the data plan that you want use.
-4. Click **Save**.  
-   ![subscription and data plans](./media/log-analytics-manage-access/subscription-tab.png)
+- When you sign-in to the OMS portal, you are prompted to select an Azure subscription. Select the subscription that you want to link to your workspace and then click **Link**.  
+    ![link Azure subscription](./media/log-analytics-manage-access/required-link.png)
 
-Your new data plan is displayed in the OMS portal ribbon at the top of your web page.
+    > [!IMPORTANT]
+    > To link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access the workspace. If not, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
-![OMS ribbon](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### To link a workspace to an Azure subscription in the Azure portal
 1. Sign into the [Azure portal](http://portal.azure.com).
@@ -229,7 +223,7 @@ If you have an Azure monetary commit on the enterprise enrollment to which your 
 
 If you need to change the Azure subscription that the workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
-### Change a workspace to a paid pricing tier
+### Change a workspace to a paid pricing tier in the Azure portal
 1. Sign into the [Azure portal](http://portal.azure.com).
 2. Browse for **Log Analytics** and then select it.
 3. You see your list of existing workspaces. Select a workspace.  
@@ -243,6 +237,21 @@ If you need to change the Azure subscription that the workspace is linked to, yo
 > If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
 >
 >
+
+## Change your data plan in the OMS portal
+
+To change a data plan using the OMS portal, the signed-in user must already have an Azure account.
+
+1. In the OMS portal, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
+3. Click the data plan that you want use.
+4. Click **Save**.  
+   ![subscription and data plans](./media/log-analytics-manage-access/subscription-tab.png)
+
+Your new data plan is displayed in the OMS portal ribbon at the top of your web page.
+
+![OMS ribbon](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## Change how long Log Analytics stores data
 
@@ -259,8 +268,8 @@ To change the length of data retention:
 2. Browse for **Log Analytics** and then select it.
 3. You see your list of existing workspaces. Select a workspace.  
 4. In the workspace blade under **General**, click **Retention**.  
-5. Use the slider to increase or decrease the number of days of retention and then click **Save**
-![change retention](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+5. Use the slider to increase or decrease the number of days of retention and then click **Save**.  
+    ![change retention](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## Change an Azure Active Directory Organization for a workspace
 

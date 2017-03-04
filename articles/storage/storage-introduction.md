@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: marsma
 
 ---
@@ -176,21 +176,21 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Storage Client Library for .NET, Windows Phone, and Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Storage Client Library for Java/Android](/develop/java/)
+* [Storage Client Library for Java/Android](https://azure.microsoft.com/develop/java/)
 * [Storage Client Library for Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Storage Client Library for PHP](/develop/php/)
-* [Storage Client Library for Ruby](/develop/ruby/)
-* [Storage Client Library for Python](/develop/python/)
+* [Storage Client Library for PHP](https://azure.microsoft.com/develop/php/)
+* [Storage Client Library for Ruby](https://azure.microsoft.com/develop/ruby/)
+* [Storage Client Library for Python](https://azure.microsoft.com/develop/python/)
 * [Storage Cmdlets for PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### Azure Storage management services
-* [Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-* [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-* [Storage Resource Provider Cmdlets for PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
+* [Storage Resource Provider REST API Reference](/rest/api/storagerp/)
+* [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage)
+* [Storage Resource Provider Cmdlets for PowerShell 1.0](/powershell/storage/)
 * [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### Azure Storage data movement services
-* [Storage Import/Export Service REST API](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+* [Storage Import/Export Service REST API](storage-import-export-service.md)
 * [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### Tools and utilities
