@@ -3,8 +3,8 @@ title: Deploy a VM with a securely stored certificate on Azure Stack  | Microsof
 description: Learn how deploy a VM and inject a certificate from Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: rlfmendes
-manager: natmack
+author: SnehaGunda
+manager: byronr
 editor: ''
 
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
-ms.author: ricardom
+ms.author: sngun
 
 ---
 # Create VMs and include certificates retrieved from Key Vault

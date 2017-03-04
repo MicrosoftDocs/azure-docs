@@ -3,8 +3,8 @@ title: Deploy a VM with securely stored password on Azure Stack | Microsoft Docs
 description: Learn how to deploy a VM using a password stored in Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: rlfmendes
-manager: natmack
+author: SnehaGunda
+manager: byronr
 editor: ''
 
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
-ms.author: ricardom
+ms.author: sngun
 
 ---
 # Deploy a VM by retrieving the password stored in Key Vault
