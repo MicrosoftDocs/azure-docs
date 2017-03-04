@@ -1,4 +1,4 @@
----
+l---
 title: Azure Government available services | Microsoft Docs
 description: Provides an overview of the available services in Azure Government
 services: azure-government
@@ -18,16 +18,16 @@ ms.author: stemi
 
 ---
 # Available Services on Azure Government
-Azure Government is continually expanding the services that are available.  These services are deployed using the same code that is used in Azure Public.  This section documents the services that are currently avaiable on Azure Government, including two key types of information:
+Azure Government is continually expanding the services that are available.  These services are deployed using the same code that is used in Azure Public.  This section documents the services that are currently available on Azure Government, including two key types of information:
 
 * **Variations:** Variations due to features that have not been deployed yet or properties (for example, URLs) that are unique to the government environment.  
-* **Considerations:** Government-specific implementation details to ensure data stays within your compliance boundary.
+* **Considerations:** Government-specific implementation detail to ensure data stays within your compliance boundary.
 
 Everything else you need to know about these services can be found in their general documentation.
 
 For the most current list of services, see the [Products by Region](https://azure.microsoft.com/regions/services/). 
 
-In the tables below, services specified as Resource Manager enabled have resource providers and can be managed using PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../azure-resource-manager/resource-manager-supported-services.md). Services specified as available in the Portal, can be managed in the [Azure Government Portal](https://portal.azure.us/). 
+In the following tables, services specified as Resource Manager enabled have resource providers and can be managed using PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, refer [here](../azure-resource-manager/resource-manager-supported-services.md). Services specified as available in the Portal, can be managed in the [Azure Government Portal](https://portal.azure.us/). 
 
 
 ## [Compute](documentation-government-compute.md)
