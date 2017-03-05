@@ -27,11 +27,16 @@ If you have already deployed password management, or are just looking to learn m
 
 * [**How does the password reset portal work?**](#how-does-the-password-reset-portal-work)
 * [**Password writeback overview**](#password-writeback-overview)
-  * [How pasword writeback works](#how-password-writeback-works)
-  * [Scenarios supported for password writeback](#scenarios-supported-for-password-writeback)
-  * [Password writeback security model](#password-writeback-security-model)
-  * [Password writeback encryption details](#password-writeback-encryption-details]
-  * [Password writeback bandwidth usage](#password-writeback-bandwidth-usage)
+ * [How pasword writeback works](#how-password-writeback-works)
+* [**Scenarios supported for password writeback**](#scenarios-supported-for-password-writeback)
+ * [Supported Azure AD Connect, Azure AD Sync, and DirSync client](#supported-clients)
+ * [Licenses required for password writeback](#licenses-required-for-password-writeback)
+ * [On-premises authentication modes supported for password writeback](#on-premises-authentication-modes-supported-for-password-writeback)
+ * [User and Admin operations supported for password writeback](#user-and-admin-operations-supported-for-password-writeback)
+ * [User and Admin operations not supported for password writeback](#user-and-admin-operations-not-supported-for-password-writeback)
+* [**Password writeback security model**](#password-writeback-security-model)
+ * [Password writeback encryption details](#password-writeback-encryption-details)
+ * [Password writeback bandwidth usage](#password-writeback-bandwidth-usage)
 * [**Deploying, managing, and accessing password reset data for your users**](#deploying-managing-and-accessing-password-reset-data-for-your-users)
   * [What data is used by password reset?](#what-data-is-used-by-password-reset)
   * [Deploying password reset without requiring end user registration](#deploying-password-reset-without-requiring-end-user-registration)
@@ -98,12 +103,68 @@ When a federated or password hash sync’d user comes to reset or change his or 
 9. If the password set operation is successful, we tell the user their password has been modified and that they can go on their merry way.
 10. If the password set operation fails, we return the error to the user and let them try again.  The operation might fail because the service was down, because the password they selected did not meet organization policies, because we could not find the user in the local AD, or any number of reasons.  We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
-### Scenarios supported for password writeback
-The table below describes which scenarios are supported for which versions of our sync capabilities.  In general, it is highly recommended that you install the latest version of [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) if you want to use password writeback.
+## Scenarios supported for password writeback
+The section below describes which scenarios are supported for which versions of our sync capabilities.  In general, We always recommend that you use the auto-update feature of Azure AD Connect, or install the latest version of [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) if you want to use password writeback.
 
-  ![][002]
+* [**Supported Azure AD Connect, Azure AD Sync, and DirSync clients**](#supported-clients)
+* [**Licenses required for password writeback**](#licenses-required-for-password-writeback)
+* [**On-premises authentication modes supported for password writeback**](#on-premises-authentication-modes-supported-for-password-writeback)
+* [**User and Admin operations supported for password writeback**](#user-and-admin-operations-supported-for-password-writeback)
+* [**User and Admin operations not supported for password writeback**](#user-and-admin-operations-not-supported-for-password-writeback)
 
-### Password writeback security model
+### Supported clients
+We always recommend that you use the auto-update feature of Azure AD Connect, or install the latest version of [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) if you want to use password writeback.
+
+* **DirSync (any version > 1.0.6862)** - _NOT SUPPORTED_ - supports only basic writeback capabilities, and is no longer supported by the product group 
+* **Azure AD Sync** - _DEPRECATED_ - supports only basic writeback capabilities, and is missing account unlock capabilities, rich logging, and relability improvements made in Azure AD Connect. As such, we **highly** highly recommend upgrading.
+* **Azure AD Connect** - _FULLY SUPPORTED_ - supports all writeback capabiltiies - please upgrade to the latest version to get the best new features and most stability / reliability possible
+
+### Licenses required for password writeback
+In order to use password writeback, you must have one of the following licenses assigned in your tenant.
+
+* **Azure AD Premium P1** - no limitations on password writeback usage
+* **Azure AD Premium P2** - no limitations on password writeback usage
+* **Enterprise Moblity Suite** - no limitations on password writeback usage
+* **Enterprise Cloud Suite** - no limitations on password writeback usage
+
+You may not use password writeback with any Office 365 licensing plan, whether trial or paid. You must upgrade to one of the above plans in order to use this feature. 
+
+We have no plans to enable password writeback for any Office 365 SKUs.
+
+### On-premises authentication modes supported for password writeback
+Password writeback works for the following user password types:
+
+* **Cloud-only users**: Password writeback does not apply in this situation, because there is no on-premises password
+* **Password-sync'd users**: Password writeback supported
+* **Federated users**: Password writeback supported
+* **Pass-through authentication users**: Password writeback supported
+
+### User and Admin operations supported for password writeback
+Passwords are written back in all of the following situations:
+
+* **Supported End-user operations**
+ * Any end-user self-service voluntary change password operation
+ * Any end-user self-service force change password operation (e.g. password expiry)
+ * Any end-user self-service password reset originating from the [Password Reset Portal](https://passwordreset.microsoftonline.com)
+* **Supported Administrator operations**
+ * Any administrator self-service voluntary change password operation
+ * Any administrator self-service force change password operation (e.g. password expiry)
+ * Any administrator self-service password reset originating from the [Password Reset Portal](https://passwordreset.microsoftonline.com)
+ * Any administrator-initiated end-user password reset from the [Classic Azure Management Portal](https://manage.windowsazure.com)
+ * Any administrator-initiated end-user password reset from the [Azure Portal](https://portal.azure.com)
+
+### User and Admin operations not supported for password writeback
+Passwords are not written back in any of the following situations:
+
+* **Unsupported End-user operations**
+ * Any end-user resetting his or her own password using PowerShell v1, v2, or the Azure AD Graph API
+* **Unsupported Administrator operations**
+ * Any administrator-initiated end-user password reset from the [Office Management Portal](https://portal.office.com)
+ * Any administrator-initiated end-user password reset from PowerShell v1, v2, or the Azure AD Graph API
+ 
+While we are working to remove these limitations, we do not have a specific timeline we can share yet.
+
+## Password writeback security model
 Password writeback is a highly secure and robust service.  In order to ensure your information is protected, we enable a 4-tiered security model that is described below.
 
 * **Tenant specific service-bus relay** – When you set up the service, we set up a tenant-specific service bus relay that is protected by a randomly generated strong password that Microsoft never has access to.
