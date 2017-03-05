@@ -613,7 +613,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ```
 Not possible in PowerShell V2
 ```
-## How does password reset work with B2B users?
+## How does password reset work for B2B users?
 Password reset and change is fully supported with all B2B configurations.  Read below for the 3 explicit B2B cases supported by password reset.
 
 1. **Users from a partner org with an existing Azure AD tenant** - If the organization you are partnering with has an existing Azure AD tenant, we will **respect whatever password reset policies are enabled in that tenant**. For password reset to work, the partner organization just needs to make sure Azure AD SSPR is enabled, which is no additional charge for O365 customers, and can be enabled by following the steps in our [Getting Started with Password Management](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
