@@ -26,8 +26,15 @@ ms.author: joflore
 
 Enabling your users to manage their own cloud Azure Active Directory or on-premises Active Directory passwords takes just a few simple steps. After ensuring that you've met a few simple prerequisites, you'll have password change and reset enabled for your entire organization before you know it. This article will walk you through the following concepts:
 
-* [**Top tips to read before you begin**]
- * [Tip 1: Test with a end user, not an administrator](#tip-1-test-with-a-end-user-not-an-administrator)
+* [**Top tips from our customers to read before you begin**](#top-tips-from-our-customers-to-read-before-you-begin)
+ * [**Tip 1: LICENSING** - Make sure you understand the licensing requirements](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+ * [**Tip 2: TESTING** - Test with a end user, not an administrator, and pilot with a small set of users](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Tip 3: DEPLOYMENT** - Pre-populate data for your users so they don't have to register](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+ * [**Tip 4: WRITEBACK** - Look at the application event log on your AAD Connect machine to troubleshoot password writeback](#tip-4-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+ * [**Tip 5: WRITEBACK** - Ensure you enable the correct permissions, firewall rules, and connection settings for password writeback](#tip-5-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+ * [**Tip 6: REPORTING** - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs](#tip-6-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+ * [**Tip 7: TROUBLESHOOT** - Read our troubleshooting guide and FAQ to solve many issues](#tip-7-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+ * [**Tip 8: TROUBLESHOOT** - If you still need help, include enough information for us to assist you](#tip-8-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 * [**How to enable users to reset their Azure Active Directory passwords**](#enable-users-to-reset-their-azure-ad-passwords)
  * [Self-service password reset prerequisites](#prerequisites)
  * [Step 1: Configure password reset policy](#step-1-configure-password-reset-policy)
@@ -41,17 +48,17 @@ Enabling your users to manage their own cloud Azure Active Directory or on-premi
  * [Step 4: Set up the appropriate permissions](#step-4-set-up-the-appropriate-active-directory-permissions)
  * [Step 5: Reset your AD password as a user and verify](#step-5-reset-your-ad-password-as-a-user)
 
-## Top tips from our customers
+## Top tips from our customers to read before you begin
 Below are some of the top tips we've seen useful for customers deploying password management in their organization.
 
-* [**Tip 1: LICENSING** - Make sure you understand the licensing requirements](#tip-1-licensing-make-sure-you-understand-the-licensing-requirements)
-* [**Tip 2: TESTING** - Test with a end user, not an administrator, and pilot with a small set of users](#tip-2-testing-test-with-a-end-user,-not-an-administrator,-and-pilot-with-a-small-set-of-users)
-* [**Tip 3: DEPLOYMENT** - Pre-populate data for your users so they don't have to register](#tip-3-deployment-pre-populate-data-for-your-users-so-they-don't-have-to-register)
-* [**Tip 4: WRITEBACK** - Look at the application event log on your AAD Connect machine to troubleshoot password writeback](#tip-4-writeback-look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
-* [**Tip 5: WRITEBACK** - Ensure you enable the correct permissions, firewall rules, and connection settings for password writeback](#tip-5-writeback-ensure-you-enable-the-correct-permissions,-firewall-rules,-and-connection-settings-for-password-writeback)
-* [**Tip 6: REPORTING** - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs](#tip-6-reporting-see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
-* [**Tip 7: TROUBLESHOOT** - Read our troubleshooting guide and FAQ to solve many issues](#tip-7-troubleshoot-read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
-* [**Tip 8: TROUBLESHOOT** - If you still need help, include enough information for us to assist you](#tip-8-troubleshoot-if-you-still-need-help,-include-enough-information-for-us-to-assist-you)
+* [**Tip 1: LICENSING** - Make sure you understand the licensing requirements](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+* [**Tip 2: TESTING** - Test with a end user, not an administrator, and pilot with a small set of users](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Tip 3: DEPLOYMENT** - Pre-populate data for your users so they don't have to register](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+* [**Tip 4: WRITEBACK** - Look at the application event log on your AAD Connect machine to troubleshoot password writeback](#tip-4-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+* [**Tip 5: WRITEBACK** - Ensure you enable the correct permissions, firewall rules, and connection settings for password writeback](#tip-5-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+* [**Tip 6: REPORTING** - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs](#tip-6-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+* [**Tip 7: TROUBLESHOOT** - Read our troubleshooting guide and FAQ to solve many issues](#tip-7-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+* [**Tip 8: TROUBLESHOOT** - If you still need help, include enough information for us to assist you](#tip-8-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### Tip 1: LICENSING - Make sure you understand the licensing requirements
 In order for Azure AD Password Reset to function, you must have at least once license assigned in your organization. We do not enforce per-user licensing on the password reset experience itself, however, if you make use of the feature without having a license assigned to a user, you will be considered out of compliance with your Microsoft licensing agreement and will need to assign licenses to those users.
