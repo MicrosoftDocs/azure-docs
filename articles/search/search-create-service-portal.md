@@ -87,18 +87,19 @@ It can take a few minutes to create a service (15 minutes or more depending on t
 
 ## When to add a second service
 
-Most customers use just one service provisioned at a tier that provides the [right balance of resources](search-sku-tier.md). One service can host multiple indexes, subject to the [maximum limits of the tier you select](search-capacity-planning.md). Assuming multiple applications or customers, each index is isolated from other indexes within the same service. In Azure Search, requests can only be directed to one index, with no possibility of accidentally or intentionally retrieving data from other indexes in the same request.
+A large majority of customers use just one service provisioned at a tier that provides the [right balance of resources](search-sku-tier.md). One service can host multiple indexes, subject to the [maximum limits of the tier you select](search-capacity-planning.md), with each index isolated from another. In Azure Search, requests can only be directed to one index, minimizing the chance of accidental or intentional data retrieval from other indexes in the same service.
 
-Multiple services might be necessary if operational requirements include the following:
+Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ Disaster recovery (data center outage). Azure Search does not provide instant failover in the event of an outage. For more information, see [Service administration](search-manage.md).
-+ High availability with zero tolerance for downtime (continuous uptime is an operational requirement). Routine updates and maintenance can temporarily take a service offline. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
++ Disaster recovery (data center outage). Azure Search does not provide instant failover in the event of an outage. For recommendations and guidance, see [Service administration](search-manage.md).
 + Your investigation of multi-tenancy modeling has determined that additional services is the optimal design. For more information, see [Design for multi-tenancy](search-modeling-multitenant-saas-applications.md).
 + Through testing, you have determined indexing and query workloads run better with two or more small tier services, rather than one larger tier. 
 
 > [!NOTE}
-> In Azure Search, you cannot segregate indexing and querying workloads, so provisioning multiple smaller services is an undertaking you would do for reasons other than dedicated workloads. An index is queried on the service in which it was created (there is no way to create it in one service and copy it to another).
+> In Azure Search, you cannot segregate indexing and querying workloads; thus, provisioning multiple smaller services is an undertaking you would do for reasons other than dedicated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 >
+
+A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## Next steps
 After provisioning an Azure Search service, you are ready to [define an index](search-what-is-an-index.md) so you can upload and search your data.
