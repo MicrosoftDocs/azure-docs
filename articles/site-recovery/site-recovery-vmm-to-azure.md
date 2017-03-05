@@ -450,8 +450,8 @@ Here's how you can monitor the configuration settings, status, and health for yo
 1. Click on the vault name to access the **Essentials** dashboard. In this dashboard you can Site Recovery jobs, replication status, recovery plans, server health, and events.  You can customize **Essentials** to show the tiles and layouts that are most useful to you, including the status of other Site Recovery and Backup vaults.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. In *Health**, you can monitor issues on on-premises servers (VMM or configuration servers), and the events raised by Site Recovery in the last 24 hours.
+2. In **Health**, you can monitor issues on on-premises servers (VMM or configuration servers), and the events raised by Site Recovery in the last 24 hours.
 3. In the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles you can manage and monitor replication. You can drill into jobs in **Jobs** > **Site Recovery Jobs**.
 
 ## Next steps
-After your deployment is set up and running, [learn more](site-recovery-failover.md) about different types of failover.
+After your deployment is set up and running, [learn more](site-recovery-failover.md) about failover.
