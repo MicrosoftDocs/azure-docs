@@ -40,7 +40,7 @@ After reading this article, post any comments at the bottom, or on the [Azure Re
 **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, install [update 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012, cluster broker isn't created automatically if you have a static IP address-based cluster. Configure the cluster broker manually. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> Hyper-V servers need internet access.
 **URLs** | VMM servers and Hyper-V hosts should be able to reach these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-## Steps
+## Deployment steps
 
 Here's what you do:
 
@@ -240,10 +240,6 @@ If you have existing virtual machines in VMM that are replicating with Hyper-V R
 To test your deployment, you can run a [test failover](site-recovery-test-failover-vmm-to-vmm.md) for a single virtual machine, or [create a recovery plan](site-recovery-create-recovery-plans.md) that contains one or more virtual machines.
 
 
-## Next steps
-
-After you've tested the deployment, learn more about other types of [failover](site-recovery-failover.md)
-
 
 ## Prepare for offline initial replication
 
@@ -440,3 +436,7 @@ This table summarizes how data is stored in this scenario:
 | **Recovery plan** | Recovery plans help you build an orchestration plan for the recovery data center. You can define the order in which VMs or a group of virtual machines should be started at the recovery site. You can also specify any automated scripts to be run, or any manual action to be taken, at the time of recovery for each VM. Failover is typically triggered at the recovery plan level for coordinated recovery. | Site Recovery collects, processes, and transmits metadata for the recovery plan, including virtual machine metadata, and metadata of any automation scripts and manual action notes. |The metadata is used to build the recovery plan in the Azure portal. |This feature is an essential part of the service and can't be turned off. If you don't want to send this information to Site Recovery, don't create recovery plans. |
 | **Network mapping** | Maps network information from the primary data center to the recovery data center. When VMs are recovered on the recovery site, network mapping helps in establishing network connectivity. |Site Recovery collects, processes, and transmits the metadata of the logical networks for each site (primary and datacenter). |The metadata is used to populate network settings so that you can map the network information. | This feature is an essential part of the service and can't be turned off. If you don't want to send this information to Site Recovery, don't use network mapping. |
 | **Failover (planned/unplanned/test)** | Failover fails over VMs from one VMM-managed data center to another. The failover action is triggered manually in the Azure portal. |The Provider on the VMM server is notified of the failover event by Site Recovery and runs a failover action on the Hyper-V host through VMM interfaces. Actual failover of a VM is from one Hyper-V host to another and handled by Windows Server 2012 or Windows Server 2012 R2 Hyper-V Replica. Aft Site Recovery uses the information sent to populate the status of the failover action information in the Azure portal. | This feature is an essential part of the service and can't be turned off. If you don't want to send this information to Site Recovery, don't use failover. |
+
+## Next steps
+
+After you've tested the deployment, learn more about other types of [failover](site-recovery-failover.md)
