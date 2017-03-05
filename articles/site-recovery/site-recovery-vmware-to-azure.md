@@ -100,7 +100,7 @@ Here's what you need to do:
         ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
     - For Linux, the account should be root on the source Linux server.
 
-## Set up a Recovery Services vault
+## Create a Recovery Services vault
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
