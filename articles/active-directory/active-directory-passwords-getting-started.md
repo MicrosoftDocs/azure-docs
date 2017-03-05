@@ -27,6 +27,7 @@ ms.author: joflore
 Enabling your users to manage their own cloud Azure Active Directory or on-premises Active Directory passwords takes just a few simple steps. After ensuring that you've met a few simple prerequisites, you'll have password change and reset enabled for your entire organization before you know it. This article will walk you through the following concepts:
 
 * [**Top tips from our customers to read before you begin**](#top-tips-from-our-customers-to-read-before-you-begin)
+ * [**TOP TIP: DOCUMENTATION NAVIGATION** - Use our table of contents and your browser's find feature to find answers](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**Tip 1: LICENSING** - Make sure you understand the licensing requirements](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
  * [**Tip 2: TESTING** - Test with a end user, not an administrator, and pilot with a small set of users](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Tip 3: DEPLOYMENT** - Pre-populate data for your users so they don't have to register](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
@@ -52,6 +53,7 @@ Enabling your users to manage their own cloud Azure Active Directory or on-premi
 ## Top tips from our customers to read before you begin
 Below are some of the top tips we've seen useful for customers deploying password management in their organization.
 
+* [**TOP TIP: DOCUMENTATION NAVIGATION** - Use our table of contents and your browser's find feature to find answers](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**Tip 1: LICENSING** - Make sure you understand the licensing requirements](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
 * [**Tip 2: TESTING** - Test with a end user, not an administrator, and pilot with a small set of users](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Tip 3: DEPLOYMENT** - Pre-populate data for your users so they don't have to register](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
@@ -61,6 +63,12 @@ Below are some of the top tips we've seen useful for customers deploying passwor
 * [**Tip 7: REPORTING** - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
 * [**Tip 8: TROUBLESHOOT** - Read our troubleshooting guide and FAQ to solve many issues](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
 * [**Tip 9: TROUBLESHOOT** - If you still need help, include enough information for us to assist you](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
+
+### TOP TIP: DOCUMENTATION NAVIGATION - Use our table of contents and your browser's find feature to find answers
+If you are using any of our documentation, we have tried hard to provide quicklinks to all of the interesting places for administrators to learn from in our table of contents. 
+
+Check out the table of contents below: 
+* [Azure AD Password Reset: Documentation Table of Contents](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### Tip 1: LICENSING - Make sure you understand the licensing requirements
 In order for Azure AD Password Reset to function, you must have at least once license assigned in your organization. We do not enforce per-user licensing on the password reset experience itself, however, if you make use of the feature without having a license assigned to a user, you will be considered out of compliance with your Microsoft licensing agreement and will need to assign licenses to those users.
@@ -144,8 +152,25 @@ Using the Azure AD Password Reset Audit Logs, you can do this and much more from
 * [How to download password reset registration events quickly with PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-download-password-reset-registration-events-quickly-with-powershell)
 
 ### Tip 8: TROUBLESHOOT - Read our troubleshooting guide and FAQ to solve many issues
+Did you know that password reset has a rich set of troubleshooting guidance and a FAQ? Chances are, if you have a question, you can find the answer to it in the links below.
+
+In addition to this, you can also use the **"Support & Troubleshooting"** blade in the [Azure Portal](https://portal.azure.com) to get to a rich set of troubleshooting content, right from the password management administrative user experience found under **Azure Active Directory** -> **Users & Groups** -> **Password Reset** -> **Support & Troubleshooting** on the left hand navigation pane.
+
+Links to password reset troubleshooting guidance and FAQ:
+* [Troubleshoot Password Management](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot)
+* [Password Management FAQ](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-faq)
 
 ### Tip 9: TROUBLESHOOT - If you still need help, include enough information for us to assist you
+If you still need help troubleshooting, we are here for you. You can either open a support case, or get in touch with your account management team to reach out to us directly. We'd love to hear from you!
+
+But, before you reach out, please **make sure you gather all of the information requested below** so that we can help you quickly!
+* [Information to include when youn need help](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
+
+#### Ways to provide password reset feedback
+* [Feature requests or troubleshooting - Post on the Azure AD MSDN forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+* [Feature requests or troubleshooting - Post on StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Feature requests or troubleshooting - Tweet @azuread!](https://twitter.com/azuread)
+* [Feature requests only - Leave a note on UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 ## Enable users to reset their Azure AD passwords
 This section walks you through enabling self-service password reset for your AAD cloud directory, registering users for self-service password reset, and then finally performing a test self-service password reset as a user.
