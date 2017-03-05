@@ -3,9 +3,9 @@ title: Azure Data Lake Store cross-region migration | Microsoft Docs
 description: Learn about cross-region migration for Azure Data Lake Store.
 services: data-lake-store
 documentationcenter: ''
-author: stewu
+author: swums
 manager: amitkul
-editor: stewu
+editor: swums
 
 ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
