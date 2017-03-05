@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/19/2017
+ms.date: 03/05/2017
 ms.author: raynew
 ---
 
@@ -117,8 +117,8 @@ Begin Getting Started by choosing how you want to deploy Site Recovery. The Gett
 ## Step 1: Choose your protection goals
 Select what you want to replicate and where you want to replicate to.
 
-1. In the **Recovery Services vaults** blade select your vault and click **Settings**.
-2. In **Settings** > **Getting Started** click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
+1. In the **Recovery Services vaults**, select the vault.
+2. In **Getting Started**, click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png)
 3. In **Protection goal** select **To Azure**, and select **Yes, with Hyper-V**. Select **No** to confirm you're not using VMM. Then click **OK**.
@@ -164,7 +164,7 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 
 	![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-7. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
+7. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
 
 ### Command line installation
 The Azure Site Recovery Provider and agent can also be installed using the following command line. This method can be used to install the provider on a Server Core for Windows Server 2012 R2.
@@ -229,7 +229,7 @@ If you want to create a network using the classic model you’ll do that [in the
 
     ![Replication policy](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
 
-When you create a new policy it's automatically associated with the Hyper-V site. Click **OK**. You can associate a Hyper-V site (and the VMs in it) with multiple replication policies in **Settings** > **Replication** > policy name > **Associate Hyper-V Site**.
+When you create a new policy it's automatically associated with the Hyper-V site. Click **OK**. You can associate a Hyper-V site (and the VMs in it) with multiple replication policies in **Replication** > policy name > **Associate Hyper-V Site**.
 
 ## Step 5: Capacity planning
 Now that you have your basic infrastructure set up you can think about capacity planning and figure out whether you need additional resources.
@@ -300,16 +300,16 @@ Now enable replication as follows:
 	>
 	>   	
 
-8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Settings** > **Replication policies** > policy name > **Edit Settings**. Changes you apply will be used for machines that are already replicating, and new machines.
+8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Replication policies** > policy name > **Edit Settings**. Changes you apply will be used for machines that are already replicating, and new machines.
 
    ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
 
-You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
+You can track progress of the **Enable Protection** job in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 ### View and manage VM properties
 We recommend that you verify the properties of the source machine.
 
-1. Click **Settings** > **Protected Items** > **Replicated Items** > and select the machine.
+1. In **Protected Items**, click **Replicated Items**, and select the machine.
 
     ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/test-failover1.png)
 2. In **Properties** you can view replication and failover information for the VM.
@@ -365,10 +365,10 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 ## Step 7: Run a test failover
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
 
-1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
-2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
+1. To fail over a single machine, in **Replicated Items**, click the VM > **+Test Failover** icon.
+2. To fail over a recovery plan, in **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
 3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
-4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Jobs** > **Site Recovery jobs**.
 5. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
 6. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
 7. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover.
@@ -413,10 +413,10 @@ This should be chosen when a primary site becomes inaccessible because of an une
 >
 
 1. Perform planned failover as mentioned [here](site-recovery-failover.md)
-2. In **Settings > Replicated items**, right-click the virtual machine and select **Complete Migration**
+2. In **Replicated items**, right-click the virtual machine and select **Complete Migration**
 
     ![Complete migration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
-3. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Settings > Site Recovery jobs**.
+3. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Site Recovery jobs**.
 
 ## Monitor your deployment
 Here's how you can monitor the configuration settings, status, and health for your Site Recovery deployment:
@@ -425,4 +425,4 @@ Here's how you can monitor the configuration settings, status, and health for yo
 
     ![Essentials](./media/site-recovery-hyper-v-site-to-azure/essentials.png)
 2. In the **Health** tile you can monitor site servers that are experiencing issue, and the events raised by Site Recovery in the last 24 hours.
-3. You can manage and monitor replication in the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles. You can drill into jobs in **Settings** -> **Jobs** -> **Site Recovery Jobs**.
+3. You can manage and monitor replication in the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles. You can drill into jobs for more details in **Jobs** > **Site Recovery Jobs**.

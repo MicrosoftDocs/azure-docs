@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 03/05/2017
 ms.author: raynew
 
 ---
@@ -170,7 +170,7 @@ Select the target VMM server and cloud.
 10. In **Initial replication method**, if you're replicating over the network, specify whether to start the initial replication or schedule it. To save network bandwidth, you might want to schedule it outside your busy hours. Then click **OK**.
 
      ![Replication policy](./media/site-recovery-vmm-to-vmm/gs-replication2.png)
-11. When you create a new policy it's automatically associated with the VMM cloud. In **Replication policy**, click **OK**. You can associate additional VMM Clouds (and the VMs in them) with this replication policy in **Settings** > **Replication** > policy name > **Associate VMM Cloud**.
+11. When you create a new policy it's automatically associated with the VMM cloud. In **Replication policy**, click **OK**. You can associate additional VMM Clouds (and the VMs in them) with this replication policy in **Replication** > policy name > **Associate VMM Cloud**.
 
      ![Replication policy](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
@@ -181,7 +181,7 @@ Select the target VMM server and cloud.
 - Verify that virtual machines on VMM servers are connected to a VM network.
 
 
-1. In **Settings** > **Site Recovery Infrastructure** > **Network Mapping** > **Network mappings**, click **+Network Mapping**.
+1. In **Site Recovery Infrastructure** > **Network Mapping** > **Network mappings**, click **+Network Mapping**.
 
     ![Network mapping](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. In **Add network mapping** tab, select the source and target VMM servers. The VM networks associated with the VMM servers are retrieved.
@@ -221,12 +221,12 @@ Now that you have your basic infrastructure set up, think about capacity plannin
 
     ![Enable virtual machine protection](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
 
-You can track progress of the **Enable Protection** action in **Settings** > **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the virtual machine is ready for failover.
+You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the virtual machine is ready for failover.
 
 Note that:
 
 - You can also enable protection for virtual machines in the VMM console. Click **Enable Protection** on the toolbar in the virtual machine properties > **Azure Site Recovery** tab.
-- After you've enabled replication, you can view properties for the VM in **Settings** > **Replicated Items**. On the **Essentials** dashboard, you can see information about the replication policy for the VM and its status. Click **Properties** for more details.
+- After you've enabled replication, you can view properties for the VM in **Replicated Items**. On the **Essentials** dashboard, you can see information about the replication policy for the VM and its status. Click **Properties** for more details.
 
 ### Onboard existing virtual machines
 If you have existing virtual machines in VMM that are replicating with Hyper-V Replica, you can onboard them for Azure Site Recovery replication as follows:
