@@ -44,7 +44,7 @@ When creating a VM from the `azure-cli` you can choose between standard and prem
 
 ## Creating a VM with a Managed Disk
 
-The following example requires the Azure CLI 2.0 (Preview), which you can [install here].
+The following example requires the Azure CLI 2.0, which you can [install here].
 
 First, create a resource group to manage the resources:
 
@@ -228,6 +228,13 @@ This section discusses how to secure data when you transfer it into or out of Az
 We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
 
 * [Azure Storage security guide](../storage/storage-security-guide.md)
+
+## Temporary disk
+Each VM contains a temporary disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) or when you [redeploy a VM](virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). During a standard reboot of the VM, the data on the temporary drive should persist.
+
+On Linux virtual machines, the disk is typically **/dev/sdb** and is formatted and mounted to **/mnt** by the Azure Linux Agent. The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Linux virtual machines](../virtual-machines/virtual-machines-linux-sizes.md).
+
+For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## Cost savings
 * [Storage cost](https://azure.microsoft.com/pricing/details/storage/)

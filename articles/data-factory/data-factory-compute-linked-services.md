@@ -48,7 +48,7 @@ Note the following **important** points about on-demand HDInsight linked service
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [!IMPORTANT]
-> It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
+> It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.
 > 
 > 
 
@@ -179,7 +179,9 @@ This type of configuration is supported for the following compute environments:
 
 * Azure HDInsight
 * Azure Batch
-* Azure Machine Learning.
+* Azure Machine Learning
+* Azure Data Lake Analytics
+* Azure SQL DB, Azure SQL DW, SQL Server
 
 ## Azure HDInsight Linked Service
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
