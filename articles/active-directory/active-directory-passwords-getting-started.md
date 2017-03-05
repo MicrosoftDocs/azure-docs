@@ -42,10 +42,56 @@ Enabling your users to manage their own cloud Azure Active Directory or on-premi
  * [Step 5: Reset your AD password as a user and verify](#step-5-reset-your-ad-password-as-a-user)
 
 ## Top tips from our customers
-Below are some of the top issues folks run into when deploying password management.
+Below are some of the top tips we've seen useful for customers deploying password management in their organization.
 
-### Tip 1: Test with a end user, not an administrator
-Testing with an administrator will enforce the administrator password reset policy, which is confusing for you.
+* [**Tip 1: LICENSING** - Make sure you understand the licensing requirements](#tip-1-licensing-make-sure-you-understand-the-licensing-requirements)
+* [**Tip 2: TESTING** - Test with a end user, not an administrator, and pilot with a small set of users](#tip-2-testing-test-with-a-end-user,-not-an-administrator,-and-pilot-with-a-small-set-of-users)
+* [**Tip 3: DEPLOYMENT** - Pre-populate data for your users so they don't have to register](#tip-3-deployment-pre-populate-data-for-your-users-so-they-don't-have-to-register)
+* [**Tip 4: WRITEBACK** - Look at the application event log on your AAD Connect machine to troubleshoot password writeback](#tip-4-writeback-look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+* [**Tip 5: WRITEBACK** - Ensure you enable the correct permissions, firewall rules, and connection settings for password writeback](#tip-5-writeback-ensure-you-enable-the-correct-permissions,-firewall-rules,-and-connection-settings-for-password-writeback)
+* [**Tip 6: REPORTING** - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs](#tip-6-reporting-see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+* [**Tip 7: TROUBLESHOOT** - Read our troubleshooting guide and FAQ to solve many issues](#tip-7-troubleshoot-read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+* [**Tip 8: TROUBLESHOOT** - If you still need help, include enough information for us to assist you](#tip-8-troubleshoot-if-you-still-need-help,-include-enough-information-for-us-to-assist-you)
+
+### Tip 1: LICENSING - Make sure you understand the licensing requirements
+In order for Azure AD Password Reset to function, you must have at least once license assigned in your organization. We do not enforce per-user licensing on the password reset experience itself, however, if you make use of the feature without having a license assigned to a user, you will be considered out of compliance with your Microsoft licensing agreement and will need to assign licenses to those users.
+
+Here are some documents that can help you to understand which licenses are required for password reset.
+* [General password reset licensing information]()
+* [Per-feature password reset licensing information]()
+* [Scenarios supported for password writeback]()
+
+### Tip 2: TESTING - Test with a end user, not an administrator, and pilot with a small set of users
+When you test with an administrator, we enforce the administrator password reset policy, which is defined below.  This means that you will NOT see the expected results of the policy you have configured for your end users.
+
+The policies configured in the administrative UX ONLY apply to end-users, not, administrators. Microsoft enforces strong default password reset policies for your administrators - which may be different than the policies you set for your end-users - in order to ensure your organization stays secure.
+
+#### Administrator password reset policy
+* **Applies to** - any administrator role (Global Administrator, Helpdesk Administrator, Password Administrator, etc.)
+* **Single gate policy applies when...**
+* _Enforced when_: 
+ - for first 30 days after a trial is started created OR
+ - when a vanity domain is not present AND Azure AD Connect is not syncing identities
+* _Requires_: one of Authentication Email, Alternate Email, Authentication Phone, Mobile Phone, or Office Phone to have a value present
+* **Two gate policy applies when...** 
+ * _Enforced when_: 
+  - after the first 30 days of a trial has past OR
+  - when a vanity domain is present OR 
+  - Azure AD Connect is syncing identities
+ * _Requires_: any two of Authentication Email, Alternate Email, Authentication Phone, Mobile Phone, or Office Phone to have a value present
+
+### Tip 3: DEPLOYMENT - Pre-populate data for your users so they don't have to register
+
+### Tip 4: WRITEBACK - Look at the application event log on your AAD Connect machine to troubleshoot password writeback
+
+### Tip 5: WRITEBACK - Ensure you enable the correct permissions, firewall rules, and connection settings for password writeback
+
+### Tip 6: REPORTING - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs 
+
+### Tip 7: TROUBLESHOOT - Read our troubleshooting guide and FAQ to solve many issues
+
+### Tip 8: TROUBLESHOOT - If you still need help, include enough information for us to assist you
+
 
 ## Enable users to reset their Azure AD passwords
 This section walks you through enabling self-service password reset for your AAD cloud directory, registering users for self-service password reset, and then finally performing a test self-service password reset as a user.
