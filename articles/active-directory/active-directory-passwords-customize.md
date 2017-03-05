@@ -26,6 +26,7 @@ ms.author: joflore
 In order to give your users the best possible experience, we recommend that you explore and play with all of the password management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the **Active Directory extension** in the [Azure classic portal](https://manage.windowsazure.com). This topic walks you through all of the different password management customizations you can make as an administrator from within **Configure** tab of your directory within the [Azure classic portal](https://manage.windowsazure.com).
 
 ## What customization options are available?
+The below table outlines all of the customization options available to you with Azure Active Directory Password Reset.
 
 | Topic | Setting | Licenses Required |
 | --- | --- | --- |
