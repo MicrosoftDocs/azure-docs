@@ -38,12 +38,13 @@ If you have already deployed password management, or are just looking to learn m
  * [Password writeback encryption details](#password-writeback-encryption-details)
  * [Password writeback bandwidth usage](#password-writeback-bandwidth-usage)
 * [**Deploying, managing, and accessing password reset data for your users**](#deploying-managing-and-accessing-password-reset-data-for-your-users)
-  * [What data is used by password reset?](#what-data-is-used-by-password-reset)
-  * [Deploying password reset without requiring end user registration](#deploying-password-reset-without-requiring-end-user-registration)
-  * [What happens when a user registers for password reset?](#what-happens-when-a-user-registers)
-  * [How to access password reset data for your users](#how-to-access-password-reset-data-for-your-users)
-  * [Setting password reset data with PowerShell](#setting-password-reset-data-with-powershell)
-  * [Reading password reset data with PowerShell](#reading-password-reset-data-with-powershell)
+ * [What data is used by password reset?](#what-data-is-used-by-password-reset)
+ * [Deploying password reset without requiring end user registration](#deploying-password-reset-without-requiring-end-user-registration)
+ * [What happens when a user registers for password reset?](#what-happens-when-a-user-registers)
+ * [How to access password reset data for your users](#how-to-access-password-reset-data-for-your-users)
+ * [Setting password reset data with PowerShell](#setting-password-reset-data-with-powershell)
+ * [Reading password reset data with PowerShell](#reading-password-reset-data-with-powershell)
+* [**How does Password Reset work for B2B users?**](#how-does-password-reset-work-for-b2b-users)
 
 ## How does the password reset portal work?
 When a user navigates to the password reset portal, a workflow is kicked off to determine if that user account is valid, what organization that users belongs to, where that user’s password is managed, and whether or not the user is licensed to use the feature.  Read through the steps below to learn about the logic behind the password reset page.
@@ -612,6 +613,14 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ```
 Not possible in PowerShell V2
 ```
+## How does password reset work with B2B users?
+Password reset and change is fully supported with all B2B configurations.  Read below for the 3 explicit B2B cases supported by password reset.
+
+1. **Users from a partner org with an existing Azure AD tenant** - If the organization you are partnering with has an existing Azure AD tenant, we will **respect whatever password reset policies are enabled in that tenant**. For password reset to work, the partner organization just needs to make sure Azure AD SSPR is enabled, which is no additional charge for O365 customers, and can be enabled by following the steps in our [Getting Started with Password Management](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
+2. **Users who signed up using [self-service sign up](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)** - If the organization you are partnering with used the [self-service sign up](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) feature to get into a tenant, we will let them reset out of the box with the email they registered.
+3. **B2B users** - Any new B2B users created using the new [Azure AD B2B capabilities](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) will also be able to reset their passwords out of the box with the email they registered during the invite process.
+ 
+To test any of this, just go to http://passwordreset.microsoftonline.com with one of these partner users.  As long as they have an alternate email or authentication email defined, password reset will work as expected.  More info on data used by sspr here can be found in our [What data is used by Password Reset](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset) overview.
 
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
