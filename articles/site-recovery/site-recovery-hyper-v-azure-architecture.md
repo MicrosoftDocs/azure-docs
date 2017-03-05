@@ -23,15 +23,12 @@ Read this article to understand the architecture and workflows for Hyper-V repli
 
 Post any comments at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-
-## Hyper-V replication to Azure
-
 You can replicate the following to Azure:
 - **Hyper-V with VMM**: VMs located on on-premises Hyper-V hosts managed in  System Center Virtual MAchine Manager (VMM) clouds. Hosts can be running any [supported operating system](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - **Hyper-V without VMM**: On-premises VMs located on Hyper-V hosts that aren't managed in VMM clouds. Hosts can run any of the [supported operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
-## Components
+## Architectural components
 
 **Area** | **Component** | **Details**
 --- | --- | ---
