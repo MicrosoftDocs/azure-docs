@@ -30,6 +30,7 @@ If you have already deployed password management, or are just looking to learn m
   * [How pasword writeback works](#how-password-writeback-works)
   * [Scenarios supported for password writeback](#scenarios-supported-for-password-writeback)
   * [Password writeback security model](#password-writeback-security-model)
+  * [Password writeback encryption details](#password-writeback-encryption-details]
   * [Password writeback bandwidth usage](#password-writeback-bandwidth-usage)
 * [**Deploying, managing, and accessing password reset data for your users**](#deploying-managing-and-accessing-password-reset-data-for-your-users)
   * [What data is used by password reset?](#what-data-is-used-by-password-reset)
@@ -109,6 +110,17 @@ Password writeback is a highly secure and robust service.  In order to ensure yo
 * **Locked down, cryptographically strong, password encryption key** – After the service bus relay is created, we create a strong symmetric key which we use to encrypt the password as it comes over the wire.  This key lives only in your company's secret store in the cloud, which is heavily locked down and audited, just like any password in the directory.
 * **Industry standard TLS** – When a password reset or change operation occurs in the cloud, we take the plaintext password and encrypt it with your public key.  We then plop that into an HTTPS message which is sent over an encrypted channel using Microsoft’s SSL certs to your service bus relay.  After that message arrives into Service Bus, your on-prem agent wakes up, authenticates to Service Bus using the strong password that had been previously generated, picks up the encrypted message, decrypts it using the private key we generated, and then attempts to set the password through the AD DS SetPassword API.  This step is what allows us to enforce your AD on-prem password policy (complexity, age, history, filters, etc) in the cloud.
 * **Message expiration policies** – Finally, if for some reason the message sits in Service Bus because your on-prem service is down, it will be timed out and removed after several minutes in order to increase security even further.
+
+### Password writeback encryption details
+Below describes the encryption steps a password reset reqeust goes through after a user submits it, but before it arrives in your on-premises environment, to ensure maximum service reliability and security.
+
+* **Step 1 - Password encryption with 2048-bit RSA Key** - Once a user submits a password to be written back to on-premises, first, the submitted password itself is encrypted with a 2048-bit RSA key. 
+
+* **Step 2 - Package-level encryption with AES-GCM** - Then the entire package (password + required metadata) is encrypted using AES-GCM. This prevents anyone with direct access to the underlying ServiceBus channel from viewing/tampering with the contents. 
+
+* **Step 3 - All communication occurs over TLS / SSL** - Additionally, all the communication with ServiceBus happens in a SSL/TLS channel. This secures the contents from unauthorized 3rd parties.
+
+* **Step 4 - Automatic Key Rollover every 6 months** - Finally, automatically every 6 months, or every time password writeback is disabled / re-enabled on Azure AD Connect, we roll over all of these keys to ensure maximum service security and safety.
 
 ### Password writeback bandwidth usage
 
