@@ -31,7 +31,7 @@ Enabling your users to manage their own cloud Azure Active Directory or on-premi
  * [**Tip 1: LICENSING** - Make sure you understand the licensing requirements](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
  * [**Tip 2: TESTING** - Test with a end user, not an administrator, and pilot with a small set of users](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Tip 3: DEPLOYMENT** - Pre-populate data for your users so they don't have to register](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
- * [**Tip 4: DEPLOYMENT - Use password reset to obviate the need to communicate temporary passwords**](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+ * [**Tip 4: DEPLOYMENT** - Use password reset to obviate the need to communicate temporary passwords](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**Tip 5: WRITEBACK** - Look at the application event log on your AAD Connect machine to troubleshoot password writeback](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
  * [**Tip 6: WRITEBACK** - Ensure you enable the correct permissions, firewall rules, and connection settings for password writeback](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
  * [**Tip 7: REPORTING** - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
@@ -57,7 +57,7 @@ Below are some of the top tips we've seen useful for customers deploying passwor
 * [**Tip 1: LICENSING** - Make sure you understand the licensing requirements](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
 * [**Tip 2: TESTING** - Test with a end user, not an administrator, and pilot with a small set of users](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Tip 3: DEPLOYMENT** - Pre-populate data for your users so they don't have to register](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
-* [**Tip 4: DEPLOYMENT - Use password reset to obviate the need to communicate temporary passwords**](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+* [**Tip 4: DEPLOYMENT** - Use password reset to obviate the need to communicate temporary passwords](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**Tip 5: WRITEBACK** - Look at the application event log on your AAD Connect machine to troubleshoot password writeback](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
 * [**Tip 6: WRITEBACK** - Ensure you enable the correct permissions, firewall rules, and connection settings for password writeback](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
 * [**Tip 7: REPORTING** - See who is registering or resetting passwords with the Azure AD SSPR Audit Logs](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
@@ -164,7 +164,7 @@ Links to password reset troubleshooting guidance and FAQ:
 If you still need help troubleshooting, we are here for you. You can either open a support case, or get in touch with your account management team to reach out to us directly. We'd love to hear from you!
 
 But, before you reach out, please **make sure you gather all of the information requested below** so that we can help you quickly!
-* [Information to include when youn need help](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
+* [Information to include when you need help](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
 
 #### Ways to provide password reset feedback
 * [Feature requests or troubleshooting - Post on the Azure AD MSDN forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
