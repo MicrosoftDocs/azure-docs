@@ -1,5 +1,5 @@
 ---
-title: How does Hyper-V replication in Site Recovery work? | Microsoft Docs
+title: How does Hyper-V replication to Azure work in Site Recovery? | Microsoft Docs
 description: This article provides an overview of how Hyper-V replication works in Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 03/05/2017
 ms.author: raynew
 
 ---
-# How does Hyper-V replication in Site Recovery work?
+# How does Hyper-V replication to Azure work?
 
 Read this article to understand the architecture and workflows for Hyper-V replication to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
 
