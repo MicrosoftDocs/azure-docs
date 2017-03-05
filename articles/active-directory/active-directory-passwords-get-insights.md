@@ -28,7 +28,7 @@ This section describes how you can use Azure Active Directory’s password manag
 * [**Password management reports overview**](#overview-of-password-management-reports)
 * [**How to view password management reports in the new Azure portal**](#how-to-view-password-management-reports)
  * [Directory roles allowed to read reports](#directory-roles-allowed-to-read-reports)
-* [**Self-service Password Management activity types in the new Azure Portal**](#self-service-password-management-activity-types-in-the-new-azure-portal)
+* [**Self-service Password Management activity types in the new Azure Portal**](#self-service-password-management-activity-types)
  * [Blocked from self-service password reset](#activity-type-blocked-from-self-service-password-reset)
  * [Change password (self-service)](#activity-type-change-password-self-service)
  * [Reset password (by admin)](#activity-type-reset-password-by-admin)
@@ -81,7 +81,7 @@ Before being able to read these reports, a global administrator in the company m
 
 To read more about directory roles and what they can do, see [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles).
 
-## Self-service Password Management activity types in the new Azure Portal
+## Self-service Password Management activity types
 The following activity types appear in the **Self-Service Password Management** audit event category.  A description for each of these follows.
 
 * [**Blocked from self-service password reset**](#activity-type-blocked-from-self-service-password-reset) - Indicates a user tried to reset a password, use a specific gate, or validate a phone number more than 5 total times in 24 hours.
