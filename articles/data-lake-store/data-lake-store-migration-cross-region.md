@@ -17,9 +17,9 @@ ms.date: 01/27/2017
 ms.author: stewu
 
 ---
-# Migrate Azure Data Lake Store across regions
+# Migrate Data Lake Store across regions
 
-You can do a one-time migration of your Azure Data Lake Store data to a new region when Data Lake Store becomes available in a new region. Learn what to consider as you plan and do the migration.
+As Azure Data Lake Store becomes available in new regions, you might choose to do a one-time migration, to take advantage of the new region. Learn what to consider as you plan and complete the migration.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ You can do a one-time migration of your Azure Data Lake Store data to a new regi
 
 ## Migration considerations
 
-We recommend that first you identify the migration strategy that will work best for your application that writes, reads, or processes data in Data Lake Store. When you choose a strategy, consider your application’s availability requirements, and the downtime that occurs during a migration. For example, your simplest approach might be to use the “lift-and-shift” cloud migration model. In this approach, you pause the application in your existing region while all your data is copied to the new region. When the copy process is finished, you resume your application in the new region, and then delete the old Data Lake Store account. There is downtime during the migration.
+You need to identify the migration strategy that will work best for your application that writes, reads, or processes data in Data Lake Store. When you choose a strategy, consider your application’s availability requirements, and the downtime that occurs during a migration. For example, your simplest approach might be to use the “lift-and-shift” cloud migration model. In this approach, you pause the application in your existing region while all your data is copied to the new region. When the copy process is finished, you resume your application in the new region, and then delete the old Data Lake Store account. Downtime during the migration is required.
 
-To reduce downtime, you could immediately start ingesting new data in the new region. Then, run your application in the new region when you have the minimum data needed. In the background, continue to copy older data from the existing Data Lake Store account to the new Data Lake Store account in the new region. By using this approach, you can make the switch to the new region with little downtime. When all the older data has been copied, you can delete the old Data Lake Store account.
+To reduce downtime, you might immediately start ingesting new data in the new region. When you have the minimum data needed, run your application in the new region. In the background, continue to copy older data from the existing Data Lake Store account to the new Data Lake Store account in the new region. By using this approach, you can make the switch to the new region with little downtime. When all the older data has been copied, delete the old Data Lake Store account.
 
 Other important details to consider when planning your migration are:
 
@@ -42,11 +42,11 @@ Other important details to consider when planning your migration are:
 
 * **Tools**. We recommend that you use the [Azure Data Factory Copy Activity](../data-factory/data-factory-azure-datalake-connector.md) to copy Data Lake Store files. Data Factory supports data movement with high performance and reliability. Keep in mind that Data Factory copies only the folder hierarchy and content of the files. You need to manually apply any access control lists (ACLs) that you use in the old account to the new account. For more information, including performance targets for best-case scenarios, see the [Copy Activity performance and tuning guide](../data-factory/data-factory-copy-activity-performance.md). If you want data copied more quickly, you might need to use additional Cloud Data Movement Units. Some other tools, like AdlCopy, don't support copying data between regions.  
 
-* **[Bandwidth charges](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)**. Charges apply because data is transferred out of an Azure region.
+* **Bandwidth charges**. [Bandwidth charges](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) apply because data is transferred out of an Azure region.
 
 * **ACLs on your data**. Secure your data in the new region by applying ACLs to files and folders. For more information, see [Securing data stored in Azure Data Lake Store](data-lake-store-secure-data.md). We recommend that you use the migration to update and adjust your ACLs. If you want to use settings similar to your current ones, you can view the ACLs that are applied to any file by using the Azure portal, [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/get-azurermdatalakestoreitempermission), or SDKs.  
 
-* **Location of analytics services**. For best performance, your analytics services like Azure Data Lake Analytics or Azure HDInsight should be in the same region as your data.  
+* **Location of analytics services**. For best performance, your analytics services, like Azure Data Lake Analytics or Azure HDInsight, should be in the same region as your data.  
 
 ## Next steps
 * [Overview of Azure Data Lake Store](data-lake-store-overview.md)
