@@ -95,8 +95,8 @@ Although most customers use just one service, service redundancy might be necess
 + Your investigation of multi-tenancy modeling has determined that additional services is the optimal design. For more information, see [Design for multi-tenancy](search-modeling-multitenant-saas-applications.md).
 + Through testing, you have determined indexing and query workloads run better with two or more small tier services, rather than one larger tier. 
 
-> [!NOTE}
-> In Azure Search, you cannot segregate indexing and querying workloads; thus, provisioning multiple smaller services is an undertaking you would do for reasons other than dedicated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
+> [!NOTE]
+> In Azure Search, you cannot segregate indexing and querying workloads; thus, provisioning multiple smaller services is an undertaking you would do for reasons other than separation of workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 >
 
 A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
