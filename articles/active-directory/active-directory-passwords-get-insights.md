@@ -26,13 +26,22 @@ ms.author: joflore
 This section describes how you can use Azure Active Directory’s password management reports to view how users are using password reset and change in your organization.
 
 * [**Password management reports overview**](#overview-of-password-management-reports)
-* [**How to view password management reports**](#how-to-view-password-management-reports)
+* [**How to view password management reports in the new Azure portal**](#view-password-reset-and-registration-activity-from-the-new-azure-portal)
  * [Directory roles allowed to read reports](#directory-roles-allowed-to-read-reports)
+* [**Self-service Password Management activity types in the new Azure Portal**](#self-service-password-management-activity-types-in-the-new-azure-portal)
+ * [Blocked from self-service password reset](#activity-type-blocked-from-self-service-password-reset)
+ * [Change password (self-service)](#activity-type-change-password-self-service)
+ * [Reset password (by admin)](#activity-type-reset-password-by-admin)
+ * [Reset password (self-service)](#activity-type-reset-password-self-service)
+ * [Self serve password reset flow activity progress](#activity-type-self-serve-password-reset-flow-activity-progress)
+ * [Unlock user account (self-service)](#activity-type-unlock-user-account-self-service)
+ * [User registered for self-service password reset](#activity-type-user-registered-for-self-service-password-reset)
 * [**How to retrieve password management events from the Azure AD Reports and Events API**](#how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api)
  * [Reporting API data retrieval limitations](#reporting-api-data-retrieval-limitations)
 * [**How to download password reset registration events quickly with PowerShell**](how-to-download-password-reset-registration-events-quickly-with-powershell)
-* [**View password reset registration activity in your organization**](#view-password-reset-registration-activity)
-* [**View password reset activity in your organization**](#view-password-reset-activity)
+* [**How to view password management reports in the classic portal**](#how-to-view-password-management-reports-in-the-classic-portal)
+* [**View password reset registration activity in your organization in the classic portal**](#view-password-reset-registration-activity-in-the-classic-portal)
+* [**View password reset activity in your organization in the classic portal**](#view-password-reset-activity-in-the-classic-portal)
 
 
 ## Overview of password management reports
@@ -47,36 +56,6 @@ Once you deploy password reset, one of the most common next steps is to see how 
 * What admins are resetting their own passwords frequently?
 * Is there any suspicious activity going on with password reset?
 
-### Directory Roles allowed to read reports
-Currently, the following directory roles may read Azure AD Password Management reports in the classic Azure portal:
-
-* Global administrator
-
-Before being able to read these reports, a global administrator in the company must have opted-in for this data to be retrieved on behalf of the organization by visiting the reporting tab or audit logs at least once. Until doing so, data will not be collected for your organization.
-
-To read more about directory roles and what they can do, see [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles).
-
-## How to retrieve password management events from the Azure AD Reports and Events API
-As of August 2015, the Azure AD Reports and Events API now supports retrieving all of the information included in the password reset and password reset registration reports. By using this API, you can download individual password reset and password reset registration events for integration with the reporting technology of your choce.
-
-### How to get started with the reporting API
-To access this data, you'll need to write a small app or script to retrieve it from our servers. [Learn how to get started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
-
-Once you have a working script, you'll next want to examine the password reset and registration events that you can retrieve to meet your scenarios.
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): Lists the columns available for password reset events
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Lists the columns available for password reset registration events
-
-### Reporting API data retrieval limitations
-Currently, the Azure AD Reports and Events API retrieves up to **75,000 individual events** of the [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) and [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) types, spanning the **last 30 days**. 
-
-If you need to retrieve or store data beyond this window, we suggest persisting it in an external database and using the API to query the deltas that result. A best practice is to begin retrieving this data when you start your password reset registration process in your organization, persist it externally, and then continue to track the deltas from this point forward.
-
-## How to download password reset registration events quickly with PowerShell
-In addition to using the Azure AD Reports and Events API directly, you may also use the below PowerShell script to recent registration events in your directory. This is useful in case you want to see who has registered recently, or would like to ensure that your password reset rollout is occurring as you expect.
-
-* [Azure AD SSPR Registration Activity PowerShell Script](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
 ## View password reset and registration activity from the new Azure Portal
 In the new [Azure Portal](https://portal.azure.com) experience, we have an improved way to view password reset and password reset registration activity.  Follow the steps below to find the password reset and password reset registration events in the new [Azure Portal](https://portal.azure.com):
 
@@ -87,12 +66,20 @@ In the new [Azure Portal](https://portal.azure.com) experience, we have an impro
 5. Click on the **Audit Logs** navigation item from the Users & Groups navigation menu. This will show you all of the audit events occuring against all the users in your directory. You can filter this view to see all the password-related events, as well.
 6. To filter this view to only the password management related events, click the **Filter** button at the top of the blade.
 7. From the **Filter** menu, select the **Category** dropdown, and change it to the **Self-service Password Management** category type.
-8. Optionally further filter the list by choosing the specific **Activity** you are interested in.
-
+8. Optionally further filter the list by choosing the specific **Activity** you are interested
 ### Direct link to User Audit blade
 If you are signed in to your portal, here is a direct link to the user audit blade where you can see these events:
 
 * [Go to user management audit view directly](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit)
+
+### Directory Roles allowed to read reports
+Currently, the following directory roles may read Azure AD Password Management reports in the classic Azure portal:
+
+* Global administrator
+
+Before being able to read these reports, a global administrator in the company must have opted-in for this data to be retrieved on behalf of the organization by visiting the reporting tab or audit logs at least once. Until doing so, data will not be collected for your organization.
+
+To read more about directory roles and what they can do, see [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles).
 
 ## Self-service Password Management activity types in the new Azure Portal
 The following activity types appear in the **Self-Service Password Management** audit event category.  A description for each of these follows.
@@ -180,6 +167,27 @@ The following list explains this activity in detail:
 * **Allowed Activity Statuses**
  * _Success_ - indicates an user successfully registered for password reset in accordance with the current policy. 
  * _Failure_ - indicates a user failed to register for password reset. Clicking on the row will allow you to see the **Activity Status Reason** category to learn more about why the failure occurred. Note - this does not mean a user is not able to reset his or her own password, just that he or she did not complete the registration process. If there is unverified data on their account that is correct (such as a phone number that is not validated), even though they have not verified this phone number, they can still use it to reset their password. For more information, see [What happens when a user registers?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)
+
+## How to retrieve password management events from the Azure AD Reports and Events API
+As of August 2015, the Azure AD Reports and Events API now supports retrieving all of the information included in the password reset and password reset registration reports. By using this API, you can download individual password reset and password reset registration events for integration with the reporting technology of your choce.
+
+### How to get started with the reporting API
+To access this data, you'll need to write a small app or script to retrieve it from our servers. [Learn how to get started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
+
+Once you have a working script, you'll next want to examine the password reset and registration events that you can retrieve to meet your scenarios.
+
+* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): Lists the columns available for password reset events
+* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Lists the columns available for password reset registration events
+
+### Reporting API data retrieval limitations
+Currently, the Azure AD Reports and Events API retrieves up to **75,000 individual events** of the [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) and [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) types, spanning the **last 30 days**. 
+
+If you need to retrieve or store data beyond this window, we suggest persisting it in an external database and using the API to query the deltas that result. A best practice is to begin retrieving this data when you start your password reset registration process in your organization, persist it externally, and then continue to track the deltas from this point forward.
+
+## How to download password reset registration events quickly with PowerShell
+In addition to using the Azure AD Reports and Events API directly, you may also use the below PowerShell script to recent registration events in your directory. This is useful in case you want to see who has registered recently, or would like to ensure that your password reset rollout is occurring as you expect.
+
+* [Azure AD SSPR Registration Activity PowerShell Script](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
 
 ## How to view password management reports in the classic portal
 To find the password management reports, follow the steps below:
