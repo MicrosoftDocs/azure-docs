@@ -38,7 +38,7 @@ This section describes how you can use Azure Active Directory’s password manag
  * [User registered for self-service password reset](#activity-type-user-registered-for-self-service-password-reset)
 * [**How to retrieve password management events from the Azure AD Reports and Events API**](#how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api)
  * [Reporting API data retrieval limitations](#reporting-api-data-retrieval-limitations)
-* [**How to download password reset registration events quickly with PowerShell**](how-to-download-password-reset-registration-events-quickly-with-powershell)
+* [**How to download password reset registration events quickly with PowerShell**](#how-to-download-password-reset-registration-events-quickly-with-powershell)
 * [**How to view password management reports in the classic portal**](#how-to-view-password-management-reports-in-the-classic-portal)
 * [**View password reset registration activity in your organization in the classic portal**](#view-password-reset-registration-activity-in-the-classic-portal)
 * [**View password reset activity in your organization in the classic portal**](#view-password-reset-activity-in-the-classic-portal)
