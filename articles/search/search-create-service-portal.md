@@ -94,7 +94,11 @@ Multiple services might be necessary if operational requirements include the fol
 + Disaster recovery (data center outage). Azure Search does not provide instant failover in the event of an outage. For more information, see [Service administration](search-manage.md).
 + High availability with zero tolerance for downtime (continuous uptime is an operational requirement). Routine updates and maintenance can temporarily take a service offline. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 + Your investigation of multi-tenancy modeling has determined that additional services is the optimal design. For more information, see [Design for multi-tenancy](search-modeling-multitenant-saas-applications.md).
-+ Through testing, you have determined indexing and query workloads run better with two or more small tier services, rather than one larger tier. In Azure Search, you cannot segregate indexing and querying workloads, so provisioning multiple smaller services is an undertaking you would do for reasons other than dedicated workloads. An index is queried on the service in which it was created; there is no way to create it in one service and copy it to another.
++ Through testing, you have determined indexing and query workloads run better with two or more small tier services, rather than one larger tier. 
+
+> [!NOTE}
+> In Azure Search, you cannot segregate indexing and querying workloads, so provisioning multiple smaller services is an undertaking you would do for reasons other than dedicated workloads. An index is queried on the service in which it was created (there is no way to create it in one service and copy it to another).
+>
 
 ## Next steps
 After provisioning an Azure Search service, you are ready to [define an index](search-what-is-an-index.md) so you can upload and search your data.
