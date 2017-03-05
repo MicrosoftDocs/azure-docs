@@ -26,7 +26,7 @@ ms.author: joflore
 This section describes how you can use Azure Active Directory’s password management reports to view how users are using password reset and change in your organization.
 
 * [**Password management reports overview**](#overview-of-password-management-reports)
-* [**How to view password management reports in the new Azure portal**](#view-password-reset-and-registration-activity-from-the-new-azure-portal)
+* [**How to view password management reports in the new Azure portal**](#how-to-view-password-management-reports)
  * [Directory roles allowed to read reports](#directory-roles-allowed-to-read-reports)
 * [**Self-service Password Management activity types in the new Azure Portal**](#self-service-password-management-activity-types-in-the-new-azure-portal)
  * [Blocked from self-service password reset](#activity-type-blocked-from-self-service-password-reset)
@@ -56,7 +56,7 @@ Once you deploy password reset, one of the most common next steps is to see how 
 * What admins are resetting their own passwords frequently?
 * Is there any suspicious activity going on with password reset?
 
-## View password reset and registration activity from the new Azure Portal
+## How to view Password Management Reports
 In the new [Azure Portal](https://portal.azure.com) experience, we have an improved way to view password reset and password reset registration activity.  Follow the steps below to find the password reset and password reset registration events in the new [Azure Portal](https://portal.azure.com):
 
 1. Navigate to [**portal.azure.com**](https://portal.azure.com)
