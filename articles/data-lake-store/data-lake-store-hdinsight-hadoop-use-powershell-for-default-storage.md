@@ -47,8 +47,8 @@ Before you begin this tutorial, make sure that you met the following requirement
  >[!NOTE]
  >You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. The service principal must be created with a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
-## Create a Data Lake Store
-To create a Data Lake Store, do the following:
+## Create Data Lake Store
+To create Data Lake Store, do the following:
 
 1. From your desktop, open a PowerShell window, and then enter the following snippet:
 
@@ -65,7 +65,7 @@ To create a Data Lake Store, do the following:
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
  > [!NOTE]
- > If you register the Data Lake Store resource provider and receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be whitelisted for Data Lake Store. To enable your Azure subscription for Data Lake Store public preview, follow the instructions in [Get started with Azure Data Lake Store by using the Azure portal](data-lake-store-get-started-portal.md).
+ > If you register the Data Lake Store resource provider and receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be whitelisted for Data Lake Store. To enable your Azure subscription for the Data Lake Store public preview, follow the instructions in [Get started with Azure Data Lake Store by using the Azure portal](data-lake-store-get-started-portal.md).
 
 2. When you are prompted to sign in, sign in as one of the subscription administrators or owners.
 3. A Data Lake Store account is associated with an Azure resource group. Start by creating a resource group.
@@ -92,7 +92,7 @@ To create a Data Lake Store, do the following:
         New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/clusters/hdiadlcluster
 
 
-## Set up authentication for role-based access to the Data Lake Store
+## Set up authentication for role-based access to Data Lake Store
 Every Azure subscription is associated with an Azure AD. Users and services that access subscription resources by using the Azure portal or the Azure Resource Manager API must first authenticate with that Azure AD. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource. For services, a service principal identifies the service in the Azure AD.
 
 This section illustrates how to grant an application service, such as HDInsight, access to an Azure resource (the Data Lake Store account that you created earlier). You do so by creating a service principal for the application and assigning roles to it via PowerShell.
@@ -151,9 +151,9 @@ In this section, you create a service principal for an Azure AD application, ass
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /clusters -AceType User -Id $objectId -Permissions All
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
 
-## Create an HDInsight Linux cluster with the Data Lake Store as the default storage
+## Create an HDInsight Linux cluster with Data Lake Store as the default storage
 
-In this section, you create an HDInsight Hadoop Linux cluster with the Data Lake Store as the default storage. For this release, the HDInsight cluster and the Data Lake Store must be in the same location.
+In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Store as the default storage. For this release, the HDInsight cluster and Data Lake Store must be in the same location.
 
 1. Retrieve the subscription tenant ID, and store it to use later.
 
@@ -191,8 +191,8 @@ In this section, you create an HDInsight Hadoop Linux cluster with the Data Lake
 
     After the cmdlet has been successfully completed, you should see an output that lists the cluster details.
 
-## Run test jobs on the HDInsight cluster to use the Data Lake Store
-After you have configured an HDInsight cluster, you can run test jobs on it to ensure that it can access Data Lake Store. To do so, run a sample Hive job to create a table that uses the sample data that's already available in the Data Lake Store at *<cluster root>/example/data/sample.log*.
+## Run test jobs on the HDInsight cluster to use Data Lake Store
+After you have configured an HDInsight cluster, you can run test jobs on it to ensure that it can access Data Lake Store. To do so, run a sample Hive job to create a table that uses the sample data that's already available in Data Lake Store at *<cluster root>/example/data/sample.log*.
 
 In this section, you make a Secure Shell (SSH) connection into the HDInsight Linux cluster that you created, and then you run a sample Hive query.
 
@@ -202,7 +202,7 @@ In this section, you make a Secure Shell (SSH) connection into the HDInsight Lin
 1. After you have made the connection, start the Hive command-line interface (CLI) by using the following command:
 
         hive
-2. Use the CLI to enter the following statements to create a new table named **vehicles** by using the sample data in the Data Lake Store:
+2. Use the CLI to enter the following statements to create a new table named **vehicles** by using the sample data in Data Lake Store:
 
         DROP TABLE log4jLogs;
 		CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -215,22 +215,22 @@ In this section, you make a Secure Shell (SSH) connection into the HDInsight Lin
 	>[!NOTE]
    	>The path to the sample data in the preceding CREATE TABLE command is `adl:///example/data/`, where `adl:///` is the cluster root. Following the example of the cluster root that's specified in this tutorial, the command is `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`. You can either use the shorter alternative or provide the complete path to the cluster root.
 
-## Access the Data Lake Store by using HDFS commands
-After you have configured the HDInsight cluster to use the Data Lake Store, you can use Hadoop Distributed File System (HDFS) shell commands to access the store.
+## Access Data Lake Store by using HDFS commands
+After you have configured the HDInsight cluster to use Data Lake Store, you can use Hadoop Distributed File System (HDFS) shell commands to access the store.
 
 In this section, you make an SSH connection into the HDInsight Linux cluster that you created, and then you run the HDFS commands.
 
 * If you are using a Windows client to make an SSH connection into the cluster, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 * If you are using a Linux client to make an SSH connection into the cluster, see [Use SSH with Linux-based Hadoop on HDInsight from Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-After you've made the connection, list the files in the Data Lake Store by using the following HDFS file system command.
+After you've made the connection, list the files in Data Lake Store by using the following HDFS file system command.
 
     hdfs dfs -ls adl:///
 
-You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
+You can also use the `hdfs dfs -put` command to upload some files to Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
 ## See also
-* [Azure portal: Create an HDInsight cluster to use a Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure portal: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
