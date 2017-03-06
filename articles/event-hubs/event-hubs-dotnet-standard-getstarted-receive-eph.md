@@ -26,7 +26,7 @@ This tutorial shows how to write a .NET Core console application that receives m
 
 ## Prerequisites
 
-1. [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com).
+1. [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015, but Visual Studio 2017 is also supported.
 2. [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
 3. An Azure subscription.
 4. An Event Hubs namespace.
