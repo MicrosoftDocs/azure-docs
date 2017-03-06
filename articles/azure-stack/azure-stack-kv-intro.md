@@ -19,15 +19,15 @@ ms.author: sngun
 ---
 # Introduction to Key Vault in Azure Stack
 
-> [!NOTE]
-> In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault.
-
 ## Before you start
 This article assumes the following:
 
 * Azure Stack administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
 * Tenants must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
 * [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure.md) 
+ 
+> [!NOTE]
+> In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault.
  
 ## Key Vault basics
 Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
