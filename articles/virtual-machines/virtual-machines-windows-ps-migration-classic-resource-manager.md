@@ -45,7 +45,10 @@ For installation instructions, see [How to install and configure Azure PowerShel
 
 <br>
 
-## Step 3: Set your subscription and sign up for migration
+## Step 3: Ensure that you are co-administrator for the subscription in Azure Classic portal
+To perform this migration, you must be added as co-administrator for the subscription in the [Azure Classic portal](https://manage.windowsazure.com/). This is required even if you are already added as owner in the [Azure portal](https://portal.azure.com). Try to [add a co-administrator for the subscription in Azure Classic portal](../billing/billing-add-change-azure-subscription-administrator.md) to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator then please contact a service administrator or co-administrator for the subscription to get yourself added.   
+
+## Step 4: Set your subscription and sign up for migration
 First, start a PowerShell prompt. For migration, you need to set up your environment for both classic and Resource Manager.
 
 Sign in to your account for the Resource Manager model.
@@ -107,7 +110,7 @@ Set your Azure subscription for the current session. This example sets the defau
 
 <br>
 
-## Step 4: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
+## Step 5: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
 You can use the following PowerShell command to check the current number of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager). 
 
 This example checks the availability in the **West US** region. Replace the example region name with your own. 
@@ -116,7 +119,7 @@ This example checks the availability in the **West US** region. Replace the exam
 Get-AzureRmVMUsage -Location "West US"
 ```
 
-## Step 5: Run commands to migrate your IaaS resources
+## Step 6: Run commands to migrate your IaaS resources
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
 > 
