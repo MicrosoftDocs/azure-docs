@@ -230,7 +230,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Because Disk1 (D:) was excluded, D: is the first drive letter from the available list. Azure assigns D: to the temporary storage volume. Because D: is available on the Azure virtual machine, the paging file setting of the virtual machine remains the same.
 
-Here are the paging file settings on Azure virtual machine:
+Here are the paging file settings on the Azure virtual machine:
 
 ![Paging file settings on Azure virtual machine](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
@@ -249,7 +249,7 @@ Here are the paging file settings on the on-premises virtual machine:
 
 ![Paging file settings on the on-premises virtual machine](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-After failover of the virtual machine from VMware/Hyper-V to Azure, disks on Azure virtual machine are as follows:
+After failover of the virtual machine from VMware/Hyper-V to Azure, disks on the Azure virtual machine are as follows:
 
 **Disk name**| **Guest operating system disk#**| **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
