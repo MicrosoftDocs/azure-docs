@@ -107,6 +107,18 @@ After initially picking a service tier and performance level, you can scale the 
 
 For detailed steps, see [Managing elastic pools with the Azure portal](sql-database-elastic-pool-manage-portal.md), [Managing elastic pools with Powershell](sql-database-elastic-pool-manage-powershell.md), [Managing elastic pools with Transact-SQL](sql-database-elastic-pool-manage-tsql.md), or [Managing elastic pools with C#](sql-database-elastic-pool-manage-csharp.md).
 
+## Creating a P11/P15 with 4TB (or upgrading a P11/P15 to 4TB)
+
+### Creating in the Azure portal
+
+When creating a P11/P15, the default storage option of 1TB is pre-selected. For databases located in one of the supported regions, you can increase the storage maximum to 4TB. For all other regions, the storage slider cannot be changed. Note that the price will not change when selecting 4 TB.
+
+### Creating using PowerShell or Transact-SQL
+
+When creating a P11/P15 database, you can set the maxsize value to either 1 B (default) or 4 TB. Values of ‘1024 GB’ and ‘4096 GB’ are also accepted. If you choose the 4 TB maxsize option, the create command will fail with an error if the database is provisioned in an unsupported region.
+
+
+
 ## Next steps
 
 * Learn the details of [elastic pools](sql-database-elastic-pool-guidance.md) and [price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md).
