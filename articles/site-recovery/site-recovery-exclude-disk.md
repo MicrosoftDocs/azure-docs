@@ -1,6 +1,6 @@
 ---
-title: Exclude disk from protection using Azure Site Recovery | Microsoft Docs
-description: Describes why and how to exclude a VM disks from replication for VMware to Azure and Hyper-V Azure scenarios.
+title: Exclude disks from protection by using Azure Site Recovery | Microsoft Docs
+description: Describes why and how to exclude a VM disks from replication for scenarios of VMware to Azure and Hyper-V to Azure.
 services: site-recovery
 documentationcenter: ''
 author: nsoneji
@@ -18,7 +18,7 @@ ms.author: nisoneji
 
 ---
 # Exclude disks from replication
-This article describes how to exclude disks from replication. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. The feature is supported for VMware to Azure and Hyper-V to Azure scenarios.
+This article describes how to exclude disks from replication. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. The feature is supported for scenarios of VMware to Azure and Hyper-V to Azure.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Excluding disks from replication is often necessary because:
 - You want to save storage and network resources by not replicating this churn.
 
 ## What are the typical scenarios?
-You can identify specific examples of data churn that are great candidates for exclusion. Some examples are writes to a paging file (pagefile.sys), writes to the tempdb file of Microsoft SQL Server, and so on. Depending on the workload and the storage subsystem, the paging file can register a significant amount of churn. However, replicating this data from the primary site to Azure would be resource intensive. Thus, you can use the following steps to optimize replication of a virtual machine with a single virtual disk that has both the operating system and the paging file:
+You can identify specific examples of data churn that are great candidates for exclusion. Examples might include writes to a paging file (pagefile.sys) and writes to the tempdb file of Microsoft SQL Server. Depending on the workload and the storage subsystem, the paging file can register a significant amount of churn. However, replicating this data from the primary site to Azure would be resource intensive. Thus, you can use the following steps to optimize replication of a virtual machine with a single virtual disk that has both the operating system and the paging file:
 
 1. Split the single virtual disk into two virtual disks. One virtual disk has the operating system, and the other has the paging file.
 2. Exclude the paging file disk from replication.
@@ -76,7 +76,7 @@ Follow the [Enable replication](site-recovery-hyper-v-site-to-azure.md#step-6-en
 
 
 ## End-to-end scenarios of exclude disks
-Let's consider two scenarios to understand the exclude disk feature.
+Let's consider two scenarios to understand the exclude disk feature:
 
 - SQL Server tempdb disk
 - Paging file (pagefile.sys) disk
@@ -84,9 +84,9 @@ Let's consider two scenarios to understand the exclude disk feature.
 ### Exclude the SQL Server tempdb disk
 Let's consider a SQL Server virtual machine that has a tempdb that can be excluded.
 
-Name of the virtual disk: SalesDB
+The name of the virtual disk is SalesDB.
 
-Disks on the source virtual machine:
+Disks on the source virtual machine are as follows:
 
 
 **Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
@@ -99,7 +99,7 @@ DB-Disk4 | Disk4 |G:\ |User Database2
 
 Because data churn on two disks of the virtual machine is temporary, while you protect the SalesDB virtual machine, exclude Disk2 and Disk3 from replication. Azure Site Recovery will not replicate those disks. On failover, those disks will not be present on the failover virtual machine on Azure.
 
-Disks on the Azure virtual machine after failover:
+Disks on the Azure virtual machine after failover are as follows:
 
 **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | ---
@@ -112,7 +112,7 @@ Because Disk2 and Disk3 were excluded from the SalesDB virtual machine, E: is th
 
 Disk3, which was the SQL tempdb disk (tempdb folder path F:\MSSQL\Data\), was excluded from replication. The disk is not available on the failover virtual machine. As a result, the SQL service is in a stopped state, and it needs the F:\MSSQL\Data path.
 
-There are two ways to create this path.
+There are two ways to create this path:
 
 - Add a new disk and assign tempdb folder path.
 - Use an existing temporary storage disk for the tempdb folder path.
@@ -163,7 +163,7 @@ Now let's understand the disks that are replicated when you fail over from Azure
 
 #### Failback to original location recovery
 
-In the previous example, Azure virtual machine disk configuration:
+In the previous example, the Azure virtual machine disk configuration is as follows:
 
 **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | ---
@@ -176,7 +176,7 @@ Disk3 |	G:\ | User Database2
 #### VMware to Azure
 When failback is done to the original location, the failback virtual machine disk configuration does not have excluded disks. Disks that were excluded from VMware to Azure  will not be available on the failback virtual machine.
 
-After planned failover from Azure to on-premises VMware, disks on the VMWare virtual machine (original location):
+After planned failover from Azure to on-premises VMware, disks on the VMWare virtual machine (original location) are as follows:
 
 **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | ---
@@ -187,7 +187,7 @@ Disk2 |	G:\ | User Database2
 #### Hyper-V to Azure
 When failback is to the original location, the failback virtual machine disk configuration remains the same as that of original virtual machine disk configuration for Hyper-V. Disks that were excluded from Hyper-V site to Azure are available on the failback virtual machine.
 
-After planned failover from Azure to on-premises Hyper-V, disks on the Hyper-V virtual machine (original location):
+After planned failover from Azure to on-premises Hyper-V, disks on the Hyper-V virtual machine (original location) are as follows:
 
 **Disk Name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
@@ -201,10 +201,10 @@ DB-Disk4 | Disk4 | G:\ | User Database2
 #### Exclude the paging file (pagefile.sys) disk
 
 Let's consider a virtual machine that has a paging file disk that can be excluded.
-There are two cases:
+There are two cases.
 
 #### Case 1: The paging file is configured on the D: drive
-Disk configuration:
+Here's the disk configuration:
 
 
 **Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
@@ -214,12 +214,12 @@ DB-Disk1 (Excluded the disk from the protection) | Disk1 | D:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 
-Paging file settings on the source virtual machine:
+Here are the paging file settings on the source virtual machine:
 
 ![Paging file settings on source virtual machine](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
 
-After failover of the virtual machine from VMware to Azure or Hyper-V to Azure, disks on the Azure virtual machine:
+After failover of the virtual machine from VMware to Azure or Hyper-V to Azure, disks on the Azure virtual machine are as follows:
 
 **Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
@@ -230,13 +230,13 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Because Disk1 (D:) was excluded, D: is the first drive letter from the available list. Azure assigns D: to the temporary storage volume. Because D: is available on the Azure virtual machine, the paging file setting of the virtual machine remains the same.
 
-Paging file settings on Azure virtual machine:
+Here are the paging file settings on Azure virtual machine:
 
 ![Paging file settings on Azure virtual machine](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
 #### Case 2: The paging file is configured on another drive (other than D: drive)
 
-Source virtual machine disk configuration:
+Here's the source virtual machine disk configuration:
 
 **Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
@@ -245,11 +245,11 @@ DB-Disk1 (Excluded the disk from protection) | Disk1 | G:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 
-Paging file settings on the on-premises virtual machine:
+Here are the paging file settings on the on-premises virtual machine:
 
 ![Paging file settings on the on-premises virtual machine](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-After failover of the virtual machine from VMware/Hyper-V to Azure, disks on Azure virtual machine:
+After failover of the virtual machine from VMware/Hyper-V to Azure, disks on Azure virtual machine are as follows:
 
 **Disk name**| **Guest operating system disk#**| **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
@@ -260,7 +260,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Because D: is the first drive letter from available the list, Azure assigns D: to the temporary storage volume. For all the replicated disks, the drive letter remains the same. Because the G: disk is not available, the system will use the C: drive for the paging file.
 
-Paging file settings on Azure virtual machine:
+Here are the paging file settings on the Azure virtual machine:
 
 ![Paging file settings on Azure virtual machine](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
