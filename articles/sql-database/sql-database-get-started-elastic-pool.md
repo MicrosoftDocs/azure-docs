@@ -1,6 +1,6 @@
 ---
-title: 'Azure portal QuickStart: Your first Azure SQL database | Microsoft Docs'
-description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to query an Azure SQL database using the Azure portal.
+title: 'Azure portal QuickStart: Your first Azure SQL elastic pool | Microsoft Docs'
+description: Learn how to create a SQL Database logical server, elastic pool, server-level firewall rule, and databases in the Azure portal. You also learn to query an Azure SQL database in the Azure portal.
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
@@ -19,13 +19,13 @@ ms.date: 02/26/2017
 ms.author: carlrab
 
 ---
-# Create and query your first Azure SQL database in the Azure portal
+# Create and query your first Azure SQL elastic pool and database in the Azure portal
 
-Azure SQL databases can be created through the Azure portal. This quick start details the portal deployment experience.
+Azure SQL databases in an elastic pool can be created in the Azure portal. This quick start details the portal deployment experience.
 
-## Create a database
+## Create a database in an elastic pool
 
-Follow these steps to create a database with sample data in a server and a resource group. 
+Follow these steps to create a database in an elastic pool with sample data in a server and a resource group. 
 
 1. Log in to the [Azure portal](https://portal.azure.com/) and click the **New** button.
 
