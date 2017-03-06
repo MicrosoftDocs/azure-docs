@@ -117,9 +117,11 @@ In a dependency on a range of parent tasks, a task depends on the the completion
 To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Additionally, every task in the range must complete successfully for the dependent task to be scheduled for execution.
+> When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values.
 > 
-> 
+> Every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that’s mapped to a dependency action set to **Satisfy**. See the [Dependency actions](#dependency-actions) section for details.
+>
+>
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
