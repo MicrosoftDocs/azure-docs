@@ -30,7 +30,7 @@ To create a workspace, you need to:
 ## Determine the number of workspaces you need
 A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
 
-It is possible to create multiple workspaces for users to have access to one or more workspaces. Minimizing the number of workspaces allows you to query and correlate across the most data. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription and a user can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to run queries across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
 
 Today, a workspace provides:
 
@@ -47,7 +47,7 @@ Based on the preceding characteristics, you may want to create multiple workspac
 * You are a managed service provider and need to keep the log analytics data for each customer you manage isolated from other customer’s data.
 * You manage multiple customers and you want each customer / department / business group to see their own data but not the data for others.
 
-When using agents to collect data, you can configure each agent to report to one or more workspaces.
+When using agents to collect data, you can [configure each agent to report to one or more workspaces](log-analytics-windows-agents.md).
 
 If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
@@ -107,8 +107,8 @@ When opening the Log Analytics portal, you switch to using the legacy Log Analyt
 | Conditions                                                   | Log Analytics user role assigned | Notes |
 |--------------------------------------------------------------|----------------------------------|-------|
 | Your account belongs to a legacy Log Analytics user role     | The specified Log Analytics user role | |
-| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (*action* \* permission) | Administrator ||
-| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (*action* \* permission) <br> *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write | Contributor ||
+| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (Microsoft.OperationalInsights/workspaces\* permission) | Administrator ||
+| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (Microsoft.OperationalInsights/worksapces\*) <br> *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write | Contributor ||
 | Your account does not belong to a legacy Log Analytics user role <br> Azure read permission | Read Only ||
 | Your account does not belong to a legacy Log Analytics user role <br> Azure permissions are not understood | Read Only ||
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is in the Azure Active Directory linked to the workspace | Administrator | Typically the customer of a CSP |
