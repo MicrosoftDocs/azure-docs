@@ -104,13 +104,13 @@ Service Fabric also gives you the provision to create, build and deploy service 
 
 ## Adding more services to an existing application
 
-### Using Command line utility Yeo
+### Using Command line utility
 To add another service to an application already created using `yo`, perform the following steps:
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfjava:AddService`
 
 ### Using Service Fabric Eclipse plugin for Java on Linux
-You can refer to [Add Service to existing application](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#add-new-service-fabric-service-to-your-service-fabric-application) documentation for further details on this. 
+You can refer to [Add Service to existing application using Eclipse Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#add-new-service-fabric-service-to-your-service-fabric-application) documentation for further details on this.
 
 ## Next steps
 * [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)

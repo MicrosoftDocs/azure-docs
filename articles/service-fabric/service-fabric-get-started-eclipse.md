@@ -140,6 +140,19 @@ To upgrade your application using Eclipse, you can create a duplicate run-config
 
 You can now monitor the application upgrade using SFX. In a few minutes, the application would have been updated.  You can also try an updated app with an error and check the auto rollback functionality in service fabric.
 
+
+## Import and Deploy github Java Samples using Service Fabric Eclipse Plugin
+1. Clone the repository in your dev-box - ``https://github.com/Azure-Samples/service-fabric-java-getting-started.git``
+2. On your Eclipse, you need to make sure, Service Fabric Plugin installed.
+3. Create a new workspace.
+4. Open the ``Service Fabric`` Perspective. You can change your eclipse perspective by following the path - ``Window => Perspective => Open Perspective => Other`` and select  ``Service Fabric`` from the list you see.
+5. To import the Github samples in eclipse, you can go to ``File => Import => General => Existing Project into Workspace`` and select the path to say ``EchoServer1.0``, from your cloned github samples.
+6. Now to build and deploy you can follow the steps mentioned above in the document [Build and deploy the Service Fabric Application using Eclipse](#build-and-deploy-the-service-fabric-application-using-eclipse).
+
+> [!NOTE]
+> For more information about how to import and deploy these samples on mac, please refer to - [Import and deploy github samples on mac using Service Fabric Eclipse Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#import-and-deploy-github-java-samples-on-mac-using-service-fabric-eclipse-plugin).
+>
+
 <!-- Images -->
 
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png

@@ -80,6 +80,11 @@ Ensure you have gone through the steps mentioned in the [Service Fabric Eclipse 
 * Since the Service Fabric libraries will be required by your Service-fabric java application to be built successfully, the eclipse project needs to be created in a shared path. By default, the contents at the path on your host where the ``Vagrantfile`` exists, is shared with the ``/vagrant`` path on the guest.
 * So to put it simply, if you have the ``Vagrantfile`` in a path, say, ``~/home/john/allprojects/``, then you need to create the your service-fabric project ``MyActor`` in location ``~/home/john/allprojects/MyActor`` and the path to your eclipse workspace would be ``~/home/john/allprojects``.
 
+## Import and Deploy Github Java samples on Mac using Service Fabric Eclipse plugin 
+1. The steps mentioned in the main [documentation](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#import-and-deploy-github-java-samples-using-service-fabric-eclipse-plugin) regarding building and deploying github samples using Service Fabric Eclipse plugin needs to be followed here as well.
+2. Few things we need to keep in mind here. As mentioned in the section above, you need to have your ``Vagrantfile`` to be present in a path parallel to the project you are deploying for sharing of library artifacts i.e. for example, if you are deploying ``VisualObjectActor``, then your vagrant environment should be up from the path `~/githubsamples/service-fabric-java-getting-started/Actors/`
+3. Also, in the ``build.gradle`` files, where ever you see the path to out java library artifacts i.e. `/opt/microsoft/sdk/servicefabric/java/packages/lib/`, replace it with a path relative to your project and vagrant-environment - `${projectDir}/../../tmp/lib/`.
+
 
 ## Next steps
 <!-- Links -->
