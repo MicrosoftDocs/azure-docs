@@ -27,7 +27,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Create a single database and an elastic pool**||
 | [Create a single database and configure a firewall rule](sql-database-create-and-configure-database-powershell.md) | Creates a single Azure SQL database and configures a server-level firewall rule. |
 | [Create elastic pools and move pooled databases](sql-database-move-database-between-pools-powershell.md) | Creates elastic pools, and moves pooled databases, and changes performance levels.|
-|**SConfigure geo-replication**||
+|**Configure and failover with geo-replication**||
 | [Configure and failover a single database using Active Geo-Replication](sql-database-setup-geodr-and-failover-database-powershell.md)| Configures Active Geo-Replication for a single Azure SQL database and fails it over to the secondary replica. |
 | [Configure and failover a pooled database using Active Geo-Replication](sql-database-setup-geodr-and-failover-pool-powershell.md)| Configures Active Geo-Replication for an Azure SQL database in an elastic pool and fails it over to the secondary replica. |
 |**Scale a single databases and an elastic pool**||
