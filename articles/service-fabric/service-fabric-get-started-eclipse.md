@@ -37,6 +37,10 @@ Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** tha
 
 If you already have the Service Fabric eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
 
+> [!NOTE]
+> In case of install or update of Service Fabric Eclipse Plugin taking a lot of time, on your eclipse, it is because, every-time eclipse tries to fetch metadata of all new changes that has happened to all the update-sites registered with your eclipse instance. So, to make it faster you can use this small hack - you can go to `Available Software Sites` and uncheck everything other than the one pointing to Service Fabric plugin location `http://dl.windowsazure.com/eclipse/servicefabric`.
+>
+
 ## Create Service Fabric application using Eclipse
 
 1. Go to ``File => New => Other``. Select  ``Service Fabric Project``. Click ``Next``.
