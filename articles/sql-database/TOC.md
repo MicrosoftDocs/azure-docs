@@ -127,7 +127,7 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
-## Configure auditing and threat-detection]
+## Configure auditing and threat-detection
 ### [Azure portal: Auditing](sql-database-auditing-portal.md)
 ### [Azure portal: Threat detection](sql-database-threat-detection-portal.md)
 ### [PowerShell](sql-database-auditing-and-threat-detection-powershell.md)
