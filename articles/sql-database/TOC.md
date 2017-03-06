@@ -132,7 +132,7 @@
 ### [Azure portal: Threat detection](sql-database-threat-detection-portal.md)
 ### [PowerShell](sql-database-auditing-and-threat-detection-powershell.md)
 ## Restore a database
-### ### [Azure portal: Point in time](sql-database-point-in-time-restore-portal.md)
+### [Azure portal: Point-in-time](sql-database-point-in-time-restore-portal.md)
 ### [Azure portal: Deleted](sql-database-restore-deleted-database-portal.md)
 ### [Azure portal: Geo-redundant](sql-database-geo-restore-portal.md)
 ### [PowerShell](sql-database-restore-database-powershell.md)
