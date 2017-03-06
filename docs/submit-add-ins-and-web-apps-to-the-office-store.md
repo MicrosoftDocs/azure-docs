@@ -18,7 +18,7 @@ In order for your app or add-in to be approved:
 - Any material that you associate with your apps or add-ins, such as descriptions and support documentation, must be accurate. Use correct spelling, capitalization, punctuation, and grammar in your descriptions and materials.
 - If you want a tailored experience for users in regional store, you can add additional languages so that your add-in appears in another language store with localized metadata. Your service and your add-in manifest must be updated appropriately. You must also provide descriptions for each language you add.
 
- >**Note:**  For more information, see  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).
+ For more information, see [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).
  
 
 When the validation process is complete, you will receive a message to let you know that either your app or add-in is approved, or you need to make changes and resubmit it. You can also follow these steps to check the approval status in the Seller Dashboard:
@@ -30,7 +30,7 @@ When the validation process is complete, you will receive a message to let you k
 2. On the  **manage** tab, your app or add-in status appears under the app or add-in name.
     - If the status is  **pending approval**, your app or add-in is still being verified. When it is in this state, you can't update or resubmit it.
     - If the status is  **approved**, your app or add-in is approved to be listed in the appropriate marketplaces.
-    >**Note**  After your app or add-in is approved in the Seller Dashboard, there might be a delay before it is published in a store. After approval, an app or add-in typically appears in the store within 24 hours.
+    >**Note:**  After your app or add-in is approved in the Seller Dashboard, there might be a delay before it is published in a store. After approval, an app or add-in typically appears in the store within 24 hours.
 
     - If the status is  **changes requested**, your app or add-in needs changes in order to be approved. Choose the app or add-in, and then on the summary page, choose  **View the add-in report** for details about the required changes.
 
