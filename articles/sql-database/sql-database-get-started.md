@@ -1,5 +1,5 @@
 ---
-title: 'Azure portal QuickStart: Your first Azure SQL database | Microsoft Docs'
+title: 'Azure portal: Create and query a single SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to query an Azure SQL database using the Azure portal.
 keywords: sql database tutorial, create a sql database
 services: sql-database
@@ -19,7 +19,7 @@ ms.date: 02/26/2017
 ms.author: carlrab
 
 ---
-# Create and query your first Azure SQL database in the Azure portal
+# Quick:Start: Create and query a single Azure SQL database in the Azure portal
 
 Azure SQL databases can be created through the Azure portal. This quick start details the portal deployment experience.
 
@@ -91,7 +91,8 @@ The steps in this procedure show you how to delete a single database with the Az
 
 ## Next steps
 
-- To connect, query and manage your database and its server using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md) or see the [Create your first database in the Azure portal tutorial](sql-database-get-started-portal.md).
+- To connect, query and manage your database and its server using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
+- To create a SQL database in an Azure SQL elastic pool, see the [Create an Azure SQL elastic pool and database in the Azure portal](sql-database-get-started-elastic-pool.md).
 - To connect using Visual Studio, see [Connect and query with Visual Studio](sql-database-connect-query.md)
 - For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).

@@ -12,7 +12,6 @@
 ## [PowerShell](sql-database-powershell-samples.md)
 # [Tutorials](sql-database-explore-tutorials.md)
 ## Databases, servers and firewalls
-### [Azure portal](sql-database-get-started-portal.md)
 ### [PowerShell](sql-database-get-started-powershell.md)
 ### [C#](sql-database-get-started-csharp.md)
 ## Authentication and access
