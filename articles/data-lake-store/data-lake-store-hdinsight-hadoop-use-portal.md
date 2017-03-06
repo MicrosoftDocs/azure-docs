@@ -169,10 +169,9 @@ If you use, for example, the cluster that you created with Data Lake Store as pr
 	CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsstorage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
 Descriptions:
-
-    * `adl://hdiadlstorage.azuredatalakestore.net/` is the root of the Data Lake Store account.
-    * `/clusters/myhdiadlcluster` is the root of the cluster data that you specified while creating the cluster.
-    * `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` is the location of the sample file that you used in the query.
+* `adl://hdiadlstorage.azuredatalakestore.net/` is the root of the Data Lake Store account.
+* `/clusters/myhdiadlcluster` is the root of the cluster data that you specified while creating the cluster.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` is the location of the sample file that you used in the query.
 
 ### Run a Hive query against data in a Data Lake Store (as additional storage)
 
