@@ -28,7 +28,7 @@ Xamarin enables developers to use a shared C# codebase to create iOS, Android, a
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Create a new Xamarin Application
-For this tutorial, we'll be creating an app that targets Android, iOS, and Windows. This app will simply create a container and upload a blob into this container. We'll be using Visual Studio on Windows for this tutorial but the same learnings can be applied when creating an app using Xamarin Studio on Mac OS.
+For this tutorial, we'll be creating an app that targets Android, iOS, and Windows. This app will simply create a container and upload a blob into this container. We'll be using Visual Studio on Windows, but the same learnings can be applied when creating an app using Xamarin Studio on Mac OS.
 
 Follow these steps to create your application:
 
