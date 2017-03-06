@@ -20,7 +20,7 @@ ms.author: janeng
 
 # Restore a SQL database using PowerShell
 
-This sample PowerShell script restores an Azure SQL from a geo-redundant backup and restores a deleted database to the latest backup.  
+This sample PowerShell script restores an Azure SQL database from a geo-redundant backup and restores a deleted database to the latest backup.  
 
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
