@@ -27,12 +27,13 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Create a single database and an elastic pool**||
 | [Create a single database and configure a firewall rule](sql-database-create-and-configure-database-powershell.md) | Creates a single Azure SQL database and configures a server-level firewall rule. |
 | [Create elastic pools and move pooled databases](sql-database-move-database-between-pools-powershell.md) | Creates elastic pools, and moves pooled databases, and changes performance levels.|
-|**Configure and failover with geo-replication**||
+|**Configure geo-replication and failover**||
 | [Configure and failover a single database using Active Geo-Replication](sql-database-setup-geodr-and-failover-database-powershell.md)| Configures Active Geo-Replication for a single Azure SQL database and fails it over to the secondary replica. |
 | [Configure and failover a pooled database using Active Geo-Replication](sql-database-setup-geodr-and-failover-pool-powershell.md)| Configures Active Geo-Replication for an Azure SQL database in an elastic pool and fails it over to the secondary replica. |
 |**Scale a single databases and an elastic pool**||
 | [Scale a single database](sql-database-monitor-and-scale-database-powershell.md) | Monitors the performance metrics of an Azure SQL database, scales it to a higher performance level and creates an alert rule on one of the performance metrics. |
 | [Scale an elastic pool](sql-database-monitor-and-scale-pool-powershell.md) | Monitors the performance metrics of an elastic pool, scales it to a higher performance level, and creates an alert rule on one of the performance metrics.  |
+| **Auditing and threat detection** |
 | [Configure auditing and threat-detection](sql-database-auditing-and-threat-detection-powershell.md)| Configures auditing and threat detection policies for an Azure SQL database. |
 | **Restore, copy, and import a database**||
 | [Restore a database](sql-database-restore-database-powershell.md)| Restores an Azure SQL database from a geo-redundant backup and restores a deleted Azure SQL database to the latest backup. |

@@ -106,6 +106,32 @@
 ### [Extended events](sql-database-xevent-db-diff-from-svr.md)
 ### [Compatibility levels](sql-database-compatibility-level-query-performance-130.md)
 # How-to guides
+## Create and configure a single database
+### [Azure CLI](sql-database-create-and-configure-database-cli.md)
+### [PowerShell](sql-database-create-and-configure-database-powershell.md)
+## Create and move pooled databases
+### [Azure CLI](sql-database-move-database-between-pools-cli.md)
+### [PowerShell](sql-database-move-database-between-pools-powershell.md)
+## Scale a single database
+### [Azure CLI](sql-database-monitor-and-scale-database-cli.md)
+### [PowerShell](sql-database-monitor-and-scale-database-powershell.md)
+## Scale an elastic pool
+### [Azure CLI](sql-database-scale-pool-cli.md)
+### [PowerShell](sql-database-monitor-and-scale-pool-powershell.md)
+## Configure geo-replication and failover
+### [Azure portal]
+### [Single database - PowerShell](sql-database-setup-geodr-and-failover-database-powershell.md)
+### [Pooled database - PowerShell](sql-database-setup-geodr-and-failover-pool-powershell.md)
+## Configure auditing and threat-detection]
+### [Azure portal]
+### [PowerShell](sql-database-auditing-and-threat-detection-powershell.md)
+### [T-SQL]
+## Restore a database
+### [PowerShell](sql-database-restore-database-powershell.md)
+## Copy a database
+### [PowerShell](sql-database-copy-database-to-new-server-powershell.md)
+## Import a database
+### [PowerShell](sql-database-import-from-bacpac-powershell.md)
 ## Create and manage servers
 ### [Azure portal](sql-database-manage-servers-portal.md)
 ### [PowerShell](sql-database-manage-servers-powershell.md)
