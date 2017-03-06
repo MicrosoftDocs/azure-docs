@@ -57,7 +57,7 @@ The information in this document is primarily for the following scenarios:
 > [!IMPORTANT]
 > One of the limitations of Azure Virtual Networks is that the automatic domain name resolution provided by the virtual network only works for Azure resources. When connecting to the network using the VPN gateway, your client can only use IP addresses to connect to the HDInsight cluster.
 
-While it is possible to create an Azure Virtual Machine to act as a custom DNS server for the virtual network, this is beyond the scope of this document. If you are familiar with configuring a DNS server, see [Manage DNS servers used by a virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) for more information on how to add the DNS server to your virtual network configuration.
+While it is possible to add a custom DNS server to the virtual network, this is beyond the scope of this document. If you are familiar with configuring a DNS server, see [Manage DNS servers used by a virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) for more information on how to add the DNS server to your virtual network configuration.
 
 > [!NOTE]
 > HDInsight automatically uses the DNS server information from the virtual network configuration. There are no HDInsight specific steps to use a custom DNS server.
@@ -125,7 +125,7 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
     $hdiVersion = "3.4"
     $hdiType = "Kafka"
 
-    # Create the resource group that will contain everything
+    # Create the resource group that contains everything
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
     # Create the subnet configuration
@@ -228,30 +228,9 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
 
     * Replace __&lt;location>__ with the Azure region to create the services in.
 
-    * Replace __&lt;basename>__ with a base name for the services created by the script. For example, using a basename of "contoso" will create a Kafka cluster named "kafka-contoso".
+    * Replace __&lt;basename>__ with a base name for the services created by the script. For example, using a basename of "contoso" creates a Kafka cluster named "kafka-contoso".
 
-    * Replace __&lt;rootcertificate>__ with the path to the root certificate (.cer file) exported from the steps in the [Working with self-signed certificates for Point-to-site connections](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document. The cotents of this file appear similar to the following:
-
-        ```
-        -----BEGIN CERTIFICATE-----
-        MIIC+TCCAeWgAwIBAgIQCsiv2ehq541F1yR324byFTAJBgUrDgMCHQUAMBYxFDAS
-        BgNVBAMTC1ZQTlJvb3RDZXJ0MB4XDTE3MDEwNjIxNDU1NVoXDTM5MTIzMTIzNTk1
-        OVowFjEUMBIGA1UEAxMLVlBOUm9vdENlcnQwggEiMA0GCSqGSIb3DQEBAQUAA4IB
-        DwAwggEKAoIBAQCd3OwydpCmFTAkK+iJ3cbaqBpFFvydO/bf8jhZx9qi4PkiCPIU
-        zf2LrVR5gtVkcbBGWAdk1AOgKMnwGO/BBwIqF5/yNH+TmiHf4hiYhTtoIoVQmCOT
-        NMcBGEAIjNRgvCZ+LA4crL8s7S+nRbNu079oLMeRmcJLt0KW8xuRkxLQ3hlYwXLs
-        6j3iincyf0dKDX4n9UlEPRUOxzNhN2eO3AHipdg21LsV+CCVuZfD2oltarx8NFKN
-        pteUTRqpS1c8S1ga4qoiy7Sex6YMs+9sdOIqkokG3RJowqRV99Ip1kSSTWcs6jI1
-        zaUbAdYteCPtR6jRLlAEmAqD/rWJFGYhaj3FAgMBAAGjSzBJMEcGA1UdAQRAMD6A
-        ED8cbOrMOUQ+BUzM7D62kImhGDAWMRQwEgYDVQQDEwtWUE5Sb290Q2VydIIQCsiv
-        2ehq541F1yR324byFTAJBgUrDgMCHQUAA4IBAQAujBrs0bORvW2Iw28euYFIIx6j
-        Na3F/l/UVIjPUWOQu18R4ynMKwZnn3TrtwHuaSwru9c8PbpX6Bjj/8U+8O47hEAV
-        laMlmZrErKYyTZbJcaPocpeVjDgNCTmaKe7iLl1JaGhhTgMp6MHGTm/KRfIr6iTV
-        0dfP+NZLXeHAlG69juU3lVvYK2Rm0IYsvFVqh5gdppE0PUqQVv+5Efc65bIfFwXe
-        gpSpD4jIACEL375G6Hlc77hNgzlLUdYR3ADeBf6as9Kb40jAxEtJmw3UvZ2pDiuL
-        0P8ENZ2BVa0iOVS+GzP0WxPHzgZSr1jcHVrnvE/y/10TasGIEqp30lyNUDGn
-        -----END CERTIFICATE-----
-        ```
+    * Replace __&lt;rootcertificate>__ with the path to the root certificate (.cer file) exported from the steps in the [Working with self-signed certificates for Point-to-site connections](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document.
 
     You are prompted to enter the HTTPS login credentials and SSH user credentials for the cluster. These are used to secure HTTPS and SSH access to HDInsight. You may also be prompted to authenticate to your Azure subscription.
 
@@ -320,81 +299,26 @@ Use the following steps to create a Kafka cluster in the Azure Virtual Network c
 
 By default, Zookeeper returns the domain name of the Kafka brokers to clients. Since there is no DNS server to resolve the domain names, use the following steps to configure the cluster to return IP addresses instead.
 
-```powershell
-$baseUri="https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName"
-# Get the current configuration identifier (tag)
-$resp=Invoke-WebRequest -Uri "$baseUri`?fields=Clusters/desired_configs" `
-    -Credential $creds
-$respObj=ConvertFrom-Json $resp.Content
-$tag=$respObj.Clusters.desired_configs.'kafka-env'.tag
+1. Using a web browser, go to https://CLUSTERNAME.azurehdinsight.net. Replace __CLUSTERNAME__ with the name of the Kafka on HDInsight cluster.
 
-# Get the configuration using the tag
-$resp = Invoke-WebRequest -Uri "$baseUri/configurations?type=kafka-env&tag=$tag" `
-    -Credential $creds
-$respObj=ConvertFrom-Json $resp.Content
+    When prompted, use the HTTPS user name and password for the cluster. The Ambari Web UI for the cluster is displayed.
 
-# Get the items from JSON and remove unneeded entries
-$config=$respObj.items
-$config.PsObject.Members.Remove('href')
-$config.PsObject.Members.Remove('version')
-$config.PsObject.Members.Remove('Config')
+    ![Ambari Web UI]()
 
-# Update the configuration to return IP addresses rather than FQDN
-$config.properties.content += "`n`n# Return IP address instead of FQDN`nIP_ADDRESS=`$(hostname -i)`necho advertised.listeners=`$IP_ADDRESS`nsed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties`necho `"advertised.listeners=PLAINTEXT://`$IP_ADDRESS:9092`" >> /usr/hdp/current/kafka-broker/conf/server.properties"
+2. To view information on Kafka, select __Kafka__ from the list on the left. 
 
-# Update the tag for the configuration
-$epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
-$now = Get-Date
-$unixTimeStamp = [math]::truncate($now.ToUniversalTime().Subtract($epoch).TotalMilliSeconds)
-$config.tag="version$unixTimeStamp"
+3. To view Kafka configuration, select __Configs__ from the top middle.
 
-# Create the desired config JSON document
-$desiredConfig= @{"Clusters"= @{"desired_config" = $config[0]}} | ConvertTo-Json -Depth 6
+4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-# PUT the new configuration to the cluster
-$resp = Invoke-WebRequest -Uri "$baseUri" `
-    -Credential $creds `
-    -Method PUT `
-    -Headers @{"X-Requested-By" = "ambari"} `
-    -Body $desiredConfig
+5. Make the following changes to the text in the __kafka-env-tempalte__:
 
-# Put Kafka into maintenance mode to prevent errors when we restart the service
-$resp = Invoke-WebRequest -Uri "$baseUri/services/KAFKA" `
-    -Credential $creds `
-    -Method PUT `
-    -Headers @{"X-Requested-By" = "ambari"} `
-    -Body '{"RequestInfo": {"context": "turning on maintenance mode for KAFKA"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}'
+    * change 1
+    * change 2
 
-# Turn off Kafka
-$resp = Invoke-WebRequest -Uri "$baseUri/services/KAFKA" `
-    -Credential $creds `
-    -Method PUT `
-    -Headers @{"X-Requested-By" = "ambari"} `
-    -Body "{'RequestInfo':{'context':'_PARSE_.STOP.KAFKA','operation_level':{'level':'SERVICE','cluster_name':'$clusterName','service_name':'KAFKA'}},'Body':{'ServiceInfo':{'state':'INSTALLED'}}}"
-$respObj=$resp.Content | ConvertFrom-Json
-$reqId=$respObj.Requests.id
+## Connect
 
-# Wait a bit for the service to shut down, then verify that the service has stopped
-$reqStatus = ""
-$count=0
-Do {
-    Start-Sleep -Seconds 30
-    $resp = Invoke-WebRequest -Uri "$baseUri/requests/$reqId" `
-        -Credential $creds
-    $respObj = ConvertFrom-Json $resp.Content
-    $reqStatus=$respObj.Requests.request_status
-    $count++
-    if($count -gt 6) {
-        Throw "It's taking too long for the service to stop. Check in the Ambari web UI."
-    }
-} Until($reqStatus -eq "COMPLETED")
-
-# Turn the service back on
-
-
-```
-
-## Connect 
+* To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameconnectapart-7---connect-to-azure) document.
 
 ## Additional information
 
