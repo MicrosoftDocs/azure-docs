@@ -45,7 +45,7 @@ you can create an AS2 agreement by following these steps.
 1.	Sign in to the [Azure portal](http://portal.azure.com "Azure portal").  
 
 2.	From the left menu, select **More services**. 
-In the search box, enter **integration** as your filter.  
+In the search box, enter **integration** as your filter. 
 In the results list, select **Integration Accounts**.
 
     > [!TIP]
