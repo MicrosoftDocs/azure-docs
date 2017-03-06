@@ -118,7 +118,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
 ```
 
 For more information, see [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md). 
-For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database).
+For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](sql-database-monitor-and-scale-database-powershell.md).
 
 ## How do I copy a SQL database to the same server?
 To copy a SQL database to the same server, use the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
