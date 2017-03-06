@@ -61,7 +61,8 @@ The sample is a modification of the sample provided by [AppAuth](https://openid.
 
 ## Modifying your app to use Azure AD B2C with AppAuth
 
-> [!NOTE] AppAuth supports Android API 16 (Jellybean) and above. We recommend using API 23 and above.
+> [!NOTE] 
+> AppAuth supports Android API 16 (Jellybean) and above. We recommend using API 23 and above.
 
 ### Configuration
 
