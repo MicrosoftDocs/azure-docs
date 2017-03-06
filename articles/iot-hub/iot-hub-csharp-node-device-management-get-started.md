@@ -47,7 +47,7 @@ At the end of this tutorial, you have a Node.js console device app and a .NET (C
 
 To complete this tutorial, you need the following:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 or Visual Studio 2017.
 * Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
@@ -58,7 +58,7 @@ To complete this tutorial, you need the following:
 ## Trigger a remote reboot on the device using a direct method
 In this section, you create a .NET console app (using C#) that initiates a remote reboot on a device using a direct method and uses device twin queries to find the last reboot time for that device.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **TriggerReboot**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to a new solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **TriggerReboot**.
 
     ![New Visual C# Windows Classic Desktop project][img-createapp]
 

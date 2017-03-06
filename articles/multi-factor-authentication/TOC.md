@@ -21,6 +21,7 @@
 #### [Advanced VPN Configurations](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)
 #### [Windows Authentication](multi-factor-authentication-get-started-server-windows.md)
+#### [Upgrade MFA Server](multi-factor-authentication-server-upgrade.md)
 #### [Upgrade from PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Manage users
