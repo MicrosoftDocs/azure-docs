@@ -1,4 +1,4 @@
-## Create a Recovery Services vault
+
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Site Recovery**
 2. Click **New** > **Management** >
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
