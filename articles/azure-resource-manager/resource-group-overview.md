@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/06/2017
 ms.author: tomfitz
 
 ---
@@ -89,10 +89,10 @@ You retrieve all resource providers with the following PowerShell cmdlet:
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Or, with Azure CLI, you retrieve all resource providers with the following command:
+Or, with Azure CLI 2.0, you retrieve all resource providers with the following command:
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 You can look through the returned list for the resource providers that you need to use.
@@ -103,10 +103,10 @@ To get details about a resource provider, add the provider namespace to your com
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-Or, with Azure CLI, retrieve the supported resource types, locations, and API versions for Microsoft.Compute, with the following command:
+Or, with Azure CLI 2.0, retrieve the supported resource types, locations, and API versions for Microsoft.Compute, with the following command:
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 For more information, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
@@ -211,10 +211,10 @@ To retrieve all the resources with a tag value, use the following PowerShell cmd
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Or, the following Azure CLI command:
+Or, the following Azure CLI 2.0 command:
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tagt costCenter=Finance
 ```
 
 You can also view tagged resources through the Azure portal.
