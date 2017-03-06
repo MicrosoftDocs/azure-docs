@@ -40,7 +40,6 @@
 ## Use Azure Diagnostics
 ### [Send to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
-
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
