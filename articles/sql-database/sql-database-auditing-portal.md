@@ -21,7 +21,7 @@ ms.author: ronitr; giladm
 
 # Configure and manage SQL database auditing in the Azure portal
 
-The following section describes how to configure and manage auditing using the Azure Portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](sql-database-auditing-powershell.md). To configure and manage auditing using the REST API, see [Configure auditing with the REST API](sql-database-auditing-rest.md).
+The following section describes how to configure and manage auditing using the Azure Portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](sql-database-auditing-powershell.md). 
 
 For an overview of auditing, see [SQL Database auditing](sql-database-auditing.md).
 
@@ -41,7 +41,7 @@ For an overview of auditing, see [SQL Database auditing](sql-database-auditing.m
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via [PowerShell](sql-database-auditing-powershell.md) or the [REST API](sql-database-auditing-rest.md).
+6. If you want to customize the audited events, you can do this via PowerShell] or the REST API.
 7. Once you've configured your auditing settings, you can turn on the new Threat Detection (preview) feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Threat detection](sql-database-threat-detection.md) for more details.
 8. Click **Save**.
 
@@ -185,6 +185,5 @@ In production, you are likely to refresh your storage keys periodically. When re
 ## Next steps
 
 * To configure and manage auditing using PowerShell, see [Configure database auditing using PowerShell](sql-database-auditing-powershell.md).
-* To configure and manage auditing using the REST API, see [Configure database auditing using the REST API](sql-database-auditing-rest.md).
 * For an overview of auditing, see [Database auditing](sql-database-auditing.md).
 
