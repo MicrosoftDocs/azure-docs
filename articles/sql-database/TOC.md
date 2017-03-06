@@ -112,12 +112,21 @@
 ## Create and move pooled databases
 ### [Azure CLI](sql-database-move-database-between-pools-cli.md)
 ### [PowerShell](sql-database-move-database-between-pools-powershell.md)
-## Scale a single database
+## Create and manage firewall rules
+### [Azure portal](sql-database-configure-firewall-settings.md)
+### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+### [REST API](sql-database-configure-firewall-settings-rest.md)
+### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)## Scale a single database
 ### [Azure CLI](sql-database-monitor-and-scale-database-cli.md)
 ### [PowerShell](sql-database-monitor-and-scale-database-powershell.md)
 ## Scale an elastic pool
 ### [Azure CLI](sql-database-scale-pool-cli.md)
 ### [PowerShell](sql-database-monitor-and-scale-pool-powershell.md)
+## Manage elastic pools
+### [Azure portal](sql-database-elastic-pool-manage-portal.md)
+### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
+### [C#](sql-database-elastic-pool-manage-csharp.md)
 ## Configure auditing and threat-detection]
 ### [Azure portal: Auditing](sql-database-auditing-portal.md)
 ### [Azure portal: Threat detection](sql-database-threat-detection-portal.md)
@@ -157,16 +166,6 @@
 ## Load data
 ### [BCP](sql-database-load-from-csv-with-bcp.md)
 ## [Configure and manage data synchronization](sql-database-get-started-sql-data-sync.md)
-## Manage elastic pools
-### [Azure portal](sql-database-elastic-pool-manage-portal.md)
-### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
-### [C#](sql-database-elastic-pool-manage-csharp.md)
-## Create and manage firewall rules
-### [Azure portal](sql-database-configure-firewall-settings.md)
-### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-### [REST API](sql-database-configure-firewall-settings-rest.md)
-### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)
 ## Authenticate and authorize users
 ### [Azure AD authentication](sql-database-aad-authentication-configure.md)
 ## Connect applications
