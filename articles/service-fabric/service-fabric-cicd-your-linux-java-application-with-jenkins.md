@@ -27,14 +27,14 @@ Jenkins is a popular tool for continuous integration and deployment. In this doc
 ## Setting up Jenkins using Service Fabric as the Container Orchestrator
 
 ### Prerequisites
-1. You have a Service Fabric Linux Cluster ready (probably created from Azure portal directly), say ``http://SOME-IP:19080``. Service Fabric clusters created from azure portal already has docker installed but usually azure VMs do not. Check if docker is installed or not using the command ``docker info`` and if it is not installed then install it accordingly using -
+1. You have a Service Fabric Linux Cluster ready (probably created from Azure portal directly), say ``http://SOME-IP:19080``. Service Fabric clusters created from azure portal already has docker installed. But if you running the onebox(local) cluster i.e. the cluster you can set up on a Ubuntu machine, with Service Fabric SDK installed, by using `sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh`, please check if docker is installed or not using the command ``docker info`` and if it is not installed then install it accordingly using -
 <br/>`` sudo apt-get install wget``
 <br/>`` wget -qO- https://get.docker.io/ | sh``
 <br/>
 2. Have the Service Fabric Container application deployed on the cluster ``http://SOME-IP:19080``. You can follow the steps below -
   - Do - ``git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker && cd service-fabric-java-getting-started/Services/JenkinsDocker/``
   - Connect to the Service Fabric cluster ``http://SOME-IP:19080`` using azure-cli - ``azure servicefabric cluster connect http://SOME-IP:19080``
-  - Run ``./install.sh``. It will install the Jenkins container to the cluster you connected. You can monitor your container app using the ususal service-fabric explorer - ``http://SOME-IP:19080``.
+  - Run ``./install.sh``. It will install the Jenkins container to the cluster you connected. You can monitor your container app using the service-fabric explorer - ``http://SOME-IP:19080``.
 
 ### Steps
 1. Go to the URL ``http://SOME-IP:8081`` from your browser. It will provide you the path of the initial admin password required to login. You can continue to use Jenkins as admin user or you can create and change the user, once you login with the initial admin account.
