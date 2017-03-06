@@ -39,7 +39,7 @@ At the end of this tutorial, you run three .NET console apps:
 
 To complete this tutorial, you need the following:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 or Visual Studio 2017.
 * An active Azure account. <br/>If you don't have an account, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
@@ -126,7 +126,7 @@ For more information about how to process messages from Service Bus queues, see 
 ## Read from the queue endpoint
 In this section, you read the messages from the queue endpoint.
 
-1. In the current Visual Studio solution, create a Visual C# Windows project by using the **Console Application** project template. Name the project **ReadCriticalQueue**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution, by using the **Console App (.NET Framework)** project template. Name the project **ReadCriticalQueue**.
 
 2. In Solution Explorer, right-click the **ReadCriticalQueue** project, and then click **Manage NuGet Packages**. This operation displays the **NuGet Package Manager** window.
 

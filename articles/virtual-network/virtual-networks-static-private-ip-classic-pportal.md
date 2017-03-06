@@ -1,6 +1,6 @@
 ---
-title: Set a static private IP address | Azure portal | Classic | Microsoft Docs
-description: Understanding static private IPs and how to manage them in classic mode using the Azure portal
+title: Configure private IP addresses for VMs (Classic) - Azure portal | Microsoft Docs
+description: Learn how to configure private IP addresses for virtual machines (Classic) using the Azure portal.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# How to set a static private IP address (classic) in the Azure portal
+# Configure private IP addresses for a virtual machine (Classic) using the Azure portal
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]

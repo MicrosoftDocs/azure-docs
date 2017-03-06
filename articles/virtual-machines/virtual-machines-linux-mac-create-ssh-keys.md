@@ -1,5 +1,4 @@
-
-> ---
+---
 title: Create an SSH key pair for Linux VMs on Azure | Microsoft Docs
 description: Securely create an SSH public and private key pair for Azure Linux VMs.
 services: virtual-machines-linux
@@ -15,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2016
+ms.date: 2/6/2017
 ms.author: rasquill
 
 ---

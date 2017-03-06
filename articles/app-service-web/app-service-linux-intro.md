@@ -5,7 +5,7 @@ keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
@@ -75,3 +75,4 @@ See the following links to get started with App Service on Linux. You can post q
 * [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-using-dotnetcore.md)
 * [Using Ruby in Azure App Service Web Apps on Linux](app-service-linux-using-ruby.md)
 * [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
+
