@@ -26,7 +26,7 @@ Before you begin protecting any VMware virtual machines (VMs) by using Site Reco
 
 You also need to create the right type and number of target Azure Storage accounts. You create either standard or premium accounts, factoring in growth on your source production servers because of increased usage over time. You'll also choose the storage type per VM based on workload characteristics (for example, read/write I/O operations per second [IOPS], or data churn) and Site Recovery limits.
 
-The Azure Site Recovery deployment planner public preview is a command-line tool that's currently available only for the VMware-to-Azure scenario. You can remotely profile your VMware VMs by using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover. You can run the tool without installing any Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that meets the minimum requirements of the Site Recovery configuration server that you would eventually need to deploy as one of the first steps in production deployment.
+The Site Recovery deployment planner public preview is a command-line tool that's currently available only for the VMware-to-Azure scenario. You can remotely profile your VMware VMs by using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover. You can run the tool without installing any Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that meets the minimum requirements of the Site Recovery configuration server that you would eventually need to deploy as one of the first steps in production deployment.
 
 The tool provides the following details:
 
@@ -125,21 +125,21 @@ Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password
 	![VM name list in the deployment planner](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
 ### Start profiling
-After you have the list of VMs to be profiled, you can now run the tool in profiling mode. Here is the list of mandatory and optional parameters of the tool to run in profiling mode. Parameters in [] are optional.
+After you have the list of VMs to be profiled, you can now run the tool in profiling mode. Here is the list of mandatory and optional parameters of the tool to run in profiling mode.
 
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
 | Parameter name | Description |
 |---|---|
 | -Operation | StartProfiling |
-| -Server | Fully qualified domain name or IP address of the vCenter server/vSphere ESXi host whose VMs are to be profiled.|
-| -User | User name to connect to the vCenter server/vSphere ESXi host. User needs to have read-only access, at minimum.|
-| -VMListFile |	The file with the list of VMs to be profiled. The file path can be absolute or relative. This file should contain one VM name/IP address per line. Virtual machine name specified in the file should be the same as the VM name on the vCenter server/vSphere ESXi host. <br> For example, the file VMList.txt contains the following VMs:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
-| -NoOfDaysToProfile | Number of days for which profiling is to be run. We recommend that you run profiling for more than 15 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation |
-| [-Directory] | UNC or local directory path to store profiling data generated during profiling. If not given, the directory named ‘ProfiledData’ under the current path will be used as the default directory. |
-| [-Password ] | Password to connect to the vCenter server/vSphere ESXi host. If you do not specify one now, you will be prompted for it when the command is executed.|
-| [-StorageAccountName] | Azure Storage account name to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.|
-| [-StorageAccountKey] | Azure Storage account key used to access the storage account. Go to the Azure portal > Storage accounts > [Storage account name] > Settings > Access Keys > Key1 (or Primary access key for classic storage account). |
+| -Server | The fully qualified domain name or IP address of the vCenter server/vSphere ESXi host whose VMs are to be profiled.|
+| -User | The user name to connect to the vCenter server/vSphere ESXi host. The user needs to have read-only access, at minimum.|
+| -VMListFile |	The file that contains the list of VMs to be profiled. The file path can be absolute or relative. The file should contain one VM name/IP address per line. Virtual machine name specified in the file should be the same as the VM name on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -NoOfDaysToProfile | The number of days for which profiling is to be run. We recommend that you run profiling for more than 15 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation |
+| -Directory | (Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If a directory name is not given, the directory named ‘ProfiledData’ under the current path will be used as the default directory. |
+| -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If you do not specify one now, you will be prompted for it when the command is executed.|
+| -StorageAccountName | (Optional) The Azure storage account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.|
+| -StorageAccountKey | (Optional) The Azure storage account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or primary access key for classic storage account). |
 
 We recommend that you profile your VMs for at least 15 to 30 days. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. If you want to profile for few hours or minutes for a quick test of the tool, in the public preview, you will need to convert the time into the equivalent measure of days. For example, to profile for 30 minutes, the input must be 30/(60*24) = 0.021 days. The minimum allowed profiling time is 30 minutes.
 
@@ -186,7 +186,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -Operation | GenerateReport |
 | -Server |  The vCenter/vSphere server fully qualified domain name or IP address (use the same name or IP address that you used at the time of profiling) where the profiled VMs whose report is to be generated are located. Note that if you used a vCenter server at the time of profiling, you cannot use a vSphere server for report generation, and vice-versa.|
 | -VMListFile | The file that contains the list of profiled VMs that the report is to be generated for. The file path can be absolute or relative. The file should contain one VM name or IP address per line. The VM names that are specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host, and match what was used during profiling.|
-| -Directory | (Optional) The universal naming convention (UNC) or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, ‘ProfiledData’ directory will be used. |
+| -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, ‘ProfiledData’ directory will be used. |
 | -GoalToCompleteIR | (Optional) The number of hours in which the initial replication of the profiled VMs needs to be completed. The generated report provides the number of VMs for which initial replication can be completed in the specified time. The default is 72 hours. |
 | -User | (Optional) The user name to use to connect to the vCenter/vSphere server. The name is used to fetch the latest configuration information of the VMs, such as the number of disks, number of cores, and number of NICs, to use in the report. If the name isn't provided, the configuration information collected at the beginning of the profiling kickoff is used. |
 | -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If the password isn't specified as a parameter, you will be prompted for it later when the command is executed. |
@@ -232,13 +232,21 @@ Using 95th percentile values gives a true picture of real workload characteristi
 ## Growth-factor considerations
 **Why should I consider growth factor when I plan deployments?**
 
-It is critical to account for growth in your workload characteristics, assuming a potential increase in usage over time. This is because once protected if your workload characteristics change, there is currently no means to switch to a different Azure Storage account for protection without disabling and re-enabling protection. For example, if today a VM fits in a standard storage replication account, in say three months’ time, because of an increase in number of users of the application running on the VM, if say the churn on the VM increases and requires it to go to premium storage so that Site Recovery replication can keep up with the new higher churn, you will have to disable and re-enable protection to a premium storage account. So, it is strongly advised to plan for growth while deployment planning and the default value is 30 percent. You know your applications usage pattern and growth projections the best and can change this number accordingly while generating a report. You can in fact generate multiple reports with different growth factors with the same profiled data and see what target Azure Storage and source bandwidth recommendations work best for you.
+It is critical to account for growth in your workload characteristics, assuming a potential increase in usage over time. After protection is in place, if your workload characteristics change, you cannot switch to a different Azure storage account for protection without disabling and re-enabling the protection.
+
+For example, let's say that today your VM fits in a standard storage replication account. Over the next three months, several changes are likely to occur:
+
+* The number of users of the application that runs on the VM will increase.
+* The resulting increased churn on the VM will require the VM to go to premium storage so that Site Recovery replication can keep pace.
+* Consequently, you will have to disable and re-enable protection to a premium storage account.
+
+We strongly recommend that you plan for growth while you are planning deployment and the default value is 30 percent. You are the best expert on your application usage pattern and growth projections, and you can change this number accordingly while generating a report. Moreover, you can  generate multiple reports with various growth factors with the same profiled data and determine what target storage and source bandwidth recommendations work best for you.
 
 The generated Microsoft Excel report contains the following information:
 
 * [Input](site-recovery-deployment-planner.md#input)
-* [Recommedations](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input)
-* [Recommedations-Bandwidth Input](site-recovery-deployment-planner.md#recommendations-with-available-bandwidth-as-input)
+* [Recommendations](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input)
+* [Recommendations-Bandwidth Input](site-recovery-deployment-planner.md#recommendations-with-available-bandwidth-as-input)
 * [VM<->Storage Placement](site-recovery-deployment-planner.md#vm-storage-placement)
 * [Compatible VMs](site-recovery-deployment-planner.md#compatible-vms)
 * [Incompatible VMs](site-recovery-deployment-planner.md#incompatible-vms)
@@ -247,96 +255,96 @@ The generated Microsoft Excel report contains the following information:
 
 ## Get throughput
 
-To estimate the throughput that Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server where the tool is running (ideally a server based on the configuration server sizing guide). If you have already deployed Site Recovery infrastructure components on-premises, run the tool on the configuration server.
+To estimate the throughput that Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server that the tool is running on. Ideally, this server is based on the configuration server sizing guide. If you have already deployed Site Recovery infrastructure components on-premises, run the tool on the configuration server.
 
-Open a command-line console and go to ASR deployment planning tool folder. Run ASRDeploymentPlanner.exe with following parameters.
+Open a command-line console, and go to the Site Recovery deployment planning tool folder. Run ASRDeploymentPlanner.exe with following parameters.
 
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 
 |Parameter name | Description |
 |-|-|
 | -operation | GetThroughput |
-| -Directory | (Optional) UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If not specified, ‘ProfiledData’ directory will be used. |
-| -StorageAccountName | Azure Storage account name to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. |
-| -StorageAccountKey | Azure Storage Account Key used to access the storage account. Go to the Azure portal > Storage accounts > [Storage account name] > Settings > Access Keys > Key1(or Primary access key for classic storage account). |
-| -VMListFile | The file with the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. This file should contain one VM name/IP address per line. The VM names specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a directory name is not specified, ‘ProfiledData’ directory is used. |
+| -StorageAccountName | The Azure storage account name that's used to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. |
+| -StorageAccountKey | The Azure storage account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or a primary access key for a classic storage account). |
+| -VMListFile | The file that contains the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. The file should contain one VM name/IP address per line. The VM names specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 
-The tool creates several 64 MB asrvhdfile<#>.vhd files (where "#" is the number of files)  on the specified directory. The tool uploads the files to the Azure Storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the Azure Storage account and from the local server. If the tool is terminated for any reason mid-way while calculating throughput, it will not delete the files from Azure Storage or from the local server and you will have to delete them manually.
+The tool creates several 64-MB asrvhdfile<#>.vhd files (where "#" is the number of files) on the specified directory. The tool uploads the files to the Azure Storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the Azure Storage account and from the local server. If the tool is terminated for any reason while calculating throughput, it doesn't delete the files from Azure Storage or from the local server, and you will have to delete them manually.
 
-The throughput is measured at a given point of time and it is the maximum throughput that Site Recovery can achieve during replication provided all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, then actual throughput varies during replication. If you are running GetThroughput command from a configuration server, the tool is not aware of any protected VMs and on-going replication. Result of measured throughput will be different if the GetThroughput operation is run at the time when protected VMs have high data churn vs. when they have low data churn. We recommend that you run the tool at different points of time during profiling to understand what throughput can be achieved at various times. In the report, the tool shows the last measured throughput.
+The throughput is measured at a specified point in time, and it is the maximum throughput that Site Recovery can achieve during replication, provided that all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, the actual throughput varies during replication. If you are running the GetThroughput command from a configuration server, the tool is unaware of any protected VMs and ongoing replication. The result of the measured throughput is different if the GetThroughput operation is run when the protected VMs have high data churn vs. when they have low data churn. We recommend that you run the tool at various points in time during profiling to understand what throughput can be achieved at various times. In the report, the tool shows the last measured throughput.
 
-##### Example
+### Example
 ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter1_ProfiledData **-VMListFile** E:\vCenter1_ProfiledData\ProfileVMList1.txt  **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 
 >[!NOTE]
 >
-> * Run the tool on a server which has the same storage and CPU characteristics as the configuration server
+> * Run the tool on a server that has the same storage and CPU characteristics as the configuration server.
 >
-> * For replication, set the recommended bandwidth to meet the RPO 100 percent of the time. Even after you set the right bandwidth, if you don’t see any increase in the achieved throughput reported by the tool, check the following:
+> * For replication, set the recommended bandwidth to meet the RPO 100 percent of the time. After you set the right bandwidth, if you don’t see any increase in the achieved throughput reported by the tool, do the following:
 >
-> a. Check if there is any network Quality of Service (QoS) that is limiting Site Recovery throughput
+>  a. Check to see whether there is any network Quality of Service (QoS) that is limiting Site Recovery throughput
 >
-> b. Check if your Site Recovery vault is in the nearest physical supported Microsoft Azure region to minimize network latency
+>  b. Check to see whether your Site Recovery vault is in the nearest physically supported Microsoft Azure region to minimize network latency.
 >
-> c. Check your local storage characteristics and look to improve the hardware (for example, HDD to SSD).
+>  c. Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
 >
-> d. Change the Site Recovery settings in the process server to [increase the amount of network bandwdith used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+>  d. Change the Site Recovery settings in the process server to [increase the amount of network bandwidth used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
 ## Recommendations with desired RPO as input
 
 ### Profiled data
 
-![Profiling overview in the deployment planner](./media/site-recovery-deployment-planner/profiled-data-period.png)
+![The profiled-data view in the deployment planner](./media/site-recovery-deployment-planner/profiled-data-period.png)
 
-**Profiled data period** is the duration for which profiling was run. By default, the tool takes all the profiled data for the calculation unless the report is generated for a specific period by using StartDate and EndDate options during report generation.
+**Profiled data period**: The period during which the profiling was run. By default, the tool takes into account all the profiled data for the calculation, unless the report is generated for a specific period by using StartDate and EndDate options during report generation.
 
-**Server Name** is the name or IP address of the VMware vCenter or ESXi host whose VMs’ report is generated.
+**Server Name**: The name or IP address of the VMware vCenter or ESXi host whose VMs’ report is generated.
 
-**Desired RPO** is the recovery point objective for your deployment. By default, the required network bandwidth is calculated for RPO values of 15, 30 and 60 minutes. Based on the selection, the impacted values are updated on the sheet. If you have used the DesiredRPOinMin parameter while generating the report, that value is shown in this Desired RPO dropdown.
+**Desired RPO**: The recovery point objective for your deployment. By default, the required network bandwidth is calculated for RPO values of 15, 30, and 60 minutes. Based on the selection, the affected values are updated on the sheet. If you have used the DesiredRPOinMin parameter while generating the report, that value is shown in the Desired RPO result.
 
-### Profiling Overview
+### Profiling overview
 
-![Profiled data in the deployment planner](./media/site-recovery-deployment-planner/profiling-overview.png)
+![Profiling results in the deployment planner](./media/site-recovery-deployment-planner/profiling-overview.png)
 
-**Total Profiled Virtual Machines** is the total number of VMs whose profiled data is available. If the VMListFile has names of any VMs which were not profiled, those VMs are not considered in the report generation and excluded from the total profiled VMs count.
+**Total Profiled Virtual Machines**: The total number of VMs whose profiled data is available. If the VMListFile has names of any VMs which were not profiled, those VMs are not considered in the report generation and are excluded from the total profiled VMs count.
 
-**Compatible Virtual Machines** is the number of VMs that can be protected to Azure by using Site Recovery. It is the total number of compatible VMs for which required network bandwidth, number of Azure Storage accounts, number of Microsoft Azure cores and number of configuration servers and additional process servers are calculated. The details of every compatible VM is available in the Compatible VMs sheet of the report.
+**Compatible Virtual Machines**: The number of VMs that can be protected to Azure by using Site Recovery. It is the total number of compatible VMs for which required network bandwidth, number of Azure Storage accounts, number of Microsoft Azure cores and number of configuration servers and additional process servers are calculated. The details of every compatible VM are available in the Compatible VMs sheet of the report.
 
-**Incompatible Virtual Machines** is the number of profiled VMs which are incompatible for protection with Site Recovery. The reasons for incompatibility are noted in the Incompatible VMs section below. If the VMListFile has names of any VMs which were not profiled, those VMs are excluded from the incompatible VMs count. These VMs are listed as ‘Data not found’ at the end of the Incompatible VMs sheet.
+**Incompatible Virtual Machines**: The number of profiled VMs that are incompatible for protection with Site Recovery. The reasons for incompatibility are noted in the "Incompatible VMs" section. If the VMListFile has names of any VMs that were not profiled, those VMs are excluded from the incompatible VMs count. These VMs are listed as "Data not found" at the end of the Incompatible VMs sheet.
 
-**Desired RPO** is your desired recovery point objective, in minutes. The report is generated for three RPO values – 15, 30 and 60 minutes, with 15 minutes being the default. The bandwidth recommendation in the report will be changed based on your selection in the Desired RPO dropdown on the top right of the sheet. If you have generated the report by using the “-DesiredRPO” parameter with a custom value, this custom value will show as the default in the Desired RPO dropdown.
+**Desired RPO**: Your desired recovery point objective, in minutes. The report is generated for three RPO values: 15 (default), 30, and 60 minutes. The bandwidth recommendation in the report is changed based on your selection in the Desired RPO drop-down list at the top right of the sheet. If you have generated the report by using the -DesiredRPO parameter with a custom value, this custom value will show as the default in the Desired RPO drop-down list.
 
 ### Required network bandwidth (Mbps)
 
 ![Required network bandwidth in the deployment planner](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
 
-**To meet RPO 100 percent of the time:** It is the recommended bandwidth in Mbps to be allocated to meet your desired RPO 100 percent of the time. This amount of bandwidth must be dedicated for steady state delta replication of all your compatible VMs to avoid any RPO violations.
+**To meet RPO 100 percent of the time:** The recommended bandwidth in Mbps to be allocated to meet your desired RPO 100 percent of the time. This amount of bandwidth must be dedicated for steady-state delta replication of all your compatible VMs to avoid any RPO violations.
 
-**To meet RPO 90 percent of the time**: Because of broadband pricing or for any other reason, if you cannot set the bandwidth needed to meet your desired RPO 100 percent of the time, you can choose to go with setting a lower bandwidth amount that can meet your desired RPO 90 percent of the time. To understand the implications of setting this lower bandwidth, the report provides a what-if analysis on the number and duration of RPO violations to expect.
+**To meet RPO 90 percent of the time**: Because of broadband pricing or for any other reason, if you cannot set the bandwidth needed to meet your desired RPO 100 percent of the time, you can choose to go with a lower bandwidth setting that can meet your desired RPO 90 percent of the time. To understand the implications of setting this lower bandwidth, the report provides a what-if analysis on the number and duration of RPO violations to expect.
 
-**Achieved Throughput:** It is the throughput from the server where you have run the GetThroughput command to the Microsoft Azure region where the Azure Storage account is located. It indicates the ballpark throughput that can be achieved when you protect the compatible VMs by using Site Recovery, provided your configuration server or process server storage and network characteristics remain the same as that of the server from where you have run the tool. 
+**Achieved Throughput:** The throughput from the server on which you have run the GetThroughput command to the Microsoft Azure region where the Azure Storage account is located. This throughput number indicates the estimated level that can be achieved when you protect the compatible VMs by using Site Recovery, provided that your configuration server or process server storage and network characteristics remain the same as that of the server from which you have run the tool.
 
-For replication, you should set the recommended bandwidth to meet the RPO 100 percent of the time. Even after you set the right bandwidth, if you don’t see any increase in the achieved throughput reported by the tool, check the following:
+For replication, you should set the recommended bandwidth to meet the RPO 100 percent of the time. After you set the bandwidth, if you don’t see any increase in the achieved throughput, as reported by the tool, do the following:
 
-a.	Check if there is any network Quality of Service (QoS) that is limiting Site Recovery throughput.
+a.	Check to see whether there is any network Quality of Service (QoS) that is limiting Site Recovery throughput.
 
-b.	Check if your Site Recovery vault is in the nearest physical supported Microsoft Azure region to minimize network latency.
+b.	Check to see whether your Site Recovery vault is in the nearest physically supported Microsoft Azure region to minimize network latency.
 
-c.	Check your local storage characteristics and look to improve the hardware (for example, HDD to SSD).
+c.	Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
 
-d. Change the Site Recovery settings in the process server to [increase the amount network bandwdith used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+d. Change the Site Recovery settings in the process server to [increase the amount network bandwidth used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-In cases where you are running the tool on a configuration server or process server that already has protected VMs, run the tool a few times because the achieved throughput number will change depending on the amount of churn being processed at that particular point of time.
+If you are running the tool on a configuration server or process server that already has protected VMs, run the tool a few times. The achieved throughput number changes depending on the amount of churn being processed at that particular point in time.
 
 For all enterprise Site Recovery deployments, we recommend that you use [ExpressRoute](https://aka.ms/expressroute).
 
-### Required Azure Storage Accounts
-This chart shows the total number of Azure Storage accounts (standard and premium) required to protect all the compatible VMs. Click on [Recommended VM placement plan](site-recovery-deployment-planner.md#vm-storage-placement) to know which storage account should be used for each VM.
+### Required Azure storage accounts
+This chart shows the total number of Azure storage accounts (standard and premium) that are required to protect all the compatible VMs. To learn which storage account should be used for each VM, click [**Recommended VM placement plan**](site-recovery-deployment-planner.md#vm-storage-placement).
 
 ![Required Azure Storage accounts in the deployment planner](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
 
-### Required Number of Azure Cores
-This is the total number of cores to be set up before failover or test failover of all the compatible VMs. If sufficient cores are not available in the subscription, Site Recovery fails to create VMs at the time of test failover or failover.
+### Required number of Azure cores
+This result is the total number of cores to be set up before failover or test failover of all the compatible VMs. If sufficient cores are not available in the subscription, Site Recovery fails to create VMs at the time of test failover or failover.
 
 ![Required number of Azure cores in the deployment planner](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
 
@@ -376,121 +384,127 @@ The Input page provides an overview of the profiled VMware environment.
 
 ![Overview of the profiled VMware environment](./media/site-recovery-deployment-planner/Input.png)
 
-**Start Date and End Date** are the start and end dates of the profiling data considered for report generation. By default, the start date is the date when profiling started and end date is the date when profiling stops. This can be the ‘StartDate’ and ‘EndDate’ values if the report is generated with these parameters. Start Date and End Date: These are the start and end dates of the profiling data considered for report generation. By default, the start date is the date when profiling started and end date is the date when profiling stops. This can be the ‘StartDate’ and ‘EndDate’ values if the report is generated with these parameters.
+**Start Date and End Date**: The start and end dates of the profiling data considered for report generation. By default, the start date is the date when profiling started and end date is the date when profiling stops. This can be the ‘StartDate’ and ‘EndDate’ values if the report is generated with these parameters. Start Date and End Date: These are the start and end dates of the profiling data considered for report generation. By default, the start date is the date when profiling started and end date is the date when profiling stops. This can be the ‘StartDate’ and ‘EndDate’ values if the report is generated with these parameters.
 
-**Total number of profiling days** is the total number of days of profiling between the start and end dates for which the report is generated. Total number of profiling days is the total number of days of profiling between the start and end dates for which report is generated.
+**Total number of profiling days**: The total number of days of profiling between the start and end dates for which the report is generated.
 
-**Number of compatible VMs** is the total number of compatible VMs for which the required network bandwidth, required number of Azure Storage accounts, Microsoft Azure cores, configuration servers and additional process servers are calculated.
-Total number of disks across all compatible VMs is the total number of disks across all compatible VMs. This number is used as one of the inputs to decide the number of configuration servers and additional process servers to be used in the deployment.
+**Number of compatible virtual machines**: The total number of compatible VMs for which the required network bandwidth, required number of Azure storage accounts, Microsoft Azure cores, configuration servers and additional process servers are calculated.
 
-**Average number of disks per compatible VM** is the average number of disks calculated across all compatible VMs.
+**Total number of disks across all compatible virtual machines**: The number that's used as one of the inputs to decide the number of configuration servers and additional process servers to be used in the deployment.
 
-**Average disk size (GB)** is the average disk size calculated across all compatible VMs.
+**Average number of disks per compatible virtual machine**: The average number of disks calculated across all compatible VMs.
 
-**Desired RPO (minutes)** is either the default recovery point objective or the value passed for the ‘DesiredRPO’ parameter at the time of report generation to estimate required bandwidth.
+**Average disk size (GB)**: The average disk size calculated across all compatible VMs.
 
-**Desired bandwidth (Mbps)** is the value that you have passed for the ‘Bandwidth’ parameter at the time of report generation to estimate achievable RPO.
+**Desired RPO (minutes)**: Either the default recovery point objective or the value passed for the ‘DesiredRPO’ parameter at the time of report generation to estimate required bandwidth.
 
-**Observed typical data churn per day (GB)** is the average data churn observed across all profiling days. This number is used as one of the inputs to decide the number of configuration servers and additional process servers to be used in the deployment.
+**Desired bandwidth (Mbps)**: The value that you have passed for the ‘Bandwidth’ parameter at the time of report generation to estimate achievable RPO.
+
+**Observed typical data churn per day (GB)**: The average data churn observed across all profiling days. This number is used as one of the inputs to decide the number of configuration servers and additional process servers to be used in the deployment.
 
 
 ## VM-Storage placement
 
 ![VM-storage placement](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
-**Disk Storage Type** is either a standard or premium Azure Storage account used to replicate all the corresponding VMs mentioned in the ‘VMs to Place’ column.
+**Disk Storage Type**: Either a standard or premium Azure storage account used to replicate all the corresponding VMs mentioned in the ‘VMs to Place’ column.
 
-**Suggested Prefix** is the suggested three-character prefix that can be used for naming the Azure storage account. You can always use your own prefix, but what the tool suggests is following the [partition naming convention of Azure Storage accounts](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix**: The suggested three-character prefix that can be used for naming the Azure storage account. You can use your own prefix, but the tool's suggestion follows the [partition naming convention of Azure Storage accounts](https://aka.ms/storage-performance-checklist).
 
-**Suggested Account Name** indicates how your Azure Storage account name should look like after including the suggested prefix. Replace the name within the angle brackets (<) and (>) with your custom input.
+**Suggested Account Name**: Your Azure storage account name after you include the suggested prefix. Replace the name within the angle brackets (<) and (>) with your custom input.
 
-**Log Storage Account:** All the replication logs are stored in a standard Azure Storage account. For the VMs replicating to a premium Azure Storage account, an additional standard Azure Storage account needs to be set up for log storage. A single standard log storage account can be used by multiple premium replication storage accounts. Virtual machines replicated to standard storage accounts use the same storage account for logs.
+**Log Storage Account:**: All the replication logs are stored in a standard Azure storage account. For VMs that replicate to a premium Azure storage account, set up an additional standard Azure storage account for log storage. A single standard log-storage account can be used by multiple premium replication storage accounts. VMs that are replicated to standard storage accounts use the same storage account for logs.
 
-**Suggested Log Account Name** indicates how your log Azure Storage account name should look like after including the suggested prefix. Replace name in < > with your custom input.
+**Suggested Log Account Name**: Your Azure storage log account name after you include the suggested prefix. Replace the name within the angle brackets (<) and (>) with your custom input.
 
-**Placement Summary** provides a summary of the total VMs load on the Azure Storage account at the time of replication and test failover or failover. It includes the total number of VMs mapped to the Azure Storage account, total read/write IOPS across all VMs being placed in this Azure Storage account, total write (replication) IOPS, total setup size across all disks, and total number of disks.
+**Placement Summary**: A summary of the total VMs' load on the Azure storage account at the time of replication and test failover or failover. It includes the total number of VMs mapped to the Azure storage account, total read/write IOPS across all VMs being placed in this Azure storage account, total write (replication) IOPS, total setup size across all disks, and total number of disks.
 
-**Virtual Machines to Place** lists all the VMs that should be placed on the given Azure Storage account for optimal performance and utilization.
+**Virtual Machines to Place**: A list of all the VMs that should be placed on the given Azure storage account for optimal performance and use.
 
 ## Compatible VMs
 ![Compatible VMs](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Name** is the VM name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the VMs.
+**VM Name**: The VM name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the VMs.
 
-**VM Compatibility** has two values: **Yes** and **Yes\***. **Yes\*** is for those cases where the VM is a fit for [premium Azure Storage](https://aka.ms/premium-storage-workload) with the profiled high churn or IOPS disk fitting in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. Azure Storage decides which premium storage disk type to map a disk to based on its size – i.e. < 128 GB is a P10, 128 to 512 GB is a P20, and 512 GB to 1023 GB is a P30. So if the workload characteristics of a disk put it in a P20 or P30, but the size maps it down to a lower premium storage disk type, the tool marks that VM as a Yes* and recommends that you either change the source disk size to fit into the right recommended premium storage disk type, or change the target disk type post failover.
-Storage Type is standard or premium.
+**VM Compatibility** has two values: **Yes** and **Yes\***. **Yes\*** is for instances in which the VM is a fit for [premium Azure storage](https://aka.ms/premium-storage-workload). Here, the profiled high churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. Azure storage decides which premium storage disk type to map a disk to based on its size. For example:
+* <128 GB is a P10
+* 128 to 512 GB is a P20
+* 512 GB to 1023 GB is a P30.
 
-**Suggested Prefix** is the three-character Azure Storage account prefix
+If the workload characteristics of a disk put it in the P20 or P30 category, but the size maps it down to a lower premium storage disk type, the tool marks that VM as **Yes*** and recommends that you either change the source disk size to fit into the right recommended premium storage disk type, or change the target disk type post failover.
 
-**Storage Account** is the name that uses the suggested prefix
+**Storage Type**: Standard or premium.
 
-**R/W IOPS (with Growth Factor)** is the peak workload IOPS on the disk (default 95th percentile) including the future growth factor (default 30 percent). Note that the total read/write IOPS of the VM is not always going to be the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks read/write IOPS across every minute of the profiling period.
+**Suggested Prefix**: The three-character Azure storage-account prefix.
 
-**Data Churn in Mbps (with Growth Factor)** is the peak churn rate on the disk (default 95th percentile) including the future growth factor (default 30 percent). Note that the total data churn of the VM is not always going to be the sum of the VM’s individual disks’ data churn, because the peak data churn of the VM is the peak of the sum of its individual disks churn across every minute of the profiling period.
+**Storage Account**: The name that uses the suggested storage-account prefix.
 
-**Azure VM Size** is the ideal mapped Azure Compute VM size for this on-premises VM. The mapping is done based on the on-premises VM’s memory, number of disks/cores/NICs, and read/write IOPS. The recommendation is always the lowest Azure VM size that matches all of the on-premises VM characteristics.
+**R/W IOPS (with Growth Factor)**: The peak workload read/write IOPS on the disk (default is 95th percentile), including the future growth factor (default is 30 percent). Note that the total read/write IOPS of a VM is not always the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks' read/write IOPS during every minute of the profiling period.
 
-**Number of Disks** is the total number of disks (VMDKs) on the VM
+**Data Churn in Mbps (with Growth Factor)**: The peak churn rate on the disk (default is 95th percentile), including the future growth factor (default is 30 percent). Note that the total data churn of the VM is not always the sum of the VM’s individual disks’ data churn, because the peak data churn of the VM is the peak of the sum of its individual disks' churn during every minute of the profiling period.
 
-**Disk size (GB)** is the total setup size of all disks of the VM. The tool also shows the disk size for the individual disks in the VM.
+**Azure VM Size**: The ideal mapped Azure Cloud Services virtual-machine size for this on-premises VM. The mapping is based on the on-premises VM’s memory, number of disks/cores/NICs, and read/write IOPS. The recommendation is always the lowest Azure VM size that matches all of the on-premises VM characteristics.
 
-**Cores** is the number of CPU cores on the VM.
+**Number of Disks**: The total number of virtual machine disks (VMDKs) on the VM.
 
-**Memory (MB)** is the RAM on the VM.
+**Disk size (GB)**: The total setup size of all disks of the VM. The tool also shows the disk size for the individual disks in the VM.
 
-**NICs** is the number of NICs on the VM.
+**Cores**: The number of CPU cores on the VM.
+
+**Memory (MB)**: The RAM on the VM.
+
+**NICs**: The number of NICs on the VM.
 
 ## Incompatible VMs
 
 ![Incompatible VMs](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM Name** is the VM name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the VMs.
+**VM Name**: The VM name or IP address as used in the VMListFile at the time of report generation. This column also lists the VMDKs that are attached to the VMs.
 
-**VM Compatibility** indicates why the given VM is incompatible for use with Azure Site recovery. The reasons are outlined per incompatible disk of the VM and can be one of the following based on published Azure Storage [limits](https://aka.ms/azure-storage-scalbility-performance).
+**VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [Azure storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
 
-* Disk size > 1023 GB – Azure Storage currently does not support > 1 TB disk sizes
-* Total VM size (replication + TFO) exceeds supported Azure Storage account size limit (35 TB) – This usually happens when there is a single disk in the VM that has some performance characteristics that exceeds the maximum supported Microsoft Azure or Site Recovery limits for standard storage which pushes the VM into premium storage zone. However, the maximum supported size of a premium Azure Storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a TFO (test failover) is executed on a protected VM, it runs in the same storage account where replication is progressing – so we need to set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
-* Source IOPS exceeds supported Azure Storage IOPS limit of 5000 per disk
-* Source IOPS exceeds supported Azure Storage IOPS limit of 80,000 per VM
-* Average data churn exceeds supported Site Recovery data churn limit of 10 MBps for average IO size for disk
-* Total data churn across all disks on the VM exceeds the maximum supported Site Recovery data churn limit of 54 MBps per VM
-* Average effective write IOPS exceeds supported Site Recovery IOPS limit of 840 for disk
-* Calculated snapshot storage exceeding the supported snapshot storage limit of 10 TB
+* Disk size is >1023 GB. Azure storage currently does not support >1-TB disk sizes.
+* Total VM size (replication + TFO) exceeds supported Azure storage account size limit (35 TB). This size incompatibility usually happens when a single disk in the VM has performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into premium storage zone. However, the maximum supported size of a premium Azure storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
+* Source IOPS exceeds supported Azure Storage IOPS limit of 5000 per disk.
+* Source IOPS exceeds supported Azure Storage IOPS limit of 80,000 per VM.
+* Average data churn exceeds supported Site Recovery data churn limit of 10 MBps for average IO size for the disk.
+* Total data churn across all disks on the VM exceeds the maximum supported Site Recovery data churn limit of 54 MBps per VM.
+* Average effective write IOPS exceeds the supported Site Recovery IOPS limit of 840 for disk.
+* Calculated snapshot storage exceeds the supported snapshot storage limit of 10 TB.
 
-**R/W IOPS (with Growth Factor)** is the peak workload IOPS on the disk (default 95th percentile) including the future growth factor (default 30 percent). Note that the total read/write IOPS of the VM is not always going to be the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks read/write IOPS across every minute of the profiling period.
+**R/W IOPS (with Growth Factor)**: The peak workload IOPS on the disk (default is 95th percentile), including the future growth factor (default is 30 percent). Note that the total read/write IOPS of the VM is not always the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks' read/write IOPS during every minute of the profiling period.
 
-**Data Churn in Mbps (with Growth Factor)** is the peak churn rate on the disk (default 95th percentile) including the future growth factor (default 30 percent). Note that the total data churn of the VM is not always going to be the sum of the VM’s individual disks’ data churn, because the peak data churn of the VM is the peak of the sum of its individual disks churn across every minute of the profiling period.
+**Data Churn in Mbps (with Growth Factor)**: The peak churn rate on the disk (default 95th percentile) including the future growth factor (default 30 percent). Note that the total data churn of the VM is not always the sum of the VM’s individual disks’ data churn, because the peak data churn of the VM is the peak of the sum of its individual disks' churn during every minute of the profiling period.
 
-**Number of Disks** is the total number of disks (VMDKs) on the VM
+**Number of Disks**: The total number of VMDKs on the VM.
 
-**Disk size (GB)** is the total setup size of all disks of the VM. The tool also shows the disk size for the individual disks in the VM.
+**Disk size (GB)**: The total setup size of all disks of the VM. The tool also shows the disk size for the individual disks in the VM.
 
-**Cores** is the number of CPU cores on the VM.
+**Cores**: The number of CPU cores on the VM.
 
-**Memory (MB)** is the RAM on the VM.
+**Memory (MB)**: The RAM on the VM.
 
-**NICs** is the number of NICs on the VM.
+**NICs**: The number of NICs on the VM.
 
 
-## Azure Site Recovery limits
+## Site Recovery limits
 
-**Replication Storage Target** | **Average Source Disk I/O Size** |**Average Source Disk Data Churn** | **Total Source Disk Data Churn Per Day**
+**Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
-Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
-Premium P10 disk | 8 KB	| 2 MB/s | 168 GB per disk
-Premium P10 disk | 16 KB | 4 MB/s |	336 GB per disk
-Premium P10 disk | 32 KB or higher | 8 MB/s | 672 GB per disk
-Premium P20/P30 disk | 8 KB	| 5 MB/s | 421 GB per disk
-Premium P20/P30 disk | 16 KB or higher |10 MB/s	| 842 GB per disk
+Standard storage | 8 KB	| 2 MBps | 168 GB per disk
+Premium P10 disk | 8 KB	| 2 MBps | 168 GB per disk
+Premium P10 disk | 16 KB | 4 MBps |	336 GB per disk
+Premium P10 disk | 32 KB or greater | 8 MBps | 672 GB per disk
+Premium P20 or P30 disk | 8 KB	| 5 MBps | 421 GB per disk
+Premium P20 or P30 disk | 16 KB or greater |10 MBps | 842 GB per disk
 
+These are average numbers assuming a 30 percent I/O overlap. Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 
-These are average numbers assuming a 30 percent IO overlap. Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes and actual workload I/O behavior. The above numbers assume a typical backlog of ~5 minutes, i.e. data once uploaded will be processed and a recovery point created within 5 minutes.
-
-The above published limits are based on our tests but cannot cover all possible application I/O combinations. Actual results will vary based on your application I/O mix. For best results, even after deployment planning, we always recommend that you perform extensive application testing by using test failover to get the true performance picture.
+These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, even after deployment planning, we always recommend that you perform extensive application testing by using a test failover to get the true performance picture.
 
 ## Release notes
-The Azure Site Recovery deployment planner public preview 1.0 has the following known issues that will be addressed in upcoming updates.
+The Azure Site Recovery deployment planner public preview 1.0 has the following known issues that will be addressed in upcoming updates:
 
 * The tool works only for the VMware-to-Azure scenario, not for Hyper-V to Azure deployments. For Hyper-V to Azure scenario use [Hyper-V capacity planner tool](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * The GetThroughput operation is not supported in US Government and China Microsoft Azure regions.
-* The tool cannot profile VMs if the vCenter has two or more VMs with the same name/IP address across different ESXi hosts. In this version, the tool skips profiling for duplicate VM names/IP addresses in the VMListFile. Workaround is to profile VMs with ESXi host instead of vCenter server. You need to run one instance for each ESXi host.
+* The tool cannot profile VMs if the vCenter has two or more VMs with the same name/IP address across various ESXi hosts. In this version, the tool skips profiling for duplicate VM names/IP addresses in the VMListFile. The workaround is to profile VMs with an ESXi host instead of vCenter server. You need to run one instance for each ESXi host.
