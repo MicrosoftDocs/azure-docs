@@ -62,7 +62,7 @@ The default collation when not specified is COLLATE SQL_Latin1_General_CP1_CI_AS
 After your SQL Data Warehouse has finished provisioning you can [load sample data][load sample data] or check out how to [develop][develop], [load][load], or [migrate][migrate].
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 [how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md
 [Query Azure SQL Data Warehouse (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
 [migrate]: sql-data-warehouse-overview-migrate.md
