@@ -76,13 +76,10 @@ To configure user password reset policy, complete the following steps:
 
    ![][003]
 
-5. Under the **Configure** tab, scroll down to the **user password reset policy** section.  This is where you configure every aspect of user password reset policy for a given directory. *If you do not see the Configure tab, make sure that you have signed up for Azure Active Directory Premium or Basic and **assigned a license** to the administrator account that is configuring this feature.*  
+5. Under the **Configure** tab, scroll down to the **user password reset policy** section.  This is where you configure every aspect of user password reset policy for a given directory. *If you do not see the Configure tab, make sure that you have signed up for Azure Active Directory Premium or Basic and __assigned a license__ to the administrator account that is configuring this feature.*  
 
    > [!NOTE]
    > **The policy you set only applies to end users in your organization, not administrators**. For security reasons, Microsoft controls the password reset policy for administrators. The current policy for administrators requires two challenges -  Mobile Phone and Email Address.
-
-   >
-   >
 
    ![][004]
 6. To configure the user password reset policy, slide the **users enabled for password reset** toggle to the **yes** setting.  This reveals several more controls which enable you to configure how this feature works in your directory.  Feel free to customize password reset as you see fit.  If you’d like to learn more about what each of the password reset policy controls does, please see [Customize: Azure AD Password Management](active-directory-passwords-customize.md).
@@ -260,13 +257,19 @@ You can also verify the service was installed correctly by opening Event Viewer,
   ![][023]
 
 ### Step 3: Configure your firewall
-After you have enabled Password Writeback, you need to make sure the machine running Azure AD Connect can reach Microsoft cloud services to receive password writeback requests. This step involves updating the connection rules in your network appliances (proxy servers, firewalls etc.) to allow outbound connections to certain Microsoft-owned URLs and IP addresses over specific network ports. These changes may vary based on the version of Azure AD Connect tool. For more context, you can read more about [how password writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) and [the password writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model).
+After you have enabled Password Writeback, you need to make sure the machine running Azure AD Connect can reach Microsoft cloud services to receive password writeback requests. This step involves updating the connection rules in your network appliances (proxy servers, firewalls etc.) to allow outbound connections to certain [Microsoft-owned URLs and IP addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) over specific network ports. These changes may vary based on the version of Azure AD Connect tool. For more context, you can read more about [how password writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) and [the password writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
 #### Why do I need to do this?
 
 In order for Password Writeback to function properly, the machine running Azure AD Connect needs to be able to establish outbound HTTPS connections to **.servicebus.windows.net* and specific IP address used by Azure, as defined in the [Microsoft Azure Datacenter IP Ranges list](https://www.microsoft.com/download/details.aspx?id=41653).
 
-For Azure AD Connect tool versions 1.0.8667.0 and above:
+For Azure AD Connect tool **1.1.439.0** (latest) and above:
+
+- The latest version of the Azure AD Connect tool will need **outbound HTTPS** access to:
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.windows.net*
+
+For Azure AD Connect tool versions **1.0.8667.0** to **1.1.380.0**:
 
 - **Option 1:** Allow all outbound HTTPS connections over port 443 (using URL or IP Address).
 	- When to use this:
@@ -294,6 +297,9 @@ For Azure AD Connect tool versions 1.0.8667.0 and above:
 > If you are on a version of Azure AD Connect prior to 1.0.8667.0, Microsoft highly recommends you upgrade to the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), which includes a number of writeback networking enhancements to make configuration easier.
 
 Once the network appliances have been configured, reboot the machine running Azure AD Connect tool.
+
+#### Idle connections on Azure AD Connect (1.1.439.0 and up)
+The Azure AD Connect tool will send periodic pings/keepalives to ServiceBus endpoints to ensure that the connections stay alive. Should the tool detect that too many connections are being killed, it will automatically increase the frequency of pings to the endpoint. The lowest 'ping intervals' will drop to is 1 ping every 60 seconds, however, **we strongly advise that proxies/firewalls allow idle connections to persist for at least 2-3 minutes.** \*For older versions, we suggest 4 minutes or more.
 
 ### Step 4: Set up the appropriate Active Directory permissions
 For every forest that contains users whose passwords will be reset, if X is the account that was specified for that forest in the configuration wizard (during initial configuration), then X must be given the **Reset Password**, **Change Password**, **Write Permissions** on `lockoutTime`, and **Write Permissions** on `pwdLastSet`, extended rights on the root object of each domain in that forest. The right should be marked as inherited by all user objects.  
