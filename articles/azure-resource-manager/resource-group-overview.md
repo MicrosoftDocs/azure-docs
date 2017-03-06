@@ -214,7 +214,7 @@ Find-AzureRmResource -TagName costCenter -TagValue Finance
 Or, the following Azure CLI 2.0 command:
 
 ```azurecli
-az resource list --tagt costCenter=Finance
+az resource list --tag costCenter=Finance
 ```
 
 You can also view tagged resources through the Azure portal.
