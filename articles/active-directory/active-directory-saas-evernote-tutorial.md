@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: jeedes
 
 ---
@@ -27,13 +27,6 @@ Integrating Evernote with Azure AD provides you with the following benefits:
 - You can manage your accounts in one central location - the Azure Management portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
-<!--##Overview
-
-To enable single sign-on with Evernote, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Evernote.
-
-> [!NOTE] 
-> This embedded guide is brand new in the new Azure portal, and we'd love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
 
 ## Prerequisites
 
@@ -80,11 +73,11 @@ To configure the integration of Evernote into Azure AD, you need to add Evernote
 
 4. In the search box, type **Evernote**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_search.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_search01.png)
 
 5. In the results panel, select **Evernote**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_addfromgallery.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_search_result01.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -115,72 +108,68 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
  
 	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_samlbase.png)
 
-3. On the **Evernote Domain and URLs** section, perform the following steps:
+3. On the **Evernote Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, no need to perform any steps.
 
-	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_url.png)
+	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_idp.png)
+	
+4. On the **Evernote Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
 
-    a. In the **Identifier** textbox, type the value as: `https://www.evernote.com/saml2`
+	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_sp.png)
+	
+	a. Click on the **Show advanced URL settings** option
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
-`https://www.evernote.com/SamlConsumer.action`
+	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://contoso.evernote.com/Login.action`
 
 	> [!NOTE] 
 	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Evernote support team](https://evernote.com/contact/) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Create new certificate**.
+5. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_cert.png) 	
 
-5. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
+6. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_general_300.png)
 
-6. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
+7. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_makecertactive.png)
 
-7. On the pop-up **Rollover certificate** window, click **OK**.
+8. On the pop-up **Rollover certificate** window, click **OK**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_general_400.png)
 
-8. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+9. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certificate.png) 
 
-9. On the **Evernote Configuration** section, click **Configure Evernote** to open **Configure sign-on** window.
+10. On the **Evernote Configuration** section, click **Configure Evernote** to open **Configure sign-on** window.
 
 	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_configure.png) 
 
 	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_configuresignon.png)
 
-10. In a different web browser window, log into your Evernote company site as an administrator.
+11. In a different web browser window, log into your Evernote company site as an administrator.
 
-> [!NOTE]
-> Only your company’s account admins are authorized to configure SSO for the company’s Evernote account.
-
-
-11. From the **admin console**, go to **‘SECURITY’** and select **‘Single Sign-On’**
+12. Go to **'Admin Console'**
 
 	![Admin-Console](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_adminconsole.png)
-	
+
+13. From the **'Admin Console'**, go to **‘Security’** and select **‘Single Sign-On’**
+
 	![SSO-Setting](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_sso.png)
 
+14. Configure the following values:
 
-12. From this page, you can:
+	a.  **Enable SSO:** SSO is enabled by default (Click **Disable Single Sign-on** to remove the SSO requirement)
 
-	a.  **Enable SSO:** Make SSO a requirement for access to your company’s Evernote account content (Click **Disable Single Sign-on** to remove the SSO requirement)
+	b. **SAML HTTP Request URL** - Enter **SAML Single sign-on Service URL** from the **Configure Evernote** section on Azure AD
 
-	b. Enter **SAML HTTP Request URL** which is the Azure AD Sign on URL.
-
-	c. **X.509 Certificate** - User will need to download the certificate (base 64) and open it up on Notepad and copy paste the value including the *Begin Certificate*.
+	c. **X.509 Certificate** - Open the downloaded certificate from Azure AD in a notepad and copy the content including "BEGIN CERTIFICATE" and "END CERTIFICATE"
 
 	![Certificate-Setting](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certx.png)
 
-	d.  **Set the Session Duration:** Enter the number of days users can remain signed in
-
-	e.Then, Click **Save Changes** button.
-
-	![Certificate-Setting](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_save.png)
+	d.Click **Save Changes** 
 
 
 ### Creating an Azure AD test user
@@ -216,7 +205,28 @@ The objective of this section is to create a test user in the Azure Management p
 
 
 
+### Creating an Evernote test user
 
+In order to enable Azure AD users to log into Evernote, they must be provisioned into Evernote.  
+In the case of Evernote, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
+1. Log in to your Evernote company site as an administrator.
+
+2. Click the **'Admin Console'**.
+
+	![Admin-Console](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_adminconsole.png)
+
+3. From the **'Admin Console'**, go to **‘Add users’**.
+
+	![Add-testUser](./media/active-directory-saas-evernote-tutorial/create_aaduser_0001.png)
+
+4. **Add team members** in the **Email** textbox, type the email address of user account and click **Invite.**
+
+	![Add-testUser](./media/active-directory-saas-evernote-tutorial/create_aaduser_0002.png)
+	
+5. After invitation is sent, the Azure Active Directory account holder will receive an email to accept the invitation.   
 
 
 ### Assigning the Azure AD test user
@@ -255,7 +265,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Evernote tile in the Access Panel, you should get automatically signed-on to your Evernote application.
+When you click the Evernote tile in the Access Panel, you should get signed-on to your Evernote application. You'll be logging in as an Organization account but then need to log in with your personal account.
 
 
 ## Additional resources
