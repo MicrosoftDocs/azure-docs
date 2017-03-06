@@ -24,7 +24,7 @@ Jenkins is a popular tool for continuous integration and deployment. In this doc
 1. You need to have git installed locally, as you would see the need later in the tutorial. You can install the appropriate git version from [here](https://git-scm.com/downloads) based on your OS. If you are new to git, you can follow the steps mentioned in the [documentions](https://git-scm.com/docs) to get yourself acquainted with git.
 2. You need to have the service-fabric jenkins plugin handy. In case you do not have it, try downloading it from [here](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
 
-## Setting up Jenkins using Service Fabric as the Container Orchestrator
+## Setting up Jenkins inside a Service Fabric Cluster
 
 ### Prerequisites
 1. You have a Service Fabric Linux Cluster ready (probably created from Azure portal directly), say ``http://SOME-IP:19080``. Service Fabric clusters created from azure portal already has docker installed. But if you running the onebox(local) cluster i.e. the cluster you can set up on a Ubuntu machine, with Service Fabric SDK installed, by using `sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh`, please check if docker is installed or not using the command ``docker info`` and if it is not installed then install it accordingly using -
