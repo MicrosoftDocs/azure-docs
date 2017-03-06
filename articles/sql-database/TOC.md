@@ -118,11 +118,6 @@
 ## Scale an elastic pool
 ### [Azure CLI](sql-database-scale-pool-cli.md)
 ### [PowerShell](sql-database-monitor-and-scale-pool-powershell.md)
-## Configure geo-replication and failover
-### [Azure portal]
-### [PowerShell: Single database](sql-database-setup-geodr-and-failover-database-powershell.md)
-### [PowerShell: Pooled database](sql-database-setup-geodr-and-failover-pool-powershell.md)
-### [T-SQL]
 ## Configure auditing and threat-detection]
 ### [Azure portal: Auditing](sql-database-auditing-portal.md)
 ### [Azure portal: Threat detection](sql-database-threat-detection-portal.md)
@@ -136,6 +131,15 @@
 ### [Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ## [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Configure geo-replication and failover
+### [Azure portal: Configure](sql-database-geo-replication-portal.md)
+### [Azure portal: Failover](sql-database-geo-replication-failover-portal.md)
+### [PowerShell: Single database](sql-database-setup-geodr-and-failover-database-powershell.md)
+### [PowerShell: Pooled database](sql-database-setup-geodr-and-failover-pool-powershell.md)
+### [Transact-SQL: Configure](sql-database-geo-replication-transact-sql.md)
+### [Transact-SQL: Failover](sql-database-geo-replication-failover-transact-sql.md)
+## [Recover from a data center outage](sql-database-disaster-recovery.md)
+## [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
 ## Copy a database
 ### [Azure portal](sql-database-copy-portal.md)
 ### [PowerShell](sql-database-copy-database-to-new-server-powershell.md)
@@ -144,14 +148,15 @@
 ### [Azure portal](sql-database-import-portal.md)
 ### [PowerShell](sql-database-import-from-bacpac-powershell.md)
 ### [SQLPackage](sql-database-import-sqlpackage.md)
-## Export databases
+## Export a database
 ### [Azure portal](sql-database-export-portal.md)
 ### [PowerShell](sql-database-export-powershell.md)
 ### [SSMS](sql-database-export-ssms.md)
 ### [SQLPackage](sql-database-export-sqlpackage.md)
 ## [Move a database](sql-database-troubleshoot-moving-data.md)
-
-
+## Load data
+### [BCP](sql-database-load-from-csv-with-bcp.md)
+## [Configure and manage data synchronization](sql-database-get-started-sql-data-sync.md)
 ## Manage elastic pools
 ### [Azure portal](sql-database-elastic-pool-manage-portal.md)
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -206,25 +211,10 @@
 ### [PowerShell](sql-database-elastic-jobs-powershell.md) 
 ### [Cross-database jobs](sql-database-elastic-jobs-getting-started.md)
 ### [Uninstall](sql-database-elastic-jobs-uninstall.md)
-
-## Load data
-### [BCP](sql-database-load-from-csv-with-bcp.md)
-## [Configure and manage data synchronization](sql-database-get-started-sql-data-sync.md)
 ## Query data
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [Horizontally-partitioned data](sql-database-elastic-query-getting-started.md)
 ### [Vertically-partitioned data](sql-database-elastic-query-getting-started-vertical.md)
-
-## Configure active geo-replication
-### [Azure portal](sql-database-geo-replication-portal.md)
-### [PowerShell](sql-database-geo-replication-powershell.md)
-### [Transact-SQL](sql-database-geo-replication-transact-sql.md)
-## Fail over to a secondary
-### [Azure portal](sql-database-geo-replication-failover-portal.md)
-### [PowerShell](sql-database-geo-replication-failover-powershell.md)
-### [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
-## [Recover from a data center outage](sql-database-disaster-recovery.md)
-## [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
 ## Monitor and tune
 ### [Use SQL Database Advisor](sql-database-advisor-portal.md)
 ### [Use Query Performance insight](sql-database-performance.md)
