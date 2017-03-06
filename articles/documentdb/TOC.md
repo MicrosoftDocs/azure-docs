@@ -1,6 +1,7 @@
 
 # Overview
 ## [What is DocumentDB?](documentdb-introduction.md)
+## [What is DocumentDB: API for MongoDB?](documentdb-protocol-mongodb.md)
 ## [Core concepts](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Java console app](documentdb-java-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
+### [Node.js console app for MongoDB APIs](documentdb-mongodb-samples.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
 ## Build a web app
 ### [.NET web app](documentdb-dotnet-application.md)
+### [.NET web app for MongoDB APIs](documentdb-mongodb-application.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Manage
 ### [Import your data](documentdb-import-data.md)
+### [Import your MongoDB data](documentdb-mongodb-migrate.md)
+### [Connect to your MongoDB account](documentdb-connect-mongodb-account.md)
+### [Work with MongoDB data in MongoChef](documentdb-mongodb-mongochef.md)
+### [Work with MongoDB data in Robomongo](documentdb-mongodb-robomongo.md)
 ### [Model your data](documentdb-modeling-data.md)
 ### [Use geospatial data](documentdb-geospatial.md)
 ### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### Best practices
 #### [Multi-master setup](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
-
-## Use DocumentDB Support for MongoDB
-### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
-### [Create account](documentdb-create-mongodb-account.md)
-### [Connect to your account](documentdb-connect-mongodb-account.md)
-### [Migrate your data](documentdb-mongodb-migrate.md)
-### [Use Robomongo](documentdb-mongodb-robomongo.md)
-### [Use MongoChef](documentdb-mongodb-mongochef.md)
-### [Protocol support samples](documentdb-mongodb-samples.md)
 
 ## Use the portal
 ### [Create a database account](documentdb-create-account.md)
