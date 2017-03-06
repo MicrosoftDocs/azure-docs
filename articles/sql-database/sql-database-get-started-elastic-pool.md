@@ -33,7 +33,7 @@ Follow these steps to create a database in an elastic pool with sample data in a
 
 3. Fill out the form with the required information (the server name must be globally unique). Click **Create** when compolete:
 
-      ![create sql database2](./media/sql-database-get-started/create-pooled-database-1.png)
+      ![create pooled sql database](./media/sql-database-get-started/create-pooled-database-1.png)
 
 4. After the deployment has started, the Azure portal will return to the Azure dashboard. From here, the deployment status can be monitored. Provisioning takes a few minutes. 
 
@@ -43,7 +43,7 @@ Follow these steps to create a server-level firewall rule for your IP address to
 
 1. Once the SQL database deployment has finished, select the **SQL databases** icon on the Azure dashboard and click the new database, such as **MySamplePooledDB**. 
 
-      ![new sql database](./media/sql-database-get-started/new-sql-database2.png)
+      ![new pooled sql database firewall rule](./media/sql-database-get-started/create-pooled-database-2.png)
 
 2. Click **Set server firewall** on the toolbar for your database to open Firewall settings page for the server on the Azure dashboard for your server. 
 
@@ -61,17 +61,15 @@ Follow these steps to query the database on the Azure dashboard.
 
 2. Click **Query editor (preview)**, click the preview checkbox, and then click **OK**. 
 
-3. Click **Login** and then, when prompted provide the server admin login and password, and click **OK**.
+3. Click **Login** and then, when prompted, select **SQL server authentication** and provide the server admin login and password, and click **OK**.
 
 4. After you are authenticated, type a query, such as the following query in the query window, and then click **Run**.
 
-   ```
-   select * from sys.objects
-   ```
+   ```select * from sys.objects;```
 
 5. Review the query results in the **Results** pane.
 
-    ![query editor results](./media/sql-database-get-started/query-editor-results.png)
+    ![query editor results](./media/sql-database-get-started/query-editor-results-pool.png)
 
 ## Troubleshoot connectivity
 
