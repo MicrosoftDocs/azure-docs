@@ -1,6 +1,6 @@
 ---
-title: EDIFACT messages for enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange EDIFACT messages for enterprise integration with Azure Logic Apps
+title: EDIFACT messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange EDIFACT messages in EDI format for B2B enterprise integration with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -161,7 +161,7 @@ If you don't specify any rules, then validation uses the "Default" row.
 
 | Property | Description |
 | --- | --- |
-| Message Type |Select the message type. |
+| Message Type |Select the EDI message type. |
 | EDI Validation |Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
@@ -264,7 +264,7 @@ If you don't specify any rules, then validation uses the "Default" row.
 
 | Property | Description |
 | --- | --- |
-| Message Type |Select the message type. |
+| Message Type |Select the EDI message type. |
 | EDI Validation |Perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators. |
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |

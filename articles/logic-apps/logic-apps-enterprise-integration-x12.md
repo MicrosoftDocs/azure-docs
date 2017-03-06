@@ -1,6 +1,6 @@
 ---
-title: X12 messages for enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange X12 messages for enterprise integration with Azure Logic Apps
+title: X12 messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange X12 messages in EDI format for B2B enterprise integration with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc

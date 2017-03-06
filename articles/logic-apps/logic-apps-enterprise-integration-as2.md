@@ -1,6 +1,6 @@
 ---
-title: AS2 messages for enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange AS2 messages for enterprise integration with Azure Logic Apps
+title: AS2 messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange AS2 messages for B2B enterprise integration with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
