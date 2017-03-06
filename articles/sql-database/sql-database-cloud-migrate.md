@@ -47,7 +47,7 @@ The following list contains the general workflow for a SQL Server database migra
 
 The following list contains recommendations for best performance during the import process.
 
-* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. See [Change the service tier and performance level of a single database using the Azure portal](sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using PowerShell](sql-database-monitor-and-scale-database-powershell.md), [Change the service tier and performance level of a single database using Transact-SQL](sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database)
+* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
 * Minimize the distance between your .BACPAC file and the destination data center.
 * Disable auto-statistics during migration
 * Partition tables and indexes
