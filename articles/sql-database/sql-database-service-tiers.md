@@ -40,11 +40,15 @@ First decide if you want to run a single database with a defined amount of dedic
 
 | **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Maximum individual database size | 2 GB | 250 GB | 1 TB  | 500 GB  |
+| Maximum individual database size | 2 GB | 250 GB | 4 TB*  | 500 GB  |
 | Maximum total storage in an elastic pool | 117 GB | 1200 GB | 750 GB | 750 GB |
 | Maximum number of databases per pool | 400  | 400 | 50 | 50 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
+
+> [!NOTE]
+> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. 
+>
 
 > [IMPORTANT]
 > Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the unlikely event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
