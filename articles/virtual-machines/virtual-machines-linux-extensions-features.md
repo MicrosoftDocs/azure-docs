@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/06/20171/17/2016
 ms.author: nepeters
 
 ---
@@ -86,7 +86,7 @@ VM extensions can be applied to an existing virtual machine through the Azure po
 
 The following image shows the installation of the Linux Custom Script extension from the Azure portal.
 
-![Custom Script extension](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
+![Install custom script extension](./media/virtual-machines-linux-extensions-features/installscriptextensionlinux.png)
 
 ### Azure Resource Manager templates
 
