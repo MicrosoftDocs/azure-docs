@@ -116,7 +116,8 @@
 ### [Azure portal](sql-database-configure-firewall-settings.md)
 ### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ### [REST API](sql-database-configure-firewall-settings-rest.md)
-### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)## Scale a single database
+### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)
+## Scale a single database
 ### [Azure CLI](sql-database-monitor-and-scale-database-cli.md)
 ### [PowerShell](sql-database-monitor-and-scale-database-powershell.md)
 ## Scale an elastic pool
