@@ -60,7 +60,7 @@ The solution dashboard enables you to manage the deployed solution. For example,
 
 The dashboard displays the following information:
 
-* A map that displays the location of each device connected to the solution. When you first run the solution, there are four simulated devices. The simulated devices are implemented as Azure WebJobs, and the solution uses the Bing Maps API to plot information on the map. See the [FAQ][lnk-faq] to learn how to make the map dynamic.
+* A map that displays the location of each device connected to the solution. When you first run the solution, there are 25 simulated devices. The simulated devices are implemented as Azure WebJobs, and the solution uses the Bing Maps API to plot information on the map. See the [FAQ][lnk-faq] to learn how to make the map dynamic.
 * A **Telemetry History** panel that plots humidity and temperature telemetry from a selected device in near real time and displays aggregate data such as maximum, minimum, and average humidity.
 * An **Alarm History** panel that shows recent alarm events when a telemetry value has exceeded a threshold. You can define your own alarms in addition to the examples created by the preconfigured solution.
 * A **Jobs** panel that displays information about scheduled jobs. You can schedule your own jobs on **Management jobs** page.
