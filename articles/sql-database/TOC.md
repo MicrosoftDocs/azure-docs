@@ -159,7 +159,6 @@
 ### [PowerShell](sql-database-export-powershell.md)
 ### [SSMS](sql-database-export-ssms.md)
 ### [SQLPackage](sql-database-export-sqlpackage.md)
-## [Move a database](sql-database-troubleshoot-moving-data.md)
 ## Load data
 ### [BCP](sql-database-load-from-csv-with-bcp.md)
 ## [Configure and manage data synchronization](sql-database-get-started-sql-data-sync.md)
