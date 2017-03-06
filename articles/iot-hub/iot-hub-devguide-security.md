@@ -38,10 +38,10 @@ You can grant [permissions](#iot-hub-permissions) in the following ways:
 * **IoT hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
   
   * **iothubowner**: Policy with all permissions.
-  * **service**: Policy with ServiceConnect permission.
-  * **device**: Policy with DeviceConnect permission.
-  * **registryRead**: Policy with RegistryRead permission.
-  * **registryReadWrite**: Policy with RegistryRead and RegistryWrite permissions.
+  * **service**: Policy with **ServiceConnect** permission.
+  * **device**: Policy with **DeviceConnect** permission.
+  * **registryRead**: Policy with **RegistryRead** permission.
+  * **registryReadWrite**: Policy with **RegistryRead** and RegistryWrite permissions.
   * **Per-device security credentials**. Each IoT Hub contains an [identity registry][lnk-identity-registry]. For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
@@ -50,6 +50,9 @@ For example, in a typical IoT solution:
 * The event processor component uses the *service* policy.
 * The run-time device business logic component uses the *service* policy.
 * Individual devices connect using credentials stored in the IoT hub's identity registry.
+
+> [!NOTE]
+> See [permissions](#iot-hub-permissions) for detailed information.
 
 ## Authentication
 Azure IoT Hub grants access to endpoints by verifying a token against the shared access policies and identity registry security credentials.
