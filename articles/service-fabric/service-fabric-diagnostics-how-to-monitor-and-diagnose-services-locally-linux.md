@@ -55,7 +55,11 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
 
 
-This configuration results in logs being collected in a rotating fashion at `/tmp/servicefabric/logs/`. The **%u** and **%g** allow for creating files with filenames mysfapp0.0.log, mysfapp0.1.log, and so on. By default if no handler is explicitly configured, the console handler is registered. One can view the logs in syslog under /var/log/syslog.
+This configuration results in logs being collected in a rotating fashion at `/tmp/servicefabric/logs/`. The log file in this case is named mysfapp%u.%g.log where:
+* **%u** is a unique number to resolve conflicts between simultaneous Java processes.
+* **%g** is the generation number to distinguish between rotating logs.
+
+By default if no handler is explicitly configured, the console handler is registered. One can view the logs in syslog under /var/log/syslog.
 
 For more information, see the [code examples in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
