@@ -139,8 +139,7 @@
 ### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ## [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Configure geo-replication and failover
-### [Azure portal: Configure](sql-database-geo-replication-portal.md)
-### [Azure portal: Failover](sql-database-geo-replication-failover-portal.md)
+### [Azure portal](sql-database-geo-replication-portal.md)
 ### [PowerShell: Single database](sql-database-setup-geodr-and-failover-database-powershell.md)
 ### [PowerShell: Pooled database](sql-database-setup-geodr-and-failover-pool-powershell.md)
 ### [Transact-SQL: Configure](sql-database-geo-replication-transact-sql.md)
