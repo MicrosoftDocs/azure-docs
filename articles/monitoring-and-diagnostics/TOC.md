@@ -37,6 +37,8 @@
 ### [Enable Diagnostic Settings using Resource Manager templates](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## Use the REST API
 ### [Walkthrough using REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Use Azure Diagnostics
+### [Send to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
