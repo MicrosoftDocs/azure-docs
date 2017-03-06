@@ -3,7 +3,7 @@ title: How to use the Microsoft Azure Marketplace Seller Insights Portal | Micro
 description: As a seller on the Azure Marketplace, understand use the Azure Marketplace Seller Insights Portal.
 services: marketplace publishing
 documentationcenter: na
-author: v-dabosl
+author: DavidBosland
 manager: todorb
 editor: v-dabosl
 
@@ -36,12 +36,13 @@ You can log in to the Seller Insights Portal using a personal Microsoft account 
 
 
 ***Welcome to the Seller Insights Portal!***
-1. Once you’ve logged in, you will land on the ‘Summary’ page.
-2. Please take a few moments to read the Privacy Policy.
-3. You can ‘Contact Us’ at any time, via email, with questions you may have relating to the Seller Insights Portal.
-4. You can navigate the Seller Insights Portal using the tabs at the top of the page. Look out for these tabs at the top of the pages in this guide to help orientate you in the Seller Insights Portal.
-5. Click on the smiley at any time to send feedback relating to the Seller Insights Portal.
-6. Click on your name in the top right corner to log out of the Seller Insights Portal at any time.
+
+1. Once you've logged in you will land on the 'Summary' page.
+2. Please take a few minutes to read the Privacy Policy.
+3. You can 'Contact Us' at any time, via email, with questions you may have related to the Seller Insights Portal.
+4. You can navigate the Seller Insights Portal using the tabs at the top of the page.  Look out for the tabs at the top of the pages in this guide to help orient you in the Seller Insights Portal.
+5. Click on the smiley at any time to send feedback related to the Seller Insights Portal.
+6. Click on your name in the top right corner to sign out of the Seller Insights Portal at any time.
 
    ![defaultsigninpage][2]
 
@@ -51,7 +52,7 @@ You can log in to the Seller Insights Portal using a personal Microsoft account 
 
 ***Account and Password Validation***
 
-1. ***Validate that the account you're using is registered and the password does not work.*** If you enter an account that has been registered in the Azure Active Directory, it will automatically prompt you to choose how to login with the account - either a Work or School (Organizational account) or a Personal LiveID account
+1. ***Validate that the account you're using is registered and the password does not work.*** If you enter an account that has been registered in the Azure Active Directory, it will automatically prompt you to choose how to login with the account - either a Work or School (Organizational account) or a Personal LiveID account.
 2. Navigate to https://reports.azure.com and log out of any account you may be logged in with, or open it within a private window to ensure no other accounts are logged in.
 3. Enter the Publisher email address without entering a password. It will redirect to ***Step 4*** if it's been registered in Azure Active Directory (Admin accounts are registered, as are any Organizational accounts setup by the Admin account).
 4. Choose "Work or school account“. Work or school accounts (‘Organizational accounts’) are setup by companies that have registered with Azure; Personal accounts (‘LiveID’) accounts are personal accounts that have been registered with Microsoft.
