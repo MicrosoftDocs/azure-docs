@@ -32,7 +32,7 @@ This article describes how Azure AD Connect can be used to update SSL certificat
 ##Pre-requisites
 
 * **AD FS Farm**: AD FS farm should be 2012R2 or  higher
-* **Azure AD Connect**: Ensure that Azure AD Connect version is 1.1.XXX or newer. You will find the task “Update AD FS SSL certificate”
+* **Azure AD Connect**: Ensure that Azure AD Connect version is 1.1.443.0 or newer. You will find the task “Update AD FS SSL certificate”
 
 ![Update SSL Task](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 
