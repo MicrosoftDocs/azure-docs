@@ -20,8 +20,9 @@ ms.author: jonfan
 ---
 # Exchange EDIFACT messages for enterprise integration with logic apps
 
-Before you can exchange EDIFACT messages, you must create an EDIFACT agreement 
-and store that agreement in your integration account. 
+Before you can exchange EDIFACT messages for Azure Logic Apps, 
+you must create an EDIFACT agreement and 
+store that agreement in your integration account. 
 Here are the steps for how to create an EDIFACT agreement.
 
 > [!NOTE]
@@ -33,9 +34,9 @@ Here are the steps for how to create an EDIFACT agreement.
 Here's the items you need:
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
-defined in your Azure subscription  
+that's already defined and associated with your Azure subscription  
 * At least two [partners](logic-apps-enterprise-integration-partners.md) 
-already defined in your integration account  
+that are already defined in your integration account
 
 > [!NOTE]
 > When you create an agreement, the content in the messages that you 
@@ -142,7 +143,7 @@ messages that conform to your selected settings.
 | UNH2.5 (ASSOCIATED ASSIGNED CODE) |Enter the assigned code. (Maximum, six characters. Must be alphanumeric). |
 | UNG2.1 (APP SENDER ID) |Enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. |
 | UNG2.2 (APP SENDER CODE QUALIFIER) |Enter an alphanumeric value, with a maximum of four characters. |
-| SCHEMA |Select the previously uploaded schema you want to use from your associated Integration Account. |
+| SCHEMA |Select the previously uploaded schema you want to use from your associated integration account. |
 
 ### Control Numbers
 | Property | Description |

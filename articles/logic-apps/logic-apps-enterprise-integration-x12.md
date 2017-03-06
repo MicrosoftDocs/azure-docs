@@ -19,20 +19,30 @@ ms.author: padmavc
 ---
 # Exchange X12 messages for enterprise integration with logic apps
 
-Before you can exchange X12 messages, you must create an X12 agreement 
-and store that agreement in your integration account. 
+Before you can exchange X12 messages for Azure Logic Apps, 
+you must create an X12 agreement and 
+store that agreement in your integration account. 
 Here are the steps for how to create an X12 agreement.
+
+> [!NOTE]
+> This page covers the X12 features for Azure Logic Apps. 
+> For more information, see [EDIFACT](logic-apps-enterprise-integration-edifact.md).
 
 ## Before you start
 
 Here's the items you need:
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
-defined in your Azure subscription  
+that's already defined and associated with your Azure subscription
 * At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) 
-configured with EDI X12 qualifier under business identities.   
-* Required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) for uploading to your 
+that are defined in your integration account and configured with the X12 identifier under **Business Identities**    
+* A required [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) for uploading to your 
 [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+
+After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
+[add partners](logic-apps-enterprise-integration-partners.md), 
+and have a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) that you want to use, 
+you can create an X12 agreement by following these steps.
 
 ## Create an X12 agreement
 

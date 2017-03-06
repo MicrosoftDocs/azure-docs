@@ -1,5 +1,5 @@
 ---
-title: AS2 agreements for enterprise integration - Azure Logic Apps | Microsoft Docs
+title: AS2 messages for enterprise integration - Azure Logic Apps | Microsoft Docs
 description: Exchange AS2 messages for enterprise integration with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -19,10 +19,9 @@ ms.author: mandia
 ---
 # Exchange AS2 messages for enterprise integration with logic apps
 
-To use the enterprise features for Azure Logic Apps, you must first create agreements.
-
-Before you can exchange AS2 messages, you must create an AS2 agreement 
-and store that agreement in your integration account. 
+Before you can exchange AS2 messages for Azure Logic Apps, 
+you must create an AS2 agreement and 
+store that agreement in your integration account. 
 Here are the steps for how to create an AS2 agreement.
 
 ## Before you start
@@ -30,9 +29,9 @@ Here are the steps for how to create an AS2 agreement.
 Here's the items you need:
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
-must be already defined in your Azure subscription  
+that's already defined and associated with your Azure subscription
 * At least two [partners](logic-apps-enterprise-integration-partners.md) 
-must be already defined in your integration account  
+that are already defined in your integration account and configured with the AS2 qualifier under **Business Identities**
 
 > [!NOTE]
 > When you create an agreement, the content in the agreement file must match the agreement type.    
