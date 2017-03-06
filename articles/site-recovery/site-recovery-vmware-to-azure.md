@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 03/05/2017
 ms.author: raynew
 
 ---
@@ -26,11 +26,11 @@ ms.author: raynew
 
 This article describes how to replicate on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
- If your intent is to migrate VMware VMs to Azure, read [this article](site-recovery-migrate-to-azure.md) to learn more before you proceed.
+ If your intent is to migrate VMware VMs to Azure, read [this article](site-recovery-migrate-to-azure.md), to learn more before you proceed.
 
 Post comments and questions at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Steps
+## Deployment summary
 
 Here's what you need to do:
 
@@ -100,6 +100,7 @@ Here's what you need to do:
         ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
     - For Linux, the account should be root on the source Linux server.
 
+## Create a Recovery Services vault
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -107,11 +108,11 @@ Here's what you need to do:
 
 Select what you want to replicate, and where you want to replicate to.
 
-1. Click **Recovery Services vaults** > vault.
-2. In the Resource Menu > click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
+1. Click **Recovery Services vaults** > <vault name>.
+2. In **Getting Started** click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals.png)
-3. In **Protection goal**, select **To Azure**, and select **Yes, with VMware vSphere Hypervisor**.
+3. In **Where do you want to replicate your machines to**, select **To Azure**, and in **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**.
 
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
@@ -119,16 +120,16 @@ Select what you want to replicate, and where you want to replicate to.
 
 Set up the configuration server, register it in the vault, and discover VMs.
 
-1. Click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Source**.
-2. If you don’t have a configuration server, click **+Configuration server**.
+1. In **Step 1: Prepare Infrastructure**, click **Source**.
+2. If you don’t have a configuration server, click **+Configuration Server**.
 
     ![Set up source](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
-4. Download the Site Recovery Unified Setup installation file.
-5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
+4. Download the **Microsoft Azure Site Recovery Unified Setup** installation file.
+5. Download the vault registration key. You need this key when you run Unified Setup. The key is valid for five days after you generate it.
 
    ![Set up source](./media/site-recovery-vmware-to-azure/set-source2.png)
-6. On configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service), and then run Unified Setup to install the configuration server, the process server, and the master target server.
+6. On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-2016-accurate-time), and then run Unified Setup to install the configuration server, the process server, and the master target server.
 
 ## Run Site Recovery Unified Setup
 
@@ -144,7 +145,7 @@ Then run the Unified Setup installation file on the configuration server.
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> The configuration server can be installed via command line. For more information, see [Installing the configuration server using Command-line tools](http://aka.ms/installconfigsrv).
+> The configuration server can be installed via command line. [Learn more](http://aka.ms/installconfigsrv).
 
 ### Add the account for automatic discovery
 
@@ -254,7 +255,7 @@ By default all disks on a machine are replicated. You can exclude disks from rep
     * We recommend that you gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance, and should only be used if machines are running the same workload and you need consistency.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-13. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
+13. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 After you enable replication, the Mobility service will be installed if you set up push installation. After the Mobility service is push installed on a VM, a protection job will start and fail. After the failure you need to manually restart each machine. Then the protection job begins again, and initial replication occurs.
 
@@ -263,7 +264,7 @@ After you enable replication, the Mobility service will be installed if you set 
 
 We recommend that you verify the VM properties, and make any changes you need to.
 
-1. Click **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
+1. Click **Replicated items** >, and select the machine. The **Essentials** blade shows information about machine settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) if you need to.
 4. Modify settings for the target network, subnet, and IP address that will be assigned to the Azure VM:
@@ -288,15 +289,15 @@ We recommend that you verify the VM properties, and make any changes you need to
 After you've set everything up, run a test failover to make sure everything's working as expected.
 
 
-1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
+1. To fail over a single machine, in **Replicated Items**, click the VM > **+Test Failover** icon.
 
     ![Test failover](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
-1. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).  
+1. To fail over a recovery plan, in **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).  
 
 1. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
 
-1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > > **Jobs** > **Site Recovery jobs**.
 
 1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
 

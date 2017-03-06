@@ -1,4 +1,4 @@
-{:allowed-branchname-matches ["master" "release-.*"]
+{:allowed-branchname-matches ["master" "release-.*" "sandbox-.*"]
  :allowed-filename-matches ["articles" "includes"]
 
  :template-header
