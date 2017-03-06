@@ -136,8 +136,6 @@
 #### [Set up device registration](active-directory-azureadjoin-setup.md)
 #### [Register new devices](active-directory-azureadjoin-user-frx.md)
 #### [Deploy](active-directory-azureadjoin-devices-group-policy.md)
-#### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
-#### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 #### [Understand Windows 10 integration](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Use Windows 10 devices](active-directory-azureadjoin-windows10-devices.md)
 #### [Join your device](active-directory-azureadjoin-personal-device.md)
@@ -283,6 +281,9 @@
 #### [FAQs](active-directory-conditional-faqs.md)
 #### [Troubleshoot](active-directory-conditional-access-device-remediation.md)
 #### [Reference](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
+#### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
