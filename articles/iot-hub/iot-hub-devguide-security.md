@@ -370,10 +370,10 @@ The following table lists the permissions you can use to control access to your 
 
 | Permission | Notes |
 | --- | --- |
-| **RegistryRead** |Grants read access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. |
-| **RegistryReadWrite** |Grants read and write access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. |
-| **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. |
-| **DeviceConnect** |Grants access to device-facing endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices. |
+| **RegistryRead** |Grants read access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. <br/>This permission is used by back-end cloud services. |
+| **RegistryReadWrite** |Grants read and write access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. <br/>This permission is used by back-end cloud services. |
+| **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. <br/>Grants permission to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. <br/>Grants permission to retrieve delivery acknowledgements for file uploads. <br/>Grants permission to access device twins to update tags and desired properties, retrieve reported properties, and run queries. <br/>This permission is used by back-end cloud services. |
+| **DeviceConnect** |Grants access to device-facing endpoints. <br/>Grants permission to send device-to-cloud messages and receive cloud-to-device messages. <br/>Grants permission to perform file upload from a device. <br/>Grants permission to receive device twin desired property notifications and update device twin reported properties. <br/>Grants permission to perform file uploads. <br/>This permission is used by devices. |
 
 ## Additional reference material
 Other reference topics in the IoT Hub developer guide include:
