@@ -23,6 +23,8 @@ Azure VPN Gateway enables you to create hybrid solution that address the need fo
 
 With the Azure Network Watcher troubleshoot feature, you are able to diagnose any issues with your Gateway and Connections and within minutes have enough information to make an informed decision to rectify the issue.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Scenario
 
 You want to configure a site-to-site connection between Azure and on-premises using Cisco ASA as the on-premises VPN Gateway. To achieve this scenario, you would require the following setup:
