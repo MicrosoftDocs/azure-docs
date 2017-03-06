@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/04/2017
+ms.date: 03/06/2017
 ms.author: markvi
 
 ---
@@ -58,13 +58,14 @@ The combination of a condition statement with your controls represents a conditi
 ![Control](./media/active-directory-conditional-access-azure-portal/12.png)
 
 
-## Grant controls
+## Controls
 
 In a conditional access policy, controls define what it is that should happen when a condition statement has been satisfied.  
 With controls, you can either block access or allow access with additional requirements.
 When you configure a policy that allows access, you need to select at least one requirement.   
 
-The current implementation of Azure Active Directory, enables you to configure the following requirements:
+### Grant controls
+The current implementation of Azure Active Directory enables you to configure the following grant control requirements:
 
 ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
 
@@ -81,7 +82,9 @@ If you have more than one requirement selected in a conditional access policy, y
 ### Session controls
 Sessions controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
 
-### Use app enforced restrictions
+![Control](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
+
+#### Use app enforced restrictions
 You can use this control to require Azure AD to pass the device information to the cloud app. This helps the cloud app know if the user is coming from a compliant device or domain joined device. This control is currently only supported with SharePoint as the cloud app. SharePoint uses the device information to provide users a limited or full experience depending on the device state.
 To learn more about how to require limited access with SharePoint, go [here](https://aka.ms/spolimitedaccessdocs).
 
