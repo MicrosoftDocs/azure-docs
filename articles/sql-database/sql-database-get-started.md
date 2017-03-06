@@ -31,7 +31,7 @@ Follow these steps to create a database with sample data in a server and a resou
 
 2. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps screen.
 
-3. Fill out the form with the following information. Click **Create** when compolete:
+3. Fill out the form with the required information (the server name must be globally unique). Click **Create** when compolete:
 
       ![create sql database2](./media/sql-database-get-started/create-database2.png)
 
