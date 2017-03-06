@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/05/2017
 ms.author: larryfr
 
 ---
@@ -416,7 +416,7 @@ There are many ways to upload a file to your HDInsight cluster, as described in 
         FindAzure
    
         # Get the login for the HDInsight cluster
-        $creds = Get-Credential
+        $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
    
         # The JAR
         $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"

@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Solutions Guidelines | Microsoft Docs
+title: Storage solutions for Windows VMs in Azure | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying storage solutions in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 
 ---
-# Azure storage infrastructure guidelines
+# Azure storage infrastructure guidelines for Windows VMs
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding storage needs and design considerations for achieving optimum virtual machine (VM) performance.

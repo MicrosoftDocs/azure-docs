@@ -48,7 +48,7 @@ Note the following **important** points about on-demand HDInsight linked service
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [!IMPORTANT]
-> It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
+> It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.
 > 
 > 
 
@@ -170,7 +170,7 @@ If you want to create D4 sized head nodes and worker nodes, you need to specify 
 "dataNodeSize": "Standard_D4",
 ```
 
-If you specify a wrong value for these properties, you may receive the following **error:**    Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the above article.  
+If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the above article.  
 
 ## Bring your own compute environment
 In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory. The computing environment is managed by the user and the Data Factory service uses it to execute the activities.
@@ -179,7 +179,9 @@ This type of configuration is supported for the following compute environments:
 
 * Azure HDInsight
 * Azure Batch
-* Azure Machine Learning.
+* Azure Machine Learning
+* Azure Data Lake Analytics
+* Azure SQL DB, Azure SQL DW, SQL Server
 
 ## Azure HDInsight Linked Service
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
@@ -208,7 +210,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | clusterUri |The URI of the HDInsight cluster. |Yes |
 | username |Specify the name of the user to be used to connect to an existing HDInsight cluster. |Yes |
 | password |Specify password for the user account. |Yes |
-| linkedServiceName |Name of the linked service for the Azure Blob Storage / Azure Data Lake Store used by this HDInsight cluster. |Yes |
+| linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Store linked service for this property. You may access data in the Azure Data Lake Store from Hive/Pig scripts if the HDInsight cluster has access to the Data Lake Store. </p>  |Yes |
 
 ## Azure Batch Linked Service
 You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory. You can run .NET custom activities using either Azure Batch or Azure HDInsight.

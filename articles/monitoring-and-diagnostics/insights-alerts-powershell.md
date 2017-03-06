@@ -1,8 +1,8 @@
 ---
-title: Use PowerShell to create alerts for Azure services | Microsoft Docs
-description: Use PowerShell to create Azure alerts, which can trigger notifications or automation when the conditions you specify are met.
+title: Create alerts for Azure services - PowerShell | Microsoft Docs
+description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -17,7 +17,7 @@ ms.date: 10/20/2016
 ms.author: robb
 
 ---
-# Use PowerShell to create alerts for Azure services
+# Create alerts in Azure Monitor for Azure services - Cross-platform CLI 
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)

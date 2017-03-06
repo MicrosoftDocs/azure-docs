@@ -1,6 +1,6 @@
 ---
 
-title: Use a Linux troubleshooting VM in the portal | Microsoft Docs
+title: Use a Linux troubleshooting VM in the Azure portal | Microsoft Docs
 description: Learn how to troubleshoot Linux virtual machine issues by connecting the OS disk to a recovery VM using the Azure portal
 services: virtual-machines-linux
 documentationCenter: ''

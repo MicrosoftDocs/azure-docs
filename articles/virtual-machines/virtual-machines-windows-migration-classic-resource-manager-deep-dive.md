@@ -1,6 +1,6 @@
 ---
-title: How Azure migrates resources from classic to Azure Resource Manager| Microsoft Docs
-description: Describes how Azure resources are migrated from classic to the Azure Resource Manager deployment model.
+title: Migration between deployment models for Windows VMs in Azure| Microsoft Docs
+description: This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays

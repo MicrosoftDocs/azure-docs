@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/03/2017
 ms.author: awills
 
 ---
@@ -160,23 +160,9 @@ If you edit a blade but then you'd like to get back to the original saved set, j
 
 ![In the buttons at the top of Metric Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
-<a name="live-metrics-stream"></a>
+## Live metrics stream
 
-## Live Metrics Stream: instant metrics for close monitoring
-Live Metrics Stream shows you your application metrics right at this very moment, with a near real time latency of 1 second. This is extremely useful when you’re releasing a new build and want to make sure that everything is working as expected, or investigating an incident in real time.
-
-![In the Overview blade, click Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
-
-Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
-
-### Live failures
-
-If any failures or exceptions are logged, Live Stream picks out a sample of them. Click **Pause** to hold a specific sample, and select an event to show its details.
-
-![Sampled live failures](./media/app-insights-metrics-explorer/live-stream-failures.png)
-
-
-Live Metrics Stream is available with the latest version of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
+For a much more immediate view of your telemetry, open [Live Stream](app-insights-live-stream.md). Most metrics take a few minutes to appear, because of the process of aggregation. By contrast, live metrics are optimized for low latency. 
 
 ## Set alerts
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.

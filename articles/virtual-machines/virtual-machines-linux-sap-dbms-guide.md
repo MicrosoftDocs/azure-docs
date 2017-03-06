@@ -1,5 +1,5 @@
 ---
-title: SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide | Microsoft Docs
+title: SAP NetWeaver on Linux VMs in Azure - DBMS Deployment | Microsoft Docs
 description: SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,9 +17,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
+ms.custom: H1Hack27Feb2017
 
 ---
-# SAP NetWeaver on Azure Virtual Machines (VMs) – DBMS Deployment Guide
+# SAP NetWeaver on Azure Linux Virtual Machines (VMs) – DBMS Deployment Guide
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037

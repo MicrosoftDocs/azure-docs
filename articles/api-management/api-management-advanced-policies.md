@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: apipm
+ms.author: apimpm
 ---
 # API Management advanced policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -333,7 +333,7 @@ This topic provides a reference for the following API Management policies. For i
 ```xml  
   
 <retry  
-    condition="@{context.Response.StatusCode == 500}"  
+    condition="@(context.Response.StatusCode == 500)"  
     count="10"  
     interval="10"  
     max-interval="100"  

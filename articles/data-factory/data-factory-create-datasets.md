@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 1/30/2017
 ms.author: shlo
 
 ---
@@ -211,7 +211,7 @@ If you need dataset on monthly basis on specific date and time (suppose on 3rd o
     "availability": {
       "frequency": "Month",
       "interval": 1,
-      "offset": "3.08:10:00",
+      "offset": "3.08:00:00",
       "style": "StartOfInterval"
     }
   }

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 
 ---
@@ -24,12 +24,12 @@ When any attributes of a user change, the system evaluates all dynamic group rul
 
 > [!NOTE]
 > You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships aren't currently supported for group-based assignment to applications.
-> 
+>
 > Dynamic memberships for groups require an Azure AD Premium license to be assigned to
-> 
+>
 > * The administrator who manages the rule on a group
 > * All members of the group
-> 
+>
 
 ## To create the advanced rule
 1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
@@ -55,18 +55,18 @@ Note that the property must be prefixed with the correct object type: user or de
 The below rule will fail the validation:
 mail –ne null
 
-The correct rule would be: 
+The correct rule would be:
 
 user.mail –ne null
 
 The total length of the body of your advanced rule cannot exceed 2048 characters.
 
 > [!NOTE]
-> String and regex operations are case insensitive. 
+> String and regex operations are case insensitive.
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
 > Only use quotes for string type values, and only use English quotes.
-> 
-> 
+>
+>
 
 ## Supported expression rule operators
 The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
@@ -90,15 +90,15 @@ All Operators are listed below per precedence from lower to higher, operator in 
 -and
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
- 
+
 All operators can be used with or without hyphen prefix.
 
 Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements
 For example:
 
-   user.department –eq "Marketing" –and user.country –eq "US" 
-   
-is equivalent to: 
+   user.department –eq "Marketing" –and user.country –eq "US"
+
+is equivalent to:
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
 
@@ -178,9 +178,9 @@ Allowed operators
 
 ## Use of Null values
 
-To specify a null value in a rule, you can use "null" or $null. Example: 
+To specify a null value in a rule, you can use "null" or $null. Example:
 
-   user.mail –ne null 
+   user.mail –ne null
 is equivalent to
    user.mail –ne $null
 
@@ -204,7 +204,7 @@ The custom attribute name can be found in the directory by querying a user's att
 To include a multi-value property in a rule, use the "-any" operator, as in
 
   user.assignedPlans -any assignedPlan.service -startsWith "SCO"
-  
+
 ## Direct Reports Rule
 You can populate members in a group based on the manager attribute of a user.
 
@@ -214,11 +214,11 @@ You can populate members in a group based on the manager attribute of a user.
 2. Select the **Groups** tab, and then open the group you want to edit.
 3. Select the **Configure** tab, and then select **ADVANCED RULE**.
 4. Type the rule with the following syntax:
-   
+
     Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
 5. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
 
@@ -246,10 +246,10 @@ You can also create a rule that selects device objects for membership in a group
 
 > [!NOTE]
 > These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
-> 
-> 
+>
+>
 
-## Additional information
+## Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [Troubleshooting dynamic memberships for groups](active-directory-accessmanagement-troubleshooting.md)
@@ -257,4 +257,3 @@ These articles provide additional information on Azure Active Directory.
 * [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

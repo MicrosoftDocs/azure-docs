@@ -117,7 +117,7 @@ INVESTIGATE
 
 * [**Application map**](app-insights-app-map.md) - Active map showing the components of your application, derived from the dependency information.
 * [**Smart Detection**](app-insights-proactive-diagnostics.md) - Review recent performance alerts.
-* [**Live Stream**](app-insights-metrics-explorer.md#live-metrics-stream) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
+* [**Live Stream**](app-insights-live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
 * [**Availability / Web tests**](app-insights-monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
 * [**Failures, Performance**](app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](app-insights-asp-net-dependencies.md).
 * [**Performance**](app-insights-web-monitor-performance.md) - Response time, dependency response times.

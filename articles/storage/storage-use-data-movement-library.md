@@ -3,7 +3,7 @@ title: Transfer Data with the Microsoft Azure Storage Data Movement Library | Mi
 description: Use the Data Movement Library to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
 documentationcenter: ''
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/07/2017
 ms.author: micurd
 
 ---

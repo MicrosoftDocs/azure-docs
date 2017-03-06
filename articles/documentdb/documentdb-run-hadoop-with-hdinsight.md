@@ -27,7 +27,7 @@ After completing this tutorial, you'll be able to answer the following questions
 
 We recommend getting started by watching the following video, where we run through a Hive job using DocumentDB and HDInsight.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
 >
 >
 

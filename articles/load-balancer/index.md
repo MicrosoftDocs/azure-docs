@@ -1,7 +1,19 @@
 ---
-layout: LandingPage
+title: Azure Load Balancer Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Load Balancer for network performance of apps. Manage traffic for virtual machines and cloud resources, and in cross-premises virtual networks.
+services: load-balancer
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: load-balancer
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #Load Balancer Documentation
 
 Learn how to configure Load Balancer to deliver high availability and network performance to your applications. Documentation shows you how to load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.

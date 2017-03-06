@@ -1,9 +1,8 @@
-
 ---
-title: Managing Media Services Entities with REST API | Microsoft Docs
+title: Managing Media Services entities with REST  | Microsoft Docs
 description: Learn how to manage Media Services entities with REST API.
 author: juliako
-manager: dwrede
+manager: erikre
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/09/2017
 ms.author: juliako
 
 ---
-# Managing Media Services Entities with REST API
+# Managing Media Services entities with REST 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
@@ -27,15 +26,17 @@ ms.author: juliako
 
 Microsoft Azure Media Services is a REST-based service built on OData v3. Because of this, you can add, query, update, and delete entities in much the same way as you can on any other OData service. Exceptions will be called out when applicable. For more information on OData, see [Open Data Protocol documentation](http://www.odata.org/documentation/).
 
-* Adding entities 
-* Querying entities 
-* Enumerating through large collections of entities
-* Updating entities 
-* Deleting entities 
+This topic shows you how to manage Azure Media Services entities with REST.
+
+
+>[!NOTE]
+> Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. If you need to archive the job/task information, you can use the code described in this topic.
+
+## Considerations when working with AMS REST
+
+When working with the Media Services REST API, the following considerations apply:
 
 > [!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
-> 
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 > 
 > After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md). 

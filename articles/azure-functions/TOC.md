@@ -13,8 +13,8 @@
 ## Develop
 ### [Develop function apps](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Work with triggers and bindings](functions-triggers-bindings.md)
 #### [DocumentDB bindings](functions-bindings-documentdb.md)
 #### [Event Hub bindings](functions-bindings-event-hubs.md)

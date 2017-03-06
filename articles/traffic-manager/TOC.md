@@ -16,15 +16,15 @@
 # How To
 ## [Configure a routing method](traffic-manager-configure-routing-method.md)
 ## [Test your settings](traffic-manager-testing-settings.md)
+## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
+## [Use network resources](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 ## Troubleshoot
 ### [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
-## [Combining load balancing services](traffic-manager-load-balancing-azure.md)
-## [Use network resources](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
 ## [PowerShell (classic)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
-## [Azure CLI 2.0 preview](/cli/azure/network/traffic-manager)
+## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)

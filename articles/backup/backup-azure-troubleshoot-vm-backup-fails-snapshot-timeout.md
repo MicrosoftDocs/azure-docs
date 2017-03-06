@@ -4,7 +4,7 @@ description: 'Symptoms, causes, and resolutions of Azure Backup failures related
 services: backup
 documentationcenter: ''
 author: genlin
-manager: cfreeman
+manager: cshepard
 editor: ''
 
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: jimpark; markgal; genli
+ms.date: 02/07/2017
+ms.author: genli;markgal;
 ---
 
 # Troubleshoot Azure Backup failure: Snapshot VM sub task timed out

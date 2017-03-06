@@ -3,7 +3,7 @@ title: Azure SQL Database Resource Limits | Microsoft Docs
 description: This page describes some common resource limits for Azure SQL Database.
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: janeng
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/11/2017
-ms.author: carlrab; janeng
+ms.date: 02/24/2017
+ms.author: janeng
 
 ---
 # Azure SQL Database resource limits
@@ -35,9 +35,9 @@ Monitor the resource utilization and the average response times of queries when 
 3. Optimize queries to reduce the resource utilization of each query. For more information, see the Query Tuning/Hinting section in the Azure SQL Database Performance Guidance article.
 
 ## Enforcement of limits
-Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying new requests when limits are reached. Clients receive an [error message](sql-database-develop-error-messages.md) depending on the limit that has been reached.
+Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying new requests when limits are reached. When a database reaches the configured maximum size limit, inserts and updates that increase data size fail, while selects and deletes continue to work. Clients receive an [error message](sql-database-develop-error-messages.md) depending on the limit that has been reached.
 
-For example, the number of connections to a SQL database as well as the number of concurrent requests that can be processed are restricted. SQL Database allows the number of connections to the database to be greater than the number of concurrent requests to support connection pooling. While the number of connections that are available can easily be controlled by the application, the number of parallel requests is often times harder to estimate and to control. Especially during peak loads when the application either sends too many requests or the database reaches its resource limits and starts piling up worker threads due to longer running queries, errors can be encountered.
+For example, the number of connections to a SQL database and the number of concurrent requests that can be processed are restricted. SQL Database allows the number of connections to the database to be greater than the number of concurrent requests to support connection pooling. While the number of connections that are available can easily be controlled by the application, the number of parallel requests is often times harder to estimate and to control. Especially during peak loads when the application either sends too many requests or the database reaches its resource limits and starts piling up worker threads due to longer running queries, errors can be encountered.
 
 ## Service tiers and performance levels
 There are service tiers and performance levels for both single database and elastic pools.
@@ -58,11 +58,11 @@ For an expanded definition of each resource listed in the previous tables, see t
 | Area | Limit | Description |
 | --- | --- | --- |
 | Databases using Automated export per subscription |10 |Automated export allows you to create a custom schedule for backing up your SQL databases. The preview of this feature will end on March 1, 2017.  |
-| Database per server |Up to 5000 |Up to 5000 databases are allowed per server on V12 servers. |
-| DTUs per server |45000 |45000 DTUs are available per server on V12 servers for provisioning databases, elastic pools, and data warehouses. |
+| Databases per server |Up to 5000 |Up to 5000 databases are allowed per server on V12 servers. |
+| DTUs per server |45000 |45000 DTUs are allowed per server on V12 servers for provisioning standalone databases and elastic pools. The total number of standalone databases and pools allowed per server is limited only by the number of server DTUs.  
 
 > [!IMPORTANT]
-> Azure SQL Database Automated Export is now in preview and will be retired on March 1, 2017. Starting December 1st, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1, 2017. After December 1, 2016, you can use [long-term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> Azure SQL Database Automated Export is now in preview and will be retired on March 1, 2017. Starting December 1st, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1st, 2017. After December 1st, 2016, you can use [long-term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
 >
 
 

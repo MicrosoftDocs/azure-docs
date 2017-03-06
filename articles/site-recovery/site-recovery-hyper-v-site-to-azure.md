@@ -1,6 +1,6 @@
 ---
-title: Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal | Microsoft Docs
-description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises Hyper-V VMs that aren't managed by VMM to Azure using the Azure portal
+title: Replicate Hyper-V VMs to Azure  | Microsoft Docs
+description: Describes how to orchestrate replication, failover and recovery of on-premises Hyper-V VMs to Azure
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,60 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 03/05/2017
 ms.author: raynew
 ---
 
 # Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
-> * [Azure Classic](site-recovery-hyper-v-site-to-azure-classic.md)
+> * [Azure portal](site-recovery-hyper-v-site-to-azure.md)
+> * [Azure classic](site-recovery-hyper-v-site-to-azure-classic.md)
 > * [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 >
 >
 
-Welcome to Azure Site Recovery service!
+This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using [Azure Site Recovery[](site-recovery-overview.md) in the Azure portal.
 
-Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy. Site Recovery orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Site Recovery?](site-recovery-overview.md)
-
-This article describes how to replicate, or migrate, on-premises Hyper-V virtual machines to Azure, using Azure Site Recovery in the Azure portal. In this scenario, Hyper-V servers are not managed in VMM clouds. Deploy replication to fail VMs over to Azure when your primary site isn't available, and fail them back to on-premises from Azure when the primary site returns to normal operations. To migrate VMs to Azure (without failing back), you complete the steps in this article. Then, after running a successful test failover, you can perform a planned failover to complete the migration.
-
+You replicate Hyper-V VMs to Azure storage, and fail VMs over to Azure if your primary site becomes unavailable. You can access workloads in Azure, and fail back to the on-premises when it returns to normal operations. You can also use the instructions in this article to migrate VMs to Azure. In a migration scenario, you replicate and fail over VMs, but you don't fail them back again.
 
 After reading this article, post any comments at the bottom, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## Quick reference
-
-For a full deployment, we strongly recommend you follow all the steps in the article. But if you're short of time, here's a quick summary.
- 
- **Area** | **Details**
- --- | --- 
- **Deployment scenario** | Replicate Hyper-V VMs (not in VMM clouds) to Azure, using the Azure portal 
- **On-premises requirements** | One or more Hyper-V server, running at least Windows Server 2012 R2 with the latest updates and the Hyper-V role enabled, or running Microsoft Hyper-V Server 2012 R2, with the latest updates.<br/><br/> Hyper-V hosts need internet access, and need to be able to access specific URLs directly, or via a proxy. [Full details](#on-premises-prerequisites). 
- **On-premises limitations** | HTTPS-based proxy isn't supported
- **Provider/agent** | The Azure Site Recovery Provider and the Recovery Services agent are install on Hyper-V hosts during deployment. 
- **Azure requirements** | Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). 
- **Azure limitations** | If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups in the same, or different, subscriptions. <br/><br/> Premium storage isn't supported.<br/><br/> Azure networks used for Site Recovery can't be moved across resource groups in the same, or different, subscriptions. 
- **VM replication** | VMs must comply with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> 
- **Replication limitations** | You can't replicate Hyper-V VMs running Linux with a static IP address.<br/><br/> You can exclude specific disks from replication, but not OS disk.
- **Deployment steps** | **1)** Create a Recovery Services vault -> **2)** Create a Hyper-V site that includes all Hyper-V hosts -> **3)** Set up Hyper-V hosts -> **4**) Prepare Azure (subscription, storage, network) -> **5)** Configure replication settings -> **6)** Enable replication -> **7)** Test replication and failover. **8)** If you're doing a migration, run a planned failover. 
-
-## Azure deployment models
-
-Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources: the Azure Resource Manager mode, and the classic model. Azure also has two portals – the [Azure classic portal](https://manage.windowsazure.com/) that supports the classic deployment model, and the [Azure portal](https://ms.portal.azure.com/) with support for both deployment models.
-
- This article describes how to deploy in the Azure portal, which provides a more streamlined deployment experience. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal.
-
-## Site Recovery in your business
-
-Organizations need a BCDR strategy that determines how apps and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Here's what Site Recovery can do:
- 
- - Offsite protection for business apps running on Hyper-V VMs.
- - A single location to set up, manage, and monitor replication, failover, and recovery.
- - Simple failover to Azure, and failback (restore) from Azure to Hyper-V host servers in your on-premises site.
- - Recovery plans that include multiple VMs, so that tiered application workloads fail over together.
-
-
-
 
 
 ## Scenario architecture
@@ -98,7 +61,7 @@ Here's what you need on-premises.
 ## Virtual machine prerequisites
 | **Prerequisite** | **Details** |
 | --- | --- |
-| **Protected VMs** |Before you fail over a VM you'll need to make sure that the name that will be assigned to the Azure VM complies with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements). You can modify the name after you've enabled replication for the VM.<br/><br/> Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 64 disks (thus up to 64 TB).<br/><br/> Shared disk guest clusters aren't supported.<br/><br/> If the source VM has NIC teaming it’s converted to a single NIC after failover to Azure.<br/><br/>Protecting VMs running Linux with a static IP address isn't supported. |
+| **Protected VMs** |Before you fail over a VM you'll need to make sure that the name that will be assigned to the Azure VM complies with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). You can modify the name after you've enabled replication for the VM.<br/><br/> Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 64 disks (thus up to 64 TB).<br/><br/> Shared disk guest clusters aren't supported.<br/><br/> If the source VM has NIC teaming it’s converted to a single NIC after failover to Azure.<br/><br/>Protecting VMs running Linux with a static IP address isn't supported. |
 
 ## Prepare for deployment
 To prepare for deployment you need to:
@@ -154,8 +117,8 @@ Begin Getting Started by choosing how you want to deploy Site Recovery. The Gett
 ## Step 1: Choose your protection goals
 Select what you want to replicate and where you want to replicate to.
 
-1. In the **Recovery Services vaults** blade select your vault and click **Settings**.
-2. In **Settings** > **Getting Started** click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
+1. In the **Recovery Services vaults**, select the vault.
+2. In **Getting Started**, click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png)
 3. In **Protection goal** select **To Azure**, and select **Yes, with Hyper-V**. Select **No** to confirm you're not using VMM. Then click **OK**.
@@ -177,7 +140,7 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 6. Download the registration key. You'll need this when you run setup. The key is valid for 5 days after you generate it.
 
     ![Set up source](./media/site-recovery-hyper-v-site-to-azure/set-source3.png)
-7. Run the Provider setup file on each host you added to the Hyper-V site. If you're installing on a Hyper-V cluster, run setup on each cluster node. Installing and registering each Hyper-V Cluster nodes ensures that virtual machines remain protected even if they migrate across nodes.
+7. Run the Provider setup file on each host you added to the Hyper-V site. If you're installing on a Hyper-V cluster, run setup on each cluster node. Installing and registering each Hyper-V cluster node ensures that virtual machines remain protected, even if they migrate across nodes.
 
 ### Install the Provider and agent
 1. Run the Provider setup file.
@@ -187,21 +150,21 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 
     ![Server registration](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-5.In **Proxy Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
+5. In **Proxy Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
 
-* If you want the Provider to connect directly select **Connect directly without a proxy**.
-* If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
-* If your existing proxy requires authentication, or you want to use a custom proxy for the Provider connection select **Connect with custom proxy settings**.
-* If you  use a custom proxy you'll need to specify the address, port, and credentials
-* If you're using a proxy make sure the URLs described in the [prerequisites](#on-premises-prerequisites) are allowed through it.
+	* If you want the Provider to connect directly select **Connect directly without a proxy**.
+	* If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
+	* If your existing proxy requires authentication, or you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
+	* If you use a custom proxy, you need to specify the address, port, and credentials
+	* If you use a proxy, make sure the URLs described in the [prerequisites](#on-premises-prerequisites) are allowed through it.
 
     ![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-6.After installation finishes click **Register** to register the server in the vault.
+6. After installation finishes click **Register** to register the server in the vault.
 
-![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+	![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-7.After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
+7. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
 
 ### Command line installation
 The Azure Site Recovery Provider and agent can also be installed using the following command line. This method can be used to install the provider on a Server Core for Windows Server 2012 R2.
@@ -222,12 +185,12 @@ The Azure Site Recovery Provider and agent can also be installed using the follo
 <br/>
 Where:
 
-* **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
-* **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
-* **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
+* **/Credentials**: Mandatory parameter that specifies the location in which the registration key file is located  
+* **/FriendlyName**: Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
+* **/proxyAddress**: Optional parameter that specifies the address of the proxy server.
 * **/proxyport** : Optional parameter that specifies the port of the proxy server.
-* **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
-* **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
+* **/proxyUsername**: Optional parameter that specifies the Proxy user name (if proxy requires authentication).
+* **/proxyPassword**: Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
 
 ## Step 3: Set up the target environment
 
@@ -237,7 +200,7 @@ Specify the Azure storage account to be used for replication, and the Azure netw
 
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-  	![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png))
+  	![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 
 
 4. If you haven't created a storage account and you want to create one using Resource Manager click **+Storage** account to do that inline. On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
@@ -266,12 +229,12 @@ If you want to create a network using the classic model you’ll do that [in the
 
     ![Replication policy](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
 
-When you create a new policy it's automatically associated with the Hyper-V site. Click **OK**. You can associate a Hyper-V site (and the VMs in it) with multiple replication policies in **Settings** > **Replication** > policy name > **Associate Hyper-V Site**.
+When you create a new policy it's automatically associated with the Hyper-V site. Click **OK**. You can associate a Hyper-V site (and the VMs in it) with multiple replication policies in **Replication** > policy name > **Associate Hyper-V Site**.
 
 ## Step 5: Capacity planning
 Now that you have your basic infrastructure set up you can think about capacity planning and figure out whether you need additional resources.
 
-Site Recovery provides a capacity planner to help you allocate the right resources for your source environment, the site recovery components, networking and storage. You can run the planner in quick mode for estimations based on an average number of VMs, disks, and storage, or in detailed mode in which you’ll input figures at the workload level. Before you start you’ll need to:
+Site Recovery provides a capacity planner to help you allocate the right resources for your source environment, Site Recovery components, networking, and storage. You can run the planner in quick mode for estimations based on an average number of VMs, disks, and storage, or in detailed mode in which you’ll input figures at the workload level. Before you start you’ll need to:
 
 * Gather information about your replication environment, including VMs, disks per VMs, and storage per disk.
 * Estimate the daily change (churn) rate you’ll have for replicated data. You can use the [Capacity Planner for Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057) to help you do this.
@@ -284,7 +247,7 @@ Site Recovery provides a capacity planner to help you allocate the right resourc
 ### Network bandwidth considerations
 You can use the capacity planner tool to calculate the bandwidth you need for replication (initial replication and then delta). To control the amount of bandwidth use for replication you have a few options:
 
-* **Throttle bandwidth**: Hyper-V traffic that replicates to Azure goes through a specific Hyper-V  host. You can throttle bandwidth on the host server.
+* **Throttle bandwidth**: Hyper-V traffic that replicates to Azure goes through a specific Hyper-V host. You can throttle bandwidth on the host server.
 * **Tweak bandwidth**: You can influence the bandwidth used for replication using a couple of registry keys.
 
 #### Throttle bandwidth
@@ -318,35 +281,35 @@ Now enable replication as follows:
 3. In **Target** select the vault subscription, and the failover model you want to use in Azure (classic or resource management) after failover.
 4. Select the storage account you want to use. If you want to use a different storage account than those you have you can [create one](#set-up-an-azure-storage-account). To create a storage account using the Resource Manager model click **Create new**. If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md). Then click **OK**.
 5. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you want to use a different network from those you have you can [create one](#set-up-an-azure-network). To create a network using the Resource Manager model click **Create new**.If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
-   ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png) 
+   ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png)
 
 6. In **Virtual Machines** > **Select virtual machines** click and select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
 
     ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication5-for-exclude-disk.png)
-7. In **Properties** > **Configure properties**, select the operating system for the selected VMs, and the OS disk. By default all the disks of the VM are selected for replication. You might want to exclude disk(s) from replication to reduce the bandwidth consumption of replicating unnecessary data to Azure. For example you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or Microsoft SQL Server tempdb). You can exclude the disk from replication by unselecting the disk. Verify that the Azure VM name (Target Name) complies with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) and modify it if you need to. Then click **OK**. You can set additional properties later.
+7. In **Properties** > **Configure properties**, select the operating system for the selected VMs, and the OS disk. By default all the disks of the VM are selected for replication. You might want to exclude disk(s) from replication to reduce the bandwidth consumption of replicating unnecessary data to Azure. For example you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or Microsoft SQL Server tempdb). You can exclude the disk from replication by unselecting the disk. Verify that the Azure VM name (Target Name) complies with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) and modify it if you need to. Then click **OK**. You can set additional properties later.
 
  	![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
 
 	 > [!NOTE]
-	 > 
-	 > * Only basic disks can be excluded from replication. You can't exclude OS disk and it is not recommend to exclude dynamic disks. ASR cannot identify which VHD disk is basic or dynamic disk inside the guest VM.  If all the dependent dynamic volume disks are not excluded, protected dynamic disk will come as a failed disk on failover VM and the data on that disk cannot be accessible.	
-	> * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you'll need to disable protection for the VM and then reenable it.
-	> * If you exclude a disk that's needed for an application to operate, after failover to Azure you’ll need to create it manually in Azure so that the replicated application can run. Alternatively, you could integrate Azure 
+	 >
+	 > * Only basic disks can be excluded from replication. You can't exclude OS disks, and we don't recommend that you exclude dynamic disks. Site Recovery can't identify whether a VHD disk is basic or dynamic, inside the guest VM.  If all dependent dynamic volume disks aren't excluded, the protected dynamic disk will show as a failed disk when the VM fails over, and the data on that disk won't be accessible.
+	> * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the VM and then reenable it.
+	> * If you exclude a disk that's needed for an application to operate, after failover to Azure you need to create it manually in Azure, so that the replicated application can run. Alternatively, you could integrate Azure
 	> * automation into a recovery plan to create the disk during failover of the machine.
-	> * Disks you create manually in Azure will be not be  failed back. For example, if you failover three disks and create two directly in Azure VM, only three disks which were failed over will be failed back from Azure to Hyper-V. You can't include disks created manually in failback or in reverse replication from Hyper-V to Azure.
+	> * Disks you create manually in Azure are not failed back. For example, if you fail over three disks, and create two directly in Azure VM, only the three disks which were failed over will be failed back from Azure to Hyper-V. You can't include disks created manually in failback, or in reverse replication from Hyper-V to Azure.
 	>
 	>   	
 
-8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Settings** > **Replication policies** > policy name > **Edit Settings**. Changes you apply will be used for machines that are already replicating, and new machines.
+8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Replication policies** > policy name > **Edit Settings**. Changes you apply will be used for machines that are already replicating, and new machines.
 
    ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
 
-You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
+You can track progress of the **Enable Protection** job in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 ### View and manage VM properties
 We recommend that you verify the properties of the source machine.
 
-1. Click **Settings** > **Protected Items** > **Replicated Items** > and select the machine.
+1. In **Protected Items**, click **Replicated Items**, and select the machine.
 
     ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/test-failover1.png)
 2. In **Properties** you can view replication and failover information for the VM.
@@ -370,7 +333,7 @@ We recommend that you verify the properties of the source machine.
 
 
 ### Prepare to connect to Azure VMs after failover
-If you want to connect to Azure VMs using RDP after failover, make sure you do the following: 
+If you want to connect to Azure VMs using RDP after failover, make sure you do the following:
 
 **On the on-premises machine before failover**:
 
@@ -402,15 +365,13 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 ## Step 7: Run a test failover
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
 
-1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
-
-    ![Test failover](./media/site-recovery-vmware-to-azure/test-failover1.png)
-1. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
-1. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
-1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
-1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
-1. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
-1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
+1. To fail over a single machine, in **Replicated Items**, click the VM > **+Test Failover** icon.
+2. To fail over a recovery plan, in **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
+3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
+4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Jobs** > **Site Recovery jobs**.
+5. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+6. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
+7. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover.
 
 For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 
@@ -420,7 +381,7 @@ After initial replication is complete for  your machines, you can invoke failove
 [Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
 
 > [!NOTE]
-> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
+> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
 
 
 ### Run a planned Failover
@@ -428,7 +389,7 @@ This should be chosen to meet compliance requirements or during planned maintena
 
 1. Select **Recovery Plans > recoveryplan_name**.
 2. On the Recovery plan blade, Click **Planned Failover**.
-3. On the **Confirm Planned Failover **page, choose the source and target locations. 
+3. On the **Confirm Planned Failover **page, choose the source and target locations.
 4. When a planned failover begins the first step is to shut down the virtual machines to ensure no data loss. You can follow the failover progress on the **Jobs** tab. If an error occurs in the failover (either on a virtual machine or in a script that is included in the recovery plan), the planned failover of a recovery plan stops. You can initiate the failover again.
 6. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover.
 7. After replication is complete, the virtual machines start up at the secondary location.
@@ -443,19 +404,19 @@ This should be chosen when a primary site becomes inaccessible because of an une
 4. Select **Shut down virtual machines and synchronize the latest data** to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over.
 5. After the failover, the virtual machines are in a commit pending state.  Click **Commit** to commit the failover.
 
-[Learn more](site-recovery-failover.md#run-an-unplanned-failover)
+[Learn more](site-recovery-failover.md)
 
 ## Complete migration of your virtual machines to Azure
 > [!NOTE]
-> The following steps apply only if you are migrating virtual machines to Azure
+> The following steps apply only if you are migrating virtual machines to Azure.
 >
 >
 
 1. Perform planned failover as mentioned [here](site-recovery-failover.md)
-2. In **Settings > Replicated items**, right-click the virtual machine and select **Complete Migration**
+2. In **Replicated items**, right-click the virtual machine and select **Complete Migration**
 
-    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
-3. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Settings > Site Recovery jobs**.
+    ![Complete migration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
+3. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Site Recovery jobs**.
 
 ## Monitor your deployment
 Here's how you can monitor the configuration settings, status, and health for your Site Recovery deployment:
@@ -464,4 +425,4 @@ Here's how you can monitor the configuration settings, status, and health for yo
 
     ![Essentials](./media/site-recovery-hyper-v-site-to-azure/essentials.png)
 2. In the **Health** tile you can monitor site servers that are experiencing issue, and the events raised by Site Recovery in the last 24 hours.
-3. You can manage and monitor replication in the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles. You can drill into jobs in **Settings** -> **Jobs** -> **Site Recovery Jobs**.
+3. You can manage and monitor replication in the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles. You can drill into jobs for more details in **Jobs** > **Site Recovery Jobs**.

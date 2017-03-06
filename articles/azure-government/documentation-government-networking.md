@@ -1,15 +1,14 @@
 ---
 title: Azure Governmenmt Networking | Microsoft Docs
 description: This provides a comparison of features and guidance for private connectivity to e Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: jawalte
 manager: zakramer
-editor: ''
 
 ms.assetid: 3da70579-ecda-421a-8ebf-d52906334e9b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

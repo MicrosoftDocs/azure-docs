@@ -1,5 +1,5 @@
 ---
-title: Virtual machine extensions and features for Windows | Microsoft Docs
+title: Virtual machine extensions and features for Windows in Azure | Microsoft Docs
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 
 ---
-# Virtual machine extensions and features for Windows
+# Virtual machine extensions and features for Windows 
 
 Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run by using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment or run against any existing system.
 
@@ -44,7 +45,7 @@ Each virtual machine extension may have its own set of prerequisites. For instan
 ### Azure VM agent
 The Azure VM agent manages interaction between an Azure virtual machine and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images and can be installed on supported operating systems.
 
-For information on supported operating systems and installation instructions, see [Azure virtual machine agent](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For information on supported operating systems and installation instructions, see [Azure virtual machine agent](virtual-machines-windows-agent-user-guide.md).
 
 ## Discover VM extensions
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure Resource Manager PowerShell module. Make sure to specify the desired location when you're running this command.

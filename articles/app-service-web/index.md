@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Web Apps Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and more.
+services: app-service
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Azure Web Apps Documentation
 

@@ -15,7 +15,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "01/10/2016"
+ms.date: "01/10/2017"
 ms.author: mikeray
 
 ---
@@ -52,7 +52,8 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
-## <a name="CreateCluster"></a>Create the cluster
+<a name="CreateCluster"></a>
+## Create the cluster
 
 After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.  
 

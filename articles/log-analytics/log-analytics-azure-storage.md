@@ -1,5 +1,5 @@
 ---
-title: Collecting logs and metrics for Azure services in Log Analytics | Microsoft Docs
+title: Collect Azure service logs and metrics for Log Analytics | Microsoft Docs
 description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Collecting logs and metrics for Azure services in Log Analytics
+# Collect Azure service logs and metrics for use in Log Analytics
 
 There are four different ways of collecting logs and metrics for Azure services:
 
@@ -28,8 +29,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 
 | Service                 | Resource Type                           | Logs        | Metrics     | Solution |
 | --- | --- | --- | --- | --- |
-| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Networking Analytics (Preview)](log-analytics-azure-networking-analytics.md) |
-| API Management          | Microsoft.ApiManagement/service         |             | Diagnostics | |
+| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application insights    |                                         | Connector   | Connector   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
 | Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [More information](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch accounts          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
@@ -39,10 +39,10 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
 | Event Hub namespace     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
 | IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics (Preview)](log-analytics-azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
 | Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
-| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Networking Analytics (Preview)](log-analytics-azure-networking-analytics.md) |
+| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Search services         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
 | Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (Preview)](log-analytics-service-fabric.md) |
@@ -108,6 +108,7 @@ To enable diagnostics on a resource when it is created, and have the diagnostics
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Azure diagnostics to storage then to Log Analytics
 

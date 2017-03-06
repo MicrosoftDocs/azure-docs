@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: apipm
+ms.author: apimpm
 ---
 # Monitor your APIs with Azure API Management, Event Hubs and Runscope
 The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses are transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Publisher portal dashboard, but beyond that, the details are gone.
@@ -271,11 +271,10 @@ Azure API Management service provides an ideal place to capture the HTTP traffic
 
 ## Next steps
 * Learn more about Azure Event Hubs
-  * [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
   * [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
   * [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
   * [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-

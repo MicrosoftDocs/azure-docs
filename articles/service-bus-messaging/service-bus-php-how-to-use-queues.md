@@ -215,7 +215,7 @@ In the event that the application crashes after processing the message but befor
 ## Next steps
 Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] for more information.
 
-For more information, also visit the [PHP Developer Center](/develop/php/).
+For more information, also visit the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

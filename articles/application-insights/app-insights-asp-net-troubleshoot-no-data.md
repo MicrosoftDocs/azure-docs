@@ -30,7 +30,7 @@ ms.author: awills
 
 *I [installed Status Monitor](app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 
-* See [Troubleshooting Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). 
+* See [Troubleshooting Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
 
 ## <a name="q01"></a>No 'Add Application Insights' option in Visual Studio
 *When I create a new project in Visual Studio, or when I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*

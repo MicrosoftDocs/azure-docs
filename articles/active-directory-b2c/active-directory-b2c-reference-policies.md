@@ -164,4 +164,5 @@ When you create a sign-up or sign-in policy (with local accounts), the consumer 
 
 ## Additional resources
 * [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
+* [Disable email verification during consumer sign-up](active-directory-b2c-reference-disable-ev.md)
 
