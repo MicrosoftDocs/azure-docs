@@ -72,7 +72,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
 
 ## Install the Service Fabric plugin for Eclipse Neon
 
-Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the process of building and deploying Java services. You can follow the installation steps mentioned in [Service Fabric Eclipse Plugin Installation documentation](service-fabric-get-started-eclipse#install-service-fabric-plugin-eclipse-neon).
+Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the process of building and deploying Java services. You can follow the installation steps mentioned in [Service Fabric Eclipse Plugin Installation documentation](service-fabric-get-started-eclipse#install-or-update-service-fabric-plugin-on-eclipse-neon).
 
 ## Using Service Fabric Eclipse plugin on Mac
 
