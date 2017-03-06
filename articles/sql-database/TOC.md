@@ -108,6 +108,7 @@
 ## Create and configure a single database
 ### [Azure CLI](sql-database-create-and-configure-database-cli.md)
 ### [PowerShell](sql-database-create-and-configure-database-powershell.md)
+### [T-SQL](sql-database-manage-single-databases-tsql.md)
 ## Create and move pooled databases
 ### [Azure CLI](sql-database-move-database-between-pools-cli.md)
 ### [PowerShell](sql-database-move-database-between-pools-powershell.md)
@@ -121,6 +122,7 @@
 ### [Azure portal]
 ### [Single database - PowerShell](sql-database-setup-geodr-and-failover-database-powershell.md)
 ### [Pooled database - PowerShell](sql-database-setup-geodr-and-failover-pool-powershell.md)
+### [T-SQL]
 ## Configure auditing and threat-detection]
 ### [Azure portal]
 ### [PowerShell](sql-database-auditing-and-threat-detection-powershell.md)
@@ -131,13 +133,9 @@
 ### [PowerShell](sql-database-copy-database-to-new-server-powershell.md)
 ## Import a database
 ### [PowerShell](sql-database-import-from-bacpac-powershell.md)
-## Create and manage servers
-### [Azure portal](sql-database-manage-servers-portal.md)
-### [PowerShell](sql-database-manage-servers-powershell.md)
-## Create and manage single databases
-### [Azure portal](sql-database-manage-single-databases-portal.md)
-### [PowerShell](sql-database-manage-single-databases-powershell.md)
-### [Transact-SQL](sql-database-manage-single-databases-tsql.md)
+
+
+
 ## Create and manage elastic pools
 ### [Azure portal](sql-database-elastic-pool-manage-portal.md)
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
