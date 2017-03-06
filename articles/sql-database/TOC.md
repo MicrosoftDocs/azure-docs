@@ -161,6 +161,7 @@
 ### [SQLPackage](sql-database-export-sqlpackage.md)
 ## Load data
 ### [BCP](sql-database-load-from-csv-with-bcp.md)
+### [Azure data factory](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ## [Configure and manage data synchronization](sql-database-get-started-sql-data-sync.md)
 ## Authenticate and authorize users
 ### [Azure AD authentication](sql-database-aad-authentication-configure.md)
