@@ -95,8 +95,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>Web Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -271,6 +271,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Network Watcher</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -712,18 +718,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/">
+                                <a href="/azure/app-service-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service-web.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>Create web and mobile apps for any platform and any device</p>
+                                                    <h3>Web Apps</h3>
+                                                    <p>Quickly create and deploy mission critical Web apps at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -997,6 +1003,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Dedicated private network fiber connections to Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Network Watcher</h3>
+                                                    <p>Monitor and diagnose conditions at a network scenario level</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1586,7 +1611,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>PowerBI Embedded</h3>
+                                                    <h3>Power BI Embedded</h3>
                                                     <p>Embed fully interactive, stunning data visualizations in your applications</p>
                                                 </div>
                                             </div>
@@ -2588,13 +2613,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 Preview
+                                                <h3>Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/get-started/">Get Started</a>
+                                                    <a href="/cli/azure/overview">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Download Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Reference</a>

@@ -48,7 +48,7 @@ Some things to consider include:
     This is an indispensable troubleshooting tool which shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the Compute resource provider look at the VM Scale Set you created and check the Instance View, which shows you the state of a deployment. Also check the instance view of VMs in the VM Scale Set. Then go into the Microsoft.Insights resource provider and check the autoscale rules look good.
 * Is the Diagnostic extension working and emitting performance data?
   
-    **Update:** Azure autoscale has been enhanced to use a host based metrics pipeline which no longer requires a diagnostics extension to be installed. This means the next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. Examples of Azure templates which have been converted to use the host pipeline include: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
+    **Update:** Azure autoscale has been enhanced to use a host based metrics pipeline which no longer requires a diagnostics extension to be installed. This means the next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. An example of Azure templates which have been converted to use the host pipeline is: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     Using host based metrics for autoscale is better for the following reasons:
   

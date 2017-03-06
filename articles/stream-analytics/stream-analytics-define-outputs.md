@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/05/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -300,40 +300,17 @@ The table below lists the property names and their description for creating a ta
 ## DocumentDB
 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
 
-The table below lists the property names and their description for creating a DocumentDB output.
+The below list details the property names and their description for creating a DocumentDB output.
 
-<table>
-<tbody>
-<tr>
-<td>PROPERTY NAME</td>
-<td>DESCRIPTION</td>
-</tr>
-<tr>
-<td>Account Name</td>
-<td>The name of the DocumentDB account.  This can also be the endpoint for the account.</td>
-</tr>
-<tr>
-<td>Account Key</td>
-<td>The shared access key for the DocumentDB account.</td>
-</tr>
-<tr>
-<td>Database</td>
-<td>The DocumentDB database name.</td>
-</tr>
-<tr>
-<td>Collection Name Pattern</td>
-<td>The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0.<BR>E.g. The followings are valid inputs:<BR>MyCollection{partition}<BR>MyCollection<BR>Note that collections must exist before the Stream Analytics job is started and will not be created automatically.</td>
-</tr>
-<tr>
-<td>Partition Key</td>
-<td>The name of the field in output events used to specify the key for partitioning output across collections.</td>
-</tr>
-<tr>
-<td>Document ID</td>
-<td>The name of the field in output events used to specify the primary key which insert or update operations are based on.</td>
-</tr>
-</tbody>
-</table>
+* **Output Alias** – An alias to refer this output in your ASA query  
+* **Account Name** – The name or endpoint URI of the DocumentDB account.  
+* **Account Key** – The shared access key for the DocumentDB account.  
+* **Database** – The DocumentDB database name.  
+* **Collection Name Pattern** – The collection name or their pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Following are sample valid inputs:  
+  1\) MyCollection – One collection named “MyCollection” must exist.  
+  2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
+* **Partition Key** – Optional. This is only needed if you are using a {parition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
+* **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
 
 ## Get help

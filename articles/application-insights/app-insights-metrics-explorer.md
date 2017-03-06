@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/03/2017
 ms.author: awills
 
 ---
@@ -32,7 +32,7 @@ You can change the Time range covered by the charts or grids on any blade.
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/03-range.png)
 
-If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
+If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. It can take a while for data to come through the analysis pipeline onto a chart.
 
 To zoom into part of a chart, drag over it:
 
@@ -112,6 +112,11 @@ The default method for each metric is shown when you create a new chart or when 
 
 ![Deselect all metrics to see the defaults](./media/app-insights-metrics-explorer/06-total.png)
 
+## Pin Y-axis 
+By default a chart shows Y axis values starting from zero till maximum values in the data range, to give a visual representation of quantum of the values. But in some cases more than the quantum it might be interesting to visually inspect minor changes in values. For customizations like this use the Y-axis range editing feature to pin the Y-axis minimum or maximum value at desired place.
+Click on "Advanced Settings" check box to bring up the Y-axis range Settings
+
+![Click Advanced Settings, select Custom range, and specify min max values](./media/app-insights-metrics-explorer/y-axis-range.png)
 
 ## Filter your data
 To see just the metrics for a selected set of property values:
@@ -130,7 +135,7 @@ Use the filter **Real or synthetic traffic** and check **Real**.
 You can also filter by **Source of synthetic traffic**.
 
 ### To add properties to the filter list
-Would you like to filter telemetry on a category of your own choosing? For example, maybe you divide up your users into  different categories, and you would like segment your data by these categories.
+Would you like to filter telemetry on a category of your own choosing? For example, maybe you divide up your users into different categories, and you would like segment your data by these categories.
 
 [Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#defaults) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
 
@@ -155,23 +160,9 @@ If you edit a blade but then you'd like to get back to the original saved set, j
 
 ![In the buttons at the top of Metric Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
-<a name="live-metrics-stream"></a>
+## Live metrics stream
 
-## Live Metrics Stream: instant metrics for close monitoring
-Live Metrics Stream shows you your application metrics right at this very moment, with a near real time latency of 1 second. This is extremely useful when you’re releasing a new build and want to make sure that everything is working as expected, or investigating an incident in real time.
-
-![In the Overview blade, click Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
-
-Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
-
-### Live failures
-
-If any failures or exceptions are logged, Live Stream picks out a sample of them. Click **Pause** to hold a specific sample, and select an event to show its details.
-
-![Sampled live failures](./media/app-insights-metrics-explorer/live-stream-failures.png)
-
-
-Live Metrics Stream is available with the latest version of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
+For a much more immediate view of your telemetry, open [Live Stream](app-insights-live-stream.md). Most metrics take a few minutes to appear, because of the process of aggregation. By contrast, live metrics are optimized for low latency. 
 
 ## Set alerts
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
@@ -198,7 +189,7 @@ If you want data continuously exported so that you can process it externally, co
 If you want even richer views of your data, you can [export to Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Analytics
-[Analytics](app-insights-analytics.md) is a more versatile way to analyze your telemetry using a powerful query language. Use it if you want to combine or compute results from metrics, or perform an in-deph exploration of your app's recent performance. On the other hand, use Metrics Explorer if you want automatic refresh, charts on the dashboard, and alerts.
+[Analytics](app-insights-analytics.md) is a more versatile way to analyze your telemetry using a powerful query language. Use it if you want to combine or compute results from metrics, or perform an in-depth exploration of your app's recent performance. On the other hand, use Metrics Explorer if you want automatic refresh, charts on the dashboard, and alerts.
 
 ## Troubleshooting
 *I don't see any data on my chart.*

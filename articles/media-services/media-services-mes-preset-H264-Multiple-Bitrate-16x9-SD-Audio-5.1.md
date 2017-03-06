@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -28,7 +28,7 @@ ms.author: juliako
 > [!NOTE]
 >  When modifying the `Width` and `Height` values across layers, make sure that the aspect ratio remains consistent. For example: 1920x1080, 1280x720, 1080x576, 640x360. You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.  
   
- SML  
+ XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  

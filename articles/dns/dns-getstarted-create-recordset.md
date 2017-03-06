@@ -19,9 +19,10 @@ ms.author: gwallace
 # Create DNS record sets and records by using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure portal](dns-getstarted-create-recordset-portal.md)
+> * [Azure Portal](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Azure CLI](dns-getstarted-create-recordset-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md)
 
 This article walks you through the process of creating records and records sets by using Azure PowerShell.
 
@@ -68,21 +69,21 @@ To add a record to an existing record set, follow the following three steps:
 
 1. Get the existing record set
 
-	```powershell
-	$rs = Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
-	```
+    ```powershell
+    $rs = Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    ```
 
 2. Add the new record to the local record set. This is an off-line operation.
 
-	```powershell
-	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
-	```
+    ```powershell
+    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    ```
 
 3. Commit the change back to the Azure DNS service 
 
-	```powershell
-	Set-AzureRmDnsRecordSet -RecordSet $rs
-	```
+    ```powershell
+    Set-AzureRmDnsRecordSet -RecordSet $rs
+    ```
 
 ### Verify name resolution
 
@@ -90,17 +91,18 @@ You can test your DNS records are present on the Azure DNS name servers by using
 
 If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the following example:
 
-    nslookup
-    > set type=A
-    > server ns1-01.azure-dns.com
-    > www.contoso.com
+```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-    Server:  ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-	Name:    www.contoso.com
-	Address:  1.2.3.4
-
+Name:    www.contoso.com
+Address:  1.2.3.4
+```
 
 ## Next steps
 

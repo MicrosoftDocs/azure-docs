@@ -1,6 +1,6 @@
 ---
-title: Create a container registry in the portal | Microsoft Docs
-description: Get started creating and managing Azure container registries with the Azure portal
+title: Create private Docker registry - Azure portal | Microsoft Docs
+description: Get started creating and managing private Docker container registries with the Azure portal
 services: container-registry
 documentationcenter: ''
 author: stevelas
@@ -17,11 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 ---
-# Create a container registry using the Azure portal
-Use the Azure portal to create a container registry and manage its settings. You can also create and manage container registries using the [Azure CLI 2.0 Preview commands](container-registry-get-started-azure-cli.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
-For background and concepts, see [What is Azure Container Registry?](container-registry-intro.md)
+# Create a private Docker container registry using the Azure portal
+Use the Azure portal to create a container registry and manage its settings. You can also create and manage container registries using the [Azure CLI 2.0 commands](container-registry-get-started-azure-cli.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
+
+For background and concepts, see [the overview](container-registry-intro.md)
 
 
 > [!NOTE]
@@ -38,18 +40,20 @@ For background and concepts, see [What is Azure Container Registry?](container-r
     ![Container registry settings](./media/container-registry-get-started-portal/container-registry-settings.png)
 5. In the **Container Registry** blade, enter the following information. Click **Create** when you are done.
    
-    a. **Registry name** - A globally unique top-level domain name for your specific registry. In this example, the registry name is *myRegistry01*, but substitute a unique name of your own. The name can contain only letters and numbers.
+    a. **Registry name**: A globally unique top-level domain name for your specific registry. In this example, the registry name is *myRegistry01*, but substitute a unique name of your own. The name can contain only letters and numbers.
    
-    b. **Resource group** - Select an existing [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
+    b. **Resource group**: Select an existing [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
    
-    c. **Location** - Select an Azure datacenter location where the service is [available](https://azure.microsoft.com/regions/services/), such as **South Central US**. 
+    c. **Location**: Select an Azure datacenter location where the service is [available](https://azure.microsoft.com/regions/services/), such as **South Central US**. 
    
-    d. **Admin user** - If you want, enable an admin user to access the registry. You can change this setting after creating the registry.
+    d. **Admin user**: If you want, enable an admin user to access the registry. You can change this setting after creating the registry.
    
-   > [!IMPORTANT]
-   > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md).
-   
-    e. **Storage account** - Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location.
+    > [!IMPORTANT]
+    > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md).
+    >
+    
+    e. **Storage account**: Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location. Currently Premium Storage is not supported.
+
 
 ## Manage registry settings
 After creating the registry, find the registry settings by starting at the **Container Registries** blade in the portal. For example, you might need the settings to log in to your registry, or you might want to enable or disable the admin user.

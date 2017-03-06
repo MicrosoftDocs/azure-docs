@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell with Resource Manager | Microsoft Docs
-description: Introduction to using Azure PowerShell to deploy multiple resources as a resource group to Azure.
+title: Manage Azure solutions with PowerShell | Microsoft Docs
+description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: tomfitz
 
 ---
-# Manage Azure resources with PowerShell and Resource Manager
+# Manage resources with Azure PowerShell and Resource Manager
 > [!div class="op_single_selector"]
 > * [Portal](resource-group-portal.md)
 > * [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -53,10 +53,10 @@ This topic was updated for version 3.3.0. If you have an earlier version, your e
 ## Log in to your Azure account
 Before working on your solution, you must log in to your account.
 
-To log in to your Azure account, use the **Add-AzureRmAccount** cmdlet.
+To log in to your Azure account, use the **Login-AzureRmAccount** cmdlet.
 
 ```powershell
-Add-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Azure PowerShell.

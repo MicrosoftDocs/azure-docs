@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/25/2017
 ms.author: jingwang
 
 ---
@@ -530,12 +530,12 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 ## Troubleshooting connection issues
 1. Configure your SQL Server to accept remote connections. Launch **SQL Server Management Studio**, right-click **server**, and click **Properties**. Select **Connections** from the list and check **Allow remote connections to the server**.
 
-    ![Enable remote connections](.\\media\\data-factory-sqlserver-connector\\AllowRemoteConnections.png)
+    ![Enable remote connections](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
     See [Configure the remote access Server Configuration Option](https://msdn.microsoft.com/library/ms191464.aspx) for detailed steps.
 2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/IP by right-clicking **TCP/IP** and clicking **Enable**.
 
-    ![Enable TCP/IP](.\\media\\data-factory-sqlserver-connector\\EnableTCPProptocol.png)
+    ![Enable TCP/IP](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
 
     See [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) for details and alternate ways of enabling TCP/IP protocol.
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.

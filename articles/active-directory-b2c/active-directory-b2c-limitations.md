@@ -25,9 +25,6 @@ If you encounter issues during the [creation of an Azure AD B2C tenant](active-d
 
 Note that there are known issues when you delete an existing B2C tenant and re-create it with the same domain name. You have to create a B2C tenant with a different domain name.
 
-## Note about B2C tenant quotas
-By default, the number of users in a B2C tenant is limited to 50,000 users. If you need to raise the quota of your B2C tenant, you should contact Support.
-
 ## Branding issues on verification email
 The default verification email contains Microsoft branding. We will remove it in the future. For now, you can remove it by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
 
@@ -48,6 +45,39 @@ Many architectures include a Web API that needs to call another downstream Web A
 
 This chained Web API scenario can be supported by using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in the Azure AD B2C.
 
+## Restrictions on reply URLs
+Currently, apps registered in Azure AD B2C are restricted to a limited set of reply URL values. The reply URL for web apps and services must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, you cannot register a web app that has one of these direct URLs:
+
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`
+
+The registration system compares the whole DNS name of the existing reply URL to the DNS name of the reply URL that you are adding. The request to add the DNS name will fail if either of the following conditions is true:
+
+* The whole DNS name of the new reply URL does not match the DNS name of the existing reply URL.
+* The whole DNS name of the new reply URL is not a subdomain of the existing reply URL.
+
+For example, if the app has this reply URL:
+
+`https://login.contoso.com`
+
+You can add to it, like this:
+
+`https://login.contoso.com/new`
+
+In this case, the DNS name matches exactly. Or, you can do this:
+
+`https://new.login.contoso.com`
+
+In this case, you're referring to a DNS subdomain of login.contoso.com. If you want to have an app that has login-east.contoso.com and login-west.contoso.com as reply URLs, you must add those reply URLs in this order:
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+You can add the latter two because they are subdomains of the first reply URL, contoso.com. This limitation will be removed in an upcoming release.
+
+To learn how to register an app in Azure AD B2C, see [How to register your application with Azure Active Directory B2C](active-directory-b2c-app-registration.md).
+
 ## Restriction on libraries and SDKs
 The set of Microsoft supported libraries that work Azure AD B2C is very limited at this time. We have support for .NET based web apps and services, as well as NodeJS web apps and services.  We also have a preview .NET client library known as MSAL that can be used with Azure AD B2C in Windows & other .NET apps.
 
@@ -59,7 +89,7 @@ Our iOS & Android quick start tutorials use open-source libraries that we have t
 Azure AD B2C supports OpenID Connect and OAuth 2.0. However, not all features and capabilities of each protocol have been implemented. To better understand the scope of supported protocol functionality in Azure AD B2C, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-b2c-reference-protocols.md). SAML and WS-Fed protocol support is not available.
 
 ## Restriction on tokens
-Many of the tokens issued by Azure AD B2C are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims.  As the values, format, or meaning of claims change over time, tokens for your existing policies will remain unaffected - you can rely on their values in production apps.  As values change, we will give you the opportunity to configure those changes for each of your policies.  To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-reference-tokens.md).
+Many of the tokens issued by Azure AD B2C are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. An example is the "preferred_username" claim.  As the values, format, or meaning of claims change over time, tokens for your existing policies will remain unaffected - you can rely on their values in production apps.  As values change, we will give you the opportunity to configure those changes for each of your policies.  To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-reference-tokens.md).
 
 ## Restriction on nested groups
 Nested group memberships aren't supported in Azure AD B2C tenants. We don't plan to add this capability.
@@ -90,3 +120,7 @@ Requests to sign-in policies (with MFA turned ON) fail intermittently on Safari 
 * Use the "Sign-up or sign-in policy" instead of the "sign-in policy".
 * Reduce the number of **Application claims** being requested in your policy.
 
+## Issues with Windows Desktop WPF apps using Azure AD B2C
+Requests to Azure AD B2C from a Windows Desktop WPF app sometimes fail with the following error message: "The browser based authentication dialog failed to complete. Reason: The protocol is not known and no pluggable protocols have been entered that match.".
+
+This is due to the size of authorization codes provided by Azure AD B2C; the size is correlated with the number of claims requested in a token. A workaround for this issue is to reduce the number of claims requested in the token and to query Graph API separately for other claims.

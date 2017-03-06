@@ -1,5 +1,5 @@
 ---
-title: Use Stream Analytics to process data exported from Application Insights | Microsoft Docs
+title: Export using Stream Analytics from Azure Application Insights | Microsoft Docs
 description: Stream Analytics can continuously transform, filter and route the data you export from Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -227,7 +227,7 @@ Now you can use this dataset in reports and dashboards in [Power BI](https://pow
 ## Video
 Noam Ben Zeev shows how to process exported data using Stream Analytics.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Export-to-Power-BI-from-Application-Insights/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
 > 
 > 
 

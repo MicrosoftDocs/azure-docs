@@ -1,5 +1,5 @@
 ---
-title: Python web app with Django | Microsoft Docs
+title: Buid a Django app on an Azure VM | Microsoft Docs
 description: This tutorial teaches you how to host a Django-based website on Azure using a Windows Server 2012 R2 Datacenter virtual machine using the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: python

@@ -188,12 +188,12 @@ The resource ID can also be obtained from the Azure portal. To do so, navigate t
 ### Azure PowerShell
 The resource ID can be retrieved using Azure PowerShell cmdlets as well. For example, to obtain the resource ID for an Azure Web App, execute the Get-AzureRmWebApp cmdlet, as in the following screenshot:
 
-![Alt "Resource ID obtained via PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_powershell.png)
+![Alt "Resource ID obtained via PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
 ### Azure CLI
 To retrieve the resource ID using the Azure CLI, execute the 'azure webapp show' command, specifying the '--json' option, as shown in the following screenshot:
 
-![Alt "Resource ID obtained via PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
+![Alt "Resource ID obtained via PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
 ## Retrieve Activity Log Data
 In addition to working with metric definitions and related values, it is also possible to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription:

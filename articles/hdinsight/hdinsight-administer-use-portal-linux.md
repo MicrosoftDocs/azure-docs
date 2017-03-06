@@ -1,6 +1,6 @@
 ---
-title: Manage Linux-based Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
-description: Learn how to create and manage Linux-based HDInsight clusters using the Azure portal.
+title: Manage Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
+description: Learn how to create and manage HDInsight clusters using the Azure portal.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 01/17/2017
 ms.author: jgao
 
 ---
 # Manage Hadoop clusters in HDInsight by using the Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Using the [Azure portal][azure-portal], you can manage Linux-based clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools. 
+Using the [Azure portal][azure-portal], you can manage Hadoop clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools. 
 
 **Prerequisites**
 
@@ -40,6 +40,8 @@ Before you begin this article, you must have the following:
      
        ![Azure portal HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
+       If you don't see HDInsight cluster, click **More services** on the bottom of the list, and then click **HDInsight clusters** under the **Intelligence + Analytics** section.
+
 ## Create clusters
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -54,14 +56,14 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
    
     ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
-    **Overview menu**:
+    **Overview menu:**
 
-   * **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
+   * **Dashboard**: Opens the cluster dashboard, which is Ambari Web for Linux-based clusters.
    * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
    * **Delete**: Deletes the cluster.
 
-    **Left menu**
+    **Left menu:**
    
    * **Activity logs**: Show and query activity logs.
    * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).

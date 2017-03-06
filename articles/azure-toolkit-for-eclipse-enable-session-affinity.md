@@ -39,7 +39,6 @@ The Eclipse Toolkit enables this by installing a special IIS module called Appli
 * The time to initialize each role will take longer.
 * An internal endpoint, to function as a traffic rerouter as mentioned above, will be added.
 
-For an example of how to maintain session data when session affinity is enabled, see [How to Maintain Session Data with Session Affinity][How to Maintain Session Data with Session Affinity].
 
 ## See Also
 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
@@ -47,8 +46,6 @@ For an example of how to maintain session data when session affinity is enabled,
 [Creating a Hello World Application for Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
 [Installing the Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
-
-[How to Maintain Session Data with Session Affinity][How to Maintain Session Data with Session Affinity]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center][Azure Java Developer Center].
 

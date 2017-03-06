@@ -1,5 +1,5 @@
 ---
-title: Create Spark Scala applications using HDInsight Tools in Azure Toolkit for IntelliJ | Microsoft Docs
+title: Use Azure Toolkit for IntelliJ to create Scala applications for Spark | Microsoft Docs
 description: Learn how to create a standalone Spark application to run on HDInsight Spark clusters.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Locally monitor and diagnose services written with Azure Service Fabric | Microsoft Docs
+title: Debug Azure microservices in Linux | Microsoft Docs
 description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 
 ---

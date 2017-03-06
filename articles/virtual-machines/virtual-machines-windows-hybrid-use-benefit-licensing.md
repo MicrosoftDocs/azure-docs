@@ -3,7 +3,7 @@ title: Azure Hybrid Use Benefit for Window Server | Microsoft Docs
 description: Learn how to maximize your Windows Server Software Assurance benefits to bring on-premises licenses to Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: george-moore
 manager: timlt
 editor: ''
 
@@ -61,7 +61,7 @@ You can also read more about [uploading the VHD to Azure process](virtual-machin
 
 
 ## Deploy an uploaded VM via Resource Manager
-Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
+Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
 
 ```json
 "properties": {  

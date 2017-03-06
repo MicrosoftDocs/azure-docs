@@ -34,7 +34,8 @@
 
     This creates a new method to handle the authentication process. The user is authenticated by using a Google sign-in. A dialog displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
-    > [!NOTE] If you are using an identity provider other than Google, change the value passed to the **login** method above to one of the following: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
+    > [!NOTE]
+    > If you are using an identity provider other than Google, change the value passed to the **login** method above to one of the following: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
 
 3. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
 

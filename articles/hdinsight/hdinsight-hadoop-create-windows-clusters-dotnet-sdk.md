@@ -1,6 +1,6 @@
 ---
 title: Create Windows-based Hadoop clusters in HDInsight using .NET SDK | Microsoft Docs
-description: Learn how to create HDInsight clusters for Azure HDInsight using .NET SDK.
+description: Learn how to create Windows-based Hadoop clusters in HDInsight using .NET SDK.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -14,14 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 03/03/2017
 ms.author: jgao
 
 ---
 # Create Windows-based Hadoop clusters in HDInsight using .NET SDK
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Learn how to create HDInsight clusters using .NET SDK. For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create Windows-based Hadoop cluster in HDInsight using .NET SDK. 
+
+The information in this article only applies to Window-based HDInsight clusters. For information on creating Linux-based clusters, see [Create Hadoop clusters in HDInsight using .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -29,7 +35,7 @@ Learn how to create HDInsight clusters using .NET SDK. For other cluster creatio
 Before you begin the instructions in this article, you must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Visual Studio 2013 or 2015.
+* Visual Studio 2013, Visual Studio 2015, or Visual Studio 2017.
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -171,7 +177,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 
 ## Appx-A Create dependent components
-The following Azure PowerShell script can be use to create the dependent components needed by the .NET application in this tutorial.
+The following Azure PowerShell script can be used to create the dependent components needed by the .NET application in this tutorial.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 

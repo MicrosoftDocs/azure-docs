@@ -1,6 +1,6 @@
 ---
-title: Add a disk to Linux VM | Microsoft Docs
-description: Learn to add a persistent disk to your Linux VM
+title: Add a disk to Linux VM using the Azure CLI | Microsoft Docs
+description: Learn to add a persistent disk to your Linux VM with the Azure CLI 1.0 and 2.0.
 keywords: linux virtual machine,add resource disk
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,40 +15,94 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
-ms.author: rclaus
-
+ms.date: 02/02/2017
+ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 ---
 # Add a disk to a Linux VM
-This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. To add a disk, you need [the Azure CLI](../xplat-cli-install.md) configured in Resource Manager mode (`azure config mode arm`).  
+This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. 
 
 ## Quick Commands
 The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
 
+To use managed disks:
+
 ```azurecli
-azure vm disk attach-new myResourceGroup myVM 50
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
-## Attach a disk
-Attaching a new disk is quick. Type `azure vm disk attach-new myResourceGroup myVM sizeInGB` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
+To use unmanaged disks:
 
 ```azurecli
-azure vm disk attach-new myResourceGroup myVM 50
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
-Output
+## Attach a managed disk
+
+Using managed disks enables you to focus on your VMs and their disks without worrying about Azure Storage accounts. You can quickly create and attach a managed disk to a VM using the same Azure resource group, or you can create any number of disks and then attach them.
+
+
+### Attach a new disk to a VM
+
+If you just need a new disk on your VM, you can use the `az vm disk attach` command.
 
 ```azurecli
-info:    Executing command vm disk attach-new
-+ Looking up the VM "myVM"
-info:    New data disk location: https://mystorageaccount.blob.core.windows.net/vhds/myVM-20150526-043.vhd
-+ Updating VM "myVM"
-info:    vm disk attach-new command OK
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
+```
+
+### Attach an existing disk 
+
+In many cases you attach disks that have already been created. You first find the disk id and then pass that to the `az vm disk attach` command. The following example uses a disk created with `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+The output looks something like the following (you can use the `-o table` option to any command to format the output in ):
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "westus",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
+```
+
+
+## Attach an unmanaged disk
+
+Attaching a new disk is quick if you do not mind creating a disk in the same storage account as your VM. Type `azure vm disk attach-new` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
+
+```azurecli
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## Connect to the Linux VM to mount the new disk
 > [!NOTE]
-> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access.
+> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
 > 
 

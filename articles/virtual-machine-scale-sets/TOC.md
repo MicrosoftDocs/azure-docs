@@ -3,6 +3,8 @@
 
 # Get Started
 ## [Create a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
+## [Create a scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Create a scale set using a Resource Manager Template](virtual-machine-scale-sets-mvss-start.md)
 
 # How To
 ## Plan and design
@@ -10,12 +12,18 @@
 
 ## Deploy
 ### [Scale set using the portal](virtual-machine-scale-sets-portal-create.md)
+### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Scale set using Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Scale set using PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
+### [Use data disks with scale sets](virtual-machine-scale-sets-attached-disks.md)
+### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
+### [Convert a scale set template to use managed disk](virtual-machine-scale-sets-convert-template-to-md.md)
+
+
 
 ## Manage
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
@@ -24,6 +32,7 @@
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
+### [Convert a template to managed disks](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Troubleshoot
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
@@ -31,7 +40,7 @@
 # Reference
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Resources
 ## Pricing 

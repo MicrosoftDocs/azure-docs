@@ -4,7 +4,7 @@ description: Learn what's new for API Apps in Azure App Service.
 services: app-service\api
 documentationcenter: .net
 author: mohitsriv
-manager: wpickett
+manager: erikre
 editor: tdykstra
 
 ms.assetid: a9b58066-e8fd-48b8-a651-4613b1736433
@@ -111,7 +111,7 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 4. At deployment time, populate the app settings of all the API apps (and clients) with the endpoints of the other API apps. This is viable in template deployments and since API Apps now give you control of the url.
 
 ## Using API Apps with Logic Apps
-The new API apps model works well with [Logic Apps schema version 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+The new API apps model works well with [Logic Apps schema version 2015-08-01](../logic-apps/logic-apps-schema-2015-08-01.md).
 
 ## Next Steps
 To learn more, read the articles in the [API Apps Documentation section](https://azure.microsoft.com/documentation/services/app-service/api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:

@@ -16,9 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 
 ---
-# Availability and scale in Azure Resource Manager templates
+# Availability and scale in Azure Resource Manager templates for Windows VMs
+
 Availability and scale refer to uptime and the ability to meet demand. If an application must be up 99.9% of the time, it needs to have an architecture that allows for multiple concurrent compute resources. For instance, rather than having a single website, a configuration with a higher level of availability includes multiple instances of the same site, with balancing technology in front of them. In this configuration, one instance of the application can be taken down for maintenance, while the remaining continue to function. Scale on the other hand refers to an applications ability to serve demand. With a load balanced application, adding or removing instances from the pool allows an application to scale to meet demand.
 
 This document details how the Music Store sample deployment is configured for availability and scale. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -240,7 +242,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 The `copyIndex` function is used several times in the Music Store sample template. Resources and functions utilizing `copyIndex` include anything specific to a single instance of the virtual machine such and network interface, load balancer rules, and any depends on functions. 
 
-For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../resource-group-create-multiple.md).
+For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../azure-resource-manager/resource-group-create-multiple.md).
 
 ## Next step
 <hr>

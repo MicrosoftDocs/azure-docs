@@ -4,7 +4,7 @@ description: A tutorial that shows how to make a PHP (Laravel) web app run in Az
 services: app-service\web
 documentationcenter: php
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 tags: mysql
 
@@ -43,7 +43,7 @@ You can apply what you learn here to other PHP web apps that you deploy to Azure
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](app-service-web-php-get-started-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-php-get-started.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](app-service-web-php-get-started.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [PHP 7.0](http://php.net/downloads.php)
@@ -55,7 +55,7 @@ You can complete the task using one of the following CLI versions:
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> See a web app in action. [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) immediately and create a short-lived starter app—no credit 
+> See a web app in action. [Try App Service](https://azure.microsoft.com/try/app-service/) immediately and create a short-lived starter app—no credit 
 > card required, no commitments.
 > 
 > 

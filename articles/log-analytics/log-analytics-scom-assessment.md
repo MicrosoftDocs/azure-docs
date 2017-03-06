@@ -1,10 +1,10 @@
 ---
-title: Optimize your environment with the System Center Operations Manager Assessment solution in Log Analytics | Microsoft Docs
+title: Optimize your System Center Operations Manager environment with Azure Log Analytics | Microsoft Docs
 description: You can use the System Center Operations Manager Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Optimize your environment with the System Center Operations Manager Assessment (Preview) solution in Log Analytics
+# Optimize your environment with the System Center Operations Manager Assessment (Preview) solution
 
 You can use the System Center Operations Manager Assessment solution to assess the risk and health of your System Center Operations Manager server environments on a regular interval. This article helps you install, configure, and use the solution so that you can take corrective actions for potential problems.
 
@@ -42,7 +43,7 @@ Use the following information to install and configure the solution.
  - Before you can use an assessment solution in OMS, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
  - After adding the solution to the workspace, the System Center Operations Manager Assessment tile on the dashboard displays the additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
- 
+
  ![System Center Operations Manager dashboard tile](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
 
  Configuration of the System Center Operations Manager can be done through the script by following the steps mentioned in the configuration page of the solution in OMS.

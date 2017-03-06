@@ -1,6 +1,19 @@
 ---
 layout: LandingPage
 description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+services: active-directory
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: active-directory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # Azure Active Directory Documentation
@@ -124,12 +137,3 @@ Learn how to synchronize directories and enable single sign-on with Azure Active
         </div>
     </li>
 </ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Active Directory Documentation
-        </div>
-    </a>
-</div>

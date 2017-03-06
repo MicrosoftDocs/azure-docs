@@ -1,5 +1,5 @@
 ---
-title: Open ports and endpoints to a Linux VM in Azure | Microsoft Docs
+title: Open ports to a Linux VM with Azure CLI 1.0 | Microsoft Docs
 description: Learn how to open a port / create an endpoint to your Linux VM using the Azure resource manager deployment model and the Azure CLI 1.0
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
-
 ---
-# Opening ports and endpoints to a Linux VM in Azure
+
+# Opening ports and endpoints to a Linux VM in Azure using the Azure CLI 1.0
 You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic. Let's use a common example of web traffic on port 80. This article shows you how to open a port to a VM using the Azure CLI 1.0.
 
 
@@ -24,7 +24,7 @@ You open a port, or create an endpoint, to a virtual machine (VM) in Azure by cr
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0 (Preview)](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 
 ## Quick commands

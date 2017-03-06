@@ -19,13 +19,13 @@ ms.author: cynthn
 
 ---
 # How to attach a data disk to a Linux VM in the Azure portal
-This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Before you do this, review these tips:
+This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can choose to use either Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. Unmanaged disks require a storage account and have some [quotas and limits that apply](../azure-subscription-service-limits.md#storage-limits). For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md).
+
+Before you attach disks to your VM, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* To use Premium storage, you'll need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Disks attached to virtual machines are actually .vhd files in an Azure storage account. For details, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* For a new disk, you don't need to create it first because Azure creates it when you attach it.
-* For an existing disk, the .vhd file must be available in an Azure storage account. You can use a .vhd that's already there, if it's not attached to another virtual machine, or upload your own .vhd file to the storage account.
+* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use both Premium and Standard disks with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see [About disks and VHDs for virtual machines](../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## Find the virtual machine
@@ -36,17 +36,53 @@ This article shows you how to attach both new and existing disks to a Linux virt
    
     ![Open disk settings](./media/virtual-machines-linux-attach-disk-portal/find-disk-settings.png)
 
-Continue by following instructions for attaching either a [new disk](#option-1-attach-a-new-disk) or an [existing disk](#option-2-attach-an-existing-disk).
+Continue by following instructions for attaching either a [managed disk](#use-azure-managed-disks) or [unmanaged disk](#use-unmanaged-disks).
 
-## Option 1: Attach a new disk
-1. On the **Disks** blade, click **Attach new**.
+## Use Azure Managed Disks
+
+### Attach a new disk
+
+1. On the **Disks** blade, click **+ Add data disk**.
+2. Click the drop-down menu for **Name** and select **Create disk**:
+
+    ![Create Azure managed disk](./media/virtual-machines-linux-attach-disk-portal/create-new-md.png)
+
+3. Enter a name for your managed disk. Review the default settings, update as necessary, and then click **Create**.
+   
+   ![Review disk settings](./media/virtual-machines-linux-attach-disk-portal/create-new-md-settings.png)
+
+4. Click **Save** to create the managed disk and update the VM configuration:
+
+   ![Save new Azure Managed Disk](./media/virtual-machines-linux-attach-disk-portal/confirm-create-new-md.png)
+
+5. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**. As managed disks are a top-level resource, the disk appears at the root of the resource group:
+
+   ![Azure Managed Disk in resource group](./media/virtual-machines-linux-attach-disk-portal/view-md-resource-group.png)
+
+### Attach an existing disk
+1. On the **Disks** blade, click **+ Add data disk**.
+2. Click the drop-down menu for **Name** to view a list of existing managed disks accessible to your Azure subscription. Select the managed disk to attach:
+
+   ![Attach existing Azure Managed Disk](./media/virtual-machines-linux-attach-disk-portal/select-existing-md.png)
+
+3. Click **Save** to attach the existing managed disk and update the VM configuration:
+   
+   ![Save Azure Managed Disk updates](./media/virtual-machines-linux-attach-disk-portal/confirm-attach-existing-md.png)
+
+4. After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+
+## Use unmanaged disks
+
+### Attach a new disk
+
+1. On the **Disks** blade, click **+ Add data disk**.
 2. Review the default settings, update as necessary, and then click **OK**.
    
    ![Review disk settings](./media/virtual-machines-linux-attach-disk-portal/attach-new.png)
 3. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
 
-## Option 2: Attach an existing disk
-1. On the **Disks** blade, click **Attach existing**.
+### Attach an existing disk
+1. On the **Disks** blade, click **+ Add data disk**.
 2. Under **Attach existing disk**, click **VHD File**.
    
    ![Attach existing disk](./media/virtual-machines-linux-attach-disk-portal/attach-existing.png)
@@ -56,7 +92,6 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 4. Select the .vhd file.
 5. Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
 6. After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
-
 
 
 ## Next steps

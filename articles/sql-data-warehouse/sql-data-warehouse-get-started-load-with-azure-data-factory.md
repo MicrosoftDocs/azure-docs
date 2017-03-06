@@ -35,7 +35,7 @@ This tutorial shows you how to create a pipeline in Azure Data Factory to move d
 * Connect resources to Azure Data Factory.
 * Create a pipeline to move data from Storage Blobs to SQL Data Warehouse.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
 > 
 > 
 

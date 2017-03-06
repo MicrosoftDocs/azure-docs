@@ -1,5 +1,5 @@
 ---
-title: Create and Configure an Application Gateway with Internal Load Balancer (ILB) in a Virtual Network | Microsoft Docs
+title: Using Azure Application Gateway with Internal Load Balancer | Microsoft Docs
 description: This page provides instructions to configure an Azure Application Gateway with an Internal Load Balanced endpoint
 documentationcenter: na
 services: application-gateway
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---

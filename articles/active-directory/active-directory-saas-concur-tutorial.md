@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -25,49 +25,48 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Concur
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Concur
+* Configuring single sign-on (SSO)
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-concur-tutorial/IC769766.png "Scenario")
 
-> [!NOTE]
-> The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
-> 
+>[!NOTE]
+>The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform. 
 > 
 
-## Enabling the application integration for Concur
+## Enable the application integration for Concur
 The objective of this section is to outline how to enable the application integration for Concur.
 
-### To enable the application integration for Concur, perform the following steps:
+**To enable the application integration for Concur, perform the following steps:**
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
-   ![Active Directory](./media/active-directory-saas-concur-tutorial/IC700993.png "Active Directory")
+  ![Active Directory](./media/active-directory-saas-concur-tutorial/IC700993.png "Active Directory")
 2. From the **Directory** list, select the directory for which want to enable directory integration.
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
-   ![Applications](./media/active-directory-saas-concur-tutorial/IC700994.png "Applications")
+  ![Applications](./media/active-directory-saas-concur-tutorial/IC700994.png "Applications")
 4. To open the **Application Gallery**, click **Add An App**, and then click **Add an application for my organization to use**.
    
-   ![What do you want to do?](./media/active-directory-saas-concur-tutorial/IC700995.png "What do you want to do?")
+  ![What do you want to do?](./media/active-directory-saas-concur-tutorial/IC700995.png "What do you want to do?")
 5. In the **search box**, type **Concur**.
    
-   ![Application Gallery](./media/active-directory-saas-concur-tutorial/IC721727.png "Application Gallery")
+  ![Application Gallery](./media/active-directory-saas-concur-tutorial/IC721727.png "Application Gallery")
 6. In the results pane, select **Concur**, and then click **Complete** to add the application.
    
-   ![Concur](./media/active-directory-saas-concur-tutorial/IC721728.png "Concur")
+  ![Concur](./media/active-directory-saas-concur-tutorial/IC721728.png "Concur")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Concur with their account in Azure AD using federation based on the SAML protocol.
 
-> [!NOTE]
-> The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
-> 
+>[!NOTE]
+>The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
 > 
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Concur **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769767.png "Configure single sign-on")
@@ -80,17 +79,15 @@ The objective of this section is to outline how to enable users to authenticate 
 4. On the **Configure single sign-on at Concur** page, perform the following steps.
    
    ![Configure sign in URL](./media/active-directory-saas-concur-tutorial/IC769770.png "Configure sign in URL")
-   
    1. Click Download the metadata, and then safe the data file to your computer.
    2. Contact the Concur support team to configure SSO for your tenant.
    3. Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.  
    
-   > [!NOTE]
-   > The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
-   > 
+   >[!NOTE]
+   >The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform. 
    > 
 
-## Configuring user provisioning
+## Configure user provisioning
 The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Concur.
 
 To enable apps in the Expense Service, there has to be proper setup and use of a Web Service Admin profile. Don't simply add the WS Admin role to your existing administrator profile that you use for T&E administrative functions.
@@ -105,7 +102,8 @@ For the following reasons, this action should not be done with the profile they 
 2. If a client administrator that has enabled an app using the T&E admin profile leaves the company (resulting in the profile being inactivated), any apps enabled using that profile will not function until the app is enabled with another active WS Admin profile. This is why you are supposed to create distinct WS Admin profiles.
 3. If an administrator leaves the company, the name associated to the WS Admin profile can be changed to the replacement administrator if desired without impacting the enabled app because that profile does not need inactivated
 
-### To configure user provisioning, perform the following steps:
+**To configure user provisioning, perform the following steps:**
+
 1. Logon to your **Concur** tenant.
 2. From the **Administration** menu, select **Web Services**.
    
@@ -126,10 +124,11 @@ For the following reasons, this action should not be done with the profile they 
 
 You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Concur.
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Concur, perform the following steps:
+**To assign users to Concur, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Concur **application integration page, click **Assign users**.
    

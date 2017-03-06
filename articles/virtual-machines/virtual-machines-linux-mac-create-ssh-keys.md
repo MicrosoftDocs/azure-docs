@@ -1,6 +1,6 @@
 ---
-title: Create an SSH key pair for Linux VMs | Microsoft Docs
-description: Securely create an SSH public and private key pair for Linux VMs.
+title: Create an SSH key pair for Linux VMs on Azure | Microsoft Docs
+description: Securely create an SSH public and private key pair for Azure Linux VMs.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2016
-ms.author: v-livech
+ms.date: 2/6/2017
+ms.author: rasquill
 
 ---
 
@@ -27,27 +27,10 @@ This article shows you how to generate an SSH public and private key pair to use
 
 Run the following commands from a Bash shell, replacing the examples with your own choices.
 
-SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.  The `-N` cli flag is the password to encrypt the private SSH key and is *not* your user password.
+SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.  The `-N` argument specifies the password to encrypt the private SSH key and is *not* your user password.
 
 ```bash
-ssh-keygen \
--t rsa \
--b 2048 \
--C "ahmet@myserver" \
--f ~/.ssh/id_rsa \
--N mypassword
-```
-
-There is now a `id_rsa` and `id_rsa.pub` SSH key pair in the `~/.ssh` directory.
-
-```bash
-ls -al ~/.ssh
-```
-
-Verify that `ssh-agent` is running:
-
-```bash
-eval "$(ssh-agent -s)"
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N mypassword
 ```
 
 Add the newly created key to `ssh-agent`:
@@ -56,21 +39,8 @@ Add the newly created key to `ssh-agent`:
 ssh-add ~/.ssh/id_rsa
 ```
 
-If you have already created a VM you can install the new SSH public key to your Linux VM with:
-
-```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
-```
-
-Test the login using keys instead of a password:
-
-```bash
-ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/id_rsa ahmet@myserver
-Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
-$
-```
-
-SSH is successfully configured if you are not prompted for an SSH private key password, or a login password to the VM.
+> [!NOTE] 
+> The above commands work on Linux operating systems of almost all distributions, but do not necessarily work in containers, as the environment can be radically constrained.
 
 ## Detailed Walkthrough
 
@@ -181,7 +151,7 @@ Key Password:
 
 `Enter passphrase (empty for no passphrase):`
 
-`ssh-keygen` refers to a password as "a passphrase."  It is *strongly* recommended to add a password to your key pairs. Without a password protecting the key pair, anyone with the private key file can use it to log in to any server that has the corresponding public key. Adding a password offers more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
+`ssh-keygen` refers to a password as "a passphrase."  It is *strongly* recommended to add a password to your key pairs. Without a password protecting the key pair, anyone with the private key file can use it to log in to any server that has the corresponding public key. Adding a password offers more protection in case someone is able to gain access to your private key file, giving you time to change the keys used to authenticate you.
 
 ## Using ssh-agent to store your private key password
 

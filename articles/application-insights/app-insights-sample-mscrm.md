@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: Monitor Microsoft Dynamics CRM with Application Insights'
+title: Microsoft Dynamics CRM and Azure Application Insights | Microsoft Docs
 description: Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export.
 services: application-insights
 documentationcenter: ''

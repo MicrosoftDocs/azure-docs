@@ -1,5 +1,5 @@
 ---
-title: Stretch Database overview | Microsoft Docs
+title: Archive cold data to Azure - Stretch Database | Microsoft Docs
 description: Learn how Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud.
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 06/27/2016
 ms.author: douglasl
 
 ---
-# Stretch Database overview
+# Introduction to Stretch Database
 Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud.
 
 If you just want to get started with Stretch Database right away, see [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
