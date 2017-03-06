@@ -79,7 +79,7 @@ To install the Azure Stack PowerShell modules on a computer, which already conta
 
 1. Uninstall the existing Azure PowerShell commands (AzureRM and Azure modules). To uninstall, close all the active PowerShell sessions and run the following command:
   ```powershell
-    Get-Module -ListAvailable | where-Object ($_.Name -like “Azure*”) | Uninstall-Module
+    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
 ```
 
 2. After uninstalling, follow the steps described in [Install the required version](#install-the-required-version) section. 
