@@ -31,7 +31,7 @@ Follow these steps to create a database in an elastic pool with sample data in a
 
 2. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps screen.
 
-3. Fill out the form with the required information (the server name must be globally unique). Click **Create** when compolete:
+3. Fill out the form with the required information (the server name must be globally unique). Click **Create** when complete:
 
       ![create pooled sql database](./media/sql-database-get-started/create-pooled-database-1.png)
 
