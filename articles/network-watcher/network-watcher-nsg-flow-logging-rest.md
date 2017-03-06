@@ -87,7 +87,7 @@ The response returned from the preceding example is as follows:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": true,
@@ -114,7 +114,7 @@ $requestBody = @"
     'targetResourceId': '${targetUri}',
     'properties': {
     'storageId': '${storageId}',
-    'enabled': 'true',
+    'enabled': 'false',
     'retentionPolicy' : {
 			days: 5,
 			enabled: true
@@ -130,7 +130,7 @@ The response returned from the preceding example is as follows:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": false,
@@ -164,7 +164,7 @@ The following is an example of the response returned:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": true,

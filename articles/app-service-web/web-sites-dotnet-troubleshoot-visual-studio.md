@@ -4,7 +4,7 @@ description: Learn how to troubleshoot an Azure web app by using remote debuggin
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97

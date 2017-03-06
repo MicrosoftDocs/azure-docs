@@ -1,5 +1,5 @@
 ---
-title: Overview of the Azure Batch service | Microsoft Docs
+title: Azure Batch runs large-scale parallel computing solutions in the cloud | Microsoft Docs
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads
 services: batch
 documentationcenter: ''
@@ -13,11 +13,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Basics of Azure Batch
+# Run intrinsically parallel workloads with Batch
+
 Azure Batch is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
 With Azure Batch, you can easily define Azure compute resources to execute your applications in parallel, and at scale. There's no need to manually create, configure, and manage an HPC cluster, individual virtual machines, virtual networks, or a complex job and task scheduling infrastructure. Azure Batch automates or simplifies these tasks for you.

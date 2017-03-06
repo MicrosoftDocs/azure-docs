@@ -4,7 +4,7 @@ description: User Interface Overview for Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14

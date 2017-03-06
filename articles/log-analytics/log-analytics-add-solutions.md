@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Add Operations Management Suite (OMS) management solutions
+# Add Azure Log Analytics management solutions to your workspace
 
-Operations Management Suite (OMS) management solutions are a collection of **logic**, **visualization**, and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
+Log Analytics management solutions are a collection of **logic**, **visualization**, and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
 
 Management solutions allow deeper insights to:
 

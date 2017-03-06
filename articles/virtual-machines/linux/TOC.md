@@ -79,6 +79,7 @@
 ### [DNS Name Resolution Options](../virtual-machines-linux-azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use Azure DNS with VMs](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Use Azure Traffic Manager with VMs](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Use FreeBSD’s PF to set up a NAT firewall](../virtual-machines-linux-freebsd-pf-nat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Deploy
 ### [Copy a VM](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -163,7 +164,6 @@
 #### [Run NAMD with Microsoft HPC Pack](../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Run applications
-### [Deploy Node.js application](../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Django web app](../virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Jupyter Notebook](../virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

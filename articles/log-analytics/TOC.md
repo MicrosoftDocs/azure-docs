@@ -33,7 +33,6 @@
 ### [Search reference](log-analytics-search-reference.md)
 #### [Regular expressions](log-analytics-log-searches-regex.md)
 ### [Computer groups](log-analytics-computer-groups.md)
-### [Alerts](log-analytics-alerts.md)
 ## Analyze data
 ### [Dashboards](log-analytics-dashboards.md)
 ### [View Designer](log-analytics-view-designer.md)
@@ -62,6 +61,15 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
 #### [SCOM Assessment](log-analytics-scom-assessment.md)
+## Create alerts
+### [Understanding alerts](log-analytics-alerts.md)
+### [Alert actions](log-analytics-alerts-actions.md)
+### Create alert rules
+#### [OMS portal](log-analytics-alerts-creating.md)
+#### [REST API](log-analytics-api-alerts.md)
+#### [Resource Manager template](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### [Webhook action sample](log-analytics-alerts-webhooks.md)
+### [Alert Management solution](log-analytics-solution-alert-management.md)
 ## Develop
 ### [Data collector API](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)

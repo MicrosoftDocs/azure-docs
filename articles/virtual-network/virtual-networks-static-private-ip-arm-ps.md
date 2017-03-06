@@ -1,6 +1,6 @@
 ---
-title: Set and manage a static private IP address using PowerShell| Microsoft Docs
-description: Learn how to set and manage a static private IP address using PowerShell | Azure Resource Manager.
+title: Configure private IP addresses for VMs - Azure PowerShell | Microsoft Docs
+description: Learn how to configure private IP addresses for virtual machines using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Set and manage a static private IP address using PowerShell
+# Configure private IP addresses for a virtual machine using PowerShell
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
