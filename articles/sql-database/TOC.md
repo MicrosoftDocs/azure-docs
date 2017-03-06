@@ -120,23 +120,39 @@
 ### [PowerShell](sql-database-monitor-and-scale-pool-powershell.md)
 ## Configure geo-replication and failover
 ### [Azure portal]
-### [Single database - PowerShell](sql-database-setup-geodr-and-failover-database-powershell.md)
-### [Pooled database - PowerShell](sql-database-setup-geodr-and-failover-pool-powershell.md)
+### [PowerShell: Single database](sql-database-setup-geodr-and-failover-database-powershell.md)
+### [PowerShell: Pooled database](sql-database-setup-geodr-and-failover-pool-powershell.md)
 ### [T-SQL]
 ## Configure auditing and threat-detection]
-### [Azure portal]
+### [Azure portal: Auditing](sql-database-auditing-portal.md)
+### [Azure portal: Threat detection](sql-database-threat-detection-portal.md)
 ### [PowerShell](sql-database-auditing-and-threat-detection-powershell.md)
-### [T-SQL]
 ## Restore a database
+### ### [Azure portal: Point in time](sql-database-point-in-time-restore-portal.md)
+### [Azure portal: Deleted](sql-database-restore-deleted-database-portal.md)
+### [Azure portal: Geo-redundant](sql-database-geo-restore-portal.md)
 ### [PowerShell](sql-database-restore-database-powershell.md)
+## Manage long-term backup retention
+### [Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
+### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
+## [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Copy a database
+### [Azure portal](sql-database-copy-portal.md)
 ### [PowerShell](sql-database-copy-database-to-new-server-powershell.md)
+### [Transact-SQL](sql-database-copy-transact-sql.md)
 ## Import a database
+### [Azure portal](sql-database-import-portal.md)
 ### [PowerShell](sql-database-import-from-bacpac-powershell.md)
+### [SQLPackage](sql-database-import-sqlpackage.md)
+## Export databases
+### [Azure portal](sql-database-export-portal.md)
+### [PowerShell](sql-database-export-powershell.md)
+### [SSMS](sql-database-export-ssms.md)
+### [SQLPackage](sql-database-export-sqlpackage.md)
+## [Move a database](sql-database-troubleshoot-moving-data.md)
 
 
-
-## Create and manage elastic pools
+## Manage elastic pools
 ### [Azure portal](sql-database-elastic-pool-manage-portal.md)
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
@@ -162,12 +178,6 @@
 ### [Excel](sql-database-connect-excel.md)
 ### [Connectivity best practices](sql-database-connectivity-issues.md)
 ### [Troublshoot connection issues](sql-database-troubleshoot-common-connection-issues.md)
-## Configure auditing
-### [Azure portal](sql-database-auditing-portal.md)
-### [PowerShell](sql-database-auditing-powershell.md)
-### [REST API](sql-database-auditing-rest.md)
-## Configure threat detection
-### [Azure portal](sql-database-threat-detection-portal.md)
 ## Configure encryption
 ### [Encrypt data using Windows certificate](sql-database-always-encrypted.md)
 ### [Encrypt data using Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
@@ -196,20 +206,7 @@
 ### [PowerShell](sql-database-elastic-jobs-powershell.md) 
 ### [Cross-database jobs](sql-database-elastic-jobs-getting-started.md)
 ### [Uninstall](sql-database-elastic-jobs-uninstall.md)
-## Copy databases
-### [Azure portal](sql-database-copy-portal.md)
-### [PowerShell](sql-database-copy-powershell.md)
-### [Transact-SQL](sql-database-copy-transact-sql.md)
-## [Move databases](sql-database-troubleshoot-moving-data.md)
-## Export databases
-### [Azure portal](sql-database-export-portal.md)
-### [PowerShell](sql-database-export-powershell.md)
-### [SSMS](sql-database-export-ssms.md)
-### [SQLPackage](sql-database-export-sqlpackage.md)
-## Import databases
-### [Azure portal](sql-database-import-portal.md)
-### [PowerShell](sql-database-import-powershell.md)
-### [SQLPackage](sql-database-import-sqlpackage.md)
+
 ## Load data
 ### [BCP](sql-database-load-from-csv-with-bcp.md)
 ## [Configure and manage data synchronization](sql-database-get-started-sql-data-sync.md)
@@ -217,19 +214,7 @@
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [Horizontally-partitioned data](sql-database-elastic-query-getting-started.md)
 ### [Vertically-partitioned data](sql-database-elastic-query-getting-started-vertical.md)
-## Restore to a point in time
-### [Azure portal](sql-database-point-in-time-restore-portal.md)
-### [PowerShell](sql-database-point-in-time-restore-powershell.md)
-## Restore deleted database
-### [Azure portal](sql-database-restore-deleted-database-portal.md)
-### [PowerShell](sql-database-restore-deleted-database-powershell.md)
-## Restore from a geo-redundant backup
-### [Azure portal](sql-database-geo-restore-portal.md)
-### [PowerShell](sql-database-geo-restore-powershell.md)
-## Manage long-term backup retention
-### [Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
-### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-## [Recover a single table](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+
 ## Configure active geo-replication
 ### [Azure portal](sql-database-geo-replication-portal.md)
 ### [PowerShell](sql-database-geo-replication-powershell.md)
