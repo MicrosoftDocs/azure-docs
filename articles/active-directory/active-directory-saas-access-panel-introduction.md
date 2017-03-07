@@ -106,14 +106,14 @@ The first time a user clicks a tile for one of these applications, they're promp
 
 The next time the user clicks the application tile, they'll be automatically signed in to the application. The user won't need to enter the credentials again and or install the Password SSO plug-in again.
 
-If a user’s credentials have changed in the target third-party application, the user must also update their credentials that are stored in Azure AD. To update credentials, the user selects the icon on the application tile, and then selects **update credentials** to re-enter the username and password for that application.
+If a user’s credentials have changed in the target third-party application, the user must also update their credentials that are stored in Azure AD. To update credentials, the user selects the icon on the application tile, and then selects **update credentials** to reenter the username and password for that application.
 
 ### Password-based SSO with identity provisioning
 The administrator can add applications in the Active Directory section of the Azure portal with the SSO mode set to **Password-based Single Sign-On**, along with identity provisioning.
 
 The first time a user clicks an application tile for one of these applications, they're prompted to install the Password SSO plug-in for Internet Explorer or Chrome. The installation might require the user to restart their web browser. When the user returns to the Access Panel and clicks the application tile again, they're automatically signed in to the application.
 
-Some applications might require the user to change their password on first sign-in. If a user’s credentials have changed in the target third-party application, the user must also update their credentials that are stored in Azure AD. To update credentials, the user selects the icon on the application tile, and then selects **update credentials** to re-enter the username and password for that application.
+Some applications might require the user to change their password on first sign-in. If a user’s credentials have changed in the target third-party application, the user must also update their credentials that are stored in Azure AD. To update credentials, the user selects the icon on the application tile, and then selects **update credentials** to reenter the username and password for that application.
 
 ### Application with existing SSO solutions
 For configuring SSO for an application, the Azure portal provides a third option of **Existing Single Sign-On**. This option enables the administrator to create a link to an application and place it on the Access Panel for selected users.
