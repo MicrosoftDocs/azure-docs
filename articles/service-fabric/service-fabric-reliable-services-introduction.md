@@ -88,6 +88,7 @@ Most services today store their state externally, since the external store is wh
 
 > [!NOTE]
 > Support for Stateful Reliable Services is not available on Linux yet (for C# or Java).
+>
 
 Let's say we want to write a service that processes images. To do this, the service takes in an image and the series of conversions to perform on that image. This service returns a communication listener (let's suppose it's a WebAPI) that exposes an API like `ConvertImage(Image i, IList<Conversion> conversions)`. When it receives a request, the service stores it in a `IReliableQueue`, and returns some id to the client so it can track the request.
 
