@@ -23,7 +23,7 @@ This article provides syntax and options for Azure command-line interface (CLI) 
 
 > [!NOTE]
 > This article shows Resource Manager mode commands in the Azure CLI, sometimes called Azure CLI 1.0. 
->To work in the Resource Manager model, you can also try the [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
+>To work in the Resource Manager model, you can also try the [Azure CLI 2.0](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
 > Find out more about the [old and new Azure CLIs](/cli/azure/old-and-new-clis).
 >
 

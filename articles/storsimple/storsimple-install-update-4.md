@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 03/06/2017
 ms.author: alkohli
 
 ---
@@ -72,7 +72,7 @@ You must download and install the following hotfixes in the prescribed order and
 
 | Order | KB | Description | Update type | Install time |Install in folder|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Software update &#42; |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
+| 1. |KB4011839 |Software update |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |LSI driver and firmware updates <br> USM firmware update (version 3.38) |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B. + 2C.)|SecondOrderUpdate|
 | 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
 | 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|

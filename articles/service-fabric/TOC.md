@@ -81,9 +81,10 @@
 #### [Timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 #### [Events](service-fabric-reliable-actors-events.md)
 #### [State management](service-fabric-reliable-actors-state-management.md)
-#### [Configure state provider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -105,6 +106,8 @@
 #### Create a cluster on Azure
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio and Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [Cluster networking patterns](service-fabric-patterns-networking.md)
 #### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
@@ -116,6 +119,8 @@
 #### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
 ### Standalone clusters
+#### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Contents of the Service Fabric standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
 #### [Create a standalone cluster on Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Scale a cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)

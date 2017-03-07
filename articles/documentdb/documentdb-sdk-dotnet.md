@@ -1,5 +1,5 @@
 ---
-title: .NET API & SDK Resources - Azure DocumentDB | Microsoft Docs
+title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
 services: documentdb
 documentationcenter: .net
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/22/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB .NET SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: rnagpal
 > 
 > 
 
-## DocumentDB .NET API and SDK
 <table>
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -49,6 +49,7 @@ ms.author: rnagpal
 ## Release notes
 
 ### <a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# Frequently asked questions: Azure Container Service
+# Container Service frequently asked questions
 
 
 ## Orchestrators
@@ -52,14 +53,14 @@ Azure Container Service is an SLA-backed Azure service with features in the Azur
 
 You can use standard tools on your operating system to create an SSH RSA public and private key pair for authentication against the Linux virtual machines for your cluster. For steps, see the [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) guidance. 
 
-If you use [Azure CLI 2.0 (Preview) commands](container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
+If you use [Azure CLI 2.0 commands](container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
 
 ### How do I create a service principal for my Kubernetes cluster?
 
 An Azure Active Directory service principal ID and password are also needed to create a Kubernetes cluster in Azure Container Service. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
 
-If you use [Azure CLI 2.0 (Preview) commands](container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
+If you use [Azure CLI 2.0 commands](container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
 
 
 ### How do I increase the number of masters after a cluster is created? 
@@ -78,6 +79,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 You can find commonly used URLs for your cluster in the Azure portal, the Azure Resource Explorer, or other Azure tools.
+
+### How do I tell which orchestrator version is running in my cluster?
+
+* DC/OS: See the [Mesosphere documentation](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm: Run `docker version`
+* Kubernetes: Run `kubectl version`
+
+
+### How do I upgrade the orchestrator after deployment?
+
+Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/).
  
 ### Where do I find the SSH connection string to my cluster?
 
@@ -105,4 +117,4 @@ For more information, see [Connect to an Azure Container Service cluster](contai
 ## Next steps
 
 * [Learn more](container-service-intro.md) about Azure Container Service.
-* Deploy a container service cluster using the [portal](container-service-deployment.md) or [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md).
+* Deploy a container service cluster using the [portal](container-service-deployment.md) or [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).
