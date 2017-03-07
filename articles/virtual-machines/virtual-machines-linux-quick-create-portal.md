@@ -30,7 +30,7 @@ Before you start, you need both a private and public SSH key. For detailed infor
 
 2. Select **Compute** from the Marketplace screen, select **Ubuntu Server 16.04 LTS** from the featured apps screen, and then click the **Create** button.
 
-3. Fill out the virtual machine **basics** form. The SSH public key value is found in the public key file that you have created for SSH authentication. Click **OK** once complete.
+3. Fill out the virtual machine **basics** form. For **Authentication type**, SSH is recommended. When pasting in your SSH public key, take care to remove any leading and trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed.
 
     ![Enter basic information about your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
 
@@ -38,9 +38,9 @@ Before you start, you need both a private and public SSH key. For detailed infor
 
     ![Select a size for your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-size-blade.png)
 
-5. Select **Yes** under **Use managed disks**, and then click **OK**.
+5. On the settings pane, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
-6. Click **Ok** to start the virtual machine deployment.
+6. On the summary page, click **Ok** to start the virtual machine deployment.
 
 ## Connect to virtual machine
 
