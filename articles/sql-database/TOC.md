@@ -1,5 +1,5 @@
 # Overview
-## [About the SQL Database service](sql-database-technical-overview.md)
+## [About SQL DB](sql-database-technical-overview.md)
 ## Compare
 ### [SQL Database versus SQL Server](sql-database-features.md)
 ### [SQL Database versus SQL on a VM](sql-database-paas-vs-sql-server-iaas.md)
