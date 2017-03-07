@@ -20,7 +20,7 @@ ms.author: davidmu
 ---
 # Manage Azure Virtual Machines using PowerShell
 
-This article shows you common management tasks you might perform on an Azure virtual machine, such as getting information about a VM, starting a VM, stopping a VM, or updating a VM.
+This article shows you common management tasks you might perform on an Azure virtual machine.
 
 See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
@@ -132,7 +132,7 @@ After a few minutes, it returns something like this example:
 ### Stop and stay provisioned
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -StayProvisioned
+    Stop-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM -StayProvisioned
     ```
 
 You're asked for confirmation:
@@ -156,7 +156,7 @@ After a few minutes, it returns something like this example:
 Start a virtual machine if it's stopped.
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+    Start-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
     ```
 
 After a few minutes, it returns something like this example:
@@ -174,7 +174,7 @@ If you want to restart a virtual machine that is already running, use **Restart-
 Restart a running virtual machine.
 
     ```powershell
-    Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+    Restart-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
     ```
 
 It returns something like this example:
@@ -197,7 +197,7 @@ It returns something like this example:
     Update-AzureRmVM -ResourceGroupName $myResourceGroup -VM $vm
     ```
 
-After running Add-AzureRmVMDataDisk, you should see something like this:
+After running Add-AzureRmVMDataDisk, you should see something like this example:
 
     ResourceGroupName        : myResourceGroup
     Id                       : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
@@ -218,7 +218,7 @@ After running Add-AzureRmVMDataDisk, you should see something like this:
     NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
                                Microsoft.Network/networkInterfaces/myNIC}
 
-After running Update-AzureRmVM, you should see something like this:
+After running Update-AzureRmVM, you should see something like this example:
 
     RequestId IsSuccessStatusCode StatusCode ReasonPhrase
     --------- ------------------- ---------- ------------

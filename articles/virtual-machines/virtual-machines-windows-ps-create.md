@@ -18,7 +18,7 @@ ms.author: davidmu
 
 This article shows you how to quickly create an Azure Virtual Machine running Windows Server and the resources it needs using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) and Azure PowerShell.  
 
-All the steps in this article are required to create a virtual machine and it should take about 30 minutes to do the steps. Replace example parameter values in the commands with names that make sense for your environment.
+All the steps in this article are required to create a virtual machine and it should take about 10 minutes to copy, paste, and run the commands.
 
 ## Step 1: Install Azure PowerShell
 
