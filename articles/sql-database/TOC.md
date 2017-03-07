@@ -255,11 +255,7 @@
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
 ## [Service updates](https://azure.microsoft.com/updates/?service=sql-database)
 ## [Architecture guidance](https://docs.microsoft.com/sql/#pivot=architecture)
-## Customer implementations
-### [Elastic pools and Daxko](sql-database-implementation-daxko.md)
-### [Elastic pools and SnelStart](sql-database-implementation-snelstart.md)
-### [Elastic pools and Umbraco](sql-database-implementation-umbraco.md)
-### [Active geo-replication and GEP](sql-database-implementation-gep.md)
+## [Customer implementations](sql-database-customer-implementations.md)
 ## Sample applications
 ### [Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md)
 ### [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample)
