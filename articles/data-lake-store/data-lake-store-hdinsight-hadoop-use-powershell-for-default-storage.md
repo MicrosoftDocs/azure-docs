@@ -37,7 +37,7 @@ Here are some important considerations for using HDInsight with Data Lake Store:
 To configure HDInsight to work with Data Lake Store by using PowerShell, follow the instructions in the next five sections.
 
 ## Prerequisites
-Before you begin this tutorial, make sure that you met the following requirements:
+Before you begin this tutorial, make sure that you meet the following requirements:
 
 * **An Azure subscription**: Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 or greater**: See [How to install and configure PowerShell](/powershell/azureps-cmdlets-docs).
@@ -45,10 +45,10 @@ Before you begin this tutorial, make sure that you met the following requirement
 * **Azure Active Directory service principal**: This tutorial describes how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
  >[!NOTE]
- >You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. The service principal must be created with a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+ >You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
-## Create Data Lake Store
-To create Data Lake Store, do the following:
+## Create a Data Lake Store account
+To create a Data Lake Store account, do the following:
 
 1. From your desktop, open a PowerShell window, and then enter the following snippet:
 
@@ -93,7 +93,7 @@ To create Data Lake Store, do the following:
 
 
 ## Set up authentication for role-based access to Data Lake Store
-Every Azure subscription is associated with an Azure AD. Users and services that access subscription resources by using the Azure portal or the Azure Resource Manager API must first authenticate with that Azure AD. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource. For services, a service principal identifies the service in the Azure AD.
+Every Azure subscription is associated with an Azure AD entity. Users and services that access subscription resources by using the Azure portal or the Azure Resource Manager API must first authenticate with Azure AD. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource. For services, a service principal identifies the service in Azure AD.
 
 This section illustrates how to grant an application service, such as HDInsight, access to an Azure resource (the Data Lake Store account that you created earlier). You do so by creating a service principal for the application and assigning roles to it via PowerShell.
 
@@ -109,7 +109,7 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
 
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
-    You will be prompted to enter the private key password. After the command is successfully executed, you should see a **CertFile.cer** and **mykey.pvk** in the certificate directory that you specified.
+    You will be prompted to enter the private key password. After the command is successfully executed, you should see **CertFile.cer** and **mykey.pvk** in the certificate directory that you specified.
 2. Use the [Pvk2Pfx][pvk2pfx] utility to convert the .pvk and .cer files that MakeCert created to a .pfx file. Run the following command:
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
