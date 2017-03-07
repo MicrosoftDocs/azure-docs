@@ -480,7 +480,24 @@ These are average numbers assuming a 30% IO overlap. Azure Site Recovery is capa
 
 The above published limits are based on our tests but cannot cover all possible application I/O combinations. Actual results will vary based on your application I/O mix. For best results, even after deployment planning, it is always recommended to perform extensive application testing using test failover to get the true performance picture.
 
-##Release notes
+## How to update deployment planner
+[Download](https://aka.ms/asr-deployment-planner) the latest version of the Azure Site Recovery Deployment Planner.
+If you alreay have previous version of deployment planner and profiling is going on, you don't need to stop the profiling unless the new version has profiling fix. Every update comes with full set of binaries and it is in the zip file. You donot need to copy to the previous version folder.  Copy the zip file to a server where you want to run. Extract the zip file.
+
+
+##Version History
+### 1.1
+Updated on: 09-Mar-2017 <br>
+
+Fixed following issues<br>
+
+* Cannot profile virtual machines if the vCenter has two or more virtual machines with the same name/IP address  across different ESXi hosts.<br>
+* Copy and search was disabled for the compatible and incompatible VMs sheets.
+
+
+### 1.0 
+Updated on: 23-Feb-2017 
+
 The Azure Site Recovery Deployment Planner Public Preview 1.0 has the following known issues that will be addressed in upcoming updates.
 
 * The tool works only for the VMware to Azure scenario, not for Hyper-V to Azure deployments. For Hyper-V to Azure scenario use [Hyper-V capacity planner tool](./site-recovery-capacity-planning-for-hyper-v-replication.md).
