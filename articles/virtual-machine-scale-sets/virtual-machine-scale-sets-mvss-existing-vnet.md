@@ -23,7 +23,7 @@ ms.author: negat
 
 This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to deploy into an existing virtual network instead of creating a new one.
 
-## A minimum viable scale set
+## Modifying the minimum viable scale set to deploy into an existing virtual network
 
 Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set into an existing virtual network can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Let's examine the diff used to create this template (`git diff master minimum-viable-scale-set`) piece by piece:
 
