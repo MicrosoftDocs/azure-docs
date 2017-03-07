@@ -93,7 +93,7 @@
 ## Data movement
 ### [Copy a SQL database](sql-database-copy.md)
 ### [Export a database](sql-database-export.md)
-## Monitor and Tune
+## Monitor and tune
 ### [Single databases](sql-database-single-database-monitor.md)
 ### [SQL Database Advisor overview](sql-database-advisor.md)
 ### [Query Performance Insight](sql-database-query-performance.md)
