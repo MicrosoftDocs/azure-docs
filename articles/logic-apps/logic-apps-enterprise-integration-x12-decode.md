@@ -54,7 +54,7 @@ Select **X12 - Decode X12 message**.
 you're prompted to create that connection now. Name your connection, 
 and select the integration account that you want to connect. 
 
-	![Provide integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)\
+	![Provide integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
 
 	Properties with an asterisk are required.
 
