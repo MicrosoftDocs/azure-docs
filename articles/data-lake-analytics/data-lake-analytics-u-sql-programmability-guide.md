@@ -28,7 +28,7 @@ Azure Data Lake is a set of services that work together to provide a cloud-based
 - Azure Data Lake Store
 - Azure Data Lake Analytics
 
-U-SQL is a query language that's specifically designed for big data-type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#. It also provides the ability to access and manipulate schema metadata, and to create custom components such as data processors and reducers.
+U-SQL is a query language that's designed for big data-type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#. It also provides the ability to access and manipulate schema metadata, and to create custom components such as data processors and reducers.
 
 In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.
 
@@ -238,11 +238,11 @@ Example:
 
 In this example, we define an inline function with string input parameter input_p. Inside this function, we verify if input string is a valid datetime value. If it is, return it, otherwise return null.
 
-The inline function is needed in this scenario because the DateTime.TryParse function contains the output parameter `out dt_result`. We define it the as `DateTime dt_result`;.
+The inline function is needed in this scenario because the DateTime.TryParse function contains the output parameter `out dt_result`. We define it as the `DateTime dt_result`;.
 
 
 ## Verify data type values
-Some C# functions cannot be used directly in base U-SQL scripts as C# expressions. Specifically, the functions that can't be used directly are those require an output reference parameter. However, these functions can be defined and used as part of an inline function expression, as discussed earlier.
+Some C# functions cannot be used directly in base U-SQL scripts as C# expressions. Specifically, the functions that can't be used directly are those that require an output reference parameter. However, these functions can be defined and used as part of an inline function expression, as discussed earlier.
 
 ### Use inline function expressions
 To verify if DateTime value is valid, we can use `DateTime.TryParse`.
@@ -366,15 +366,15 @@ namespace USQL_Programmability
 }
 ```
 
-The programmability objects can be user-defined functions, **UDF**, User-Defined Types,**UDT, PROCESS, or REDUCER**, and so on.
+The programmability objects can be user-defined functions, UDF, User-Defined Types, UDT, PROCESS, or REDUCER, and so on.
 
 ## Register U-SQL assemblies
-U-SQL’s extensibility model relies heavily on the ability to add custom code. Currently, U-SQL provides you with easy ways to add your own .NET-based code (in particular, C#), but you can also add custom code that's written in other .NET languages, such as VB.NET or F#.
+U-SQL’s extensibility model relies heavily on the ability to add custom code. Currently, U-SQL provides you with easy ways to add your own .NET-based code (in particular, C#). However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#.
 
-You can even deploy your own runtime for other languages, but you still need to provide the interoperability through a .NET layer yourself. If you want us to support a specific language, please file a feature request or leave a comment at http://aka.ms/adlfeedback.
+You can even deploy your own runtime for other languages, but you still need to provide the interoperability through a .NET layer yourself. If you want us to support a specific language, file a feature request or leave a comment at http://aka.ms/adlfeedback.
 
 ### Learn the difference between code-behind and assembly registration through Azure Data Lake Tools in Visual Studio
-The easiest way to make use of custom code is to use the Azure Data Lake Tools for Visual Studio’s code-behind capabilities.
+The easiest way to use custom code is to use the Azure Data Lake Tools for Visual Studio’s code-behind capabilities.
 
 As we mentioned earlier, you fill in the custom code for the script (for example, Script.usql) into its code-behind file (for example, Script.usql.cs).
 
@@ -388,7 +388,7 @@ The advantage of code-behind is that the tooling takes care of the following ste
 
 2. It adds a prologue to the script that uses the [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) statement to register the assembly file. It also uses [REFERENCE ASSEMBLY]  (https://msdn.microsoft.com/library/azure/mt763294.aspx) to load the assembly into the script’s context.
 
-3. It adds an epilogue to the script, whichuses [DROP ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763295.aspx) to remove the temporarily registered assembly again.
+3. It adds an epilogue to the script, which uses [DROP ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763295.aspx) to remove the temporarily registered assembly again.
 
 You can see the generated prologue and epilogue when you open the script:
 
@@ -402,7 +402,7 @@ The following are some of the drawbacks of code-behind:
 * The code gets uploaded for every script submission.
 * The functionality cannot be shared with others.
 
-Thus, you can add a separate C# Class Library (for U-SQL) to your solution (see Figure 3), develop the code or copy existing code-behind code (no changes in the C# code required, as shown in Figure 4). Then use the **Register Assembly** menu option on the project to register the assembly (as shown in Step 1 of Figure 5).
+Thus, you can add a separate C# Class Library (for U-SQL) to your solution (see Figure 3), develop the code, or copy existing code-behind code (no changes in the C# code required, as shown in Figure 4). Then use the **Register Assembly** menu option on the project to register the assembly (as shown in Step 1 of Figure 5).
 
 ![Creating project](./media/data-lake-analytics-u-sql-programmability-guide/creating-project.png)
 **Figure 3**: Creating a U-SQL C# code project  
@@ -416,15 +416,15 @@ Thus, you can add a separate C# Class Library (for U-SQL) to your solution (see 
 **Figure 5**: How to register the U-SQL C# code project
 <br />
 
-The registration dialog box (see Step 2 of Figure 5) gives you the options for how to register the assembly (for example, which Data Lake Analytics account to use, which database to use, and so on) and how to name it. (The local assembly path gets filled in by the tool.) It also provides an option to re-register an already registered assembly, as well as two options for adding  additional dependencies:
+The registration dialog box (see Step 2 of Figure 5) gives you the options for how to register the assembly (for example, which Data Lake Analytics account to use, which database to use). It also gives you information about how to name the assembly. (The local assembly path gets filled in by the tool.) It also provides an option to re-register an already registered assembly, and two options for adding additional dependencies:
 
 **Managed dependencies**: Shows the managed assemblies that are needed. Each selected assembly is registered individually and becomes referenceable in scripts. You use this for other .NET assemblies.
 
 **Additional files**: Enables you to add additional resource files that are needed by the assembly. They are registered together with the assembly and automatically loaded when the assembly gets referenced. You use this for config files, native assemblies, other language runtimes, their resources, and so on.
 
-We make use of both of these options in the following examples. The [recent blog post about image processing](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/) is another example that shows the use of a predefined assembly that can use these options for registration.
+We use both of these options in the following examples. The [recent blog post about image processing](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/) is another example that shows the use of a predefined assembly that can use these options for registration.
 
-Now you can refer to the registered assemblies from any U-SQL script that has permissions for the database of the registered assemblies (see the code in the U-SQL script in Figure 4). You have to add a reference for every assembly that's registered separately. The additional resource files are automatically deployed. That script should not have a code-behind file for the code that's in the referenced assemblies anymore, but the code-behind file can still provide other code.
+Now you can refer to the registered assemblies from any U-SQL script that has permissions for the database of the registered assemblies. (For more information, see the code in the U-SQL script in Figure 4.) You have to add a reference for every assembly that's registered separately. The additional resource files are automatically deployed. That script should not have a code-behind file for the code that's in the referenced assemblies anymore, but the code-behind file can still provide other code.
 
 ### Register assemblies via Azure Data Lake Tools in Visual Studio and in U-SQL scripts
 While the Azure Data Lake Tools in Visual Studio make it easy to register an assembly, you can also do it with a script (in the same way that the tools do it for you) if you are (for example) developing on a different platform or have already compiled assemblies that you want to upload and register. You take the following steps:
@@ -436,11 +436,11 @@ While the Azure Data Lake Tools in Visual Studio make it easy to register an ass
 We use this approach in the following spatial example.
 
 ### Register assemblies that use other .NET assemblies (based on the JSON and XML sample library)
-Our [U-SQL Github site](https://github.com/Azure/usql/) offers a set of shared example assemblies for you to use. One of the assemblies, called [Microsoft.Analytics.Samples.Formats](https://github.com/Azure/usql/tree/master/Examples/DataFormats), provides extractors, functions, and outputters to handle both JSON and XML documents. The Microsoft.Analytics.Samples.Formats assembly depends on two existing domain-specific assemblies to do the processing of the JSON and XML respectively. It uses the the [Newtonsoft Json.Net](http://www.newtonsoft.com/) library for processing the JSON documents and the [System.Xml](https://msdn.microsoft.com/data/bb291078.aspx) assembly for processing XML. We'll use it to show how to register them and use the assemblies in our scripts.
+Our [U-SQL Github site](https://github.com/Azure/usql/) offers a set of shared example assemblies for you to use. One of the assemblies, called [Microsoft.Analytics.Samples.Formats](https://github.com/Azure/usql/tree/master/Examples/DataFormats), provides extractors, functions, and outputters to handle both JSON and XML documents. The Microsoft.Analytics.Samples.Formats assembly depends on two existing domain-specific assemblies to do the processing of the JSON and XML respectively. It uses the [Newtonsoft Json.Net](http://www.newtonsoft.com/) library for processing the JSON documents and the [System.Xml](https://msdn.microsoft.com/data/bb291078.aspx) assembly for processing XML. We use it to show how to register them and use the assemblies in our scripts.
 
 First we download the [Visual Studio project](https://github.com/Azure/usql/tree/master/Examples/DataFormats) to our local development environment (for example, by making a local copy with the GitHub tool for Windows). Then we open the solution in Visual Studio and right-click the project (as explained previously) to register the assembly.
 
-Though this assembly has two dependencies, we only have to include the Newtonsoft dependency because System.Xml is available in Azure Data Lake already (it has to be explicitly referenced, however). Figure 6 shows how we name the assembly (note that you can choose a different name without dots as well) and add the Newtonsoft DLL. Each of the two assemblies are individually registered in the specified database (for example, JSONBlog).
+Though this assembly has two dependencies, we only have to include the Newtonsoft dependency because System.Xml is available in Azure Data Lake already (it has to be explicitly referenced, however). Figure 6 shows how we name the assembly (note that you can choose a different name without dots as well) and add the Newtonsoft DLL. Each of the two assemblies is individually registered in the specified database (for example, JSONBlog).
 
 ![Register assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
 
@@ -464,17 +464,17 @@ REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 For more information about how to use the JSON functionality, see [this blog post](https://blogs.msdn.microsoft.com/mrys/?p=755).
 
 ### Register assemblies that use native C++ assemblies (using the SQL Server 2016 spatial type assembly from the feature pack)
-Now let’s look at a slightly different scenario. Let’s assume the assembly that we want to use has a dependency on code that is not .NET based. More specifically, the assembly has a dependency on a native C++ assembly. An example of such an assembly is the SQL Server type assembly [Microsoft.SqlServer.Types.dll](https://www.microsoft.com/download/details.aspx?id=52676), which provides .NET-based implementations of the SQL Server hierarchyID, geometry, and geography types to be used by SQL Server client-side applications for handling the SQL Server types. (It was also originally the assembly that provided the implementation for the SQL Server spatial types before the SQL Server 2016 release).
+Now let’s look at a slightly different scenario. Let’s assume the assembly that we want to use has a dependency on code that is not .NET based. More specifically, the assembly has a dependency on a native C++ assembly. An example of such an assembly is the SQL Server type assembly [Microsoft.SqlServer.Types.dll](https://www.microsoft.com/download/details.aspx?id=52676). It provides .NET-based implementations of the SQL Server hierarchyID, geometry, and geography types to be used by SQL Server client-side applications for handling the SQL Server types. (It was also originally the assembly that provided the implementation for the SQL Server spatial types before the SQL Server 2016 release).
 
 Let’s look at how to register this assembly in U-SQL.
 
-First we download and install the assembly from the [SQL Server 2016 feature pack](https://www.microsoft.com/download/details.aspx?id=52676). Select the 64-bit version of the installer (ENU\x64\SQLSysClrTypes.msi) to ensure that you have the 64-bit version of the libraries.
+First we download and install the assembly from the [SQL Server 2016 feature pack](https://www.microsoft.com/download/details.aspx?id=52676). To ensure that you have the 64-bit version of the libraries, select the 64-bit version of the installer (ENU\x64\SQLSysClrTypes.msi).
 
 The installer installs the managed assembly Microsoft.SqlServer.Types.dll into C:\Program Files (x86)\Microsoft SQL Server\130\SDK\Assemblies and the native assembly SqlServerSpatial130.dll into \Windows\System32\. Now we upload the assemblies into our Azure Data Lake Store (for example, into a folder called /upload/asm/spatial).
 
-Since the installer has installed the native library into the system folder c:\Windows\System32, we have to make sure that we either copy SqlServerSpatial130.dll out from that folder before uploading it, or make sure that the tool we use does not perform the [file system redirection](https://msdn.microsoft.com/library/windows/desktop/aa384187(v=vs.85).aspx) of system folders.
+Because the installer has installed the native library into the system folder c:\Windows\System32, we have to make sure that we either copy SqlServerSpatial130.dll out from that folder before uploading it, or that the tool we use does not perform the [file system redirection](https://msdn.microsoft.com/library/windows/desktop/aa384187(v=vs.85).aspx) of system folders.
 
-For example, if you want to upload it with the current Visual Studio Azure Data Lake File Explorer, you have to copy the file into another directory first. Otherwise--as of the time of the writing of this article--you upload the 32-bit version (since Visual Studio is a 32-bit application, which does File System Redirection in its Azure Data Lake upload file selection window). Then, when you run a U-SQL script that calls into the native assembly, you get the following (inner) error at runtime:
+For example, if you want to upload it with the current Visual Studio Azure Data Lake File Explorer, you have to copy the file into another directory first. Otherwise--as of the time of the writing of this article--you upload the 32-bit version. The reason for this is that Visual Studio is a 32-bit application, which does File System Redirection in its Azure Data Lake upload file selection window. Then, when you run a U-SQL script that calls into the native assembly, you get the following (inner) error at runtime:
 
 **Inner exception from user expression: An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)**
 
@@ -497,7 +497,7 @@ WITH ADDITIONAL_FILES =
      );
 ```
 
-In this case, we only register one U-SQL assembly and include the native assembly as a string dependency to the U-SQL assembly. To use the spatial assemblies, we only need to reference the U-SQL assembly. The the additional file is automatically made available for the assembly. Here's a simple sample script that uses the spatial assembly:
+In this case, we only register one U-SQL assembly and include the native assembly as a string dependency to the U-SQL assembly. To use the spatial assemblies, we only need to reference the U-SQL assembly. The additional file is automatically made available for the assembly. Here's a simple sample script that uses the spatial assembly:
 
 ```sql
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -520,7 +520,7 @@ TO "/output/spatial.csv"
 USING Outputters.Csv();
 ```
 
-The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods use the System.Data.SqlTypes types instead of the built-in C# types. Since System.Data is already included by default, we can simply reference the needed SQL type. The previous code is available on our [Github site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
+The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods use the System.Data.SqlTypes types instead of the built-in C# types. Because System.Data is already included by default, we can reference the needed SQL type. The previous code is available on our [Github site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
 
 
 ### Use assembly versioning
@@ -642,7 +642,7 @@ namespace USQL_Programmability
 }
 ```
 
-Now we are going to call this function from the base U-SQL script. To do this, we have to provide a fully-qualified name for the function, including the namespace, which in this case is NameSpace.Class.Function(parameter).
+Now we are going to call this function from the base U-SQL script. To do this, we have to provide a fully qualified name for the function, including the namespace, which in this case is NameSpace.Class.Function(parameter).
 
 ```sql
     USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
@@ -832,7 +832,7 @@ User-defined types, or UDT, is another programmability feature of U-SQL. U-SQL U
 U-SQL cannot implicitly serialize or de-serialize arbitrary UDTs when the UDT is passed between vertices in rowsets. This means that the user has to provide an explicit formatter by using the IFormatter interface. This provides U-SQL with the serialize and de-serialize methods for the UDT.
 
 > [!NOTE]
-> U-SQL’s built-in extractors and outputters currently cannot serialize or de-serialize UDT data to or from files even with the IFormatter set. So when you're writing UDT data to a file with the OUTPUT statement, or reading it with an extractor, the user has to pass it as a string or byte array, and then call the serialization and deserialization code (that is, the UDT’s ToString() method) explicitly. User-defined extractors and outputters, on the other hand, can read and write UDTs.
+> U-SQL’s built-in extractors and outputters currently cannot serialize or de-serialize UDT data to or from files even with the IFormatter set. So when you're writing UDT data to a file with the OUTPUT statement, or reading it with an extractor, you have to pass it as a string or byte array. Then you call the serialization and deserialization code (that is, the UDT’s ToString() method) explicitly. User-defined extractors and outputters, on the other hand, can read and write UDTs.
 
 If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as shown here:
 
@@ -861,7 +861,7 @@ We receive the following error:
 	USQL-Programmability\Types.usql	52	1	USQL-Programmability
 ```
 
-To work with UDT in outptutter, we either have to serialize it to string with the ToString() method or create a custom outputter.
+To work with UDT in outputter, we either have to serialize it to string with the ToString() method or create a custom outputter.
 
 UDTs currently cannot be used in GROUP BY. If UDT is used in GROUP BY, the following error is thrown:
 
@@ -901,8 +901,7 @@ The constructor of the class:
 
 * SqlUserDefinedTypeAttribute (type formatter)
 
-* Type formatter: Required parameter to define an UDT formatter--specifically, the type of the `IFormatter` interface.
-	has to be passed here.
+* Type formatter: Required parameter to define an UDT formatter--specifically, the type of the `IFormatter` interface must be passed here.
 
 ```c#
 	[SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -1054,7 +1053,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 
 The defined type includes two numbers: quarter and month. Operators ==/!=/>/< and static method ToString() are defined here.
 
-As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with ToString() or used with custom OUTPUTTER/EXTRACTOR.
+As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with ToString() or used with a custom OUTPUTTER/EXTRACTOR.
 
 Now let’s discuss usage of UDT. In a code-behind section, we changed our GetFiscalPeriod function to the following:
 
@@ -1299,7 +1298,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 ```
 
 ## Use user-defined aggregates: UDAGG
-User-defined aggregates are any aggregation-related functions that are not shipped out of the box with U-SQL. The example can be an aggregate to perform custom math calculations, string concatenations, manipulations with strings, and so on.
+User-defined aggregates are any aggregation-related functions that are not shipped out-of-the-box with U-SQL. The example can be an aggregate to perform custom math calculations, string concatenations, manipulations with strings, and so on.
 
 The user-defined aggregate base class definition is as follows:
 
@@ -1435,7 +1434,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 In this use-case scenario, we concatenate class GUIDs for the specific users.
 
 ## Use user-defined objects: UDO
-U-SQL provides the ability to define custom programmability objects, which are called user-defined objects or UDO.
+U-SQL enables you to define custom programmability objects, which are called user-defined objects or UDO.
 
 The following is a list of UDO in U-SQL:
 
@@ -1486,7 +1485,7 @@ It can be useful to develop a custom extractor. This can be helpful during data 
 * Parse unstructured data such as Web pages and emails, or semi-unstructured data such as XML/JSON.
 * Parse data in unsupported encoding.
 
-To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for the `IEnumerable<IRow>` override as follows:
+To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, and encoding, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for the `IEnumerable<IRow>` override as follows:
 
 ```c#
      [SqlUserDefinedExtractor]
@@ -1511,7 +1510,7 @@ SqlUserDefinedExtractor is an optional attribute for UDE definition. It used to 
 
 * bool     AtomicFileProcessing   
 
-* **true**  = Indicates that this extractor requires atomic input files (JSON, XML, ...)
+* **true**  Indicates that this extractor requires atomic input files (JSON, XML, ...)
 * **false** = Indicates that this extractor can deal with split / distributed files (CSV, SEQ, ...)
 
 The main UDE programmability objects are **input** and **output**. The input object is used to enumerate input data as `IUnstructuredReader`. The output object is used to set output data as a result of the extractor activity.
@@ -1631,7 +1630,7 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ```
 
 ## Use user-defined outputters
-User-defined outputter is another U-SQL UDO that allows you to extend  built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
+User-defined outputter is another U-SQL UDO that allows you to extend built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
 
 * *Outputters.Text()*: Writes data to delimited text files of different encodings.
 * *Outputters.Csv()*: Writes data to comma-separated value (CSV) files of
@@ -1658,7 +1657,7 @@ Following is the base `IOutputter` class implementation:
     }
 ```
 
-All input parameters to the outputter, such as column/row delimiters, encoding, and so on,  needs to be defined in the constructor of the class. The `IOutputter` interface should also contain a definition for `void Output` override. The attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can optionally be set for atomic file processing. For more information, see the following details.
+All input parameters to the outputter, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class. The `IOutputter` interface should also contain a definition for `void Output` override. The attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can optionally be set for atomic file processing. For more information, see the following details.
 
 ```c#
         [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1692,12 +1691,12 @@ SqlUserDefinedOutputter is an optional attribute for a user-defined outputter de
 
 * bool     AtomicFileProcessing   
 
-* **true**  = Indicates that this Outputter requires atomic output files (JSON, XML, ...)
-* **false** = Indicates that this Outputter can deal with split / distributed files (CSV, SEQ, ...)
+* **true** = Indicates that this outputter requires atomic output files (JSON, XML, ...)
+* **false** = Indicates that this outputter can deal with split / distributed files (CSV, SEQ, ...)
 
 The main programmability objects are **row** and **output**. The **row** object is used to enumerate output data as `IRow` interface. **Output** is used to set output data to the target file.
 
-The output data is accessed through the `IRow` interface. Output data is passed a a row at a time.
+The output data is accessed through the `IRow` interface. Output data is passed a row at a time.
 
 The individual values are enumerated by calling the Get method of the IRow interface:
 
@@ -1752,7 +1751,7 @@ To set a header, use single iteration execution flow.
 
 The code in the first `if (isHeaderRow)` block is executed only once.
 
-For the footer, use the reference to the instance of `System.IO.Stream` object (`output.BaseStream`). Write the footer in the  Close() method of the `IOutputter` interface.  (For more information, see the following example.)
+For the footer, use the reference to the instance of `System.IO.Stream` object (`output.BaseStream`). Write the footer in the Close() method of the `IOutputter` interface.  (For more information, see the following example.)
 
 Following is an example of a user-defined outputter:
 
@@ -2012,7 +2011,7 @@ The typical call to the user-defined applier looks like the following:
 	new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-See [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx) for more information about using appliers in a SELECT expression.
+For more information about using appliers in a SELECT expression, see [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY], see (https://msdn.microsoft.com/library/azure/mt621307.aspx).
 
 The user-defined applier base class definition is as follows:
 
@@ -2088,7 +2087,7 @@ The output values must be set with `IUpdatableRow` output:
 
 It is important to understand that custom appliers only output columns and values that are defined with `output.Set` method call.
 
-The actual output is triggered by calling to `yield return output.AsReadOnly()`;.
+The actual output is triggered by calling `yield return output.AsReadOnly()`;.
 
 The user-defined applier parameters can be passed to the constructor. Applier can return a variable number of columns that need to be defined during the applier call in base U-SQL Script.
 
@@ -2191,7 +2190,7 @@ In this use case scenario, user-defined applier acts as a comma-delimited value 
 210	X5AB2CD45XY458893	Nissan,Altima,2011,4Dr,74000
 ```
 
-It is a typical tab-delimited TSV file with a properties column that contains car properties such as make, model, and so on. Those properties need to be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or a specific set of properties only.
+It is a typical tab-delimited TSV file with a properties column that contains car properties such as make and model. Those properties must be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or a specific set of properties only.
 
 	…USQL_Programmability.ParserApplier ("all")
 	…USQL_Programmability.ParserApplier ("make")
@@ -2267,7 +2266,7 @@ CombinerMode     Mode
 
 CombinerMode enum can take the following values:
 
-* Full   (0)	Every output row potentially depends on all the input rows from left and right
+* Full  (0)	Every output row potentially depends on all the input rows from left and right
 		with the same key value.
 
 * Left  (1)	Every output row depends on a single input row from the left (and potentially all rows
@@ -2288,7 +2287,7 @@ The main programmability objects are:
 		IUpdatableRow output
 ```
 
-Input rowsets are passed as **left** and **right** `IRowset` type of interface. Both rowsets have to be enumerated for processing. You can only enumerate each interface once, so we have to enumerate and cache it if necessary.
+Input rowsets are passed as **left** and **right** `IRowset` type of interface. Both rowsets must be enumerated for processing. You can only enumerate each interface once, so we have to enumerate and cache it if necessary.
 
 For caching purposes, we can create a List\<T\> type of memory structure as a result of a LINQ query execution, specifically List<`IRow`>. The anonymous data type can be used during enumeration as well.
 
@@ -2500,11 +2499,11 @@ Or with the invocation of a wrapper factory method:
 ```
 
 ## Use user-defined reducers
-U-SQL provides the ability for you to write custom rowset reducers in C# by using the user-defined operator extensibility framework and implementing an IReducer interface.
+U-SQL enables you to write custom rowset reducers in C# by using the user-defined operator extensibility framework and implementing an IReducer interface.
 
 User-defined reducer, or UDR, can be used to eliminate unnecessary rows during data extraction (import). It also can be used to manipulate and evaluate rows and columns. Based on programmability logic, it can also define which rows need to be extracted.
 
-To define a UDR class, we need to an create an `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.
+To define a UDR class, we need to create an `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.
 
 This class interface should contain a definition for the `IEnumerable` interface rowset override.
 
@@ -2538,11 +2537,11 @@ For input rows enumeration, we use the `Row.Get` method.
             }
 ```
 
-Note that the parameter for the `Row.Get` method is a column that's passed as part of the `PRODUCE` class of the `REDUCE` statement of the U-SQL base script. We need to use the correct data type here as well.
+The parameter for the `Row.Get` method is a column that's passed as part of the `PRODUCE` class of the `REDUCE` statement of the U-SQL base script. We need to use the correct data type here as well.
 
 For output, use the `output.Set` method.
 
-It is important to understand that custom reducer only outputs values thatare defined with the `output.Set` method call.
+It is important to understand that custom reducer only outputs values that are defined with the `output.Set` method call.
 
 ```c#
 	output.Set<string>("mycolumn", guid);
