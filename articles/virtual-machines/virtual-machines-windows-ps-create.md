@@ -1,6 +1,6 @@
 ---
 title: Create an Azure VM using PowerShell | Microsoft Docs
-description: Use Azure PowerShell and Azure Resource Manager to easily create a VM running Windows Server.
+description: Use Azure PowerShell and Azure Resource Manager to easily create a Windows Server VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
@@ -10,13 +10,13 @@ tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 ---
 
-# Create a Windows VM using Resource Manager and PowerShell
+# Create a Windows VM using Azure Resource Manager and PowerShell
 
-This article shows you how to quickly create an Azure Virtual Machine running Windows Server and the resources it needs using [Resource Manager](../azure-resource-manager/resource-group-overview.md) and Azure PowerShell.  
+This article shows you how to quickly create an Azure Virtual Machine running Windows Server and the resources it needs using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) and Azure PowerShell.  
 
 All the steps in this article are required to create a virtual machine and it should take about 30 minutes to do the steps. Replace example parameter values in the commands with names that make sense for your environment.
 
@@ -74,7 +74,7 @@ You currently have a choice when creating a virtual machine of using [Azure Mana
 
 ## Step 4: Create a virtual network
 
-All virtual machines are part of a [virtual network](../virtual-network/virtual-networks-overview.md).
+All virtual machines are part of a [virtual network](virtual-machines-windows-network-overview.md).
 
 1. Create a subnet for the virtual network. This command creates a subnet named **mySubnet** with an address prefix of 10.0.0.0/24.
    
