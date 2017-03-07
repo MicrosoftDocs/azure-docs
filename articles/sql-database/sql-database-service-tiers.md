@@ -15,13 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 03/03/2017
+wms.date: 03/06/2017
 ms.author: janeng
 
 ---
 # SQL Database options and performance: Understand what's available in each service tier
 
 [Azure SQL Database](sql-database-technical-overview.md) offers four service tiers: **Basic**, **Standard**,**Premium**, and **Premium RS**. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. The Premium RS tier provides the same performance levels, security features and business continuity features as the Premium tier albeit at a reduced SLA.
+
+> [IMPORTANT]
+> Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the unlikely event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
+>
 
 You can create single databases with dedicated resources on within a service tier at a specifiec [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). You can also create databases within an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across multiple databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
 
@@ -46,10 +50,8 @@ First decide if you want to run a single database with a defined amount of dedic
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
-* Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. 
-
-> [IMPORTANT]
-> Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the unlikely event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
+> [!IMPORTANT]
+> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md##current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Once you have determined the minimum service tier, you are ready to determine the performance level for the database (the number of DTUs). The standard S2 and S3 performance levels are often a good starting point. For databases with high CPU or IO requirements, the Premium performance levels are the right starting point. Premium offers more CPU and starts at 10x more IO compared to the highest Standard performance level.

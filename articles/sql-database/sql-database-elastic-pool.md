@@ -12,7 +12,7 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 02/24/2017
+ms.date: 03/06/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
