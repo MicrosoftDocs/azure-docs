@@ -61,7 +61,7 @@ To finish creating your connection, choose **Create**.
 	![integration connection details](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
 
 6. After your connection is created, as shown in this example. 
-Now select Body and Headers from Request outputs:
+Now select **Body** and **Headers** from the Request outputs:
    
     ![integration connection created](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
