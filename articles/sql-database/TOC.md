@@ -179,7 +179,7 @@
 ### [SSMS using multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
 ### [Excel](sql-database-connect-excel.md)
 ### [Connectivity best practices](sql-database-connectivity-issues.md)
-### [Troublshoot connection issues](sql-database-troubleshoot-common-connection-issues.md)
+### [Troubleshoot connection issues](sql-database-troubleshoot-common-connection-issues.md)
 ## Configure encryption
 ### [Encrypt data using Windows certificate](sql-database-always-encrypted.md)
 ### [Encrypt data using Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
