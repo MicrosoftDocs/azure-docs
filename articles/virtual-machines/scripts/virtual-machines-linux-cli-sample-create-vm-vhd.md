@@ -21,7 +21,7 @@ ms.author: allclark
 # Create a VM with a virtual hard disk
 
 This example creates a virtual machine using a VHD.
-It creates a resource group, a storage account and a container,
+It creates a resource group, a storage account, and a container,
 then it creates a VM by uploading the VHD to the container.
 It replaces the ssh public key with your public key so that you have access to the VM.
 
