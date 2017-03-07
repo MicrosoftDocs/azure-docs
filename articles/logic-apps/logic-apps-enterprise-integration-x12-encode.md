@@ -1,6 +1,6 @@
 ---
 title: Encode X12 messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and convert XML-encoded messages with X12 message encoder in Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and convert XML-encoded messages with X12 message encoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc

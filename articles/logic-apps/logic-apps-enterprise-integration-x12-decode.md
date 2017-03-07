@@ -1,6 +1,6 @@
 ---
 title: Decode X12 messages - Azure Logic Apps | Microsoft Docs
-description: How to use the X12 decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and generate XML for transaction sets with the X12 message decoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -19,19 +19,37 @@ ms.author: padmavc
 ---
 # Decode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
 
-The Decode X12 message connector validates EDI and partner-specific properties, 
-generates XML document for each transaction set, and generates acknowledgment for processed transaction.
+To validate EDI and partner-specific properties, 
+generate an XML document for each transaction set, 
+and generate acknowledgment for processed transactions, 
+add the Decode X12 message connector to an existing trigger in your logic app.
 
-## Prereqs
+## Before you start
+
+Here's the items you need:
+
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An Integration Account is required to use Decode X12 message connector. See details on how to create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) and [X12 agreement](../logic-apps/logic-apps-enterprise-integration-x12.md)
+* An [integration account](logic-apps-enterprise-integration-create-integration-account.md) 
+that's already defined and associated with your Azure subscription. 
+You must have an integration account to use the Encode X12 message connector.
+* At least two [partners](logic-apps-enterprise-integration-partners.md) 
+that are already defined in your integration account
+* An [X12 agreement](logic-apps-enterprise-integration-x12.md) 
+that's already defined in your integration account
 
 ## Decode X12 messages
 
-1. [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) provides an example
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select X12 – Decode X12 Message:
+1. [Create a logic app](logic-apps-create-a-logic-app.md).
+
+2. The Decode X12 message connector doesn't have triggers, 
+so you must add a trigger for starting your logic app, like a Request trigger. 
+In the Logic App Designer, add a trigger, and then add an action to your logic app.
+
+3.	In the search box, enter "x12". 
+Select **X12 - Decode X12 message**.
    
-    ![search x12](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
+    ![Search for "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
+
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details:
    
     ![integration account connection](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)     
