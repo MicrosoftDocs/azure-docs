@@ -1,6 +1,6 @@
 ---
-title: Set up your eclipse development environment | Microsoft Docs
-description: Set up your eclipse development environment.
+title: Getting Started with Eclipse Plugin for Service Fabric | Microsoft Docs
+description: Getting Started with Eclipse Plugin for Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: saysa
@@ -18,13 +18,13 @@ ms.author: saysa
 
 ---
 
-# Set up Eclipse development environment for Service Fabric Java application
-Eclipse is one of the most used IDEs for Java Developers. In this article we discuss how you can set up your eclipse development environment to work with Service Fabric. Here we will show you - how you can install the plugin, create Service fabric applications and deploy your service-fabric application to local or remote Service Fabric cluster.
+# Getting Started with Eclipse Plugin for Service Fabric Java application development
+Eclipse is one of the most used IDEs for Java Developers. In this article we discuss how you can set up your Eclipse development environment to work with Service Fabric. This article will help you install the plugin, create Service fabric applications and deploy your Service Fabric application to local or remote Service Fabric cluster.
 
 ## Install or Update Service Fabric Plugin on Eclipse Neon
 Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** that can simplify the process of building and deploying Java services.
 
-1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing ``Help => Installation Details``. You can update Buildship using the instructions [here][buildship-update]. To check and update if your eclipse neon is on latest version, you can go to ``Help => Check for Updates``.
+1. Ensure that you have latest Eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing ``Help => Installation Details``. You can update Buildship using the instructions [here][buildship-update]. To check and update if your Eclipse Neon is on latest version, you can go to ``Help => Check for Updates``.
 
 2. To install the Service Fabric plugin, choose ``Help => Install New Software...``.
   * In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric.
@@ -35,10 +35,10 @@ Service Fabric provides a plugin for the **Eclipse IDE for Java Developers** tha
   * Choose the Service Fabric plugin and click next.
   * Proceed through the installation and accept the end-user license agreement.
 
-If you already have the Service Fabric eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
+If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
 
 > [!NOTE]
-> In case of install or update of Service Fabric Eclipse Plugin taking a lot of time, on your eclipse, it is because, every-time eclipse tries to fetch metadata of all new changes that has happened to all the update-sites registered with your eclipse instance. So, to make it faster you can use this small hack - you can go to `Available Software Sites` and uncheck everything other than the one pointing to Service Fabric plugin location `http://dl.windowsazure.com/eclipse/servicefabric`.
+> In case of install or update of Service Fabric Eclipse plugin is taking a lot of time, on your Eclipse, it is because, every-time Eclipse tries to fetch metadata of all new changes that has happened to all the update-sites registered with your Eclipse instance. So, to make it faster you can use this small hack - you can go to `Available Software Sites` and uncheck everything other than the one pointing to Service Fabric plugin location `http://dl.windowsazure.com/eclipse/servicefabric`.
 >
 
 ## Create Service Fabric application using Eclipse
@@ -67,9 +67,9 @@ If you already have the Service Fabric eclipse plugin installed, make sure you a
 
     ![Service Fabric New Project Page 6][create-application/p6]
 
-## Build and deploy the Service Fabric Application using Eclipse
+## Build and deploy the Service Fabric application using Eclipse
 
-* Right click on the Service Fabric Application you just created above. It will show you a context-menu, there find ``Service Fabric`` and hover around there. It will popup a submenu on the right which would look like -
+* Right click on the Service Fabric application you just created above. Select option ``Service Fabric`` in the context menu. This would bring up a submenu with multiple options. which would look like -
 
     ![Service Fabric Right Click Menu][publish/RightClick]
 
@@ -81,30 +81,30 @@ If you already have the Service Fabric eclipse plugin installed, make sure you a
 
 * You can choose to deploy, undeploy and publish your application too from this menu.
   - ``Deploy Application`` will deploy to your local cluster
-  - ``Publish Application..`` will ask for which publish-profile you want to select between ``Local.json`` and ``Cloud.json``. By default, ``Local.json``
+  - ``Publish Application...`` will ask for which publish profile you want to select between ``Local.json`` and ``Cloud.json``. These JSON files are used to store information (such as connection end-points and security information) required to connect to local or cloud (Azure) cluster.
 
   ![Service Fabric Right Click Menu][publish/Publish]
 
-* There is an alternate way in which you can deploy your Service Fabric application using eclipse Run-configurations.
+* There is an alternate way in which you can deploy your Service Fabric application using Eclipse Run Configurations.
 
-  1. Choose ``Run => Run Configurations``. Select the ``ServiceFabricDeployer`` run-configuration, under ``Grade Project``.
-  2. Under the ``Arguments`` tab on the right pane, Specify **local** or **cloud** as the ``publishProfile``. The default setup is **local**. For deploying to a remote cluster, select **cloud**.
+  1. Choose ``Run => Run Configurations``. Select the ``ServiceFabricDeployer`` run configuration, under ``Grade Project``.
+  2. Under the ``Arguments`` tab on the right pane, specify **local** or **cloud** as the ``publishProfile``. The default setup is **local**. For deploying to a remote/cloud cluster, select **cloud**.
   3. Ensure the proper information is populated in the publish profiles, by editing the `Local.json` or `Cloud.json` as appropriate, with end-point details, and security credentials, if any.
-  4. Ensure that ``Working Directory`` on the right-pane under ``Grade Project`` points to the application you want to deploy. If not, just click on the ``Workspace...`` button and select the application you want.
+  4. Ensure that ``Working Directory`` on the right pane under ``Grade Project`` points to the application you want to deploy. If not, just click on the ``Workspace...`` button and select the application you want.
   5. Click **Apply** and **Run**.
 
-Your app builds and deploys within a few moments. You can monitor its status from Service Fabric Explorer.  
+Your application builds and deploys within a few moments. You can monitor its status from Service Fabric Explorer.  
 
-## Add new Service Fabric Service to your Service Fabric Application
+## Add new Service Fabric service to your Service Fabric application
 
-Once you have created a Service-fabric application using Eclipse, you can add new Service Fabric Service to the existing project. You can start by following the steps below -
+Adding a new Service Fabric service to an existing Service Fabric application is possible using the following steps:
 
-1. Right click on the Project, you want to add a Service to open the context menu. Look for 'Service Fabric'. Once your mouse is there, a sub-menu appears.
+1. Right click on the project, you want to add a service to open the context menu and select the option 'Service Fabric'. This brings up a submenu with multiple options.
 
     ![Service Fabric Add Service page 1][add-service/p1]
 
-2. Select the 'Add ServiceFabric Service' Option and it will guide you through the next set of steps to add a service to the project.
-3. Select the Service template you want to add to your project. And click 'Next'.
+2. Select the `Add ServiceFabric Service` option and it will guide you through the next set of steps to add a service to the project.
+3. Select the Service template you want to add to your project and click 'Next'.
 
     ![Service Fabric Add Service page 2][add-service/p2]
 
@@ -112,15 +112,15 @@ Once you have created a Service-fabric application using Eclipse, you can add ne
 
     ![Service Fabric Add Service page 3][add-service/p3]
 
-5. After the Service gets added successfully, the entire project structure now looks like something a as below -
+5. After the service gets added successfully, the entire project structure now looks like something as below -
 
     ![Service Fabric Add Service page 4][add-service/p4]
 
-## Upgrade your Service Fabric Java Application
+## Upgrade your Service Fabric Java application
 
 Let's assume that you have created the ``App1`` project using your the Service Fabric Eclipse plugin and deployed it using the plugin to create an application named ``fabric:/App1Application`` of application-type ``App1AppicationType`` and application-version 1.0. Now you want to upgrade your application without taking it down.
 
-Make the change to your application and rebuild the modified service.  Update the modified service’s manifest file (``ServiceManifest.xml``) with the updated versions for the Service (and Code or Config or Data as appropriate). Also modify the application’s manifest (``ApplicationManifest.xml``) with the updated version number for the application, and the modified service.  
+Make the change to your application and rebuild the modified service.  Update the modified service’s manifest file (``ServiceManifest.xml``) with the updated versions for the service (and Code or Config or Data as appropriate). Also modify the application’s manifest (``ApplicationManifest.xml``) with the updated version number for the application, and the modified service.  
 
 ### Using azure-cli commands
 Now, assuming you are already connected to the cluster where you have installed your application and you are in the root directory of the project, copy and register your updated application using the following azure-cli commands:
@@ -142,19 +142,19 @@ To upgrade your application using Eclipse, you can create a duplicate run-config
 3. On the right panel, under the ``Arguments`` tab, change ``-Pconfig='deploy'`` to ``-Pconfig=upgrade`` and click on ``Apply``.
 4. Now, you created and saved a run-configuration for upgrading your application, which you can ``Run`` when you want. This will take care of getting the latest updated application-type version from the application-manifest file.
 
-You can now monitor the application upgrade using SFX. In a few minutes, the application would have been updated.  You can also try an updated app with an error and check the auto rollback functionality in service fabric.
+You can now monitor the application upgrade using Service Fabric Explorer. In a few minutes, the application would have been updated.
 
 
-## Import and Deploy github Java Samples using Service Fabric Eclipse Plugin
+## Import and Deploy GitHub Java Samples using Service Fabric Eclipse Plugin
 1. Clone the repository in your dev-box - ``https://github.com/Azure-Samples/service-fabric-java-getting-started.git``
 2. On your Eclipse, you need to make sure, Service Fabric Plugin installed.
 3. Create a new workspace.
-4. Open the ``Service Fabric`` Perspective. You can change your eclipse perspective by following the path - ``Window => Perspective => Open Perspective => Other`` and select  ``Service Fabric`` from the list you see.
-5. To import the Github samples in eclipse, you can go to ``File => Import => General => Existing Project into Workspace`` and select the path to say ``EchoServer1.0``, from your cloned github samples.
-6. Now to build and deploy you can follow the steps mentioned above in the document [Build and deploy the Service Fabric Application using Eclipse](#build-and-deploy-the-service-fabric-application-using-eclipse).
+4. Open the ``Service Fabric`` Perspective. You can change your Eclipse perspective by following the path - ``Window => Perspective => Open Perspective => Other`` and select  ``Service Fabric`` from the list you see.
+5. To import the GitHub samples in Eclipse, you can go to ``File => Import => General => Existing Project into Workspace`` and select the path to say ``EchoServer1.0``, from your cloned GitHub samples.
+6. Now to build and deploy you can follow the steps mentioned above in the document [Build and deploy the Service Fabric application using Eclipse](#build-and-deploy-the-service-fabric-application-using-eclipse).
 
 > [!NOTE]
-> For more information about how to import and deploy these samples on mac, please refer to - [Import and deploy github samples on mac using Service Fabric Eclipse Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#import-and-deploy-github-java-samples-on-mac-using-service-fabric-eclipse-plugin).
+> For more information about how to import and deploy these samples on mac, please refer to - [Import and deploy GitHub samples on mac using Service Fabric Eclipse Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#import-and-deploy-github-java-samples-on-mac-using-service-fabric-eclipse-plugin).
 >
 
 <!-- Images -->

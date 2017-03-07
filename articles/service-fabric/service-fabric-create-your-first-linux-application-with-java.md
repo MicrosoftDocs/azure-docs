@@ -100,7 +100,7 @@ Actor projects do not do anything on their own. They require another service or 
 
 ## Create and Deploy an application with the Eclipse Neon plugin
 
-Service Fabric also gives you the provision to create, build and deploy service fabric Java application using Eclipse, which is one of the most used Java development tools. When installing Eclipse, choose the **Eclipse IDE for Java developers**. Also, Service Fabric currently supports the plugin for Eclipse **Neon**. Please refer to the detailed documentation - [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
+Service Fabric also gives you the provision to create, build and deploy Service Fabric Java application using Eclipse. When installing Eclipse, choose the **Eclipse IDE for Java developers**. Also, Service Fabric currently supports the plugin for Eclipse **Neon**. Please refer to the detailed documentation - [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
 
 ## Adding more services to an existing application
 
@@ -110,7 +110,7 @@ To add another service to an application already created using `yo`, perform the
 2. Run `yo azuresfjava:AddService`
 
 ### Using Service Fabric Eclipse plugin for Java on Linux
-You can refer to [Add Service to existing application using Eclipse Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#add-new-service-fabric-service-to-your-service-fabric-application) documentation for further details on this.
+To add service to an existing application created using Eclipse plugin for Service Fabric refer to documentation [here](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#add-new-service-fabric-service-to-your-service-fabric-application).
 
 ## Next steps
 * [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)

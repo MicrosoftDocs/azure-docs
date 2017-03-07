@@ -61,7 +61,9 @@ The MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService, and Ma
 
 [Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
-[Upgrading your Application using azure-cli on Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-azure-cli#upgrading-your-application) walks you through an application upgrade using azure-cli. 
+[Upgrading your Application using Azure CLI on Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-azure-cli#upgrading-your-application) walks you through an application upgrade using Azure CLI.
+
+[Upgrading your application using Service Fabric Eclipse Plugin]((https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#upgrade-your-service-fabric-java-application)
 
 Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
 
