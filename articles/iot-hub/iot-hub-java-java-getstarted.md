@@ -294,6 +294,8 @@ In this section, you create a Java console app that simulates a device that send
     import com.microsoft.azure.sdk.iot.device.Message;
     import com.microsoft.azure.sdk.iot.device.IotHubStatusCode;
     import com.microsoft.azure.sdk.iot.device.IotHubEventCallback;
+    import com.microsoft.azure.sdk.iot.device.MessageCallback;
+    import com.microsoft.azure.sdk.iot.device.IotHubMessageResult;
     import com.google.gson.Gson;
 
     import java.io.IOException;
