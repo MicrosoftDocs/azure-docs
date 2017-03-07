@@ -26,7 +26,8 @@ This article describes how Azure AD Connect can be used to update SSL certificat
 ![Three Steps](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 
 
->[!NOTE] To learn more about certificates used by AD FS, refer to the article [Understanding Certificates Used by AD FS](https://technet.microsoft.com/library/cc730660.aspx)
+>[!NOTE]
+>To learn more about certificates used by AD FS, refer to the article [Understanding Certificates Used by AD FS](https://technet.microsoft.com/library/cc730660.aspx)
 
 ##Pre-requisites
 
@@ -49,7 +50,8 @@ If the list contains a server that is no longer part of the AD FS farm, then cli
 
 ![Offline server in list](./media/active-directory-aadconnectfed-ssl-update/offlineserverlist.png)
  
->[!NOTE] Removing from the list of servers for AD FS farm in Azure AD Connect is a local operation and updates the information for the AD FS farm that Azure AD Connect maintains locally. Azure AD Connect will not do any modification of configuration on AD FS to reflect the change.    
+>[!NOTE] 
+> Removing from the list of servers for AD FS farm in Azure AD Connect is a local operation and updates the information for the AD FS farm that Azure AD Connect maintains locally. Azure AD Connect will not do any modification of configuration on AD FS to reflect the change.    
 
 ##Step 2: Provide new SSL certificate
 
