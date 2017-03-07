@@ -28,7 +28,7 @@ This article has sections of common questions (with answers) to help you quickly
 - [Azure Backup Server and Data Protection Manager](backup-azure-backup-faq.md#azure-backup-server-and-data-protection-manager)
 - [How Backup works](backup-azure-backup-faq.md#how-backup-works)
 - [What can I back up?](backup-azure-backup-faq.md#what-can-i-back-up)
-- [Incremental backup, retention policy, and recovery points](backup-azure-backup-faq.md#incremental-backup,-retention-policy,-and-recovery-points)
+- [Retention policy and recovery points](backup-azure-backup-faq.md#retention-policy-and-recovery-points)
 - [Encryption](backup-azure-backup-faq.md#encryption)
 
 ## Recovery services vault
@@ -240,7 +240,7 @@ The following table explains how each data source size is determined.
 
 
 
-## Incremental backup, retention policy, and recovery points
+## Retention policy and recovery points
 
 ### Is there a difference between the retention policy for DPM and Windows Server/client (that is, on Windows Server without DPM)?<br/>
 No, both DPM and Windows Server/client have daily, weekly, monthly, and yearly retention policies.
@@ -248,7 +248,7 @@ No, both DPM and Windows Server/client have daily, weekly, monthly, and yearly r
 ### Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly?<br/>
 Yes, the Azure Backup retention structure allows you to have full flexibility in defining the retention policy as per your requirements.
 
-### Can I “schedule a backup” at 6pm and specify “retention policies” at a different time?<br/>
+### Can I “schedule a backup” at 6pm and specify retention policies at a different time?<br/>
 No. Retention policies can only be applied on backup points. In the following image, the retention policy is specified for backups taken at 12am and 6pm. <br/>
 
 ![Schedule Backup and Retention](./media/backup-azure-backup-faq/Schedule.png)
