@@ -347,14 +347,13 @@ In this section, you create a Java console app that simulates a device that send
     
     ```
     private static class MessageSender implements Runnable {
-      public volatile boolean stopThread = false;
     
       public void run()  {
         try {
           double avgWindSpeed = 10; // m/s
           Random rand = new Random();
     
-          while (!stopThread) {
+          while (true) {
             double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;
