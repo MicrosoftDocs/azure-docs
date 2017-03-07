@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -71,7 +71,7 @@ Before you install or deploy agents, review the following details to ensure you 
 8. When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected to Operational Insights (OMS). When connected to OMS, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**
 
 ## Install the agent using the command line
-- Modify and then use the following example to install the agent using the command line.
+- Modify and then use the following example to install the agent using the command line. The example performs a fully silent installation.
 
     >[!NOTE]
     If you want to upgrade an agent, you need to use the Log Analytics scripting API. See the next section to upgrade an agent.
@@ -79,6 +79,8 @@ Before you install or deploy agents, review the following details to ensure you 
     ```
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
+
+The agent uses IExpress as its self-extractor using the `/c` command. You can the command line switches at [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) and then update the example to suit your needs.
 
 ## Upgrade the agent and add a workspace using a script
 You can upgrade an agent and add a workspace using the Log Analytics scripting API with the following PowerShell example.

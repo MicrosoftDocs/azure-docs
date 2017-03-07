@@ -528,7 +528,7 @@ Currently, U-SQL uses the .NET Framework version 4.5. So ensure that your own as
 
 As mentioned earlier, U-SQL runs code in a 64-bit (x64) format. So make sure that your code is compiled to run on x64. Otherwise you get the incorrect format error shown earlier.
 
-Each uploaded assembly DLL and resource file such as a different runtime, a native assembly, or a config file, can be at most 400 MB. The total size of deployed resources, either via DEPLOY RESOURCE or via references to assemblies and their additional files, cannot exceed 3 GB.
+Each uploaded assembly DLL and resource file, such as a different runtime, a native assembly, or a config file, can be at most 400 MB. The total size of deployed resources, either via DEPLOY RESOURCE or via references to assemblies and their additional files, cannot exceed 3 GB.
 
 Finally, note that each U-SQL database can only contain one version of any given assembly. For example, if you need both version 7 and version 8 of the NewtonSoft Json.Net library, you need to register them in two different databases. Furthermore, each script can only refer to one version of a given assembly DLL. In this respect, U-SQL follows the C# assembly management and versioning semantics.
 
@@ -545,7 +545,7 @@ We recommend that you initialize U-SQL user-defined functions as public and **st
         }
 ```
 
-First let’s look at the simple example of creating an UDF.
+First let’s look at the simple example of creating a UDF.
 
 In this use-case scenario, we need to determine the fiscal period, including the fiscal quarter and fiscal month of the first sign-in for the specific user. The first fiscal month of the year in our scenario is June.
 
@@ -856,7 +856,7 @@ We receive the following error:
 
 	Resolution:
 
-	Implement a custom outputter that knows how to serialize this type or call a serialization method on the type in
+	Implement a custom outputter that knows how to serialize this type, or call a serialization method on the type in
 	the preceding SELECT.	C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
 	USQL-Programmability\Types.usql	52	1	USQL-Programmability
 ```
@@ -1483,10 +1483,10 @@ different encodings.
 It can be useful to develop a custom extractor. This can be helpful during data import if we want to do any of the following tasks:
 
 * Modify input data by splitting columns and modifying individual values. The PROCESSOR functionality is better for combining columns.
-* Parse unstructured data such as Web pages and emails or semi-unstructured data such as XML/JSON.
+* Parse unstructured data such as Web pages and emails, or semi-unstructured data such as XML/JSON.
 * Parse data in unsupported encoding.
 
-To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for `IEnumerable<IRow>` override as follows:
+To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for the `IEnumerable<IRow>` override as follows:
 
 ```c#
      [SqlUserDefinedExtractor]
@@ -1610,7 +1610,7 @@ Following is the extractor example:
      }
 ```
 
-In this use-case scenario, the extractor regenerates GUID for “guid” column and converts the values of “user” column to upper case. Custom extractors can produce more complicated results by parsing input data and manipulating it.
+In this use-case scenario, the extractor regenerates the GUID for “guid” column and converts the values of “user” column to upper case. Custom extractors can produce more complicated results by parsing input data and manipulating it.
 
 Following is base U-SQL script that uses a custom extractor:
 
@@ -1692,8 +1692,8 @@ SqlUserDefinedOutputter is an optional attribute for a user-defined outputter de
 
 * bool     AtomicFileProcessing   
 
-* **true**  = Indicates this Outputter requires atomic output files (JSON, XML, ...)
-* **false** = Indicates this Outputter can deal with split / distributed files (CSV, SEQ, ...)
+* **true**  = Indicates that this Outputter requires atomic output files (JSON, XML, ...)
+* **false** = Indicates that this Outputter can deal with split / distributed files (CSV, SEQ, ...)
 
 The main programmability objects are **row** and **output**. The **row** object is used to enumerate output data as `IRow` interface. **Output** is used to set output data to the target file.
 
@@ -2025,7 +2025,7 @@ The user-defined applier base class definition is as follows:
     }
 ```
 
-To define a user-defined applier, we need to create the `IApplier` interface with [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined applier definition.
+To define a user-defined applier, we need to create the `IApplier` interface with the [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined applier definition.
 
 ```c#
     [SqlUserDefinedApplier]
@@ -2086,7 +2086,7 @@ The output values must be set with `IUpdatableRow` output:
 	output.Set<int>("mycolumn", mycolumn)
 ```
 
-It is important to understand that custom appliers only output columns/values that are defined with `output.Set` method call.
+It is important to understand that custom appliers only output columns and values that are defined with `output.Set` method call.
 
 The actual output is triggered by calling to `yield return output.AsReadOnly()`;.
 
@@ -2504,7 +2504,7 @@ U-SQL provides the ability for you to write custom rowset reducers in C# by usin
 
 User-defined reducer, or UDR, can be used to eliminate unnecessary rows during data extraction (import). It also can be used to manipulate and evaluate rows and columns. Based on programmability logic, it can also define which rows need to be extracted.
 
-To define a UDR class, we need to an create `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.
+To define a UDR class, we need to an create an `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.
 
 This class interface should contain a definition for the `IEnumerable` interface rowset override.
 
