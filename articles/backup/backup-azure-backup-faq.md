@@ -20,16 +20,8 @@ ms.author: markgal;giridham;arunak;trinadhk;
 
 ---
 # Questions about the Azure Backup service
-This article has sections of common questions (with answers) to help you quickly understand the Azure Backup components. In many of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup). To make the article easy to scan, the sections are broken into the following sections:
+This article has sections of common questions (with answers) to help you quickly understand the Azure Backup components. In many of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup). To make the article easy to scan, use the links to the right, under **In this article**.
 
-- [Recovery Services vault](backup-azure-backup-faq.md#recovery-services-vault) - with Azure Backup, you back up data to a vault
-- [Backup agent](backup-azure-backup-faq.md#backup-agent) - this section has information about backing up files and folders, Windows Server, Windows workstations, as well as information about the Azure Backup agent.
-- [Virtual machines](backup-azure-backup-faq.md#virtual-machines) (Windows and Linux)
-- [Azure Backup Server and Data Protection Manager](backup-azure-backup-faq.md#azure-backup-server-and-data-protection-manager)
-- [How Backup works](backup-azure-backup-faq.md#how-backup-works)
-- [What can I back up?](backup-azure-backup-faq.md#what-can-i-back-up)
-- [Retention policy and recovery points](backup-azure-backup-faq.md#retention-policy-and-recovery-points)
-- [Encryption](backup-azure-backup-faq.md#encryption)
 
 ## Recovery services vault
 
