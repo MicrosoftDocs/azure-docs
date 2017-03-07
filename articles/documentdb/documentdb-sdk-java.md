@@ -1,5 +1,5 @@
 ---
-title: Java API & SDK Resources - Azure DocumentDB | Microsoft Docs
+title: Azure DocumentDB Java API, SDK & Resources | Microsoft Docs
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
 services: documentdb
 documentationcenter: java
@@ -15,9 +15,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: khdang
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB Java SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: khdang
 > 
 > 
 
-## DocumentDB Java API and SDK
 <table>
 
 <tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>

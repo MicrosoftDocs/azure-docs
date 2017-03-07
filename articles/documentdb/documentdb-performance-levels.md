@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: mimig
+ms.custom: H1Hack27Feb2017
 
 ---
-# Performance levels in DocumentDB
+# Retiring the S1, S2, and S3 performance levels in DocumentDB
 
 > [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new DocumentDB collections.
