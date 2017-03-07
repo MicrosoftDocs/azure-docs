@@ -10,7 +10,7 @@
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
-# [Tutorials](sql-database-explore-tutorials.md)
+# Tutorials
 ## Databases, servers and firewalls
 ### [PowerShell](sql-database-get-started-powershell.md)
 ### [C#](sql-database-get-started-csharp.md)
