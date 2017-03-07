@@ -77,7 +77,7 @@ You receive error messages when the connection to Azure SQL Database fails. The 
 
 ## Clean up resources
 
-The steps in this procedure show how to delete all resources created by this tutorial in the Azure portal.
+The steps in this procedure show how to delete all resources created by this quick start in the Azure portal.
 
 1. On the Azure dashboard, click **Resource groups** and then click **myResourceGroup**. 
 2. On the page for your resource group, click **Delete**, type **myResourceGroup** in the text box and then click **Delete**.
