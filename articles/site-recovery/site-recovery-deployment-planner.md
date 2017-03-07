@@ -480,7 +480,7 @@ These are average numbers assuming a 30% IO overlap. Azure Site Recovery is capa
 
 The above published limits are based on our tests but cannot cover all possible application I/O combinations. Actual results will vary based on your application I/O mix. For best results, even after deployment planning, it is always recommended to perform extensive application testing using test failover to get the true performance picture.
 
-## How to update deployment planner
+## How to update the Deployment Planner
 [Download](https://aka.ms/asr-deployment-planner) the latest version of the Azure Site Recovery Deployment Planner.
 If you alreay have previous version of deployment planner and profiling is going on, you don't need to stop the profiling unless the new version has profiling fix. Every update comes with full set of binaries and it is in the zip file. You donot need to copy to the previous version folder.  Copy the zip file to a server where you want to run. Extract the zip file.
 
