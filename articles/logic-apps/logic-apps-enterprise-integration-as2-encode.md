@@ -28,18 +28,28 @@ which also leads to support for Non-Repudiation.
 Here's the items you need:
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An Integration Account is required to use Encode AS2 message connector. See details on how to create an [Integration Account](logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md) and an [AS2 agreement](logic-apps-enterprise-integration-as2.md)
+* An [integration account](logic-apps-enterprise-integration-create-integration-account.md) 
+that's already defined and associated with your Azure subscription. 
+You must have an integration account to use the Encode AS2 message connector.
+* At least two [partners](logic-apps-enterprise-integration-partners.md) 
+that are already defined in your integration account
+* An [AS2 agreement](logic-apps-enterprise-integration-as2.md) 
+that's already defined in your integration account
 
 ## Encode AS2 messages
 
 1. [Create a logic app](logic-apps-create-a-logic-app.md).
 
-2.	In the search box, enter "AS2" for your filter. 
+2. The Encode AS2 message connector doesn't have triggers, 
+so you must add a trigger for starting your logic app, like a Request trigger. 
+In the Logic App Designer, add a trigger, and then add an action to your logic app.
+
+3.	In the search box, enter "AS2" for your filter. 
 Select **AS2 - Encode AS2 message**.
    
 	![Search for "AS2"](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
 
-3. If you didn't previously create any connections to your integration account, 
+4. If you didn't previously create any connections to your integration account, 
 you're prompted to create that connection now. Name your connection, 
 and select the integration account that you want to connect. 
    
