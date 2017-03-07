@@ -60,6 +60,11 @@ the web app and its SQL Database back end.
 
 Congratulations, your first PHP web app is running live in Azure App Service.
 
+## Delete web app resources
+To delete the web app and all related resources, run the following command:
+
+    az group delete --name my-first-app-group
+
 ## Next steps
 
 Explore pre-created [Web apps CLI scripts](../app-service/app-service-cli-samples.md).
