@@ -31,8 +31,8 @@ To complete this tutorial and use the Data Lake Tools in Visual Studio, you'll n
 * An Azure HDInsight cluster: To create one, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * A workstation with the following software:
   
-  * Windows 10, Windows 8.1, Windows 8, or Windows 7
-  * Visual Studio 2013/2015/2017 (one of the following versions):
+  * Windows 10, Windows 8.1, Windows 8, or Windows 7.
+  * Visual Studio 2013/2015/2017.
     
     > [!NOTE]
     > Currently, the Data Lake Tools for Visual Studio only come with the English version.
