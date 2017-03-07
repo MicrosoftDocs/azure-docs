@@ -63,8 +63,7 @@ The following table shows the parameters that are used by the Azure function def
 |AMSAccount|Your AMS account name. |juliakomediaservices|
 |AMSKey |Your AMS account key. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
 |MediaServicesStorageAccountName |A name of the storage account that is associated with your AMS account.| storagepkeewmg5c3peq|
-|MediaServicesStorageAccountKey |A key of the storage account that is associated with your AMS account.| g+L/N0UKRKZ65cStBygwlfegWgyZB+k9VrFY6h0EO1i0AINB6ZaJ5oEmiBYMufrJgbtG9GMube+P2AAHG2i1aA==|
-|StorageConnection |A storage connection. | DefaultEndpointsProtocol=https;AccountName=storagepkeewmg5c3peq;AccountKey=g+L/N0UKRKZ65cStBygwlfegWgyZB+k9VrFY6h0EO1i0AINB6ZaJ5oEmiBYMufrJgbtG9GMube+P2AAHG2i1aA==|
+|MediaServicesStorageAccountKey |A key of the storage account that is associated with your AMS account.|
 |SigningKey |A signing key.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | A webhook endpoint address. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
