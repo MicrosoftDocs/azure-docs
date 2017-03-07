@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2017
+ms.date: 03/07/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -48,9 +48,9 @@ This article provides best practices for [creating a management solution file](o
 
 
 ## Next steps
+* Walk through the basic process of [designing and building a management solution](operations-management-suite-solutions-creating.md).
 * Learn how to [create a solution file](operations-management-suite-solutions-solution-file.md).
 * [Add saved searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md) to your management solution.
 * [Add views](operations-management-suite-solutions-resources-views.md) to your management solution.
 * [Add Automation runbooks and other resources](operations-management-suite-solutions-resources-automation.md) to your management solution.
-* Learn the details of [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
-* Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.
+
