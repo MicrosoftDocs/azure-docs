@@ -37,10 +37,10 @@
 
 ## Manage
 ### [Import your data](documentdb-import-data.md)
-### [Import your MongoDB data](documentdb-mongodb-migrate.md)
+### [Import to API for MongoDB](documentdb-mongodb-migrate.md)
 ### [Connect to your MongoDB account](documentdb-connect-mongodb-account.md)
-### [Work with MongoDB data in MongoChef](documentdb-mongodb-mongochef.md)
-### [Work with MongoDB data in Robomongo](documentdb-mongodb-robomongo.md)
+### [Using MongoChef](documentdb-mongodb-mongochef.md)
+### [Using Robomongo](documentdb-mongodb-robomongo.md)
 ### [Model your data](documentdb-modeling-data.md)
 ### [Use geospatial data](documentdb-geospatial.md)
 ### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)

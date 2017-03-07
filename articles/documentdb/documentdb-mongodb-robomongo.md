@@ -1,6 +1,6 @@
 ---
 title: Use Robomongo for MongoDB with Azure DocumentDB | Microsoft Docs
-description: 'Learn how to use Robomongo with a DocumentDB: APIs for MongoDB account'
+description: 'Learn how to use Robomongo with a DocumentDB: API for MongoDB account'
 keywords: robomongo
 services: documentdb
 author: AndrewHoh
@@ -18,16 +18,16 @@ ms.date: 03/06/2017
 ms.author: anhoh
 
 ---
-# Use Robomongo with a DocumentDB: APIs for MongoDB account
-To connect to an Azure DocumentDB: APIs for MongoDB account using Robomongo, you must:
+# Use Robomongo with a DocumentDB: API for MongoDB account
+To connect to an Azure DocumentDB: API for MongoDB account using Robomongo, you must:
 
 * Download and install [Robomongo](https://robomongo.org/)
-* Have your DocumentDB: APIs for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information
+* Have your DocumentDB: API for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information
 
 ## Connect using Robomongo
-To add your DocumentDB: APIs for MongoDB account to the Robomongo MongoDB Connections, perform the following steps.
+To add your DocumentDB: API for MongoDB account to the Robomongo MongoDB Connections, perform the following steps.
 
-1. Retrieve your DocumentDB: APIs for MongoDB account connection information using the instructions [here](documentdb-connect-mongodb-account.md).
+1. Retrieve your DocumentDB: API for MongoDB account connection information using the instructions [here](documentdb-connect-mongodb-account.md).
 
     ![Screen shot of the connection string blade](./media/documentdb-mongodb-robomongo/connectionstringblade.png)
 2. Run *Robomongo.exe*
@@ -47,4 +47,4 @@ Both **User Name** and **Password** can be found in your connection information 
 7. Finally, click **Test** to verify that you are able to connect, then **Save**.
 
 ## Next steps
-* Explore DocumentDB: APIs for MongoDB [samples](documentdb-mongodb-samples.md).
+* Explore DocumentDB: API for MongoDB [samples](documentdb-mongodb-samples.md).

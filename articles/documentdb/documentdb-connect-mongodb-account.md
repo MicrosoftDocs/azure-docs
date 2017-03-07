@@ -34,7 +34,7 @@ This tutorial provides two ways to retrieve connection string information:
 
 ## <a id="QuickStartConnection"></a>Get the MongoDB connection string using the Quick start
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.com).
-2. In the **NoSQL (DocumentDB)** blade, select the DocumentDB: APIs for MongoDB account. 
+2. In the **NoSQL (DocumentDB)** blade, select the DocumentDB: API for MongoDB account. 
 3. In the **Left Navigation** bar of the account blade, click **Quick start**. 
 4. Choose your platform (*.NET driver*, *Node.js driver*, *MongoDB Shell*, *Java driver*, *Python driver*). If you don't see your driver or tool listed, don't worry, we continuously document more connection code snippets. Please comment below on what you'd like to see and read [Get the account's connection string information](#GetCustomConnection) to learn how to craft your own connection.
 5. Copy and paste the code snippet into your MongoDB app, and you are ready to go.
@@ -43,7 +43,7 @@ This tutorial provides two ways to retrieve connection string information:
 
 ## <a id="GetCustomConnection"></a> Get the MongoDB connection string to customize
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.com).
-2. In the **NoSQL (DocumentDB)** blade, select the DocumentDB: APIs for MongoDB account. 
+2. In the **NoSQL (DocumentDB)** blade, select the DocumentDB: API for MongoDB account. 
 3. In the **Left Navigation** bar of the account blade, click **Connection String**. 
 4. The **Connection String Information** blade opens and has all the information necessary to connect to the account using a driver for MongoDB, including a pre-constructed connection string.
 
@@ -78,5 +78,5 @@ For example, consider the account shown in the Connection String Information abo
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## Next steps
-* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB: APIs for MongoDB account.
-* Explore DocumentDB: APIs for MongoDB [samples](documentdb-mongodb-samples.md).
+* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB: API for MongoDB account.
+* Explore DocumentDB: API for MongoDB [samples](documentdb-mongodb-samples.md).

@@ -18,7 +18,7 @@ ms.date: 03/06/2017
 ms.author: anhoh
 
 ---
-# Build a DocumentDB: APIs for MongoDB app using Node.js
+# Build a DocumentDB: API for MongoDB app using Node.js
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -29,11 +29,11 @@ ms.author: anhoh
 >  
 >
 
-This example shows you how to build a DocumentDB: APIs for MongoDB console app using Node.js.
+This example shows you how to build a DocumentDB: API for MongoDB console app using Node.js.
 
 To use this example, you must:
 
-* [Create](documentdb-create-mongodb-account.md) an Azure DocumentDB: APIs for MongoDB account.
+* [Create](documentdb-create-mongodb-account.md) an Azure DocumentDB: API for MongoDB account.
 * Retrieve your MongoDB [connection string](documentdb-connect-mongodb-account.md) information.
 
 ## Create the app
@@ -128,4 +128,4 @@ To use this example, you must:
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
 ## Next steps
-* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with your DocumentDB: APIs for MongoDB account.
+* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with your DocumentDB: API for MongoDB account.

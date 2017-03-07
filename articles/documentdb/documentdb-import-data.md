@@ -20,8 +20,8 @@ ms.author: anhoh
 ---
 # Import data to DocumentDB with the Database Migration tool
 > [!div class="op_single_selector"]
-> * [Import DocumentDB data](documentdb-import-data.md)
-> * [Import MongoDB data](documentdb-mongodb-migrate.md)
+> * [Import to DocumentDB](documentdb-import-data.md)
+> * [Import to API for MongoDB](documentdb-mongodb-migrate.md)
 >
 >
 

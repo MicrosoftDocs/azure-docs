@@ -18,7 +18,7 @@ ms.date: 03/06/2017
 ms.author: anhoh
 
 ---
-# How does Azure DocumentDB work with MongoDB?
+# What is DocumentDB: API for MongoDB?
 
 DocumentDB databases can now be used as the data store for apps written for MongoDB. This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB databases, your application written for MongoDB can now communicate with DocumentDB and use DocumentDB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to DocumentDB by simply changing a connection string. Using this functionality, customers can easily build and run MongoDB database applications in the Azure cloud - leveraging DocumentDB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
 
@@ -47,5 +47,5 @@ For more detailed instructions, follow [create account](documentdb-create-mongod
 ## Next steps
 * Follow the [Connect to a MongoDB account](documentdb-connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
 * Follow the [Use MongoChef with DocumentDB](documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your DocumentDB database and MongoDB app in MongoChef.
-* Explore DocumentDB: APIs for MongoDB [samples](documentdb-mongodb-samples.md).
+* Explore DocumentDB: API for MongoDB [samples](documentdb-mongodb-samples.md).
 
