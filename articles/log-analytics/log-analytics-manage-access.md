@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 03/07/2017
 ms.author: banders
 
 ---
@@ -93,7 +93,7 @@ The following activities in the Log Analytics portal also require Azure permissi
 
 | Action                                                          | Azure Permissions Needed | Notes |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Adding and removing management solutions                        | Resource Group write <br> Microsoft.OperationalInsights/\* <br> Microsoft.OperationsManagement/\* <br> Microsoft.Automation/\* | |
+| Adding and removing management solutions                        | Resource Group write <br> Microsoft.OperationalInsights/\* <br> Microsoft.OperationsManagement/\* <br> Microsoft.Automation/\* <br> Microsoft.Resources/deployments/\*/write | |
 | Changing the pricing tier                                       | Microsoft.OperationalInsights/workspaces/write | |
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
  
@@ -102,7 +102,8 @@ To grant access to the Log Analytics workspace using Azure permissions, follow t
 
 If you have at least Azure read access permission on the Log Analytics workspace, you can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
 
-When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. Your role assignment in the Log Analytics portal is determined as follows:
+When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. If you do not have a role assignment in the Log Analytics portal, the service [checks the Azure permissions you have on the workspace](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). 
+Your role assignment in the Log Analytics portal is determined using as follows:
 
 | Conditions                                                   | Log Analytics user role assigned | Notes |
 |--------------------------------------------------------------|----------------------------------|-------|
