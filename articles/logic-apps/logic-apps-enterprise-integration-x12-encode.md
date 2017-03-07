@@ -51,32 +51,33 @@ or **X12 - Encode to X12 message by identities**.
    
     ![Search for "x12"](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
 
-3. If you didn't previously create any connections to integration account, 
-you're prompted to create an integration account and provide connection details:
+3. If you didn't previously create any connections to your integration account, 
+you're prompted to create that connection now. Name your connection, 
+and select the integration account that you want to connect. 
    
     ![integration account connection](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage1.png)
 
-4. Enter details for your integration account. Properties with an asterisk are required:
-   
+	Properties with an asterisk are required.
+
 	| Property | Details |
 	| --- | --- |
 	| Connection Name * |Enter any name for your connection. |
 	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
-	After you're done, your connection details look similar to this example:
-   
+5.	When you're done, your connection details should look similar to this example. 
+To finish creating your connection, choose **Create**.
+
     ![integration account connection created](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png)
 
-5. Select **Create**.
-6. Notice the connection has been created.
-   
-    ![integration account connection details](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
+	Your connection is now created.
+
+	![integration account connection details](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
 
 #### Encode X12 messages by agreement name
 
 If you chose to encode X12 messages by agreement name, 
 open the **Name of X12 agreement** list, 
-and select your existing X12 agreement. Enter the XML message to encode.
+enter or select your existing X12 agreement. Enter the XML message to encode.
 
 ![Enter X12 agreement name and XML message to encode](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png)
 

@@ -23,17 +23,23 @@ To establish security and reliability while transmitting messages, use the Encod
 This connector provides digital signing, encryption, and acknowledgements through Message Disposition Notifications (MDN), 
 which also leads to support for Non-Repudiation.
 
-## Prereqs
+## Before you start
+
+Here's the items you need:
+
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An Integration Account is required to use Encode AS2 message connector. See details on how to create an [Integration Account](logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md) and an [AS2 agreement](logic-apps-enterprise-integration-as2.md)
 
 ## Encode AS2 messages
+
 1. [Create a logic app](logic-apps-create-a-logic-app.md).
+
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Encode AS2 Message:
    
 	![search AS2](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
 
-3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details:
+3. If you didn't previously create any connections to your integration account, 
+you're prompted to create that connection now:
    
 	![create connection to integration account](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage1.png)  
 

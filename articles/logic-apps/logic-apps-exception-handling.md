@@ -138,7 +138,7 @@ The scope status is determined with the same criteria as a run.
 If the final action in an execution branch is `Failed` or `Aborted`, the status is `Failed`.
 
 To fire specific actions for any failures that happened within the scope, 
-you can `runAfter` a scope that is marked `Failed`. 
+you can use `runAfter` with a scope that is marked `Failed`. 
 If *any* actions in the scope fail, running after a scope fails lets you 
 create a single action to catch failures.
 
@@ -278,7 +278,7 @@ Stream Analytics can easily output to other data sources like queues, topics, SQ
 
 ## Next Steps
 
-* [See how a customer builds robust error handling with Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [See how a customer builds error handling with Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Find more Logic Apps examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Learn how to create automated deployments for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
 * [Build and deploy logic apps with Visual Studio](logic-apps-deploy-from-vs.md)

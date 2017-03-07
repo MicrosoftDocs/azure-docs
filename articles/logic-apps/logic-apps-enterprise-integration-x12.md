@@ -39,7 +39,7 @@ that are defined in your integration account and configured with the X12 identif
 * A required [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) for uploading to your 
 [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
 
-After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) 
+After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md), 
 [add partners](logic-apps-enterprise-integration-partners.md), 
 and have a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) that you want to use, 
 you can create an X12 agreement by following these steps.
@@ -67,8 +67,8 @@ If you don't see any integration accounts,
 
 	![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. Choose the **Agreements** tile. If you don't have an Agreements tile, 
-add the tile first. 
+4. Select **Overview**, then select the **Agreements** tile. 
+If you don't have an Agreements tile, add the tile first. 
 
 	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
@@ -79,7 +79,8 @@ add the tile first.
 6. Under **Add**, enter a **Name** for your agreement. 
 For the agreement type, select **X12**. 
 Select the **Host Partner**, **Host Identity**, 
-**Guest Partner**, and **Guest Identity** for your agreement.
+**Guest Partner**, and **Guest Identity** for your agreement. 
+For more property details, see the table in this step.
 
 	![Provide agreement details](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 

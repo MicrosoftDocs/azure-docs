@@ -22,7 +22,10 @@ ms.author: padmavc
 To establish security and reliability while transmitting messages, use the Decode AS2 message connector. 
 This connector provides digital signing, decryption, and acknowledgements through Message Disposition Notifications (MDN).
 
-## Prereqs
+## Before you start
+
+Here's the items you need:
+
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An Integration Account is required to use Decode AS2 message connector. See details on [how to create an Integration Account](logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md) and an [AS2 agreement](../logic-apps/logic-apps-enterprise-integration-as2.md)
 
@@ -31,10 +34,14 @@ This connector provides digital signing, decryption, and acknowledgements throug
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list, and then enter “AS2” in the search box.  Select AS2 – Decode AS2 Message:
    
     ![Search AS2](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
-3. If you haven't previously created any connections to Integration Account, you are prompted for the connection details:
+
+3. If you didn't previously create any connections to your integration account, 
+you're prompted to create that connection now:
    
     ![Create integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
-4. Enter the Integration Account details.  Properties with an asterisk are required:
+
+4. Name your connection, and select the integration account that you want to connect. 
+Properties with an asterisk are required.
    
 	| Property | Details |
 	| --- | --- |

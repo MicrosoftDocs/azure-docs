@@ -50,28 +50,32 @@ Select **X12 - Decode X12 message**.
    
 	![Search for "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
-3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details:
-   
-	![integration account connection](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)\
+3. If you didn't previously create any connections to your integration account, 
+you're prompted to create that connection now. Name your connection, 
+and select the integration account that you want to connect. 
 
-4. Enter the Integration Account details.  Properties with an asterisk are required:
-   
+	![Provide integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)\
+
+	Properties with an asterisk are required.
+
 	| Property | Details |
 	| --- | --- |
 	| Connection Name * |Enter any name for your connection. |
 	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
-	After you're done, your connection details look similar to this example:
+5.	When you're done, your connection details should look similar to this example. 
+To finish creating your connection, choose **Create**.
    
-	![integration account connection created](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
+	![integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 
-5. Select **Create**.
-6. Notice the connection has been created:
-   
-    ![integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
-7. Select X12 flat file message to decode:
-   
-    ![provide mandatory fields](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+6. After your connection is created, as shown in this example, 
+select the X12 flat file message to decode.
+
+	![integration account connection created](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
+
+	For example:
+
+	![Select X12 flat file message for decoding](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
 ## X12 Decode details
 
