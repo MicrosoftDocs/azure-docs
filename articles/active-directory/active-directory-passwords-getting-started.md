@@ -91,7 +91,7 @@ The policies configured in the administrative UX ONLY apply to end-users, not, a
  * **_Requires_**: any **one** of Authentication Email, Alternate Email, Authentication Phone, Mobile Phone, or Office Phone to have a value present
 * **Two gate policy applies...** 
  * ...after the first 30 days of a trial has passed **OR**
- * ...when a vanity domain is present ***OR** 
+ * ...when a vanity domain is present **OR** 
  * ... you have enabled Azure AD Connect to synchronize identities from your on-premises environment
  * _**Requires**_: any **two** of Authentication Email, Alternate Email, Authentication Phone, Mobile Phone, or Office Phone to have a value present
 
