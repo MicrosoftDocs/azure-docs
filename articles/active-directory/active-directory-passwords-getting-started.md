@@ -400,7 +400,7 @@ For Azure AD Connect tool **1.1.443.0** (latest) and above:
 
 - The latest version of the Azure AD Connect tool will need **outbound HTTPS** access to:
     - *passwordreset.microsoftonline.com*
-    - *servicbus.windows.net*
+    - *servicebus.windows.net*
 
 For Azure AD Connect tool versions **1.0.8667.0** to **1.1.380.0**:
 
