@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/19/2017
+ms.date: 03/06/2017
 ms.author: juliako
 
 ---
@@ -26,8 +26,8 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* .NET Framework 4.0 or later
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+* .NET Framework 4.0 or later.
+* Visual Studio.
 * Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review [Azure functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
 This topic shows how to
@@ -406,7 +406,6 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 				processor,
 				"Adaptive Streaming",
 				TaskOptions.None);
-
 
 			    // Specify the input asset to be encoded.
 			    task.InputAssets.Add(newAsset);
