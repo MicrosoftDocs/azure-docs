@@ -1,6 +1,6 @@
 ﻿---
 title: How to use the Microsoft Azure Marketplace Seller Insights Portal | Microsoft Docs
-description: As a seller on the Azure Marketplace, understand use the Azure Marketplace Seller Insights Portal.
+description: As a seller on the Azure Marketplace, understand how to use the Azure Marketplace Seller Insights Portal.
 services: marketplace publishing
 documentationcenter: na
 author: DavidBosland
@@ -19,19 +19,13 @@ ms.author: v-dabosl
 ---
 # How to use the Microsoft Azure Marketplace Seller Insights Portal
 
-**Table of Contents**
-
-   [Signing in](#Signing-in)
-
-   [Resetting a password](#Resetting-a-password)
-
-**Signing in**
+##Signing in
 
 Your Administrator should advise you via email that your account has been created, and share the URL for the Seller Insights Portal with you (https://reports.azure.com).
 
 You can log in to the Seller Insights Portal using a personal Microsoft account or using a company account depending upon which account your Administrator has used when setting up your profile.  Your Administrator should advise you which account to use.
 
-   ![typeofaccount][1]
+   ![type of account][1]
 
 
 
@@ -44,11 +38,11 @@ You can log in to the Seller Insights Portal using a personal Microsoft account 
 5. Click on the smiley at any time to send feedback related to the Seller Insights Portal.
 6. Click on your name in the top right corner to sign out of the Seller Insights Portal at any time.
 
-   ![defaultsigninpage][2]
+   ![default sign in page][2]
 
 
 
-**Resetting a password**
+##Resetting a password
 
 ***Account and Password Validation***
 
@@ -67,10 +61,10 @@ Try to reset your password by using the Self-Service Password Reset wizard follo
  * Note: For Organizational accounts setup by Administrator account, if the Admin turned on the capability to let you to reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your Admin.
 
 ****Microsoft account (Live ID): https://account.live.com/ResetPassword.aspx****
-   ![passwordresetmicrosoftaccount][3]
+   ![password reset Microsoft account][3]
 
    ****Work or school account (Organization ID): https://passwordreset.microsoftonline.com/****
-      ![passwordresetworkorschoolaccount][4]
+      ![password reset work or school account][4]
 
 
 
