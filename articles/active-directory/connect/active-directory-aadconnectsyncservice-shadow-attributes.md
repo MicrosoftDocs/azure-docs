@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 03/07/2017
 ms.author: billmath
 
 ---
@@ -22,6 +22,8 @@ Most attributes are represented the same way in Azure AD as they are in your on-
 
 ## Introducing shadow attributes
 Some attributes have two representations in Azure AD. Both the on-premises value and a calculated value are stored. These extra attributes are called shadow attributes. The two most common attributes where you see this behavior are **userPrincipalName** and **proxyAddress**. The change in attribute values happens when there are values in these attributes representing non-verified domains. But the sync engine in Connect reads the value in the shadow attribute so from its perspective, the attribute has been confirmed by Azure AD.
+
+You cannot see the shadow attributes using the Azure portal or with PowerShell. But understanding the concept helps you to troubleshoot certain scenarios where the attribute has different values on-premises and in the cloud.
 
 To better understand the behavior, look at this example from Fabrikam:  
 ![Domains](./media/active-directory-aadconnectsyncservice-shadow-attributes/domains.png)  
@@ -56,6 +58,11 @@ This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invo
 
 - The user has been assigned a service plan that includes Exchange Online even if the user was not licensed for Exchange. For example, if the user is assigned the Office E3 SKU, but only was assigned SharePoint Online. This is true even if your mailbox is still on-premises.
 - The attribute msExchRecipientTypeDetails has a value.
+- You make a change to proxyAddresses or userPrincipalName.
+
+ProxyCalc might take some time to process a change on a user and is not synchronous with the Azure AD Connect export process.
+
+The ProxyCalc logic has some additional behaviors for advanced scenarios not documented in this topic.
 
 ### Quarantined attribute values
 Shadow attributes are also used when there are duplicate attribute values. For more information, see [duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
