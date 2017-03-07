@@ -31,20 +31,23 @@ which also leads to support for Non-Repudiation.
 1. [Create a logic app](logic-apps-create-a-logic-app.md).
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Encode AS2 Message:
    
-    ![search AS2](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
+	![search AS2](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
+
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details:
    
-    ![create connection to integration account](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage1.png)  
+	![create connection to integration account](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage1.png)  
+
 4. Enter the Integration Account details.  Properties with an asterisk are required:
    
-   | Property | Details |
-   | --- | --- |
-   | Connection Name * |Enter any name for your connection |
-   | Integration Account * |Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
+	| Property | Details |
+	| --- | --- |
+	| Connection Name * |Enter any name for your connection |
+	| Integration Account * |Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
+
+	After you're done, your connection details look similar to this example:
    
-      Once complete, your connection details look similar to the following:
-   
-      ![integration connection established](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)  
+	![integration connection established](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)
+
 5. Select **Create**.
 6. Notice the connection has been created.  Provide AS2-From, AS2-To identifiers (as configured in agreement) and Body (the message payload) details:
    

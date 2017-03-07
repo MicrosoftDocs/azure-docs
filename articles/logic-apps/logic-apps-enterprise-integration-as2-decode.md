@@ -36,14 +36,15 @@ This connector provides digital signing, decryption, and acknowledgements throug
     ![Create integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
 4. Enter the Integration Account details.  Properties with an asterisk are required:
    
-   | Property | Details |
-   | --- | --- |
-   | Connection Name * |Enter any name for your connection |
-   | Integration Account * |Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
-   
-      Once complete, your connection details look similar to the following
-   
-      ![integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
+	| Property | Details |
+	| --- | --- |
+	| Connection Name * |Enter any name for your connection. |
+	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+
+	After you're done, your connection details look similar to this example:
+
+	![integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
+
 5. Select **Create**.
 6. Notice the connection has been created.  Now, proceed with the other steps in your Logic App:
    
