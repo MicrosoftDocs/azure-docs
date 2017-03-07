@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 03/02/2017
 ms.author: jeedes
 
 ---
@@ -114,14 +114,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	
 4. On the **Evernote Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_sp.png)
+	![Configure Single Sign-On](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_sp_01.png)
 	
 	a. Click on the **Show advanced URL settings** option
 
-	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://contoso.evernote.com/Login.action`
-
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Evernote support team](https://evernote.com/contact/) to get these values. 
+	b. In the **Sign On URL** textbox, type the Sign-On URL : `https://www.evernote.com/Login.action`
 
 5. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
