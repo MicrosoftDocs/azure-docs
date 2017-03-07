@@ -10,11 +10,12 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.devlang: na
+ms.custom: sample
+ms.devlang: PowerShell
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 02/21/2017
+ms.date: 03/07/2017
 ms.author: janeng
 ---
 
