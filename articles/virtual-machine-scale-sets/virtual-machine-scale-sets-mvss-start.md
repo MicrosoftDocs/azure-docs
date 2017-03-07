@@ -66,7 +66,7 @@ All resources require a `type`, `name`, `apiVersion`, and `location`. Our first 
 +    {
 +      "type": "Microsoft.Network/virtualNetworks",
 +      "name": "myVnet",
-+      "apiVersion": "2016-03-30",
++      "apiVersion": "2016-12-01",
 ```
 
 To specify the location for the virtual network, we are using a [Resource Manager template function](../azure-resource-manager/resource-group-template-functions.md), which must be enclosed with quotes and square brackets like this: `"[<template-function>]"`. In this case, we use the resourceGroup function, which takes in no arguments and returns a JSON object with metadata about the resource group this deployment is being deployed to. The resource group is set by the user at the time of deployment. We then index into this JSON object with `.location` to get the location from the JSON object.

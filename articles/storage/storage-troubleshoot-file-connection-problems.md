@@ -217,9 +217,11 @@ However, note that setting the registry key affects all copy operations to netwo
 
 ## "Host is down (Error 112)" on existing file shares, or the shell hangs when you run list commands on the mount point
 ### Cause
-This error occurs on the Linux client when the client has been idle for an extended period of time. When this error occurs, the client disconnects, and the client connection times out. Also, this error may indicate a communication failures that prevent re-establishing a TCP connection to the server when “soft” mount option is used, which is the default.
+This error occurs on the Linux client when the client has been idle for an extended period of time. When the client is idle for long time, the client disconnects, and the connection times out. 
 
-This error may be an indication of Linux reconnect issue which may be caused due to some known bugs in older kernels or other problems that prevent reconnection, such as network errors. 
+The connection can be idle due to various reasons. One reason being network communication failures that prevent re-establishing a TCP connection to the server when “soft” mount option is used, which is the default.
+
+Another reason could be that there are also some reconnect fixes which are not present in older kernels.
 
 ### Solution
 
@@ -238,7 +240,7 @@ This reconnect problem in Linux kernel is now fixed as part of following change 
 However this change may not be ported to all the Linux distributions yet. This is the list of known popular Linux kernels that have this and other reconnect fixes:
 4.4.40+
 4.8.16+
-4.9.1+
+4.9.1+.
 You can move to the above recommended kernel versions in order to pick up the latest fix.
 
 ### Workaround
