@@ -54,7 +54,7 @@ The *ClusterConfig.Windows.JSON* sample configuration file that's downloaded wit
 
 [Node-to-node security](service-fabric-cluster-security.md#node-to-node-security) is configured by using **ClusterIdentity**. Nodes must be aware of each other to build trust relationships between them. To create awareness, create a domain group that includes all nodes in the cluster. This group name should be specified in **ClusterIdentity**. For more information, see [Create a Group in Active Directory](https://msdn.microsoft.com/library/aa545347(v=cs.70).aspx).  
 
-[Client-to-node security](service-fabric-cluster-security.md#client-to-node-security) is configured by using **ClientIdentities**. To establish trust between a client and the cluster, you must configure the cluster to know the client identities that the cluster can trust. This can be done in two different ways
+[Client-to-node security](service-fabric-cluster-security.md#client-to-node-security) is configured by using **ClientIdentities**. To establish trust between a client and the cluster, you must configure the cluster to know the client identities that the cluster can trust. You can establish trust in two different ways:
 
 - Specify the domain group users that can connect.
 - Specify the domain node users that can connect.
