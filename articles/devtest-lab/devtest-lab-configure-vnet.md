@@ -51,7 +51,7 @@ The following steps walk you through adding an existing virtual network (and sub
 12. To allow a subnet to be used in lab VM creation, select **Use in virtual machine creation**.
 13. To enable a [shared public IP address](devtest-lab-shared-ip.md), select **Enable shared public IP**.
 14. To allow public IP addresses in a subnet, select **Allow public IP creation**.
-15. In the **MAXIMUM VIRTUAL MACHINES PER USER** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
+15. In the **Maximum virtual machines per user** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
 16. Select **OK** to close the Lab Subnet blade.
 17. Select **Save** to close the Virtual network blade.
 18. Now that the virtual network is configured, it can be selected when creating a VM. 
