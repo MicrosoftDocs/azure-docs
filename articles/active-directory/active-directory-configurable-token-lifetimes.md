@@ -18,12 +18,12 @@ ms.author: billmath
 
 ---
 # Configurable token lifetimes in Azure Active Directory (Public Preview)
+You can specify the lifetime of a token issued by Azure Active Directory (AD). Token lifetimes can be set for all apps in an organization, for a multi-tenant (multi-organization) application, or for a specific service principal in an organization.
+
 > [!NOTE]
 > This capability currently is in Public Preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory subscription during Public Preview. However, some aspects of the feature might require an [Azure Active Directory Premium](active-directory-get-started-premium.md) subscription when the feature becomes generally available.
 >
 >
-
-You can specify the lifetime of a token issued by Azure Active Directory (AD). Token lifetimes can be set for all apps in an organization, for a multi-tenant (multi-organization) application, or for a specific service principal in an organization.
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
@@ -69,14 +69,14 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | --- | --- | --- | --- | --- | --- |
 | Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
 | Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |14 days |10 minutes |90 days |
-| Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked* |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked* |
-| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor** |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked* |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor*** |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked* |
+| Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked<sup>1</sup> |
+| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) |90 days |10 minutes |Until-revoked<sup>1</sup> |
+| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor<sup>2</sup> |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
+| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor<sup>3</sup> |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 
-* \*365 days is the maximum explicit length that can be set for these attributes.
-* \**If  **MaxAgeSessionSingleFactor** is not set, this value takes the **MaxAgeSingleFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
-* \*\**If  **MaxAgeSessionMultiFactor** is not set, this value takes the **MaxAgeMultiFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
+* <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
+* <sup>2</sup>If  **MaxAgeSessionSingleFactor** is not set, this value takes the **MaxAgeSingleFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
+* <sup>3</sup>If  **MaxAgeSessionMultiFactor** is not set, this value takes the **MaxAgeMultiFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
 
 ### Exceptions
 | Property | Affects | Default |
@@ -269,9 +269,9 @@ In this example, you create a policy that requires users to authenticate more fr
 
     2.  When you have the **ObjectId** of your service principal, run the following command:
 
-    ```PowerShell
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+        ```PowerShell
+        Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        ```
 
 
 ### Example: Create a policy for a native app that calls a web API
