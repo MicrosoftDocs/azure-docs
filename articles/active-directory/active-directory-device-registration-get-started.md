@@ -39,7 +39,7 @@ These scenarios are as follows:
 
 - **Conditional access to applications that are hosted on-premises:** You can use registered devices with access policies for applications that are configured 
 to use AD FS with Windows Server 2012 R2. For more information about setting up conditional access for on-premises, see 
-[Setting up On-premises Conditional Access using Azure Active Directory device registration](active-directory-conditional-access-on-premises-setup.md).
+[Setting up On-premises Conditional Access using Azure Active Directory device registration](active-directory-device-registration-on-premises-setup.md).
 
 ## Setting up Azure Active Directory Device Registration
 

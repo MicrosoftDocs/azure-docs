@@ -68,8 +68,8 @@ Follow the checklist below to enable and configure the Azure Active Directory De
 
 | Task | Reference |
 | --- | --- |
-| Enable Device Registration in your Azure Active Directory tenant to allow devices to join the workplace. By default, multi-factor authentication is not enabled for the service. However, multi-factor authentication is recommended when registering a device. Before enabling multi-factor authentication in ADRS, ensure that AD FS is configured for a multi-factor authentication provider. |[Enable Azure Active Directory Device Registration](active-directory-device-registration-overview.md) |
-| Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records. You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service. |[Configure Azure Active Directory Device Registration discovery.](active-directory-device-registration-overview.md) |
+| Enable Device Registration in your Azure Active Directory tenant to allow devices to join the workplace. By default, multi-factor authentication is not enabled for the service. However, multi-factor authentication is recommended when registering a device. Before enabling multi-factor authentication in ADRS, ensure that AD FS is configured for a multi-factor authentication provider. |[Enable Azure Active Directory Device Registration](active-directory-device-registration-get-started.md) |
+| Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records. You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service. |[Configure Azure Active Directory Device Registration discovery.](active-directory-device-registration-get-started.md) |
 
 ## Part 2: Deploy and configure Windows Server 2012 R2 Active Directory Federation Services and set up a federation relationship with Azure AD
 | Task | Reference |
@@ -91,7 +91,7 @@ The deployment is now complete. You can now try out some scenarios. Follow the l
 | Task | Reference |
 | --- | --- |
 | Join some devices to your workplace using Azure Active Directory Device Registration. You can join iOS, Windows, and Android devices |[Join devices to your workplace using Azure Active Directory Device Registration](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
-| You can view and enable/disable registered devices using the Administrator Portal. In this task you will view some registered devices using the Administrator Portal. |[Azure Active Directory Device Registration Overview](active-directory-device-registration-overview.md) |
+| You can view and enable/disable registered devices using the Administrator Portal. In this task you will view some registered devices using the Administrator Portal. |[Azure Active Directory Device Registration Overview](active-directory-device-registration-get-started.md) |
 | Verify that device objects are written back from Azure Active Directory to Windows Server Active Directory. |[Verify registered devices are written-back to Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
 | Now that users can register their devices, you can create application access polices in AD FS that allow only registered devices. In this task you will create an application access rule and a custom access denied message |[Create an application access policy and custom access denied message](#create-an-application-access-policy-and-custom-access-denied-message) |
 

@@ -561,9 +561,9 @@ The output of this cmdlet shows devices registered in Azure AD. To get all devic
 
 ## Next steps
 
-* [Automatic device registration FAQ](active-directory-automatic-device-registration-faq.md)
-* [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-access-automatic-device-registration-troubleshoot-windows.md)
-* [Troubleshooting auto-registration of domain joined computers to Azure AD – non-Windows 10](active-directory-automatic-device-registration-troubleshoot-windows-legacy.md)
+* [Automatic device registration FAQ](active-directory-device-registration-faq.md)
+* [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-access-device-registration-troubleshoot-windows.md)
+* [Troubleshooting auto-registration of domain joined computers to Azure AD – non-Windows 10](active-directory-device-registration-troubleshoot-windows-legacy.md)
 * [Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md)
 
 

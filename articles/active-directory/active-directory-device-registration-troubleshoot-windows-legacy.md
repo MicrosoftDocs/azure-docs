@@ -51,7 +51,7 @@ Some things to note for successful outcomes:
 
 This command displays a dialog box that provides you with more details about the join status.
 
-![Workplace Join for Windows](./media/active-directory-automatic-device-registration-troubleshoot-windows-legacy/01.png)
+![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/01.png)
 
 
 ## Step 2: Evaluate the registration status 
