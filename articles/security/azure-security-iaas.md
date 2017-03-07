@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 01/09/2017
+  ms.date: 03/06/2017
   ms.author: barclayn
 
 
@@ -192,8 +192,6 @@ For environments that are hosted separately from your production environment the
 
 **Install the latest security updates**
 Some of the first workloads we see customers move to Azure are labs and external facing systems. If you are hosting virtual machines in Azure that host applications or services that need to be made accessible to the Internet, you need to be vigilant about patching. Remember that this goes beyond patching the operating system. Unpatched vulnerabilities on third-party applications can also lead to problems that would have been easily avoided if good patch management was in place.
-
-For more information on managing patching in Azure IaaS look at [Best practices for software updates on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md).
 
 **Deploy and test a backup solution**
 

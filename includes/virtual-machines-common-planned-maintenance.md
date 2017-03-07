@@ -69,21 +69,27 @@ When executing maintenance, Azure only updates the Virtual Machine instances in 
 
 See the following table for current region pairs:
 
-
 | Region 1 | Region 2 |
 |:--- | ---:|
-| North Central US |South Central US |
 | East US |West US |
-| US East 2 |Central US |
-| North Europe |West Europe |
-| South East Asia |East Asia |
-| East China |North China |
-| Japan East |Japan West |
+| East US 2 |Central US |
+| North Central US |South Central US |
+| West Central US |West US 2 |
+| Canada East |Canada Central |
 | Brazil South |South Central US |
+| US Gov Iowa |US Gov Virginia |
+| US DoD East |US DoD Central |
+| North Europe |West Europe |
+| UK West |UK South |
+| Germany Central |Germany Northeast |
+| South East Asia |East Asia |
 | Australia Southeast |Australia East |
 | India Central |India South |
 | India West |India South |
-| US Gov Iowa |US Gov Virginia |
+| Japan East |Japan West |
+| Korea Central |Korea South |
+| East China |North China |
+
 
 <!--Anchors-->
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png

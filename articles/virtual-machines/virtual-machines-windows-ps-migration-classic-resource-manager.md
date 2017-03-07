@@ -247,6 +247,34 @@ If the prepared configuration looks good, you can move forward and commit the re
 ### Migrate a storage account
 Once you're done migrating the virtual machines, we recommend you migrate the storage accounts.
 
+Before you migrate the storage account, please perform preceding prerequisite checks:
+
+* **Check if classic VM disks are stored in the storage account**
+
+    Find classic VM disks attached to VMs in the storage account using following command: 
+
+    ```powershell
+     $storageAccountName = 'yourStorageAccountName'
+      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+      DiskName | Format-List -Property RoleName, DiskName 
+
+    ```
+    Above command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If above command returns disks then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account.
+
+    Find unattached classic VM disks in the storage account using following command: 
+
+    ```powershell
+        $storageAccountName = 'yourStorageAccountName'
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+
+    ```
+    If above command returns disks then delete these disks using following command:
+
+    ```powershell
+       Remove-AzureDisk -DiskName 'yourDiskName'
+    ```
+     
+
 Prepare each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
 
 ```powershell
