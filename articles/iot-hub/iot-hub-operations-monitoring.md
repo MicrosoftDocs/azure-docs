@@ -161,6 +161,26 @@ The message routing category tracks errors that occur during message route evalu
         "details": "ExternalEndpointDisabled"
     }
 
+## View events
+
+You can use the *iothub-explorer* tool to quickly test that your IoT hub is generating monitoring events. To install the tool, see the instructions in the [iothub-explorer][lnk-iothub-explorer] GitHub repository.
+
+1. Make sure the **Connections** monitoring category is set to **Verbose** in the portal.
+
+1. At a command-prompt, run the following command to read from the monitoring endpoint:
+
+    ```
+    iothub-explorer monitor-ops --login {your iothubowner connection string}
+    ```
+
+1. In another command-prompt, run the following command to simulate a device sending device-to-cloud messages:
+
+    ```
+    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
+    ```
+
+1. The first command-prompt shows the monitoring events as the simulated device connects to your IoT hub.
+
 ## Next steps
 To further explore the capabilities of IoT Hub, see:
 
@@ -178,3 +198,4 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
