@@ -20,7 +20,9 @@ ms.author: markgal;giridham;arunak;trinadhk;
 
 ---
 # Questions about the Azure Backup service
-This article has sections of common questions (with answers) to help you quickly understand the Azure Backup components. In many of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup). To make the article easy to scan, use the links to the right, under **In this article**.
+This article has sections of common questions (with answers) to help you quickly understand the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+
+To quickly scan the sections in this article, use the links to the right, under **In this article**.
 
 
 ## Recovery services vault
