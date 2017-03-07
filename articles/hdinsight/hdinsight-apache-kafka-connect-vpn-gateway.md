@@ -68,171 +68,189 @@ The information in this document is based on using only IP addresses to access H
 
 Use the following steps to create an Azure Virtual Network, VPN gateway, storage account, and Kafka on HDInsight cluster:
 
+> [!NOTE]
+> The following steps require Azure PowerShell. For more information on installing Azure PowerShell, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+
 1. Follow the steps in the [Working with self-signed certificates for Point-to-site connections](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document to create the certificates needed for the gateway.
 
-    This generates the certificates used to authenticate clients to the VPN gateway.
+2. Open a PowerShell prompt and use the following code to log in to your Azure subscription:
 
-2. Using a text editor, create a new file named `Create-HDInsightWithVPN.ps1` and use the following as the file contents:
+  ```powershell
+  Add-AzureRmAccount
+  # If you have multiple subscriptions, uncomment to set the subscription
+  #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
+  ```
 
-    ```powershell
-    param(
-        [Parameter(Mandatory=$true)]
-        [String]$resourceGroupName,
-        [Parameter(Mandatory=$true)]
-        [String]$location,
-        [Parameter(Mandatory=$true)]
-        [String]$baseName,
-        [Parameter(Mandatory=$true)]
-        [String]$rootCert
-    )
+3. Use the following code to create variables that contain data used by the steps in this section:
 
-    # Login to your Azure subscription
-    # Is there an active Azure subscription?
-    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Add-AzureRmAccount
-    }
+  ```powershell
+    # Prompt for generic information
+  $resourceGroupName = Read-Host "What is the resource group name?"
+  $baseName = Read-Host "What is the base name? This is used to create names for resources, such as 'net-basename' and 'kafka-basename':"
+  $location = Read-Host "What Azure Region do you want to create the resources in?"
+  $rootCert = Read-Host "What is the file path to the root certificate? This is used to secure the VPN gateway."
 
-    # If you have multiple subscriptions, uncomment the following
-    # and use it to set the subscription used in this script
-    # Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+  # Prompt for HDInsight credentials
+  $adminCreds = Get-Credential -Message "Enter the HTTPS user name and password for the HDInsight cluster" -UserName "admin"
+  $sshCreds = Get-Credential -Message "Enter the SSH user name and password for the HDInsight cluster" -UserName "sshuser"
 
-    # Prompt for HDInsight credentials
-    $adminCreds = Get-Credential -Message "Enter the HTTPS user name and password for the HDInsight cluster" -UserName "admin"
-    $sshCreds = Get-Credential -Message "Enter the SSH user name and password for the HDInsight cluster" -UserName "sshuser"
+  # Names for Azure resources
+  $networkName = "net-$baseName"
+  $clusterName = "kafka-$baseName"
+  $storageName = "store$baseName" # Can't use dashes in storage names
+  $defaultContainerName = $clusterName
+  $defaultSubnetName = "default"
+  $gatewaySubnetName = "GatewaySubnet"
+  $gatewayPublicIpName = "GatewayIp"
+  $gatewayIpConfigName = "GatewayConfig"
+  $vpnRootCertName = "rootcert"
+  $vpnName = "VPNGateway"
 
-    # Names for Azure resources
-    $networkName = "net-$baseName"
-    $clusterName = "kafka-$baseName"
-    $storageName = "store$baseName" # Can't use dashes in storage names
-    $defaultContainerName = $clusterName
-    $defaultSubnetName = "default"
-    $gatewaySubnetName = "GatewaySubnet"
-    $gatewayPublicIpName = "GatewayIp"
-    $gatewayIpConfigName = "GatewayConfig"
-    $vpnRootCertName = "rootcert"
-    $vpnName = "VPNGateway"
+  # Network settings
+  $networkAddressPrefix = "10.0.0.0/16"
+  $defaultSubnetPrefix = "10.0.0.0/24"
+  $gatewaySubnetPrefix = "10.0.1.0/24"
+  $vpnClientAddressPool = "172.16.201.0/24"
 
-    # Network settings
-    $networkAddressPrefix = "10.0.0.0/16"
-    $defaultSubnetPrefix = "10.0.0.0/24"
-    $gatewaySubnetPrefix = "10.0.1.0/24"
-    $vpnClientAddressPool = "172.16.201.0/24"
+  # HDInsight settings
+  $HdiWorkerNodes = 4
+  $hdiVersion = "3.4"
+  $hdiType = "Kafka"
+  ```
 
-    # HDInsight settings
-    $HdiWorkerNodes = 4
-    $hdiVersion = "3.4"
-    $hdiType = "Kafka"
+4. Use the following code to create the Azure resource group and virtual network:
 
-    # Create the resource group that contains everything
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+  ```powershell
+  # Create the resource group that contains everything
+  New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-    # Create the subnet configuration
-    $defaultSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
-        -AddressPrefix $defaultSubnetPrefix
-    $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
-        -AddressPrefix $gatewaySubnetPrefix
+  # Create the subnet configuration
+  $defaultSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
+      -AddressPrefix $defaultSubnetPrefix
+  $gatewaySubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
+      -AddressPrefix $gatewaySubnetPrefix
 
-    # Create the subnet
-    New-AzureRmVirtualNetwork -Name $networkName `
-        -ResourceGroupName $resourceGroupName `
-        -Location $location `
-        -AddressPrefix $networkAddressPrefix `
-        -Subnet $defaultSubnetConfig, $gatewaySubnetConfig
+  # Create the subnet
+  New-AzureRmVirtualNetwork -Name $networkName `
+      -ResourceGroupName $resourceGroupName `
+      -Location $location `
+      -AddressPrefix $networkAddressPrefix `
+      -Subnet $defaultSubnetConfig, $gatewaySubnetConfig
 
-    # Get the network & subnet that were created
-    $network = Get-AzureRmVirtualNetwork -Name $networkName `
-        -ResourceGroupName $resourceGroupName
-    $gatewaySubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
-        -VirtualNetwork $network
-    $defaultSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
-        -VirtualNetwork $network
+  # Get the network & subnet that were created
+  $network = Get-AzureRmVirtualNetwork -Name $networkName `
+      -ResourceGroupName $resourceGroupName
+  $gatewaySubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $gatewaySubnetName `
+      -VirtualNetwork $network
+  $defaultSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $defaultSubnetName `
+      -VirtualNetwork $network
 
-    # Set a dynamic public IP address for the gateway subnet
-    $gatewayPublicIp = New-AzureRmPublicIpAddress -Name $gatewayPublicIpName `
-        -ResourceGroupName $resourceGroupName `
-        -Location $location `
-        -AllocationMethod Dynamic
-    $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $gatewayIpConfigName `
-        -Subnet $gatewaySubnet `
-        -PublicIpAddress $gatewayPublicIp
+  # Set a dynamic public IP address for the gateway subnet
+  $gatewayPublicIp = New-AzureRmPublicIpAddress -Name $gatewayPublicIpName `
+      -ResourceGroupName $resourceGroupName `
+      -Location $location `
+      -AllocationMethod Dynamic
+  $gatewayIpConfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $gatewayIpConfigName `
+      -Subnet $gatewaySubnet `
+      -PublicIpAddress $gatewayPublicIp
 
-    # Get the certificate info
-    # Get the full path in case a relative path was passed
-    $rootCertFile = Get-ChildItem $rootCert
-    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($rootCertFile)
-    $certBase64 = [System.Convert]::ToBase64String($cert.RawData)
-    $p2sRootCert = New-AzureRmVpnClientRootCertificate -Name $vpnRootCertName `
-        -PublicCertData $certBase64
+  # Get the certificate info
+  # Get the full path in case a relative path was passed
+  $rootCertFile = Get-ChildItem $rootCert
+  $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($rootCertFile)
+  $certBase64 = [System.Convert]::ToBase64String($cert.RawData)
+  $p2sRootCert = New-AzureRmVpnClientRootCertificate -Name $vpnRootCertName `
+      -PublicCertData $certBase64
 
-    # Create the VPN gateway
-    New-AzureRmVirtualNetworkGateway -Name $vpnName `
-        -ResourceGroupName $resourceGroupName `
-        -Location $location `
-        -IpConfigurations $gatewayIpConfig `
-        -GatewayType Vpn `
-        -VpnType RouteBased `
-        -EnableBgp $false `
-        -GatewaySku Standard `
-        -VpnClientAddressPool $vpnClientAddressPool `
-        -VpnClientRootCertificates $p2sRootCert
+  # Create the VPN gateway
+  New-AzureRmVirtualNetworkGateway -Name $vpnName `
+      -ResourceGroupName $resourceGroupName `
+      -Location $location `
+      -IpConfigurations $gatewayIpConfig `
+      -GatewayType Vpn `
+      -VpnType RouteBased `
+      -EnableBgp $false `
+      -GatewaySku Standard `
+      -VpnClientAddressPool $vpnClientAddressPool `
+      -VpnClientRootCertificates $p2sRootCert
+  ```
 
-    # Create the storage account
-    New-AzureRmStorageAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+    > [!WARNING]
+    > It can take several minutes for this process to complete.
 
-    # Get the storage account keys and create a context
-    $defaultStorageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName `
-        -Name $storageName)[0].Value
-    $storageContext = New-AzureStorageContext -StorageAccountName $storageName `
-        -StorageAccountKey $defaultStorageKey
+5. Use the following code to create the Azure Storage Account and blob container:
 
-    # Create the default storage container
-    New-AzureStorageContainer -Name $defaultContainerName `
-        -Context $storageContext
+  ```powershell
+  # Create the storage account
+  New-AzureRmStorageAccount `
+      -ResourceGroupName $resourceGroupName `
+      -Name $storageName `
+      -Type Standard_GRS `
+      -Location $location
 
-    # Create the HDInsight cluster
-    New-AzureRmHDInsightCluster `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $clusterName `
-        -Location $location `
-        -ClusterSizeInNodes $hdiWorkerNodes `
-        -ClusterType $hdiType `
-        -OSType Linux `
-        -Version $hdiVersion `
-        -HttpCredential $adminCreds `
-        -SshCredential $sshCreds `
-        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
-        -DefaultStorageAccountKey $defaultStorageKey `
-        -DefaultStorageContainer $defaultContainerName `
-        -VirtualNetworkId $network.Id `
-        -SubnetName $defaultSubnet.Id
+  # Get the storage account keys and create a context
+  $defaultStorageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName `
+      -Name $storageName)[0].Value
+  $storageContext = New-AzureStorageContext -StorageAccountName $storageName `
+      -StorageAccountKey $defaultStorageKey
 
-    # Get the URI for the the Windows VPN client installer download
-    Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
-        -VirtualNetworkGatewayName $vpnName `
-        -ProcessorArchitecture Amd64
-    ```
+  # Create the default storage container
+  New-AzureStorageContainer -Name $defaultContainerName `
+      -Context $storageContext
+  ```
 
-3. To run the script, use the following command from a PowerShell prompt:
+6. Use the following code to create the HDInsight cluster:
 
-    ```powershell
-    .\Create-HDInsightWithVPN.ps1 -resourceGroupName <groupname> -location <location> -baseName <basename> -rootCert <rootcertificate>
-    ```
+  ```powershell
+  # Create the HDInsight cluster
+  New-AzureRmHDInsightCluster `
+      -ResourceGroupName $resourceGroupName `
+      -ClusterName $clusterName `
+      -Location $location `
+      -ClusterSizeInNodes $hdiWorkerNodes `
+      -ClusterType $hdiType `
+      -OSType Linux `
+      -Version $hdiVersion `
+      -HttpCredential $adminCreds `
+      -SshCredential $sshCreds `
+      -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
+      -DefaultStorageAccountKey $defaultStorageKey `
+      -DefaultStorageContainer $defaultContainerName `
+      -VirtualNetworkId $network.Id `
+      -SubnetName $defaultSubnet.Id
+  ```
 
-    * Replace __&lt;groupname>__ with the name of the Azure resource group to be created by the script. This resource group contains the services created by this script.
+  > [!IMPORTANT]
+  > This process takes around 20 minutes to complete.
 
-    * Replace __&lt;location>__ with the Azure region to create the services in.
+7. Since there is no name resolution between the client and Kafka when using a Point-to-site configuration, you must configure Kafka to use IP addressing. To support this configuration, use the following code to configure the HDInsight cluster nodes to use static IP addresses instead of dynamic:
 
-    * Replace __&lt;basename>__ with a base name for the services created by the script. For example, using a basename of "contoso" creates a Kafka cluster named "kafka-contoso".
+  ```powershell
+  # Get the NICs for the HDInsight nodes (names contain 'node').
+  $nodes = Get-AzureRmNetworkInterface `
+      -ResourceGroupName $resourceGroupName `
+      | where-object {$_.Name -like "*node*"}
 
-    * Replace __&lt;rootcertificate>__ with the path to the root certificate (.cer file) exported from the steps in the [Working with self-signed certificates for Point-to-site connections](../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document.
+  # Loop through each node and set the NIC to static IP
+  foreach($node in $nodes) {
+      if($node.IpConfigurations[0].PrivateIpAllocationMethod -eq "Dynamic") {
+          Write-output "Converting $($node.Name) to static IP..."
+          $node.IpConfigurations[0].PrivateIpAllocationMethod="Static"
+          # Hiding output, because it's a huge JSON document
+          $hideOutput = Set-AzureRmNetworkInterface -NetworkInterface $node
+      }
+  }
+  ```
 
-    You are prompted to enter the HTTPS login credentials and SSH user credentials for the cluster. These are used to secure HTTPS and SSH access to HDInsight. You may also be prompted to authenticate to your Azure subscription.
+8. Use the following cmdlet to retrieve the URL for the Windows VPN client for the virtual network:
+
+  ```powershell
+  Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
+      -VirtualNetworkGatewayName $vpnName `
+      -ProcessorArchitecture Amd64
+  ```
+
+    To download the Windows VPN client, use the returned URI in your web browser.
 
 ## Create: Using the Azure portal
 
@@ -242,7 +260,7 @@ Follow the steps in the [Configure a Point-to-Site connection using the Azure po
 
 ### Create the Kafka cluster
 
-Use the following steps to create a Kafka cluster in the Azure Virtual Network created in the previous secction:
+Use the following steps to create a Kafka cluster in the Azure Virtual Network created in the previous section:
 
 1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
    
@@ -295,7 +313,22 @@ Use the following steps to create a Kafka cluster in the Azure Virtual Network c
     > [!NOTE]
     > It can take up to 20 minutes to create the cluster.
 
-## Configure Kafka for IP operations
+### Configure the cluster for static IP addresses
+
+In the [Azure portal](https://portal.azure.com), find the entries that begin with `nic` and contain `headnode`, `workernode`, or `zookeepernode` as part of the name. These entries represent the network interface for the nodes in the HDInsight cluster. For each entry, perform the following steps:
+
+1. Select the entry.
+
+2. Select __IP configurations__.
+
+3. Select the __ipConfig__ entry for the private IP address.
+
+4. Change the __Assignment__ entry to __Static__. Select __Save__ to save the configuration change.
+
+    > [!IMPORTANT]
+    > Changing the IP address configuration from dynamic to static restarts the node.
+
+## Configure Kafka for IP addressing
 
 By default, Zookeeper returns the domain name of the Kafka brokers to clients. Since there is no DNS server to resolve the domain names, use the following steps to configure the cluster to return IP addresses instead.
 
@@ -307,14 +340,47 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. S
 
 2. To view information on Kafka, select __Kafka__ from the list on the left. 
 
+    ![Service list with Kafka highlighted]()
+
 3. To view Kafka configuration, select __Configs__ from the top middle.
+
+    ![Configs links for Kafka]()
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-5. Make the following changes to the text in the __kafka-env-tempalte__:
+    ![Kafka configuration, for kafka-env]()
 
-    * change 1
-    * change 2
+5. To configure Kafka to advertise IP addresses, add the following text to the __kafka-env-template__:
+
+    ```
+    # Configure Kafka to advertise IP addresses instead of FQDN
+    IP_ADDRESS=$(hostname -i)
+    echo advertised.listeners=$IP_ADDRESS
+    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    ```
+
+6. Enter `listeners` in the __Filter__ field on the upper right.
+
+    ![Kafka configuration, for listeners]()
+
+7. To configure Kafka to listen on all network interfaces, change the value in the __listeners__ field to `PLAINTEXT://0.0.0.0:92092`.
+
+8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
+
+    ![Save configuration button]()
+
+9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
+
+    ![Service actions, with turn on maintenance highlighted]()
+
+10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
+
+    ![Restart button with restart all affected highlighted]()
+
+11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
+
+    ![Service actions, with turn off maintenance highlighted]()
 
 ## Connect
 
