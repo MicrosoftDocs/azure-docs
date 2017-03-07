@@ -404,10 +404,10 @@ Total number of disks across all compatible virtual machines  is the total numbe
 
 **Virtual Machines to Place** lists all the virtual machines that should be placed on the given Azure Storage account for optimal performance and utilization.
 
-##Compatible VMs
+## Compatible VMs
 ![Deployment Planner](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Name** is the virtual machine name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the virtual machines.
+**VM Name** is the virtual machine name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the virtual machines. The virtual machines with duplicate name or IP address in the vCenter are mentioned with ESXi host name to distinguish each virtual machine. The ESXi host is the host where the virtual machine is associated when the tool discovered it for the first time during profiling period.
 
 **VM Compatibility** has two values – Yes / Yes*. Yes* is for those cases where the virtual machine is a fit for [premium Azure Storage](https://aka.ms/premium-storage-workload) with the profiled high churn / IOPS disk fitting in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. Azure Storage decides which premium storage disk type to map a disk to based on its size – i.e. < 128 GB is a P10, 128 to 512 GB is a P20, and 512 GB to 1023 GB is a P30. So if the workload characteristics of a disk put it in a P20 or P30, but the size maps it down to a lower premium storage disk type, the tool marks that virtual machine as a Yes* and recommends you to either change the source disk size to fit into the right recommended premium storage disk type, or change the target disk type post failover.
 Storage Type is standard or premium.
@@ -436,7 +436,7 @@ Storage Type is standard or premium.
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM Name** is the virtual machine name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the virtual machines.
+**VM Name** is the virtual machine name or IP address as used in the VMListFile at the time of report generation. This column also lists the disks (VMDKs) attached to the virtual machines. The virtual machines with duplicate name or IP address in the vCenter are mentioned with ESXi host name to distinguish each virtual machine. The ESXi host is the host where the virtual machine is associated when the tool discovered it for the first time during profiling period.
 
 **VM Compatibility** indicates why the given virtual machine is incompatible for use with Azure Site recovery. The reasons are outlined per incompatible disk of the virtual machine and can be one of the following based on published Azure Storage [limits](https://aka.ms/azure-storage-scalbility-performance).
 
