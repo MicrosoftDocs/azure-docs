@@ -126,7 +126,7 @@ Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password
 	![VM name list in the deployment planner](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
 ### Start profiling
-After you have the list of VMs to be profiled, you can now run the tool in profiling mode. Here is the list of mandatory and optional parameters of the tool to run in profiling mode.
+After you have the list of VMs to be profiled, you can run the tool in profiling mode. Here is the list of mandatory and optional parameters of the tool to run in profiling mode.
 
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
@@ -283,13 +283,13 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter
 >
 > * For replication, set the recommended bandwidth to meet the RPO 100 percent of the time. After you set the right bandwidth, if you don’t see any increase in the achieved throughput reported by the tool, do the following:
 >
->  a. Check to see whether there is any network Quality of Service (QoS) that is limiting Site Recovery throughput
+>  1. Check to determine whether there is any network Quality of Service (QoS) that is limiting Site Recovery throughput.
 >
->  b. Check to see whether your Site Recovery vault is in the nearest physically supported Microsoft Azure region to minimize network latency.
+>  2. Check to determine whether your Site Recovery vault is in the nearest physically supported Microsoft Azure region to minimize network latency.
 >
->  c. Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
+>  3. Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
 >
->  d. Change the Site Recovery settings in the process server to [increase the amount of network bandwidth used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+>  4. Change the Site Recovery settings in the process server to [increase the amount of network bandwidth used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
 ## Recommendations with desired RPO as input
 
