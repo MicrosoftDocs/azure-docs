@@ -43,4 +43,4 @@ The preview supports interaction with the cluster through Azure CLI. For Java de
 2. [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
 3. [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 4. [Create your first Service Fabric Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-5. [Continuous build and deploy integration for your application with Jenkins and Github](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+5. [Setup Service Fabric continuous integration and deployment with Jenkins and GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
