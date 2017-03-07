@@ -23,7 +23,7 @@ ms.author: allclark
 This example creates a virtual machine using a custom VHD.
 It creates a storage account and container,
 uploads the VHD to the container,
-and then repalces the VM user's (deploy user) ssh public key with your public key.
+and then replaces the VM user's ssh public key with your public key.
 
 Before you run the sample, 
 download the custom VHD from https://azclisamples.blob.core.windows.net/vhds/sample.vhd.
