@@ -11,7 +11,7 @@
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutorials
-## Databases, servers and firewalls
+## Databases, servers, and firewalls
 ### [PowerShell](sql-database-get-started-powershell.md)
 ### [C#](sql-database-get-started-csharp.md)
 ## Authentication and access
@@ -44,8 +44,8 @@
 ### [Elastic tools FAQ](sql-database-elastic-scale-faq.md)
 ## Cross-database queries
 ### [Overview](sql-database-elastic-query-overview.md)
-### [Horizontally-partitioned data](sql-database-elastic-query-horizontal-partitioning.md)
-### [Vertically-partitioned data](sql-database-elastic-query-vertical-partitioning.md)
+### [Horizontally partitioned data](sql-database-elastic-query-horizontal-partitioning.md)
+### [Vertically partitioned data](sql-database-elastic-query-vertical-partitioning.md)
 ## [Cross-database transactions](sql-database-elastic-transactions-overview.md)
 ## [Cross-database jobs](sql-database-elastic-jobs-overview.md)
 ## Data and database security
@@ -178,8 +178,8 @@
 ### [SSMS using Azure RemoteApp](sql-database-ssms-remoteapp.md)
 ### [SSMS using multi-factor authentication](sql-database-ssms-mfa-authentication-configure.md)
 ### [Excel](sql-database-connect-excel.md)
-### [Connectivity best practices](sql-database-connectivity-issues.md)
-### [Troubleshoot connection issues](sql-database-troubleshoot-common-connection-issues.md)
+### [Connectivity guidance](sql-database-connectivity-issues.md)
+### [Resolve connection issues](sql-database-troubleshoot-common-connection-issues.md)
 ## Configure encryption
 ### [Encrypt data using Windows certificate](sql-database-always-encrypted.md)
 ### [Encrypt data using Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
@@ -209,8 +209,8 @@
 ### [Uninstall](sql-database-elastic-jobs-uninstall.md)
 ## Query data
 ### [SSMS](sql-database-connect-query-ssms.md)
-### [Horizontally-partitioned data](sql-database-elastic-query-getting-started.md)
-### [Vertically-partitioned data](sql-database-elastic-query-getting-started-vertical.md)
+### [Horizontally partitioned data](sql-database-elastic-query-getting-started.md)
+### [Vertically partitioned data](sql-database-elastic-query-getting-started-vertical.md)
 ## Monitor and tune
 ### [Use SQL Database Advisor](sql-database-advisor-portal.md)
 ### [Use Query Performance insight](sql-database-performance.md)
