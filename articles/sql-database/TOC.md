@@ -200,8 +200,7 @@
 ### [Migrate existing sharded database](sql-database-elastic-convert-to-use-elastic-tools.md)
 ### [Create performance counters](sql-database-elastic-database-perf-counters.md)
 ### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-## Manage elastic database client library
-### [Upgrade client library in client applications](sql-database-elastic-scale-upgrade-client-library.md)
+## [Manage elastic database client library](sql-database-elastic-scale-upgrade-client-library.md)
 ## Create and manage elastic jobs
 ### [Install](sql-database-elastic-jobs-service-installation.md)
 ### [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
