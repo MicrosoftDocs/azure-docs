@@ -2586,7 +2586,7 @@ Following is a reducer example:
         }
 ```
 
-In this use-case scenario, the reducer is skipping rows with an empty user name. For each row in rowset, it reads each required column, then evaluates the length of the user name and outputs the actual row only if user name value length is more than 0.
+In this use-case scenario, the reducer is skipping rows with an empty user name. For each row in rowset, it reads each required column, then evaluates the length of the user name. It outputs the actual row only if user name value length is more than 0.
 
 Following is base U-SQL script that uses a custom reducer:
 
