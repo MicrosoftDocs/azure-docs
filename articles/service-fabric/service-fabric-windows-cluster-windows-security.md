@@ -18,15 +18,15 @@ ms.author: ryanwi
 
 ---
 # Secure a standalone cluster on Windows using Windows security
-To prevent unauthorized access to a Service Fabric cluster, you must secure the cluster. Security is especially important when the cluster runs production workloads. This article describes how to configure node-to-node and client-to-node security by using Windows security in the *ClusterConfig.JSON* file. The process corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information about how Service Fabric uses Windows Security, see [Cluster security scenarios](service-fabric-cluster-security.md).
+To prevent unauthorized access to a Service Fabric cluster, you must secure the cluster. Security is especially important when the cluster runs production workloads. This article describes how to configure node-to-node and client-to-node security by using Windows security in the *ClusterConfig.JSON* file.  The process corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information about how Service Fabric uses Windows Security, see [Cluster security scenarios](service-fabric-cluster-security.md).
 
 > [!NOTE]
 > You should consider the selection of node-to-node security carefully because there is no cluster upgrade from one security choice to another. To change the security selection, you have to rebuild the full cluster.
-> 
-> 
+>
+>
 
 ## Configure Windows security  
-The *ClusterConfig.Windows.JSON* sample configuration file that's downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template to configure Windows security. Windows security is configured in the **Properties** section: 
+The *ClusterConfig.Windows.JSON* sample configuration file that's downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template to configure Windows security. Windows security is configured in the **Properties** section:
 
 ```
 "security": {
@@ -44,16 +44,16 @@ The *ClusterConfig.Windows.JSON* sample configuration file that's downloaded wit
 
 | **Configuration setting** | **Description** |
 | --- | --- |
-| ClusterCredentialType |Set to *Windows* to enable Windows security. | 
+| ClusterCredentialType |Set to *Windows* to enable Windows security. |
 | ServerCredentialType |Set to *Windows* to enable Windows security for clients.<br /><br />This indicates that the clients of the cluster and the cluster itself are running within an Active Directory domain. |  
 | WindowsIdentities |Contains the cluster and client identities. |  
 | ClusterIdentity |Use a machine group name, domain\machinegroup, to configure node-to-node security. |  
 | ClientIdentities |Configures client-to-node security. An array of client user accounts. |  
 | Identity |Add the domain user, domain\username, for the client identity. |  
 | IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |  
-  
+
 [Node-to-node security](service-fabric-cluster-security.md#node-to-node-security) is configured by using **ClusterIdentity**. Nodes must be aware of each other to build trust relationships between them. To create awareness, create a domain group that includes all nodes in the cluster. This group name should be specified in **ClusterIdentity**. For more information, see [Create a Group in Active Directory](https://msdn.microsoft.com/library/aa545347(v=cs.70).aspx).  
-    
+
 [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security) is configured by using **ClientIdentities**. To establish trust between a client and the cluster, you must configure the cluster to know the client identities that the cluster can trust. This can be done in two different ways
 
 - Specify the domain group users that can connect.
@@ -79,8 +79,8 @@ The following example **security** section configures Windows security, specifie
 
 > [!NOTE]
 > Service Fabric should not be deployed on a domain controller. Make sure that ClusterConfig.json does not include the IP address of the domain controller when using a machine group or group Managed Service Account (gMSA).
-> 
-> 
+>
+>
 
 ## Next steps
 After configuring Windows security in the *ClusterConfig.JSON* file, resume the cluster creation process in [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md).
@@ -88,4 +88,3 @@ After configuring Windows security in the *ClusterConfig.JSON* file, resume the 
 For more information about how node-to-node security, client-to-node security, and role-based access control, see [Cluster security scenarios](service-fabric-cluster-security.md).
 
 See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for examples of connecting by using PowerShell or FabricClient.
-
