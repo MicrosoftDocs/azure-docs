@@ -147,9 +147,9 @@ Please create a different local account before using Azure Active Directory Join
 
 **A:** For troubleshooting information, see:
 
-1. [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-automatic-device-registration-troubleshoot-windows.md)
+1. [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
 
-2. [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-automatic-device-registration-troubleshoot-windows-legacy.md)
+2. [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md)
  
 ---
 

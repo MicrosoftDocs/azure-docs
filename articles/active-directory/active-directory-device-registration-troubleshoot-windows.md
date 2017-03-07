@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 03/07/2017
 ms.author: markvi
 
 ---
@@ -23,9 +23,9 @@ This topic is applicable to the following clients:
 -	Windows 10
 -	Windows Server 2016
 
-For other Windows clients, see [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-automatic-device-registration-troubleshoot-windows-legacy.md).
+For other Windows clients, see [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md).
 
-This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-automatic-device-registration-get-started.md) to spport the following scenarios:
+This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-device-registration-get-started.md) to spport the following scenarios:
 
 1.	[Device-based conditional access](active-directory-conditional-access-automatic-device-registration-setup.md)
 
@@ -150,4 +150,4 @@ If they show ‘NO’ the following are possible causes:
 
 ## Next steps
 
-For more information, see the [Automatic device registration FAQ](active-directory-automatic-device-registration-faq.md) 
+For more information, see the [Automatic device registration FAQ](active-directory-device-registration-faq.md) 

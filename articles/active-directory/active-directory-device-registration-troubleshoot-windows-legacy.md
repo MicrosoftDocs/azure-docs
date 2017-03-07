@@ -27,9 +27,9 @@ This topic is applicable only to the following clients:
 - Windows Server 2012 R2 
  
 
-For Windows 10 or Windows Server 2016, see [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-automatic-device-registration-troubleshoot-windows.md).
+For Windows 10 or Windows Server 2016, see [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md).
 
-This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-automatic-device-registration-get-started.md).
+This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-device-registration-get-started.md).
  
 This topic provides you with troubleshooting guidance on how to resolve potential issues.  
 Some things to note for successful outcomes: 
@@ -62,19 +62,19 @@ If the join was not successful, the dialog box provides you with details about t
 
 - A misconfigured AD FS or Azure AD
 
-    ![Workplace Join for Windows](./media/active-directory-automatic-device-registration-troubleshoot-windows-legacy/02.png)
+    ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/02.png)
 
 - You are not signed on as a domain user
 
-    ![Workplace Join for Windows](./media/active-directory-automatic-device-registration-troubleshoot-windows-legacy/03.png)
+    ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
 
 - A quota has been reached
 
-    ![Workplace Join for Windows](./media/active-directory-automatic-device-registration-troubleshoot-windows-legacy/04.png)
+    ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/04.png)
 
 - The service is not responding 
 
-    ![Workplace Join for Windows](./media/active-directory-automatic-device-registration-troubleshoot-windows-legacy/05.png)
+    ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
 You can also find the status information in the event log under **Applications and Services Log\Microsoft-Workplace Join**.
   
@@ -94,4 +94,4 @@ You can also find the status information in the event log under **Applications a
 
 ## Next steps
 
-For more information, see the [Automatic device registration FAQ](active-directory-automatic-device-registration-faq.md) 
+For more information, see the [Automatic device registration FAQ](active-directory-device-registration-faq.md) 

@@ -3,7 +3,7 @@ title: Setting up on-premises conditional access using Azure Active Directory De
 description: A step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/07/2017
 ms.author: markvi
 
 ---
@@ -68,8 +68,8 @@ Follow the checklist below to enable and configure the Azure Active Directory De
 
 | Task | Reference |
 | --- | --- |
-| Enable Device Registration in your Azure Active Directory tenant to allow devices to join the workplace. By default, multi-factor authentication is not enabled for the service. However, multi-factor authentication is recommended when registering a device. Before enabling multi-factor authentication in ADRS, ensure that AD FS is configured for a multi-factor authentication provider. |[Enable Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md) |
-| Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records. You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service. |[Configure Azure Active Directory Device Registration discovery.](active-directory-conditional-access-device-registration-overview.md) |
+| Enable Device Registration in your Azure Active Directory tenant to allow devices to join the workplace. By default, multi-factor authentication is not enabled for the service. However, multi-factor authentication is recommended when registering a device. Before enabling multi-factor authentication in ADRS, ensure that AD FS is configured for a multi-factor authentication provider. |[Enable Azure Active Directory Device Registration](active-directory-device-registration-overview.md) |
+| Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records. You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service. |[Configure Azure Active Directory Device Registration discovery.](active-directory-device-registration-overview.md) |
 
 ## Part 2: Deploy and configure Windows Server 2012 R2 Active Directory Federation Services and set up a federation relationship with Azure AD
 | Task | Reference |
@@ -91,7 +91,7 @@ The deployment is now complete. You can now try out some scenarios. Follow the l
 | Task | Reference |
 | --- | --- |
 | Join some devices to your workplace using Azure Active Directory Device Registration. You can join iOS, Windows, and Android devices |[Join devices to your workplace using Azure Active Directory Device Registration](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
-| You can view and enable/disable registered devices using the Administrator Portal. In this task you will view some registered devices using the Administrator Portal. |[Azure Active Directory Device Registration Overview](active-directory-conditional-access-device-registration-overview.md) |
+| You can view and enable/disable registered devices using the Administrator Portal. In this task you will view some registered devices using the Administrator Portal. |[Azure Active Directory Device Registration Overview](active-directory-device-registration-overview.md) |
 | Verify that device objects are written back from Azure Active Directory to Windows Server Active Directory. |[Verify registered devices are written-back to Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
 | Now that users can register their devices, you can create application access polices in AD FS that allow only registered devices. In this task you will create an application access rule and a custom access denied message |[Create an application access policy and custom access denied message](#create-an-application-access-policy-and-custom-access-denied-message) |
 
@@ -173,7 +173,7 @@ There are many different ways to communicate this URL to your users. One recomme
 4. When prompted, sign-in with your credentials. The device is now joined.
 
 ### Join a Windows 7 device using Azure Active Directory Device Registration
-To register Windows 7 domain joined devices you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7 and is available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). Instructions how to use the package are available at [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md).
+To register Windows 7 domain joined devices you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7 and is available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). Instructions how to use the package are available in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ## Verify registered devices are written-back to Active Directory
 You can view and verify that your device objects have been written back to your Active Directory using LDP.exe or ADSI Edit. Both are available with the Active Directory Administrator tools.
@@ -228,6 +228,4 @@ Now when users access your application from a device that is not registered with
 
 ![Screeshot of an error when users haven't registered their device with Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-## Related Articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 

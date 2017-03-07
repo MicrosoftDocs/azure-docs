@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/active-directory/active-directory-automatic-device-registration-get-started
+redirect_url: /azure/active-directory/active-directory-device-registration-get-started
 ---
