@@ -173,13 +173,13 @@ You can use the *iothub-explorer* tool to quickly test that your IoT hub is gene
     iothub-explorer monitor-ops --login {your iothubowner connection string}
     ```
 
-1. In another command-prompt, run the following command:
+1. In another command-prompt, run the following command to simulate a device sending device-to-cloud messages:
 
     ```
     iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
     ```
 
-1. The first command-prompt shows the monitoring events.
+1. The first command-prompt shows the monitoring events as the simulated device connects to your IoT hub.
 
 ## Next steps
 To further explore the capabilities of IoT Hub, see:
