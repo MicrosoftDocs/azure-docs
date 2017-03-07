@@ -310,7 +310,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
         throw new InvalidOperationException("Failed to acquire token");
     }
 	```
-12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.
+12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only one slice expected in this sample.
 
 	```csharp
 	// Pulling status within a timeout threshold
