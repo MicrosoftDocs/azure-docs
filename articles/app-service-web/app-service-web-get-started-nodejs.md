@@ -32,33 +32,35 @@ Before starting this QuickStart, ensure that [the Azure CLI is installed](https:
 3. Create a [resource group](../azure-resource-manager/resource-group-overview.md). This is where you put all the Azure resources that you want to manage together, such as 
 the web app and its SQL Database back end.
 
-        az group create --location "West US" --name my-first-app-group
+        az group create --location "West Europe" --name myResourceGroup
 
     To see what possible values you can use for `---location`, use the `az appservice list-locations` Azure CLI command.
 
 3. Create a "Standard" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Standard tier is required to run Linux containers.
 
-        az appservice plan create --name my-free-appservice-plan --resource-group my-first-app-group --sku S1 --is-linux 
+        az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku S1 --is-linux 
 
 4. Create a web app with a unique name in `<app_name>`.
 
-        az appservice web create --name <app_name> --resource-group my-first-app-group --plan my-free-appservice-plan
+        az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
 
 4. Configure the Linux container to use the default Node.js 6.9.3 image.
 
-        az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group my-first-app-group
+        az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
 
 4. Deploy a sample Node.js app from GitHub.
 
-        az appservice web source-control config --name <app_name> --resource-group my-first-app-group \
+        az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
         --repo-url "https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git" --branch master --manual-integration 
 
 5. To see your app running live in Azure, run this command.
 
-        az appservice web browse --name <app_name> --resource-group my-first-app-group
+        az appservice web browse --name <app_name> --resource-group myResourceGroup
 
 Congratulations, your first Node.js web app is running live in Azure App Service.
 
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](../app-service/app-service-cli-samples.md).
+Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).

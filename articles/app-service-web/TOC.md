@@ -2,7 +2,7 @@
 ## [About Web Apps](app-service-web-overview.md)
 ## [Compare Azure hosting options](choose-web-site-cloud-service-vm.md)
 
-# Quickstart	
+# QuickStart	
 ## [Create static HTML site](app-service-web-get-started-html.md)
 ## [Create ASP.NET web app](app-service-web-get-started-dotnet.md)		
 ## [Create PHP web app](app-service-web-get-started-php.md) 
@@ -11,8 +11,8 @@
 ## [Create Python web app](app-service-web-get-started-python.md)	
 
 # Samples
-## [Azure CLI](../app-service/app-service-cli-samples.md?toc=%2fazure%2fapp-service-web%2ftoc.json) 
-## [PowerShell](../app-service/app-service-powershell-samples.md?toc=%2fazure%2fapp-service-web%2ftoc.json) 
+## [Azure CLI](app-service-cli-samples.md) 
+## [PowerShell](app-service-powershell-samples.md) 
 
 # Tutorials
 ## [Add functionality to web app](app-service-web-get-started-2.md)
