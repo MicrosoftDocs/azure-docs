@@ -174,8 +174,8 @@ To update to the latest version of the SDK and runtime, run the following steps 
 For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.
 
 ## Next steps
-* [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-* [Create and deploy your first Service Fabric Java application using Service Fabric Plugin for Eclipse on Linux](service-fabric-get-started-eclipse.md)
+* [Create and deploy your first Service Fabric Java application on Linux using yeoman](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)

@@ -59,7 +59,7 @@ If you already have the Service Fabric Eclipse plugin installed, make sure you a
 
     ![Service Fabric New Project Page 4][create-application/p4]
 
-5. When you create your first Service fabric project, it will as if it would set the Service-fabric perspective, please select ``yes`` to continue.
+5. When you create your first Service Fabric project, it will as if it would set the Service-fabric perspective, please select ``yes`` to continue.
 
     ![Service Fabric New Project Page 5][create-application/p5]
 
