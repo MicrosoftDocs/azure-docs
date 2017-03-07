@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/07/2017
 ms.author: ryanwi
 
 ---
@@ -25,7 +25,7 @@ ms.author: ryanwi
 > 
 > 
 
-The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio.
+The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio 2017 or Visual Studio 2015.
 
 ## Prerequisites
 Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md).
