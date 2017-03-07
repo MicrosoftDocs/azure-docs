@@ -6,6 +6,8 @@
 ### [SQL versus NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
 # QuickStart
 ## [Create a single database in the Azure portal](sql-database-get-started.md)
+## [Create a single database with the Azure CLI]
+## [Create a single database with PowerShell]
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
