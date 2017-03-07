@@ -6,7 +6,6 @@
 ### [SQL versus NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
 # QuickStart
 ## [Create a single database in the Azure portal](sql-database-get-started.md)
-## [Create an elastic pool in the Azure portal](sql-database-get-started-elastic-pool.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
@@ -110,6 +109,7 @@
 ### [PowerShell](sql-database-create-and-configure-database-powershell.md)
 ### [T-SQL](sql-database-manage-single-databases-tsql.md)
 ## Create and move pooled databases
+### [Create an elastic pool in the Azure portal](sql-database-get-started-elastic-pool.md)
 ### [Azure CLI](sql-database-move-database-between-pools-cli.md)
 ### [PowerShell](sql-database-move-database-between-pools-powershell.md)
 ## Create and manage firewall rules
