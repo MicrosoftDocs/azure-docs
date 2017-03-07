@@ -36,11 +36,11 @@ This scenario assumes you have an existing instance of Network Watcher, and a re
 
 To automate this process, we create and connect an Alert on our VM to trigger when the incident occurs, and an Azure Function to call into Network Watcher.
 
-This scenario will:
+This scenario:
 
-* Create an Azure function that starts a packet capture.
-* Create an alert rule on a virtual machine
-* Configure the alert rule to call the Azure function
+* Creates an Azure function that starts a packet capture.
+* Creates an alert rule on a virtual machine
+* Configures the alert rule to call the Azure function
 
 ## Creating an Azure Function and overview
 
@@ -54,24 +54,24 @@ The following list is an overview of the workflow that takes place.
 1. Packet capture runs on the VM and collects traffic. 
 1. The capture file is uploaded to a storage account for review and diagnosis 
 
-Creating an Azure Function can be accomplished in the portal by following [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md). For this example, we chose an HttpTrigger-PowerShell type function. Customizations are required for this example and are explained in the following steps.
+Creating an Azure Function can be accomplished in the portal by following [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md). For this example, we chose an HttpTrigger-PowerShell type function. Customizations are required for this example and are explained in the following steps:
 
 ![functions example][functions1]
 
 > [!NOTE]
-> The PowerShell template is experimental and not have full support.
+> The PowerShell template is experimental and does not have full support.
 
 ## Adding modules
 
 In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module needs to be uploaded to the Function app.
 
-1. On your local machine with the latest Azure PowerShell modules installed, run the following PowerShell command.
+1. On your local machine with the latest Azure PowerShell modules installed, run the following PowerShell command:
 
     ```powershell
     (Get-Module AzureRM.Network).Path
     ```
 
-    This will give you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules used in this scenario are:
+    This gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules used in this scenario are:
 
     * AzureRM.Network
     * AzureRM.Profile
@@ -83,7 +83,7 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
     ![functions kudu][functions2]
 
-1. Right click on the AlertPacketCapturePowershell folder and create a new folder called **azuremodules**. Continue creating sub folders for each module needed.
+1. Right click the AlertPacketCapturePowershell folder and create a folder called **azuremodules**. Continue creating sub folders for each module needed.
 
     * AzureRM.Network
     * AzureRM.Profile
@@ -91,21 +91,21 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
     ![functions kudu][functions3]
 
-1. Right click on each on the AzureRM.Network sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
+1. Right click each on the AzureRM.Network sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
 
     ![upload files][functions6]
 
-1. When complete each folder should have the PowerShell modules files from your local machine.
+1. When complete, each folder should have the PowerShell modules files from your local machine.
 
     ![powershell files][functions7]
 
 ## Authentication
 
-In order to authenticate for the PowerShell cmdlets, authentication needs to be configured in the Function app. To do this, environment variables need to be configured and a encrypted key file needs to be uploaded to the Function app.
+To authenticate with the PowerShell cmdlets, authentication needs to be configured in the Function app. To do this, environment variables need to be configured and a encrypted key file needs to be uploaded to the Function app.
 
 ### Encrypted Credentials
 
-The following PowerShell script will create a key file called **PassEncryptKey.key** and provide an encrypted version of the password supplied.  This password is the same password that is defined for the Azure AD Application that will be used for authentication.
+The following PowerShell script creates a key file called **PassEncryptKey.key** and provide an encrypted version of the password supplied.  This password is the same password that is defined for the Azure AD Application that is used for authentication.
 
 ```powershell
 #variables
@@ -124,13 +124,13 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-In the App Service Editor of the Function app, create a new folder called **keys** under **AlertPacketCapturePowerShell** and upload the **PassEncryptKey.key** file created by the preceding PowerShell sample.
+In the App Service Editor of the Function app, create a folder called **keys** under **AlertPacketCapturePowerShell** and upload the **PassEncryptKey.key** file created by the preceding PowerShell sample.
 
 ![functions key][functions8]
 
-### Retreiving values for Environment variables
+### Retrieving values for Environment variables
 
-The final configuration required is to setup the environment variables needed to access the values needed for authentication. The following is a list of the envrionment variables that are to be created.
+The final configuration required is to set up the environment variables needed to access the values needed for authentication. The following is a list of the environment variables that are to be created.
 
 * AzureClientID
 * AzureTenant
@@ -152,7 +152,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 > ![NOTE]
 > The password used when creating the application should be the same password that was created earlier when saving the key file.
 
-1. In the Azure portal, navigate to **Subscriptions** > Choose the subscription to use > Access contraol (IAM) 
+1. In the Azure portal, navigate to **Subscriptions** > Choose the subscription to use > Access control (IAM) 
 
     ![functions iam][functions9]
 
@@ -162,7 +162,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 #### AzureTenant
 
-The tenant ID is obtained by running the following PowerShell sample.
+The tenant ID is obtained by running the following PowerShell sample:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId 
@@ -191,7 +191,7 @@ $Encryptedpassword
 
 ### Storing the Environment variables
 
-1. Navigate to the function app, click **Function app settings** and click **Configure app settings**
+1. Navigate to the function app, click **Function app settings**, and click **Configure app settings**
 
     ![configure app settings][functions11]
 
@@ -278,7 +278,7 @@ Copy the Function URL for your function app.
 
 ![finding the function url 2][2]
 
-If you require custom properties in the payload of the webhook POST request, refer [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## Configure an alert on a VM
 
