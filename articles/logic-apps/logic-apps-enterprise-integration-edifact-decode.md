@@ -37,14 +37,15 @@ generates XML document for each transaction set, and generates acknowledgment fo
     ![create integration account](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)  
 4. Enter the Integration Account details.  Properties with an asterisk are required:
    
-   | Property | Details |
-   | --- | --- |
-   | Connection Name * |Enter any name for your connection |
-   | Integration Account * |Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
-   
-    Once complete, your connection details look similar to the following:
-   
-    ![integration account created](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
+	| Property | Details |
+	| --- | --- |
+	| Connection Name * |Enter any name for your connection. |
+	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+
+	After you're done, your connection details look similar to this example:
+
+	![integration account created](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
+
 5. Select **Create**.
 6. Notice the connection has been created:
    
@@ -54,7 +55,8 @@ generates XML document for each transaction set, and generates acknowledgment fo
     ![provide mandatory fields](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
 ## EDIFACT decoder details
-The Decode EDIFACT connector does the following: 
+
+The Decode EDIFACT connector performs these tasks: 
 
 * Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier & identifier
 * Splits multiple interchanges in a single message into separate.

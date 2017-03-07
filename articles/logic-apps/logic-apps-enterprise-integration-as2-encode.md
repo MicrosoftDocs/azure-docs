@@ -54,7 +54,8 @@ which also leads to support for Non-Repudiation.
     ![provide mandatory fields](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage3.png)
 
 ## AS2 encoder details
-The Encode AS2 connector does the following: 
+
+The Encode AS2 connector performs these tasks: 
 
 * Applies AS2/HTTP headers
 * Signs outgoing messages (if configured)

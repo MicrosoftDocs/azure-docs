@@ -75,7 +75,7 @@ Select **X12 - Decode X12 message**.
 
 ## X12 Decode details
 
-The X12 Decode connector does following:
+The X12 Decode connector performs these tasks:
 
 * Validates the envelope against trading partner agreement
 * Generates an XML document for each transaction set.
