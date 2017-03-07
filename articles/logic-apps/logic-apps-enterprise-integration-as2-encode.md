@@ -34,28 +34,33 @@ Here's the items you need:
 
 1. [Create a logic app](logic-apps-create-a-logic-app.md).
 
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Encode AS2 Message:
+2.	In the search box, enter "AS2" for your filter. 
+Select **AS2 - Encode AS2 message**.
    
-	![search AS2](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
+	![Search for "AS2"](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
 
 3. If you didn't previously create any connections to your integration account, 
-you're prompted to create that connection now:
+you're prompted to create that connection now. Name your connection, 
+and select the integration account that you want to connect. 
    
 	![create connection to integration account](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage1.png)  
 
-4. Enter the Integration Account details.  Properties with an asterisk are required:
-   
+	Properties with an asterisk are required.
+
 	| Property | Details |
 	| --- | --- |
-	| Connection Name * |Enter any name for your connection |
-	| Integration Account * |Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
+	| Connection Name * |Enter any name for your connection. |
+	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
-	After you're done, your connection details look similar to this example:
+5.	When you're done, your connection details should look similar to this example. 
+To finish creating your connection, choose **Create**.
    
-	![integration connection established](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)
+	![integration connection details](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)
 
-5. Select **Create**.
-6. Notice the connection has been created.  Provide AS2-From, AS2-To identifiers (as configured in agreement) and Body (the message payload) details:
+6. After your connection is created, as shown in this example. 
+Now provide details for **AS2-From**, 
+**AS2-To identifiers** as configured in your agreement, 
+and **Body**, which is the message payload:
    
     ![provide mandatory fields](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage3.png)
 
@@ -68,8 +73,10 @@ The Encode AS2 connector performs these tasks:
 * Encrypts outgoing messages (if configured)
 * Compresses the message (if configured)
 
-## Try it yourself
-Try it out. Use the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) to deploy a fully operational logic app.
+## Try this sample
+
+To try deploying a fully operational logic app and sample AS2 scenario, 
+see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

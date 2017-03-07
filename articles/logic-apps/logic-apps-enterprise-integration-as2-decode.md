@@ -30,35 +30,44 @@ Here's the items you need:
 * An Integration Account is required to use Decode AS2 message connector. See details on [how to create an Integration Account](logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md) and an [AS2 agreement](../logic-apps/logic-apps-enterprise-integration-as2.md)
 
 ## Decode AS2 messages
-1. [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md).
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list, and then enter “AS2” in the search box.  Select AS2 – Decode AS2 Message:
-   
-    ![Search AS2](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
 
-3. If you didn't previously create any connections to your integration account, 
-you're prompted to create that connection now:
+1. [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+
+2. The Decode AS2 message connector doesn't have triggers, 
+so you must add a trigger for starting your logic app, like a Request trigger. 
+In the Logic App Designer, add a trigger, and then add an action to your logic app.
+
+3.	In the search box, enter "AS2" for your filter. 
+Select **AS2 - Decode AS2 message**.
+   
+    ![Search for "AS2"](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
+
+4. If you didn't previously create any connections to your integration account, 
+you're prompted to create that connection now. Name your connection, 
+and select the integration account that you want to connect.
    
     ![Create integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
 
-4. Name your connection, and select the integration account that you want to connect. 
-Properties with an asterisk are required.
-   
+	Properties with an asterisk are required.
+
 	| Property | Details |
 	| --- | --- |
 	| Connection Name * |Enter any name for your connection. |
 	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
-	After you're done, your connection details look similar to this example:
+5.	When you're done, your connection details should look similar to this example. 
+To finish creating your connection, choose **Create**.
 
-	![integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
+	![integration connection details](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
 
-5. Select **Create**.
-6. Notice the connection has been created.  Now, proceed with the other steps in your Logic App:
+6. After your connection is created, as shown in this example. 
+Now select Body and Headers from Request outputs:
    
     ![integration connection created](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
-7. Select Body and Headers from Request outputs:
-   
-    ![provide mandatory fields](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
+
+	For example:
+
+	![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
 ## AS2 decoder details
 The Decode AS2 connector does the following: 
