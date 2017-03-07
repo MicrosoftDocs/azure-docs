@@ -28,9 +28,6 @@ This article describes how to replicate on-premises VMware virtual machines to A
 
  If your intent is to migrate VMware VMs to Azure, read [this article](site-recovery-migrate-to-azure.md) to learn more before you proceed.
 
- For a quick video overview, you can also go through the video here.
- > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
-
 Post comments and questions at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Steps
@@ -317,7 +314,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 
 For a quick overview of the above steps refer to this video
->[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/pplayer]
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 ## VMware account permissions
 
 Site Recovery needs access to VMware for the process server to automatically discover VMs, and for failover and failback of VMs.
