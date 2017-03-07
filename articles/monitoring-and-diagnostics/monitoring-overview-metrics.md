@@ -21,7 +21,7 @@ ms.author: ashwink
 This article describes what metrics are in Microsoft Azure, their benefits, and how to start using them.  
 
 ## What are metrics?
-Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data are the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
+Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
 ## What can you do with metrics?
 Metrics are a valuable source of telemetry and enable you to do the following tasks:

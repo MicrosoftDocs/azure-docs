@@ -98,7 +98,7 @@ Here is a complete example of the public configuration file that
 </WadCfg>
 ```
 
-In the previous configuration, the following lines have the following meanings.
+In the previous configuration, the following lines have the following meanings:
 
 ### Send all the data that is being collected by Azure diagnostics
 
@@ -121,8 +121,8 @@ In the previous configuration, the following lines have the following meanings.
 ## Limitations
 
 - **Channels only log type and not performance counters.** If you specify a channel with a performance counter element, it is ignored.
-- **The log level for a channel cannot exceed the log level for what is being collected by Azure diagnostics.** For example: you cannot collect Application Log errors in the Logs element and try to send Verbose logs to the Application Insight sink. The *scheduledTransferLogLevelFilter* attribute must always collect equal or more logs than the logs you are trying to send to a sink.
-- **You cannot send blob data collected by Azure diagnostics extension to Application Insights.** For example anything specified under the *Directories* node. For Crash Dumps the actual crash dump is sent to blob storage and only a notification that the crash dump was generated is sent to Application Insights.
+- **The log level for a channel cannot exceed the log level for what is being collected by Azure diagnostics.** For example, you cannot collect Application Log errors in the Logs element and try to send Verbose logs to the Application Insight sink. The *scheduledTransferLogLevelFilter* attribute must always collect equal or more logs than the logs you are trying to send to a sink.
+- **You cannot send blob data collected by Azure diagnostics extension to Application Insights.** For example, anything specified under the *Directories* node. For Crash Dumps the actual crash dump is sent to blob storage and only a notification that the crash dump was generated is sent to Application Insights.
 
 ## Next Steps
 * Use [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.

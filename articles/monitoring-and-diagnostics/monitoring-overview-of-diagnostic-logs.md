@@ -24,7 +24,7 @@ ms.author: johnkem; magoedte
 
 Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](monitoring-overview-activity-logs.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
 
-Not all resources support the new type of Diagnostic Logs described here. This article contains a section listing  which resource types support the new Diagnostic Logs.
+Not all resources support the new type of Diagnostic Logs described here. This article contains a section listing which resource types support the new Diagnostic Logs.
 
 ![Diagnostics Logs vs other types of logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 

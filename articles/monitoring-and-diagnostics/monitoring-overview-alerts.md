@@ -31,7 +31,7 @@ Alerts are available across different services, including:
 * **Azure Monitor**: Enables alerts based on both metric values and activity log events. You can use the [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx) to manage alerts.  For more information, see [Using the Azure portal, PowerShell, or the command-line interface to create alerts](insights-alerts-portal.md).
 
 ## Visual Summary
-The following diagram summarizes alerts and what you can do with them specifically in "Azure Monitor". Other actions may be available for the services listed previously. For example, alerts on Diagnostics Logs are only available in Log Analytics at this time.
+The following diagram summarizes alerts and what you can do with them specifically in "Azure Monitor". Other actions may be available for the services listed previously. For example, currently alerts on Diagnostics Logs are only available in Log Analytics.
 
 ![Alerts explained](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
 

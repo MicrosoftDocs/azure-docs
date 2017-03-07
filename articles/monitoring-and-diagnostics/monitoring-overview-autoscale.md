@@ -23,7 +23,7 @@ This article describes what Microsoft Azure autoscale is, its benefits, and how 
 Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 > [!NOTE]
-> Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
+> Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to virtual machine scale sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
 >
 >
 
@@ -40,7 +40,7 @@ The following explanation applies to the pieces of the previous diagram.
 
 ## Resource metrics
 Resources emit metrics, which are later processed by rules. Metrics come via different methods.
-VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md).
+Virtual machine scale sets use telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md).
 
 ## Time
 Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
@@ -63,12 +63,18 @@ Rules can trigger one or more types of actions.
 ## Autoscale Settings
 Autoscale use the following terminology and structure.
 
-* An **autoscale setting** is read by the autoscale engine to determine whether to scale up or down. It contains one or more profiles, information about the target resource, and notification settings.
-  * An **autoscale profile** is a combination of a capacity setting, a set of rules governing the triggers, and scale actions for the profile, and a recurrence. You can have multiple profiles, which allow you to take care of different overlapping requirements.
-    * A **capacity setting** indicates the minimum, maximum, and default values for number of instances. [appropriate place to use fig 1]
-    * A **rule** includes a trigger—either a metric trigger or a time trigger—and a scale action, indicating whether autoscale should scale up or down when that rule is satisfied.
-    * A **recurrence** indicates when autoscale should put this profile into effect. You can have different autoscale profiles for different times of day or days of the week, for example.
-* A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
+- An **autoscale setting** is read by the autoscale engine to determine whether to scale up or down. It contains one or more profiles, information about the target resource, and notification settings.
+
+    - An **autoscale profile** is a combination of a:
+
+        - **capacity setting**, which indicates the minimum, maximum, and default values for number of instances.
+        - **set of rules**, each of which includes a trigger (time or metric) and a scale action (up or down).
+        - **recurrence**, which indicates when autoscale should put this profile into effect.
+
+        You can have multiple profiles, which allow you to take care of different overlapping requirements. You can have different autoscale profiles for different times of day or days of the week, for example.
+
+    - A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
+
 
 ![Azure autoscale setting, profile, and rule structure](./media/monitoring-overview-autoscale/AzureResourceManagerRuleStructure3.png)
 
@@ -100,8 +106,8 @@ You can set up autoscale via
 | Web Apps |[Scaling Web Apps](insights-how-to-scale.md) |
 | Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
 | Virtual Machines: Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines: Windows Scale Sets |[Scaling VM Scale Sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines: Linux Scale Sets |[Scaling VM Scale Sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
 | Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
 ## Next steps
