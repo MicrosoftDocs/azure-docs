@@ -19,10 +19,10 @@ ms.author: padmavc
 ---
 # Decode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
 
-To validate EDI and partner-specific properties, 
+With the Decode X12 message connector, you can validate EDI and partner-specific properties, 
 generate an XML document for each transaction set, 
-and generate acknowledgment for processed transactions, 
-add the Decode X12 message connector to an existing trigger in your logic app.
+and generate acknowledgment for processed transactions. 
+To use this connector, you must add the connector to an existing trigger in your logic app.
 
 ## Before you start
 
@@ -31,7 +31,7 @@ Here's the items you need:
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An [integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 that's already defined and associated with your Azure subscription. 
-You must have an integration account to use the Encode X12 message connector.
+You must have an integration account to use the Decode X12 message connector.
 * At least two [partners](logic-apps-enterprise-integration-partners.md) 
 that are already defined in your integration account
 * An [X12 agreement](logic-apps-enterprise-integration-x12.md) 
@@ -45,7 +45,7 @@ that's already defined in your integration account
 so you must add a trigger for starting your logic app, like a Request trigger. 
 In the Logic App Designer, add a trigger, and then add an action to your logic app.
 
-3.	In the search box, enter "x12". 
+3.	In the search box, enter "x12" for your filter. 
 Select **X12 - Decode X12 message**.
    
     ![Search for "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  

@@ -19,10 +19,10 @@ ms.author: padmavc
 ---
 # Encode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
 
-To validate EDI and partner-specific properties, 
+With the Encode X12 message connector, you can validate EDI and partner-specific properties, 
 convert XML-encoded messages into EDI transaction sets in the interchange, 
-and request a Technical and/or Functional acknowledgment, 
-add the Encode X12 message connector to an existing trigger in your logic app.
+and request a Technical Acknowledgement, Functional Acknowledgment, or both.
+To use this connector, you must add the connector to an existing trigger in your logic app.
 
 ## Before you start
 
@@ -45,7 +45,7 @@ that's already defined in your integration account
 so you must add a trigger for starting your logic app, like a Request trigger. 
 In the Logic App Designer, add a trigger, and then add an action to your logic app.
 
-3.	In the search box, enter "x12". 
+3.	In the search box, enter "x12" for your filter. 
 Select either **X12 - Encode to X12 message by agreement name** 
 or **X12 - Encode to X12 message by identities**.
    
