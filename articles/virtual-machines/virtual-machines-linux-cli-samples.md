@@ -31,7 +31,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create a VM with Docker enabled](./scripts/virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, configures this VM as a Docker host, and runs an NGINX container. |
 | [Create a VM and run configuration script](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install NGINX. |
 | [Create a VM with WordPress installed](./scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install WordPress. |
-| [Crate a VM using a virtual hard drive](./scripts/virtual-machines-linux-cli-xample-crate-vm-custom-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+| [Crate a VM using a virtual hard drive](./scripts/virtual-machines-linux-cli-xample-crate-vm-custom-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Uploads a virtual hard drive to a storage account and uses that to create a virtual machine. |
 |**Network virtual machines**||
 | [Secure network traffic between virtual machines](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
 |**Monitor virtual machines**||
