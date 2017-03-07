@@ -69,9 +69,11 @@ Let's create a DocumentDB account. If you already have an account you want to us
 1. Open **Visual Studio 2017** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **.NET Core**/**Console Application (.NET Core)**, name your project **DocumentDBGettingStarted**, and then click **OK**.
+
    ![Screen shot of the New Project window](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. In the **Solution Explorer**, right click on **DocumentDBGettingStarted**.
-5. Then without leaving the menu, click on **Manage NuGet Packages...**
+5. Then without leaving the menu, click on **Manage NuGet Packages...**.
+
    ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. In the **Nuget** tab, click **Browse** at the top of the window, and type **azure documentdb** in the search box.
 7. Within the results, find **Microsoft.Azure.DocumentDB.Core** and click **Install**.
