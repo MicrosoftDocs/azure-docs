@@ -129,8 +129,7 @@ The installation can take several minutes.
  export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/:${LIBRARY_PATH}  && export LIBRARY_PATH=/usr/local/cuda-8.0/lib64/stubs:${LIBRARY_PATH} && \
  export PATH=/usr/local/cuda-8.0/bin:${PATH}
  ```
- 
- ## CUDA Samples Install
+### CUDA Samples Install
  
  [CUDA Samples](http://docs.nvidia.com/cuda/cuda-samples/#new-features-in-cuda-toolkit-8-0) can be installed in a location as follows:
  
