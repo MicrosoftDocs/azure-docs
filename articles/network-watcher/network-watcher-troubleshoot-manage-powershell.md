@@ -27,6 +27,8 @@ ms.author: gwallace
 
 Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Before you begin
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.

@@ -1,5 +1,5 @@
 ---
-title: DocumentDB .NET Core API & SDK | Microsoft Docs
+title: Azure DocumentDB .NET Core API, SDK & Resources | Microsoft Docs
 description: Learn all about the .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET Core SDK.
 services: documentdb
 documentationcenter: .net
@@ -15,9 +15,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB APIs and SDKs
+# DocumentDB .NET Core SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -30,7 +31,6 @@ ms.author: rnagpal
 > 
 > 
 
-## DocumentDB .NET Core API and SDK
 <table>
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>

@@ -16,9 +16,9 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/07/2017
 ms.author: v-shysun
-
+ms.custom: H1Hack27Feb2017
 ---
-# SQL Server on Azure Virtual Machines FAQ
+# Frequently asked questions for SQL Server on Azure Virtual Machines
 This topic provides answers to some of the most common questions about running [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]

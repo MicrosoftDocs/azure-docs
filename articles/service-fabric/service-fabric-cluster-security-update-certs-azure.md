@@ -137,7 +137,7 @@ The properties should now look like this
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-if you do not want to **rollover the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current certificate to the new certificate in one deployment step. 
+If you want to **rollover the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current certificate to the new certificate in one deployment step. 
 
 
 ```JSON

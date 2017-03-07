@@ -1,5 +1,5 @@
 ---
-title: Configure Always On Availability Group Listeners – Microsoft Azure
+title: Configure Always On Availability Group Listeners – Microsoft Azure | Microsoft Docs
 description: Configure Availability Group Listeners on the Azure Resource Manager model, using an internal load balancer with one or more IP addresses.
 services: virtual-machines
 documentationcenter: na
