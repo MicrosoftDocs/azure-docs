@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 03/07/2017
 ms.author: sethm; babanisa
 
 ---
@@ -42,7 +42,7 @@ An Event Hub is created at the namespace level, and uses AMQP and HTTP as its pr
 Any entity that sends data to an Event Hub is an *event publisher*. Event publishers can publish events using HTTPS or AMQP 1.0. Event publishers use a Shared Access Signature (SAS) token to identify themselves to an Event Hub, and can have a unique identity, or use a common SAS token.
 
 ### Publishing an event
-You can publish an event via AMQP 1.0 or HTTPS. Service Bus provides an [EventHubClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient) class for publishing events to an Event Hub from .NET clients. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](http://qpid.apache.org/). You can publish events individually, or batched. A single publication (event data instance) has a limit of 256 KB, regardless of whether it is a single event or a batch. Publishing events larger than this results in an error. It is a best practice for publishers to be unaware of partitions within the Event Hub and to only specify a *partition key* (introduced in the next section), or their identity via their SAS token.
+You can publish an event via AMQP 1.0 or HTTPS. Service Bus provides an [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) class for publishing events to an Event Hub from .NET clients. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](http://qpid.apache.org/). You can publish events individually, or batched. A single publication (event data instance) has a limit of 256 KB, regardless of whether it is a single event or a batch. Publishing events larger than this results in an error. It is a best practice for publishers to be unaware of partitions within the Event Hub and to only specify a *partition key* (introduced in the next section), or their identity via their SAS token.
 
 The choice to use AMQP or HTTPS is specific to the usage scenario. AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS. AMQP has higher network costs when initializing the session, however HTTPS requires additional SSL overhead for every request. AMQP has higher performance for frequent publishers.
 
@@ -72,17 +72,19 @@ Event Hubs retain data for a configured retention time that applies across all p
 
 The number of partitions is specified at creation and must be between 2 and 32. The partition count is not changeable, so you should consider long term scale when setting partition count. Partitions are a data organization mechanism that relate to the downstream parallelism required in consuming applications. The number of partitions in an Event Hub directly relates to the number of concurrent readers you expect to have. You can increase the number of partitions beyond 32 by contacting the Event Hubs team.
 
-While partitions are identifiable and can be sent to directly, this is not recommended. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publishers) and [Capacity](#capacity) sections.
+While partitions are identifiable and can be sent to directly, this is not recommended. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publishers) and [Capacity](#capacity) sections. 
 
 Partitions are filled with a sequence of event data which contains the body of the event, a user defined property bag, and metadata such as its offset in the partition and its number in the stream sequence.
 
+For more information about partitions and the trade-off between availability and reliability, see the [Event Hubs programming guide](event-hubs-programming-guide#partition-key) and the [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md) article.
+
 ### Partition key
-You can use a partition key to map incoming event data into specific partitions for the purpose of data organization. The partition key is a sender-supplied value passed into an Event Hub. It is processed through a static hashing function which creates the partition assignment. If you don't specify a partition key when publishing an event, a round-robin assignment is used.
+You can use a [partition key](event-hubs-programming-guide#partition-key) to map incoming event data into specific partitions for the purpose of data organization. The partition key is a sender-supplied value passed into an Event Hub. It is processed through a static hashing function which creates the partition assignment. If you don't specify a partition key when publishing an event, a round-robin assignment is used.
 
 The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. A per-device or user unique identity makes a good partition key, but other attributes such as geography can also be used to group related events into a single partition.
 
 ## SAS tokens
-Event Hubs uses *Shared Access Signatures* which are available at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Event Hubs can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
+Event Hubs uses *Shared Access Signatures* which are available at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Event Hubs can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-sas.md).
 
 ## Event consumers
 Any entity that reads event data from an Event Hub is an *event consumer*. All Event Hubs consumers connect via the AMQP 1.0 session and events are delivered through the session as they become available. The client does not need to poll for data availability.
@@ -94,7 +96,7 @@ In a stream processing architecture, each downstream application equates to a co
 
 The following are examples of the consumer group URI convention:
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
@@ -115,7 +117,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 All Event Hubs consumers connect via an AMQP 1.0 session and state-aware bidirectional communication channel. Each partition has an AMQP 1.0 session that facilitates the transport of events segregated by partition.
 
 #### Connect to a partition
-When connecting to partitions, it is common practice to use a leasing mechanism in order to coordinate reader connections to specific partitions. This way, it is possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers is simplified by using the [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) class for .NET clients. [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) is an intelligent consumer agent.
+When connecting to partitions, it is common practice to use a leasing mechanism in order to coordinate reader connections to specific partitions. This way, it is possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers is simplified by using the [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) class for .NET clients. The Event Processor Host is an intelligent consumer agent.
 
 #### Read events
 After an AMQP 1.0 session and link is opened for a specific partition, events are delivered to the AMQP 1.0 client by the Event Hubs service. This delivery mechanism enables higher throughput and lower latency than pull-based mechanisms such as HTTP GET. As events are sent to the client, each event data instance contains important metadata such as the offset and sequence number that are used to facilitate checkpointing on the event sequence.
@@ -138,7 +140,7 @@ The throughput capacity of Event Hubs is controlled by *throughput units*. Throu
 * Ingress: Up to 1 MB per second or 1000 events per second (whichever comes first)
 * Egress: Up to 2 MB per second
 
-Beyond the capacity of the purchased throughput units, ingress is throttled and a [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) is returned. Egress does not produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** blade of the namespaces in the [Azure portal][Azure portal]. This can also be accomplished progammatically using the Azure APIs.
+Beyond the capacity of the purchased throughput units, ingress is throttled and a [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) is returned. Egress does not produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** blade of the namespaces in the [Azure portal][Azure portal]. This can also be accomplished progammatically using the Azure APIs.
 
 Throughput units are billed per hour and are pre-purchased. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for an Event Hubs namespace and are shared across all Event Hubs in the namespace.
 
@@ -151,10 +153,11 @@ For detailed pricing information, see [Event Hubs Pricing](https://azure.microso
 ## Next steps
 
 * Get started with an [Event Hubs tutorial][Event Hubs tutorial]
-* A complete [sample application that uses Event Hubs]
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
+* [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
+* [Sample applications that use Event Hubs]
 
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Azure portal]: https://portal.azure.com
