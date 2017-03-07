@@ -30,8 +30,5 @@ ACU is currently standardized on a Small (Standard_A1) VM being 100 and all othe
 >
 
 
-* Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
-
-
 
 

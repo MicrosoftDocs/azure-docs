@@ -39,6 +39,11 @@ If any failures or exceptions are logged, Live Stream picks out a sample of them
 
 Live Metrics Stream is available with the latest version of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
 
+## Filter by server instance
+
+If you want to monitor a particular server role instance, you can filter by server.
+
+![Sampled live failures](./media/app-insights-live-stream/live-stream-filter.png)
 
 
 ## Troubleshooting

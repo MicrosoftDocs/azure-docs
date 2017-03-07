@@ -95,7 +95,7 @@ If you still don’t see the events, then:
 2. Connect to the storage account added in the command **azlog source add**.
 3. In Microsoft Azure Storage Explorer, browse to table **WADWindowsEventLogsTable** to see if there is any data. If not, then diagnostics in the VM is not configured correctly.
 
-## Integrate Azure audit logs and Security Center alerts
+## Integrate Azure activity logs and Security Center alerts
 1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 2. Run the command
 
@@ -126,17 +126,22 @@ If you still don’t see the events, then:
 
 ## Integrate Azure Active Directory Audit logs
 1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**
-2. Run the command
-.\AZLOG.exe authorizedirectoryreader <TenantID>
+2. Run the command providing your tenantID. You will need to be member of the tenant admin role to run the command.
+
+AZLOG.exe authorizedirectoryreader tenantId
+
 Sample - 
 
-.\AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+
 
 3. Check the following folders to confirm that the Azure Active Directory Audit log JSON files are created in 
 * **C:\Users\azlog\AzureActiveDirectoryJson**   
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
 4. Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. You may need some field mappings based on the SIEM product you are using.
+
+[List of Events currently logged as Audit events in Azure Active directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
 
 If you run into any issues during the installation and configuration, Please open a [support request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), select 'Log Integration' as the service for which you are requesting support.
 

@@ -13,7 +13,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/28/2017
 ms.author: owend
 
 ---
@@ -34,13 +34,13 @@ Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](h
 
 |Cmdlet|Description| 
 |------------|-----------------| 
-|Get-AzureRmAnalysisServicesServer|Gets details of a server instance.|  
-|New-AzureRmAnalysisServicesServer|Creates a new server instance.|
-|Remove-AzureRmAnalysisServicesServer|Removes a server instance.|  
-|Suspend-AzureRmAnalysisServicesServe|Suspends a server instance.| 
-|Resume-AzureRmAnalysisServicesServer|Resumes a server instance.|  
-|Set-AzureRmAnalysisServicesServer|Modifies a server instance.|   
-|Test-AzureRmAnalysisServicesServer|Tests the existence of a server  instance.| 
+|[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/get-azurermanalysisservicesserver)|Gets details of a server instance.|  
+|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/new-azurermanalysisservicesserver)|Creates a new server instance.|
+|[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/remove-azurermanalysisservicesserver)|Removes a server instance.|  
+|[Suspend-AzureRmAnalysisServicesServe](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/suspend-azurermanalysisservicesserver)|Suspends a server instance.| 
+|[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/resume-azurermanalysisservicesserver)|Resumes a server instance.|  
+|[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/set-azurermanalysisservicesserver)|Modifies a server instance.|   
+|[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/test-azurermanalysisservicesserver)|Tests the existence of a server  instance.| 
 
 ## Database operations
 Azure Analysis Services database operations use the same [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) module as SQL Server Analysis Services. However, not all cmdlets are supported for Azure Analysis Services Preview. 
