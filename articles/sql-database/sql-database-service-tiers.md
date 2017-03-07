@@ -21,13 +21,13 @@ ms.author: janeng
 ---
 # SQL Database options and performance: Understand what's available in each service tier
 
-[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers: **Basic**, **Standard**,**Premium**, and **Premium RS**. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. The Premium RS tier provides the same performance levels, security features and business continuity features as the Premium tier albeit at a reduced SLA.
+[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers: **Basic**, **Standard**, **Premium**, and **Premium RS**. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. The Premium RS tier provides the same performance levels, security features and business continuity features as the Premium tier albeit at a reduced SLA.
 
 > [IMPORTANT]
-> Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the unlikely event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
+> Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
 >
 
-You can create single databases with dedicated resources on within a service tier at a specifiec [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). You can also create databases within an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across multiple databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
+You can create single databases with dedicated resources within a service tier at a specific [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). You can also create databases within an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in which the resources are shared across multiple databases. The resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic Database Transaction Units (eDTUs). For more on DTUs and eDTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md) 
 
 ## Choosing a service tier
 The following table provides examples of the tiers best suited for different application workloads.
@@ -37,10 +37,10 @@ The following table provides examples of the tiers best suited for different app
 | **Basic** | Best suited for a small database, supporting typically one single active operation at a given time. Examples include databases used for development or testing, or small-scale infrequently used applications. |
 | **Standard** |The go-to option for cloud applications with low to medium IO performance requirements, supporting multiple concurrent queries. Examples include workgroup or web applications. |
 | **Premium** | Designed for high transactional volume with high IO performance requirements, supporting many concurrent users. Examples are databases supporting mission critical applications. |
-| **Premium RS** | Designed for customers that have IO-intensive workloads but do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record. |
+| **Premium RS** | Designed for IO-intensive workloads that do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record. |
 |||
 
-First decide if you want to run a single database with a defined amount of dedicated resource or if you share a pool of resources acrosss a group of databases. Review the [elastic pool considerations](sql-database-elastic-pool-guidance.md). To decide on a service tier, start by determining the minimum database features that you need:
+First decide if you want to run a single database with a defined amount of dedicated resource or if you want to share a pool of resources across a group of databases. Review the [elastic pool considerations](sql-database-elastic-pool-guidance.md). To decide on a service tier, start by determining the minimum database features that you need:
 
 | **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
@@ -85,7 +85,7 @@ The duration of the entire scale-up process depends on both the size and service
 * The new properties for the database are not applied until the changes are complete.
 
 > [!IMPORTANT]
-> For detailed steps, see [Managing single databases with the Azure portal](sql-database-manage-single-databases-portal.md), [Managing single databases with Powershell](sql-database-manage-single-databases-powershell.md), or [Managing single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md).
+> For detailed steps, see [Manage a single database in the Azure portal](sql-database-manage-single-databases-portal.md), [Manage a single database with PowerShell](sql-database-manage-single-databases-powershell.md), or [Manage a single database with Transact-SQL](sql-database-manage-single-databases-tsql.md).
 >
 
 ## Elastic pool service tiers and performance in eDTUs
@@ -105,7 +105,7 @@ After initially picking a service tier and performance level, you can scale the 
 * Changing the min eDTUs per database or max eDTUs per database typically completes in five minutes or less.
 * Time to change the pool size (eDTUs) depends on the combined size of all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space of all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
-For detailed steps, see [Managing elastic pools with the Azure portal](sql-database-elastic-pool-manage-portal.md), [Managing elastic pools with Powershell](sql-database-elastic-pool-manage-powershell.md), [Managing elastic pools with Transact-SQL](sql-database-elastic-pool-manage-tsql.md), or [Managing elastic pools with C#](sql-database-elastic-pool-manage-csharp.md).
+For detailed steps, see [Manage an elastic pool in the Azure portal](sql-database-elastic-pool-manage-portal.md), [Manage an elastic pool with Powershell](sql-database-elastic-pool-manage-powershell.md), [Manage an elastic pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md), or [Manage an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md).
 
 ## Creating or upgrading to 4TB
 
