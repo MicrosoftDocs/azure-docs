@@ -38,9 +38,6 @@ You can customize almost anything about the inviter process using the B2B invita
 ### Can the invited external user leave the organization to which he was invited?
 This is currently not available in this public preview refresh.
 
-### Can I use my Microsoft account (John@contosomicrosoftacct.com) to sign in to resources?
-It is not possible during this public preview refresh to use your Microsoft account. If you have a non-standard Microsoft account suffix (possibly for corporate mail such as @contoso.com), an Azure Active Directory tenant will be created for your use.
-
 ### Now that multi-factor authentication (MFA) is available for guest users, can they also reset their MFA method?
 Yes, the same way that regular users can.
 
