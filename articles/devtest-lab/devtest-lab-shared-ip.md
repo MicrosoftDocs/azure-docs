@@ -23,19 +23,19 @@ Azure DevTest Labs uses shared IP addresses to minimize the number of public IP 
 
 ## Shared IP setting
 
-When you create a new DevTest Lab, the lab will reside in a subnet of a virtual network.  By default, this subnet is created with **Enable shared public IP** set to *Yes*.  This configuration creates one public IP address for the entire subnet.
+When you create a lab, it resides in a subnet of a virtual network.  By default, this subnet is created with **Enable shared public IP** set to *Yes*.  This configuration creates one public IP address for the entire subnet.
 
 ![New lab subnet](media/devtest-lab-shared-ip/lab-subnet.png)
 
-Any VMs created in a lab with shared IP enabled will default to shared IP.  When creating the VM, this can be observed in the **Advanced settings** blade under **IP address configuration**.
+Any VMs created in this lab default to using a shared IP.  When creating the VM, this setting can be observed in the **Advanced settings** blade under **IP address configuration**.
 
 ![New VM](media/devtest-lab-shared-ip/new-vm.png)
 
-Whenever a VM is added to the subnet with shared IP enabled for that machine, a single TCP port is assigned on that IP address to forward to the Remote Desktop port on the VM.  
+Whenever a VM with shared IP enabled is added to the subnet, a TCP port is assigned on the public IP address forwarding to the RDP port on the VM.  
 
 ## Using the shared IP
 
-Users can connect to Remote Desktop on the VM in an RDP client by using the IP address or fully-qualified domain name, followed by a colon, followed by the port number.  For example, in the image below, the RDP address to connect to the VM is `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.  Users in the Azure Portal can click the **Connect** button in the portal to download a pre-configured RDP file.
+You connect to Remote Desktop on the VM in an RDP client using the IP address or fully qualified domain name, followed by a colon, followed by the port.  For example, in the image below, the RDP address to connect to the VM is `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.  Alternatively, from the Azure portal, select the **Connect** button to download a pre-configured RDP file.
 
 ![VM example](media/devtest-lab-shared-ip/vm-info.png)
 
