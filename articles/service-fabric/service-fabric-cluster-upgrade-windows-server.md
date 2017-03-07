@@ -1,6 +1,6 @@
 ---
-title: Upgrade a standalone Service Fabric cluster on Windows Server | Microsoft Docs
-description: Upgrade the Service Fabric code and/or configuration that runs a standalone Service Fabric cluster, including setting cluster update mode
+title: Upgrade a standalone Azure Service Fabric cluster on Windows Server | Microsoft Docs
+description: Upgrade the Azure Service Fabric code and/or configuration that runs a standalone Service Fabric cluster, including setting the cluster update mode.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -17,7 +17,7 @@ ms.date: 02/02/2017
 ms.author: chackdan
 
 ---
-# Upgrade your standalone Service Fabric cluster on Windows Server
+# Upgrade your standalone Azure Service Fabric cluster on Windows Server
 > [!div class="op_single_selector"]
 > * [Azure Cluster](service-fabric-cluster-upgrade.md)
 > * [Standalone Cluster](service-fabric-cluster-upgrade-windows-server.md)
@@ -67,6 +67,7 @@ After you see the cluster health warning, do the following:
         -StoreLocation CurrentUser `
         -StoreName My
     ```
+
 2. Get the list of Service Fabric versions that you can upgrade to.
 
     ```powershell
@@ -90,7 +91,7 @@ After you see the cluster health warning, do the following:
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
 
     ```
-   You can monitor the progress of the upgrade on Service Fabric Explorer, or you can run the following PowerShell command.
+   To monitor the progress of the upgrade, you can use Service Fabric Explorer or run the following Windows PowerShell command.
 
     ```powershell
 
@@ -122,12 +123,13 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
 ```
 
 #### Cluster upgrade workflow
-1. Download the latest version of the package from the [Create service fabric cluster for Windows Server](service-fabric-cluster-creation-for-windows-server.md) document.
-2. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster
+
+1. Download the latest version of the package from the [Create Service Fabric cluster for Windows Server](service-fabric-cluster-creation-for-windows-server.md) document.
+2. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script runs on doesn't have to be part of the cluster.
 
     ```powershell
 
-    ###### connect to the cluster
+    ###### Connect to the cluster
     $ClusterName= "mysecurecluster.something.com:19000"
     $CertThumbprint= "70EF5E22ADB649799DA3C8B6A6BF7FG2D630F8F3"
     Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
@@ -138,6 +140,7 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
         -StoreLocation CurrentUser `
         -StoreName My
     ```
+
 3. Copy the downloaded package to the cluster image store.
 
     ```powershell
@@ -183,8 +186,8 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
 After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
 
-## Cluster configuration upgrade
-To perform a cluster configuration upgrade, run **Start-ServiceFabricClusterConfigurationUpgrade**. The configuration upgrade is processed upgrade domain by upgrade domain.
+## Upgrade the cluster configuration
+To upgrade the cluster configuration upgrade, run **Start-ServiceFabricClusterConfigurationUpgrade**. The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
 
