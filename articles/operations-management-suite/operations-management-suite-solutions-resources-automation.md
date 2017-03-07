@@ -72,6 +72,31 @@ You can include any runbooks in the solution file so that their created when the
     }
 
 
+
+
+	{
+		"name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
+		"type": "Microsoft.Automation/automationAccounts/runbooks",
+		"apiVersion": "[variables('AutomationApiVersion')]",
+		"dependsOn": [
+		],
+		"location": "[parameters('regionId')]",
+		"tags": { },
+		"properties": {
+			"runbookType": "[variables('Runbook').Type]",
+			"logProgress": "true",
+			"logVerbose": "true",
+			"description": "[variables('Runbook').Description]",
+			"publishContentLink": {
+				"uri": "[variables('Runbook').Uri]",
+				"version": "1.0.0.0"
+			}
+		}
+	}
+
+
+
+
 The properties for runbooks are described in the following table.
 
 | Property | Description |
@@ -141,6 +166,23 @@ An example of a certificate resource is below.
         "thumbprint": "<certificate-thumbprint>"
     }
 
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
+      "type": "Microsoft.Automation/automationAccounts/certificates",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "base64Value": "[variables('Certificate').Base64Value]",
+        "thumbprint": "[variables('Certificate').Thumbprint]"
+      }
+    }
+
+
+
 The properties for Certificates resources are described in the following table.
 
 | Property | Description |
@@ -151,19 +193,21 @@ The properties for Certificates resources are described in the following table.
 
 
 ## Credentials
-[Azure Automation credentials](../automation/automation-credentials.md) have a type of **Microsoft.Automation/automationAccounts/credentials** and have the following sructure.
+[Azure Automation credentials](../automation/automation-credentials.md) have a type of **Microsoft.Automation/automationAccounts/credentials** and have the following structure.  
 
 
-    "name": "<name-of-credential-resource>",
-    "type": "Microsoft.Automation/automationAccounts/runbooks/credentials",
-    "apiVersion": "<api-version-of-resource>",
-    "location": "<resource-group-region>",
-    "tags": { },
-    "dependsOn": [
-    ],
-    "properties": {
-        "userName": "<user-name>",
-        "password": "<password>"
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Credential').Name)]",
+      "type": "Microsoft.Automation/automationAccounts/credentials",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "userName": "[parameters('credentialUsername')]",
+        "password": "[parameters('credentialPassword')]"
+      }
     }
 
 The properties for Credential resources are described in the following table.
@@ -191,6 +235,24 @@ The properties for Credential resources are described in the following table.
         "frequency": "<frequency-day-or-hour>"
     }
 
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
+      "type": "microsoft.automation/automationAccounts/schedules",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "description": "[variables('Schedule').Description]",
+        "startTime": "[parameters('scheduleStartTime')]",
+        "timeZone": "[parameters('scheduleTimeZone')]",
+        "isEnabled": "[variables('Schedule').IsEnabled]",
+        "interval": "[variables('Schedule').Interval]",
+        "frequency": "[variables('Schedule').Frequency]"
+      }
+    }
+
 The properties for schedule resources are described in the following table.
 
 | Property | Description |
@@ -208,6 +270,33 @@ Use one of the following two strategies when using schedule resources in a solut
 - Use a parameter for the start time of the schedule.  This will prompt the user to provide a value when they install the solution.  If you have multiple schedules, you could use a single parameter value for more than one of them.
 - Create the schedules using a runbook that starts when the solution is installed.  This removes the requirement of the user to specify a time, but you can't contain the schedule in your solution so it will be removed when the solution is removed.
 
+
+### Schedule links
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
+      "type": "microsoft.automation/automationAccounts/jobSchedules",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Automation/automationAccounts/runbooks/', parameters('accountName'), variables('Runbook').Name)]",
+        "[resourceId('Microsoft.Automation/automationAccounts/schedules/', parameters('accountName'), variables('Schedule').Name)]"
+      ],
+      "tags": {
+      },
+      "properties": {
+        "schedule": {
+          "name": "[variables('Schedule').Name]"
+        },
+        "runbook": {
+          "name": "[variables('Runbook').Name]"
+        }
+      }
+    }
+
+
+
+
 ## Variables
 Variables 
 
@@ -224,6 +313,22 @@ Variables
         "isEncrypted": "<true-false>",
         "type": "<variable-datatype>",
         "value": "<variable-value>"
+    }
+
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
+      "type": "microsoft.automation/automationAccounts/variables",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "description": "[variables('Variable').Description]",
+        "isEncrypted": "[variables('Variable').Encrypted]",
+        "type": "[variables('Variable').Type]",
+        "value": "[variables('Variable').Value]"
+      }
     }
 
 The properties for variable resources are described in the following table.
@@ -255,6 +360,22 @@ An example of a module resource is below.
             }
         }
     }
+
+
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
+      "type": "Microsoft.Automation/automationAccounts/modules",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "dependsOn": [
+      ],
+      "properties": {
+        "contentLink": {
+          "uri": "[variables('Module').Uri]"
+        }
+      }
+    }
+
 
 The properties for module resources are described in the following table.
 
@@ -379,7 +500,13 @@ Following is a sample of the required elements of a solution to support the modu
 
 
 
-## Example
+## Sample
+
+
+
+
+
+
 
     "name": "[concat(parameters('accountName'), '/MyCertificate')]",
     "type": "certificates",
@@ -391,6 +518,24 @@ Following is a sample of the required elements of a solution to support the modu
     "properties": {
         "base64Value": "MIIC1jCCAA8gAwIAVgIYJY4wXCXH/YAHMtALh7qEFzANAgkqhkiG5w0AAQUFGDAUMRIwEBYDVQQDEwlsA3NhAGevc3QqHhcNMTZwNjI5MHQxMjAsWhcNOjEwNjI5NKWwMDAwWjAURIwEAYDVQQBEwlsA2NhAGhvc3QwggEiMA0GCSqGSIA3DQEAAQUAA4IADwAwggEKAoIAAQDIyzv2A0RUg1/AAryI9W1DGAHAqqGdlFfTkUSDfv+hEZTAwKv0p8daqY6GroT8Du7ctQmrxJsy8JxIpDWxUaWwXtvv1kR9eG9Vs5dw8gqhjtOwgXvkOcFdKdQwA82PkcXoHlo+NlAiiPPgmHSELGvcL1uOgl3v+UFiiD1ro4qYqR0ITNhSlq5v2QJIPnka8FshFyPHhVtjtKfQkc9G/xDePW8dHwAhfi8VYRmVMmJAEOLCAJzRjnsgAfznP8CZ/QUczPF8LuTZ/WA/RaK1/Arj6VAo1VwHFY4AZXAolz7xs2sTuHplVO7FL8X58UvF7nlxq48W1Vu0l8oDi2HjvAgMAAAGjJDAiMAsGA1UdDwREAwIEsDATAgNVHSUEDDAKAggrAgEFNQcDATANAgkqhkiG9w0AAQUFAAOCAQEAk8ak2A5Ug4Iay2v0uXAk95qdAthJQN5qIVA13Qay8p4MG/S5+aXOVz4uMXGt18QjGds1A7Q8KDV4Slnwn95sVgA5EP7akvoGXhgAp8Dm90sac3+aSG4fo1V7Y/FYgAgpEy4C/5mKFD1ATeyyhy3PmF0+ZQRJ7aLDPAXioh98LrzMZr1ijzlAAKfJxzwZhpJamAwjZCYqiNZ54r4C4wA4QgX9sVfQKd5e/gQnUM8gTQIjQ8G2973jqxaVNw9lZnVKW3C8/QyLit20pNoqX2qQedwsqg3WCUcPRUUqZ4NpQeHL/AvKIrt158zAfU903yElAEm2Zr3oOUR4WfYQ==",
         "thumbprint": "F485CBE5569F7A5019CB68D7G6D987AC85124B4C"
+    }
+
+
+
+
+
+    {
+      "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
+      "type": "Microsoft.Automation/automationAccounts/certificates",
+      "apiVersion": "[variables('AutomationApiVersion')]",
+      "location": "[parameters('regionId')]",
+      "tags": { },
+      "dependsOn": [
+      ],
+      "properties": {
+        "base64Value": "[variables('Certificate').Base64Value]",
+        "thumbprint": "[variables('Certificate').Thumbprint]"
+      }
     }
 
 

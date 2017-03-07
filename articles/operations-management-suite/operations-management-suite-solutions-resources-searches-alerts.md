@@ -258,7 +258,7 @@ The properties for Alert action resources are described in the following tables.
 
 
 
-### Sample
+## Sample
 
 Following is a sample of a solution that include that includes the following resources:
 
