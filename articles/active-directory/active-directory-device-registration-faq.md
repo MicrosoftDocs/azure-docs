@@ -106,7 +106,7 @@ Please evaluate the rules and ensure that the device is able to meet the criteri
 **Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the client. Am I setup correctly for using conditional access?**
 
 **A:** The device record (deviceID) and state on the Azure portal must match the client and meet any evaluation criteria for conditional access. 
-For more details, see [Get started with Azure Active Directory Device Registration](active-directory-device-registration-overview.md).
+For more details, see [Get started with Azure Active Directory Device Registration](active-directory-device-registration.md).
 
 ---
 
