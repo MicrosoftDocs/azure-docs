@@ -88,7 +88,7 @@ The storage emulator is installed by default to the C:\Program Files (x86)\Micro
 You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance:
 
 1. Click the **Start** button or press the **Windows** key. Begin typing `Azure Storage Emulator` and select it when it appears to bring up the storage emulator command-line tool.
-2. In the command prompt window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDb, specify `(localdb)\v11.0` as the SQL Server instance.
+2. In the command prompt window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDb, specify `(localdb)\MSSQLLocalDb` as the SQL Server instance.
 
         AzureStorageEmulator init /server <SQLServerInstance>
 
