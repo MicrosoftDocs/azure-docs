@@ -74,7 +74,9 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
     This gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules used in this scenario are:
 
     * AzureRM.Network
+
     * AzureRM.Profile
+
     * AzureRM.Resources
 
     ![powershell folders][functions5]
@@ -86,22 +88,25 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 1. Right click the AlertPacketCapturePowershell folder and create a folder called **azuremodules**. Continue creating sub folders for each module needed.
 
     * AzureRM.Network
+
     * AzureRM.Profile
+
     * AzureRM.Resources
+
 
     ![functions kudu][functions3]
 
-1. Right click each on the AzureRM.Network sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
+1. Right click the **AzureRM.Network** sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files in the folder and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
 
     ![upload files][functions6]
 
-1. When complete, each folder should have the PowerShell modules files from your local machine.
+1. When complete, each folder should have the PowerShell module files from your local machine.
 
     ![powershell files][functions7]
 
 ## Authentication
 
-To authenticate with the PowerShell cmdlets, authentication needs to be configured in the Function app. To do this, environment variables need to be configured and a encrypted key file needs to be uploaded to the Function app.
+To to use the PowerShell cmdlets you must authenticate. Authentication needs to be configured in the Function app. To do this, environment variables are configured and a encrypted key file needs to be uploaded to the Function app.
 
 ### Encrypted Credentials
 
@@ -130,11 +135,14 @@ In the App Service Editor of the Function app, create a folder called **keys** u
 
 ### Retrieving values for Environment variables
 
-The final configuration required is to set up the environment variables needed to access the values needed for authentication. The following is a list of the environment variables that are to be created.
+The final configuration required is to set up the environment variables needed to access the values for authentication. The following is a list of the environment variables that are created.
 
 * AzureClientID
+
 * AzureTenant
+
 * AzureCredPassword
+
 
 #### AzureClientID
 
@@ -142,17 +150,17 @@ The client ID is the Application ID of an application in Azure Active Directory.
 
 1. If you do not already have an application to use, run the following example to create an application.
 
-```powershell
-$app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
-New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
-Start-Sleep 15
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
-```
+    ```powershell
+    $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
+    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    Start-Sleep 15
+    New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
+    ```
 
-> ![NOTE]
-> The password used when creating the application should be the same password that was created earlier when saving the key file.
+    > ![NOTE]
+    > The password used when creating the application should be the same password that was created earlier when saving the key file.
 
-1. In the Azure portal, navigate to **Subscriptions** > Choose the subscription to use > Access control (IAM) 
+1. In the Azure portal, navigate to **Subscriptions** > Choose the subscription to use > **Access control (IAM)**.
 
     ![functions iam][functions9]
 
@@ -191,7 +199,7 @@ $Encryptedpassword
 
 ### Storing the Environment variables
 
-1. Navigate to the function app, click **Function app settings**, and click **Configure app settings**
+1. Navigate to the function app, click **Function app settings** > **Configure app settings**
 
     ![configure app settings][functions11]
 
@@ -209,7 +217,7 @@ It is now time to make calls into Network Watcher from within the Azure Function
 4. Poll packet capture periodically until complete
 5. Notify user that packet capture session is complete
 
-The following example is PowerShell that can be used in the Azure Function. There are values that need to be replaced for subscription, client id, tenant id, and client secret.
+The following example is PowerShell that can be used in the Azure Function. There are values that need to be replaced for subscriptionId, resourceGroupName, and storageAccountName.
 
 ```powershell
 #Import Azure PowerShell modules required to make calls to Network Watcher
