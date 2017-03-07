@@ -28,10 +28,10 @@
 Group-based licensing in Azure Active Directory (Azure AD) introduces the concept of users in licensing error state. In this article, we explain why users may end up in this state. When licenses are assigned directly to individual users, without the use of group-based licensing, the assignment operation may fail. For example, when the administrator executes the PowerShell cmdlet `Set-MsolUserLicense` on a user, the cmdlet may fail for a number of reasons related to business logic, such as an insufficient number of licenses or a conflict between two service plans that cannot be assigned at the same time. The problem is reported back immediately to the user
 executing the command.
 
-When using group-based licensing, the same errors can occur but they will happen in the background when the Azure AD service is assigning licenses; for this reason they cannot be communicated immediately to the administrator. Instead they are recorded on the user object and reported via the administrative portal. The original intent to license the user is never lost, but it may be applied in active state or recorded in error state for future investigation and resolution.
+When using group-based licensing, the same errors can occur but they will happen in the background when the Azure AD service is assigning licenses; for this reason they cannot be communicated immediately to the administrator. Instead they are recorded on the user object and reported via the administrative portal. The original intent to license the user is never lost, but it is recorded in error state for future investigation and resolution.
 
 To find users in error state for each group, open the blade for each group, and under **Licenses** there will be a notification displayed if there are
-any users in error state. Select the notification to open a view listing all affected users which can be viewed one by one to understand the underlying problem. In this article, we will describe each potential problem and the way to resolve it.
+any users in error state. Select the notification to open a list of all affected users which can be viewed one by one to understand the underlying problem. In this article, we will describe each potential problem and the way to resolve it.
 
 ## Not enough licenses
 
@@ -45,7 +45,7 @@ To see which users and groups are consuming licenses, click on a product. Under 
 
 One of the products specified in the group contains a service plan that conflicts with another service plan already assigned to the user via a different product. Some service plans are configured in a way so they cannot be assigned to the same user as another related service plan.
 
-Consider the following example: a user has a license for Office 365 Enterprise **E1** assigned directly, with all the plans enabled. The user has been added to a group that has the Office 365 Enterprise **E3** product assigned to it. This product contains service plans that cannot overlap between the E1 and E3, so the group license assignment will fail with the “Conflicting service plans” error. In this example, the conflicting service plans are:
+Consider the following example: a user has a license for Office 365 Enterprise **E1** assigned directly, with all the plans enabled. The user has been added to a group that has the Office 365 Enterprise **E3** product assigned to it. This product contains service plans that cannot overlap with the plans included in E1, so the group license assignment will fail with the “Conflicting service plans” error. In this example, the conflicting service plans are:
 
 -   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1)
 
@@ -61,14 +61,18 @@ The decision how to resolve conflicting product licenses always belongs to the a
 One of the products specified in the group contains a service plan that must be enabled for another service plan, in another product, to
 function. This error occurs when Azure AD attempts to remove the underlying service plan, for example as a result of the user being removed from the group.
 
+To solve this problem, you will need to make sure that the required plan is still assigned to users through some other method, or that the dependant services are disabled for those users. Only then the group license can be properly removed from those users.
+
 ## Usage location not allowed
 
 Some Microsoft services are not available in all locations due to local laws and regulations. Before a license can be assigned to a user, the administrator has to specify the “Usage location” property for the user. This can be done under **User &gt; Profile &gt; Settings** section in the Azure portal.
 
-When using group license assignment, any users without a usage location specified will inherit the location of the directory. If you have users in locations where plans are not available, consider modifying the license assignment at the group level to disable the affected plans. Alternatively, you can move those users to a different group whose license assignments do not conflict with the location.
+When Azure AD attempts to assign a group license to a user whose usage location is not supported, it will fail and record this error on the user.
 
-If you have users in different locations, make sure to reflect that correctly in your user
-objects before adding users to groups with licenses.
+To solve this problem, remove users from non-supported locations from the licensed group. Alternatively, if the current usage location values do not represent the actual users’ location, you can modify them so next time the licenses are correctly assigned (if the new location is supported).
+
+> [!NOTE]
+> When Azure AD assigns group licenses, any users without a usage location specified will inherit the location of the directory. We recommend administrators set the correct usage location values on users prior to using group-based licensing to comply with local laws and regulations. 
 
 ## What happens when there is more than 1 product license on a group?
 
@@ -82,7 +86,7 @@ You will be able to see the users for whom assignment failed and check which pro
 
 Depending on what steps were taken to resolve errors, it may be necessary to manually trigger processing of a group to update user state.
 
-For example, if you purchased more licenses to cover all users, you will need to trigger processing of groups that previously failed to fully license all user members. To do that, find the group blade, open **Licenses** and select the **Reprocess** button in the toolbar.
+For example, if you freed up some licenses by removing direct license assignments from users, you will need to trigger processing of groups that previously failed to fully license all user members. To do that, find the group blade, open **Licenses** and select the **Reprocess** button in the toolbar.
 
 
 ## Next steps
