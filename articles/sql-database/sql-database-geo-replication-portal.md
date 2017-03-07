@@ -69,16 +69,16 @@ After the secondary is created and seeded, data begins replicating from the prim
 
 The secondary database can be switched to become the primary.  
 
-1. In the [Azure portal](http://portal.azure.com) browse to the primary database in the Geo-Replication partnership.
+1. In the [Azure portal](http://portal.azure.com), browse to the primary database in the Geo-Replication partnership.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
 3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
    
     ![failover][2]
 4. Click **Yes** to begin the failover.
 
-The command will immediately switch the secondary database into the primary role. 
+The command immediately switches the secondary database into the primary role. 
 
-There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command will automatically reconfigure the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances. 
+There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command automatically reconfigures the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances. 
 
 > [!NOTE]
 > If the primary is online and committing transactions when the command is issued some data loss may occur.
