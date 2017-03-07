@@ -46,9 +46,7 @@ First decide if you want to run a single database with a defined amount of dedic
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
-> [!NOTE]
-> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. 
->
+* Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. 
 
 > [IMPORTANT]
 > Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the unlikely event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.

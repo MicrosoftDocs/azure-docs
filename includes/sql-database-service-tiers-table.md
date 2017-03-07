@@ -38,6 +38,10 @@ sql-database-service-tiers.md
 | Max concurrent sessions | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
+> [!NOTE]
+> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md##current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+>
+
 ### Premium RS service tier 
 | **Performance level** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
 | --- |---:|---:|---:|---:|---:|---:|
@@ -50,7 +54,3 @@ sql-database-service-tiers.md
 |||||||
 
 \* Max database size refers to the maximum size of the data in the database. 
-
-> [!NOTE]
-> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md#current-limitations-of-P11-and-P15-databases-with-4-TB-maxsize)
->
