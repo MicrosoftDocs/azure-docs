@@ -75,17 +75,12 @@ Follow these steps to query the database on the Azure dashboard.
 
 You receive error messages when the connection to Azure SQL Database fails. The connection problems can be caused by SQL Azure database reconfiguration, firewall settings, connection time-out, or incorrect login information. For a connectivity troubleshooter tool, see [Troubleshooting connectivity issues with Microsoft Azure SQL Database](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database).
 
-## Delete the database
+## Clean up resources
 
-The steps in this procedure show you how to delete a single database with the Azure portal.
+The steps in this procedure show how to delete all resources created by this tutorial in the Azure portal.
 
-1. On the Azure dashboard page for your database, click **Delete**.
-
-2. Click **Yes** to confirm that you want to delete this database permanently.
-
-> [!TIP]
-> During the retention period for your database, you can restore it from the service-initiated automatic backups (provided you do not delete the server itself). For Basic edition databases, you can restore them within seven days. For all other editions, you can restore them within 35 days. If you do delete the server itself, you cannot recover the server or any of its deleted databases. For more information about database backups, see [Learn about SQL Database backups](sql-database-automated-backups.md) and for information about restoring a database from backups, see [Database recovery](sql-database-recovery-using-backups.md). For a how-to article on restoring a deleted database, see [Restore a deleted Azure SQL database - Azure portal](sql-database-restore-deleted-database-portal.md).
->
+1. On the Azure dashboard, click **Resource groups** and then click **myResourceGroup**. 
+2. On the page for your resource group, click **Delete**, type **myResourceGroup** in the text box and then click **Delete**.
 
 ## Next steps
 
