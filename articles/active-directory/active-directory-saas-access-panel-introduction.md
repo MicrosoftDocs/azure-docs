@@ -1,6 +1,6 @@
 ---
 title: Introduction to the Access Panel | Microsoft Docs
-description: Learn how to use the various flavors of the Access Panel (Web browser, Android app, iPhone and iPad app) to access the SaaS apps that are assigned to you.
+description: Learn how to use the variations of the Access Panel (web browser, Android app, iPhone and iPad app) to access SaaS apps.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,7 +18,7 @@ ms.author: markvi
 ms.custom: H1Hack27Feb2017
 
 ---
-# What is the Access Panel
+# What is the Access Panel?
 The Access Panel is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. A user with Azure Active Directory editions can also use self-service group management capabilities through the Access Panel.
 
 The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription.
@@ -32,7 +32,7 @@ The Access Panel enables users to edit some of their profile settings, including
 * Edit contact and preference settings related to multi-factor authentication (for those accounts that have been required to use it by an administrator).
 * View account details, such as user ID, alternate email, and mobile and office phone numbers.
 * View and start cloud-based applications that the Azure AD administrator has granted them access to. For more information about the Access Panel from the users’ perspective, see [Using the Access Panel](https://msdn.microsoft.com/library/azure/dn756411.aspx).
-* Self-manage groups. More specifically, you can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](active-directory-manage-groups.md).
+* Self-manage groups. More specifically, the administrator can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](active-directory-manage-groups.md).
 
 ## Accessing the Access Panel
 Users access the Access Panel by visiting the following URL in a web browser: <br>
@@ -55,76 +55,76 @@ If a user has a subscription for Azure or Office 365 and has been using the Azur
 After authentication, users can interact with the applications that the administrator has integrated with the directory. To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Web browser requirements
-At a minimum, the Access Panel requires a browser with support for JavaScript and CSS enabled. In order for the user to be signed on to applications using Password-based SSO, the Access Panel extension must be installed in the user’s browser. This Access Panel extension is downloaded automatically when a user selects an application that is configured for Password-based SSO.
+At a minimum, the Access Panel requires a browser that supports JavaScript and has CSS enabled. For the user to be signed on to applications through password-based SSO, the Access Panel extension must be installed in the user’s browser. This extension is downloaded automatically when a user selects an application that is configured for password-based SSO.
 
-At the present time, the Access Panel Extension is available for Internet Explorer 8 and later, Chrome, and Firefox browsers.
+The Access Panel Extension is currently available for Internet Explorer 8 and later, Chrome, and Firefox browsers.
 
 ## Mobile app support
-To be able to sign into Password-based SSO applications on iOS and Android devices, users should install My Apps mobile app published by the Azure Active Directory team.
-
-### My Apps for Android
-My Apps for Android is supported on any Android device running Android version 4.1 and up, and is available today in the [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
-
-![My apps][3]   
-
-### My Apps for iPhone and iPad
-My Apps for iOS is supported on any iPhone or iPad running iOS version 7 and up, and is available today in the Apple App Store.
-
-![Applications profile][4]    
+The Azure Active Directory team publishes the My Apps mobile app. To be able to sign in to password-based SSO applications on iOS and Android devices, users should install the app.
 
 > [!NOTE]
-> Applications that support federation with Azure AD (including Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365, and over 70 others), can be signed into on virtually any web browser on any device without requiring a plugin or mobile app. The rest of the access panel experience at [https://myapps.microsoft.com](https://myapps.microsoft.com/) also does not require the My Apps mobile app to be used on a mobile device.
+> Applications that support federation with Azure AD (including Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365, and more than 70 others), can be signed in to on virtually any web browser on any device without requiring a plug-in or mobile app. The rest of the [Access Panel experience](https://myapps.microsoft.com/) also does not require the My Apps mobile app to be used on a mobile device.
 >
 >
 
-## Tips for testing the end user experience
-If you are an Azure administrator and you are signed into the Azure portal using an account in the directory, you will be automatically signed into the Access Panel as your current administrator account. In this case, you can see all applications that have been assigned to this account.
+### My Apps for Android
+My Apps for Android is supported on any Android device running Android version 4.1 and up. It's available today in the [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
 
-**To test as a different user account:**
+![My Apps for Android screen][3]   
 
-1. Click the user menu in the upper-right corner of the Azure portal or the Access Panel, and select “**Sign Out**”. This will sign you out of Azure AD.
-2. Go to the Access Panel at **http://myapps.microsoft.com**.
-3. In the sign in page, enter the username and password for the account in your directory that you want to test.
+### My Apps for iPhone and iPad
+My Apps for iOS is supported on any iPhone or iPad running iOS version 7 and up. It's available today in the Apple App Store.
 
-## Launching Applications
-There are several types of applications that can appear on the Access Panel.
+![My Apps for iOS screen][4]    
+
+## Tips for testing the user experience
+If you're an Azure administrator and you're signed in to the Azure portal by using an account in the directory, you're automatically signed in to the Access Panel as your current administrator account. In this case, you can see all applications that have been assigned to this account.
+
+To test as a *different* user account:
+
+1. Click the user menu in the upper-right corner of the Azure portal or the Access Panel, and select **Sign Out**. This signs you out of Azure AD.
+2. Go to the [Access Panel](http://myapps.microsoft.com).
+3. On the sign-in page, enter the username and password for the account in your directory that you want to test.
+
+## Starting applications
+Several types of applications can appear on the Access Panel.
 
 ### Office 365 applications
-If an organization is using Office 365 applications and the user is licensed for them, then the Office 365 applications will appear on the user’s Access Panel.
+If an organization is using Office 365 applications and the user is licensed for them, the Office 365 applications will appear on the user’s Access Panel.
 
-When a user clicks on an application tile for an Office 365 application, they are redirected to that application and automatically signed in.
+When a user clicks an application tile for an Office 365 application, they are redirected to that application and automatically signed in.
 
-### Microsoft and third-party applications configured with Federation-based SSO
-These are applications that the administrator has added in the Active Directory section of the Azure portal with the single sign-on mode set to “*Azure AD Single Sign-On*”. A user will only see these applications if they have been explicitly granted access to the application by the administrator.
+### Microsoft and third-party applications configured with federation-based SSO
+The administrator can add applications in the Active Directory section of the Azure portal with the single sign-on mode set to **Azure AD Single Sign-On**. A user will see these applications only if the administrator has explicitly granted that user access to the applications.
 
-When a user clicks on an application tile for one of these applications, they are redirected to that application and automatically signed in.
+When a user clicks a tile for one of these applications, they are redirected to that application and automatically signed in.
 
 ### Password-based SSO without identity provisioning
-These are applications that the administrator has added in the Active Directory section of the Azure portal with the single sign-on mode set to “*Password-based Single Sign-On*”. <br>
-All users in the directory will see all applications that have been configured in this mode.
+The administrator can add applications in the Active Directory section of the Azure portal with the single sign-on mode set to **Password-based Single Sign-On**. All users in the directory will see all applications that have been configured in this mode.
 
-The first time a user clicks on an application tile for one of these applications, they will be prompted to install the Password SSO plugin for Internet Explorer or Chrome, which may require a restarting of their web browser. When they are returned to the Access Panel and click on the application tile again, they will be prompted for a username and password for the application. Once the username and password are entered, these credentials will be securely stored in Azure AD and linked to their account in Azure AD, and the Access Panel will automate signing the user in to the application using those credentials.
+The first time a user clicks a tile for one of these applications, they will be prompted to install the Password SSO plug-in for Internet Explorer or Chrome. The installation might require the user to restart their web browser. When the user returns to the Access Panel and clicks the application tile again, they're prompted for a username and password for the application. After the user enters the username and password, these credentials are securely stored in Azure AD and linked to their account in Azure AD.
 
-The next time a user clicks on the application tile, they will be automatically signed into the application without needing to enter the credentials again and without needing to install the Password SSO plugin again.
+The next time the user clicks the application tile, they'll be automatically signed in to the application. The user won't need to enter the credentials again and or install the Password SSO plug-in again.
 
-If a user’s credentials have changed in the target third-party application, then the user must also update their credentials which are stored in Azure AD. To update credentials, a user must select the icon in the lower-right of the application tile, and select “update credentials” to re-enter the username and password for that application.
+If a user’s credentials have changed in the target third-party application, the user must also update their credentials that are stored in Azure AD. To update credentials, the user selects the icon on the application tile, and then selects **update credentials** to re-enter the username and password for that application.
 
 ### Password-based SSO with identity provisioning
-These are applications that the administrator has added in the Active Directory section of the Azure portal with the single sign-on mode set to “*Password-based Single Sign-On*” as well as the identity provisioning.
+The administrator can add applications in the Active Directory section of the Azure portal with the single sign-on mode set to **Password-based Single Sign-On**, along with identity provisioning.
 
-The first time a user clicks on an application tile for one of these applications, they will be prompted to install the Password SSO plugin for Internet Explorer or Chrome, which may require a restarting of their web browser. When they are returned to the Access Panel and click on the application tile again, they will be automatically signed in to the application.
+The first time a user clicks on an application tile for one of these applications, they're prompted to install the Password SSO plug-in for Internet Explorer or Chrome. The installation might require the user to restart their web browser. When the user returns to the Access Panel and clicks the application tile again, they're automatically signed in to the application.
 
-Some applications may require that a user change their password on first sign in. If a user’s credentials have changed in the target third-party application, then the user must also update their credentials which are stored in Azure AD. To update credentials, a user must select the icon in the lower-right of the application tile, and select “update credentials” to re-enter the username and password for that application.
+Some applications might require the user to change their password on first sign-in. If a user’s credentials have changed in the target third-party application, the user must also update their credentials that are stored in Azure AD. To update credentials, the user selects the icon on the application tile, and then selects **update credentials** to re-enter the username and password for that application.
 
-### Application with Existing SSO solutions
-When configuring single sign-on for an application, the Azure portal provides a third option of “Existing Single Sign-On”. This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.
-For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Existing Single Sign-On” option to create a link to it on the access panel. When users access the link, they are authenticated using Active Directory Federation Services 2.0, or whatever existing single sign-on solution is provided by the application.
+### Application with existing SSO solutions
+When you're configuring single sign-on for an application, the Azure portal provides a third option of **Existing Single Sign-On**. This option enables the administrator to create a link to an application and place it on the access panel for selected users.
 
-## Related Articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
-* [Introduction to Single Sign-On and Managing App Access with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
+For example, if an application is configured to authenticate users by using Active Directory Federation Services 2.0, an administrator can use the **Existing Single Sign-On** option to create a link to it on the Access Panel. When users access the link, they are authenticated through AD FS 2.0 or whatever existing single sign-on solution the application provides.
+
+## Related articles
+* [Article index for application management in Azure Active Directory](active-directory-apps-index.md)
+* [List of tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md)
+* [Introduction to single sign-on and managing app access with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Automate user provisioning and deprovisioning to SaaS applications](active-directory-saas-app-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
