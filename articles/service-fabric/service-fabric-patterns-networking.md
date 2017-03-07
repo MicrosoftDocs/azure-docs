@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # Service Fabric networking patterns
-You can integrate your Azure Service Fabric cluster with other Azure networking features. In this article, we show you how to create clusters by using the following features:
+You can integrate your Azure Service Fabric cluster with other Azure networking features. In this article, we show you how to create clusters that use the following features:
 
 - [Existing virtual network or subnet](#existingvnet)
 - [Static public IP address](#staticpublicip)
@@ -379,7 +379,7 @@ After deployment, your load balancer uses the private static 10.0.0.250 IP addre
 
 In this scenario, you start with the existing single-node type external load balancer, and add an internal load balancer for the same node type. A back-end port attached to a back-end address pool can be assigned only to a single load balancer. Choose which load balancer will have your application ports, and which load balancer will have your management endpoints (ports 19000 and 19080). If you put the management endpoints on the internal load balancer, keep in mind the Service Fabric resource provider restrictions discussed earlier in the article. In the example we use, the management endpoints remain on the external load balancer. You also add a port 80 application port, and place it on the internal load balancer.
 
-In a two-node type cluster, one node type is on the external load balancer and the other on the internal load balancer. To use a two-node type cluster, in the portal-created two-node type template (which comes with two load balancers), switch the second load balancer to an internal load balancer. For more information, see the [Internal-only load balancer](#internallb) section.
+In a two-node-type cluster, one node type is on the external load balancer; the other node type is on the internal load balancer. To use a two-node-type cluster, in the portal-created two-node-type template (which comes with two load balancers), switch the second load balancer to an internal load balancer. For more information, see the [Internal-only load balancer](#internallb) section.
 
 1. Add the static internal load balancer IP address parameter (for notes related to using a dynamic IP address, see earlier sections of this article):
 
@@ -390,7 +390,7 @@ In a two-node type cluster, one node type is on the external load balancer and t
             }
     ```
 
-2. Add an application port 80 parameter:
+2. Add an application port 80 parameter.
 
 3. To add internal versions of the existing networking variables, copy and paste them, and add "-Int" to the name:
 
