@@ -33,7 +33,7 @@ U-SQL is a query language that's specifically designed for big data-type of work
 In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.
 
 ## Requirements
-To begin with ADL development, you need to download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
+To begin with Azure Data Lake development, you need to download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
 ## Get started with U-SQL  
 The description of U-SQL language is outside the scope of this document. However, we describe basic U-SQL constructs to gradually introduce U-SQL programmability features. For more information, see the [U-SQL Language Reference](http://aka.ms/usql_reference) guide.
@@ -176,7 +176,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
 ### Use C# expressions for data type conversions
-The following example demonstrates \how you can do a datetime data conversion by using C# expressions. In this particular scenario, string datetime data is converted to standard datetime with midnight 00:00:00 time notation.
+The following example demonstrates how you can do a datetime data conversion by using C# expressions. In this particular scenario, string datetime data is converted to standard datetime with midnight 00:00:00 time notation.
 
 ```sql
 DECLARE @dt String = "2016-07-06 10:23:15";
@@ -194,7 +194,7 @@ To pull today’s date, we can use the following C# expression:
 DateTime.Now.ToString("M/d/yyyy")
 ```
 
-In a script:
+Here's an example of how to use this expression in a script:
 
 ```sql
 @rs1 =
@@ -242,7 +242,7 @@ The inline function is needed in this scenario because the DateTime.TryParse fun
 
 
 ## Verify data type values
-Some C# functions cannot be used directly in base U-SQL scripts as C# expressions. Specifically, the functions that can't be used directly are those require an output reference parameter. However, these functions can be defined and used as part of inline function expression, as discussed earlier.
+Some C# functions cannot be used directly in base U-SQL scripts as C# expressions. Specifically, the functions that can't be used directly are those require an output reference parameter. However, these functions can be defined and used as part of an inline function expression, as discussed earlier.
 
 ### Use inline function expressions
 To verify if DateTime value is valid, we can use `DateTime.TryParse`.
@@ -319,16 +319,16 @@ Here is the code-behind function:
 ## Use code-behind
 Code-behind is a C# programmability section of the U-SQL project. Conceptually, code-behind is a compiled assembly (DLL) that's referenced in U-SQL script. Visual Studio Tools enables you to manage and debug a C# programmability section as part of a U-SQL project.
 
-When a typical U-SQL project is created in Visual Studio, there are two parts of the project. Base script – file with extension **.usql**.
+When a typical U-SQL project is created in Visual Studio, there are two parts of the project: base script and a file with the extension **.usql**.
 
-![a](./media/data-lake-analytics-u-sql-programmability-guide/base-script-file.png)
+![Base script file](./media/data-lake-analytics-u-sql-programmability-guide/base-script-file.png)
 
 
 Typical solution project   
 ![Typical solution project](./media/data-lake-analytics-u-sql-programmability-guide/typical-solution-project.png)
 
 
-In the second part of the project, we call a code-behind – file Script.usql.cs.  
+In the second part of the project, we call a code-behind file: Script.usql.cs.  
 ![Code-behind](./media/data-lake-analytics-u-sql-programmability-guide/code-behind.png)
 
 This file contains a default namespace definition for programmability objects.
@@ -373,13 +373,13 @@ U-SQL’s extensibility model relies heavily on the ability to add custom code. 
 
 You can even deploy your own runtime for other languages, but you still need to provide the interoperability through a .NET layer yourself. If you want us to support a specific language, please file a feature request or leave a comment at http://aka.ms/adlfeedback.
 
-### Learn the difference between code-behind and assembly registration through ADL Tools in Visual Studio
-The easiest way to make use of custom code is to use the ADL Tools for Visual Studio’s code-behind capabilities.
+### Learn the difference between code-behind and assembly registration through Azure Data Lake Tools in Visual Studio
+The easiest way to make use of custom code is to use the Azure Data Lake Tools for Visual Studio’s code-behind capabilities.
 
 As we mentioned earlier, you fill in the custom code for the script (for example, Script.usql) into its code-behind file (for example, Script.usql.cs).
 
 ![Code-behind example](./media/data-lake-analytics-u-sql-programmability-guide/code-behind-example.jpg)
-**Figure 1**: Code-behind example in ADL Tools in Visual Studio. (Click the image to enlarge it. Sample code is available [here](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis).)
+**Figure 1**: Code-behind example in Azure Data Lake Tools in Visual Studio. (Click the image to enlarge it. Sample code is available [here](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis).)
 <br />
 
 The advantage of code-behind is that the tooling takes care of the following steps for you when you submit your script:  
@@ -416,7 +416,7 @@ Thus, you can add a separate C# Class Library (for U-SQL) to your solution (see 
 **Figure 5**: How to register the U-SQL C# code project
 <br />
 
-The registration dialog box (see Step 2 of Figure 5) gives you the options for where you  can register the assembly (for example, which Data Lake Analytics account, which database) and how to name it. (The local assembly path gets filled in by the tool.) It also provides an option to re-register an already registered assembly, as well as two options for adding  additional dependencies:
+The registration dialog box (see Step 2 of Figure 5) gives you the options for how to register the assembly (for example, which Data Lake Analytics account to use, which database to use, and so on) and how to name it. (The local assembly path gets filled in by the tool.) It also provides an option to re-register an already registered assembly, as well as two options for adding  additional dependencies:
 
 **Managed dependencies**: Shows the managed assemblies that are needed. Each selected assembly is registered individually and becomes referenceable in scripts. You use this for other .NET assemblies.
 
@@ -426,10 +426,10 @@ We make use of both of these options in the following examples. The [recent blog
 
 Now you can refer to the registered assemblies from any U-SQL script that has permissions for the database of the registered assemblies (see the code in the U-SQL script in Figure 4). You have to add a reference for every assembly that's registered separately. The additional resource files are automatically deployed. That script should not have a code-behind file for the code that's in the referenced assemblies anymore, but the code-behind file can still provide other code.
 
-### Register assemblies via ADL Tools in Visual Studio and in U-SQL scripts
-While the ADL Tools in Visual Studio make it easy to register an assembly, you can also do it with a script (in the same way that the tools do it for you) if you are(for example) developing on a different platform or have already compiled assemblies that you want to upload and register. You take the following steps:
+### Register assemblies via Azure Data Lake Tools in Visual Studio and in U-SQL scripts
+While the Azure Data Lake Tools in Visual Studio make it easy to register an assembly, you can also do it with a script (in the same way that the tools do it for you) if you are (for example) developing on a different platform or have already compiled assemblies that you want to upload and register. You take the following steps:
 
-1. You upload your assembly DLL and also all required non-system DLLs and resource files into a location that you choose. You can also upload it to your Azure Data Lake storage account or even a Microsoft Azure Blob storage account that's linked to your Azure Data Lake account. You can use any of the upload tools that are available to you (for example, Windows PowerShell commands, Visual Studio’s ADL Tool Data Lake Explorer upload, your favorite SDK’s upload command, or tools that you access through the Azure portal).
+1. You upload your assembly DLL and also all required non-system DLLs and resource files into a location that you choose. You can also upload it to your Azure Data Lake storage account or even a Microsoft Azure Blob storage account that's linked to your Azure Data Lake account. You can use any of the upload tools that are available to you (for example, Windows PowerShell commands, Visual Studio’s Azure Data Lake Tool Data Lake Explorer upload, your favorite SDK’s upload command, or tools that you access through the Azure portal).
 
 1. After you have uploaded the DLLs, you use the [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) statements to register them.
 
@@ -474,7 +474,7 @@ The installer installs the managed assembly Microsoft.SqlServer.Types.dll into C
 
 Since the installer has installed the native library into the system folder c:\Windows\System32, we have to make sure that we either copy SqlServerSpatial130.dll out from that folder before uploading it, or make sure that the tool we use does not perform the [file system redirection](https://msdn.microsoft.com/library/windows/desktop/aa384187(v=vs.85).aspx) of system folders.
 
-For example, if you want to upload it with the current Visual Studio ADL File Explorer, you have to copy the file into another directory first. Otherwise--as of the time of the writing of this article--you get the 32-bit version uploaded (since Visual Studio is a 32-bit application, which does File System Redirection in its ADL upload file selection window). Then, when you run a U-SQL script that calls into the native assembly, you get the following (inner) error at runtime:
+For example, if you want to upload it with the current Visual Studio Azure Data Lake File Explorer, you have to copy the file into another directory first. Otherwise--as of the time of the writing of this article--you upload the 32-bit version (since Visual Studio is a 32-bit application, which does File System Redirection in its Azure Data Lake upload file selection window). Then, when you run a U-SQL script that calls into the native assembly, you get the following (inner) error at runtime:
 
 **Inner exception from user expression: An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)**
 
@@ -497,7 +497,7 @@ WITH ADDITIONAL_FILES =
      );
 ```
 
-In this case, we only register one U-SQL assembly and include the native assembly as a string dependency to the U-SQL assembly. To use the spatial assemblies, we only need to reference the U-SQL assembly, and the additional file is automatically made available for the assembly. Here's a simple sample script that uses the spatial assembly:
+In this case, we only register one U-SQL assembly and include the native assembly as a string dependency to the U-SQL assembly. To use the spatial assemblies, we only need to reference the U-SQL assembly. The the additional file is automatically made available for the assembly. Here's a simple sample script that uses the spatial assembly:
 
 ```sql
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -520,7 +520,7 @@ TO "/output/spatial.csv"
 USING Outputters.Csv();
 ```
 
-The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods are using the System.Data.SqlTypes types instead of the built-in C# types. Since System.Data is already included by default, we can simply reference the needed SQL type. The previous code is available on our [Github site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
+The SQL Types library has a dependency on the System.XML assembly, so we need to reference it. Also, some of the methods use the System.Data.SqlTypes types instead of the built-in C# types. Since System.Data is already included by default, we can simply reference the needed SQL type. The previous code is available on our [Github site](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample).
 
 
 ### Use assembly versioning
