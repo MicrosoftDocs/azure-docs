@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a VM with a Custom VHD  | Microsoft Docs
-description: Azure CLI Script Sample - Create a VM using a custom virtual hard disk.
+title: Azure CLI Script Sample - Create a VM with a VHD  | Microsoft Docs
+description: Azure CLI Script Sample - Create a VM using a virtual hard disk.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
@@ -18,32 +18,28 @@ ms.date: 03/06/2017
 ms.author: allclark
 ---
 
-# Create a VM with a custom VHD
+# Create a VM with a virtual hard disk
 
-This example creates a virtual machine using a custom VHD.
-It creates a storage account and container,
-uploads the VHD to the container,
-and then replaces the VM user's ssh public key with your public key.
+This example creates a virtual machine using a VHD.
+It creates a resource group, a storage account and a container,
+then it creates a VM by uploading the VHD to the container.
+It replaces the ssh public key with your public key so that you have access to the VM.
 
-Before you run the sample, 
-download the custom VHD from https://azclisamples.blob.core.windows.net/vhds/sample.vhd.
-
-```bash
-curl https://azclisamples.blob.core.windows.net/vhds/sample.vhd > sample.vhd
-```
+You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
+or use your own VHD.
 
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-custom-vhd/create-vm-custom-vhd.sh "Create VM with custom VHD")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Create VM using a VHD")]
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
 
 ```azurecli
-az group delete -n az-cli-custom-vhd
+az group delete -n az-cli-vhd
 ```
 
 ## Script explanation
