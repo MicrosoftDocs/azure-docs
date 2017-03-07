@@ -196,7 +196,8 @@ In this section, you will
     ```
 8. Save and close the **dmpatterns_getstarted_device.js** file.
    
-   [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
+> [!NOTE]
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
 
 
 ## Run the apps
