@@ -48,21 +48,23 @@ In the Logic App Designer, add a trigger, and then add an action to your logic a
 3.	In the search box, enter "x12" for your filter. 
 Select **X12 - Decode X12 message**.
    
-    ![Search for "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
+	![Search for "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details:
    
-    ![integration account connection](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)     
+	![integration account connection](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)\
+
 4. Enter the Integration Account details.  Properties with an asterisk are required:
    
-   | Property | Details |
-   | --- | --- |
-   | Connection Name * |Enter any name for your connection |
-   | Integration Account * |Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
+	| Property | Details |
+	| --- | --- |
+	| Connection Name * |Enter any name for your connection. |
+	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+
+	After you're done, your connection details look similar to this example:
    
-    Once complete, your connection details look similar to the following:
-   
-    ![integration account connection created](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
+	![integration account connection created](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
+
 5. Select **Create**.
 6. Notice the connection has been created:
    

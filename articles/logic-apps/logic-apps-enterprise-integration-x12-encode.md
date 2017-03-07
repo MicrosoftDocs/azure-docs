@@ -58,10 +58,10 @@ you're prompted to create an integration account and provide connection details:
 
 4. Enter details for your integration account. Properties with an asterisk are required:
    
-   | Property | Details |
-   | --- | --- |
-   | Connection Name * |Enter any name for your connection. |
-   | Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+	| Property | Details |
+	| --- | --- |
+	| Connection Name * |Enter any name for your connection. |
+	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
 	After you're done, your connection details look similar to this example:
    
