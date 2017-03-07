@@ -249,9 +249,9 @@ Once you're done migrating the virtual machines, we recommend you migrate the st
 
 Before you migrate the storage account, please perform preceding prerequisite checks:
 
-* **Check if any classic VM disk is stored in the storage account**
+* **Check if classic VM disks are stored in the storage account**
 
-    Find any classic VM disks in the storage account using following command: 
+    Find classic VM disks attached to VMs in the storage account using following command: 
 
     ```powershell
      $storageAccountName = 'yourStorageAccountName'
@@ -259,14 +259,21 @@ Before you migrate the storage account, please perform preceding prerequisite ch
       DiskName | Format-List -Property RoleName, DiskName 
 
     ```
-    Above command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached.
+    Above command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If above command returns disks then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account.
 
-    If above command returns disks without virtual machine name (RoleName property) then delete these disks using following command:
+    Find unattached classic VM disks in the storage account using following command: 
+
+    ```powershell
+        $storageAccountName = 'yourStorageAccountName'
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+
+    ```
+    If above command returns disks then delete these disks using following command:
 
     ```powershell
        Remove-AzureDisk -DiskName 'yourDiskName'
     ```
-    If above command returns disks with virtual machine name (RoleName property) then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account. 
+     
 
 Prepare each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
 
