@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2017
+ms.date: 03/07/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -51,29 +51,6 @@ You can include any runbooks in the solution file so that their created when the
 
 [Azure Automation runbook](../automation/automation-runbook-types.md) resources have a type of **Microsoft.Automation/automationAccounts/runbooks** and have the following structure. 
 
-
-    "name": "<name-of-automation-resource>",
-    "type": "Microsoft.Automation/automationAccounts/runbooks",
-    "apiVersion": "<api-version-of-resource>",
-    "location": "<resource-group-region>",
-    "dependsOn": [
-		"<name-of-required-modules>"
-    ],
-    "tags": { },
-    "properties": {
-        "runbookType": "<type-of-runbook>",
-        "logProgress": "<log-progress>",
-        "logVerbose": "<log-verbose>",
-        "description": "<runbook-description>",
-        "publishContentLink": {
-            "uri": "<uri-to-runbook-content>",
-            "version": "<runbook-version>"
-        }
-    }
-
-
-
-
 	{
 		"name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
 		"type": "Microsoft.Automation/automationAccounts/runbooks",
@@ -93,8 +70,6 @@ You can include any runbooks in the solution file so that their created when the
 			}
 		}
 	}
-
-
 
 
 The properties for runbooks are described in the following table.
@@ -150,22 +125,7 @@ The name of a job resource must contain a GUID which is typically assigned by a 
 
 
 ## Certificates
-[Azure Automation certificates](../automation/automation-certificates.md) have a type of **Microsoft.Automation/automationAccounts/certificates** and have the properties in the following table.
-
-An example of a certificate resource is below.
-
-    "name": "<name-of-certificate>",
-    "type": "certificates",
-    "apiVersion": "<api-version-of-resource>",
-    "location": "<resource-group-region>",
-    "tags": {},
-    "dependsOn": [
-    ],
-    "properties": {
-        "base64Value": "<certificate-base64>",
-        "thumbprint": "<certificate-thumbprint>"
-    }
-
+[Azure Automation certificates](../automation/automation-certificates.md) have a type of **Microsoft.Automation/automationAccounts/certificates** and have the following structure.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
@@ -220,21 +180,6 @@ The properties for Credential resources are described in the following table.
 
 ## Schedules
 [Azure Automation schedules](../automation/automation-schedules.md) have a type of **Microsoft.Automation/automationAccounts/schedules** and have the the following structure.
-
-    "name": "<name-of-schedule>",
-    "type": "microsoft.automation/automationAccounts/schedules",
-    "apiVersion": "<api-version-of-resource>",
-    "tags": { },
-    "dependsOn": [
-    ],
-    "properties": {
-        "description": "<schedule-description>",
-        "startTime": "<start-time>",
-        "isEnabled": "<schedule-enabled>",
-        "interval": "<interval-day-or-hour>",
-        "frequency": "<frequency-day-or-hour>"
-    }
-
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
@@ -302,20 +247,6 @@ Variables
 
 [Azure Automation variables](../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the following structure.
 
-    "name": "<name-of-variable-resource>",
-    "type": "microsoft.automation/automationAccounts/variables",
-    "apiVersion": "<api-version-of-resource>",
-    "tags": { },
-    "dependsOn": [
-    ],
-    "properties": {
-        "description": "<variable-description>",
-        "isEncrypted": "<true-false>",
-        "type": "<variable-datatype>",
-        "value": "<variable-value>"
-    }
-
-
     {
       "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
       "type": "microsoft.automation/automationAccounts/variables",
@@ -347,21 +278,6 @@ Your management solution does not need to define [global modules](../automation/
 
 
 An example of a module resource is below.
-
-    {        
-        "name": "name-of-module-resource",
-        "type": "Microsoft.Automation/automationAccounts/modules",
-        "apiVersion": "<api-version-of-resource>",
-        "dependsOn": [
-        ],
-        "properties": {
-            "contentLink": {
-                "uri": "<uri-to-module>"
-            }
-        }
-    }
-
-
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
@@ -504,39 +420,6 @@ Following is a sample of the required elements of a solution to support the modu
 
 
 
-
-
-
-
-    "name": "[concat(parameters('accountName'), '/MyCertificate')]",
-    "type": "certificates",
-    "apiVersion": "2015-01-01-preview",
-    "location": "<resource-group-region>",
-    "tags": {},
-    "dependsOn": [
-    ],
-    "properties": {
-        "base64Value": "MIIC1jCCAA8gAwIAVgIYJY4wXCXH/YAHMtALh7qEFzANAgkqhkiG5w0AAQUFGDAUMRIwEBYDVQQDEwlsA3NhAGevc3QqHhcNMTZwNjI5MHQxMjAsWhcNOjEwNjI5NKWwMDAwWjAURIwEAYDVQQBEwlsA2NhAGhvc3QwggEiMA0GCSqGSIA3DQEAAQUAA4IADwAwggEKAoIAAQDIyzv2A0RUg1/AAryI9W1DGAHAqqGdlFfTkUSDfv+hEZTAwKv0p8daqY6GroT8Du7ctQmrxJsy8JxIpDWxUaWwXtvv1kR9eG9Vs5dw8gqhjtOwgXvkOcFdKdQwA82PkcXoHlo+NlAiiPPgmHSELGvcL1uOgl3v+UFiiD1ro4qYqR0ITNhSlq5v2QJIPnka8FshFyPHhVtjtKfQkc9G/xDePW8dHwAhfi8VYRmVMmJAEOLCAJzRjnsgAfznP8CZ/QUczPF8LuTZ/WA/RaK1/Arj6VAo1VwHFY4AZXAolz7xs2sTuHplVO7FL8X58UvF7nlxq48W1Vu0l8oDi2HjvAgMAAAGjJDAiMAsGA1UdDwREAwIEsDATAgNVHSUEDDAKAggrAgEFNQcDATANAgkqhkiG9w0AAQUFAAOCAQEAk8ak2A5Ug4Iay2v0uXAk95qdAthJQN5qIVA13Qay8p4MG/S5+aXOVz4uMXGt18QjGds1A7Q8KDV4Slnwn95sVgA5EP7akvoGXhgAp8Dm90sac3+aSG4fo1V7Y/FYgAgpEy4C/5mKFD1ATeyyhy3PmF0+ZQRJ7aLDPAXioh98LrzMZr1ijzlAAKfJxzwZhpJamAwjZCYqiNZ54r4C4wA4QgX9sVfQKd5e/gQnUM8gTQIjQ8G2973jqxaVNw9lZnVKW3C8/QyLit20pNoqX2qQedwsqg3WCUcPRUUqZ4NpQeHL/AvKIrt158zAfU903yElAEm2Zr3oOUR4WfYQ==",
-        "thumbprint": "F485CBE5569F7A5019CB68D7G6D987AC85124B4C"
-    }
-
-
-
-
-
-    {
-      "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
-      "type": "Microsoft.Automation/automationAccounts/certificates",
-      "apiVersion": "[variables('AutomationApiVersion')]",
-      "location": "[parameters('regionId')]",
-      "tags": { },
-      "dependsOn": [
-      ],
-      "properties": {
-        "base64Value": "[variables('Certificate').Base64Value]",
-        "thumbprint": "[variables('Certificate').Thumbprint]"
-      }
-    }
 
 
 
