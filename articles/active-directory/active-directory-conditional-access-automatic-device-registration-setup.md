@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 03/07/2017
 ms.author: markvi
 
 ---
@@ -561,9 +561,9 @@ The output of this cmdlet shows devices registered in Azure AD. To get all devic
 
 ## Next steps
 
-* [Automatic device registration FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
-* [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-* [Troubleshooting auto-registration of domain joined computers to Azure AD – non-Windows 10](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+* [Automatic device registration FAQ](active-directory-automatic-device-registration-faq.md)
+* [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-access-automatic-device-registration-troubleshoot-windows.md)
+* [Troubleshooting auto-registration of domain joined computers to Azure AD – non-Windows 10](active-directory-automatic-device-registration-troubleshoot-windows-legacy.md)
 * [Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md)
 
 
