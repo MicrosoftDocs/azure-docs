@@ -210,7 +210,7 @@ In this example, you create a policy that lets your users sign in less frequentl
 
 1. Create a token lifetime policy.
 
-    a.  Set the Single-Factor Refresh Token to "until-revoked." The token doesn't expire until access is revoked. Create the following policy definition:
+    1.  Set the Single-Factor Refresh Token to "until-revoked." The token doesn't expire until access is revoked. Create the following policy definition:
 
         ```PowerShell
         @('{
@@ -222,13 +222,13 @@ In this example, you create a policy that lets your users sign in less frequentl
         }')
         ```
 
-    b.  To create the policy, run the following command:
+    2.  To create the policy, run the following command:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    c.  To see your new policy, and to get the policy's **ObjectId**, run the following command:
+    3.  To see your new policy, and to get the policy's **ObjectId**, run the following command:
 
         ```PowerShell
         Get-AzureADPolicy
