@@ -20,15 +20,15 @@ ms.author: markgal;giridham;arunak;trinadhk;
 
 ---
 # Questions about the Azure Backup service
-This article has sections of common questions (with answers) to help you quickly understand the Azure Backup components. In many of the answers there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup). To make the article easy to scan, the sections are broken into the following sections:
+This article has sections of common questions (with answers) to help you quickly understand the Azure Backup components. In many of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup). To make the article easy to scan, the sections are broken into the following sections:
 
 - [Recovery Services vault](backup-azure-backup-faq.md#recovery-services-vault) - with Azure Backup, you back up data to a vault
-- [Backup agent](backup-azure-backup-faq.md#backup-agent) - this section has information about backing up files and folders, Windows Server and Windows workstations, as well as information about the Azure Backup agent.
+- [Backup agent](backup-azure-backup-faq.md#backup-agent) - this section has information about backing up files and folders, Windows Server, Windows workstations, as well as information about the Azure Backup agent.
 - [Virtual machines](backup-azure-backup-faq.md#virtual-machines) (Windows and Linux)
 - [Azure Backup Server and Data Protection Manager](backup-azure-backup-faq.md#azure-backup-server-and-data-protection-manager)
 - [How Backup works](backup-azure-backup-faq.md#how-backup-works)
 - [What can I back up?](backup-azure-backup-faq.md#what-can-i-back-up)
-- [Incremental backup, retention policy, and recovery points](backup-azure-backup-faq.md#incremental-backup--retention-policy--and-recovery-points)
+- [Incremental backup, retention policy, and recovery points](backup-azure-backup-faq.md#incremental-backup,-retention-policy,-and-recovery-points)
 - [Encryption](backup-azure-backup-faq.md#encryption)
 
 ## Recovery services vault
@@ -52,7 +52,7 @@ The size of the cache folder determines the amount of data that you are backing 
 No. The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.
 
 ### Recovery Services vaults are Resource Manager based. Are Backup vaults (classic mode) still supported? <br/>
-Yes, Backup vaults are still supported. Create Backup vaults in the [Classic portal](https://manage.windowsazure.com). Create Recovery Services vaults in the [Azure portal](https://portal.azure.com). We strongly recommend you create Recovery Services vaults because future enhancements will be for Recovery Services vaults, only.
+Yes, Backup vaults are still supported. Create Backup vaults in the [Classic portal](https://manage.windowsazure.com). Create Recovery Services vaults in the [Azure portal](https://portal.azure.com). We recommend you create Recovery Services vaults because future enhancements will apply to Recovery Services vaults, only.
 
 ### Can I migrate a Backup vault to a Recovery Services vault? <br/>
 Unfortunately no, you can't migrate the contents of a Backup vault to a Recovery Services vault. We are working on adding this functionality, but it is not currently available.
@@ -111,7 +111,7 @@ Azure Backup agent relies on NTFS. The [filepath length specification is limited
  Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification.  
 
 ### How do I change the cache location specified for the Azure Backup agent?<br/>
-Go sequentially through the following bullet list to change the cache location.
+Use the following list to change the cache location.
 
 * Stop the Backup engine by executing the following command in an elevated command prompt:
 
@@ -145,7 +145,7 @@ The following attributes or their combinations are not supported for the cache f
 * Sparse
 * Reparse-Point
 
-Neither the cache folder nor the metadata VHD has the necessary attributes for the Azure Backup agent.
+The cache folder and the metadata VHD do not have the necessary attributes for the Azure Backup agent.
 
 
 ## Virtual machines
@@ -154,7 +154,7 @@ Neither the cache folder nor the metadata VHD has the necessary attributes for t
 Absolutely. Azure Backup provides VM-level backup for Azure VMs using the VM extension. To protect files and folders on the guest Windows OS, install the Azure Backup agent on the guest Windows OS.
 
 ### Can I install the Azure Backup agent on an Azure VM to back up files and folders present on temporary storage provided by the Azure VM? <br/>
-Yes. Install the Azure Backup agent on the guest Windows OS, and back up files and folders to temporary storage. Note that backups fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
+Yes. Install the Azure Backup agent on the guest Windows OS, and back up files and folders to temporary storage. Backup jobs fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
 
 ## Azure Backup Server and Data Protection Manager
@@ -175,23 +175,23 @@ To use Azure Backup with System Center Data Protection Manager (DPM), install DP
 Yes. The agent service converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the online backup service.
 
 ### If I cancel a backup job once it has started, is the transferred backup data deleted? <br/>
-No. All data transferred into the vault, before the backup job was cancelled, stays in the vault. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
+No. All data transferred into the vault, before the backup job was canceled, stays in the vault. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
 
 If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
 
-### Can I configure the Backup service to send e-mail if a backup job fails? <br/>
+### If a backup job fails, can I configure the Backup service to send e-mail? <br/>
 Yes, the Backup service has several event-based alerts that can be used with a PowerShell script. For a full description, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
 
 ### Are there limits on when or how many times a backup job can be scheduled?<br/>
 Yes. You can run backup jobs on Windows Server or Windows workstations up to three times/day. You can run backup jobs on System Center DPM up to twice a day. You can run a backup job for IaaS VMs once a day. You can use the scheduling policy for Windows Server or Windows workstation to specify daily or weekly schedules. Using System Center DPM, you can specify daily, weekly, monthly, and yearly schedules.
 
-### Why is the amount of data transferred in backup not equal to the amount of data I backed up?<br/>
+### Why is the size of the data transferred to the Recovery Services vault smaller than the data I backed up?<br/>
  All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
 
 
 ## What can I back up
 
-### Which operating systems does Azure Backup support? <br/>
+### Which operating systems do Azure Backup support? <br/>
 Azure Backup supports the following list of operating systems for backing up: files and folders, and workload applications protected using Azure Backup Server and System Center Data Protection Manager (DPM).
 
 | Operating System | Platform | SKU |
@@ -242,7 +242,7 @@ The following table explains how each data source size is determined.
 
 ## Incremental backup, retention policy, and recovery points
 
-### Is there a difference between the retention policy for DPM and Windows Server/client (i.e. on Windows Server without DPM)?<br/>
+### Is there a difference between the retention policy for DPM and Windows Server/client (that is, on Windows Server without DPM)?<br/>
 No, both DPM and Windows Server/client have daily, weekly, monthly, and yearly retention policies.
 
 ### Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly?<br/>
@@ -289,7 +289,7 @@ The key used to encrypt the backup data is present only on the customer premises
 
 
 
-## Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously? <br/>
+## I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
 This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
 
 
