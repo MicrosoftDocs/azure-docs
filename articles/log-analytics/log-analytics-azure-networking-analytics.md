@@ -19,15 +19,27 @@ ms.author: richrund
 ---
 # Azure networking monitoring solutions in Log Analytics
 
-You can use the Azure Application Gateway analytics solution in Log Analytics to review:
+Microsoft offers the following solutions for monitoring your networks:
+* Network Performance Monitor (NPM)
+ * Monitor the health of your network
+* Azure Application Gateway analytics to review
+ * Azure Application Gateway logs
+ * Azure Application Gateway metrics
+* Azure Network Security Group analytics to review
+ * Azure Network Security Group logs
 
-* Azure Application Gateway logs
-* Azure Application Gateway metrics
+All of the above solutions are based on Log Analytics.   
 
-You can use the Azure Network Security Group analytics solution in Log Analytics to review:
+## Network Performance Monitor (NPM)
+NPM is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
+* public cloud and on-premises 
+* data centers and user locations (branch offices)
+* subnets hosting various tiers of a multi-tiered application.
 
-* Azure Network Security Group logs
+ ![image of Network Performance Monitor](https://docs.microsoft.com/en-us/azure/log-analytics/media/log-analytics-network-performance-monitor/npm-topology.png)
+More information on NPM is available [online](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-network-performance-monitor).  [Announcement](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
 
+## Azure Application Gateway and Network Security Group analytics
 To use the solutions, enable diagnostics for Azure Application Gateway logs and Azure Network Security Groups and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
 You can enable diagnostics and the corresponding solution for either one or both of Application Gateway and Networking Security Groups.
