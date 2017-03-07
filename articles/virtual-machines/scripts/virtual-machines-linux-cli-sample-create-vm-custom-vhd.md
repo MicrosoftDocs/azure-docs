@@ -18,7 +18,7 @@ ms.date: 03/06/2017
 ms.author: allclark
 ---
 
-# Create a VM with a customer VHD
+# Create a VM with a custom VHD
 
 This example creates a virtual machine using a custom VHD.
 It creates a storage account and container,
