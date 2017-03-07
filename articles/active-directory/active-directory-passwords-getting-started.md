@@ -396,7 +396,7 @@ After you have enabled Password Writeback, you need to make sure the machine run
 
 In order for Password Writeback to function properly, the machine running Azure AD Connect needs to be able to establish outbound HTTPS connections to **.servicebus.windows.net* and specific IP address used by Azure, as defined in the [Microsoft Azure Datacenter IP Ranges list](https://www.microsoft.com/download/details.aspx?id=41653).
 
-For Azure AD Connect tool **1.1.439.0** (latest) and above:
+For Azure AD Connect tool **1.1.443.0** (latest) and above:
 
 - The latest version of the Azure AD Connect tool will need **outbound HTTPS** access to:
     - *passwordreset.microsoftonline.com*
