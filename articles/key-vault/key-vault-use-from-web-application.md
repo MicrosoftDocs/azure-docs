@@ -131,9 +131,8 @@ Another way to authenticate an Azure AD application is by using a Client ID and 
 4. Add a Certificate to your Web App
 
 **Get or Create a Certificate**
-For our purposes we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files to be created.
-
-    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
+For our purposes we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  Also, for the beginning and ending date of the certificate, use the current date plus 1 year.
+    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
     pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 Make note of the end date and the password for the .pfx (in this example: 07/31/2016 and test123). You will need them below.
@@ -146,12 +145,12 @@ Now that you have a certificate, you need to associate it with an Azure AD appli
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $x509.Import("C:\data\KVWebApp.cer")
     $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+
+    # If you used different dates for makecert then adjust these values
     $now = [System.DateTime]::Now
+    $yearfromnow = $now.AddYears(1)
 
-    # this is where the end date from the cert above is used
-    $yearfromnow = [System.DateTime]::Parse("2016-07-31")
-
-    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
 
     $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
