@@ -22,7 +22,7 @@ ms.custom: na
 
 # About this article
 
-This article contains frequently asked questions about scale sets.
+This article contains answers to frequently asked questions about scale sets.
 
 ## Compliance
 
