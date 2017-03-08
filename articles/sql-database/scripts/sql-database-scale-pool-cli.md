@@ -56,4 +56,4 @@ This script uses the following commands to create a resource group, logical serv
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](sql-database-cli-samples.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
