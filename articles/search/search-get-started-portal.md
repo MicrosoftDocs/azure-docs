@@ -22,7 +22,7 @@ ms.author: heidist
 
 In the Azure portal, start with a predefined sample dataset to quickly generate an index using the **Import data** wizard. Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
 
-This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tools are not a substitute for code, they are useful for these tasks:
+This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tools are not a substitute for code, tools are useful for these tasks:
 
 + Hands on learning with minimal ramp-up
 + Prototype an index before you write code in **Import data**
@@ -31,11 +31,13 @@ This code-free introduction gets you started with predefined data so that you ca
 
 **Time Estimate:** About 15 minutes, but longer if account or service sign-up is also required. 
 
-Alternatively, you can watch a 6-minute demonstration of the steps in this tutorial at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+Alternatively, ramp up using a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md).
 
 ## Prerequisites
 
 This tutorial assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md). 
+
+If you don't want to provision a service immediately, you can watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## Find your service
 1. Sign in to the [Azure portal](https://portal.azure.com).

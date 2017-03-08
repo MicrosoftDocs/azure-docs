@@ -26,7 +26,7 @@
 
 In this article, we're going to walk through a basic scenario of assigning product licenses to a group of users in Azure Active Directory (Azure AD), and then verifying that all members of the group are correctly licensed.
 
-In this example, the tenant contains a security group called *HR Department*. This group includes all members of the human resources department, which in this case is around 1,000 users. The administrator wants to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product needs to be temporarily disabled until a later time when the department is ready to start using it. The admin also wants to deploy Enterprise Mobility + Security licenses to the same group of users.
+In this example, the tenant contains a security group called *HR Department*. This group includes all members of the human resources department (in this case, around 1,000 users). The administrator wants to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product needs to be temporarily disabled until a later time when the department is ready to start using it. The admin also wants to deploy Enterprise Mobility + Security licenses to the same group of users.
 
 ## Step 1: Assign the required licenses
 
@@ -44,7 +44,7 @@ In this example, the tenant contains a security group called *HR Department*. Th
 
   ![Select a group](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. On the **Assign license** blade, click **Assignment options (optional)**, which displays all service plans for the two products that we selected previously. Find **Yammer Enterprise** and turn it **Off** to disable that service from the product license. Confirm by clicking **OK** at the bottom of **Assignment options**.
+6. On the **Assign license** blade, click **Assignment options (optional)**, which displays all service plans included in the two products that we selected previously. Find **Yammer Enterprise** and turn it **Off** to disable that service from the product license. Confirm by clicking **OK** at the bottom of **Assignment options**.
 
   ![Assignment options](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
@@ -61,11 +61,11 @@ We've now specified a license template for the HR Department group. A background
 
 1. Go to **Azure Active Directory** > **Users and groups** > **All groups**. Then find the *HR Department* group that licenses were assigned to.
 
-2. On the *HR Department* group blade, select **Licenses** to quickly confirm if licenses have been fully assigned to users, and if there are any errors that you need to look into. You can see details that include the following:
+2. On the *HR Department* group blade, select **Licenses** to quickly confirm if licenses have been fully assigned to users, and if there are any errors that you need to look into. The following information is available:
 
-  - Product licenses that have been assigned to the group. Select an entry to show the specific services that have been enabled and to make changes.
+  - List of product licenses that are currently assigned to the group. Select an entry to show the specific services that have been enabled and to make changes.
 
-  - Status of the latest changes that were made to the license assignment (if the changes are being processed or if processing has finished for all user members).
+  - Status of the latest license changes that were made to the group (if the changes are being processed or if processing has finished for all user members).
 
   - Information about users that are in an error state because licenses couldn't be assigned to them.
 
@@ -79,10 +79,8 @@ We've now specified a license template for the HR Department group. A background
 
 ## Step 3: Check for license problems and resolve them
 
-1. Go to **Azure Active Directory** > **Users and groups** > **All groups** and find the *HR Department* group that licenses were assigned to.
-
-2. On the **HR Department** group blade, select **Licenses**. The notification on top of the blade indicates that there are 10 users that licenses couldn't be assigned to. It opens a list of all users in a licensing error state for this group.
-
+1. Go to **Azure Active Directory** > **Users and groups** > **All groups**, and find the *HR Department* group that licenses were assigned to.
+2. On the **HR Department** group blade, select **Licenses**. The notification on top of the blade shows that there are 10 users that licenses couldn't be assigned to. Clicking it opens a list of all users in a licensing error state for this group.
 3. The **Failed assignments** column tells us that both product licenses couldn't be assigned to the users. **Top reason for failure** contains the cause of the failure. In this case, it's **Conflicting service plans**.
 
   ![Failed assignments](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
