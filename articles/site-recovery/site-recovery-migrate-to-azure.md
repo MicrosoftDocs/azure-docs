@@ -23,7 +23,7 @@ Read this article for an overview of using the Azure Site Recovery service for m
 
 Site Recovery is an Azure service that contributes to your BCDR strategy, by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Site Recovery?](site-recovery-overview.md) You can also use Site Recovery to migrate your existing on-premises workloads to Azure to expedite your cloud journey and avail the array of features that Azure offers.
 
-For a quick overview of how to perform migration, please refer to this [video]
+For a quick overview of how to perform migration, please refer to this video
 >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 This article describes deployment in the [Azure portal](https://portal.azure.com). The [Azure classic portal](https://manage.windowsazure.com/) can be used to maintain existing Site Recovery vaults, but you can't create new vaults.

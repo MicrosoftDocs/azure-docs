@@ -18,9 +18,9 @@
 ## Plan
 ### [Deployment prerequisites](site-recovery-prereq.md)
 ### [Network infrastructure considerations](site-recovery-network-design.md)
-### [Site Recovery capacity planner for Hyper-V replication](site-recovery-capacity-planner.md)
+### [Site Recovery Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
-### [Deployment planner for VMWare replication to Azure](site-recovery-deployment-planner.md)
+### [Deployment Planner for VMWare replication to Azure](site-recovery-deployment-planner.md)
 ## Configure
 ### [Set up the source replication](site-recovery-set-up-vmware-to-azure.md)
 ### [Configure replication settings](site-recovery-setup-replication-settings-vmware.md)
@@ -57,7 +57,7 @@
 ### [Edit replication settings](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md)
 ### [Manage process server in Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Manage the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md)
-### [Manage Scale out Process Server](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [Manage scale-out process server](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Manage VCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
