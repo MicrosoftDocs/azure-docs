@@ -53,7 +53,7 @@ The following key improvements and bug fixes have been made in Update 4.
 
 * **FIPS-related changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
 
-* **Update changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
+* **Update changes** - In this release, bugs related to update failures have been fixed.
 
 * **Alert for disk failures** - A new alert that warns the user of impending disk failures is added in this release.
 
