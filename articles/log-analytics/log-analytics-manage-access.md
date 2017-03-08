@@ -30,7 +30,7 @@ To create a workspace, you need to:
 ## Determine the number of workspaces you need
 A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
 
-You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to run queries across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to query across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
 
 Today, a workspace provides:
 
@@ -100,7 +100,7 @@ The following activities in the Log Analytics portal also require Azure permissi
 ### Managing access to Log Analytics using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
-If you have at least Azure read access permission on the Log Analytics workspace, you can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
+If you have at least Azure read permission on the Log Analytics workspace, you can open the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
 
 When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. If you do not have a role assignment in the Log Analytics portal, the service [checks the Azure permissions you have on the workspace](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). 
 Your role assignment in the Log Analytics portal is determined using as follows:
