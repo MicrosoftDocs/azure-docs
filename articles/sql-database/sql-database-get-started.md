@@ -1,6 +1,6 @@
 ---
 title: 'Azure portal: Create and query a single SQL database | Microsoft Docs'
-description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to query an Azure SQL database using the Azure portal.
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to query an Azure SQL database using the Azure portal and using SQL Server Management Studio.
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
@@ -15,41 +15,43 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/26/2017
+ms.date: 03/08/2017
 ms.author: carlrab
 
 ---
-# QuickStart: Create and query a single Azure SQL database in the Azure portal
+# Create a single Azure SQL database in the Azure portal and then query the SQL database
 
-Azure SQL databases can be created through the Azure portal. This quick start details the portal deployment experience.
+Azure SQL databases can be created through the Azure portal. This quick start details the portal deployment experience. You also use the [newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) to connect to and query the new SQL database.
 
 ## Create a database
 
 Follow these steps to create a database with sample data in a server and a resource group. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) and click the **New** button.
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Click the **New** button.
 
-2. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps screen.
+      ![new](./media/sql-database-get-started/new.png)
 
-3. Fill out the form with the required information (the server name must be globally unique). Click **Create** when complete:
+3. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps screen.
+
+4. Fill out the form with the required information (the **Server** name must be globally unique). 
 
       ![create sql database2](./media/sql-database-get-started/create-database2.png)
 
-4. After the deployment has started, the Azure portal will return to the Azure dashboard. From here, the deployment status can be monitored. Provisioning takes a few minutes. 
+5. Click **Create** when complete. Provisioning takes a few minutes.
+6. Once the SQL database deployment has finished, select the **SQL databases** icon in the left-hand section of the Azure dashboard and click your new database on the **SQL databases** page. THis opens the Azure dashboard page for your database, showing you the fully qualified server name (such us **newserver0308.database.windows.net**) and provides options for further configuration.
+
+      ![new sql database](./media/sql-database-get-started/sql-database.png) 
 
 ## Create a server-level firewall rule
 
 Follow these steps to create a server-level firewall rule for your IP address to enable external connectivity to the database and to its server. 
 
-1. Once the SQL database deployment has finished, select the **SQL databases** icon on the Azure dashboard and click the new database, such as **MySampleDB**. 
+1. Click **Set server firewall** on the toolbar for your database. This opens the **Firewall settings** page for the SQL Database server. 
 
-      ![new sql database](./media/sql-database-get-started/new-sql-database2.png)
+2. Click **Add client IP** on the toolbar and then click **Save**. This creates a server-level firewall rule for your current IP address.
 
-2. Click **Set server firewall** on the toolbar for your database to open Firewall settings page for the server on the Azure dashboard for your server. 
-
-3. Click **Add client IP** on the toolbar and then click **Save** to create a firewall rule for your current IP address.
-
-4. Click **OK** and then **close** the firewall blade.
+3. Click **OK** and then click the **X** to close the Firewall settings page. This returns you to the SQL database page for the next step.
 
 You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
 
@@ -57,19 +59,48 @@ You can now connect to the database and its server using SQL Server Management S
 
 Follow these steps to query the database on the Azure dashboard. 
 
-1. Click **Tools** on the toolbar for your database to open the query editor.
+1. Click **Tools** on the toolbar for your database. This opens the **Query editor** page.
 
 2. Click **Query editor (preview)**, click the preview checkbox, and then click **OK**. 
 
 3. Click **Login** and then, when prompted, select **SQL server authentication** and provide the server admin login and password, and click **OK**.
 
-4. After you are authenticated, type a query, such as the following query in the query window, and then click **Run**.
+4. After you are authenticated, type a query of your choice in the query window, such as the following query:
 
-   ```select * from sys.objects;```
+   ```
+   SELECT * FROM sys.objects;
+   ```
 
-5. Review the query results in the **Results** pane.
+5. Click **Run** and then review the query results in the **Results** pane.
 
     ![query editor results](./media/sql-database-get-started/query-editor-results.png)
+
+6. Click the **X** to close the Query editor page. This returns you to the SQL database page.
+
+## Query the database using SQL Server Management Studio
+
+Follow these steps to connect to your database using the [newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS).
+
+1. Open SSMS.
+2. In the **Connect to Server** dialog box, enter the appropriate information to connect to your SQL Database server using SQL Server Authentication. Enter your **Server name** in the form of **<server name).database.window.net**. 
+
+    ![ssms connect](./media/sql-database-get-started/ssms-connect.png)
+
+3. After you connect Object Explorer to your SQL Database server, expand **Databases** and then expand your new database. This opens a connection your database.
+
+   ![ssms object explorer](./media/sql-database-get-started/ssms-object-explorer.png)
+
+4. Click **New Query** on the toolbar. This opens a new query window connected to your SQL database instance.
+
+5. In the query window, type a query of your choice in the query window, such as the following query:
+
+   ```
+   SELECT * FROM sys.objects;
+   ```
+
+6. On the query window toolbar, click **Execute** and then review the query results in the **Results** pane.
+
+   ![ssms object explorer](./media/sql-database-get-started/query-results-ssms.png)
 
 ## Troubleshoot connectivity
 
@@ -84,8 +115,6 @@ The steps in this procedure show how to delete all resources created by this qui
 
 ## Next steps
 
-- To connect, query and manage your database and its server using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
-- To create a SQL database in an Azure SQL elastic pool, see the [Create an Azure SQL elastic pool and database in the Azure portal](sql-database-get-started-elastic-pool.md).
 - To connect using Visual Studio, see [Connect and query with Visual Studio](sql-database-connect-query.md)
 - For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
