@@ -51,7 +51,7 @@ Follow these steps to create a server-level firewall rule for your IP address to
 
 2. Click **Add client IP** on the toolbar and then click **Save**. This creates a server-level firewall rule for your current IP address.
 
-3. Click **OK** and then click the **X** to close the firewall settings page. This returns you to your SQL database page for the next step.
+3. Click **OK** and then click the **X** to close the Firewall settings page. This returns you to the SQL database page for the next step.
 
 You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
 
@@ -68,12 +68,39 @@ Follow these steps to query the database on the Azure dashboard.
 4. After you are authenticated, type a query of your choice in the query window, such as the following query.
 
    ```
-   select * from sys.objects;
+   SELECT * FROM sys.objects;
    ```
 
 5. Click **Run** and then review the query results in the **Results** pane.
 
     ![query editor results](./media/sql-database-get-started/query-editor-results.png)
+
+6. Click the **X** to close the Query editor page. This returns you to the SQL database page.
+
+## Query the database using SQL Server Management Studio
+
+Follow these steps to connect to your database using the [newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS).
+
+1. Open SSMS.
+2. In the **Connect to Server** dialog box, enter the appropriate information to connect to your SQL Database server using SQL Server Authentication. Enter your **Server name** in the form of **<server name).database.window.net**. 
+
+    ![ssms connect](./media/sql-database-get-started/ssms-connect.png)
+
+3. After you connect Object Explorer to your SQL Database server, expand **Databases** and then expand your new database. This opens a connection your database.
+
+   ![ssms object explorer](./media/sql-database-get-started/ssms-object-explorer.png)
+
+4. Click **New Query** on the toolbar. This opens a new query window connected to your SQL database instance.
+
+5. In the query window, type a query of your choice in the query window, such as the following query.
+
+   ```
+   SELECT * FROM sys.objects;
+   ```
+
+6. On the query window toolbar, click **Execute** and then review the query results in the **Results** pane.
+
+   ![ssms object explorer](./media/sql-database-get-started/query-results-ssms.png)
 
 ## Troubleshoot connectivity
 
