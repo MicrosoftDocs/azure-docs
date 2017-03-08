@@ -81,21 +81,9 @@ Ensure you have gone through the steps mentioned in the [Service Fabric Eclipse 
 * Since the Service Fabric libraries will be required by your Service Fabric Java application to be built successfully, the eclipse project needs to be created in a shared path. By default, the contents at the path on your host where the ``Vagrantfile`` exists, is shared with the ``/vagrant`` path on the guest.
 * So to put it simply, if you have the ``Vagrantfile`` in a path, say, ``~/home/john/allprojects/``, then you need to create the your service-fabric project ``MyActor`` in location ``~/home/john/allprojects/MyActor`` and the path to your eclipse workspace would be ``~/home/john/allprojects``.
 
-## Import and Deploy Github Java samples on Mac using Service Fabric Eclipse plugin
-
-The steps mentioned in the main [documentation](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse#import-and-deploy-github-java-samples-using-service-fabric-eclipse-plugin) regarding building and deploying GitHub samples using Service Fabric Eclipse plugin hold true here as well, with minor modifications as mentioned below.
-
-Few things we need to keep in mind here.
-  - As mentioned in the section above, you need to have your ``Vagrantfile`` to be present in a path parallel to the project you are deploying for sharing of library artifacts i.e. for example, if you are deploying ``VisualObjectActor``, then your vagrant environment should be up from the path `~/githubsamples/service-fabric-java-getting-started/Actors/`
-  - In the ``build.gradle`` files of your interface(for actors) and implementations (for both Services and Actors), where ever you see the path to out java library artifacts i.e. `/opt/microsoft/sdk/servicefabric/java/packages/lib/`, replace it with a path relative to your project and vagrant-environment - `${projectDir}/../../tmp/lib/`.
-  - In the root level ``build.gradle`` file, the tasks, which call the shell-scripts to connect, deploy or uninstall internally, you need the update the lines as follows -
-    - In `task deploy`, the line `commandLine '/bin/bash','Scripts/deploy.sh'` needs to be changed to: `commandLine '/bin/bash','Scripts/VagrantSSHCaller.sh','Scripts/deploy.sh'`
-    - Same holds true for tasks `upgrade`, `undeploy`, `clusterconnect`.
-
-
 ## Next steps
 <!-- Links -->
-* [Create and deploy your first Service Fabric Java application on Linux using yeoman](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
 * [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)

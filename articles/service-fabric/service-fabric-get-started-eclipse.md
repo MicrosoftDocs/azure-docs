@@ -59,7 +59,7 @@ If you already have the Service Fabric Eclipse plugin installed, make sure you a
 
     ![Service Fabric New Project Page 4][create-application/p4]
 
-5. When you create your first Service Fabric project, it will as if it would set the Service-fabric perspective, please select ``yes`` to continue.
+5. When you create your first Service Fabric project, it will ask if it would want to set the Service Fabric perspective, please select ``yes`` to continue.
 
     ![Service Fabric New Project Page 5][create-application/p5]
 
@@ -76,7 +76,7 @@ If you already have the Service Fabric Eclipse plugin installed, make sure you a
   Once you click on the options for build, rebuild, and clean, it will perform the intended actions.
   - ``Build Application`` will build the application without cleaning
   - ``Rebuild Application`` will do a clean-build of the application
-  - ``Clean Application`` will clean the application of the built artefacts
+  - ``Clean Application`` will clean the application of the built artifacts
 
 
 * You can choose to deploy, undeploy and publish your application too from this menu.
@@ -122,7 +122,7 @@ Let's assume that you have created the ``App1`` project using your the Service F
 
 Make the change to your application and rebuild the modified service.  Update the modified service’s manifest file (``ServiceManifest.xml``) with the updated versions for the service (and Code or Config or Data as appropriate). Also modify the application’s manifest (``ApplicationManifest.xml``) with the updated version number for the application, and the modified service.  
 
-### Using azure-cli commands
+### Using Azure CLI commands
 Now, assuming you are already connected to the cluster where you have installed your application and you are in the root directory of the project, copy and register your updated application using the following azure-cli commands:
 ```
  azure servicefabric application package copy App1Application fabric:ImageStore
@@ -143,15 +143,6 @@ To upgrade your application using Eclipse, you can create a duplicate run-config
 4. Now, you created and saved a run-configuration for upgrading your application, which you can ``Run`` when you want. This will take care of getting the latest updated application-type version from the application-manifest file.
 
 You can now monitor the application upgrade using Service Fabric Explorer. In a few minutes, the application would have been updated.
-
-
-## Import and Deploy GitHub Java Samples using Service Fabric Eclipse Plugin
-1. Clone the repository in your dev-box - ``https://github.com/Azure-Samples/service-fabric-java-getting-started.git``
-2. On your Eclipse, you need to make sure, Service Fabric Plugin installed.
-3. Create a new workspace.
-4. Open the ``Service Fabric`` Perspective. You can change your Eclipse perspective by following the path - ``Window => Perspective => Open Perspective => Other`` and select  ``Service Fabric`` from the list you see.
-5. To import the GitHub samples in Eclipse, you can go to ``File => Import => General => Existing Project into Workspace`` and select the path to say ``EchoServer1.0``, from your cloned GitHub samples.
-6. Now to build and deploy you can follow the steps mentioned above in the document [Build and deploy the Service Fabric application using Eclipse](#build-and-deploy-the-service-fabric-application-using-eclipse).
 
 > [!NOTE]
 > For more information about how to import and deploy these samples on mac, please refer to - [Import and deploy GitHub samples on mac using Service Fabric Eclipse Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#import-and-deploy-github-java-samples-on-mac-using-service-fabric-eclipse-plugin).

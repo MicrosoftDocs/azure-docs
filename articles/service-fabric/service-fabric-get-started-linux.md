@@ -145,7 +145,7 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 
 If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check if it can be updated any further be following - ``Help => Installation Details``. Then search for Service fabric in the list of installed plugin and click on update. If there is any pending update, it will be fetched and installed.
 
-For more details on how to use Service Fabric Eclipse Plugin to create, build, deploy, upgrade a Service Fabric java application, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+For more details on how to use Service Fabric Eclipse plugin to create, build, deploy, upgrade a Service Fabric java application, please refer to our detailed guide - [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
 
 ## Install the .NET Core SDK (optional)
 The .NET Core SDK provides the libraries and templates required to build Service Fabric services using cross-platform .NET Core.
@@ -174,7 +174,7 @@ To update to the latest version of the SDK and runtime, run the following steps 
 For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.
 
 ## Next steps
-* [Create and deploy your first Service Fabric Java application on Linux using yeoman](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
