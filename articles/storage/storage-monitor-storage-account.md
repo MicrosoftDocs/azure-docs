@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 03/09/2017
 ms.author: marsma
 
 ---
@@ -57,7 +57,7 @@ A default set of metrics is displayed in charts for each service. Once you've en
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
-> Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. How metrics are stored](storage-analytics.md#how-metrics-are-stored).
+> Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](storage-analytics.md#how-metrics-are-stored).
 >
 
 ## How to: Customize metrics charts
@@ -80,9 +80,9 @@ Use the following procedure to choose which storage metrics to view in a metrics
 
    ![Individual metric selection in Edit Chart blade](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
 
-> [NOTE!]
-> Your chart settings do not affect the collection, aggregation, or storage of monitoring data in the storage account, only the viewing of metrics data.
->
+   > [NOTE!]
+   > Your chart settings do not affect the collection, aggregation, or storage of monitoring data in the storage account, only the viewing of metrics data.
+   >
 
 ### Metrics availability in charts
 
