@@ -456,7 +456,8 @@ rxGetInfo(testDS)
 
 OK, we’re ready to build a model! To see the influence of weather data on delay in the arrival time we’ll use ScaleR’s logistic regression routine to model whether an arrival delay of greater than 15 minutes is influenced by relative date, departure and arrival airports, and the weather at the departure and arrival airports, etc.
 
-```logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
+```
+logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
 formula <- as.formula(ArrDel15 ~ Year + Month + DayofMonth + DayOfWeek + Carrier +
                      OriginAirportID + DestAirportID + CRSDepTime + CRSArrTime + 
                      RelativeHumidityOrigin + AltimeterOrigin + DryBulbCelsiusOrigin +
