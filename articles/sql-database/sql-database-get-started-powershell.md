@@ -40,7 +40,7 @@ Create a resource group with the [New-AzureRmResourceGroup](https://docs.microso
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "northcentralus"
 ```
-## Create a logical server in the resource group
+## Create a logical server
 
 Create a SQL Database logical server with the [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) command. The following example creates a randomly-named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
@@ -54,7 +54,7 @@ New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
-## Configure a firewall rule for the server
+## Configure a server firewall rule
 
 Create a SQL Database server-level firewall rule with the [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, and the entire possible range of IP address. Replace these predefined values with the values for your external IP address or IP address range. 
 
@@ -66,7 +66,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
 
-## Create a blank database in the server
+## Create a blank database
 
 Create a blank SQL database with an S0 performance level in the server with the [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase) command. The following example creates a database called `mySampleDatabase`. Replace this predefined value as desired.
 

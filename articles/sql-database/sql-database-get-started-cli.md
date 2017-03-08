@@ -40,7 +40,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 ```azurecli
 az group create --name myResourceGroup --location northcentralus
 ```
-## Create a logical server in the resource group
+## Create a logical server
 
 Create a logical server with the [az sql server create](/cli/azure/sql/server#create) command. The following example creates a randomly-named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
@@ -52,7 +52,7 @@ az sql server create --name $servername --resource-group myResourceGroup --locat
 	--administrator-login $adminlogin --administrator-login-password $password
 ```
 
-## Configure a firewall rule for the server
+## Configure a server firewall rule
 
 Create a server-level firewall rule with the [az sql server firewall create](/cli/azure/sql/server/firewall#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. The following example creates a firewall rule for a predefined address range, which, in this example, and the entire possible range of IP address. Replace these predefined values with the values for your external IP address or IP address range. 
 
