@@ -27,7 +27,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample Scripts
 
-[!code-powershell[main](../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Set up Active Geo-Replication for elastic pool")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Set up Active Geo-Replication for elastic pool")]
 
 ## Clean up deployment
 
