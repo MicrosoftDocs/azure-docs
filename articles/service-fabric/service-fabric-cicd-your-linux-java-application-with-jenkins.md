@@ -3,7 +3,7 @@ title: Continuous build and deploy for your Linux java application Linux using J
 description: Continuous build and deploy for your Linux java application Linux using Jenkins
 services: service-fabric
 documentationcenter: java
-author: saysa
+author: sayantancs
 manager: raunakp
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
-ms.author: saysa
+ms.author: sayantancs
 
 ---
 # Build and deploy your Linux Java application using Jenkins
