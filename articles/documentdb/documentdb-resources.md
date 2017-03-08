@@ -1,5 +1,5 @@
 ---
-title: DocumentDB hierarchical resource model and concepts | Microsoft Docs
+title: Azure DocumentDB resource model and concepts | Microsoft Docs
 description: Learn about DocumentDB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more.
 keywords: Hierarchical model, documentdb, azure, Microsoft azure
 services: documentdb
@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB hierarchical resource model and concepts
+# DocumentDB hierarchical resource model and core concepts
 The database entities that DocumentDB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers and status codes. 
 
 By reading this article, you'll be able to answer the following questions:

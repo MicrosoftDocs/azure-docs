@@ -64,7 +64,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 This code snippet creates a dependent task with task ID "Flowers". The "Flowers" task depends on tasks "Rain" and "Sun". Task "Flowers" will be scheduled to run on a compute node only after tasks "Rain" and "Sun" have completed successfully.
 
 > [!NOTE]
-> A task is considered to be completed when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
+> A task is considered to be completed successfully when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
 > 
 > 
 
