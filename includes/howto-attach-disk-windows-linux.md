@@ -17,7 +17,7 @@ Attaching an empty disk is a simple way to add a data disk, because Azure create
 
     Fill in the following information:
     - In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
-    - Select the **Type** of the data disk. All virtual machines support standard disks. Many virtual machines additionally support premium disks.
+    - Select the **Type** of the data disk. All virtual machines support standard disks. Many virtual machines also support premium disks.
     - Select the **Size (GB)** of the data disk.
     - For **Host caching**, choose none or Read Only.
     - Click OK to finish.
@@ -40,7 +40,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
     ![Attach data disk](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
 
-4. Click **Location**. The available storage accounts disiply. Next, select an appropriate storage account from those listed.
+4. Click **Location**. The available storage accounts display. Next, select an appropriate storage account from those listed.
 
     ![Provide disk storage account](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
 
