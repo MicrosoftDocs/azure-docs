@@ -39,7 +39,7 @@ Follow these steps to create a database with sample data in a server and a resou
       ![create sql database2](./media/sql-database-get-started/create-database2.png)
 
 5. Click **Create** when complete. Provisioning takes a few minutes.
-6. Once the SQL database deployment has finished, select the **SQL databases** icon in the left-hand section of the Azure dashboard and click your new database on the **SQL databases** page. THis opens the Azure dashboard page for your database, showing you the fully-qualified server name (such us **newserver0308.database.windows.net**) and a provides options for further configuration.
+6. Once the SQL database deployment has finished, select the **SQL databases** icon in the left-hand section of the Azure dashboard and click your new database on the **SQL databases** page. THis opens the Azure dashboard page for your database, showing you the fully qualified server name (such us **newserver0308.database.windows.net**) and provides options for further configuration.
 
       ![new sql database](./media/sql-database-get-started/sql-database.png) 
 
@@ -65,7 +65,7 @@ Follow these steps to query the database on the Azure dashboard.
 
 3. Click **Login** and then, when prompted, select **SQL server authentication** and provide the server admin login and password, and click **OK**.
 
-4. After you are authenticated, type a query of your choice in the query window, such as the following query.
+4. After you are authenticated, type a query of your choice in the query window, such as the following query:
 
    ```
    SELECT * FROM sys.objects;
@@ -92,7 +92,7 @@ Follow these steps to connect to your database using the [newest version of SQL 
 
 4. Click **New Query** on the toolbar. This opens a new query window connected to your SQL database instance.
 
-5. In the query window, type a query of your choice in the query window, such as the following query.
+5. In the query window, type a query of your choice in the query window, such as the following query:
 
    ```
    SELECT * FROM sys.objects;
