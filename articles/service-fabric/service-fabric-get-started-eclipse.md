@@ -122,19 +122,6 @@ Let's assume that you have created the ``App1`` project using your the Service F
 
 Make the change to your application and rebuild the modified service.  Update the modified service’s manifest file (``ServiceManifest.xml``) with the updated versions for the service (and Code or Config or Data as appropriate). Also modify the application’s manifest (``ApplicationManifest.xml``) with the updated version number for the application, and the modified service.  
 
-### Using Azure CLI commands
-Now, assuming you are already connected to the cluster where you have installed your application and you are in the root directory of the project, copy and register your updated application using the following azure-cli commands:
-```
- azure servicefabric application package copy App1Application fabric:ImageStore
- azure servicefabric application type register App1Application
-```
-Now, you can start the application upgrade with the following command:
-```
- azure servicefabric application upgrade start -–application-name fabric:/App1Application -–target-application-type-version 2.0  --rolling-upgrade-mode UnmonitoredAuto
-```
-For more details about how to use azure-cli from terminal, you can refer to our [azure-cli documentation](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-azure-cli#upgrading-your-application).
-
-
 ### Using Eclipse plugin for Service Fabric
 To upgrade your application using Eclipse, you can create a duplicate run-configuration, and use it to upgrade your application as and when you need, using the following steps -
 1. Choose ``Run => Run Configurations``. Click the small-arrow on the left of ``Grade Project`` in the left pane.
@@ -143,10 +130,6 @@ To upgrade your application using Eclipse, you can create a duplicate run-config
 4. Now, you created and saved a run-configuration for upgrading your application, which you can ``Run`` when you want. This will take care of getting the latest updated application-type version from the application-manifest file.
 
 You can now monitor the application upgrade using Service Fabric Explorer. In a few minutes, the application would have been updated.
-
-> [!NOTE]
-> For more information about how to import and deploy these samples on mac, please refer to - [Import and deploy GitHub samples on mac using Service Fabric Eclipse Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#import-and-deploy-github-java-samples-on-mac-using-service-fabric-eclipse-plugin).
->
 
 <!-- Images -->
 
