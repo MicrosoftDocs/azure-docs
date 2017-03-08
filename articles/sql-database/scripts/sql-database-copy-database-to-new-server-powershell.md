@@ -27,7 +27,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Copy a database to a new server
 
-[!code-powershell[main](../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1 "Copy database to new server")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1 "Copy database to new server")]
 
 ## Clean up deployment
 

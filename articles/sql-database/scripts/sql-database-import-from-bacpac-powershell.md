@@ -27,7 +27,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Scripts samples
 
-[!code-powershell[main](../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1 "Create SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1 "Create SQL Database")]
 
 ## Clean up deployment
 

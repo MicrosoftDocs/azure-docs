@@ -29,7 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Scripts samples
 
-[!code-azurecli[main](../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
+[!code-azurecli[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
 
 ## Clean up deployment
 

@@ -30,7 +30,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Scripts samples
 
-[!code-azurecli[main](../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
+[!code-azurecli[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
 ## Clean up deployment
 

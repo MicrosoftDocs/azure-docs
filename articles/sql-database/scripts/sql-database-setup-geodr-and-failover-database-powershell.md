@@ -27,7 +27,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Sample Scripts
 
-[!code-powershell[main](../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1 "Set up Active Geo-Replication for single database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1 "Set up Active Geo-Replication for single database")]
 
 ## Clean up deployment
 

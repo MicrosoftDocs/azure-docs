@@ -29,7 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Scripts samples
 
-[!code-azurecli[main](../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
+[!code-azurecli[main](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
 
 ## Clean up deployment
 

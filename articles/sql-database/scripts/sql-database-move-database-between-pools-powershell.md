@@ -27,7 +27,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Scripts samples
 
-[!code-powershell[main](../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1 "Move database between pools")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1 "Move database between pools")]
 
 ## Clean up deployment
 
