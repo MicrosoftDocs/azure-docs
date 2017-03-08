@@ -20,7 +20,11 @@
 | Max number of files in a file share |Only limit is the 5 TB total capacity of the file share |
 | Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account |Only limit is the 500 TB storage account capacity |
 | Max number of stored access policies per container, file share, table, or queue |5 |
-| Total Request Rate (assuming 1 KB object size) per storage account |Up to 20,000 IOPS, entities per second, or messages per second |
+| Maximum Request Rate per storage account |
+20,000 requests per second for block blobs, page blobs, and append blobs of any valid size (capped only by the account's ingress/egress limits)
+<br>1000 IOPS (8 KB in size) per file share
+<br>20,000 messages per second for queues (assuming 1 KB message size)
+20,000 transactions per second for tables (assuming 1 KB entity size) |
 | Target throughput for single blob |Up to 60 MB per second, or up to 500 requests per second |
 | Target throughput for single queue (1 KB messages) |Up to 2000 messages per second |
 | Target throughput for single table partition (1 KB entities) |Up to 2000 entities per second |
