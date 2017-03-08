@@ -62,7 +62,9 @@ While obtaining a subscription is all you need to configure paid capabilities, u
 assigned a license. A license assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise
 Mobility Suite.
 
-Managing which users in your directory should have a license is simple. It can be accomplished by assigning licenses to groups in Azure portal or by assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. When assigning licenses to a group, all group members will be assigned a license. If users are added or removed from the group they will be assigned or removed the appropriate license. Group assignment can utilize any group management available to you and is consistent with group-based assignment to applications. Using this approach, you can set up rules such that all users in your directory are automatically assigned, ensure that everyone with the appropriate job title has a license or even delegate the decision to other managers in the organization. For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, please see this article.???
+Managing which users in your directory should have a license is simple. It can be accomplished by assigning licenses to groups in Azure portal or by assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. When assigning licenses to a group, all group members will be assigned a license. If users are added or removed from the group they will be assigned or removed the appropriate license. Group assignment can utilize any group management available to you and is consistent with group-based assignment to applications. Using this approach, you can set up rules such that all users in your directory are automatically assigned, ensure that everyone with the appropriate job title has a license or even delegate the decision to other managers in the organization. 
+
+For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, please see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
 ## Getting started with Azure AD licensing
 
@@ -156,5 +158,6 @@ Now you might be ready to configure and use some Azure AD Premium features.
 * [Self-service group management](active-directory-accessmanagement-self-service-group-management.md)
 * [Azure AD Connect heath](active-directory-aadconnect-health.md)
 * [Group assignment to applications](active-directory-manage-groups.md)
+* [Assinging licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Direct purchase of Azure AD Premium licenses](http://aka.ms/buyaadp)

@@ -99,8 +99,8 @@ Let's see just requests that returned a particular result code:
 The `where` operator takes a Boolean expression. Here are some key points about them:
 
 * `and`, `or`: Boolean operators
-* `==`, `<>` : equal and not equal
-* `=~`, `!=` : case-insensitive string equal and not equal. There are lots more string comparison operators.
+* `==`, `<>`, `!=` : equal and not equal
+* `=~`, `!~` : case-insensitive string equal and not equal. There are lots more string comparison operators.
 
 Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
 
