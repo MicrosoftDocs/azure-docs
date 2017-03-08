@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/07/2017
+ms.date: 03/09/2017
 ms.author: banders
 
 ---
@@ -30,7 +30,7 @@ To create a workspace, you need to:
 ## Determine the number of workspaces you need
 A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
 
-You can have multiple workspaces per Azure subscription and a user can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to run queries across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription and a you can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to run queries across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
 
 Today, a workspace provides:
 
@@ -66,7 +66,7 @@ You can view details about your workspace in the Azure portal. You can also view
 
 
 ## Manage accounts and users
-Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple workspaces.
+Each workspace can have multiple accounts associated with it, and each account (Microsoft account or Organizational account) can have access to multiple workspaces.
 
 By default, the Microsoft account or Organizational account that creates the workspace becomes the Administrator of the workspace.
 
@@ -94,7 +94,7 @@ The following activities in the Log Analytics portal also require Azure permissi
 | Action                                                          | Azure Permissions Needed | Notes |
 |-----------------------------------------------------------------|--------------------------|-------|
 | Adding and removing management solutions                        | Resource Group write <br> Microsoft.OperationalInsights/\* <br> Microsoft.OperationsManagement/\* <br> Microsoft.Automation/\* <br> Microsoft.Resources/deployments/\*/write | |
-| Changing the pricing tier                                       | Microsoft.OperationalInsights/workspaces/write | |
+| Changing the pricing tier                                       | Microsoft.OperationalInsights/workspaces/\*/write | |
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
  
 ### Managing access to Log Analytics using Azure permissions
@@ -108,8 +108,8 @@ Your role assignment in the Log Analytics portal is determined using as follows:
 | Conditions                                                   | Log Analytics user role assigned | Notes |
 |--------------------------------------------------------------|----------------------------------|-------|
 | Your account belongs to a legacy Log Analytics user role     | The specified Log Analytics user role | |
-| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (Microsoft.OperationalInsights/workspaces\* permission) | Administrator ||
-| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (Microsoft.OperationalInsights/worksapces\*) <br> *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write | Contributor ||
+| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (\* or Microsoft.OperationalInsights/workspaces/\* permission) | Administrator ||
+| Your account does not belong to a legacy Log Analytics user role <br> Full Azure permissions to the workspace (\* or Microsoft.OperationalInsights/workspaces/\*) <br> *not actions* of Microsoft.Authorization/\*/Delete and Microsoft.Authorization/\*/Write | Contributor ||
 | Your account does not belong to a legacy Log Analytics user role <br> Azure read permission | Read Only ||
 | Your account does not belong to a legacy Log Analytics user role <br> Azure permissions are not understood | Read Only ||
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is in the Azure Active Directory linked to the workspace | Administrator | Typically the customer of a CSP |
@@ -139,11 +139,11 @@ Use the following steps to add a user or group to a workspace.
 3. In the **Manage Users** section, choose the account type to add: **Organizational Account**, **Microsoft Account**, **Microsoft Support**.
 
    * If you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
-   * If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of matching users and groups appears in a dropdown box. Select a user or group.
+   * If you choose Organizational Account, enter part of the user / group’s name or email alias and a list of matching users and groups appears in a dropdown box. Select a user or group.
    * Use Microsoft Support to give a Microsoft Support engineer or other Microsoft employee temporary access to your workspace to help with troubleshooting.
 
      > [!NOTE]
-     > For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
+     > For the best performance, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
      >
      >
 4. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User**.  
@@ -179,7 +179,7 @@ Use the following steps to remove a user from a workspace. Removing the user doe
 4. In the confirmation dialog box, click **Yes**.
 
 ### Add a group to an existing workspace
-1. Follow steps 1 -4 in “To add a user to an existing workspace”, above.
+1. In the preceding section “To add a user to an existing workspace”, follow steps 1 - 4.
 2. Under **Choose User/Group**, select **Group**.  
    ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
 3. Enter the Display Name or Email address for the group you’d like to add.
@@ -229,7 +229,7 @@ There are three workspace plan types for OMS: **Free**, **Standalone**, and **OM
 ### Using entitlements from an OMS subscription
 To use the entitlements that come from purchasing OMS E1, OMS E2 OMS or OMS Add-On for System Center, choose the *OMS* plan of OMS Log Analytics.
 
-When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can use the entitlements. This allows you, for example, to have multiple workspaces that use the entitlement from the OMS subscriptions.
+When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can use the entitlements. All workspaces on these subscription will use the OMS entitlements.
 
 To ensure that usage of a workspace is applied to your entitlements from the OMS subscription, you need to:
 
@@ -248,7 +248,7 @@ If you need to change the Azure subscription that your workspace is linked to, y
 ### Using Azure Commitment from an Enterprise Agreement
 If you do not have an OMS subscription, you pay for each component of OMS separately and the usage appears on your Azure bill.
 
-If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit against any remaining monetary commit.
+If you have Azure monetary commitment on the enterprise enrollment to which your Azure subscriptions are linked, usage of Log Analytics will automatically debit against the remaining monetary commit.
 
 If you need to change the Azure subscription that the workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
@@ -269,7 +269,7 @@ If you need to change the Azure subscription that the workspace is linked to, yo
 
 ### Change a workspace to a paid pricing tier in the OMS portal
 
-To change the pricing tier using the OMS portal, the signed-in user must already have an Azure account.
+To change the pricing tier using the OMS portal, the you must have an Azure subscription.
 
 1. In the OMS portal, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
