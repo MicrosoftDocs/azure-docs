@@ -30,7 +30,7 @@ There are two ways to create formulas:
 * From a base - Use when you want to define all the characteristics of the formula.
 * From an existing lab VM - Use when you want to create a formula based on the settings of an existing VM.
 
-For more information about adding users and permissions, see [Add owners and users in Azure DevTest Labs](./devtest-lab/devtest-lab-add-devtest-user.md).
+For more information about adding users and permissions, see [Add owners and users in Azure DevTest Labs](./devtest-lab-add-devtest-user.md).
 
 ### Create a formula from a base
 The following steps guide you through the process of creating a formula from a custom image, Marketplace image, or another formula.
@@ -61,7 +61,7 @@ The following steps guide you through the process of creating a formula from a c
 	* **Password** - Enter - or select from the dropdown - a value that is associated with the secret (password) that you want to use for the specified user. For more information about the secrets, see [Azure DevTest Labs: Personal secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
 	* **Virtual machine disk type** - Specify either HDD (hard-disk drive) or SSD (solid-state drive) to indicate which storage disk type is allowed for the virtual machines provisioned using this base image.
 	* ** Virtual machine size** - Select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create. 
-	* **Artifacts** - Select to open the **Add artifacts** blade, in which you select and configure the artifacts that you want to add to the base image. For more information about artifacts, see [Manage VM artifacts in Azure DevTest Labs](./devtest-lab\devtest-lab-add-vm-with-artifacts.md).
+	* **Artifacts** - Select to open the **Add artifacts** blade, in which you select and configure the artifacts that you want to add to the base image. For more information about artifacts, see [Manage VM artifacts in Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
 	* **Advanced settings** - Select to open the **Advanced** blade where you configure the following settings:
 		* **Virtual network** - Specify the desired virtual network.
 		* **Subnet** - Specify the desired subnet.    
