@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script configures SQL Database auditing and threat detection. 
 
-Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
+Before running this script, ensure that a connection with Azure has been created using the [Add-AzureRmAccount](/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount.md).  
 
 ## Configure auditing and threat detection
 
