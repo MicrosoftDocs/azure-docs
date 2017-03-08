@@ -29,10 +29,10 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to sign up for Azure.
 2. Click **New**(or the + button if collapsed) and in the **Search the marketplace** field enter "Azure Active Directory B2C".
    
-    ![Screen shot of finding the Azure AD B2C option](./media/active-directory-b2c-get-started/Find-Azure-AD-B2C.png)
+    ![Screen shot of finding the Azure AD B2C option](./media/active-directory-b2c-get-started/find-azure-ad-b2c.png)
 3. In the result, click on **Azure Active Directory B2C**
 
-    ![Screen shot of result for Azure Active Directory B2C](./media/active-directory-b2c-get-started/Find-Azure-AD-B2C-result.png)
+    ![Screen shot of result for Azure Active Directory B2C](./media/active-directory-b2c-get-started/find-azure-ad-b2c-result.png)
 4. You'll be shown a page with the details on B2C.  Click **Create** at the bottom to start configuring your new Azure Active Directory B2C tenant.
 5. Click **Create a new Azure AD B2C Tenant**.
 6. Choose the **Organization name, Domain name, and Country or Region** for your tenant.
@@ -51,13 +51,13 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
 1. Expand **More services** below the navigation bar on the left side.
 2. Search for **Azure AD B2C** and click on the result (You can favorite this for easy access in the future).
 
-    ![Screen shot of searching in the navigation pane for Azure AD B2C](./media/active-directory-b2c-get-started/Navigate-to-Azure-AD-B2C.png)
+    ![Screen shot of searching in the navigation pane for Azure AD B2C](./media/active-directory-b2c-get-started/navigate-to-azure-ad-b2c.png)
 
 3. The Azure portal with the B2C features blade showing will open in a new browser tab or window.
    
 4. Pin this blade to your Startboard for easy access. (The Pin tool is in the upper-right corner of the features blade.)
    
-    ![Screen shot of the B2C features blade and pin button](./media/active-directory-b2c-get-started/B2C-Pin-Tenant.png)
+    ![Screen shot of the B2C features blade and pin button](./media/active-directory-b2c-get-started/b2c-pin-tenant.png)
 
 ## Step 4: Link your Azure AD B2C tenant to your Azure subscription
 If you are planning to use your B2C tenant for production apps, you will need to link your Azure AD B2C tenant to your Azure subscription to pay for usage charges. Read [this article](active-directory-b2c-how-to-enable-billing.md) to learn how to do this.
