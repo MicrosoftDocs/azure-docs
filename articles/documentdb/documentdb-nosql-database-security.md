@@ -1,5 +1,5 @@
 ---
-title: NoSQL Database Security - Azure DocumentDB | Microsoft Docs
+title: NoSQL database security - Azure DocumentDB | Microsoft Docs
 description: Learn how Azure DocumentDB provides database protection and data security for your NoSQL data.
 keywords: nosql database security, information security, data security, database encryption, database protection, security policies, security testing
 services: documentdb
@@ -14,12 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/08/2017
 ms.author: mimig
 
 ---
 
-# Azure DocumentDB: NoSQL database security
+# DocumentDB: NoSQL database security
 
  This article discusses NoSQL database security best practices and key features offered by Azure DocumentDB to help you prevent, detect, and respond to database breaches.
 
@@ -80,6 +80,6 @@ Let's dig into each one in detail.
 
 ## Next steps
 
-For more details about master keys and resource tokens, see [Securing access to DocumentDB data](documentdb-secure=access-to-data.md).
+For more details about master keys and resource tokens, see [Securing access to DocumentDB data](documentdb-secure-access-to-data.md).
 
 For more details about Microsoft certifications, see [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/).
