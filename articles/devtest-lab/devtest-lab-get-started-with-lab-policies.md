@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 03/07/2017
 ms.author: tarcher
 
 ---
 
 # Manage basic policies for a lab in Azure DevTest Labs
 
-Azure DevTest Labs enables you control cost and minimize waste in your labs by managing policies (settings) for each lab. In this article, you get started with policies by learning how to set two of the most critical policies - limiting the number of VMs that can be created by a single user, and configuring auto-shutdown. To view how to set every lab policy, see the article, [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+Azure DevTest Labs enables you control cost and minimize waste in your labs by managing policies (settings) for each lab. In this article, you get started with policies by learning how to set two of the most critical policies - limiting the number of VMs that can be created or claimed by a single user, and configuring auto-shutdown. To view how to set every lab policy, see the article, [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
 ## Accessing a lab's policies in Azure DevTest Labs
 The following steps guide you through setting up policies for a lab in Azure DevTest Labs:
@@ -37,18 +37,18 @@ To view (and change) the policies for a lab, follow these steps:
    
     To learn more about setting a policy, select it from the following list:
    
-   * [Virtual machines per user](#set-virtual-machines-per-user) - Specify the maximum number of VMs that can be created by a user. 
+   * [Virtual machines per user](#set-virtual-machines-per-user) - Specify the maximum number of VMs that can be created or claimed by a user. 
    * [Auto-shutdown](#set-auto-shutdown) - Specify the time when the current lab's VMs automatically shut down.
 
 ## Set virtual machines per user
 The policy for **Virtual machines per user** allows you to specify the maximum number of VMs that can be created by an individual user. 
-If a user attempts to create a VM when the user limit has been met, an error message indicates that the VM cannot be created. 
+If a user attempts to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
 
 1. On the lab's **Policy settings** blade, select **Virtual machines per user**.
    
     ![Virtual machines per user](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 2. Select **On** to enable this policy, and **Off** to disable it.
-3. If you enable this policy, enter a numeric value indicating the maximum number of VMs that can be created by a user. 
+3. If you enable this policy, enter a numeric value indicating the maximum number of VMs that can be created or claimed by a user. 
    If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
 4. Select **Save**.
 
