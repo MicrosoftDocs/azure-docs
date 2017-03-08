@@ -35,6 +35,7 @@ This topic is the home for information on Federation related functionalities for
 | [Adding a new AD FS server](active-directory-aadconnect-federation-management.md#addadfsserver) |Expanding AD FS farm with additional AD FS server post initial installation |
 | [Adding a new AD FS WAP server](active-directory-aadconnect-federation-management.md#addwapserver) |Expanding AD FS farm with additional WAP server post initial installation |
 | [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain) |Add another domain to be federated with Azure AD |
+| [Update the SSL certificate](active-directory-aadconnectfed-ssl-update.md)| Update the SSL certificate for an Active Directory Federation Services (AD FS) farm|
 | **Post installation tasks** | |
 | [Add custom company logo / illustration](active-directory-aadconnect-federation-management.md#customlogo) |Modify the sign-in experience by specifying the custom logo that will be shown on the AD FS sign-in page |
 | [Add sign-in description](active-directory-aadconnect-federation-management.md#addsignindescription) |Changing sign-in description on the AD FS sign-in page |
