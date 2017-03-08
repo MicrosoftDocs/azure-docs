@@ -46,7 +46,7 @@ In the interim, we have [provided a script](https://blogs.msdn.microsoft.com/azu
 
 **Long Answer** - Although the Large Virtual Scale Sets (VMSS) allow you to scale a VMSS upto 1000 VM instances, it does so by the use of Placement Groups (PGs). Fault domains (FDs) and upgrade domains (UDs) are only consistent within a placement group Service fabric uses FDs and UDs to make placement decisions of your service replicas/Service instances. Since the FDs  and UDs are comparable only within a placement group SF cannot use it. For example, If VM1 in PG1 has a topology of FD=0 and VM9 in PG2 has a topology of FD=4 , it does not mean that VM1 and VM2 are on two different Hardware Racks, hence SF cannot use the FD values in this case to make placement decisions.
 
-There are other issues with Large VMSS currently, like the lack of level-4 Load balancing support. Refer to for [details on Large VMSS](./virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+There are other issues with Large VMSS currently, like the lack of level-4 Load balancing support. Refer to for [details on Large VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
