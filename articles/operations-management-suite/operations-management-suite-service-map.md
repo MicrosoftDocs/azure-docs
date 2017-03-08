@@ -63,11 +63,11 @@ Certain processes serve particular roles on machines: web servers, application s
 
 | Role Icon | Description |
 |:--|:--|
-| ![Web server](media/oms-service-map/Web_server.png) | Web Server |
-| ![App server](media/oms-service-map/application_server.png) | Application Server |
-| ![Database server](media/oms-service-map/Database.png) | Database Server |
-| ![LDAP server](media/oms-service-map/LDAP.png) | LDAP Server |
-| ![SMB server](media/oms-service-map/SMB.png) | SMB Server |
+| ![Web server](media/oms-service-map/web-server.png) | Web Server |
+| ![App server](media/oms-service-map/application-server.png) | Application Server |
+| ![Database server](media/oms-service-map/database.png) | Database Server |
+| ![LDAP server](media/oms-service-map/ldap.png) | LDAP Server |
+| ![SMB server](media/oms-service-map/smb.png) | SMB Server |
 
 ![Role icons](media/oms-service-map/role-icons.png)
 
