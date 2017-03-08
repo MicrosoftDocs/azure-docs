@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/06/2017
+ms.date: 03/07/2017
 ms.author: nepeters
 ---
 
@@ -26,33 +26,41 @@ Before you start, you need both a private and public SSH key. For detailed infor
 
 ## Create virtual machine
 
-1. Log in to the [Azure portal](http://portal.azure.com), and click the **New** button.
+1. Log in to the [Azure portal](http://portal.azure.com).
 
-2. Select **Compute** from the Marketplace screen, select **Ubuntu Server 16.04 LTS** from the featured apps screen, and then click the **Create** button.
+2. Click on the **New** button found on the upper left hand coroner of the Azure portal.
 
-3. Fill out the virtual machine **basics** form. For **Authentication type**, SSH is recommended. When pasting in your SSH public key, take care to remove any leading and trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed.
+3. Select **Compute** from the Marketplace screen, select **Ubuntu Server 16.04 LTS** from the featured apps screen, and then click the **Create** button.
+
+4. Fill out the virtual machine **basics** form. For **Authentication type**, SSH is recommended. When pasting in your SSH public key, take care to remove any leading and trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed.
 
     ![Enter basic information about your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
 
-4. Choose a size for the VM and click **Select**. 
+5. Choose a size for the VM and click **Select**. 
 
     ![Select a size for your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-size-blade.png)
 
-5. On the settings pane, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
+6. On the settings pane, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
-6. On the summary page, click **Ok** to start the virtual machine deployment.
+7. On the summary page, click **Ok** to start the virtual machine deployment.
 
 ## Connect to virtual machine
 
-After the VM deployment has finished, select the VM icon on the Azure dashboard and click the **Connect** button. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
+After the deployment has completed, create an SSH connection with the virtual machine.
 
-![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
+1. Click on the virtual machine. The VM can be found on the home screen of the Azure portal, or by selecting **Virtual Machines** from the left-hand menu.
 
-Use the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
+2. Click on the **connect** button. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
+
+    ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
+
+3. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
 
 ```bash 
 ssh <replace with IP address>
 ```
+
+You have now created a virtual machine and created an SSH connection with it. To continue learning about using Azure virtual machines, see the Next steps section of this article.
 
 ## Delete virtual machine
 
