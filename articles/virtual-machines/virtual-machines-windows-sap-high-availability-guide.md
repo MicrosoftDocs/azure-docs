@@ -1237,7 +1237,7 @@ Configuring a cluster file share witness involves these tasks:
 
   _**Figure 38:** Confirmation that you've reconfigured the cluster_
 
-After installing the Windows Failover Cluster successfully, changes need to be made to some thresholds to ada[t failover detection to conditions in Azure. The parameters to be changed are docuemnted in this blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Assuming that your two VMs that build the Windows Cluster Configuration for ASCS/SCS are in the same SubNet, the following parameters need to be changed to these values:
+After installing the Windows Failover Cluster successfully, changes need to be made to some thresholds to adapt failover detection to conditions in Azure. The parameters to be changed are documented in this blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Assuming that your two VMs that build the Windows Cluster Configuration for ASCS/SCS are in the same SubNet, the following parameters need to be changed to these values:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
