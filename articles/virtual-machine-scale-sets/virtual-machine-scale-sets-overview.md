@@ -41,7 +41,7 @@ There is a button that links to the portal deployment feature in the detail page
 [VM scale set Template Dissection](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## Scaling a scale set out and in
-To increase or decrease the number of virtual machines in a scale set, change the *capacity* property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale. You can also change the capacity of a scale set in the Azure portal by clicking the _Scaling_ section under _Settings_, or use the [Azure CLI](../cli/azure/overview.md) command _az vmss scale_. 
+To increase or decrease the number of virtual machines in a scale set, change the *capacity* property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale. You can also change the capacity of a scale set in the Azure portal by clicking the _Scaling_ section under _Settings_, or use the [Azure CLI](https://github.com/Azure/azure-cli) command _az vmss scale_. 
 
 If you are redeploying an Azure Resource Manager template to change the capacity, you could define a much smaller template, which only includes the 'SKU' property packet with the updated capacity. An example is shown [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
