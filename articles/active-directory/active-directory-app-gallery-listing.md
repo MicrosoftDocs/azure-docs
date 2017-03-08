@@ -22,7 +22,7 @@ To list an application that supports single sign-on with Azure Active Directory 
 
 [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](develop/active-directory-devhowto-multi-tenant-overview.md)
 
-Single sign on may be implemented using any of the supported federation protocols, including OAuth2, OpenID Connect, SAML, or WS-Federation. The app must also support [user consent]((active-directory-integrating-applications.md#overview-of-the-consent-framework) as the means to connect the app to other instances of Azure AD.
+Single sign on may be implemented using any of the supported federation protocols, including OAuth2, OpenID Connect, SAML, or WS-Federation. The app must also support [user consent](active-directory-integrating-applications.md#overview-of-the-consent-framework) as the means to connect the app to other instances of Azure AD.
 
 Once you app is ready to be used and tested by users with their own instances of Azure Active Directory, please complete the questions below and send to waadpartners@microsoft.com.
 
