@@ -48,10 +48,10 @@ On your federation server, open a Windows PowerShell command window and type:
 
 Where <RPObjectName> is the relying party object name for your Azure Active Directory relying party trust object. This object is typically named Microsoft Office 365 Identity Platform.
 
-## AD FS Global Authentication Policy
+## AD FS global authentication policy
 Configure the AD FS Global Primary Authentication Policy to allow Windows Integrated Authentication for the Intranet (this is the default).
 
-## Internet Explorer Configuration
+## Internet Explorer configuration
 Configure the following settings on Internet Explorer on your Windows devices for the Local intranet security zone:
 
 * Don’t prompt for client certificate selection when only one certificate exists:  **Enable**
@@ -60,10 +60,10 @@ Configure the following settings on Internet Explorer on your Windows devices fo
 
 These are the default settings for the Internet Explorer Local intranet security zone. You can view or manage these settings in Internet Explorer by navigating to **Internet Options** > **Security** > Local intranet > Custom level. You can also configure these settings using Active Directory Group Policy.
 
-## Network Connectivity
+## Network connectivity
 Domain joined Windows devices must have connectivity to AD FS and an Active Directory Domain Controller to automatically register with Azure AD. This typically means the machine must be connected to the corporate network. This can include a wired connection, a Wi-Fi connection, DirectAccess, or VPN.
 
-## Configure Azure Active Directory Device Registration discovery
+## Configure Azure Active Directory device registration discovery
 Windows 7 and Windows 8.1 devices will discover the Device Registration Server by combining the user account name with a well-known Device Registration server name. You must create a DNS CNAME record that points to the A record associated with your Azure Active Directory Device Registration Service. The CNAME record must use the well-known prefix **enterpriseregistration** followed by the UPN suffix used by the user accounts at your organization. If your organization uses multiple UPN suffixes, multiple CNAME records must be created in DNS.
 
 For example, if you use two UPN suffixes at your organization named @contoso.com and @region.contoso.com, you will create the following DNS records.
@@ -73,19 +73,21 @@ For example, if you use two UPN suffixes at your organization named @contoso.com
 | enterpriseregistration.contoso.com |CNAME |enterpriseregistration.windows.net |
 | enterpriseregistration.region.contoso.com |CNAME |enterpriseregistration.windows.net |
 
-## Configure Automatic Device Registration for Windows 7 and Windows 8.1 domain joined devices
+## Configure automatic device registration for Windows 7 and Windows 8.1 domain joined devices
 Configure Automatic Device Registration for your Windows 7 and Windows 8.1 domain joined devices using the links below. Be sure that you have completed the prerequisites above before you continue.
 
 * [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 
-## Additional Notes
+## Additional notes
 Device registration with Azure AD provides the broadest set of device capabilities. With Azure AD Device Registration, you can register both personal (BYOD) mobile devices and company owned, domain joined devices. The devices can be used with both hosted services such as Office365 and services managed on-premises with AD FS.
 
 Companies that use both mobile and traditional devices or that use Office365, Azure AD, or other Microsoft services should register devices in Azure AD using the Azure AD Device Registration service.If your company does not use mobile devices and does not use any Microsoft services such as Office365, Azure AD, or Microsoft Intune and instead hosts only on-premises applications, you can choose to register devices in Active Directory using AD FS.
 
 You can learn more about deploying device registration with AD FS [here](https://technet.microsoft.com/library/dn486831.aspx).
 
-## Additional topics
+## Next steps
+
 * [Azure Active Directory Device Registration overview](active-directory-device-registration-get-started.md)
+
 * [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 

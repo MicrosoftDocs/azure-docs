@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/04/2017
+ms.date: 03/09/2017
 ms.author: markvi
 
 ---
@@ -45,11 +45,11 @@ to use AD FS with Windows Server 2012 R2. For more information about setting up 
 
 To setup device registration, you have multiple options:
 
-1.	Devices can register when joined to Azure AD domain. For more on this topic, you can Learn more about Azure AD Join and the settings required for users to join Azure AD domain.
+- Devices can register when joined to Azure AD domain. For more on this topic, you can Learn more about Azure AD Join and the settings required for users to join Azure AD domain.
 
-2.	Devices can be registered when users add work or school accounts to Windows on a personal device or when mobile devices connect to a work resources requiring registration. To ensure this, you must enable Azure AD Device Registration in the Azure Portal. 
+- Devices can be registered when users add work or school accounts to Windows on a personal device or when mobile devices connect to a work resources requiring registration. To ensure this, you must enable Azure AD Device Registration in the Azure Portal. 
 
-3.	Devices can be registered using automatic device registration for traditional domain-joined machines. To ensure this, you must first Setup Azure AD Connect before you continue with automatic device registration.
+- Devices can be registered using automatic device registration for traditional domain-joined machines. To ensure this, you must first Setup Azure AD Connect before you continue with automatic device registration.
 
 For latest instructions, see [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).  
 You can also review and enable or disable registered devices using the Administrator Portal in Azure Active Directory.

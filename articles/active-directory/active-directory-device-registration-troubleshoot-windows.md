@@ -25,13 +25,13 @@ This topic is applicable to the following clients:
 
 For other Windows clients, see [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md).
 
-This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-device-registration-get-started.md) to spport the following scenarios:
+This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-device-registration-get-started.md) to support the following scenarios:
 
-1.	[Device-based conditional access](active-directory-conditional-access-automatic-device-registration-setup.md)
+- [Device-based conditional access](active-directory-conditional-access-automatic-device-registration-setup.md)
 
-2.	[Enterprise roaming of settings](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Enterprise roaming of settings](active-directory-windows-enterprise-state-roaming-overview.md)
 
-3.	[Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
+- [Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 
 
 This document provides troubleshooting guidance on how to resolve potential issues. 
@@ -105,29 +105,29 @@ If the value shows as ‘NO’, registration has not completed.
 
 **Possible causes:**
 
-1.	Authentication of the computer for registration failed.
+- Authentication of the computer for registration failed.
 
-2.	There is an HTTP proxy in the organization that cannot be discovered by the computer
+- There is an HTTP proxy in the organization that cannot be discovered by the computer
 
-3.	The computer cannot reach Azure AD for authentication or Azure DRS for registration
+- The computer cannot reach Azure AD for authentication or Azure DRS for registration
 
-4.	The computer may not be on the organization’s internal network or on VPN with direct line of sight to an on-premises AD domain controller.
+- The computer may not be on the organization’s internal network or on VPN with direct line of sight to an on-premises AD domain controller.
 
-5.	If the computer has a TPM, it may be in a bad state.
+- If the computer has a TPM, it may be in a bad state.
 
-6.	There may be a misconfiguration in services noted in the document earlier that you will need to verify again. Common examples are:
+- There may be a misconfiguration in services noted in the document earlier that you will need to verify again. Common examples are:
 
-    1.	Your federation server does not have WS-Trust endpoints enabled
+    - Your federation server does not have WS-Trust endpoints enabled
 
-    2.	Your federation server may not allow inbound authentication from computers in your network using Integrated Windows Authentication.
+    - Your federation server may not allow inbound authentication from computers in your network using Integrated Windows Authentication.
 
-    3.	There is no Service Connection Point object that points to your verified domain name in Azure AD in the AD forest where the computer belongs to
+    - There is no Service Connection Point object that points to your verified domain name in Azure AD in the AD forest where the computer belongs to
 
 ---
 
 ### DomainJoined : YES  
 
-This field shows whether the device is joined to an on-premises Active Directory or not. If the value shows as ‘NO’, the device cannot auto-register with Azure AD. Check first that the device joins to the on-premises Active Directory before it can register with Azure AD. If you are looking for joining the computer to Azure AD directly, please go to Learn about capabilities of Azure Active Directory Join.
+This field shows whether the device is joined to an on-premises Active Directory or not. If the value shows as **NO**, the device cannot auto-register with Azure AD. Check first that the device joins to the on-premises Active Directory before it can register with Azure AD. If you are looking for joining the computer to Azure AD directly, please go to Learn about capabilities of Azure Active Directory Join.
 
 ---
 
@@ -142,11 +142,11 @@ This field shows whether the device is registered with Azure AD but as a persona
 These fields show that the user has successfully authenticated to Azure AD upon signing in to the device. 
 If they show ‘NO’ the following are possible causes:
 
-1.	Bad storage key (STK) in TPM associated with the device upon registration (check the KeySignTest while running elevated).
+- Bad storage key (STK) in TPM associated with the device upon registration (check the KeySignTest while running elevated).
 
-2.	Alternate Login ID
+- Alternate Login ID
 
-3.	HTTP Proxy not found
+- HTTP Proxy not found
 
 ## Next steps
 

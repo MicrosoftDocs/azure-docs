@@ -1,5 +1,5 @@
 ---
-title: Automatic device registration FAQ | Microsoft Docs
+title: Azure Active Directory automatic device registration FAQ | Microsoft Docs
 description: Automatic device registration with Azure Active Directory FAQ.
 services: active-directory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 03/07/2017
 ms.author: markvi
 
 ---
-# Automatic device registration FAQ
+# Azure Active Directory automatic device registration FAQ
 
 **Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal?**
 
@@ -35,7 +35,7 @@ Only the following devices are listed under the USER info:
 
 **A:** Currently, there is no way to see all registered devices in the Azure portal. 
 You can use Azure PowerShell to find all devices. 
-For more details, see the [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/msonline/v1/get-msoldevice) cmdlet.
+For more details, see the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet.
 
 --- 
 
@@ -114,13 +114,13 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 **A:** Common reasons for this scenario are:
 
-1.	Your user credentials are no longer valid.
+- Your user credentials are no longer valid.
 
-2.	Your computer is unable to communicate with Azure Active Directory. Check for any network connectivity issues.
+- Your computer is unable to communicate with Azure Active Directory. Check for any network connectivity issues.
 
-3.	The Azure AD Join pre-requisites were not met. Please ensure that you have followed the steps for [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
+- The Azure AD Join pre-requisites were not met. Please ensure that you have followed the steps for [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
 
-4.	Federated logins requires your federation server to support a WS-Trust active endpoint. 
+- Federated logins requires your federation server to support a WS-Trust active endpoint. 
 
 ---
 
@@ -147,9 +147,9 @@ Please create a different local account before using Azure Active Directory Join
 
 **A:** For troubleshooting information, see:
 
-1. [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+- [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
 
-2. [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md)
+- [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md)
  
 ---
 
