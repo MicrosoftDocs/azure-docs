@@ -93,7 +93,7 @@ Users can Edit or delete the configured workspace through the Service Map Overvi
 ![SCOM Edit Workspace](media/oms-service-map/scom-edit-workspace.png)
 
 ## Configuring Rules and Overrides:
-A Rule **_Microsoft.SystemCenter.ServiceMap.Import.Rule**_ is created to periodically fetch information from Service Map.  Users can configure Overrides of this rule to change sync timings.
+A Rule **_Microsoft.SystemCenter.ServiceMapImport.Rule**_ is created to periodically fetch information from Service Map.  Users can configure Overrides of this rule to change sync timings.
 Authoring pane --> Rules --> Microsoft.SystemCenter.ServiceMapImport.Rule
 
 ![SCOM Overrides](media/oms-service-map/scom-overrides.png)
