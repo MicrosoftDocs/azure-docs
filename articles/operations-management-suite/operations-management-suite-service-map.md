@@ -59,12 +59,12 @@ Based on the severity of the status badges, machine node borders can be colored 
 ![Status badges](media/oms-service-map/status-badges.png)
 
 ## Role icons
-Certain processes serve particular roles on machines, including Web Servers, Application Servers, Database, etc.  Service Map will annotate process and machine boxes with role icons to help identify at a glance the role a process or server plays.
+Certain processes serve particular roles on machines: web servers, application servers, database, etc.  Service Map will annotate process and machine boxes with role icons to help identify at a glance the role a process or server plays.
 
 | Role Icon | Description |
 |:--|:--|
-| ![Web server](media/oms-service-map/Web-server.png) | Web Server |
-| ![App server](media/oms-service-map/application-server.png) | Application Server |
+| ![Web server](media/oms-service-map/Web_server.png) | Web Server |
+| ![App server](media/oms-service-map/application_server.png) | Application Server |
 | ![Database server](media/oms-service-map/Database.png) | Database Server |
 | ![LDAP server](media/oms-service-map/LDAP.png) | LDAP Server |
 | ![SMB server](media/oms-service-map/SMB.png) | SMB Server |
