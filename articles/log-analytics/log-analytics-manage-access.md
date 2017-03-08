@@ -30,7 +30,7 @@ To create a workspace, you need to:
 ## Determine the number of workspaces you need
 A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
 
-You can have multiple workspaces per Azure subscription and a you can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to run queries across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to run queries across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
 
 Today, a workspace provides:
 
@@ -190,7 +190,7 @@ All workspaces created after September 26, 2016 must be linked to an Azure subsc
 
 ### To link a workspace to an Azure subscription in the OMS portal
 
-- When you sign-in to the OMS portal, you are prompted to select an Azure subscription. Select the subscription that you want to link to your workspace and then click **Link**.  
+- When you sign into the OMS portal, you are prompted to select an Azure subscription. Select the subscription that you want to link to your workspace and then click **Link**.  
     ![link Azure subscription](./media/log-analytics-manage-access/required-link.png)
 
     > [!IMPORTANT]
@@ -229,7 +229,7 @@ There are three workspace plan types for OMS: **Free**, **Standalone**, and **OM
 ### Using entitlements from an OMS subscription
 To use the entitlements that come from purchasing OMS E1, OMS E2 OMS or OMS Add-On for System Center, choose the *OMS* plan of OMS Log Analytics.
 
-When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can use the entitlements. All workspaces on these subscription will use the OMS entitlements.
+When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can use the entitlements. All workspaces on these subscriptions use the OMS entitlements.
 
 To ensure that usage of a workspace is applied to your entitlements from the OMS subscription, you need to:
 
@@ -237,14 +237,14 @@ To ensure that usage of a workspace is applied to your entitlements from the OMS
 2. Select the *OMS* plan for the workspace
 
 > [!NOTE]
-> If your workspace was created before September 26, 2016 and your Log Analytics pricing plan is *Premium*, then this workspace will use entitlements from the OMS Add-On for System Center. You can also use your entitlements by changing to the *OMS* pricing tier.
+> If your workspace was created before September 26, 2016 and your Log Analytics pricing plan is *Premium*, then this workspace uses entitlements from the OMS Add-On for System Center. You can also use your entitlements by changing to the *OMS* pricing tier.
 >
 >
 
 The OMS subscription entitlements are not visible in the Azure or OMS portal. You can see entitlements and usage in the Enterprise Portal.  
 
 If you need to change the Azure subscription that your workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
-
+to
 ### Using Azure Commitment from an Enterprise Agreement
 If you do not have an OMS subscription, you pay for each component of OMS separately and the usage appears on your Azure bill.
 
@@ -269,7 +269,7 @@ If you need to change the Azure subscription that the workspace is linked to, yo
 
 ### Change a workspace to a paid pricing tier in the OMS portal
 
-To change the pricing tier using the OMS portal, the you must have an Azure subscription.
+To change the pricing tier using the OMS portal, you must have an Azure subscription.
 
 1. In the OMS portal, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
