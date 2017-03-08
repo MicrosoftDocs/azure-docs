@@ -20,7 +20,7 @@ ms.author: mbaldwin
 # Listing your application in the Azure Active Directory application gallery
 To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1), the application must first be registered with Azure Active Directory and implement single sign-on using one of the methods described in this article:
 
-[How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](develop/active-directory-devhowto-multi-tenant-overview.md)
+[How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
 
 Single sign on may be implemented using any of the supported federation protocols, including OAuth2, OpenID Connect, SAML, or WS-Federation. The app must also support [user consent](active-directory-integrating-applications.md#overview-of-the-consent-framework) as the means to connect the app to other instances of Azure AD.
 
