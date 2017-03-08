@@ -40,8 +40,9 @@ resource providers.
 | | EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Requests count in 10,000s |Queue service requests (in 10,000s) |
 | | E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Ingress data in GB |Queue service data ingress in GB | 
 | | DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Outgress in GB |Queue service data egress in GB |
-| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Base VM Size Hours |Virtual core hours | |
-| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM Size Hours |Virtual core hours | |
+| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Base VM Size Hours |Virtual core minutes | Number of vcores times minutes the VM ran |
+| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM Size Hours |Virtual core minutes | Number of vcores times minutes the VM ran |
+| |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM size hours |VM hours |Captures both Base and Windows VM. Does not adjust for vcores |
 
 ## How do the Azure Stack Usage APIs compare to the [Azure Usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
 * The Tenant Usage API is consistent with the Azure API, with one

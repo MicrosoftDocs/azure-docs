@@ -32,7 +32,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
 * [Error 53 attempting to mount an Azure File Share](#error53)
 * [Error 87 The parameter is incorrect while attempting to mount an Azure File Share](#error87)
-* [Net use was successful but I don’t see the Azure file share mounted in Windows Explorer](#netuse)
+* [Net use was successful but I don’t see the Azure file share mounted or drive letter in Windows Explorer UI](#netuse)
 * [My storage account contains "/" and the net use command fails](#slashfails)
 * [My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
 * [Additional recommendations to optimize performance](#additional)
