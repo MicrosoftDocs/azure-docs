@@ -10,7 +10,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 3. Go to [Downloads - MongoDB](https://www.mongodb.com/download-center#community).
 4. Find the **Current Stable Release** of **Community Server**, select the latest **64-bit** version in the Windows column. Download, then run the MSI installer.
 5. MongoDB is typically installed in C:\Program Files\MongoDB. Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable. For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.4\bin on your machine.
-6. Create MongoDB data and log directories in the data disk (drive **F:**, for example) you created in the preceding steps. From **Start**, select **Command Prompt** to open a command prompt window.  Type:
+6. Create MongoDB data and log directories in the data disk (such as drive **F:**) you created in the preceding steps. From **Start**, select **Command Prompt** to open a command prompt window.  Type:
 
         C:\> F:
         F:\> mkdir \MongoData
