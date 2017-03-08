@@ -1,6 +1,6 @@
 ---
 title: Create deployment templates for Azure Logic Apps | Microsoft Docs
-description: Create Azure Resource Manager templates for logic apps deployment, and release management
+description: Create Azure Resource Manager templates for logic apps deployment and release management
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan

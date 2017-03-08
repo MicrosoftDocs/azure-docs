@@ -98,6 +98,9 @@ Q: Can I connect to HDI?
 
 A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, then you can load that data into SQL DW. However, you cannot generate pushdown computation to the HDI instance. 
 
+## Next steps
+For more information on SQL Data Warehouse as a whole, see our [Overview] page.
+
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
@@ -113,3 +116,4 @@ A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx
+[Overview]: ./sql-data-warehouse-overview-faq.md
