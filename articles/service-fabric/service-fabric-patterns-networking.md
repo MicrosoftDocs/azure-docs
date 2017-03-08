@@ -1,6 +1,6 @@
 ---
 title: Networking patterns for Azure Service Fabric | Microsoft Docs
-description: Describes common networking patterns for Service Fabric and how to create a cluster using Azure networking features.
+description: Describes common networking patterns for Service Fabric and how to create a cluster by using Azure networking features.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -27,7 +27,9 @@ You can integrate your Azure Service Fabric cluster with other Azure networking 
 
 Service Fabric runs in a standard virtual machine scale set. Any functionality that you can use in a virtual machine scale set, you can use with a Service Fabric cluster. The networking sections of the Azure Resource Manager templates for virtual machine scale sets and Service Fabric are identical. After you deploy to an existing virtual network, it's easy to incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering.
 
-Service Fabric is unique from other networking features in one aspect. The [Azure portal](https://portal.azure.com) internally uses the Service Fabric resource provider to call to a cluster to get information about nodes and applications. The Service Fabric resource provider requires publicly accessible inbound access to the HTTP gateway port (port 19080, by default) on the management endpoint. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uses the management endpoint to manage your cluster. The Service Fabric resource provider also uses this port to query information about your cluster, to display in the Azure portal. If port 190980 is not accessible from the Service Fabric resource provider, a message like *Nodes Not Found* appears in the portal, and your node and application list appears empty. If you want to see your cluster in the Azure portal, your load balancer must expose a public IP address, and your network security group must allow incoming port 19080 traffic. If your setup does not meet these requirements, the Azure portal does not display the status of your cluster.
+Service Fabric is unique from other networking features in one aspect. The [Azure portal](https://portal.azure.com) internally uses the Service Fabric resource provider to call to a cluster to get information about nodes and applications. The Service Fabric resource provider requires publicly accessible inbound access to the HTTP gateway port (port 19080, by default) on the management endpoint. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uses the management endpoint to manage your cluster. The Service Fabric resource provider also uses this port to query information about your cluster, to display in the Azure portal. 
+
+If port 190980 is not accessible from the Service Fabric resource provider, a message like *Nodes Not Found* appears in the portal, and your node and application list appears empty. If you want to see your cluster in the Azure portal, your load balancer must expose a public IP address, and your network security group must allow incoming port 19080 traffic. If your setup does not meet these requirements, the Azure portal does not display the status of your cluster.
 
 ## Templates
 
@@ -166,7 +168,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-For another example, see one that is [not specific to Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+For another example, see [one that is not specific to Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
 
 
 <a id="staticpublicip"></a>
@@ -186,7 +188,7 @@ For another example, see one that is [not specific to Service Fabric](https://gi
     }
     ```
 
-2. Remove the `dnsName` parameter (the static IP address already has one):
+2. Remove the `dnsName` parameter. (The static IP address already has one.)
 
     ```
     /*
@@ -254,7 +256,7 @@ For another example, see one that is [not specific to Service Fabric](https://gi
                     ],
     ```
 
-7. In the `Microsoft.ServiceFabric/clusters` resource, change `managementEndpoint` to the DNS FQDN of the static IP address. **If you are using a secure cluster, make sure you change *http://* to *https://*.** (Note: This step applies only to Service Fabric clusters. If you are using a virtual machine scale set, skip this step.)
+7. In the `Microsoft.ServiceFabric/clusters` resource, change `managementEndpoint` to the DNS FQDN of the static IP address. If you are using a secure cluster, make sure you change *http://* to *https://*. (Note that this step applies only to Service Fabric clusters. If you are using a virtual machine scale set, skip this step.)
 
     ```
                     "fabricSettings": [],
@@ -281,7 +283,7 @@ After deployment, you can see that your load balancer is bound to the public sta
 
 This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. For implications for the Azure portal and for the Service Fabric resource provider, see the preceding section.
 
-1. Remove the `dnsName` parameter (it's not needed):
+1. Remove the `dnsName` parameter. (It's not needed.)
 
     ```
     /*
@@ -291,7 +293,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
     */
     ```
 
-2. Optionally, if you use a static allocation method, you can add a static IP address parameter. If you use a dynamic allocation method, you do not need to do this step:
+2. Optionally, if you use a static allocation method, you can add a static IP address parameter. If you use a dynamic allocation method, you do not need to do this step.
 
     ```
             "internalLBAddress": {
@@ -356,7 +358,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
                     ],
     ```
 
-6. In the `Microsoft.ServiceFabric/clusters` resource, change `managementEndpoint` to point to the internal load balancer address. **If you use a secure cluster, make sure you change *http://* to *https://*.** (Note: This step applies only to Service Fabric clusters. If you are using a virtual machine scale set, skip this step.)
+6. In the `Microsoft.ServiceFabric/clusters` resource, change `managementEndpoint` to point to the internal load balancer address. If you use a secure cluster, make sure you change *http://* to *https://*. (Note that this step applies only to Service Fabric clusters. If you are using a virtual machine scale set, skip this step.)
 
     ```
                     "fabricSettings": [],
@@ -379,9 +381,9 @@ After deployment, your load balancer uses the private static 10.0.0.250 IP addre
 
 In this scenario, you start with the existing single-node type external load balancer, and add an internal load balancer for the same node type. A back-end port attached to a back-end address pool can be assigned only to a single load balancer. Choose which load balancer will have your application ports, and which load balancer will have your management endpoints (ports 19000 and 19080). If you put the management endpoints on the internal load balancer, keep in mind the Service Fabric resource provider restrictions discussed earlier in the article. In the example we use, the management endpoints remain on the external load balancer. You also add a port 80 application port, and place it on the internal load balancer.
 
-In a two-node-type cluster, one node type is on the external load balancer; the other node type is on the internal load balancer. To use a two-node-type cluster, in the portal-created two-node-type template (which comes with two load balancers), switch the second load balancer to an internal load balancer. For more information, see the [Internal-only load balancer](#internallb) section.
+In a two-node-type cluster, one node type is on the external load balancer. The other node type is on the internal load balancer. To use a two-node-type cluster, in the portal-created two-node-type template (which comes with two load balancers), switch the second load balancer to an internal load balancer. For more information, see the [Internal-only load balancer](#internallb) section.
 
-1. Add the static internal load balancer IP address parameter (for notes related to using a dynamic IP address, see earlier sections of this article):
+1. Add the static internal load balancer IP address parameter. (For notes related to using a dynamic IP address, see earlier sections of this article.)
 
     ```
             "internalLBAddress": {
