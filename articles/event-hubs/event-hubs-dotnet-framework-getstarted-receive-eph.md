@@ -19,6 +19,17 @@ ms.author: jotaub;sethm
 ---
 # Get started with Event Hubs using the .NET Framework
 
+## Introduction
+Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
+
+This tutorial shows how to write a .NET Framework console application that receives messages from an Event Hub using the **Event Processor Host**. To send events using the .NET Framework, see the [Send events to Azure Event Hubs using the .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) article, or click the appropriate sending language in the left-hand table of contents.
+
+To complete this tutorial, you'll need the following:
+
+* [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). The screen shots in this tutorial use Visual Studio 2017.
+* An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
+
+
 ## Create an Azure Storage account
 
 The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using the [Event Processor Host][Event Processor Host], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the [Event Processor Host][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use the [Event Processor Host][EventProcessorHost] with multiple receivers.
