@@ -1,7 +1,7 @@
 
 ---
 title: Azure Backup FAQ | Microsoft Docs
-description: Answers to common questions about: how the service works, the Azure Backup agent, Recovery Services vault, and backup and retention limits.
+description: 'Answers to common questions about: how the service works, the Azure Backup agent, Recovery Services vault, and backup and retention limits.'
 services: backup
 documentationcenter: ''
 author: markgalioto
