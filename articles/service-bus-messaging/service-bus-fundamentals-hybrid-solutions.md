@@ -29,7 +29,7 @@ Service Bus is a multi-tenant cloud service, which means that the service is sha
 
 **Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
 
-Within a namespace, you can use one or more instances of three different communication mechanisms, each of which connects applications in a different way. The choices are:
+Within a namespace, you can use one or more instances of four different communication mechanisms, each of which connects applications in a different way. The choices are:
 
 * *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is received by a single recipient.
 * *Topics*, which provide one-directional communication using *subscriptions*-a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
