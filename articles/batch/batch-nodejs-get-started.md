@@ -1,6 +1,6 @@
-# Get started with Azure Batch Nodejs client
+# Get started with Azure Batch Node.js client
 
-Through this article we will run through the steps to setting up an Azure batch job, deploy tasks and monitor them using the [Nodejs SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). This article assumes that you have a base understanding of Nodejs and have Nodejs set up and installed on your dev machine.
+Through this article we will run through the steps to setting up an Azure Batch job, deploy tasks and monitor them using the [Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). This article assumes that you have a base understanding of Node.js and have Node.js set up and installed on your dev machine.
 
 You can install azure-batch SDK for node through npm:
 
@@ -9,6 +9,7 @@ You can install azure-batch SDK for node through npm:
 This installs the latest version of azure-batch node SDK.
 
 Now, let's understand the batch scenario we want to work with in more detail and we get into mapping it into Azure batch components right after that.
+
 ## The scenario
 I was working with a customer, helping them process large number of csv files into JSON. I have a csv to JSON processor Python console app that takes in the storage account details, container name and a blob pattern. It iterates through the blobs in the container that match the pattern downloads them and converts them into JSON, and re-uploads them with a /json pattern. Following figure explains the flow of the processor.
 
@@ -16,13 +17,13 @@ I was working with a customer, helping them process large number of csv files in
 
 Now, I needed to scale this processor to be able to process a large number of files on a daily basis. The files would be uploaded every four hours or so.
 
-Clearly, Azure batch was a pretty good fit.
+Clearly, Azure Batch was a pretty good fit.
 
 However, I also needed a trigger that would deploy this batch job, and after completion of all tasks delete the pools.
 
 I was thinking of using a timmer trigger function. That could deploy a batch job with the python console app and pass the relevant parameters.
 
-## Azure Batch with Nodejs client
+## Azure Batch with Node.js client
 
 If you haven't gone through the overview of Azure Batch service before, I would recommend you read this [detailed overview](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview) document before proceeding further.
 
@@ -30,20 +31,20 @@ I also know some of you will still skip it :), so I have tried to cover the basi
 
 ### Step 1: Create an Azure Batch Account
 
-As a first step, let's create an Azure Batch account. You can create it from the [portal](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) or from commandline ([Powershell](https://docs.microsoft.com/en-us/azure/batch/batch-powershell-cmdlets-get-started) /[Azure cli](https://docs.microsoft.com/en-us/azure/batch/batch-cli-get-started)).
+As a first step, let's create an Azure Batch account. You can create it from the [portal](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) or from commandline ([Powershell](https://docs.microsoft.com/en-us/azure/batch/batch-powershell-cmdlets-get-started) /[Azure cli](https://docs.microsoft.com/en-us/cli/azure/overview)).
 
 Following are the commands to create one through Azure CLI.
 
 Create a Resource Group, skip this step if you already have one where you want to create the Batch Account:
 
-`azure group create --name "<resource-group-name>" --location "<location>"`
+`az group create -n "<resource-group-name>" -l "<location>"`
 
 Then create an Azure Batch account.
-`azure batch account create --location "<location>"  --resource-group "<resource-group-name>" "<batch-account-name>"`
+`az batch account create -l "<location>"  -g "<resource-group-name>" -n "<batch-account-name>"`
 
 Each Batch account has its corresponding access keys, these keys are needed to create further resources in Azure batch account. A good practice for production environment is to use Azure Key Vault to store these keys, and create a Service principal for the application that can access and download the keys from vault.
 
-`azure batch account keys list --resource-group "<resource-group-name>" "<batch-account-name>"`
+`az batch account keys list -g "<resource-group-name>" -n "<batch-account-name>"`
 
 Please copy and store the key for further use below.
 
@@ -52,14 +53,14 @@ Please copy and store the key for further use below.
 
 Now that we have an Azure Batch account, next step will be to setup Batch pools, jobs and tasks. We want to do this programmatically to run every four hours.
 
-Hence, I created an Azure function app and an timer Trigger function. Please refer to the links below on details of how to do this. We will straight jump to the code.
+Hence, I created an Azure Function app and an timer Trigger function. Please refer to the links below on details of how to do this. We will straight jump to the code.
 
 - [Create function app](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function)
 - [Create timer trigger function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer)
 
 ![Azure Batch Architecture](./media/batch-nodejs-get-started/azurebatcharchitecture.png)
 
-Also, you can go to "Kudu Console" in the Azure function's Settings tab to run the npm install commands. In this case to install Azure Batch SDK for Nodejs.
+Also, you can go to "Kudu Console" in the Azure function's Settings tab to run the npm install commands. In this case to install Azure Batch SDK for Node.js.
 
 ### Create Azure Batch Pool
 
@@ -70,8 +71,9 @@ Following code snippet shows creation of Azure Batch pool of VMs. I am creating 
 
     var batch = require('azure-batch');
     var accountName = '<account-name>';
-    var accountKey = '<account-key-downloaded>';
-    var customerDetails = {
+    var accountKey = '<account-key-downloaded>';
+    var accountUrl = '<account-url>'
+    var customerDetails = {
     "customerid":"customerid1",
     "numVMs":4   // Number of VM nodes to create in a pool
     "vmSize":"STANDARD_F4" // VM size nodes in a pool.
@@ -82,8 +84,7 @@ Following code snippet shows creation of Azure Batch pool of VMs. I am creating 
     }
 
     // Create the credentials object using the account name and key
-    var credentials = new batch.SharedKeyCredentials(accountName,accountKey);
-    var accountUrl  = '<batch-account-url>'
+    var credentials = new batch.SharedKeyCredentials(accountName,accountKey);    
     // Create the Azure Batch client
     var batch_client = new batch.ServiceClient(credentials,'azure batch URI');
     // Creating pool ID
