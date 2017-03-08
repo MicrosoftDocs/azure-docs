@@ -122,7 +122,6 @@ Let's assume that you have created the ``App1`` project using your the Service F
 
 Make the change to your application and rebuild the modified service.  Update the modified service’s manifest file (``ServiceManifest.xml``) with the updated versions for the service (and Code or Config or Data as appropriate). Also modify the application’s manifest (``ApplicationManifest.xml``) with the updated version number for the application, and the modified service.  
 
-### Using Eclipse plugin for Service Fabric
 To upgrade your application using Eclipse, you can create a duplicate run-configuration, and use it to upgrade your application as and when you need, using the following steps -
 1. Choose ``Run => Run Configurations``. Click the small-arrow on the left of ``Grade Project`` in the left pane.
 2. Right click on ``ServiceFabricDeployer`` and select ``Duplicate``. Give a new name to this configuration, say ``ServiceFabricUpgrader``.
