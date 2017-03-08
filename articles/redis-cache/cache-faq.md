@@ -263,7 +263,7 @@ For more information about using Redis Cache as a PHP session cache with the Php
 
 ### What are Redis databases?
 
-Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database.  For example a C6 cache has 53 GB of memory. You can choose to put all 53 GB into one database or you can split it up between multiple databases. 
+Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database. For example a C6 cache has 53 GB of memory. You can choose to put all 53 GB into one database or you can split it up between multiple databases. 
 
 > [!NOTE]
 > When using a Premium Azure Redis Cache with clustering enabled, only database 0 is available. This limitation is an intrinsic Redis limitation and is not specific to Azure Redis Cache. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
