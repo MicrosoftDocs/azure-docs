@@ -450,9 +450,8 @@ Here are examples of our MVC app details created with the previously described a
 
 #### Logic Apps exception management API
 
-Our open-source Azure Logic Apps exception management API app provides the following functionality.
-
-There are two controllers:
+Our open-source Azure Logic Apps exception management API app 
+provides functionality as described here - there are two controllers:
 
 * **ErrorController** inserts an error record (document) in a DocumentDB collection.
 * **LogController** Inserts a log record (document) in a DocumentDB collection.
