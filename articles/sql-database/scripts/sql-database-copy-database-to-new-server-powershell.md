@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid:
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: PowertShell
+ms.devlang: PowerShell
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
@@ -27,13 +27,13 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Copy a database to a new server
 
-[!code-powershell[main](../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1 "Copy database to new server")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1 "Copy database to new server")]
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the Resource Group and all resources associated with it.
 
-```azurepowershell
+```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
@@ -54,4 +54,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
-Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](sql-database-powershell-samples.md).
+Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).

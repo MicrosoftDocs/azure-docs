@@ -25,15 +25,15 @@ This sample PowerShell script monitors the performance metrics of an elastic poo
 
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
-## Script Samples
+## Sample script
 
-[!code-powershell[main](../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1 "Monitor and scale single SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1 "Monitor and scale single SQL Database")]
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the Resource Group, logical server and SQL Database.
 
-```azurepowershell
+```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
@@ -58,4 +58,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
-Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](sql-database-powershell-samples.md).
+Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).

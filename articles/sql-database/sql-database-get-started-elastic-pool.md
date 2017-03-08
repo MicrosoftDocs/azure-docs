@@ -19,23 +19,24 @@ ms.date: 02/26/2017
 ms.author: carlrab
 
 ---
-# QuickStart: Create a SQL database in an Azure SQL elastic pool in the Azure portal
+# Create a SQL database in an Azure SQL elastic pool in the Azure portal
 
-Azure SQL databases in an elastic pool can be created in the Azure portal. This quick start details the portal deployment experience.
+Azure SQL databases in an elastic pool can be created in the Azure portal. This tutorial details the portal deployment experience.
 
 ## Create a database in an elastic pool
 
 Follow these steps to create a database in an elastic pool with sample data in a server and a resource group. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) and click the **New** button.
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Click the **New** button.
 
-2. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps screen.
+3. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps screen.
 
-3. Fill out the form with the required information (the server name must be globally unique). Click **Create** when complete:
+4. Fill out the form with the required information (the server name must be globally unique). Click **Create** when complete:
 
       ![create pooled sql database](./media/sql-database-get-started/create-pooled-database-1.png)
 
-4. After the deployment has started, the Azure portal will return to the Azure dashboard. From here, the deployment status can be monitored. Provisioning takes a few minutes. 
+5. After the deployment has started, the Azure portal will return to the Azure dashboard. From here, the deployment status can be monitored. Provisioning takes a few minutes. 
 
 ## Create a server-level firewall rule
 
@@ -77,7 +78,7 @@ You receive error messages when the connection to Azure SQL Database fails. The 
 
 ## Clean up resources
 
-The steps in this procedure show how to delete all resources created by this quick start in the Azure portal.
+The steps in this procedure show how to delete all resources created by this tutorial in the Azure portal.
 
 1. On the Azure dashboard, click **Resource groups** and then click **myResourceGroup**. 
 2. On the page for your resource group, click **Delete**, type **myResourceGroup** in the text box and then click **Delete**.

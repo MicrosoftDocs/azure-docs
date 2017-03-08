@@ -47,7 +47,6 @@ After the secondary is created and seeded, data begins replicating from the prim
 > [!NOTE]
 > If the partner database already exists (for example, as a result of terminating a previous geo-replication relationship) the command fails.
 > 
-> 
 
 1. In the [Azure portal](http://portal.azure.com), browse to the database that you want to set up for geo-replication.
 2. On the SQL database page, select **Geo-Replication**, and then select the region to create the secondary database. You can select any region other than the region hosting the primary database, but we recommend the [paired region](../best-practices-availability-paired-regions.md).
@@ -73,7 +72,7 @@ The secondary database can be switched to become the primary.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
 3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
    
-    ![failover][2]
+    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Click **Yes** to begin the failover.
 
 The command immediately switches the secondary database into the primary role. 

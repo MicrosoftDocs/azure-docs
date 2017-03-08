@@ -10,9 +10,9 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: single databases
+ms.custom: quick start
 ms.workload: data-management
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/08/2017
