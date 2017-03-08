@@ -32,7 +32,7 @@ Follow these steps to create a SQL database with sample data in a SQL Database l
 
       ![new](./media/sql-database-get-started/new.png)
 
-3. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps page.
+3. Select **Databases** from the Marketplace screen, select **SQL Database** from the featured apps page.
 
 4. Fill out the form with the required information (the **Server** name must be globally unique). 
 
