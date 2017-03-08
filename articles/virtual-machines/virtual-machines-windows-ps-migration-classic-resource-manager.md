@@ -249,18 +249,17 @@ Once you're done migrating the virtual machines, we recommend you migrate the st
 
 Before you migrate the storage account, please perform preceding prerequisite checks:
 
-* **Check if classic VM disks are stored in the storage account**
+* **Migrate classic virtual machines whose disks are stored in the storage account**
 
-    Find classic VM disks attached to VMs in the storage account using following command: 
-
+    Preceding command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If preceding command returns disks then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account.
     ```powershell
      $storageAccountName = 'yourStorageAccountName'
       Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
       DiskName | Format-List -Property RoleName, DiskName 
 
     ```
-    Above command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If above command returns disks then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account.
-
+* **Delete unattached classic VM disks stored in the storage account**
+ 
     Find unattached classic VM disks in the storage account using following command: 
 
     ```powershell
@@ -273,8 +272,25 @@ Before you migrate the storage account, please perform preceding prerequisite ch
     ```powershell
        Remove-AzureDisk -DiskName 'yourDiskName'
     ```
-     
+* **Delete VM images stored in the storage account**
 
+    Preceding command returns all the VM images with OS disk stored in the storage account.
+     ```powershell
+        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                } | Select-Object -Property ImageName, ImageLabel
+     ```
+     Preceding command returns all the VM images with data disks stored in the storage account.
+     ```powershell
+
+        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                        } | Select-Object -Property ImageName, ImageLabel
+     ```
+    Delete all the VM images returned by above commands using preceding command:
+    ```powershell
+    Remove-AzureVMImage -ImageName 'yourImageName'
+    ```
+    
 Prepare each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
 
 ```powershell

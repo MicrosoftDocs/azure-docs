@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/24/2017
+ms.date: 03/06/2017
 ms.author: janeng
 
 ---
@@ -46,6 +46,10 @@ There are service tiers and performance levels for both single database and elas
 For a single database, the limits of a database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, and Premium databases at varying performance levels.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+
+> [!IMPORTANT]
+> Customers using P11 and P15 performance levels can use up to 4 TB of included storage at no additional charge. This 4 TB option is currently in public preview in the following regions: US East2, West US, West Europe, South East Asia, Japan East, Australia East, Canada Central, and Canada East. For current limitations, see [Current 4 TB limitations](sql-database-service-tiers.md##current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+>
 
 ### Elastic pools
 [Elastic pools](sql-database-elastic-pool.md) share resources across databases in the pool. The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
