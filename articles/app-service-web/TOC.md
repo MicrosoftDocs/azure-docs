@@ -3,6 +3,7 @@
 ## [What is App Service](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service on Linux](app-service-linux-intro.md)
+## [App Service on Linux FAQ](app-service-linux-faq.md)
 
 # Get started
 
@@ -60,10 +61,13 @@
 ### [Azure portal](app-service-web-app-azure-portal.md)
 ### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### ASP.NET apps
 #### [Create an ASP.NET app in Azure with Visual Studio](web-sites-dotnet-get-started.md)
 #### [Create a REST service using ASP.NET Web API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Create an ASP.NET 5 web app in Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Using .NET Core in Web Apps on Linux](app-service-linux-using-dotnetcore.md)
+
 
 ### Node.js apps
 #### [Develop Node.js for App Service](app-service-web-nodejs-get-started.md)
@@ -98,6 +102,9 @@
 #### [Flask and Table Storage with Python Tools 2.2 for Visual Studio ](web-sites-python-ptvs-flask-table-storage.md)
 #### [Django and MySQL on Azure with Python Tools 2.2 for Visual Studio ](web-sites-python-ptvs-django-mysql.md)
 #### [Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio ](web-sites-python-ptvs-django-sql.md)
+
+### Ruby apps
+#### [Using Ruby in Web Apps on Linux](app-service-linux-using-ruby.md)
 
 ### [Deploy your first basic web app to Azure in five minutes](app-service-web-get-started-html.md)
 ### [Get started with test in production for Web Apps](app-service-web-test-in-production-get-start.md)
@@ -143,6 +150,7 @@
 #### [Configure PHP](web-sites-php-configure.md)
 #### [Configure Python](web-sites-python-configure.md)
 #### [Configure Node.js startup on Linux](app-service-linux-using-nodejs-pm2.md)
+
 
 ### Custom domains
 #### [Buy and configure custom domains](custom-dns-web-site-buydomains-web-app.md)
@@ -249,13 +257,14 @@
 ### [Troubleshoot web app performance issues](app-service-web-troubleshoot-performance-degradation.md)
 
 # Reference
-## [Azure CLI 2.0 preview](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Related
 ## [Azure SDK for .NET release notes](azure-sdk-dotnet-release-notes.md)
+### [3.0 release](azure-sdk-dotnet-release-notes-3-0.md)
 ### [2.9 release](azure-sdk-dotnet-release-notes-2-9.md)
 ### [2.8.X releases](azure-sdk-dotnet-release-notes-2-8.md)
 ### [2.7.X releases](azure-sdk-dotnet-release-notes-2-7.md)
@@ -265,4 +274,3 @@
 # Resources
 ## [Best practices](app-service-best-practices.md)
 ## [List of WebJob resources](websites-webjobs-resources.md)
-

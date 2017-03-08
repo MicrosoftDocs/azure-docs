@@ -4,7 +4,7 @@ description: Learn what advantages does App Service bring to your existing Mobil
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: adrianha
 editor: ''
 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2016
-ms.author: trinadhk;giridham;jimpark;markgal
+ms.author: nkolli;giridham;markgal
 
 ---
 # Preparing to back up workloads to Azure with DPM
