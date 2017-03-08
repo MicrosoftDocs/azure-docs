@@ -19,26 +19,26 @@ ms.author: saeeda
 ---
 # Azure AD B2C: Sign-in using an iOS application
 
-The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. This allows developers to leverage any library they wish to integrate with our services. To aid developers in using our platform with other libraries, we've written a few walkthroughs like this one to demonstrate how to configure 3rd party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) will be able to connect to the Microsoft Identity platform.
+The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Using an open standard protocol offers more developer choice when selecting a library to integrate with our services. We've provided this walkthrough and others like to to aid developers with writing applications that connect to the Microsoft Identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) are able to connect to the Microsoft Identity platform.
 
 > [!WARNING]
-> Microsoft does not provide fixes for 3rd party libraries and has not done a review of those libraries. This sample is using a 3rd party library called AppAuth that has been tested for compatibility in basic scenarios with the Azure AD B2C. Issues and feature requests should be directed to the library's open-source project. Please see [this article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) for more information.  
+> Microsoft does not provide fixes for third party libraries and has not done a review of those libraries. This sample is using a third party library called AppAuth that has been tested for compatibility in basic scenarios with the Azure AD B2C. Issues and feature requests should be directed to the library's open-source project. For more information, see [this article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).  
 >
 >
 
-If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
+If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
 
 Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
 
 ## Get an Azure AD B2C directory
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
 
 ## Create an application
 Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
 * Include a **mobile device** in the application.
-* Copy the **Application ID** that is assigned to your app. You will need this later.
-* Set up a **Redirect URI**. You will also need this later. 
+* Copy the **Application ID** that is assigned to your app. You need this GUID later.
+* Set up a **Redirect URI** with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect). You need this URI later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
@@ -48,7 +48,7 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 
 * Choose the **Display name** and sign-up attributes in your policy.
 * Choose the **Display name** and **Object ID** application claims in every policy. You can choose other claims as well.
-* Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need the policy name later.
+* Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You need the policy name later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -67,9 +67,9 @@ This sample was created by following the README instructions by the [iOS AppAuth
 
 ### Configuration
 
-You can configure communication with Azure AD B2C by specifying both the authorization endpoint and token endpoint URIs.  To generate these URIs, you will need the following information:
-* Tenant ID (e.g. contoso.onmicrosoft.com)
-* Policy name (e.g. B2C\_1\_SignUpIn)
+You can configure communication with Azure AD B2C by specifying both the authorization endpoint and token endpoint URIs.  To generate these URIs, you need the following information:
+* Tenant ID (for example, contoso.onmicrosoft.com)
+* Policy name (for example, B2C\_1\_SignUpIn)
 
 The token endpoint URI can be generated by replacing the Tenant\_ID and the Policy\_Name in the following URL:
 
@@ -86,25 +86,33 @@ static NSString *const authorizationEndpoint = @"https://login.microsoftonline.c
 Run the following code to create your AuthorizationServiceConfiguration object:
 
 ```objc
-    OIDServiceConfiguration *configuration = [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:authorizationEndpoint tokenEndpoint:tokenEndpoint];
-	// now we are ready to perform the auth request...
+OIDServiceConfiguration *configuration = 
+    [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:authorizationEndpoint tokenEndpoint:tokenEndpoint];
+// now we are ready to perform the auth request...
 ```
 
 ### Authorizing
 
-After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you will need the following information:  
-* Client ID (e.g. 00000000-0000-0000-0000-000000000000)
-* Redirect URI with a custom scheme (e.g. com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect)
+After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you need the following information:  
+* Client ID (for example, 00000000-0000-0000-0000-000000000000)
+* Redirect URI with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp:/oauthredirect)
 
 Both items should have been saved when you were [registering your app](#create-an-application).
 
 ```objc
-    OIDAuthorizationRequest *request = [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration clientId:kClientId scopes:@[OIDScopeOpenID, OIDScopeProfile] redirectURL:[NSURL URLWithString:kRedirectUri] responseType:OIDResponseTypeCode additionalParameters:nil];
+OIDAuthorizationRequest *request = 
+    [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
+                                                  clientId:kClientId
+                                                    scopes:@[OIDScopeOpenID, OIDScopeProfile]
+                                               redirectURL:[NSURL URLWithString:kRedirectUri]
+                                              responseType:OIDResponseTypeCode
+                                      additionalParameters:nil];
 
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-
-    appDelegate.currentAuthorizationFlow = [OIDAuthState authStateByPresentingAuthorizationRequest:request presentingViewController:self callback:^(OIDAuthState *_Nullable authState, NSError *_Nullable error) {
-
+AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+appDelegate.currentAuthorizationFlow = 
+    [OIDAuthState authStateByPresentingAuthorizationRequest:request
+                                   presentingViewController:self
+                                                   callback:^(OIDAuthState *_Nullable authState, NSError *_Nullable error) {
         if (authState) {
             NSLog(@"Got authorization tokens. Access token: %@", authState.lastTokenResponse.accessToken);
             [self setAuthState:authState];
@@ -115,15 +123,14 @@ Both items should have been saved when you were [registering your app](#create-a
     }];
 ```
 
-To setup your application to handle the redirect to the URI with the custom scheme, you will need to update the list of 'URL Shcems' in your Info.pList:
- * Open Info.pList
- * Hover over a row like 'Bundle creator OS Type Code' and click the (+) symbol
- * Rename the new row 'URL types'
- * Click the arrow to the left of 'URL types'
- * rename the value in Item 0 to 'URL Schemes'
- * Edit the value of 'Item 0' underneath 'URL Schemes' and set the value to your custom scheme, it must match the scheme in redirectURL when creating the OIDAuthorizationRequest object.
- * In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp' to ensure we avoid scheme name collsions with other apps.
-
+To set up your application to handle the redirect to the URI with the custom scheme, you need to update the list of 'URL Schemes' in your Info.pList:
+* Open Info.pList.
+* Hover over a row like 'Bundle creator OS Type Code' and click the \+ symbol.
+* Rename the new row 'URL types'.
+* Click the arrow to the left of 'URL types'.
+* rename the value in Item 0 to 'URL Schemes'.
+* Edit the value of 'Item 0' underneath 'URL Schemes' and set the value to your custom scheme.  It must match the scheme in redirectURL when creating the OIDAuthorizationRequest object.
+* In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp' to ensure we avoid scheme name collisions with other apps.
 
 Please refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
 
