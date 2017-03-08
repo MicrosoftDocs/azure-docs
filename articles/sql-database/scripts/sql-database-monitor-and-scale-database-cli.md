@@ -28,7 +28,7 @@ Before running this script, ensure that a connection with Azure has been created
 This sample works in a Bash shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 
-## Scripts samples
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 

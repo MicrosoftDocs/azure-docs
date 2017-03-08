@@ -25,7 +25,7 @@ This sample PowerShell script monitors the performance metrics of a database, sc
 
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
-## Scripts samples
+## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1 "Monitor and scale single SQL Database")]
 

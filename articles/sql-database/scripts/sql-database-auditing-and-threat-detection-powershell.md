@@ -25,7 +25,7 @@ This sample PowerShell script configures SQL Database auditing and threat detect
 
 Before running this script, ensure that a connection with Azure has been created using the [Add-AzureRmAccount](/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount.md).  
 
-## Configure auditing and threat detection
+## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1 "Configure auditing and threat detection")]
 
