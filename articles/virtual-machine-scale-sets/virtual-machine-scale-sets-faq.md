@@ -44,7 +44,7 @@ You can call ListVMInstanceViews by
 
 /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
-### Are there ways to parse unique arguments to extensions in VM Scale Sets?
+### Are there ways to parse unique arguments to extensions in scale sets?
 
 No, but extensions can take actions based on unique aspects of the VM they are running on such as machine name, and they can query instance metadata on http://169.254.169.254 to get more information.
 
@@ -128,7 +128,7 @@ https://azure.microsoft.com/documentation/articles/insights-autoscale-common-met
 
 https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-linux-vm-v2-as-a-guest-os
 
-### How can I set up autoscale on a VM Scale Set using PowerShell?
+### How can I set up autoscale on a scale set using PowerShell?
 
 See https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/
 
@@ -138,7 +138,7 @@ See https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-
 
 One reason to not create a two-VM scale set would be to make use of the elastic properties of a scale set, for example to deploy a scale set with zero VMs, where you’ve defined your infrastructure without paying VM running costs, and are ready to deploy by increasing the “capacity” of the scale set to the production instance count.
 
-Another reason is when you’re doing something with your scale set where you don’t care about availability in the same sense as using an availability set with discrete VMs. VM Scale Sets add a way to work with undifferentiated compute units which are fungible. This is a key differentiator for scale sets vs. availability sets. Many stateless workloads do not care about individual units, and can scale down to one compute unit if the workload drops, and back to many when it increases.
+Another reason is when you’re doing something with your scale set where you don’t care about availability in the same sense as using an availability set with discrete VMs. Scale sets add a way to work with undifferentiated compute units which are fungible. This is a key differentiator for scale sets vs. availability sets. Many stateless workloads do not care about individual units, and can scale down to one compute unit if the workload drops, and back to many when it increases.
 
 ### How do you change the number of VMs in a scale set?
 
@@ -363,7 +363,7 @@ If you reimage a VM the certificates will disappear, reimaging deletes the OS di
  
 ### What happens if you delete a certificate from the key vault?
 
-If the secret is deleted in the key vault, and you stop deallocate all your VMs and start them again, you will encounter a failure due to CRP needing to retrieve the secrets from Key Vault, but not being able to. In this scenario, you can delete the certificates from the VM Scale Set model. 
+If the secret is deleted in the key vault, and you stop deallocate all your VMs and start them again, you will encounter a failure due to CRP needing to retrieve the secrets from Key Vault, but not being able to. In this scenario, you can delete the certificates from the scale set model. 
 
 The CRP component does not persist any customer secrets. If you stop deallocate all VMs in the scale set, then the cache is deleted. In this scenario, secrets are retrieved from key vault.
 
@@ -426,7 +426,7 @@ Look at the second example here:
 
 https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric
    
-### Extensions seem to run in parallel on VM Scale Sets, causing my Custom Script extension to fail. What can I do about this?
+### Extensions seem to run in parallel on scale sets, causing my Custom Script extension to fail. What can I do about this?
 
 See https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/ 
  
@@ -518,7 +518,7 @@ See https://azure.microsoft.com/documentation/articles/virtual-machines-windows-
 
 ## Networking
  
-### How do I do VIP swap for VM Scale Sets in the same subscription and same region?
+### How do I do VIP swap for scale sets in the same subscription and same region?
 
 See: https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/ 
  
