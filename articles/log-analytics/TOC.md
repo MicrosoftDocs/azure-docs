@@ -37,7 +37,7 @@
 ### [Dashboards](log-analytics-dashboards.md)
 ### [View Designer](log-analytics-view-designer.md)
 ### [Power BI](log-analytics-powerbi.md)
-### Solutions
+## Use solutions
 #### [Solutions overview](log-analytics-add-solutions.md)
 #### [AD Assessment](log-analytics-ad-assessment.md)
 #### [AD Replication Status](log-analytics-ad-replication-status.md)
@@ -53,6 +53,7 @@
 #### [Malware Assessment](log-analytics-malware.md)
 #### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 #### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
+#### [SCOM Assessment](log-analytics-scom-assessment.md)
 #### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [Service Map](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -60,7 +61,6 @@
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
-#### [SCOM Assessment](log-analytics-scom-assessment.md)
 ## Create alerts
 ### [Understanding alerts](log-analytics-alerts.md)
 ### [Alert actions](log-analytics-alerts-actions.md)
