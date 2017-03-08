@@ -89,7 +89,7 @@ account.
 
 In Azure Stack there is a very simple way to do that:
 
-1. Browse to the storage accounts list. See [Find a storage account](#find-a-storage-account) in this topic for more information.
+1. Browse to the storage accounts list. See [Find a storage account](#find) in this topic for more information.
 2. Locate that particular account in the list. You may need to filter.
 3. Check the *state* of the account. It should say **Deleted**.
 4. Click the account which opens the account details blade.
@@ -170,15 +170,17 @@ You can also use PowerShell to explicitly override the retention period and imme
    [Using Azure PowerShell with Azure Resource
    Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. Run the following cmdlet:
+
+> [!NOTE]
+> If you run this cmdlet you permanently delete the account and its contents. It is not recoverable. Use this with care.
+
    
     ```
     Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
     ```
 
-For more details, refer to [Azure Stack powershell documentation](https://msdn.microsoft.com/library/mt637964.aspx)
-> 
-> [!NOTE]
-> If you run this cmdlet you permanently delete the account and its contents. It is not recoverable. Use this with care.
+For more details, refer to [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
+ 
 
 ## Migrate a container
 Due to uneven storage use by tenants, an administrator may find one or more underlying tenant shares using more space than others. If this occurs, the administrator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 
