@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/16/2017
+ms.date: 03/08/2017
 ms.author: alkohli
 
 ---
@@ -35,7 +35,7 @@ Please review the information contained in the release notes before you deploy t
 
 The following key improvements and bug fixes have been made in Update 4.
 
-* **Smarter automated space reclamation algorithms** – In Update 4, the automated space reclamation algorithms are enhanced to the adjust the space reclamation cycles based on the expected reclaimed space available in the cloud. 
+* **Smarter automated space reclamation algorithms** – In Update 4, the automated space reclamation algorithms are enhanced to adjust the space reclamation cycles based on the expected reclaimed space available in the cloud. 
 
 * **Performance enhancements for locally pinned volumes** – Update 4 has improved the performance of locally pinned volumes in scenarios that have high data ingestion (data comparable to volume size).
 
@@ -71,6 +71,7 @@ The following table provides a summary of issues that were fixed in Update 4.
 | 3 |Support package |In previous release, there were issues related to Support package that would result in a System.OutOfMemory exception or other errors resulting in a Support package creation failure. These bugs are fixed in this release. |Yes |Yes |
 | 4 |Monitoring |In previous release, there an issue related to monitoring charts for locally pinned volumes where consumption was shown in EB. This bug is resolved in this release. |Yes |Yes |
 | 5 |Migration |In previous release, there were several issues related to the reliability of migration from 5000-7000 series to 8000 series devices. These issues have been addressed in this release. |Yes |Yes |
+| 6 |Update |In previous releases, if there was an update failure, the controllers would go into recovery mode and hence the user could not proceed with the update and would need to contact Microsoft Support. <br> This behavior was changed in this release. If the user has an update failure after both the controllers are running the same version (Update 4), the controllers do not go into recovery mode. If the user encounters this failure, we recommend that they wait for a bit and then retry the update. The retry could succeed. If the retry fails, then they should contact Microsoft Support. |Yes |Yes |
 
 
 ## Known issues in Update 4 from previous releases
