@@ -80,7 +80,7 @@ Perhaps the simplest approach to inform your users about to register for or use 
 
   ![][001]
 
-You can [download the email template here](http://1drv.ms/1xWFtQM).
+You can [download the email template here](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow).
 
 ### Creating your own password portal
 One strategy that works well for larger customers deploying password management capabilities is to create a single "password portal" that your users can use to manage all things related to their passwords in a single place.  
