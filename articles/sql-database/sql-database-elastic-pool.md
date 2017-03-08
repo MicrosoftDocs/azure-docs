@@ -1,7 +1,6 @@
----
 title: What are elastic pools? Manage multiple SQL databases - Azure | Microsoft Docs
 description: Manage and scale multiple SQL databases - hundreds and thousands - using elastic pools. One price for resources you can distribute where needed. 
-keywords: multiple databases
+keywords: multiple databases, database resources, database performance
 services: sql-database
 documentationcenter: ''
 author: ddove
@@ -29,6 +28,7 @@ You can create and manage an elastic pool using the [Azure portal](sql-database-
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
 >
 >
+
 
 ## How do elastic pools help database resource management?
 A common SaaS application pattern is the single-tenant database model: each customer is given their own database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources efficiently and cost-effectively? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic pools solve this problem by ensuring that databases get the performance resources they need and when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
