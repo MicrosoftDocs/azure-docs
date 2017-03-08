@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
-ms.author: jotaub
+ms.date: 03/08/2017
+ms.author: jotaub;sethm
 
 ---
 # Get started with Event Hubs using the .NET Framework
 
-## Receive messages with EventProcessorHost
-[EventProcessorHost][EventProcessorHost] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][EventProcessorHost], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use [EventProcessorHost][EventProcessorHost] with multiple receivers.
+## Create an Azure Storage account
 
-To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage account][Azure Storage account]:
+The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using the [Event Processor Host][Event Processor Host], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the [Event Processor Host][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use the [Event Processor Host][EventProcessorHost] with multiple receivers.
+
+To use the [Event Processor Host][EventProcessorHost], you must have an [Azure Storage account][Azure Storage account]:
 
 1. Log on to the [Azure portal][Azure portal], and click **New** at the top left of the screen.
 2. Click **Storage**, then click **Storage account**.
@@ -38,8 +39,8 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
 6. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Receiver**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
-7. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**.
-8. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Ensure that the project name (**Receiver**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use.
+7. In Solution Explorer, right-click the **Receiver** project, and then click **Manage NuGet Packages for Solution**.
+8. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Click **Install**, and accept the terms of use.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
@@ -110,7 +111,7 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
      ```csharp
      static void Main(string[] args)
      {
-       string eventHubConnectionString = "{Event Hub connection string}";
+       string eventHubConnectionString = "{Event Hubs namespace connection string}";
        string eventHubName = "{Event Hub name}";
        string storageAccountName = "{storage account name}";
        string storageAccountKey = "{storage account key}";
@@ -129,6 +130,11 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
      }
      ```
 
+12. Run the program, and ensure that there are no errors.
+  
+Congratulations! You have now received messages from an Event Hub using the Event Processor Host.
+
+
 > [!NOTE]
 > This tutorial uses a single instance of [EventProcessorHost][EventProcessorHost]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost][EventProcessorHost], as shown in the [Scaled out event processing][Scaled out event processing] sample. In those cases, the various instances automatically coordinate with each other to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost][EventProcessorHost] instances based on the machines (or roles) in which they are deployed. For more information about these topics, see the [Event Hubs Overview][Event Hubs Overview] and [Event Hubs Programming Guide][Event Hubs Programming Guide] topics.
 > 
@@ -138,7 +144,7 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
 [Event Hubs Overview]: event-hubs-overview.md
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]: ../storage/storage-create-storage-account.md
-[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com
 
 ## Next steps
@@ -155,6 +161,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
