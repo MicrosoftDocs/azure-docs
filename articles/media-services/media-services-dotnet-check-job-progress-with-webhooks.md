@@ -50,9 +50,9 @@ The webhook expects a signing key (credential) to match the one you pass when yo
 
 In the following code, the **VerifyWebHookRequestSignature** method does the verification on the notification message. The purpose of this validation is to ensure that the message was sent by Azure Media Services and hasn’t been tampered with. The signature is optional for Azure functions as it has the **Code** value as a query parameter over Transport Layer Security (TLS). 
 
-You can find the definition of the following Media Services .NET Azure function [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
+You can find the definition of various Media Services .NET Azure functions (including the one shown in this topic) [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-The following code listing shows the definitions of Azure function paramerters and three files that are associated with the Azure function: function.json, project.json, and run.csx.
+The following code listing shows the definitions of Azure function parameters and three files that are associated with the Azure function: function.json, project.json, and run.csx.
 
 ### Application settings 
 
