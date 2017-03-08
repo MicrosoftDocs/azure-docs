@@ -82,7 +82,7 @@
 ### [FAQ](active-directory-reporting-faq.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
-###	Programmatic Access 
+###	Programmatic Access
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites.md)
@@ -107,6 +107,7 @@
 
 ## [Manage passwords](active-directory-manage-passwords.md)
 ### [Update your own password](active-directory-passwords-update-your-own-password.md)
+### [Set up self-service password reset](active-directory-passwords.md)
 ### [Understand password management](active-directory-passwords-how-it-works.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)
 ### Reset passwords
@@ -116,7 +117,6 @@
 ### Enable password management
 #### [Get started](active-directory-passwords-getting-started.md)
 #### [Deploy](active-directory-passwords-best-practices.md)
-#### [Set up self-service password reset](active-directory-passwords.md)
 #### [Customize](active-directory-passwords-customize.md)
 #### [View reports](active-directory-passwords-get-insights.md)
 #### [Learn more](active-directory-passwords-learn-more.md)

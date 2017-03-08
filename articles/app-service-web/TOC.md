@@ -150,10 +150,8 @@
 ## [Quota Information](../azure-subscription-service-limits.md#app-service-limits)	
 ## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](app-service-best-practices.md)
-
 ## [Samples](https://azure.microsoft.com/resources/samples/?service=app-service)	
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=app-service)
 ## Cookbooks	
 ### [Reference Architectures](../guidance/guidance-ra-app-service.md)	
 ### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	
-
