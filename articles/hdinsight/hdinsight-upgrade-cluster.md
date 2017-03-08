@@ -4,9 +4,10 @@ description: Learn how to migrate from a Windows-based HDInsight cluster to a Li
 services: hdinsight
 documentationcenter: ''
 author: bhanupr
+manager: asadk
 editor: bhanupr
 
-ms.assetid: 
+ms.assetid: 60eb573c-e639-4815-9fc6-ea8b106d8dbc
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
