@@ -31,7 +31,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 ## Clean up deployment
 
-After the script sample has been run, the following command can be used to remove the Resource Group and all resources associated with it.
+After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
