@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/1/2017
+ms.date: 3/3/2017
 ms.author: erikje
 
 ---
@@ -21,23 +21,26 @@ ms.author: erikje
 To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
 > [!NOTE]
-> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 Eval can be activated at deployment time. If Windows Server 2016 Eval is not activated within 10 days, it will shut down.
+> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 evaluation version can be activated at deployment time. If the Windows Server 2016 evaluation version is not activated within 10 days, it shuts down.
 > 
 > 
 
 ## Download and extract Microsoft Azure Stack POC
-Before you start, make sure that you at least 60 GB of space and that you have .NET Framework 4.6 installed.
+1. Before you start the download, make sure that your computer meets the following prerequisites:
 
-1. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
-2. Under **Download the software**, click **Azure Stack**.
-3. Run the downloaded AzureStackDownloader.exe file.
-4. In the **Azure Stack POC Downloader** window, follow steps 1 through 5. After you click **Download**, choose a folder to download the files.
-5. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
-6. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
-7. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
-8. Select the Destination for the files to be extracted, click **Next**.
+   * The computer must have at least 60 GB of free disk space.
+   * [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
+
+2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
+3. Under **Download the software**, click **Azure Stack**.
+4. Run the downloaded AzureStackDownloader.exe file.
+5. In the **Azure Stack POC Downloader** window, follow steps 1 through 5. After you click **Download**, choose a folder to download the files.
+6. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
+7. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
+8. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
+9. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
+10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
 
 > [!NOTE]
 > After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
@@ -79,7 +82,7 @@ Before you start, make sure that you at least 60 GB of space and that you have .
     |DriverPath|Optional|Lets you add additional drivers for the host in the VHD.|
     |ApplyUnattend|Optional|Specify this switch parameter to automate the configuration of the operating system. If specified, the user must provide the AdminPassword to configure the OS at boot (requires provided accompanying file unattend_NoKVM.xml). If you do not use this parameter, the generic unattend.xml file is used without further customization. You'll need KVM access to complete customization after it reboots.|
     |AdminPassword|Optional|Only used when the ApplyUnattend parameter is set, requires a minimum of six characters.|
-    |VHDLanguage|Optional|Specifies the VHD language, defaulted to “en-US”.|
+    |VHDLanguage|Optional|Specifies the VHD language, defaulted to “en-US.”|
 
     The script is documented and contains example usage, though the most common usage is:
      
