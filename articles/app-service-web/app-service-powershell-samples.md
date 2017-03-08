@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 02/21/2017
+ms.date: 03/08/2017
 ms.author: cfowler
 
 ---
@@ -32,6 +32,7 @@ The following table includes links to bash scripts built using the Azure PowerSh
 | [Create a web app and deploy code to a staging environment](./scripts/app-service-powershell-deploy-staging-environment.md) | Creates an Azure web app with a deployment slot for staging code changes. |
 |**Configure app**||
 | [Map a custom domain to a web app](./scripts/app-service-powershell-configure-custom-domain.md)| Creates an Azure web app and maps a custom domain name to it. |
+| [Bind a custom SSL certificate to a web app](./scripts/app-service-powershell-configure-ssl-certificate.md)| Creates an Azure web app and binds the SSL certificate of a custom domain name to it. |
 |**Scale app**||
 | [Scale a web app manually](./scripts/app-service-powershell-scale-manual.md) | Creates an Azure web app and scales it across 2 instances. |
 | [Scale a web app worldwide with a high-availability architecture](./scripts/app-service-powershell-scale-high-availability.md) | Creates two Azure web apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |

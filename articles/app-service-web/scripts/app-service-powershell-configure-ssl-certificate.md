@@ -1,32 +1,35 @@
 ---
-title: Azure PowerShell Script Sample - Connect a web app to a storage account | Microsoft Docs
-description: Azure PowerShell Script Sample - Connect a web app to a storage account
+title: Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app | Microsoft Docs
+description: Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
+author: cephalin
 manager: erikre
 editor: 
 tags: azure-service-management
 
-ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
-ms.service: app-service
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
+ms.service: app-service-web
 ms.workload: web
+ms.devlang: na
+ms.topic: article
 ms.date: 03/08/2017
-ms.author: cfowler
+ms.author: cephalin
 ---
 
-# Connect a web app to a storage account
+# Bind a custom SSL certificate to a web app
 
-In this scenario you will learn how to create an Azure storage account and an Azure web app. Then you will link the storage account to the web app using app settings.
+This sample script creates a web app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. 
 
-Before running this script, ensure that a connection with Azure has been created using the `Login-AzureRmAccount` cmdlet.
+Before running this script, ensure that:
+
+- A connection with Azure has been created using the `az login` command.
+- You have access to your domain registrar's DNS configuration page.
+- You have a valid .PFX file and its password for the SSL certificate you want to upload and bind.
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/connect-to-storage/connect-to-storage.ps1 "Connect a web app to a storage account")]
+[!code-powershell[main](../../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=3-5 "Bind a custom SSL certificate to a web app")]
 
 ## Clean up deployment 
 
@@ -45,9 +48,9 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermappserviceplan) | Creates an App Service plan. |
 | [New-AzureRmWebApp](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermwebapp) | Creates a web app. |
-| [New-AzureRMStorageAccount](https://docs.microsoft.com/powershell/resourcemanager/azurerm.storage/v2.5.0/New-AzureRmStorageAccount) | Creates a Storage account. |
-| [Get-AzureRMStorageAccountKey](https://docs.microsoft.com/powershell/resourcemanager/azurerm.storage/v2.5.0/get-azurermstorageaccountkey) | Gets the access keys for an Azure Storage account. |
+| [Set-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/set-azurermappserviceplan) | Modifies an App Service plan to change its pricing tier. |
 | [Set-AzureRmWebApp](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/set-azurermwebapp) | Modifies a web app's configuration. |
+| [New-AzureRmWebAppSSLBinding](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermwebappsslbinding) | Creates an SSL certificate binding for a web app. |
 
 ## Next steps
 
