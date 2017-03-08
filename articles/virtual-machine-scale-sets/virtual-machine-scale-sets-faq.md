@@ -311,7 +311,7 @@ keyData | Yes | String | Specifies a base64 encoded ssh public key.
  
 ### When I run Update-AzureRmVmss after more than one certificate from the same KeyVault, I get the following error:
  
-Update-AzureRmVmss : List secrets contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+Update-AzureRmVmss: List secrets contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 Why can’t I add two certificates from the same KeyVault?
  
 This can happen if you're trying to add the same vault twice instead of a new vaultCertificate for the existing sourceVault. The Add-AzureRmVmssSecret does not work correctly for adding additional secrets.
@@ -321,7 +321,7 @@ If you want to add more secrets from the same key vault you should update the li
 You can see the expected input structure here:
 https://msdn.microsoft.com/library/azure/mt589035.aspx
  
-You will need to find the secret in the scle set object that has the same containing key vault, and add your certificate reference (the URL along with the secret store name) into the list associated with the vault.
+You will need to find the secret in the scale set object that has the same containing key vault, and add your certificate reference (the URL along with the secret store name) into the list associated with the vault.
 
 Note: removing certificates from VMs through the scale set APIs is not currently supported.
  
@@ -349,7 +349,7 @@ See https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms
   
 ### How do you add a new vault certificate to a new certificate object?
 
-If you want add a vault certificate to existing secret, which should be the only one secret object, you can do it like this:
+If you want to add a vault certificate to existing secret, which should be the only one secret object, you can do it like this:
  
 $newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
  
@@ -367,7 +367,7 @@ If the secret is deleted in the key vault, and you stop deallocate all your VMs 
 
 The CRP component does not persist any customer secrets. If you stop deallocate all VMs in the scale set, then the cache is deleted. In this scenario, secrets are retrieved from key vault.
 
-This issue is not hit on scale out because there is a cached copy of the secret in fabric (at least in the single fabric tenant model).
+This issue is not hit on scale-out because there is a cached copy of the secret in fabric (at least in the single fabric tenant model).
  
 ### Why do we have to specify the exact location for the Certificate URL, as referenced here: per https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/, 
 https://<name of the vault>.vault.azure.net:443/secrets/<exact location>
@@ -408,13 +408,17 @@ We currently do not support .cer files, you must export your .cer files into pfx
 
 ### How do you delete a scale set extension?
 
-E.g. with PowerShell..
+E.g. with PowerShell:
 
+```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" 
+
 $vmss=Remove-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
+
 Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
+```
  
-The extensionName could be found in $vmss.
+The extensionName could be found in `$vmss`.
    
 ### IS there a scale set template example that integrates with OMS?
 
@@ -442,7 +446,7 @@ $extName = "VMAccessAgent"
 $publisher = "Microsoft.Compute"
 $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
 $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName  VirtualMachineScaleSet $vmss
+Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName VirtualMachineScaleSet $vmss
  
  
 ### How do I add an extension to all VMs in my scale set?
@@ -485,7 +489,7 @@ You could define an extension like this using the JsonADDomainExtension for exam
 ### My scale set extension is trying to install something that requires a reboot, e.g. 
 "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
 
-You could use the the DSC extension. If the OS is 2012 R2, then ARM will pull in the WMF5.0 setup, reboot, and continue with the configuration. 
+You could use the DSC extension. If the OS is 2012 R2, then ARM will pull in the WMF5.0 setup, reboot, and continue with the configuration. 
  
 ### How can I enable Antimalware on my scale set?
 
@@ -508,7 +512,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### I need to execute a custom script hosted on a private storage account. I have no problems when the storage is public but when I try to use a Shared Access Signature(SAS) it fails with the error: “Missing mandatory parameters for valid Shared Access Signature”. I know that link+SAS works just fine from my local browser.
 
-You must setup protected settings with the storage account key and name for this to work.
+You must set up protected settings with the storage account key and name for this to work.
 See https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings
 
 
