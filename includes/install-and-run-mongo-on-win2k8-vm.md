@@ -41,7 +41,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
         C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
 
-    A service is installed named MongoDB with a description of "Mongo DB". The `--logpath` option must be used to specify a log file, since the running service does not have a command window to display output.  The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.  The `--dbpath` option specifies the location of the data directory. For more service-related command-line options, see [Service-related command line options][MongoWindowsSvcOptions].
+    A service is installed named MongoDB with a description of "Mongo DB". The `--logpath` option must be used to specify a log file, since the running service does not have a command window to display output.  The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.  The `--dbpath` option specifies the location of the data directory. For more service-related command-line options, see [Service-related command-line options][MongoWindowsSvcOptions].
 
     To start the service, run this command:
 
