@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/06/2017
 ms.author: awills
 
 ---
@@ -28,9 +28,9 @@ Additional sources of information:
  
 
 ## Index
-**Let** [let](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Queries and operators** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -104,17 +104,74 @@ requests
 | summarize count() by client_City;
 ```
 
-Self-join:
+### materialize
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+Use materialize() to improve the performance where the result of a let clause is used more than once downstream. Materialize() evaluates and caches the result of a tabular let clause at the time of query execution, ensuring that the query isn't executed more than once.
 
+**Syntax**
+
+    materialize(expression)
+
+**Arguments**
+
+* `expresion`: Tabular expression to be evaluated and cached during query execution.
+
+**Tips**
+
+* Use materialize when you have join/union where their operands has mutual sub-queries that can be executed once (see the examples below).
+* Useful also in scenarios when we need to join/union fork legs.
+* Materialize is allowed to be used only in let statements by giving the cached result a name.
+* Materialze has a cache size limit which is 5 GB. This limit is per cluster node and is mutual for all the queries.
+
+**Example: self-join**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+The uncached version uses the result `scope` twice:
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## Queries and operators
 A query over your telemetry is made up of a reference to a source stream, followed by a pipeline of filters. For example:
@@ -502,7 +559,19 @@ Find most recent telemetry where any field contains the term 'test':
 * Add time-based terms to the `where` predicate.
 * Use `let` clauses rather than writing queries inline.
 
+### getschema operator
 
+   T | getschema
+   
+Yields a table that shows the column names and types of the input table.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![Results of getschema](./media/app-insights-analytics-reference/getschema.png)
 
 ### join operator
     Table1 | join (Table2) on CommonColumn
@@ -1030,6 +1099,32 @@ The result has as many rows as there are distinct combinations of `by` values. I
 
 > [!NOTE]
 > Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
+
+### table operator
+
+    table('pageViews')
+
+The table named in the argument string.
+
+**Syntax**
+
+    table(tableName)
+
+**Arguments**
+
+* *tableName:* A string. The name of a table, which can either be static, or the result of a let clause.
+
+**Examples**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
 
 ### take operator
 Alias of [limit](#limit-operator)
