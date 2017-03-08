@@ -217,7 +217,5 @@ Example:
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-
-If you want more information about Virtual Networks, see the [Virtual Network Documentation](/azure/virtual-network) page.
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md).
 

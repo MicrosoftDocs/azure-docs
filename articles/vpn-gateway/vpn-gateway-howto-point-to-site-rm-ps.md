@@ -343,8 +343,6 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-
-To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md).
 
 
