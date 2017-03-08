@@ -3,7 +3,7 @@ title: Mixing ScaleR and SparkR with HDInsight | Microsoft Docs
 description: Use ScaleR and SparkR with R Server and HDInsight
 services: hdinsight
 documentationcenter: ''
-author: jeffstok
+author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
