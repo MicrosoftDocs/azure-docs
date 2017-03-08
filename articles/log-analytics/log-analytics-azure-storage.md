@@ -47,6 +47,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
 | Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (Preview)](log-analytics-service-fabric.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | |
+| Storage                 |                                         |             | Script      | Azure Storage Analytics (Preview) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Virtual Machines scale sets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Web Server farms        | Microsoft.Web/serverfarms               |             | Diagnostics | |
