@@ -89,7 +89,7 @@ Depending on the storage type of your source VM, follow the instructions in eith
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
-        --name mystorageaccount --output table
+        --account-name mystorageaccount --output table
     ```
 
  The output is similar to the following example:
