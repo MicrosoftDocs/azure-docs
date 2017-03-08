@@ -174,10 +174,9 @@ You can also use PowerShell to explicitly override the retention period and imme
 > [!NOTE]
 > If you run this cmdlet you permanently delete the account and its contents. It is not recoverable. Use this with care.
 
-   
-    ```
-    Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
-    ```
+
+        Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
+
 
 For more details, refer to [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
  
