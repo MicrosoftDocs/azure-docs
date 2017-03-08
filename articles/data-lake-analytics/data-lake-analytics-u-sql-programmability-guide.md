@@ -1,11 +1,11 @@
 ---
-  title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
-  description: Learn about the set of services in Azure Data Lake that enable you to create a cloud-based big data platform.
-  services: data-lake-analytics
-  cloud:
-  documentationcenter:
-  author: MikeRys
-  manager: arindamc
+ title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
+ description: Learn about the set of services in Azure Data Lake that enable you to create a cloud-based big data platform.
+ services: data-lake-analytics
+ cloud:
+ documentationcenter:
+ author: MikeRys
+ manager: arindamc
 
 
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
@@ -64,9 +64,9 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-In the previous example, we have an **Input File**: file input_file.tsv, defined by **Local Variable** @input_file.
+In this example, we have an **Input File**: file input_file.tsv, defined by **Local Variable** @input_file.
 
-The following actions are performed by the previous U-SQL script:
+The following actions are performed by the U-SQL script show in this example:
 
 * The initial **EXTRACT** statement loads data to memory by converting Input File to the **Memory RowSet**.
 * **SELECT** operates on data rowset to aggregate data and prepare for exporting.
@@ -85,7 +85,7 @@ Expressions can use operators that use other expressions as parameters. They can
 	Convert.ToDateTime(Convert.ToDateTime(dt).ToString("yyyy-MM-dd"))
 ```
 
-U-SQL language enables the usage of standard C# expressions from built-in name spaces.  
+U-SQL language enables the usage of standard C# expressions from built-in namespaces.  
 
 ```c#
 	Microsoft.Analytics.Interfaces;  
@@ -144,7 +144,7 @@ Following is a slightly more complicated scenario that demonstrates the use of s
 
 This shows an example of a C# conditional operator expression.
 
-The previous examples demonstrates the use of C# expressions in the base U-SQL script. However, U-SQL enables more extensible programmability features that are covered later in this document.  
+The previous examples demonstrate the use of C# expressions in the base U-SQL script. However, U-SQL enables more extensible programmability features that are covered later in this document.  
 
 Full script:
 
@@ -236,7 +236,7 @@ Example:
 	) (dt)
 ```
 
-In this example, we define an inline function with string input parameter input_p. Inside this function, we verify if input string is a valid datetime value. If it is, return it, otherwise return null.
+In this example, we define an inline function with the string input parameter input_p. Inside this function, we verify if input string is a valid datetime value. If it is, return it, otherwise return null.
 
 The inline function is needed in this scenario because the DateTime.TryParse function contains the output parameter `out dt_result`. We define it as the `DateTime dt_result`;.
 
@@ -416,7 +416,7 @@ Thus, you can add a separate C# Class Library (for U-SQL) to your solution (see 
 **Figure 5**: How to register the U-SQL C# code project
 <br />
 
-The registration dialog box (see Step 2 of Figure 5) gives you the options for how to register the assembly (for example, which Data Lake Analytics account to use, which database to use). It also gives you information about how to name the assembly. (The local assembly path gets filled in by the tool.) It also provides an option to re-register an already registered assembly, and two options for adding additional dependencies:
+The registration dialog box (see Step 2 of Figure 5) gives you the options for how to register the assembly (for example, which Data Lake Analytics account to use, which database to use). It also gives you information about how to name the assembly. (The local assembly path gets filled in by the tool.) In addition, it provides an option to re-register an already registered assembly, and two options for adding additional dependencies:
 
 **Managed dependencies**: Shows the managed assemblies that are needed. Each selected assembly is registered individually and becomes referenceable in scripts. You use this for other .NET assemblies.
 
@@ -429,9 +429,9 @@ Now you can refer to the registered assemblies from any U-SQL script that has pe
 ### Register assemblies via Azure Data Lake Tools in Visual Studio and in U-SQL scripts
 While the Azure Data Lake Tools in Visual Studio make it easy to register an assembly, you can also do it with a script (in the same way that the tools do it for you) if you are (for example) developing on a different platform or have already compiled assemblies that you want to upload and register. You take the following steps:
 
-1. You upload your assembly DLL and also all required non-system DLLs and resource files into a location that you choose. You can also upload it to your Azure Data Lake storage account or even a Microsoft Azure Blob storage account that's linked to your Azure Data Lake account. You can use any of the upload tools that are available to you (for example, Windows PowerShell commands, Visual Studio’s Azure Data Lake Tool Data Lake Explorer upload, your favorite SDK’s upload command, or tools that you access through the Azure portal).
+1. Upload your assembly DLL and also all required non-system DLLs and resource files into a location that you choose. You can also upload it to your Azure Data Lake storage account or even a Microsoft Azure Blob storage account that's linked to your Azure Data Lake account. You can use any of the upload tools that are available to you (for example, Windows PowerShell commands, Visual Studio’s Azure Data Lake Tool Data Lake Explorer upload, your favorite SDK’s upload command, or tools that you access through the Azure portal).
 
-1. After you have uploaded the DLLs, you use the [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) statements to register them.
+1. After you have uploaded the DLLs, use the [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) statements to register them.
 
 We use this approach in the following spatial example.
 
@@ -533,10 +533,10 @@ Each uploaded assembly DLL and resource file, such as a different runtime, a nat
 Finally, note that each U-SQL database can only contain one version of any given assembly. For example, if you need both version 7 and version 8 of the NewtonSoft Json.Net library, you need to register them in two different databases. Furthermore, each script can only refer to one version of a given assembly DLL. In this respect, U-SQL follows the C# assembly management and versioning semantics.
 
 
-## User-defined functions: UDF
+## Use user-defined functions: UDF
 U-SQL user-defined functions, or UDF, are programming routines that accept parameters, perform an action (such as a complex calculation), and return the result of that action as a value. The return value of UDF can only be a single scalar. U-SQL UDF can be called in U-SQL base script like any other C# scalar function.
 
-We recommend that you initialize U-SQL user-defined functions as public and **static**.
+We recommend that you initialize U-SQL user-defined functions as **public** and **static**.
 
 ```c#
         public static string MyFunction(string param1)
@@ -891,7 +891,7 @@ To define a UDT, we have to:
 
 * Add `Microsoft.Analytics.Interfaces`, which is required for the UDT interfaces. In addition, `System.IO` might be needed to define the IFormatter interface.
 
-* Define used-defined type with SqlUserDefinedType attribute.
+* Define a used-defined type with SqlUserDefinedType attribute.
 
 **SqlUserDefinedType** is used to mark a type definition in an assembly as a user-defined type (UDT) in U-SQL. The properties on the attribute reflect the physical characteristics of the UDT. This class cannot be inherited.
 
@@ -930,7 +930,7 @@ The constructor of the class:
         }
 ```
 
-`IFormatter` interface serializes and de-serializes an object graph with the root type of \<typeparamref name="T">.
+The `IFormatter` interface serializes and de-serializes an object graph with the root type of \<typeparamref name="T">.
 
 \<typeparam name="T">The root type for the object graph to serialize and de-serialize.
 
@@ -1510,7 +1510,7 @@ SqlUserDefinedExtractor is an optional attribute for UDE definition. It used to 
 
 * bool     AtomicFileProcessing   
 
-* **true**  Indicates that this extractor requires atomic input files (JSON, XML, ...)
+* **true** = Indicates that this extractor requires atomic input files (JSON, XML, ...)
 * **false** = Indicates that this extractor can deal with split / distributed files (CSV, SEQ, ...)
 
 The main UDE programmability objects are **input** and **output**. The input object is used to enumerate input data as `IUnstructuredReader`. The output object is used to set output data as a result of the extractor activity.
@@ -2011,7 +2011,7 @@ The typical call to the user-defined applier looks like the following:
 	new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-For more information about using appliers in a SELECT expression, see [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY], see (https://msdn.microsoft.com/library/azure/mt621307.aspx).
+For more information about using appliers in a SELECT expression, see [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
 
 The user-defined applier base class definition is as follows:
 
