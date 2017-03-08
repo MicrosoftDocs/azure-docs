@@ -26,13 +26,13 @@ With an SSH key pair, you can create Virtual Machines on Azure that default to u
 
 Using SSH public and private keys is the easiest way to log in to your Linux servers. [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to log in to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily.
 
-Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key should have a [very secure password](https://www.xkcd.com/936/) (source:[xkcd.com](https://xkcd.com)) to safeguard it.  This password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key using 128-bit AES, so that the private key is useless without the password to decrypt it.  If an attacker stole your private key and that key did not have a password, they would be able to use that private key to log in to any servers that have the corresponding public key.  If a private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
+Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key should have a [very secure password](https://www.xkcd.com/936/) (source:[xkcd.com](https://xkcd.com)) to safeguard it.  This password is just to access the private SSH key file and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key using 128-bit AES, so that the private key is useless without the password to decrypt it.  If an attacker stole your private key and that key did not have a password, they would be able to use that private key to log in to any servers that have the corresponding public key.  If a private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
 
-This article creates *ssh-rsa* formatted key files, which are recommended for deployments on the Resource Manager.  *ssh-rsa* keys are required on the [portal](https://portal.azure.com) for both classic and Resource Manager deployments.
+This article creates an SSH protocol version 2 RSA public and private key file pair (also referred to as "ssh-rsa" keys), which are recommended for deployments with Azure Resource Manager. *ssh-rsa* keys are required on the [portal](https://portal.azure.com) for both classic and Resource Manager deployments.
 
 ## SSH keys use and benefits
 
-Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, the public key is copied to `~/.ssh/authorized_keys`.  SSH keys in `~/.ssh/authorized_keys` are used to challenge the client to match the corresponding private key on an SSH login connection.  When an Azure Linux VM is created using SSH keys for authentication, Azure configures the SSHD server to not allow password logins, only SSH keys.  Therefore, by creating Azure Linux VMs with SSH keys, you can help secure the VM deployment and save yourself the typical post-deployment configuration step of disabling passwords in the sshd_config config file.
+Azure requires at least 2048-bit, SSH protocol version 2 RSA format public and private keys; the public key file has the `.pub` container format. (The classic portal uses the `.pem` file format. See ) To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, Azure copies the public key to the `~/.ssh/authorized_keys` folder on the VM. SSH keys in `~/.ssh/authorized_keys` are used to challenge the client to match the corresponding private key on an SSH login connection.  When an Azure Linux VM is created using SSH keys for authentication, Azure configures the SSHD server to not allow password logins, only SSH keys.  Therefore, by creating Azure Linux VMs with SSH keys, you can help secure the VM deployment and save yourself the typical post-deployment configuration step of disabling passwords in the **sshd_config** file.
 
 ## Using ssh-keygen
 
@@ -61,7 +61,7 @@ ssh-keygen \
 
 ## Classic portal and X.509 certs
 
-If you are using the Azure [classic portal](https://manage.windowsazure.com/), it requires X.509 certs for the SSH keys.  No other types of SSH public keys are allowed, they *must* be X.509 certs.
+If you are using the Azure [classic portal](https://manage.windowsazure.com/), it requires X.509 certificate .pem file for the SSH keys.  No other types of SSH public keys are allowed, they *must* be X.509 certs.
 
 To create an X.509 cert from your existing SSH-RSA private key:
 
@@ -92,11 +92,11 @@ ssh-keygen \
 ```bash
 ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): id_rsa
+Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): 
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
-Your identification has been saved in id_rsa.
-Your public key has been saved in id_rsa.pub.
+Your identification has been saved in /home/azureuser/.ssh/id_rsa.
+Your public key has been saved in /home/azureuser/.ssh/id_rsa.pub.
 The key fingerprint is:
 14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 azureuser@myserver
 The keys randomart image is:
@@ -124,14 +124,14 @@ A listing of the `~/.ssh` directory.
 ```bash
 ls -al ~/.ssh
 -rw------- 1 azureuser staff  1675 Aug 25 18:04 id_rsa
--rw-r--r-- 1 azureuser staff   410 Aug 25 18:04 rsa.pub
+-rw-r--r-- 1 azureuser staff   410 Aug 25 18:04 id_rsa.pub
 ```
 
 Key Password:
 
 `Enter passphrase (empty for no passphrase):`
 
-`ssh-keygen` refers to a password as "a passphrase."  It is *strongly* recommended to add a password to your key pairs. Without a password protecting the key pair, anyone with the private key file can use it to log in to any server that has the corresponding public key. Adding a password offers more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
+`ssh-keygen` refers to a password for the private key file as "a passphrase."  It is *strongly* recommended to add a password to your private key. Without a password protecting the key file, anyone with the file can use it to log in to any server that has the corresponding public key. Adding a password (passphrase) offers more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
 
 ## Using ssh-agent to store your private key password
 
@@ -151,7 +151,7 @@ ssh-add ~/.ssh/id_rsa
 
 The private key password is now stored in `ssh-agent`.
 
-## Using `ssh-copy-id` to install the new key
+## Using `ssh-copy-id` to copy the key to an existing VM
 If you have already created a VM you can install the new SSH public key to your Linux VM with:
 
 ```bash
