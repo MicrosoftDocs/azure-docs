@@ -91,6 +91,11 @@ ProxySettingsFilePath parameter takes a file as input. Create file using the fol
   ```
   cmd
   cdpcli.exe --registermt
+  
+  net stop obengine
+
+  net start obengine
+
   exit
   ```
 
@@ -100,7 +105,13 @@ ProxySettingsFilePath parameter takes a file as input. Create file using the fol
 * Next open an Admin command prompt.
 * Browse to the directory **%PROGRAMDATA%\ASR\Agent** and run the command
 
-  `cdpcli.exe --registermt`
+```
+cdpcli.exe --registermt
+
+net stop obengine
+
+net start obengine
+```
 
 ## Upgrading a Scale-out Process Server
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]

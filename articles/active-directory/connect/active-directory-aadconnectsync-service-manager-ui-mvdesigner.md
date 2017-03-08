@@ -17,7 +17,7 @@ ms.date: 02/27/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
-# Sync Service Manager Metavese Designer
+# Sync Service Manager Metaverse Designer
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvdesigner.png)
 
