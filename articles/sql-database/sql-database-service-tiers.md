@@ -109,7 +109,7 @@ For detailed steps, see [Manage an elastic pool in the Azure portal](sql-databas
 
 ## Creating or upgrading to 4TB
 
-The following sections discuss implementation details for creating or upgrading using the 4 TB option.
+The following sections discuss implementation details for the 4 TB option.
 
 ### Creating in the Azure portal
 
@@ -117,9 +117,9 @@ When creating a P11/P15, the default storage option of 1TB is pre-selected. For 
 
 ### Creating using PowerShell or Transact-SQL
 
-When creating a P11/P15 database, you can set the maxsize value to either 1 B (default) or 4 TB. Values of ‘1024 GB’ and ‘4096 GB’ are also accepted. If you choose the 4 TB maxsize option, the create command will fail with an error if the database is provisioned in an unsupported region.
+When creating a P11/P15 database, you can set the maxsize value to either 1 TB (default) or 4 TB. Values of ‘1024 GB’ and ‘4096 GB’ are also accepted. If you choose the 4 TB maxsize option, the create command will fail with an error if the database is provisioned in an unsupported region.
 
-### Upgrading a 4TB P11 or P15 Database to 4TB 
+### Upgrading to 4TB 
 
 For existing P11 and P15 databases located in one of the supported regions, you can increase the maxsize storage to 4 TB. This can be done in the Azure Portal, in PowerShell or with Transact-SQL. The following example shows the maxsize being changed using the ALTER DATABASE command:
 
