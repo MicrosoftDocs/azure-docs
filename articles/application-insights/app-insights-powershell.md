@@ -188,9 +188,8 @@ After creating an application resource, you'll want the iKey:
 To set up a metric alert at the same time as your app resource, merge code like this into the template file:
 
 ```JSON
-
+{
     parameters: { ... // existing parameters ...
-       ,       
             "responseTime": {
               "type": "int",
               "defaultValue": 3,
@@ -200,12 +199,10 @@ To set up a metric alert at the same time as your app resource, merge code like 
               }
     },
     variables: { ... // existing variables ...
-      ,
       // Alert names must be unique within resource group.
       "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
     }, 
     resources: { ... // existing resources ...
-     ,
      {
       //
       // Metric alert on response time
@@ -247,7 +244,7 @@ To set up a metric alert at the same time as your app resource, merge code like 
         ]
       }
     }
-
+}
 ```
 
 When you invoke the template, you can optionally add this parameter:
@@ -268,19 +265,16 @@ This example is for a ping test (to test a single page).
 Merge the following code into the template file that creates the app.
 
 ```JSON
-
+{
     parameters: { ... // existing parameters here ...
-      ,
       "pingURL": { "type": "string" },
       "pingText": { "type": "string" , defaultValue: ""}
     },
     variables: { ... // existing variables here ...
-      ,
       "pingTestName":"[concat('PingTest-', toLower(parameters('appName')))]",
       "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
     },
     resources: { ... // existing resources here ...
-    ,  
     { //
       // Availability test: part 1 configures the test
       //
@@ -362,7 +356,7 @@ Merge the following code into the template file that creates the app.
         ]
       }
     }
-
+}
 ```
 
 To discover the codes for other test locations, or to automate the creation of more complex web tests, create an example manually and then parameterize the code from [Azure Resource Manager](https://resources.azure.com/).
