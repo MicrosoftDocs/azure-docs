@@ -19,7 +19,7 @@ ms.date: 03/08/2017
 ms.author: carlrab
 ---
 
-# Create and query a single Azure SQL database with the Azure CLI 2.0
+# Create and query a single Azure SQL database with the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Azure SQL database.
 
