@@ -67,10 +67,10 @@ To finish creating your connection, choose **Create**.
    
 	![integration connection details](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)
 
-6. After your connection is created, as shown in this example. 
-Now provide details for **AS2-From**, 
+6. After your connection is created, as shown in this example, 
+provide details for **AS2-From**, 
 **AS2-To identifiers** as configured in your agreement, 
-and **Body**, which is the message payload:
+and **Body**, which is the message payload.
    
     ![provide mandatory fields](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage3.png)
 

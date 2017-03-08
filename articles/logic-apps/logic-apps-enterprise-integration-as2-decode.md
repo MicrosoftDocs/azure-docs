@@ -66,8 +66,8 @@ To finish creating your connection, choose **Create**.
 
 	![integration connection details](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
 
-6. After your connection is created, as shown in this example. 
-Now select **Body** and **Headers** from the Request outputs:
+6. After your connection is created, as shown in this example, 
+select **Body** and **Headers** from the Request outputs.
    
     ![integration connection created](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
@@ -76,7 +76,8 @@ Now select **Body** and **Headers** from the Request outputs:
 	![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
 ## AS2 decoder details
-The Decode AS2 connector does the following: 
+
+The Decode AS2 connector performs these tasks: 
 
 * Processes AS2/HTTP headers
 * Verifies the signature (if configured)
@@ -90,8 +91,10 @@ The Decode AS2 connector does the following:
 * Generates a synchronous or asynchronous MDN (based on agreement configurations)
 * Sets the correlation tokens and properties on the MDN
 
-## Try it yourself
-Try it out. Use the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) to deploy a fully operational logic app.
+## Try this sample
+
+To try deploying a fully operational logic app and sample AS2 scenario, 
+see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 
