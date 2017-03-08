@@ -19,10 +19,10 @@ ms.author: saeeda
 ---
 # Azure AD B2C: Sign-in using an iOS application
 
-The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Using an open standard protocol offers more developer choice when selecting a library to integrate with our services. We've provided this walkthrough and others like to to aid developers with writing applications that connect to the Microsoft Identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) are able to connect to the Microsoft Identity platform.
+The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Using an open standard protocol offers more developer choice when selecting a library to integrate with our services. We've provided this walkthrough and others like it to aid developers with writing applications that connect to the Microsoft Identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) are able to connect to the Microsoft Identity platform.
 
 > [!WARNING]
-> Microsoft does not provide fixes for third party libraries and has not done a review of those libraries. This sample is using a third party library called AppAuth that has been tested for compatibility in basic scenarios with the Azure AD B2C. Issues and feature requests should be directed to the library's open-source project. For more information, see [this article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).  
+> Microsoft does not provide fixes for third-party libraries and has not done a review of those libraries. This sample is using a third-party library called AppAuth that has been tested for compatibility in basic scenarios with the Azure AD B2C. Issues and feature requests should be directed to the library's open-source project. For more information, see [this article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
 >
 >
 
@@ -34,7 +34,7 @@ Not all Azure Active Directory scenarios & features are supported by the B2C pla
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
 
 ## Create an application
-Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
+Next, you need to create an app in your B2C directory. The app registration gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
 * Include a **mobile device** in the application.
 * Copy the **Application ID** that is assigned to your app. You need this GUID later.
@@ -55,9 +55,9 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 After you have created your policies, you're ready to build your app.
 
 ## Download the sample code
-We have provided a working sample that uses AppAuth with Azure AD B2C [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). You can download the code and run it. You can quickly get started with your own app using your own Azure AD B2C configuration by following the instructions in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
+We have provided a working sample that uses AppAuth with Azure AD B2C [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). You can download the code and run it. To use your own Azure AD B2C tenant, follow the instructions in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
 
-This sample was created by following the README instructions by the [iOS AppAuth project on GitHub](https://github.com/openid/AppAuth-iOS). For more details on how the sample and the library work, please reference the AppAuth README on GitHub.
+This sample was created by following the README instructions by the [iOS AppAuth project on GitHub](https://github.com/openid/AppAuth-iOS). For more details on how the sample and the library work, reference the AppAuth README on GitHub.
 
 ## Modifying your app to use Azure AD B2C with AppAuth
 
@@ -132,6 +132,6 @@ To set up your application to handle the redirect to the URI with the custom sch
 * Edit the value of 'Item 0' underneath 'URL Schemes' and set the value to your custom scheme.  It must match the scheme in redirectURL when creating the OIDAuthorizationRequest object.
 * In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp' to ensure we avoid scheme name collisions with other apps.
 
-Please refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
+Refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
 
 We are always open to feedback and suggestions! If you have any difficulties with this topic, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
