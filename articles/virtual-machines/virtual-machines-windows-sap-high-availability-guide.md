@@ -1237,6 +1237,12 @@ Configuring a cluster file share witness involves these tasks:
 
   _**Figure 38:** Confirmation that you've reconfigured the cluster_
 
+After installing the Windows Failover Cluster successfully, changes need to be made to some thresholds to ada[t failover detection to conditions in Azure. The parameters to be changed are docuemnted in this blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Assuming that your two VMs that build the Windows Cluster Configuration for ASCS/SCS are in the same SubNet, the following parameters need to be changed to these values:
+- SameSubNetDelay = 2
+- SameSubNetThreshold = 15
+
+These settings were tested with customers and provided a good compromise to be resilient enough on the one side. On the other hand those settings were providing fast enough failover in real error conditions on SAP software or node/VM failure. 
+
 ### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Install SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk
 
 You now have a working Windows Server Failover Clustering configuration in Azure. But, to install an SAP ASCS/SCS instance, you need a shared disk resource. You cannot create the shared disk resources you need in Azure. SIOS DataKeeper Cluster Edition is a third-party solution you can use to create shared disk resources.
