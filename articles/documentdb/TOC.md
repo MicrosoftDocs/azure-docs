@@ -4,6 +4,7 @@
 ## [What is DocumentDB: API for MongoDB?](documentdb-protocol-mongodb.md)
 ## [Core concepts](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [Security](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
