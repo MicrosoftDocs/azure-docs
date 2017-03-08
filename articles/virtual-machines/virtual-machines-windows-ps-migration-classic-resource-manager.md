@@ -258,7 +258,7 @@ Before you migrate the storage account, please perform preceding prerequisite ch
       DiskName | Format-List -Property RoleName, DiskName 
 
     ```
- * **Delete unattached classic VM disks stored in the storage account**
+* **Delete unattached classic VM disks stored in the storage account**
  
     Find unattached classic VM disks in the storage account using following command: 
 
