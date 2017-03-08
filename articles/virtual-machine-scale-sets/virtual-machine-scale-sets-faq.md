@@ -26,11 +26,11 @@ This article contains answers to frequently asked questions about scale sets.
 
 ## Compliance
 
-### Are VM scale sets PCI compliant?
+### Are scale sets PCI compliant?
 
-VMSS is a thin API layer on top of the Compute Resource Provider which is all a part of the “Compute Platform” area within the Azure Service Tree.
+Scale Sets are a thin API layer on top of the Compute Resource Provider which is all a part of the “Compute Platform” area within the Azure Service Tree.
 
-So, therefore, from a compliance perspective, VMSS is a fundamental part of the Azure Compute Platform and shares the same team, tools, processes, deployment methodology, security controls, JIT, monitoring, alerting, etc. as the Compute Resource Provider (CRP) itself.  VMSS is PCI compliant because Compute Resource Provider is a part of the current PCI DSS attestation:
+So, therefore, from a compliance perspective, scale sets are a fundamental part of the Azure Compute Platform and shares the same team, tools, processes, deployment methodology, security controls, JIT, monitoring, alerting, etc. as the Compute Resource Provider (CRP) itself.  Scale sets are PCI compliant because Compute Resource Provider is a part of the current PCI DSS attestation:
 
 For more information, See: [https://www.microsoft.com/TrustCenter/Compliance/PCI](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
@@ -48,7 +48,7 @@ You can call ListVMInstanceViews by
 
 No, but extensions can take actions based on unique aspects of the VM they are running on such as machine name, and they can query instance metadata on http://169.254.169.254 to get more information.
 
-### Why are there gaps between my VMSS VM machine names and VM IDs? E.g. 0,1,3...
+### Why are there gaps between my scale set VM machine names and VM IDs? E.g. 0,1,3...
 
 Because your scale set overprovision property is set to the default value of true. This means more VMs than requested are created, and the extra VMs subsequently deleted. What you gain is increased deployment reliability at the expense of contiguous naming, contiguous NAT rules. You can set this property to false, and for small scale sets it won’t make much difference to deployment reliability.
 
@@ -108,19 +108,19 @@ replace these with the appropriate resource names.
 
 You can create an autoscale setting on a VM to use host-level metrics, or use guest-OS based metrics.
 
-See this list of supported metrics: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics. Here is a full sample for VMSS (in this case we used the host-level CPU metric and a message count metric)
+See this list of supported metrics: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics. Here is a full sample for scale sets (in this case we used the host-level CPU metric and a message count metric):
 
 https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets
 
 ### How can I set alert rules on a VM scale set?
 
-You can create alerts on metrics on VMSS via PS or CLI. See:
+You can create alerts on metrics on scale sets via PS or CLI. See:
 
 https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules
 
 https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts
 
-the TargetResourceId of the VMSS will look like: /subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
+the TargetResourceId of the scale set will look like: /subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
 You can choose any VM perf counter as the metric to alert on:
 
@@ -136,7 +136,7 @@ See https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-
 
 ### Why would you ever not create at least a two-VM scale set?
 
-One reason to not create a two-VM VMSS would be to make use of the elastic properties of a scale set, for example to deploy a VMSS with zero VMs, where you’ve defined your infrastructure without paying VM running costs, and are ready to deploy by increasing the “capacity” of the VMSS to the production instance count.
+One reason to not create a two-VM scale set would be to make use of the elastic properties of a scale set, for example to deploy a scale set with zero VMs, where you’ve defined your infrastructure without paying VM running costs, and are ready to deploy by increasing the “capacity” of the scale set to the production instance count.
 
 Another reason is when you’re doing something with your scale set where you don’t care about availability in the same sense as using an availability set with discrete VMs. VM Scale Sets add a way to work with undifferentiated compute units which are fungible. This is a key differentiator for scale sets vs. availability sets. Many stateless workloads do not care about individual units, and can scale down to one compute unit if the workload drops, and back to many when it increases.
 
@@ -187,7 +187,7 @@ In this example, it goes to Pagerduty when a threshold is reached.
 
 ## Certificates
 
-### How do you securely ship a certificate into the VM?  Is there an example of provisioning a VMSS to run a website where the SSL for the website is shipped securely from a certificate configuration?  The common certificate rotation operation would amount to a configuration update operation.
+### How do you securely ship a certificate into the VM?  Is there an example of provisioning a scale set to run a website where the SSL for the website is shipped securely from a certificate configuration?  The common certificate rotation operation would amount to a configuration update operation.
 
 We support installing customer certificates directly into Windows certificate store from their key vault.
 
@@ -225,7 +225,7 @@ The above command gives you the input for the ARM template.
 
 #### Change ARM Template
 
-Add this property to the "virtualMachineProfile” as part of the VMSS Resource:
+Add this property to the "virtualMachineProfile” as part of the scale set Resource:
  
 "osProfile": {
             "computerNamePrefix": "[variables('namingInfix')]",
@@ -247,8 +247,9 @@ Add this property to the "virtualMachineProfile” as part of the VMSS Resource:
           },
  
 
-### Is there a way to specify an SSH keypair that I want to use for SSH authentication with a Linux VMSS from an ARM template?  
-A. The REST API for the osProfile looks similar to the ordinary VM case:
+### Is there a way to specify an SSH keypair that I want to use for SSH authentication with a Linux scale set from an ARM template?  
+
+The REST API for the osProfile looks similar to the ordinary VM case:
  
 https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration
  
@@ -282,7 +283,7 @@ https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayho
 
 You must remove the old certificate from the vault certificates list (but leave all of the certificates that you want to remain on your machine. This will not remove the certificate from all your VMs, but it will not add the certificate to new VMs that are created in the scale set. To remove the certificate from existing VMs you must write a custom script extension which removes the certificates from your certificate store manually.
  
-### How do I take an existing SSH public key and inject it into the VMSS SSH layer during provisioning?  I would like to store the SSH Public Key values in Azure Key Vault, and then utilize them in my ARM template.
+### How do I take an existing SSH public key and inject it into the scale set SSH layer during provisioning?  I would like to store the SSH Public Key values in Azure Key Vault, and then utilize them in my ARM template.
 
 If you are only providing the VMs with the public ssh key, there is no reason to put the public keys in the key vault (as a public key is not secret)
  
@@ -320,17 +321,17 @@ If you want to add more secrets from the same key vault you should update the li
 You can see the expected input structure here:
 https://msdn.microsoft.com/library/azure/mt589035.aspx
  
-You will need to find the secret in the VMSS object that has the same containing key vault, and add your certificate reference (the URL along with the secret store name) into the list associated with the vault.
+You will need to find the secret in the scle set object that has the same containing key vault, and add your certificate reference (the URL along with the secret store name) into the list associated with the vault.
 
-Note: removing certificates from VMs through the VMSS APIs is not currently supported.
+Note: removing certificates from VMs through the scale set APIs is not currently supported.
  
 New VMs will not have the old cert, but ones that had the cert already deployed will still have the old certificate.
  
-### is there a way to get certificates pushed on to the VMSS without providing the password when the certificate is in SecretStore currently?
+### Is there a way to get certificates pushed on to the scale set without providing the password when the certificate is in SecretStore currently?
 
 You do not need to hardcode passwords in scripts, you can dynamically retrieve them with whatever permissions the deployment script you have runs with. If you have a script that is moving a cert from secret store the key vault, the secret store get certificate command also outputs the password of the pfx file.
  
-### How does the secrets property of virtualMachineProfile.osProfile of a VMSS work? Why do you need sourceVault when you have to specify the absolute URI to a certificate with certificateUrl? 
+### How does the secrets property of virtualMachineProfile.osProfile of a scale set work? Why do you need sourceVault when you have to specify the absolute URI to a certificate with certificateUrl? 
 
 A Win RM certificate reference must be present in the secrets property of the OS profile. 
 
@@ -338,7 +339,7 @@ The purpose of indicating the source vault is to be able to enforce ACL policies
 
 If you provided an incorrect sourceVault id but a valid key vault URL we would report an error when you poll the operation
  
-### If I add secrets to an existing VMSS, does it inject them in existing instances, or only new ones? 
+### If I add secrets to an existing scale set, does it inject them in existing instances, or only new ones? 
 
 Certificates get added to all the VMs, even preexisting ones. If your scale set upgradePolicy property is set to “Manual” the certificate is added to the VM when you perform a manual update on the VM.
  
@@ -385,7 +386,7 @@ The reason for this is to make it clear to the user what certificate is deployed
 
 If a user creates a VM, then updates their secret in the key vault that new certificate will not be downloaded to their VMs. But their VMs will appear to reference it, and new VMs will get the new secret. To avoid this confusion, it is required that users reference an explicit secret version.
 
-### My team works with several certificates which are distributed to us as .cer public keys. What is the recommended approach is for deployment of these certs to a VMSS?
+### My team works with several certificates which are distributed to us as .cer public keys. What is the recommended approach is for deployment of these certs to a scale set?
 
 You can generate a pfx file that only contains .cer files, with X509ContentType = Pfx. E.g. load the .cer file as an x509Certificate2 object in C# or PowerShell and calling this method: https://msdn.microsoft.com/library/24ww6yzk(v=vs.110).aspx
 
@@ -398,14 +399,14 @@ Users can extract the latest versioned URL within an ARM template emulate the be
  
 ### Do we have to wrap certs in JSON objects in keyvaults?
 
-This is a VMSS/VM requirement. We do also support the content type application/x-pkcs12. Instructions found here:
+This is a scale set/VM requirement. We do also support the content type application/x-pkcs12. Instructions found here:
 http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/
  
 We currently do not support .cer files, you must export your .cer files into pfx containers.
 
 ## Extensions
 
-### How do you delete a VMSS extension?
+### How do you delete a scale set extension?
 
 E.g. with PowerShell..
 
@@ -415,7 +416,7 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 The extensionName could be found in $vmss.
    
-### IS there a VMSS template example that integrates with OMS?
+### IS there a scale set template example that integrates with OMS?
 
 Look at the second example here:
 
@@ -426,7 +427,7 @@ https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric
 See https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/ 
  
  
-### How do I reset the password for VMSS VMs?
+### How do I reset the password for scale set VMs?
 
 Use VM Access Extensions
 
@@ -448,13 +449,13 @@ Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName  Virtua
  - If update policy is set to automatic redeploying the template with the new extension properties will update every VM.
 - If update policy is set to manual, update the extension with manual mode and manualUpdate on all instances. 
   
-### If the extensions associated with an existing VMSS are updated, would they affect already existing VMs? (i.e. would the VMs show up as not matching the VMSS model)? Or would they be ignored? When an existing machine is service-healed / re-imaged / etc. would the scripts that are currently configured on the VMSS be executed or would the ones that were configured when the machine was first created be used?
+### If the extensions associated with an existing scale set are updated, would they affect already existing VMs? (i.e. would the VMs show up as not matching the scale set model)? Or would they be ignored? When an existing machine is service-healed / re-imaged / etc. would the scripts that are currently configured on the scale set be executed or would the ones that were configured when the machine was first created be used?
 
-- If the extension definition in the VMSS model is updated, it would update the VMs if upgradePolicy was set to automatic, and they would be flagged as not matching the model if upgradePolicy is set to manual. 
+- If the extension definition in the scale set model is updated, it would update the VMs if upgradePolicy was set to automatic, and they would be flagged as not matching the model if upgradePolicy is set to manual. 
 
 - If an existing VM is service healed it would appear like a reboot and the extensions would not re-run. If it is reimaged it would be like replacing the OS drive with the source image and any specialization from the latest model, such as extensions would run.
  
-### How do I get a VMSS to join an AD Domain?
+### How do I get a scale set to join an AD Domain?
 
 You could define an extension like this using the JsonADDomainExtension for example:
                     "extensionProfile": {
@@ -481,12 +482,12 @@ You could define an extension like this using the JsonADDomainExtension for exam
                     }
 
  
-### My VMSS extension is trying to install something that requires a reboot, e.g. 
+### My scale set extension is trying to install something that requires a reboot, e.g. 
 "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
 
 You could use the the DSC extension. If the OS is 2012 R2, then ARM will pull in the WMF5.0 setup, reboot, and continue with the configuration. 
  
-### How can I enable Antimalware on my VMSS?
+### How can I enable Antimalware on my scale set?
 
 Here's a PowerShell example:
 
@@ -526,9 +527,9 @@ It’s a unique ID. Lower layers will be logging this ID at some point in the fu
 
 IPs are selected from a subnet that you specify. 
 
-The allocation method of VMSS IPs is always “Dynamic”. It does not mean though that these IPs can change. It only means that you do not specify IP in PUT request. In other words, you specify the static set using the subnet. 
+The allocation method of scale set IPs is always “Dynamic”. It does not mean though that these IPs can change. It only means that you do not specify IP in PUT request. In other words, you specify the static set using the subnet. 
     
-### How do I deploy a VMSS into an existing VNET? 
+### How do I deploy a scale set into an existing VNET? 
 
 See https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet 
  
