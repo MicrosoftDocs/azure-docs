@@ -1,5 +1,5 @@
 ---
-title: 'Create s self-signed root certificate and generate client certificates for Point-to-Site: PowerShell: Azure | Microsoft Docs'
+title: 'Create a self-signed root certificate and generate client certificates for Point-to-Site: PowerShell: Azure | Microsoft Docs'
 description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using PowerShell.
 services: vpn-gateway
 documentationcenter: na
