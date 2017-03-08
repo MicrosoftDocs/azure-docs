@@ -80,15 +80,13 @@ Use the following procedure to choose which storage metrics to view in a metrics
 
    ![Individual metric selection in Edit Chart blade](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
 
-   > [NOTE!]
-   > Your chart settings do not affect the collection, aggregation, or storage of monitoring data in the storage account, only the viewing of metrics data.
-   >
+Your chart settings do not affect the collection, aggregation, or storage of monitoring data in the storage account, only the viewing of metrics data.
 
 ### Metrics availability in charts
 
 The list of available metrics changes based on which service you've chosen in the drop-down, and the type of chart you're editing. Only the checkboxes of the metrics applicable to the selected service and chart type are displayed and enabled.
 
-For example, to select error percentage metrics like *PercentAuthorizationError*, *PercentNetworkError*, and *PercentThrottlingError*, you must configure the error percentage chart highlighted in the following image:
+For example, to select percentage metrics like *PercentAuthorizationError*, *PercentNetworkError*, and *PercentThrottlingError*, you must configure the chart highlighted in the following image:
 
 ![Request error percentage chart in the Azure portal](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
 
@@ -96,7 +94,7 @@ For example, to select error percentage metrics like *PercentAuthorizationError*
 
 The metrics you selected in Diagnostics determines the resolution of the metrics that are available for your account:
 
-* **Aggregate** monitoring provides metrics such as ingress/egress, availability, latency, and success percentages. These metrics are aggregated from the blob, table, and queue services.
+* **Aggregate** monitoring provides metrics such as ingress/egress, availability, latency, and success percentages. These metrics are aggregated from the blob, table, file, and queue services.
 * **Per API** provides finer resolution, with metrics available for individual storage operations, in addition to the service-level aggregates.
 
 ## How to: Configure metrics alerts
@@ -122,9 +120,9 @@ You can add Azure Storage metrics charts for any of your storage accounts to you
 1. In **Resources**, select the storage account whose metrics you wish to add to the dashboard.
 1. Select **Categories** > **Monitoring**.
 1. Drag-and-drop the chart tile onto your dashboard for the metric you'd like displayed. Repeat for all metrics you'd like displayed on the dashboard. In the following image, the "Blobs - Total requests" chart is highlighted as an example, but all the charts are available for placement on your dashboard.
-1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
-a metric
+   ![Tile gallery in Azure portal](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
+1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
 Once you've added charts to your dashboard, you can further customize them as described in [How to: Customize metrics charts](#how-to-customize-metrics-charts).
 
