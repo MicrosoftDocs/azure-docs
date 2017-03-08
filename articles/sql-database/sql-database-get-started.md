@@ -115,8 +115,6 @@ The steps in this procedure show how to delete all resources created by this qui
 
 ## Next steps
 
-- To connect, query and manage your database and its server using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
-- To create a SQL database in an Azure SQL elastic pool, see the [Create an Azure SQL elastic pool and database in the Azure portal](sql-database-get-started-elastic-pool.md).
 - To connect using Visual Studio, see [Connect and query with Visual Studio](sql-database-connect-query.md)
 - For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
