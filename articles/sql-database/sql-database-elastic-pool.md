@@ -21,7 +21,7 @@ ms.tgt_pltfrm: NA
 ---
 # How elastic pools help you manage and scale multiple SQL databases
 
-SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool share a set number resources at a set price, and are located together on a single logical server in Azure.
+SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool share a set number of resources at a set price, and are located together on a single logical server in Azure.
 
 You can create and manage an elastic pool using the [Azure portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API. Elastic pool resources are measured in [eDTUs](sql-database-what-is-a-dtu.md).
 
