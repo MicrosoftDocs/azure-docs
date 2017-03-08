@@ -32,7 +32,7 @@ VMSS is a thin API layer on top of the Compute Resource Provider which is all a 
 
 So, therefore, from a compliance perspective, VMSS is a fundamental part of the Azure Compute Platform and shares the same team, tools, processes, deployment methodology, security controls, JIT, monitoring, alerting, etc. as the Compute Resource Provider (CRP) itself.  VMSS is PCI compliant because Compute Resource Provider is a part of the current PCI DSS attestation:
 
-For more information, See: [https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI).
+For more information, See: [https://www.microsoft.com/TrustCenter/Compliance/PCI](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
 
 
@@ -65,11 +65,11 @@ A. The main difference is dealloc doesn’t delete the VHDs, so there are storag
 
 ### How to I update my VMScaleSet to a new image? How do I manage patching?
 
-See: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
+See: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set
 
 ### Image reset
 Q. Can you use the “reimage” operation to reset a VM without changing the image (i.e. reset a VM to factory settings rather than to a new image)?
-A. Yes. See: https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set
+A. Yes. See: https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set
 
 However, if your scale set references a platform image with version = “latest” your VM can update to a later OS image when you call reimage.
 
@@ -77,17 +77,17 @@ However, if your scale set references a platform image with version = “latest�
 
 ### Any best practices tips for Azure autoscale?
 
-Yes. See https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-autoscale-best-practices
+Yes. See https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices
 
 ### Where do I find the metric names for autoscaling using host based metrics?
 
-https://azure.microsoft.com/en-us/documentation/articles/monitoring-supported-metrics/
+https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/
 
 ### Are there any examples of autoscaling off of a service bus topic and queue length?
 
 Yes. See:
 
-https://azure.microsoft.com/en-us/documentation/articles/insights-autoscale-common-metrics/
+https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/
 
 for service bus queue:
 
@@ -108,25 +108,25 @@ replace these with the appropriate resource names.
 
 You can create an autoscale setting on a VM to use host-level metrics, or use guest-OS based metrics.
 
-See this list of supported metrics: https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics. Here is a full sample for VMSS (in this case we used the host-level CPU metric and a message count metric)
+See this list of supported metrics: https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics. Here is a full sample for VMSS (in this case we used the host-level CPU metric and a message count metric)
 
-https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets
+https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets
 
 ### How can I set alert rules on a VM scale set?
 
 You can create alerts on metrics on VMSS via PS or CLI. See:
 
-https://azure.microsoft.com/en-us/documentation/articles/insights-powershell-samples/#create-alert-rules
+https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules
 
-https://azure.microsoft.com/en-us/documentation/articles/insights-cli-samples/#work-with-alerts
+https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts
 
 the TargetResourceId of the VMSS will look like: /subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
 You can choose any VM perf counter as the metric to alert on:
 
-https://azure.microsoft.com/en-us/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-windows-vm-v2-as-a-guest-os
+https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-windows-vm-v2-as-a-guest-os
 
-https://azure.microsoft.com/en-us/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-linux-vm-v2-as-a-guest-os
+https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-linux-vm-v2-as-a-guest-os
 
 ### How can I set up autoscale on a VM Scale Set using PowerShell?
 
@@ -193,7 +193,7 @@ We support installing customer certificates directly into Windows certificate st
 
 In the context of scale sets...
 
-https://msdn.microsoft.com/en-us/library/mt589035.aspx
+https://msdn.microsoft.com/library/mt589035.aspx
 
         "secrets": [ {
 	          "sourceVault": {
@@ -211,7 +211,7 @@ It supports both windows and Linux.
 
 #### Create a self-signed Cert in a KeyVault
 
-One way to create a self-signed cert in a KeyVault is to use the instructions from this Service Fabric article here: https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-security/
+One way to create a self-signed cert in a KeyVault is to use the instructions from this Service Fabric article here: https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/
 
 The commands:
 
@@ -250,7 +250,7 @@ Add this property to the "virtualMachineProfile” as part of the VMSS Resource:
 ### Is there a way to specify an SSH keypair that I want to use for SSH authentication with a Linux VMSS from an ARM template?  
 A. The REST API for the osProfile looks similar to the ordinary VM case:
  
-https://msdn.microsoft.com/en-us/library/azure/mt589035.aspx#linuxconfiguration
+https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration
  
 You should try something like the following:
  
@@ -318,7 +318,7 @@ This can happen if you're trying to add the same vault twice instead of a new va
 If you want to add more secrets from the same key vault you should update the list $vmss.properties.osProfile.secrets[0].vaultCertificates
  
 You can see the expected input structure here:
-https://msdn.microsoft.com/en-us/library/azure/mt589035.aspx
+https://msdn.microsoft.com/library/azure/mt589035.aspx
  
 You will need to find the secret in the VMSS object that has the same containing key vault, and add your certificate reference (the URL along with the secret store name) into the list associated with the vault.
 
@@ -368,7 +368,7 @@ The CRP component does not persist any customer secrets. If you stop deallocate 
 
 This issue is not hit on scale out because there is a cached copy of the secret in fabric (at least in the single fabric tenant model).
  
-### Why do we have to specify the exact location for the Certificate URL, as referenced here: per https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-security/, 
+### Why do we have to specify the exact location for the Certificate URL, as referenced here: per https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/, 
 https://<name of the vault>.vault.azure.net:443/secrets/<exact location>
  
 Per KeyVault documentation, the get-secret REST API should return the latest version of the secret if version is not specified:
@@ -387,7 +387,7 @@ If a user creates a VM, then updates their secret in the key vault that new cert
 
 ### My team works with several certificates which are distributed to us as .cer public keys. What is the recommended approach is for deployment of these certs to a VMSS?
 
-You can generate a pfx file that only contains .cer files, with X509ContentType = Pfx. E.g. load the .cer file as an x509Certificate2 object in C# or PowerShell and calling this method: https://msdn.microsoft.com/en-us/library/24ww6yzk(v=vs.110).aspx
+You can generate a pfx file that only contains .cer files, with X509ContentType = Pfx. E.g. load the .cer file as an x509Certificate2 object in C# or PowerShell and calling this method: https://msdn.microsoft.com/library/24ww6yzk(v=vs.110).aspx
 
 ### I do not see an option for users to pass in certificates as base64 strings that most other resource providers provide.
 
@@ -508,7 +508,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 ### I need to execute a custom script hosted on a private storage account. I have no problems when the storage is public but when I try to use a Shared Access Signature(SAS) it fails with the error: “Missing mandatory parameters for valid Shared Access Signature”. I know that link+SAS works just fine from my local browser.
 
 You must setup protected settings with the storage account key and name for this to work.
-See https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings
+See https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings
 
 
 ## Networking
