@@ -19,7 +19,7 @@ ms.date: 03/08/2017
 ms.author: carlrab
 
 ---
-# Create a single Azure SQL database in the Azure portal and then query the SQL database
+# Create and query a single Azure SQL database in the Azure portal
 
 Azure SQL databases can be created through the Azure portal. This quick start details the portal deployment experience.
 
