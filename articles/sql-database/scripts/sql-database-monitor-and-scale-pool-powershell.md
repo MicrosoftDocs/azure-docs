@@ -25,7 +25,7 @@ This sample PowerShell script monitors the performance metrics of an elastic poo
 
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
-## Script Samples
+## Scripts samples
 
 [!code-powershell[main](../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1 "Monitor and scale single SQL Database")]
 

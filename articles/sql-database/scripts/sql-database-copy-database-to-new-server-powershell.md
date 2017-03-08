@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid:
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: PowertShell
+ms.devlang: PowerShell
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database

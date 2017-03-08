@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database customer implatmentationa-technical | Microsoft Docs
-description: Learn technical details about customer implementatons of Azure SQL Database to solove business problems
+title: Azure SQL Database customer implementations-technical | Microsoft Docs
+description: Learn technical details about customer implementatons of Azure SQL Database to solve business problems
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler

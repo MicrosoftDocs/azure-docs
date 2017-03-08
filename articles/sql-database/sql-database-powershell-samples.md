@@ -19,7 +19,7 @@ ms.date: 03/07/2017
 ms.author: janeng
 ---
 
-# Azure PowerShell Samples for Azure SQL Database
+# Azure PowerShell samples for Azure SQL Database
 
 The following table includes links to sample Azure PowerShell scripts for Azure SQL Database.
 

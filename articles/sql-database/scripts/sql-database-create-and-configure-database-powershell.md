@@ -25,7 +25,7 @@ This sample PowerShell script creates an Azure SQL database and configures a ser
 
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
-## Script Samples
+## Scripts samples
 
 [!code-powershell[main](../../powershell_scripts/sql-database/create-and-configure-database/create-and-configure-database.ps1 "Create SQL Database")]
 

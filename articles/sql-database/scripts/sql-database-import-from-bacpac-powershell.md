@@ -25,7 +25,7 @@ This sample PowerShell script imports a database from a bacpac.
 
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
-## Script Samples
+## Scripts samples
 
 [!code-powershell[main](../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1 "Create SQL Database")]
 

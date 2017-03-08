@@ -25,7 +25,7 @@ This sample PowerShell script restores an Azure SQL database from a geo-redundan
 
 Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
 
-## Script Samples
+## Scripts samples
 
 [!code-powershell[main](../../powershell_scripts/sql-database/restore-database/restore-database.ps1 "Create SQL Database")]
 
