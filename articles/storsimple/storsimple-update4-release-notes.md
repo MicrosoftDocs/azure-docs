@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/03/2017
+ms.date: 03/08/2017
 ms.author: alkohli
 
 ---
@@ -35,7 +35,7 @@ Please review the information contained in the release notes before you deploy t
 
 The following key improvements and bug fixes have been made in Update 4.
 
-* **Smarter automated space reclamation algorithms** – In Update 4, the automated space reclamation algorithms are enhanced to the adjust the space reclamation cycles based on the expected reclaimed space available in the cloud. 
+* **Smarter automated space reclamation algorithms** – In Update 4, the automated space reclamation algorithms are enhanced to adjust the space reclamation cycles based on the expected reclaimed space available in the cloud. 
 
 * **Performance enhancements for locally pinned volumes** – Update 4 has improved the performance of locally pinned volumes in scenarios that have high data ingestion (data comparable to volume size).
 
