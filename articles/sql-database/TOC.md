@@ -1,13 +1,11 @@
 # Overview
 ## [About SQL DB](sql-database-technical-overview.md)
 ## Compare
-### [SQL Database versus SQL Server](sql-database-features.md)
-### [SQL Database versus SQL on a VM](sql-database-paas-vs-sql-server-iaas.md)
-### [SQL versus NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
+### [SQL Database features](sql-database-features.md)
 # QuickStart
 ## [Create a single database in the Azure portal](sql-database-get-started.md)
-## [Create a single database with the Azure CLI]
-## [Create a single database with PowerShell]
+## [Create a single database with the Azure CLI](sql-database-get-started-cli.md)
+## [Create a single database with PowerShell](sql-database-get-started-powershell.md)
 # Samples
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
@@ -228,7 +226,7 @@
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (Elastic DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
-## [Azure CLI 2.0](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/sql)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)

@@ -19,7 +19,7 @@ ms.date: 02/26/2017
 ms.author: carlrab
 
 ---
-# QuickStart: Create and query a single Azure SQL database in the Azure portal
+# Create and query a single Azure SQL database in the Azure portal
 
 Azure SQL databases can be created through the Azure portal. This quick start details the portal deployment experience.
 
@@ -27,15 +27,16 @@ Azure SQL databases can be created through the Azure portal. This quick start de
 
 Follow these steps to create a database with sample data in a server and a resource group. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) and click the **New** button.
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Click the **New** button.
 
-2. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps screen.
+3. Select **Databases** from the Marketplace screen, select **SQL databases** from the featured apps screen.
 
-3. Fill out the form with the required information (the server name must be globally unique). Click **Create** when complete:
+4. Fill out the form with the required information (the server name must be globally unique). Click **Create** when complete:
 
       ![create sql database2](./media/sql-database-get-started/create-database2.png)
 
-4. After the deployment has started, the Azure portal will return to the Azure dashboard. From here, the deployment status can be monitored. Provisioning takes a few minutes. 
+5. After the deployment has started, the Azure portal will return to the Azure dashboard. From here, the deployment status can be monitored. Provisioning takes a few minutes. 
 
 ## Create a server-level firewall rule
 
