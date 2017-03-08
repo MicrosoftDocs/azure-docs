@@ -35,7 +35,7 @@ To see the effects of weather on flight delays we’ll also need the weather dat
 
 ## Setting up the Spark Environment
 
-We setup the Spark environment as the first step prior to preparing the weather data, and merging it with the airline data prior to modeling. We begin by pointing to the directory containing our input data directories, creating a Spark compute context, and creating a logging function for informational logging to the console:
+We set up the Spark environment as the first step prior to preparing the weather data, and merging it with the airline data prior to modeling. We begin by pointing to the directory containing our input data directories, creating a Spark compute context, and creating a logging function for informational logging to the console:
 
 ```
 workDir        <- '~'  
@@ -344,7 +344,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 
 ## Import to XDF for Use by ScaleR
 
-We could use the CSV file of joined airline and weather data as-is for modeling via a ScaleR text data source, but we’ll import it to XDF since its more efficient when running multiple operations on the dataset.
+We could use the CSV file of joined airline and weather data as-is for modeling via a ScaleR text data source, but we’ll import it to XDF since it is more efficient when running multiple operations on the dataset.
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
