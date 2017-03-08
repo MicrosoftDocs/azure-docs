@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 03/08/2017
 ms.author: larryfr
 
 ---
 
 # Connect to Kafka on HDInsight using a VPN gateway
 
-Learn how to connect directly to Kafka on HDInsight by using an Azure Virtual Network configured for point-to-site communication. Point-to-site configuration provides a VPN gateway that clients can use to connect to the virtual network and communicate directly with the HDInsight cluster.
+Learn how to connect directly to Kafka on HDInsight by using an Azure Virtual Network configured with a VPN gateway. A VPN gateway allows individual clients to securely connect to the virtual network and communicate directly with the HDInsight cluster.
 
 ## Why use VPN
 
@@ -48,21 +48,104 @@ The information in this document is primarily for the following scenarios:
 
 * __VPN gateway__: Allows remote clients to join the virtual network and directly communicate with the HDInsight cluster. The VPN gateway created by this template uses an IP address pool of 172.16.201.0/24 to assign IPs to clients. Access to the VPN gateway uses certificate authentication.
 
-* __VPN client__: The VPN gateway created in Azure only provides a downloadable VPN client for Windows. See the following links for VPN clients that may work with Linux or OS X clients.
 
-    * [TBD]
+### Point-to-site or site-to-site
+
+There are two types of VPN configurations with Azure Virtual Networks:
+
+* __Point-to-site__: Each client machine uses a VPN client to connect to the virtual network.
+
+* __Site-to-site__: A VPN hardware (or software) device connects your local network to the virtual network.
+
+The information in this document uses a point-to-site configuration. For more information on creating and using a site-to-site configuration, see [Create a Virtual Network with a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 ## Domain name resolution
 
 > [!IMPORTANT]
 > One of the limitations of Azure Virtual Networks is that the automatic domain name resolution provided by the virtual network only works for Azure resources. When connecting to the network using the VPN gateway, your client can only use IP addresses to connect to the HDInsight cluster.
 
-While it is possible to add a custom DNS server to the virtual network, this is beyond the scope of this document. If you are familiar with configuring a DNS server, see [Manage DNS servers used by a virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) for more information on how to add the DNS server to your virtual network configuration.
+It is possible to setup a DNS server in the virtual network and configure forwarding between this DNS server and the one on your local network. This is beyond the scope of this document. If you are familiar with configuring a DNS server, see [Manage DNS servers used by a virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) for more information on how to add the DNS server to your virtual network configuration.
 
 > [!NOTE]
-> HDInsight automatically uses the DNS server information from the virtual network configuration. There are no HDInsight specific steps to use a custom DNS server.
+> HDInsight automatically uses the DNS server information from the virtual network configuration.
 
 The information in this document is based on using only IP addresses to access HDInsight over the VPN gateway.
+
+## Create: Using a web browser (Azure portal)
+
+### Create the virtual network and VPN gateway
+
+Follow the steps in the [Configure a Point-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) document to create a new Azure Virtual Network and VPN gateway.
+
+### Create the Kafka cluster
+
+Use the following steps to create a Kafka cluster in the Azure Virtual Network created in the previous section:
+
+1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
+   
+    ![Create a HDInsight cluster](./media/hdinsight-apache-kafka-connect-vpn-gateway/create-hdinsight.png)
+
+2. From the **Basics** blade, enter the following information:
+
+    * **Cluster Name**: The name of the HDInsight cluster.
+    * **Subscription**: Select the subscription to use.
+    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
+    * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
+    * **Resource Group**: The resource group to create the cluster in.
+    * **Location**: The Azure region to create the cluster in.
+   
+    ![Select subscription](./media/hdinsight-apache-kafka-connect-vpn-gateway/hdinsight-basic-configuration.png)
+
+3. Select **Cluster type**, and then set the following values on the **Cluster configuration** blade:
+   
+    * **Cluster Type**: Kafka
+
+    * **Version**: Kafka 0.10.0 (HDI 3.5)
+
+    * **Cluster Tier**: Standard
+     
+    Finally, use the **Select** button to save settings.
+     
+    ![Select cluster type](./media/hdinsight-apache-kafka-connect-vpn-gateway/set-hdinsight-cluster-type.png)
+
+    > [!NOTE]
+    > If your Azure subscription does not have access to the Kafka preview, instructions on how to gain access to the preview are displayed. The instructions displayed are similar to the following image:
+    >
+    > ![preview message: if you would like to deploy a managed Apache Kafka cluster on HDInsight, email us to request preview access](./media/hdinsight-apache-kafka-connect-vpn-gateway/no-kafka-preview.png)
+
+4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
+
+5. From the **Storage** blade, select or create a Storage account. For the steps in this document, leave the other fields on this blade at the default values. Use the __Next__ button to save storage configuration.
+
+    ![Set the storage account settings for HDInsight](./media/hdinsight-apache-kafka-connect-vpn-gateway/set-hdinsight-storage-account.png)
+
+2. From the __Cluster summary__ blade, select the __Edit__ link for the __Advanced settings__ section.
+
+    ![Edit link for advanced settings](./media/hdinsight-apache-kafka-connect-vpn-gateway)
+
+3. From the __Advanced settings__ blade, select the virtual network you created perviously. Select the __default__ subnet for the virtual network. Finally, use the __Next__ button to return to the __Cluster summary__.
+
+    ![Advanced settings blade](./media/hdinsight-apache-kafka-connect-vpn-gateway)
+
+4. From the __Cluster summary__ blade, use the __Create__ button to create the cluster.
+
+    > [!NOTE]
+    > It can take up to 20 minutes to create the cluster.
+
+### Configure the cluster for static IP addresses
+
+In the [Azure portal](https://portal.azure.com), find the entries that begin with `nic` and contain `headnode`, `workernode`, or `zookeepernode` as part of the name. These entries represent the network interface for the nodes in the HDInsight cluster. For each entry, perform the following steps:
+
+1. Select the entry.
+
+2. Select __IP configurations__.
+
+3. Select the __ipConfig__ entry for the private IP address.
+
+4. Change the __Assignment__ entry to __Static__. Select __Save__ to save the configuration change.
+
+    > [!IMPORTANT]
+    > Changing the IP address configuration from dynamic to static restarts the node.
 
 ## Create: Using PowerShell
 
@@ -252,81 +335,9 @@ Use the following steps to create an Azure Virtual Network, VPN gateway, storage
 
     To download the Windows VPN client, use the returned URI in your web browser.
 
-## Create: Using the Azure portal
+## Create: Using the Azure CLI
 
-### Create the virtual network and VPN gateway
 
-Follow the steps in the [Configure a Point-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) document to create a new Azure Virtual Network and VPN gateway.
-
-### Create the Kafka cluster
-
-Use the following steps to create a Kafka cluster in the Azure Virtual Network created in the previous section:
-
-1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
-   
-    ![Create a HDInsight cluster](./media/hdinsight-apache-kafka-connect-vpn-gateway/create-hdinsight.png)
-
-2. From the **Basics** blade, enter the following information:
-
-    * **Cluster Name**: The name of the HDInsight cluster.
-    * **Subscription**: Select the subscription to use.
-    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
-    * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
-    * **Resource Group**: The resource group to create the cluster in.
-    * **Location**: The Azure region to create the cluster in.
-   
-    ![Select subscription](./media/hdinsight-apache-kafka-connect-vpn-gateway/hdinsight-basic-configuration.png)
-
-3. Select **Cluster type**, and then set the following values on the **Cluster configuration** blade:
-   
-    * **Cluster Type**: Kafka
-
-    * **Version**: Kafka 0.10.0 (HDI 3.5)
-
-    * **Cluster Tier**: Standard
-     
-    Finally, use the **Select** button to save settings.
-     
-    ![Select cluster type](./media/hdinsight-apache-kafka-connect-vpn-gateway/set-hdinsight-cluster-type.png)
-
-    > [!NOTE]
-    > If your Azure subscription does not have access to the Kafka preview, instructions on how to gain access to the preview are displayed. The instructions displayed are similar to the following image:
-    >
-    > ![preview message: if you would like to deploy a managed Apache Kafka cluster on HDInsight, email us to request preview access](./media/hdinsight-apache-kafka-connect-vpn-gateway/no-kafka-preview.png)
-
-4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
-
-5. From the **Storage** blade, select or create a Storage account. For the steps in this document, leave the other fields on this blade at the default values. Use the __Next__ button to save storage configuration.
-
-    ![Set the storage account settings for HDInsight](./media/hdinsight-apache-kafka-connect-vpn-gateway/set-hdinsight-storage-account.png)
-
-2. From the __Cluster summary__ blade, select the __Edit__ link for the __Advanced settings__ section.
-
-    ![Edit link for advanced settings](./media/hdinsight-apache-kafka-connect-vpn-gateway)
-
-3. From the __Advanced settings__ blade, select the virtual network you created perviously. Select the __default__ subnet for the virtual network. Finally, use the __Next__ button to return to the __Cluster summary__.
-
-    ![Advanced settings blade](./media/hdinsight-apache-kafka-connect-vpn-gateway)
-
-4. From the __Cluster summary__ blade, use the __Create__ button to create the cluster.
-
-    > [!NOTE]
-    > It can take up to 20 minutes to create the cluster.
-
-### Configure the cluster for static IP addresses
-
-In the [Azure portal](https://portal.azure.com), find the entries that begin with `nic` and contain `headnode`, `workernode`, or `zookeepernode` as part of the name. These entries represent the network interface for the nodes in the HDInsight cluster. For each entry, perform the following steps:
-
-1. Select the entry.
-
-2. Select __IP configurations__.
-
-3. Select the __ipConfig__ entry for the private IP address.
-
-4. Change the __Assignment__ entry to __Static__. Select __Save__ to save the configuration change.
-
-    > [!IMPORTANT]
-    > Changing the IP address configuration from dynamic to static restarts the node.
 
 ## Configure Kafka for IP addressing
 
