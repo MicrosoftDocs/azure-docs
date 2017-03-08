@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/08/2017
 ms.author: jeedes
 
 ---
@@ -128,7 +128,6 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
  	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
-
 6. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
@@ -168,7 +167,6 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
   	b. **Issuer**: Enter **SAML Entity ID** from the **Configure GitHub** section on Azure AD
 
    	c. **Public Certificate**: Open the downloaded certificate from Azure AD in a notepad and copy the content including "BEGIN CERTIFICATE" and "END CERTIFICATE"
- 
 
 	![Settings](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 
@@ -208,7 +206,6 @@ The objective of this section is to create a test user in the Azure Management p
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**. 
-
 
 
 ### Creating a Github test user
