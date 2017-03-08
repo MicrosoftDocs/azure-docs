@@ -23,7 +23,7 @@ ms.author: janeng
 
 [Azure SQL Database](sql-database-technical-overview.md) offers four service tiers: **Basic**, **Standard**, **Premium**, and **Premium RS**. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change service tiers and performance levels dynamically without downtime. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. The Premium RS tier provides the same performance levels, security features and business continuity features as the Premium tier albeit at a reduced SLA.
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > Premium RS databases run with a lower number of redundant copies than Premium or Standard databases. So, in the event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
 >
 
@@ -140,8 +140,7 @@ When creating or upgrading an P11/P15 database in an unsupported region, the cre
 - For Active Geo-Replication scenarios:
    - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower performance tiers will be rejected as secondaries since they are not capable of supporting 4 TB.
    - Upgrading the primary database in a geo-replication relationship: Changing the maxsize to 4 TB on a primary database will trigger the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the 4TB option apply (see above). If the secondary is in a region that does not support 4 TB, the primary will not be upgraded.
-- Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import]](sql-database-import-sqlpackage.md) and [export](sql-database-export-sqlpackage.md) data.
-
+- Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import-sqlpackage.md) and [export](sql-database-export-sqlpackage.md) data.
 
 ## Next steps
 
