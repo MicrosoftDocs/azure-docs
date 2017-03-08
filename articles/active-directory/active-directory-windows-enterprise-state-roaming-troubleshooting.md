@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
-ms.author: ningtan
+ms.author: markvi
 
 ---
 #Troubleshooting Enterprise State Roaming settings in Azure Active Directory
