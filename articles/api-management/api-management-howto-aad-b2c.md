@@ -36,7 +36,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
   ![External identities 1][api-management-howto-aad-b2c-security-tab]
 
-3. Make a note of the **Redirect URL** and switch over to your Azure Active Directory B2C in the Azure portal.
+3. Make a note of the **Redirect URL** and switch over to Azure Active Directory B2C in the Azure portal.
 
   ![External identities 2][api-management-howto-aad-b2c-security-tab-reply-url]
 
