@@ -3,7 +3,7 @@ title: Getting Started with Eclipse Plugin for Service Fabric | Microsoft Docs
 description: Getting Started with Eclipse Plugin for Service Fabric.
 services: service-fabric
 documentationcenter: java
-author: saysa
+author: sayantancs
 manager: raunakp
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/27/2016
-ms.author: saysa
+ms.author: sayantancs
 
 ---
 
