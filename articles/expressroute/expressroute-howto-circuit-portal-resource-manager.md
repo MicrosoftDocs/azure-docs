@@ -138,6 +138,7 @@ You can modify the bandwidth, SKU, billing model and allow classic operations wi
 
 > [!IMPORTANT]
 > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+>
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 > 
 > Disable premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
