@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/10/2017
+ms.date: 023/07/2017
 ms.author: iainfou
 
 ---
@@ -69,7 +69,7 @@ The output is similar to the following example:
 
 Note the `appId` and `password` shown in the output from the preceding command. The password is only displayed when you create the service principal. You can list your service principals with [az ad sp list](/cli/azure/ad/sp#list) and view information about a specific service principal with [az ad sp show](/cli/azure/ad/sp#show).
 
-Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyvault#set-policy). In the following example, replace `appId` with the value specified in the preceding command to create the service principal:
+Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyvault#set-policy). In the following example, replace `appId` with the value output from the preceding command to create the service principal:
 
 ```azurecli
 az keyvault set-policy --name myKeyVault --spn appId \
@@ -83,6 +83,8 @@ Create a VM to encrypt with [az vm create] and attach a 5Gb data disk. Only cert
 az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
   --data-disk-sizes-gb 5
 ```
+
+SSH to your VM with to create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
 Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable). Provide the information for the service principal you created:
 
@@ -106,17 +108,28 @@ It will take some time for the disk encryption process to complete. Monitor the 
 az vm encryption show --resource-group myResourceGroup --name myVM --query [dataDisk,osDisk]
 ```
 
-The status shows **EncryptionInProgress**. When the status for both the OS disk and data disk show , restart your VM with [az vm restart](/cli/azure/vm#restart):
+The status shows **EncryptionInProgress**. Wait until the status for both the OS disk and data disk shows the following:
+
+```json
+[
+  "NotMounted",
+  "VMRestartPending"
+]
+```
+
+Restart your VM with [az vm restart](/cli/azure/vm#restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-The disk encryption process is finalized during the boot process, so wait a few minutes before cheaking the status of encryption again with **az vm encryption show**. The status should now report both the OS disk and data disk as encrypted:
+The disk encryption process is finalized during the boot process, so wait a few minutes before checking the status of encryption again with **az vm encryption show**:
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM --query [dataDisk,osDisk]
 ```
+
+ The status should now report both the OS disk and data disk as **Encrypted**.
 
 ## Overview of disk encryption
 Virtual disks on Linux VMs are encrypted at rest using [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. You retain control of these cryptographic keys and can audit their use. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. An Azure Active Directory endpoint provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
@@ -125,9 +138,9 @@ The process for encrypting a VM is as follows:
 
 1. Create a cryptographic key in an Azure Key Vault.
 2. Configure the cryptographic key to be usable for encrypting disks.
-3. To read the cryptographic key from the Azure Key Vault, create an endpoint using Azure Active Directory with the appropriate permissions.
-4. Issue the command to encrypt your virtual disks, specifying the Azure Active Directory endpoint and appropriate cryptographic key to be used.
-5. The Azure Active Directory endpoint requests the required cryptographic key from Azure Key Vault.
+3. To read the cryptographic key from the Azure Key Vault, create an Azure Active Directory service principal with the appropriate permissions.
+4. Issue the command to encrypt your virtual disks, specifying the Azure Active Directory service principal and appropriate cryptographic key to be used.
+5. The Azure Active Directory service principal requests the required cryptographic key from Azure Key Vault.
 6. The virtual disks are encrypted using the provided cryptographic key.
 
 ## Supporting services and encryption process
@@ -137,8 +150,8 @@ Disk encryption relies on the following additional components:
   * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
   * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
 * **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions. 
-  * You can typically use an existing Azure Active Directory instance for housing your application. 
-  * The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
+  * You can typically use an existing Azure Active Directory instance for housing your application.
+  * The service principal provides a secure mechanism to request and be issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
 
 ## Requirements and limitations
 Supported scenarios and requirements for disk encryption:
@@ -155,123 +168,108 @@ Disk encryption is not currently supported in the following scenarios:
 * Updating the cryptographic keys on an already encrypted Linux VM.
 
 ## Create the Azure Key Vault and keys
-To complete the remainder of this guide, you need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
-
-```azurecli
-azure config mode arm
-```
-
-Throughout the command examples, replace all example parameters with your own names, location, and key values. The following examples use a convention of `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
+You need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login). Throughout the command examples, replace all example parameters with your own names, location, and key values. The following examples use a convention of `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
 
 The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you use Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks. 
 
-Enable the Azure Key Vault provider in your Azure subscription, then create a resource group. The following example creates a resource group named `myResourceGroup` in the `WestUS` location:
+Enable the Azure Key Vault provider within your Azure subscription with [az provider register](/cli/azure/provider#register) and create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group name `myResourceGroup` in the `WestUS` location:
 
 ```azurecli
-azure provider register Microsoft.KeyVault
-azure group create myResourceGroup --location WestUS
+az provider register -n Microsoft.KeyVault
+az group create --name myResourceGroup --location WestUS
 ```
 
-The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. The following example creates an Azure Key Vault named `myKeyVault`:
+The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault with [az keyvault create](/cli/azure/keyvault#create). The following example creates a Key Vault named `myKeyVault`:
 
 ```azurecli
-azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
+az keyvault create --name myKeyVault --resource-group myResourceGroup \
   --location WestUS
 ```
 
 You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault. 
 
-For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create an encryption key within your Key Vault, then enable it for use with virtual disk encryption. The following example creates a key named `myKey` and then enables it for disk encryption:
+For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [az keyvault key create](/cli/azure/keyvault/key#create) and enable it for disk encryption with [az keyvault update](/cli/azure/keyvault#update). The following example creates a key named `myKey`:
 
 ```azurecli
-azure keyvault key create --vault-name myKeyVault --key-name myKey \
-  --destination software
-azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGroup \
-  --enabled-for-disk-encryption true
+az keyvault key create --vault-name myKeyVault --name myKey \
+  --protection software
+az keyvault update --name myKeyVault --resource-group myResourceGroup \
+  --set properties.enabledForDiskEncryption=True
 ```
 
 
 ## Create the Azure Active Directory application
-When virtual disks are encrypted or decrypted, you use an endpoint to handle the authentication and exchanging of cryptographic keys from Key Vault. This endpoint, an Azure Active Directory application, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
+When virtual disks are encrypted or decrypted, you specify an account to handle the authentication and exchanging of cryptographic keys from Key Vault. This account, an Azure Active Directory service principal, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
 
-As you are not creating a full Azure Active Directory application, the `--home-page` and `--identifier-uris` parameters in the following example do not need to be actual routable address. The following example also specifies a password-based secret rather than generating keys from within the Azure portal. As this time, generating keys cannot be done from the Azure CLI. 
-
-Create your Azure Active Directory application. The following example creates an application named `myAADApp` and uses a password of `myPassword`. Specify your own password as follows:
+Create a service principal using Azure Active Directory with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac):
 
 ```azurecli
-azure ad app create --name myAADApp \
-  --home-page http://testencrypt.contoso.com \
-  --identifier-uris http://testencrypt.contoso.com \
-  --password myPassword
+az ad sp create-for-rbac
 ```
 
-Make a note of the `applicationId` that is returned in the output from the preceding command. This application ID is used in some of the remaining steps. Next, create a service principal name (SPN) so that the application is accessible within your environment. To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory application to read the keys. 
+The output is similar to the following example:
 
-Create the SPN and set the appropriate permissions as follows:
+```json
+{
+  "appId": "54dae448-d995-4814-806d-c0daaed10266",
+  "displayName": "azure-cli-2017-03-07-18-43-25",
+  "name": "http://azure-cli-2017-03-07-18-43-25",
+  "password": "80ada6ac-95f5-4718-9e3a-aafa30db4795",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+```
+
+Note the `appId` and `password` shown in the output from the preceding command. The password is only displayed when you create the service principal. You can list your service principals with [az ad sp list](/cli/azure/ad/sp#list) and view information about a specific service principal with [az ad sp show](/cli/azure/ad/sp#show).
+
+To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory service principal to read the keys. Set permissions on your Key Vault with [az keyvault set-policy](/cli/azure/keyvault#set-policy). In the following example, replace `appId` with the value output from the preceding command to create the service principal:
 
 ```azurecli
-azure ad sp create --applicationId myApplicationID
-azure keyvault set-policy --vault-name myKeyVault --spn myApplicationID \
-  --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]
+az keyvault set-policy --name myKeyVault --spn appId \
+  --key-permissions all \
+  --secret-permissions all
 ```
 
 
-## Add a virtual disk and review encryption status
-To actually encrypt some virtual disks, lets add a disk to an existing VM. Add a 5Gb data disk to an existing VM as follows:
+## Create a virtual disk and review encryption status
+To actually encrypt some virtual disks, lets create a VM and add a data disk. Create a VM to encrypt with [az vm create] and attach a 5Gb data disk. Only certain marketplace images support disk encryption. The following example create a VM named `myVM` using a **CentOS 7.2n** image:
 
 ```azurecli
-azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-  --size-in-gb 5
+az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
+  --data-disk-sizes-gb 5
 ```
 
-The virtual disks are not currently encrypted. Review the current encryption status of your VM as follows:
-
-```azurecli
-azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
-```
+SSH to your VM with to create a partition and filesystem, then mount the data disk. For more information, see [Connect to a Linux VM to mount the new disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Close your SSH session.
 
 
 ## Encrypt virtual disks
 To now encrypt the virtual disks, you bring together all the previous components:
 
-1. Specify the Azure Active Directory application and password.
+1. Specify the Azure Active Directory service principal and password.
 2. Specify the Key Vault to store the metadata for your encrypted disks.
 3. Specify the cryptographic keys to use for the actual encryption and decryption.
 4. Specify whether you want to encrypt the OS disk, the data disks, or all.
 
-Lets review the details for your Azure Key Vault and the key you created, as you need the Key Vault ID, URI, and then key URL in the final step:
+Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#enable). Provide the information for the service principal you created:
+
+| CLI flag            | Service principal property |
+|---------------------|----------------------------|
+| --aad-client-id     | appId                      |
+| --aad-client-secret | password                   |
 
 ```azurecli
-azure keyvault show myKeyVault
-azure keyvault key show myKeyVault myKey
+az vm encryption enable --resource-group myResourceGroup --name myVM \
+  --aad-client-id 54dae448-d995-4814-806d-c0daaed10266 \
+  --aad-client-secret 80ada6ac-95f5-4718-9e3a-aafa30db4795 \
+  --disk-encryption-keyvault myKeyVault \
+  --key-encryption-key myKey \
+  --volume-type all
 ```
 
-Encrypt your virtual disks using the output from the `azure keyvault show` and `azure keyvault key show` commands as follows:
+It will take some time for the disk encryption process to complete. Monitor the status of the process with [az vm encryption show](/cli/azure/vm/encryption#show):
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
-  --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
-  --disk-encryption-key-vault-url myKeyVaultVaultURI \
-  --disk-encryption-key-vault-id myKeyVaultID \
-  --key-encryption-key-url myKeyKID \
-  --key-encryption-key-vault-id myKeyVaultID \
-  --volume-type Data
+az vm encryption show --resource-group myResourceGroup --name myVM --query [dataDisk,osDisk]
 ```
-
-As the preceding command has many variables, the following example is the complete command for reference:
-
-```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
-  --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
-  --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
-  --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
-  --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
-  --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
-  --volume-type Data
-```
-
-The Azure CLI doesn't provide verbose errors during the encryption process. For additional troubleshooting information, review `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log` on the VM you are encrypting.
 
 The output is similar to the following example:
 
@@ -282,15 +280,32 @@ The output is similar to the following example:
 ]
 ```
 
-Finally, lets review the encryption status again to confirm that your virtual disks have now been encrypted:
+Wait until the status for both the OS disk and data disk shows the following:
+
+```json
+[
+  "NotMounted",
+  "VMRestartPending"
+]
+```
+
+Restart your VM with [az vm restart](/cli/azure/vm#restart):
 
 ```azurecli
-azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
+az vm restart --resource-group myResourceGroup --name myVM
 ```
+
+The disk encryption process is finalized during the boot process, so wait a few minutes before checking the status of encryption again with **az vm encryption show**:
+
+```azurecli
+az vm encryption show --resource-group myResourceGroup --name myVM --query [dataDisk,osDisk]
+```
+
+The status should now report both the OS disk and data disk as **Encrypted**.
 
 
 ## Add additional data disks
-Once you have encrypted your data disks, you can later add additional virtual disks to your VM and also encrypt them. When you run the `azure vm enable-disk-encryption` command, increment the sequence version using the `--sequence-version` parameter. This sequence version parameter allows you to perform repeated operations on the same VM.
+Once you have encrypted your data disks, you can later add additional virtual disks to your VM and also encrypt them. When you run the `az vm encryption enable` command, increment the sequence version using the `--sequence-version` parameter. This sequence version parameter allows you to perform repeated operations on the same VM.
 
 For example, lets add a second virtual disk to your VM as follows:
 
@@ -302,13 +317,12 @@ azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
 Rerun the command to encrypt the virtual disks, this time adding the `--sequence-version` parameter, and incrementing the value from our first run as follows:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
-  --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
-  --disk-encryption-key-vault-url myKeyVaultVaultURI \
-  --disk-encryption-key-vault-id myKeyVaultID \
-  --key-encryption-key-url myKeyKID \
-  --key-encryption-key-vault-id myKeyVaultID \
-  --volume-type Data
+az vm encryption enable --resource-group myResourceGroup --name myVM \
+  --aad-client-id 54dae448-d995-4814-806d-c0daaed10266 \
+  --aad-client-secret 80ada6ac-95f5-4718-9e3a-aafa30db4795 \
+  --disk-encryption-keyvault myKeyVault \
+  --key-encryption-key myKey \
+  --volume-type all \
   --sequence-version 2
 ```
 
