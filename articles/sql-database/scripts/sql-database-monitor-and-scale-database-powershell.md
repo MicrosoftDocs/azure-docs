@@ -33,7 +33,7 @@ Before running this script, ensure that a connection with Azure has been created
 
 After the script sample has been run, the following command can be used to remove the Resource Group, logical server and SQL Database.
 
-```azurepowershell
+```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
