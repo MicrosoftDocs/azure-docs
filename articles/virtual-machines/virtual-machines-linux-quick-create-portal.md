@@ -22,17 +22,17 @@ ms.author: nepeters
 
 Azure virtual machines (VMs) can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring VMs, and all related Azure resources.
 
-Before you start, you need both a private and public SSH key. For detailed information on creating SSH key pairs for Azure, see [Create SSH keys](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Before you start, both a private and public SSH key are needed. For detailed information on creating SSH key pairs for Azure, see [Create SSH keys](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Create virtual machine
 
 1. Log in to the [Azure portal](http://portal.azure.com).
 
-2. Click on the **New** button found on the upper left hand coroner of the Azure portal.
+2. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
 3. Select **Compute** from the Marketplace screen, select **Ubuntu Server 16.04 LTS** from the featured apps screen, and then click the **Create** button.
 
-4. Fill out the virtual machine **basics** form. For **Authentication type**, SSH is recommended. When pasting in your SSH public key, take care to remove any leading and trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed.
+4. Fill out the virtual machine basics form. For **Authentication type**, SSH is recommended. When pasting in your SSH public key, take care to remove any leading or trailing white space. For **Resource group**, create a new one. A resource group is a logical container into which Azure resources are created and collectively managed.
 
     ![Enter basic information about your VM in the portal blade](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
 
@@ -48,9 +48,9 @@ Before you start, you need both a private and public SSH key. For detailed infor
 
 After the deployment has completed, create an SSH connection with the virtual machine.
 
-1. Click on the virtual machine. The VM can be found on the home screen of the Azure portal, or by selecting **Virtual Machines** from the left-hand menu.
+1. Click the virtual machine. The VM can be found on the home screen of the Azure portal, or by selecting **Virtual Machines** from the left-hand menu.
 
-2. Click on the **connect** button. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
+2. Click the **connect** button. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
@@ -60,7 +60,7 @@ After the deployment has completed, create an SSH connection with the virtual ma
 ssh <replace with IP address>
 ```
 
-You have now created a virtual machine and created an SSH connection with it. To continue learning about using Azure virtual machines, see the Next steps section of this article.
+You have now created a virtual machine and connected with it using SSH. To continue learning about using Azure virtual machines, see the Next steps section of this article.
 
 ## Delete virtual machine
 

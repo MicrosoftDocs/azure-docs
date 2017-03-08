@@ -53,7 +53,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location w
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 ```
 
-Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case an inbound rule is created for port 22, which will allow incoming SSH connections.
+Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 22, which allows incoming SSH connections.
 
 ```powershell
 # Create an inbound network security group rule for port 22
@@ -66,7 +66,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
 ```
 
-Create a network card for the virtual machine and associate it with the network security group. The network card will connection the virtual machine to the virtual network and network security group.
+Create a network card for the virtual machine and associate it with the network security group. The network card connects the virtual machine to the virtual network and network security group.
 
 ```powershell
 # Get subnet object
@@ -77,7 +77,7 @@ $nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Location 
   -Subnet $subnet -NetworkSecurityGroup $nsg -PublicIpAddress $pip
 ```
 
-Create a virtual machine configuration. This configuration includes the settings that will be used when deploying the VM such as VM image, VM size, and credentials.
+Create a virtual machine configuration. This configuration includes the settings that are used when deploying the VM such as VM image, VM size, and credentials.
 
 ```powershell
 # Definer user name and blank password
@@ -103,6 +103,14 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmCon
 
 ## Connect to virtual machine
 
+After the deployment has completed, create an SSH connection with the virtual machine.
+
+Run the following commands to return the public IP address of the virtual machine.
+
+```powershell
+Get-AzureRmVM -ResourceGroupName ‘HSG-ResourceGroup’ -Name ‘HSG-LinuxVM’ | Get-AzureRmPublicIpAddress
+```
+
 Use the following command to create an SSH session. Replace the IP address with the public IP address of your virtual machine.
 
 ```bash 
@@ -123,4 +131,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Explore VM deployment CLI samples](./virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Explore VM deployment PowerShell samples](./virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
