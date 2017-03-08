@@ -21,7 +21,7 @@ ms.author: carlrab
 
 # Create and query a single Azure SQL database with the Azure CLI 2.0
 
-The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine (VM) running Ubuntu 14.04 LTS.
+The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Azure SQL database.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
