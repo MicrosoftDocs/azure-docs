@@ -183,6 +183,6 @@ Finally, we need specify the network configuration for the VMs in the scale set.
 
 ```
 
-## Next Steps
+## Next steps
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
