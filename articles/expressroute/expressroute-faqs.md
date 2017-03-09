@@ -80,7 +80,7 @@ We do not set a limit on the amount of data transfer. Refer to [pricing details]
 ### What connection speeds are supported by ExpressRoute?
 Supported bandwidth offers:
 
-50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps|
+|50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps|
 
 ### Which service providers are available?
 See [ExpressRoute partners and locations](expressroute-locations.md) for the list of service providers and locations.
