@@ -38,11 +38,9 @@ Hybrid Connections and WCF Relays both enable secure connection to assets that e
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS*** | |x |
+| **JavaScript/NodeJS** | |x |
 | **Standards-Based Open Protocol** | |x |
 | **Multiple RPC Programming Models** | |x |
-
-*By General Availability
 
 ## Hybrid Connections
 The [Azure Relay Hybrid Connections](relay-hybrid-connections-protocol.md) capability is a secure, open-protocol evolution of the existing Relay features that can be implemented on any platform and in any language that has a basic WebSocket capability, which explicitly includes the WebSocket API in common web browsers. Hybrid Connections is based on HTTP and WebSockets.
