@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/23/2017
+ms.date: 3/8/2017
 ms.author: raiye
 
 ---
@@ -52,7 +52,7 @@ Windows Server 2016 will be released as OS Family 5 on November 1 2016, with .NE
 ## Family 5 releases
 **Windows Server 2016**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
 > Dates with a * are subject to change. 
