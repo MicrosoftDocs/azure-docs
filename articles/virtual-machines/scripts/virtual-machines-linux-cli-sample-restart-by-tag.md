@@ -73,7 +73,7 @@ and then it restarts just the tagged VMs.
 After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
 
 ```azurecli
-az group delete -n myResouceGroup --no-wait --yes
+az group delete -n myResourceGroup --no-wait --yes
 ```
 
 ## Script explanation
