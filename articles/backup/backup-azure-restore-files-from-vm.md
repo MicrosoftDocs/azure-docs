@@ -40,11 +40,11 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
 3. From the **Select recovery point** drop-down menu, select the recovery point that contains the files you want. By default, the latest recovery point is already selected.
 
-4. Click **Download Executable** to download the software that you'll use to copy files from the recovery point.
+4. Click **Download Executable** (in case of Windows Azure VM) or **Download Script** (for Linux Azure VM) to download the software that you'll use to copy files from the recovery point.
 
-  The executable is a script that creates a connection between the local computer and the specified recovery point.
+  The executable/script creates a connection between the local computer and the specified recovery point.
 
-5. On the computer where you want to recover the files, run the executable. You must run the script with Administrator credentials. If you run the script on a computer with restricted access, ensure there is access to:
+5. On the computer where you want to recover the files, run the executable/script. You must run it with Administrator credentials. If you run the script on a computer with restricted access, ensure there is access to:
 
     - go.microsoft.com
     - Azure endpoints used for Azure VM backups
@@ -52,11 +52,13 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
-    You can run the script on any machine that has the same (or compatible) operating system as the machine used to generate the recovery point. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces, then you can't run the executable script on this virtual machine. Instead, run the executable script on any other machine that uses Windows Storage Spaces. Running the executable script on a computer with a compatible operating system is recommended.
+    You can run the script on any machine that has the same (or compatible) operating system as the machine used to generate the recovery point. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), then you can't run the executable script on the same virtual machine. Instead, run the executable/script on any other machine with a compatible operating system.
 
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 ### Compatible OS
+
+## For Windows
 
 The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files between incompatible operating systems.
 
@@ -66,11 +68,25 @@ The following table shows the compatibility between server and computer operatin
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
+## For Linux
 
-### Drive letter assignments
+In case of Linux, the fundamental requirement is that the OS of the machine where the script is run should support the filesystem of the files present in the backed up Linux VM. While selecting a machine to run the script, please ensure it has the compatible OS and the versions as mentioned in the table below. For other OS/Versions, the script might work if the machine's OS supports the backed-up VMs filesystem
+
+|Linux OS | Versions  |
+| --------------- | ---- |
+| Ubuntu | 12.04, 14.04, 16.04 |
+| CentOS | 6.5, 6.7, 6.8, 7.0, 7.1, 7.2  |
+| RHEL | 6.7, 7.2 |
+| Debian | 7, 8 |
+| Oracle Linux | 6.4, 7.0 |
+
+### Identifying Volumes
+
+## For Windows
 
 When you run the script, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine, however, the volume name is preserved. For example, if the volume on the original virtual machine was “Data Disk (E:\)”, that volume can be attached as “Data Disk ('Any drive letter available':\) on the local computer. Browse through all volumes mentioned in the script output until you find your files/folder.  
 
+## For Linux
 
 ## Closing the connection
 
