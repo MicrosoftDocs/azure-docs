@@ -163,7 +163,7 @@ The inputs object takes the set of parameters required to construct an HTTP call
 |headers|No|An object representing each of the headers that is sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Object|  
 |body|No|An object representing the payload that is sent to the endpoint.|Object|  
 |retryPolicy|No|An object that lets you customize the retry behavior for 4xx or 5xx errors.|Object|  
-|authentication|No|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). There is one additional property supported beyond scheduler: **authority**. By default it is **https:\/\/login.windows.net\/** if not specified, but you can use a different audience like **https:\/\/login.windows\-ppe.net\/**.|Object|  
+|authentication|No|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Beyond scheduler, there is one more supported property: `authority` By default, this value is `https://login.windows.net` when not specified, but you can use a different audience like `https://login.windows\-ppe.net`|Object|  
   
 The HTTP trigger requires the HTTP API to conform with a specific pattern to work well with your logic app. 
 It requires the following fields:  
@@ -291,11 +291,11 @@ The properties of a Webhook are as follows:
   
 -   **Unsubscribe** is called when an operation renders this trigger invalid, including:  
   
-    -   Deleting\/Disabling the trigger  
+    -   Deleting or disabling the trigger  
   
-    -   Deleting\/Disabling the workflow  
+    -   Deleting or disabling the workflow  
   
-    -   Deleting\/Disabling the subscription  
+    -   Deleting or disabling the subscription  
   
     The logic app automatically calls the unsubscribe action. The parameters to this function are the same as the HTTP trigger.  
   
@@ -466,11 +466,12 @@ The **inputs** object takes the set of parameters required to construct the HTTP
 |body|No|Object|Represents the payload that is sent to the endpoint.|  
 |retryPolicy|No|Object|Lets you customize the retry behavior for 4xx or 5xx errors.|  
 |operationsOptions|No|String|Defines the set of special behaviors to override.|  
-|authentication|No|Object|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). There is one additional property supported beyond scheduler: **authority**. By default it is **https:\/\/login.windows.net\/** if not specified, but you can use a different audience like **https:\/\/login.windows\-ppe.net\/**.|  
+|authentication|No|Object|Represents the method that the request should be authenticated. For details on this object, see [Scheduler Outbound Authentication](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Beyond scheduler, there is one more supported property: `authority`. By default, this is `https://login.windows.net` when not specified, but you can use a different audience like `https://login.windows\-ppe.net`|  
   
 HTTP actions \(and API Connection\) actions support retry policies. 
-A retry policy applies to intermittent failures, characterized as HTTP status codes 408, 429, and 5xx, in addition to any connectivity exceptions, 
-and is described using the *retryPolicy* object defined as shown here:
+A retry policy applies to intermittent failures, characterized as HTTP status codes 408, 429, and 5xx, 
+in addition to any connectivity exceptions. 
+This policy is described using the *retryPolicy* object defined as shown here:
   
 ```json
 "retryPolicy" : {
@@ -483,9 +484,9 @@ and is described using the *retryPolicy* object defined as shown here:
 The retry interval is specified in the ISO 8601 format. 
 This interval has a default and minimum value of 20 seconds, 
 while the maximum value is one hour. The default and maximum retry count is four hours. 
-If the retry policy definition is not specified, a **fixed** strategy 
+If the retry policy definition is not specified, a `fixed` strategy 
 is used with default retry count and interval values. 
-To disable the retry policy, set its type to **None**.  
+To disable the retry policy, set its type to `None`.  
   
 For example, the following action retries fetching the latest news two times, 
 if there are intermittent failures, for a total of three executions, with a 30-second delay between each attempt:  
@@ -505,13 +506,13 @@ if there are intermittent failures, for a total of three executions, with a 30-s
 }
 ```
   
-By default, all HTTP\-based actions support the standard asynchronous operation pattern. 
-That is, if the remote server indicates that the request is accepted for processing 
+By default, all HTTP-based actions support the standard asynchronous operation pattern. 
+So if the remote server indicates that the request is accepted for processing 
 with a 202 \(Accepted\) response, the Logic Apps engine keeps polling the URL specified 
-in the location header of the response until a terminal state is reached \(a non\-202 response\).  
+in the response's location header until reaching a terminal state \(a non\-202 response\).  
   
 To disable the asynchronous behavior previously described, 
-set a 'DisableAsyncPattern' option in the action inputs. In this case, 
+set a `DisableAsyncPattern` option in the action inputs. In this case, 
 the output of the action is based on the initial 202 response from the server.  
   
 ```json
@@ -622,8 +623,8 @@ The response action has special restrictions that don't apply to other actions. 
 -   Response actions cannot be parallel in a definition because a deterministic 
 response to the incoming request is required.  
   
--   If a response action is reached after the incoming request has already been responded to, 
-this is considered a failed action \(conflict\), and as a result, the run is `Failed`.  
+-   If a response action is reached after the incoming request has received a response, 
+the action is considered failed \(conflict\), and as a result, the run is `Failed`.  
   
 -   A workflow with Response actions cannot have `splitOn` in its trigger because one call causes many runs. 
 As a result, this should be validated when the flow is PUT and cause a Bad Request.  
@@ -672,7 +673,7 @@ Alternatively, to wait until a specific moment in time, you can use this example
 
 ## Query action
 
-Query action allows you to filter an array based on a condition. 
+The `query` action lets you filter an array based on a condition. 
 For example, to select numbers greater than 2, you can use:
 
 ```json
@@ -685,7 +686,7 @@ For example, to select numbers greater than 2, you can use:
 }
 ```
 
-The output of **Query** action is an array that contains elements from the input array that satisfy the condition.
+The output from the `query` action is an array that has elements from the input array that satisfy the condition.
 
 > [!NOTE]
 > If no values satisfy the `where` condition, 
@@ -784,9 +785,9 @@ For example, you can use the compose action to merge outputs of multiple actions
 An access check is made on the workflow \(more specifically, the trigger\), 
 meaning you need access to the workflow.  
   
-The outputs of the workflow action are based on what you 
-defined in the **Response** action in the child workflow. 
-If you have not defined any **Response**, then the outputs are empty.  
+The outputs from the `workflow` action are based on what you 
+defined in the `response` action in the child workflow. 
+If you have not defined any `response` action, then the outputs are empty.  
 
 ## Collection actions (scopes and loops)
 
@@ -797,7 +798,7 @@ Actions within a collection can `runAfter` only other actions within the same co
 
 ## Scope action
 
-Scope allows for a logic grouping of actions within a workflow.
+The `scope` action lets you logically group actions in a workflow.
 
 |Name|Required|Type|Description|  
 |--------|------------|--------|---------------|  
@@ -893,7 +894,7 @@ This looping action executes inner actions until a condition results to true.
 }
 ```
 
-## Conditions /- If Action
+## Conditions - If Action
 
 The `If` action lets you evaluate a condition and execute a branch 
 based on whether the expression evaluates to `true`.
